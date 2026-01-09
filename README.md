@@ -1,33 +1,115 @@
 # SpaceOmicsBench
 
-A benchmark suite for evaluating Large Language Models (LLMs) on spaceflight biomedical multi-omics data.
+A comprehensive benchmark suite for evaluating Large Language Models (LLMs) on spaceflight biomedical multi-omics data from commercial space missions.
 
 ## Overview
 
-SpaceOmicsBench v2.1 provides a comprehensive evaluation framework for assessing LLM capabilities in understanding and reasoning about spaceflight biomedical data from commercial space missions.
+SpaceOmicsBench v2.1 provides a rigorous evaluation framework for assessing LLM capabilities in understanding, reasoning, and integrating findings across multiple omics layers in the context of human spaceflight physiology.
 
-### Dataset
+## Dataset
 
-- **Missions**: Inspiration4 (3-day), Polaris Dawn (5-day with EVA)
-- **Modalities**:
-  - Clinical (CBC/CMP): 34 blood biomarkers
-  - Transcriptomics (cfRNA-seq): 5,346 genes
-  - Metabolomics: 199 metabolites
-- **Questions**: 115 curated questions across 4 difficulty levels
+### Missions
 
-### Key Findings from Benchmark
+| Mission | Duration | Crew | Key Features |
+|---------|----------|------|--------------|
+| **Inspiration4** | 3 days | 4 | First all-civilian orbital mission |
+| **Polaris Dawn** | 5 days | 4 | First commercial EVA (spacewalk) |
 
-| Metric | Sonnet 4 | Opus 4 |
-|--------|----------|--------|
-| Overall Score | 4.34/5 | 4.45/5 |
-| Speed | 14.8s | 18.8s |
-| Cost (115 questions) | $1.22 | $6.22 |
+### Data Modalities
+
+| Modality | Features | Description |
+|----------|----------|-------------|
+| **Clinical** | 34 biomarkers | CBC/CMP blood panels |
+| **Transcriptomics** | 5,346 genes | Cell-free RNA sequencing (cfRNA-seq) |
+| **Metabolomics** | 199 metabolites | Targeted metabolite profiling |
+
+### Key Scientific Findings in Dataset
+
+- **Cross-Mission Correlation**: Metabolomics shows 20x higher correlation (r=0.40) than transcriptomics (r=-0.02)
+- **Space Anemia Signature**: Erythroid genes show 75% concordance across missions (EPB42, ANK1, HBB)
+- **Immune Response**: NLR increased 52% in Polaris Dawn, lymphocytes decreased 40%
+- **Stress Response**: Corticosterone elevated (+0.57 log2FC), caffeine decreased (-2.0 log2FC)
+- **Temporal Recovery**: Complete transcriptomic normalization by R+39 (0 DEGs)
+
+## Benchmark Questions
+
+### Distribution
+
+| Difficulty | Count | Description |
+|------------|-------|-------------|
+| Easy | 18 | Basic data interpretation |
+| Medium | 42 | Multi-step reasoning |
+| Hard | 39 | Cross-modal integration |
+| Expert | 16 | Novel hypothesis generation |
+
+| Modality | Questions |
+|----------|-----------|
+| Clinical | 50 |
+| Transcriptomics | 40 |
+| Metabolomics | 25 |
+| **Total** | **115** |
+
+---
+
+## Model Comparison Results
+
+### Overall Performance
+
+| Metric | Claude Sonnet 4 | Claude Opus 4 | Winner |
+|--------|-----------------|---------------|--------|
+| **Overall Score** | 4.34/5 | **4.45/5** | Opus (+0.11) |
+| **Factual Accuracy** | 4.22/5 | **4.32/5** | Opus |
+| **Reasoning Quality** | 4.72/5 | 4.73/5 | Tie |
+| **Completeness** | 4.65/5 | **4.76/5** | Opus |
+| **Uncertainty Calibration** | 3.66/5 | **3.89/5** | Opus (+0.23) |
+| **Domain Integration** | 4.43/5 | **4.55/5** | Opus |
+
+### Performance Metrics
+
+| Metric | Claude Sonnet 4 | Claude Opus 4 | Winner |
+|--------|-----------------|---------------|--------|
+| **Avg Response Time** | **14.8s** | 18.8s | Sonnet (27% faster) |
+| **Total Cost** | **$1.22** | $6.22 | Sonnet (5.1x cheaper) |
+| **Tokens/Response** | 556 | 554 | Tie |
+| **Success Rate** | 100% | 100% | Tie |
+
+### Quality Scores by Difficulty
+
+| Difficulty | Sonnet | Opus | Winner |
+|------------|--------|------|--------|
+| Easy | **4.33** | 4.28 | Sonnet |
+| Medium | 4.30 | **4.50** | Opus |
+| Hard | 4.36 | **4.47** | Opus |
+| Expert | 4.36 | **4.47** | Opus |
+
+### Quality Scores by Modality
+
+| Modality | Sonnet | Opus | Winner |
+|----------|--------|------|--------|
+| Clinical | 4.19 | **4.30** | Opus |
+| Transcriptomics | 4.42 | **4.54** | Opus |
+| Metabolomics | 4.50 | **4.61** | Opus |
+
+### Quality Flags (Issues Detected)
+
+| Flag Type | Sonnet | Opus |
+|-----------|--------|------|
+| Hallucination | 13.2% | 14.8% |
+| Factual Error | 17.5% | 17.4% |
+| Harmful Content | 0% | 0% |
+
+### Recommendation
+
+- **Choose Sonnet** for: Cost-sensitive applications, rapid iteration, initial prototyping
+- **Choose Opus** for: Maximum quality, uncertainty-aware responses, production deployments
+
+---
 
 ## Installation
 
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/SpaceOmicsBench.git
+git clone https://github.com/jang1563/SpaceOmicsBench.git
 cd SpaceOmicsBench
 
 # Install dependencies
@@ -37,110 +119,94 @@ pip install -r requirements.txt
 export ANTHROPIC_API_KEY="your-api-key"
 ```
 
-## Quick Start
+## Usage
 
-### Run a Quick Test (10 questions)
+### Run Evaluation
+
 ```bash
+# Quick test (10 questions)
 python run_evaluation.py --sample 10
-```
 
-### Run Full Evaluation (115 questions)
-```bash
+# Full evaluation (115 questions)
 python run_evaluation.py --full
-```
 
-### Run with Specific Model
-```bash
+# Specific model
 python run_evaluation.py --full --model claude-opus-4-20250514
-```
 
-### Run Specific Modality
-```bash
+# Specific modality
 python run_evaluation.py --full --modality transcriptomics
-```
 
-### Retry Failed Questions
-```bash
+# Retry failed questions
 python run_evaluation.py --retry results/evaluation_results_XXXXXX.json
 ```
 
-## Scoring Responses
-
-Score LLM responses using Claude as a judge:
+### Score Responses (LLM-as-Judge)
 
 ```bash
 python score_responses.py results/evaluation_results_XXXXXX.json
 ```
 
-### Scoring Dimensions (1-5 scale)
-1. **Factual Accuracy**: Are stated facts correct?
-2. **Reasoning Quality**: Is scientific reasoning sound?
-3. **Completeness**: Does it address all aspects?
-4. **Uncertainty Calibration**: Does it acknowledge limitations?
-5. **Domain Integration**: Does it connect findings across omics?
-
-## Generate Comparison Report
-
-Generate an HTML comparison report between models:
+### Generate Comparison Report
 
 ```bash
 python generate_report.py
 ```
 
-This creates `results/sonnet_vs_opus_comparison.html` with:
-- Quality scores comparison
-- Performance metrics
-- Cost analysis
-- Detailed breakdowns by difficulty and modality
+Creates `results/sonnet_vs_opus_comparison.html` with interactive visualizations.
 
 ## Project Structure
 
 ```
 SpaceOmicsBench/
 ├── README.md
+├── LICENSE
 ├── requirements.txt
-├── run_evaluation.py      # Main evaluation script
-├── score_responses.py     # LLM-as-judge scoring
-├── generate_report.py     # HTML report generator
-├── data/                  # Raw omics data files
-│   ├── clinical/
-│   ├── transcriptomics/
-│   └── metabolomics/
-├── tasks/                 # Question banks
-│   ├── question_bank.json
-│   ├── transcriptomics_questions_v2.json
-│   └── metabolomics_questions.json
-└── results/               # Evaluation outputs
+├── run_evaluation.py       # Main evaluation script
+├── score_responses.py      # LLM-as-Judge scoring
+├── generate_report.py      # HTML report generator
+├── data/                   # Multi-omics datasets
+│   ├── clinical_*.csv
+│   ├── cfrna_*.csv
+│   ├── metabolomics_*.csv
+│   └── *.json              # Configuration files
+├── tasks/                  # Question banks
+│   ├── question_bank.json           # Clinical (50 questions)
+│   ├── transcriptomics_questions_v2.json  # Transcriptomics (40 questions)
+│   └── metabolomics_questions.json  # Metabolomics (25 questions)
+└── results/                # Evaluation outputs
     ├── evaluation_results_*.json
     ├── scored_results_*.json
     └── sonnet_vs_opus_comparison.html
 ```
 
+## Scoring Dimensions
+
+| Dimension | Description | Weight |
+|-----------|-------------|--------|
+| **Factual Accuracy** | Correctness of stated facts and data citations | Core |
+| **Reasoning Quality** | Soundness of scientific logic and inference | Core |
+| **Completeness** | Coverage of all question aspects | Core |
+| **Uncertainty Calibration** | Appropriate acknowledgment of limitations | Important |
+| **Domain Integration** | Cross-omics connections and synthesis | Important |
+
 ## Available Models
 
-| Model ID | Description |
-|----------|-------------|
-| `claude-sonnet-4-20250514` | Claude Sonnet 4 (default) |
-| `claude-opus-4-20250514` | Claude Opus 4 |
-| `claude-3-5-sonnet-20241022` | Claude 3.5 Sonnet |
-| `claude-3-opus-20240229` | Claude 3 Opus |
-
-## API Costs (Approximate)
-
-| Model | Input (per 1M) | Output (per 1M) | Full Benchmark |
-|-------|----------------|-----------------|----------------|
-| Sonnet 4 | $3 | $15 | ~$1.22 |
-| Opus 4 | $15 | $75 | ~$6.22 |
+| Model ID | Description | Cost (Input/Output per 1M) |
+|----------|-------------|---------------------------|
+| `claude-sonnet-4-20250514` | Claude Sonnet 4 (default) | $3 / $15 |
+| `claude-opus-4-20250514` | Claude Opus 4 | $15 / $75 |
+| `claude-3-5-sonnet-20241022` | Claude 3.5 Sonnet | $3 / $15 |
+| `claude-3-opus-20240229` | Claude 3 Opus | $15 / $75 |
 
 ## Citation
 
-If you use SpaceOmicsBench in your research, please cite:
-
 ```bibtex
 @software{spaceomicsbench2024,
-  title = {SpaceOmicsBench: A Benchmark for LLM Evaluation on Spaceflight Biomedical Data},
+  title = {SpaceOmicsBench: A Benchmark for LLM Evaluation on Spaceflight Biomedical Multi-Omics Data},
+  author = {Jang, Kirubin},
   year = {2024},
-  version = {2.1}
+  version = {2.1},
+  url = {https://github.com/jang1563/SpaceOmicsBench}
 }
 ```
 
@@ -150,5 +216,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Acknowledgments
 
-- Data from Inspiration4 and Polaris Dawn commercial space missions
-- Anthropic Claude API for LLM evaluation
+- Biomedical data from Inspiration4 and Polaris Dawn commercial space missions
+- Anthropic Claude API for LLM evaluation and scoring
+- SpaceX and mission crews for enabling commercial spaceflight research
