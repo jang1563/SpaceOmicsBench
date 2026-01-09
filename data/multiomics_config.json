@@ -1,0 +1,112 @@
+{
+  "benchmark_info": {
+    "name": "SpaceOmicsBench",
+    "version": "2.0.0",
+    "description": "Multi-omics benchmark for spaceflight biomedical AI evaluation",
+    "release_date": "2026-01",
+    "modalities": ["clinical", "transcriptomics", "cytokines", "proteomics", "metabolomics"]
+  },
+  
+  "omics_layers": {
+    "clinical": {
+      "name": "Clinical Blood Biomarkers",
+      "description": "CBC and CMP panel measurements",
+      "data_file": "feature_matrix_full.csv",
+      "n_features": 34,
+      "feature_type": "continuous",
+      "unit": "various",
+      "preprocessing": "z-score normalization",
+      "missions": ["Inspiration4", "Polaris_Dawn", "Fram2"]
+    },
+    
+    "transcriptomics": {
+      "name": "Circulating Cell-Free RNA",
+      "description": "cfRNA-seq gene expression (log2 fold change from baseline)",
+      "data_file": "cfrna_feature_matrix.csv",
+      "annotation_file": "cfrna_gene_annotations.csv",
+      "n_features": 500,
+      "feature_type": "continuous",
+      "unit": "log2FoldChange",
+      "preprocessing": "DESeq2 normalized, variance-filtered",
+      "missions": ["Inspiration4", "Polaris_Dawn"],
+      "gene_selection": {
+        "method": "top_variance",
+        "n_genes": 500,
+        "source_genes": 5325
+      }
+    },
+    
+    "cytokines": {
+      "name": "Cytokine/Chemokine Panel",
+      "description": "Inflammatory and immune signaling markers",
+      "data_file": "cytokine_feature_matrix.csv",
+      "n_features": 48,
+      "feature_type": "continuous",
+      "unit": "pg/mL",
+      "preprocessing": "log2 transformation, z-score",
+      "missions": ["Inspiration4", "Polaris_Dawn"],
+      "status": "template_ready"
+    },
+    
+    "proteomics": {
+      "name": "Plasma Proteomics",
+      "description": "Mass spectrometry-based protein quantification",
+      "data_file": "proteomics_feature_matrix.csv",
+      "n_features": 1000,
+      "feature_type": "continuous",
+      "unit": "log2_intensity",
+      "preprocessing": "MaxLFQ normalized",
+      "missions": ["Inspiration4"],
+      "status": "template_ready"
+    },
+    
+    "metabolomics": {
+      "name": "Plasma Metabolomics",
+      "description": "Untargeted metabolomics profiling",
+      "data_file": "metabolomics_feature_matrix.csv",
+      "n_features": 500,
+      "feature_type": "continuous",
+      "unit": "log2_abundance",
+      "preprocessing": "MSTUS normalized",
+      "missions": ["Inspiration4"],
+      "status": "template_ready"
+    }
+  },
+  
+  "cross_omics_tasks": {
+    "multi_modal_classification": {
+      "description": "Phase classification using multiple omics layers",
+      "input_modalities": ["clinical", "transcriptomics"],
+      "target": "phase",
+      "difficulty": "medium"
+    },
+    
+    "omics_integration": {
+      "description": "Integrate information across omics for prediction",
+      "input_modalities": ["clinical", "transcriptomics", "cytokines"],
+      "target": "recovery_trajectory",
+      "difficulty": "hard"
+    },
+    
+    "cross_modal_imputation": {
+      "description": "Predict missing omics from available data",
+      "source_modality": "clinical",
+      "target_modality": "transcriptomics",
+      "difficulty": "hard"
+    }
+  },
+  
+  "sample_alignment": {
+    "method": "sample_id",
+    "common_samples": {
+      "clinical_transcriptomics": 24,
+      "clinical_cytokines": 24,
+      "all_modalities": 16
+    }
+  },
+  
+  "recommended_baselines": {
+    "single_omics": ["LogisticRegression", "RandomForest", "XGBoost", "ElasticNet"],
+    "multi_omics": ["MOFA", "MultiView", "EarlyFusion", "LateFusion", "AttentionFusion"]
+  }
+}

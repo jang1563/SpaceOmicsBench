@@ -1,0 +1,46 @@
+{
+  "task_id": "task3_recovery_forecasting",
+  "task_name": "Recovery Trajectory Forecasting",
+  "task_type": "regression",
+  "difficulty": "hard",
+  "description": "\n    Given baseline + immediate post-flight (R+1) values, predict biomarker \n    values at recovery timepoint. Tests long-horizon prediction capability.\n    ",
+  "input_spec": {
+    "features": [
+      "baseline_values (34 analytes)",
+      "post_flight_values (34 analytes)",
+      "delta_baseline_to_postflight (34 values)",
+      "mission_duration_days (scalar)"
+    ],
+    "total_features": 103,
+    "note": "Input is paired: baseline + R+1 for same individual"
+  },
+  "output_spec": {
+    "type": "continuous",
+    "targets": "recovery timepoint values (34 analytes)",
+    "alternative": "recovery_index per analyte (-inf to 1)"
+  },
+  "evaluation_metrics": {
+    "primary": "mean_absolute_error",
+    "secondary": [
+      "rmse",
+      "per_analyte_mae",
+      "correlation"
+    ],
+    "clinical": "percentage_within_reference_range",
+    "ranking": "spearman_correlation_recovery_ranking"
+  },
+  "splits": {
+    "default": "leave_one_crew_out",
+    "challenge": "leave_one_mission_out"
+  },
+  "baselines": {
+    "naive_baseline": "predict baseline value (assume full recovery)",
+    "naive_postflight": "predict post_flight value (assume no recovery)",
+    "linear_interpolation": "extrapolate from baseline\u2192R+1 trend"
+  },
+  "notes": [
+    "Recovery timepoints differ: R+45 (I4), R+39 (PD), R+66 (F2)",
+    "Must normalize for timepoint differences",
+    "Some analytes recover faster than others \u2192 per-analyte evaluation important"
+  ]
+}

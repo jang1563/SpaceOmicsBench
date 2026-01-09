@@ -1,0 +1,15 @@
+,,crew,NLR,NLR,liver_stress,liver_stress
+,,nunique,mean,std,mean,std
+mission,phase,,,,,
+Fram2,baseline,3,1.785,0.501,13.5,3.279
+Fram2,other,3,1.221,0.455,17.0,7.697
+Fram2,post_flight,3,2.122,0.822,15.0,3.0
+Fram2,recovery,3,2.712,2.618,13.667,3.403
+Inspiration4,baseline,4,1.822,0.813,20.625,10.711
+Inspiration4,other,4,1.751,0.543,23.375,11.087
+Inspiration4,post_flight,4,1.965,0.234,23.625,13.931
+Inspiration4,recovery,4,1.482,0.456,18.75,6.671
+Polaris Dawn,baseline,4,1.342,0.668,19.75,10.805
+Polaris Dawn,other,4,2.059,0.97,19.318,8.701
+Polaris Dawn,post_flight,4,2.038,0.95,44.125,60.059
+Polaris Dawn,recovery,4,1.897,1.247,18.875,9.013

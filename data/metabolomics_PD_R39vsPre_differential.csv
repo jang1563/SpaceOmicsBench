@@ -1,0 +1,697 @@
+metabolite_id,metabolite_name,HMDB_id,KEGG_id,pathway,super_pathway,log2FoldChange,pvalue,padj,baseMean,comparison,mission
+MET_PD_0001,Alanine,,,"Alanine, Aspartate, and Glutamate metabolism",Amino acids,0.0869257119489255,0.6557744559349334,0.9139608058986984,393069.0468438005,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0002,Succinic Semialdehyde,,,"Alanine, Aspartate, and Glutamate metabolism",Amino acids,-0.4487697318903991,0.4379408302386809,0.8937009496165054,166238.46524715688,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0003,Asparagine,,,"Alanine, Aspartate, and Glutamate metabolism",Amino acids,0.1062681421323103,0.7907654060743873,0.9216437931952424,290235.0489474057,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0004,Aspartic Acid,,,"Alanine, Aspartate, and Glutamate metabolism",Amino acids,-0.1241144066144521,0.665020655652353,0.9139608058986984,1367028.2968026744,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0005,Glutamine,,,"Alanine, Aspartate, and Glutamate metabolism",Amino acids,-0.2202706578938525,0.492255502045558,0.8937009496165054,4732658.10205249,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0006,Glutamic Acid,,,"Alanine, Aspartate, and Glutamate metabolism",Amino acids,0.2528881082873183,0.4653584253993635,0.8937009496165054,232633.08830134585,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0007,2-Hydroxyglutaric Acid,,,"Alanine, Aspartate, and Glutamate metabolism, glutamate degradation",Amino acids,-0.0445311393864411,0.849676071235467,0.9391323434918504,971106.3189430748,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0008,N-Acetylaspartic Acid,,,"Alanine, aspartate, and glutamate metabolism",Amino acids,-0.2773690267694738,0.6543751540120537,0.9139608058986984,3894956.0663512056,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0009,Urea,,,Arginine and Proline metabolism,Amino acids,-0.3657096709279696,0.162574878219388,0.8937009496165054,2109714.672897495,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0010,Creatinine,,,Arginine and Proline metabolism,Amino acids,-0.2371647659074521,0.4717513899744656,0.8937009496165054,44729658.79530452,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0011,Proline,,,Arginine and Proline metabolism,Amino acids,-0.1695672788680744,0.5996998363769093,0.9026025773280164,700656.4192670082,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0012,N-Acetylputrescine,,,Arginine and proline metabolism,Amino acids,-0.0897659980353406,0.0298437923134477,0.8937009496165054,69370.5289612313,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0013,4-Hydroxy-Proline,,,Arginine and Proline metabolism,Amino acids,0.2264758202534892,0.6456546108544632,0.9139608058986984,60900.934243302814,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0014,Ornithine,,,Arginine and proline metabolism,Amino acids,-0.172595058240196,0.645188917453124,0.9139608058986984,3406471.0719239223,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0015,4-Guanidinobutyric Acid,,,Arginine and proline metabolism,Amino acids,-0.0718965235435784,0.6895560857968616,0.9159154227695816,39944.61093232477,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0016,Arginine,,,Arginine and Proline metabolism,Amino acids,-0.0927444289020032,0.7510919922895675,0.9216437931952424,6984747.734816354,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0017,Citrulline,,,Arginine and Proline metabolism,Amino acids,-0.0581773663451931,0.719986970213889,0.9200644852631849,407100.9318867175,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0018,L-Monomethylarginine (LNMA),,,Arginine and Proline metabolism,Amino acids,-0.0660763231276698,0.8599750641762353,0.9393125904873764,168429.31703209673,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0019,N-Acetylglutamic Acid,,,Arginine and proline metabolism,Amino acids,-0.1769372491872897,0.7041760320856515,0.9183848389773136,148077.99613827394,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0020,Dimethylarginine,,,Arginine and Proline metabolism,Amino acids,-0.1977642450094346,0.2519034496934117,0.8937009496165054,127698.25406874888,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0021,Argininosuccinic Acid,,,Arginine and Proline metabolism,Amino acids,-0.1138837414589512,0.5307384947054896,0.8953345911408636,2821559.767861314,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0022,Pyrrole-2-Carboxylic Acid,,,Oxidation derivative of hydroxyproline,Amino acids,-0.707705003579462,0.6138188246425941,0.9026025773280164,14440.37964229126,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0023,Proline Betaine,,,"Arginine and Proline metabolism, osmolyte",Amino acids,0.0418043458399495,0.9558096838775828,0.9737444207683674,3009930.944659647,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0024,Thiosulfate,,,Cysteine and Methionine metabolism,Amino acids,-1.3610901730211122,0.2252094773089129,0.8937009496165054,6302090.163574872,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0025,Cysteine,,,Cysteine and Methionine metabolism,Amino acids,-0.980623376028156,0.1391380079944809,0.8937009496165054,68579.81378809863,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0026,Methylcysteine,,,Cysteine and methionine metabolism,Amino acids,-0.4648859242523602,0.1082772301210985,0.8937009496165054,32890.87707616043,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0027,Methionine,,,Cysteine and methionine metabolism,Amino acids,0.1205222901801105,0.5254953612993816,0.8953345911408636,3737897.568237093,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0028,Cysteine-S-Sulfonic Acid,,,Cysteine and Methionine metabolism,Amino acids,-0.433764712590477,0.273223751243304,0.8937009496165054,407523.5796630574,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0029,O-Succinylhomoserine,,,Cysteine and methionine metabolism,Amino acids,-0.0086268313279537,0.9876851491618728,0.9924109154258052,13314.425299082444,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0030,Cystine,,,Cysteine and methionine metabolism,Amino acids,-0.0763596639939648,0.7741864566991975,0.9216437931952424,135585.87693920554,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0031,2-Hydroxybutyric acid,,,Cysteine and methionine metabolism,Amino acids,-0.6439863674174148,0.2794883872820798,0.8937009496165054,2230243.3856527414,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0032,2-Aminobutyric Acid,,,Cysteine and methionine metabolism,Amino acids,-0.1368038819963965,0.5653539684226297,0.8953345911408636,166250.0687273873,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0033,Methylglyoxal,,,"Glycine, serine, and threonine metabolism,pyruvate metabolism",Amino acids,-1.966024378547628,0.1898481556894516,0.8937009496165054,46136.0170966996,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0034,Glycine,,,"Glycine, serine, and threonine metabolism",Amino acids,-0.1231066381367923,0.6753814091312682,0.9139608058986984,148414.78176367693,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0035,Sarcosine,,,"Glycine, serine, and threonine metabolism",Amino acids,-0.124011313084516,0.5911443771425434,0.8994552033274821,70367.21693127988,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0036,2-Ketobutyric Acid,,,"Glycine, serine, and threonine metabolism; Cysteine and methionine metabolism",Amino acids,-0.4612544548316352,0.4174016085986263,0.8937009496165054,172296.82379724816,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0037,Dimethylglycine,,,Glycine metabolism,Amino acids,0.179575190601138,0.8127748001138458,0.9241959397193928,6457.3714866561895,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0038,Choline,,,"Glycine, serine and threonine metabolism",Amino acids,-0.2290339384807249,0.0974806903318497,0.8937009496165054,3377307.593400826,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0039,Serine,,,"Glycine, serine and threonine metabolism",Amino acids,0.0467393955141441,0.8391630257210329,0.937362954262856,96339.57203924491,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0040,Guanidinoacetic Acid,,,"Glycine, serine, and threonine metabolism",Amino acids,-0.1180856850902572,0.5906342768370263,0.8994552033274821,20362.163737609848,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0041,Betaine,,,"Glycine, serine and threonine metabolism",Amino acids,-0.0122332611516672,0.9428111668339966,0.9689576429125903,35024817.87656758,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0042,Threonine,,,"Glycine, serine and threonine metabolism",Amino acids,-0.442913633811309,0.2384758414767432,0.8937009496165054,2322418.9331473447,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0043,3-Methylhistamine,,,"Histidine metabolism, histamine metabolite",Amino acids,0.2341647034277677,0.1839703314978839,0.8937009496165054,21489.841902020828,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0044,4-Imidazoleacetic Acid,,,Histidine metabolism,Amino acids,-0.1533319134100889,0.5336325047877406,0.8953345911408636,416521.9369523478,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0045,Histidinol,,,Histidine metabolism,Amino acids,-0.1214219402644955,0.0075595006809054,0.6602056906916773,57214.46930684156,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0046,Histidine,,,Histidine Metabolism,Amino acids,-0.1277333947801284,0.1936313084552607,0.8937009496165054,901406.764082756,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0047,3-Methylhistidine,,,Histidine Metabolism,Amino acids,-0.1728492339833038,0.5631943539743385,0.8953345911408636,558142.5541035661,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0048,5-Aminopentanoate,,,Lysine degradation,Amino acids,-0.013112597575732,0.9376184218517134,0.9667751321875278,35665447.62129473,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0049,Pipecolinic Acid,,,Lysine degradation,Amino acids,-0.1283794077692862,0.8189925422290468,0.9267198431262028,181135.27435239623,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0050,Glutaric Acid,,,Lysine degradation,Amino acids,-0.2075606906730457,0.3652593719856538,0.8937009496165054,179983.8420073725,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0051,Lysine,,,Lysine metabolism,Amino acids,-0.0581774418247833,0.8019581882264146,0.9219946801351102,1821212.4991902069,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0052,2-Oxoadipic Acid,,,"lysine biosynthesis/degradation, tryptophan metabolism",Amino acids,-0.8464248803779186,0.2169555334879027,0.8937009496165054,55138.90273161322,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0053,2-Aminoadipic Acid,,,Lysine degradation,Amino acids,0.3458974703095379,0.3216599389175633,0.8937009496165054,8919.059170572955,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0054,Trimethyllysine,,,Lysine degradation,Amino acids,-0.5306302640621876,0.3116018556610243,0.8937009496165054,73033.4121277799,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0055,2-Methylcitric Acid,,,Lysine biosynthesis,Amino acids,-1.3023931770668091,0.1366062307804641,0.8937009496165054,8265616.183609627,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0056,Phenylalanine,,,Phenylalanine metabolism,Amino acids,-0.2763192723685244,0.1440040364607867,0.8937009496165054,3677722.472821048,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0057,Hippuric Acid,,,Phenylalanine metabolism,Amino acids,-0.2755753247241067,0.775913459037874,0.9216437931952424,1424444.590929604,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0058,Phenylacetylglycine,,,Phenylalanine metabolism,Amino acids,,,,14425.576374298102,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0059,Picolinic Acid,,,Tryptophan metabolism,Amino acids,-1.3078198233073977,0.1512585758001128,0.8937009496165054,128936.71786658133,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0060,3-Hydroxyanthranilic Acid,,,Tryptophan metabolism,Amino acids,-0.1532595588133257,0.5511670894714188,0.8953345911408636,8316.196407063639,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0061,Kynurenic Acid,,,Tryptophan metabolism,Amino acids,-0.4455835641636139,0.2008047549373897,0.8937009496165054,167944.18018896118,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0062,Tryptophan,,,Tryptophan metabolism,Amino acids,-0.3148367105410693,0.1168214351714498,0.8937009496165054,3080125.508665669,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0063,Xanthurenic Acid,,,Tryptophan metabolism,Amino acids,0.1477671464271388,0.8106880840181427,0.9241959397193928,9553.360473362736,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0064,Kynurenine,,,Tryptophan metabolism,Amino acids,-0.2201247093836459,0.126810469493938,0.8937009496165054,89037.17030816911,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0065,Indoxyl Sulfate,,,Tryptophan metabolism,Amino acids,-0.138196662021853,0.7816721110939227,0.9216437931952424,1596669.141513548,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0066,Hydroquinone,,,Tyrosine metabolism,Amino acids,0.0654329358286446,0.8882979172116753,0.9416463138783092,155796.71271058114,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0067,3-Hydroxyphenylacetic Acid,,,Tyrosine/phenylalanin metabolism,Amino acids,-0.3640122892813164,0.3962675572967733,0.8937009496165054,32268.263391204837,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0068,4-Hydroxyphenylacetic Acid,,,Tyrosine metabolism,Amino acids,-0.3666938495844524,0.394653979490566,0.8937009496165054,32328.29670264181,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0069,Gentisic Acid,,,Tyrosine metabolism,Amino acids,-0.3649622026416325,0.4192471450174683,0.8937009496165054,564574.9521035298,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0070,Tyrosine,,,Tyrosine metabolism,Amino acids,-0.3728196798115951,0.1951235182647777,0.8937009496165054,4078444.261363289,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0071,Homovanillic Acid,,,Tyrosine metabolism; dopamine/catecholamine metabolite,Amino acids,-1.3663945820605294,0.0503503031658448,0.8937009496165054,1078507.5490794089,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0072,4-Hydroxyphenyllactate,,,Tyrosine metabolism,Amino acids,-1.3673809856383687,0.0503465100833042,0.8937009496165054,1078007.146211646,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0073,3-Methoxy-Tyrosine,,,Tyrosine metabolism,Amino acids,,,,4989.203601730347,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0074,3-Methy2-Oxopentanoic Acid,,,Isoleucine degradation,Amino acids,-0.2948272142762705,0.5018555363128016,0.8953345911408636,148883.76250678717,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0075,2-Hydroxy-3-Methylpentanoic Acid,,,Isoleucine metabolism,Amino acids,0.3304523026217131,0.3093874651449247,0.8937009496165054,48540.93943984476,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0076,3-Methylglutaric Acid,,,Leucine metabolism,Amino acids,-0.5289801362638185,0.4339566363215074,0.8937009496165054,3967386.425192088,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0077,Valine,,,"Valine, leucine, and isoleucine biosynthesis / degradation",Amino acids,-0.3843632307600171,0.1497978919277612,0.8937009496165054,6213143.728966687,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0078,2-Ketoisovaleric acid,,,"Valine, leucine, and isoleucine biosynthesis / degradation",Amino acids,-0.27850722133064,0.2382883195094556,0.8937009496165054,166501.82198225916,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0079,2-Hydroxy-isovaleric acid,,,"Valine, leucine, and isoleucine biosynthesis / degradation",Amino acids,0.1944472210759653,0.6777821124810699,0.9139608058986984,596813.8951526323,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0080,Methylmalonic Acid,,,"Valine, leucine, and isoleucine degradation; Propanoate metabolism",Amino acids,-0.4231801749269168,0.3006345856770354,0.8937009496165054,311533.7268753704,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0081,Citraconic Acid,,,"Valin, leucine, isoleucine biosynthesis",Amino acids,-0.3318597566923423,0.3641797872605194,0.8937009496165054,1092377.786758863,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0082,Itaconic Acid,,,"Valin, leucine, isoleucine biosynthesis",Amino acids,-0.5914794066919252,0.0078268634884481,0.6602056906916773,197380.52170770263,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0083,Ketoleucine,,,"Valine, Leucine and Isoleucine Degradation",Amino acids,-0.3985671398575878,0.1906486274258409,0.8937009496165054,1337694.9036406646,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0084,Leucine,,,"Valine, leucine and isoleucine degradation/ biosynthesis",Amino acids,-0.3839645554597867,0.0831506421698887,0.8937009496165054,6409453.576829687,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0085,Isoleucine,,,"Valine, leucine, isoleucine biosynthesis",Amino acids,-0.1678351627649661,0.3895208362529593,0.8937009496165054,3672279.15683496,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0086,N-Acetylglycine,,,Amino acid acetylation,Amino acids,-0.5770186084988752,0.0505943723549222,0.8937009496165054,733846.5488348635,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0087,N-Acetylalanine,,,Amino acid acetylation,Amino acids,-0.2489161116233518,0.067641091017136,0.8937009496165054,698946.3605869653,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0088,N-Acetydserine,,,Amino acid acetylation,Amino acids,0.2330763096497624,0.2398361524090082,0.8937009496165054,153331.96823701984,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0089,Spermine,,,Polyamine metabolism,Amino acids,0.1172576346093705,0.6402692663626597,0.9139608058986984,1430.0689477123012,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0090,N1-Acetylspermidine,,,Polyamine metabolism,Amino acids,-0.2721029599316326,0.5453139792584878,0.8953345911408636,33045.853809213,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0091,Taurine,,,Taurine and hypotaurine metabolism,Amino acids,-0.7377769504984893,0.087068856080403,0.8937009496165054,1799006.803492325,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0092,Fumaric Acid,,,Citrate cycle (TCA cycle),Energy metabolism,-0.7097507533475726,0.0913071107937799,0.8937009496165054,999446.2284974164,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0093,Succinic Acid,,,Citrate cycle (TCA cycle),Energy metabolism,-0.5895463299316149,0.2447568298032334,0.8937009496165054,35322.81929308096,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0094,2-Methylglutaric Acid,,,"Citrate cycle (TCA cycle), Succinic acid metabolite",Energy metabolism,-0.5293822948593464,0.4335076789509426,0.8937009496165054,3966785.0285034473,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0095,Malic Acid,,,Citrate cycle (TCA cycle),Energy metabolism,-0.7950416129240417,0.0864287051421992,0.8937009496165054,18070594.4788498,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0096,Oxoglutaric Acid,,,Citrate cycle (TCA cycle),Energy metabolism,-1.003640410434785,0.1402700603089066,0.8937009496165054,4495198.373629802,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0097,2-ketoglutaramate,,,"Citrate cycle (TCA cycle), Alanine, Aspartate, and Glutamate metabolism",Energy metabolism,-0.5368876581172511,0.2884195416997019,0.8937009496165054,57875.14672208805,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0098,Aconitic Acid,,,"Citrate cycle (TCA cycle), trans isomer of cis-Aconitic acid",Energy metabolism,-1.502702301359336,0.1146699687077216,0.8937009496165054,341423.57865681907,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0099,Beta-Carboxyglutaric Acid,,,"Citrate cycle (TCA cycle) , from msms fragmentation",Energy metabolism,-0.9511584132405508,0.0645258988238037,0.8937009496165054,723011.5542768658,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0100,Citric Acid,,,Citrate cycle (TCA cycle),Energy metabolism,-1.2273935946494563,0.1205084297895877,0.8937009496165054,255783494.6483365,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0101,Glucose,,,Glycolysis; Gluconogenesis; galactose metabolism,Energy metabolism,0.1108478776786891,0.7507823685329698,0.9216437931952424,7470375.163782334,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0102,Lactic Acid,,,Glycolysis / Gluconeogenesis,Energy metabolism,-0.2404721175089046,0.2931788952238188,0.8937009496165054,9315825.483850926,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0103,Pyruvate,,,Glycolysis / Gluconeogenesis,Energy metabolism,-0.654768670457267,0.3161818967237686,0.8937009496165054,154129.38929247754,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0104,3-Phosphohexose?,,,Glycolysis -Cycle sugar phosphate?,Energy metabolism,-1.1059006846742834,0.0536101810677364,0.8937009496165054,423673.7737339202,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0105,Pantothenic Acid,,,Pantothenate and CoA biosynthesis,Energy metabolism,-1.5309042905966856,0.1543818698912825,0.8937009496165054,53551.439989232174,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0106,Deoxyribose,,,Pentose phosphate pathway,Energy metabolism,-0.988960623687868,0.1618984192046454,0.8937009496165054,271227.5359325001,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0107,Ribose,,,Pentose phosphate pathway,Energy metabolism,-0.947004521994266,0.0823964018076775,0.8937009496165054,63702.69503590513,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0108,2-DeoxyRibose 5-Phosphate-fragment?,,,Pentose phosphate pathway,Energy metabolism,-2.3587328636518583,0.216549578921374,0.8937009496165054,30239.149057655733,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0109,Galacturonic Acid,,,Pentose and glucuronate interconversions,Energy metabolism,-0.3616812373537593,0.5126107308174973,0.8953345911408636,195935.2348674292,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0110,Hypoxanthine,,,Purine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,-0.3352642891178993,0.3614044723320572,0.8937009496165054,788515.2091415863,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0111,Xanthine,,,Purine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,,,,10994.235714191647,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0112,Uric Acid,,,Purine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,-0.6109821217948849,0.1029548054290298,0.8937009496165054,18651638.850962084,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0113,5-Hydroxyisourate,,,Purine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,-0.8646617113908577,0.3184656008631625,0.8937009496165054,33312.558613271125,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0114,Adenosine,,,Purine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,1.084867100798397,0.0191082426344814,0.8937009496165054,44927.58300031535,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0115,Succinoadenosine,,,Purine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,-1.0658153489683804,0.1436043595800731,0.8937009496165054,40438.304935485074,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0116,N-FormyGAR (FGAR)--riboside,,,Purine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,0.2077284484791981,0.5297262786016788,0.8953345911408636,1363450.4715725307,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0117,Beta-Alanine,,,Pyrimidine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,0.0862130003611979,0.658592350108732,0.9139608058986984,392922.6475318423,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0118,3-Aminoisobutyric Acid,,,Pyrimidine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,0.179575190601138,0.8127748001138458,0.9241959397193928,6457.3714866561895,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0119,Cytosine,,,Pyrimidine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,-0.1696065284641801,0.0673297736799683,0.8937009496165054,92286.63715967305,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0120,Orotic Acid,,,Pyrimidine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,-0.1044526803763423,0.8800846174498687,0.9416463138783092,14239.19610999695,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0121,Uracil 5-Carboxylic Acid/Isoorotic Acid,,,Pyrimidine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,-0.1044526803763423,0.8800846174498687,0.9416463138783092,14239.19610999695,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0122,Thymidine+Cl,,,Pyrimidine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,-1.7647102014757876,0.0469462678821824,0.8937009496165054,604320.7492339575,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0123,Uridine,,,Pyrimidine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,-2.5881507577750784,0.3820038257098699,0.8937009496165054,71493.15554410646,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0124,Uridine+Cl,,,Pyrimidine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,-3.816230810391505,0.3748774785404092,0.8937009496165054,933542.6642599629,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0125,5-Methylcytidine,,,Nucleotide modification,Purine  and pyrimidine metabolism/nucleotide metabolism,-1.0615519203008212,0.2089041731275172,0.8937009496165054,21446.78861348469,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0126,Ribothymidine,,,Nucleotide modification,Purine  and pyrimidine metabolism/nucleotide metabolism,0.0718747372863899,0.7617461456978566,0.9216437931952424,229997.7210612692,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0127,1-Methyladenosine,,,Nucleotide modification,Purine  and pyrimidine metabolism/nucleotide metabolism,-0.3110981347823265,0.0547160833152739,0.8937009496165054,71576.48948551687,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0128,N-Acetylglucosamine (GlcNAc),,,Amino sugar metabolism,Amino sugar and nucleotide sugar metabolism,0.1065359287862412,0.5620163069606409,0.8953345911408636,37072.14887551661,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0129,N-Acetylneuraminic Acid,,,Amino sugar metabolism,Amino sugar and nucleotide sugar metabolism,-3.881315233251672,0.1662759418038084,0.8937009496165054,55049.772247650166,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0130,Maleic Acid,,,Nicotinate and nicotinamide metabolism,"Cofactor, vitamin and antioxidant metabolism",-0.9819814981314848,0.1148853584303526,0.8937009496165054,196576.67503694503,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0131,Trigonelline/N-Methylnicotinate,,,Nicotinate and nicotinamide metabolism,"Cofactor, vitamin and antioxidant metabolism",0.5285038573187385,0.3659055571144585,0.8937009496165054,2629664.462127191,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0132,Nicotinamide N-Oxide,,,Nicotinate and nicotinamide metabolism,"Cofactor, vitamin and antioxidant metabolism",0.095690028324875,0.6010733347946852,0.9026025773280164,586600.2077726542,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0133,1-Methylnicotinamide,,,Nicotinate and nicotinamide metabolism,"Cofactor, vitamin and antioxidant metabolism",-1.7590311843195212,0.0382448932287724,0.8937009496165054,23731.061168246106,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0134,N1-Methy4-Pyridone-5-Carboxamide(4-PY),,,Nicotinate and nicotinamide metabolism,"Cofactor, vitamin and antioxidant metabolism",-0.6591114973985831,0.3053818840172536,0.8937009496165054,501946.6405115765,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0135,Dehydroascorbic Acid,,,Ascorbate and aldarate metabolism,"Cofactor, vitamin and antioxidant metabolism",-1.1738155427049737,0.0702661384356401,0.8937009496165054,682193.7204986486,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0136,Ascorbic Acid,,,Ascorbate and aldarate metabolism,"Cofactor, vitamin and antioxidant metabolism",-1.302969912118627,0.1632766854217958,0.8937009496165054,19072030.633456107,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0137,5-Oxo-Proline,,,Glutathione metabolism,"Cofactor, vitamin and antioxidant metabolism",-0.6912731528291953,0.1985441681244926,0.8937009496165054,6560851.29467911,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0138,N-Acetycysteine,,,Glutathione synthesis,"Cofactor, vitamin and antioxidant metabolism",-0.0323751483764798,0.695814447837559,0.9183848389773136,331033.1321655528,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0139,Cys-Gly,,,Glutathione metabolism,"Cofactor, vitamin and antioxidant metabolism",-0.613808130506441,0.1456494630799147,0.8937009496165054,18256.82552149455,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0140,Cysteineglutathione Disulfide,,,Glutathione metabolism,"Cofactor, vitamin and antioxidant metabolism",-0.0413216488959464,0.9178201925245356,0.9573290087590356,25737.943067982986,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0141,Erythrose,,,Carbohydrates,Carbohydrate metabolism,-0.7683406711376942,0.2276242331979738,0.8937009496165054,278808.883207377,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0142,Rhamnose,,,Fructose and mannose metabolism,Carbohydrate metabolism,-0.537991760517596,0.2047910707397243,0.8937009496165054,38022.32895456779,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0143,Fucose,,,Fructose and mannose metabolism; Glycan and glycoprotein component,Carbohydrate metabolism,-0.4293385193357791,0.2607209732707068,0.8937009496165054,40988.762082004105,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0144,Fructose,,,Fructose and mannose metabolism,Carbohydrate metabolism,-0.7288248825477835,0.3850380579779315,0.8937009496165054,306490.47071488894,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0145,Sorbitol,,,Fructose and mannose metabolism; galactose metabolism,Carbohydrate metabolism,-0.9401323927784292,0.4184964665589722,0.8937009496165054,192589.91253126707,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0146,Myo-Inositol,,,Galactose metabolism,Carbohydrate metabolism,-0.8281676100184016,0.2581440383328891,0.8937009496165054,1031556.6981023873,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0147,Lactose,,,Galactose metabolism,Carbohydrate metabolism,-1.9945119876547288,0.1776495226078069,0.8937009496165054,86224.51361649405,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0148,Sucrose,,,Galactose metabolism; starch and sucrose metabolism,Carbohydrate metabolism,-1.978397770508676,0.1777934042876877,0.8937009496165054,85266.78546747936,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0149,Galactaric Acid,,,"Galactose metabolism,  oxidation of galactose",Carbohydrate metabolism,-0.7014475102278026,0.2856096161763727,0.8937009496165054,580379.4357138873,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0150,Maltose,,,Starch and sucrose metabolism,Carbohydrate metabolism,-1.9360290812985796,0.1748186745246611,0.8937009496165054,82799.10534255154,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0151,Lithocholic Acid,,,Bile acid biosynthesis,Lipid metabolism,-0.1570250531608739,0.6662260543116896,0.9139608058986984,11263.347504461117,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0152,Glycocholic Acid,,,Bile acid biosynthesis,Lipid metabolism,-1.9193105589175052,0.1243328735355876,0.8937009496165054,185971.43542629568,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0153,FA 28:0,,,Fatty acid metabolism,Fatty acid metabolism,-0.0151231783772074,0.9325723771939544,0.9663167724213672,76893.83973326877,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0154,FA 26:0,,,Fatty acid metabolism,Fatty acid metabolism,0.0928155604671488,0.4936633816929268,0.8937009496165054,106246.47164809146,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0155,FA 24:1,,,Fatty acid metabolism,Fatty acid metabolism,0.0606261975151097,0.689295321241597,0.9159154227695816,37694.30767823156,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0156,FA 24:0,,,Fatty acid metabolism,Fatty acid metabolism,0.2242468139009633,0.1725817725925124,0.8937009496165054,101643.25715319952,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0157,FA 22:6,,,Fatty acid metabolism,Fatty acid metabolism,-0.3741666329624026,0.5472438292011688,0.8953345911408636,99884.35824014035,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0158,FA 22:5,,,Fatty acid metabolism,Fatty acid metabolism,-0.1498697974018789,0.7125164454214148,0.9183848389773136,53004.37733673982,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0159,FA 22:4,,,Fatty acid metabolism,Fatty acid metabolism,-0.1049984105037903,0.89988104029123,0.9469974787735674,24446.226986589565,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0160,FA 22:1,,,Fatty acid metabolism,Fatty acid metabolism,-0.167205592518478,0.0546088204662584,0.8937009496165054,44346.19820766448,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0161,FA 22:0,,,Fatty acid metabolism,Fatty acid metabolism,0.0729927263310098,0.4269649875318185,0.8937009496165054,90277.76976574324,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0162,FA 20:6,,,Fatty acid metabolism,Fatty acid metabolism,0.4147776352088973,0.0254108191696778,0.8937009496165054,6139.592887271884,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0163,FA 20:5,,,Fatty acid metabolism,Fatty acid metabolism,-0.2476067695726998,0.5088560522849659,0.8953345911408636,10425.674409524288,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0164,FA 20:4,,,Fatty acid metabolism,Fatty acid metabolism,-0.1472576242970545,0.7478851828183408,0.9216437931952424,85771.86919137953,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0165,FA 20:3,,,Fatty acid metabolism,Fatty acid metabolism,-0.1743586508470544,0.780902797702454,0.9216437931952424,23486.112372639494,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0166,FA 20:2,,,Fatty acid metabolism,Fatty acid metabolism,-0.3251655567936009,0.6494356913310414,0.9139608058986984,22260.70945974119,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0167,FA 20:1,,,Fatty acid metabolism,Fatty acid metabolism,0.1577068527885965,0.7761933861518124,0.9216437931952424,45715.85353022858,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0168,FA 20:0,,,Fatty acid metabolism,Fatty acid metabolism,0.0534890327262611,0.5579464201664772,0.8953345911408636,106399.4052336794,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0169,FA 18:3,,,Fatty acid metabolism,Fatty acid metabolism,0.4842162901965349,0.3683938795114896,0.8937009496165054,35313.842670114514,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0170,FA 18:2,,,Fatty acid metabolism,Fatty acid metabolism,0.3498862208590447,0.5626877571844591,0.8953345911408636,429495.77042445337,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0171,FA 18:1,,,Fatty acid metabolism,Fatty acid metabolism,-0.3588341772142061,0.7069391322394147,0.9183848389773136,1961831.234002846,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0172,FA 18:0,,,Fatty acid metabolism,Fatty acid metabolism,-0.0316176750791955,0.7886799088706091,0.9216437931952424,3210148.8446967094,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0173,FA 17:1,,,Fatty acid metabolism,Fatty acid metabolism,-0.3931964303440323,0.6725159225488577,0.9139608058986984,7064.297716442104,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0174,FA 17:0,,,Fatty acid metabolism,Fatty acid metabolism,-0.0126693156053212,0.9567425340565388,0.9737444207683674,60280.39550580296,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0175,FA 16:0,,,Fatty acid metabolism,Fatty acid metabolism,-0.0224911076050698,0.8893326297739587,0.9416463138783092,2102041.0159052517,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0176,FA 14:0,,,Fatty acid metabolism,Fatty acid metabolism,-0.0537063309221542,0.8597964949510579,0.9393125904873764,26936.430654585525,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0177,FA 26:0;O,,,Fatty acid metabolism,Fatty acid metabolism,0.0716484578869295,0.8471739720584895,0.9391323434918504,250628.1345542807,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0178,FA 24:1;O,,,Fatty acid metabolism,Fatty acid metabolism,0.0345528888309381,0.8038864146465948,0.9223952016353446,40236.69986511464,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0179,FA 24:0;O,,,Fatty acid metabolism,Fatty acid metabolism,0.432456769664049,0.24057092019892,0.8937009496165054,107191.7094181944,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0180,FA 22:0;O,,,Fatty acid metabolism,Fatty acid metabolism,0.2376079232120262,0.2927451795544415,0.8937009496165054,35590.277368665586,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0181,FA 18:1;O,,,Fatty acid metabolism,Fatty acid metabolism,0.4178209840350297,0.3719720976449168,0.8937009496165054,25424.013808689426,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0182,FA 18:0;O,,,Fatty acid metabolism,Fatty acid metabolism,0.119581704344608,0.514189921176126,0.8953345911408636,63897.60615158208,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0183,FA 16:0;O,,,Fatty acid metabolism,Fatty acid metabolism,0.0739710813008068,0.677149879390163,0.9139608058986984,60553.49001509012,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0184,FA 14:1;O,,,Fatty acid metabolism,Fatty acid metabolism,-0.1373345433795217,0.8217171486604069,0.9277451678423948,5279.982611509613,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0185,FA 12:0;O,,,Fatty acid metabolism,Fatty acid metabolism,-0.1017354191558098,0.8765373096713543,0.9416463138783092,3106.2329393924138,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0186,9-PAHSA,,,Fatty acid metabolism,Fatty acid metabolism,0.1094351203575695,0.490585846825051,0.8937009496165054,30995.04938471883,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0187,"12,13 DiHOME",,,Fatty acid metabolism,Fatty acid metabolism,,,,4187.549281982419,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0188,CAR 3:0,,,Acylcarnitine metabolism,Fatty acid metabolism,0.0815501463261272,0.5651186288268621,0.8953345911408636,819844.3649401317,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0189,CAR 4:0,,,Acylcarnitine metabolism,Fatty acid metabolism,-0.1298852820782681,0.6798995493388402,0.9139608058986984,420183.6218144175,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0190,CAR 5:1,,,Acylcarnitine metabolism,Fatty acid metabolism,0.4306891548232378,0.0451385316885754,0.8937009496165054,426341.1204136583,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0191,CAR 5:0,,,Acylcarnitine metabolism,Fatty acid metabolism,-0.2378636677173785,0.4144036147643861,0.8937009496165054,335806.9230757405,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0192,"CAR 5:0,iso",,,Acylcarnitine metabolism,Fatty acid metabolism,-0.2378636677173785,0.4144036147643861,0.8937009496165054,335806.9230757405,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0193,CAR 6:1,,,Acylcarnitine metabolism,Fatty acid metabolism,-0.0190607871546202,0.8889494056918998,0.9416463138783092,55154.346451759375,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0194,CAR 6:0,,,Acylcarnitine metabolism,Fatty acid metabolism,-0.2699321831462656,0.6424082686059767,0.9139608058986984,119244.30652864324,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0195,CAR 8:1,,,Acylcarnitine metabolism,Fatty acid metabolism,-0.2785670120252087,0.5476160541777381,0.8953345911408636,377272.9482660501,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0196,CAR 8:0,,,Acylcarnitine metabolism,Fatty acid metabolism,-0.4365597031934899,0.5748227270029498,0.8994552033274821,174848.81642450715,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0197,CAR 8:0;O,,,Acylcarnitine metabolism,Fatty acid metabolism,-0.502894025972864,0.4561533801887976,0.8937009496165054,140648.70598534137,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0198,CAR 10:1,,,Acylcarnitine metabolism,Fatty acid metabolism,-0.6159145891782312,0.3610044423520128,0.8937009496165054,59599.669910656754,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0199,CAR  10:0,,,Acylcarnitine metabolism,Fatty acid metabolism,-0.7151924041739598,0.4516141666013683,0.8937009496165054,102078.0669107362,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0200,CAR 10:0;O,,,Acylcarnitine metabolism,Fatty acid metabolism,-0.64097815560132,0.4647338530150051,0.8937009496165054,74474.14297440842,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0201,CAR 12:1,,,Acylcarnitine metabolism,Fatty acid metabolism,-0.8931089464306116,0.3834913041569801,0.8937009496165054,72035.21655414072,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0202,CAR 12:0,,,Acylcarnitine metabolism,Fatty acid metabolism,-0.8962654135734296,0.3361466340909115,0.8937009496165054,66452.30090380315,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0203,CAR 14:2,,,Acylcarnitine metabolism,Fatty acid metabolism,-0.6066950290322299,0.4901372301464481,0.8937009496165054,72739.7173506164,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0204,CAR 14:1,,,Acylcarnitine metabolism,Fatty acid metabolism,-0.890345631545961,0.3763736248480682,0.8937009496165054,177400.31861355063,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0205,CAR 14:0,,,Acylcarnitine metabolism,Fatty acid metabolism,-0.4607541480502445,0.250525288617475,0.8937009496165054,65680.30112910447,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0206,CAR 16:2,,,Acylcarnitine metabolism,Fatty acid metabolism,-0.6763253484198821,0.4450523787519678,0.8937009496165054,18924.54761052957,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0207,CAR 16:1,,,Carnitine metabolism,Lipid metabolism,-0.6874266923813629,0.3107568798603668,0.8937009496165054,76698.22147204581,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0208,CAR 16:0,,,Carnitine metabolism,Lipid metabolism,-0.1738880063884399,0.5125566508729493,0.8953345911408636,306864.32952055865,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0209,CAR 17:0,,,Acylcarnitine metabolism,Fatty acid metabolism,-0.3158752284981742,0.4176285111964183,0.8937009496165054,16871.018089129135,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0210,CAR 18:3,,,Acylcarnitine metabolism,Fatty acid metabolism,-0.3291070153325584,0.3008663570829018,0.8937009496165054,23937.40098008726,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0211,CAR 18:1,,,Acylcarnitine metabolism,Fatty acid metabolism,-0.4081752057742767,0.2388441364234799,0.8937009496165054,684435.9591696548,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0212,CAR 18:0,,,Acylcarnitine metabolism,Fatty acid metabolism,-0.2480607104494664,0.4160448292040505,0.8937009496165054,203051.0448180873,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0213,CAR 20:0,,,Acylcarnitine metabolism,Fatty acid metabolism,-0.375099179269916,0.2693129126364568,0.8937009496165054,11748.012442387882,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0214,CAR 10:0,,,Acylcarnitine metabolism,Fatty acid metabolism,-0.3178428634202559,0.6905711520881767,0.9159154227695816,665417.9189061977,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0215,CAR 13:0,,,Acylcarnitine metabolism,Fatty acid metabolism,-0.3389036094957421,0.4334882415807717,0.8937009496165054,70974.40790097906,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0216,CAR 14:0;O,,,Acylcarnitine metabolism,Fatty acid metabolism,-0.2114614487031318,0.5813698311807767,0.8994552033274821,38814.82507371704,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0217,CAR 14:1;O,,,Acylcarnitine metabolism,Fatty acid metabolism,-0.1769691706488065,0.7181075066635807,0.9200644852631849,77405.56102963367,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0218,CAR 16:0;O,,,Acylcarnitine metabolism,Fatty acid metabolism,0.1131590260656621,0.7531476679319067,0.9216437931952424,16698.036933709176,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0219,CAR 18:2,,,Acylcarnitine metabolism,Fatty acid metabolism,-0.0747240762686282,0.7055900355241048,0.9183848389773136,454693.48424271634,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0220,CAR 24:0,,,Acylcarnitine metabolism,Fatty acid metabolism,0.0874070857100709,0.6842638466703497,0.9152573745272192,152383.53834490955,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0221,CAR 26:0,,,Acylcarnitine metabolism,Fatty acid metabolism,0.0240424002404216,0.946043426443301,0.9696925451518336,128967.69685970047,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0222,Deoxycarnitine,,,Carnitine metabolism,Lipid metabolism,-0.0797942109213373,0.6580799852887893,0.9139608058986984,670966.3490416802,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0223,Carnitine,,,Carnitine metabolism,Lipid metabolism,-0.1159190900793685,0.3419231365875009,0.8937009496165054,51501555.6397722,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0224,Acetylcarnitine,,,Carnitine metabolism,Lipid metabolism,-0.4645715450238857,0.397818333555952,0.8937009496165054,17523786.008635797,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0225,Methylglutarylcarnitine/C4:1;O2,,,Acylcarnitine metabolism,Fatty acid metabolism,0.0114218723396345,0.952917774346188,0.9737444207683674,39707.38112585957,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0226,Linoleyl Carnitine/CAR 18:2,,,Acylcarnitine metabolism,Fatty acid metabolism,-0.2418044899916074,0.2730588396942279,0.8937009496165054,321457.4589051109,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0227,Glutarylcarnitine/CAR 5:1;O2,,,Acylcarnitine metabolism,Fatty acid metabolism,-0.1493752474617956,0.6818437758291878,0.9139608058986984,84199.57940979271,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0228,3-Methylglutarylcarnitine/CAR 6:1;O2,,,Acylcarnitine metabolism,Fatty acid metabolism,-0.1297193295037368,0.6121890101543259,0.9026025773280164,67306.31684437058,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0229,Pimelylcarnitine/CAR 7:1;O2,,,Acylcarnitine metabolism,Fatty acid metabolism,-0.3608558218303239,0.3272507880548315,0.8937009496165054,21747.42529941301,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0230,Keto-decanoylcarnitine/CAR 10:1:O,,,Acylcarnitine metabolism,Fatty acid metabolism,-0.0893180454990863,0.675574818189933,0.9139608058986984,33201.18095026148,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0231,Undecanoyl carnitine/CAR 11:0,,,Acylcarnitine metabolism,Fatty acid metabolism,-2.1490255382202026,0.3220469032207854,0.8937009496165054,11494.73651042828,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0232,Isovaleric Acid/FA 5:0,,,"Fatty Acid metabolism, Branched fatty acids",Lipid metabolism,-0.465362550114351,0.4511528381703442,0.8937009496165054,118235.41679818388,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0233,Mevalolactone/FA 6:1;O,,,"Fatty Acid metabolism, Biosynthesis of terpenes and steroids",Lipid metabolism,-0.3981439529512662,0.1908989535722662,0.8937009496165054,1332596.640788798,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0234,Ethylmalonic Acid/FA 5:1;O2,,,"Fatty Acid metabolism, dicarboxylic acid",Lipid metabolism,-0.90805553265902,0.3285375434391048,0.8937009496165054,28286.503926635734,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0235,Suberic Acid/FA 8:1;O2,,,"Fatty acid breakdown, dicarboxylic acid",Lipid metabolism,-0.5916155286294192,0.1398577340939897,0.8937009496165054,86057.5509313379,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0236,Caproic Acid/FA 6:0,,,Fatty acid biosynthesis; Beta oxidation of fatty acids,Lipid metabolism,1.137721121050267,0.2567394988650596,0.8937009496165054,2031.5560088297516,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0237,5-Hydroxyhexanoic Acid/FA 6:0;O,,,Fatty acid metabolism,Lipid metabolism,-0.1828244173346954,0.5847544840607024,0.8994552033274821,41539.08738010542,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0238,Glutaric Acid Methyl Ester,,,"Fatty Acids and Conjugates, Dicarboxylic Acid Derivative",Lipid metabolism,-0.5293822948593464,0.4335076789509426,0.8937009496165054,3966785.0285034473,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0239,"1,9-Nonanedioate/FA 9:1;O2",,,"Fatty Acid metabolism, Dicarboxylic Acids and Derivatives",Lipid metabolism,-0.182285599361129,0.5581656430042746,0.8953345911408636,756086.298831832,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0240,10-Hydroxydecanoate/FA 10:0;O,,,Fatty acid metabolism,Lipid metabolism,-0.1980753085995649,0.7162347494397014,0.9200644852631849,28725.855500854523,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0241,Trimethylamine N-Oxide,,,Glycerophospholipid metabolism,Lipid metabolism,-0.5190034429772548,0.3845967152375167,0.8937009496165054,76206.08292028814,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0242,Acetylcholine,,,"Glycerophospholipid metabolism, neurotransmitter",Lipid metabolism,-0.0772094234771316,0.6629985729437524,0.9139608058986984,688334.9303355719,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0243,Corticosterone,,,Steroid hormone biosynthesis,Lipid metabolism,-0.355230759715489,0.4902366684556595,0.8937009496165054,9293.873940546448,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0244,Cortisone,,,Steroid hormone biosynthesis,Lipid metabolism,-0.539098064672781,0.0084613648037804,0.6602056906916773,47708.663688288354,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0245,Cortisol,,,Steroid hormone biosynthesis,Lipid metabolism,-1.3618096422367536,0.0070528114744563,0.6602056906916773,224062.6765932669,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0246,Cholesterol Sulfate,,,Steroid hormone biosynthesis,Lipid metabolism,0.3552991847093242,0.2532197732579453,0.8937009496165054,725737.3973652013,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0247,5Allotetrahydrocortisol,,,Steroid metabolism (cortisol),Lipid metabolism,-0.107290708930803,0.7710610032114744,0.9216437931952424,8926.806920166006,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0248,Cholesteryl Acetate,,,Cholesterol metabolism,Lipid metabolism,0.11315899127918,0.4768379897013015,0.8937009496165054,1190506.2628436924,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0249,Mevalonic acid/FA 6:0;O2,,,Terpenoid backbone biosynthesis,Lipid metabolism,1.2666560312344464,0.0025020719941198,0.6602056906916773,23404.31415168253,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0250,"Anandamide  (20:4, N-6)",,,N-acylethanolamine (NAE) metabolism,Lipid metabolism,-0.1062933980515186,0.8098563737062512,0.9241959397193928,20307.124639126865,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0251,Oleoyl Ethanolamide,,,N-acylethanolamine (NAE) metabolism,Lipid metabolism,-0.2780603129156634,0.2159210220303781,0.8937009496165054,38570.0711026357,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0252,5-Aminolevulinic Acid,,,Heme/porphyrin synthesis,Porphyrin metabolism,0.0209638925996032,0.847560970292885,0.9391323434918504,1497384.9804885266,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0253,Biliverdin,,,Porphyrin metabolism,Porphyrin metabolism,-0.886687736505966,0.3099640213617264,0.8937009496165054,1125657.51021359,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0254,Bilirubin,,,Porphyrin metabolism,Porphyrin metabolism,-0.4811454565548537,0.4513449405914034,0.8937009496165054,10589440.439173829,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0255,Glycolic Acid,,,Glyoxylate and dicarboxylate metabolism,Glycylate and dicarboxylate metabolism,-0.1965961159784442,0.2272948469085282,0.8937009496165054,83338.48642448419,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0256,Oxalic Acid,,,Glyoxylic or Ascorbic acid metabolism,Glycylate and dicarboxylate metabolism,-0.6441850063350014,0.1447968968819088,0.8937009496165054,361944.2516973901,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0257,Glyceric Acid,,,Glyoxylate and dicarboxylate metabolism,Glycylate and dicarboxylate metabolism,-0.3605545804619824,0.2897248706038517,0.8937009496165054,535344.0819960631,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0258,Meso-Tartaric Acid,,,Glycylate and dicarboxylate metabolism,Glycylate and dicarboxylate metabolism,-1.4539411099620112,0.514087599752802,0.8953345911408636,1810123.2278307,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0259,Tartaric Acid,,,Glyoxylate and dicarboxylate metabolism,Glycylate and dicarboxylate metabolism,-1.535875531240707,0.5150913097955765,0.8953345911408636,1693910.8086451236,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0260,3-Hydrobutyrate/FA 4:0;O,,,Ketone bodies,Keto-Acids and Derivatives,-0.5687831087271156,0.5311091465197726,0.8953345911408636,1524061.708320609,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0261,Butyric Acid,,,Butyrate metabolism,Butyrate metabolism,-0.2830645387799223,0.8141726135623223,0.9241959397193928,5805.248810093477,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0262,Caffeic Acid,,,Caffeine metabolism,Caffeine metabolism,-0.355228960314486,0.2889835834850138,0.8937009496165054,115363.79801424152,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0263,Paraxanthine,,,Caffiene metabolism,Caffeine metabolism,-0.4245194976658273,0.5586161198306122,0.8953345911408636,370151.83529344806,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0264,Caffeine,,,Caffeine metabolism,Caffeine metabolism,-0.7018013988143852,0.3991042296185167,0.8937009496165054,333404.26069569966,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0265,Theobromine,,,Cacao alkaloid,Caffeine metabolism,-0.4245194976658273,0.5586161198306122,0.8953345911408636,370151.83529344806,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0266,"2,3-Dihydroxybenzoic Acid",,,,,-0.367873595736153,0.4158016343754834,0.8937009496165054,566501.7699517652,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0267,4-Hydroxycinnamic Acid,,,,,-0.0346991702843742,0.9371702527467796,0.9667751321875278,23882.15125678614,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0268,Salicylamide,,,,,0.5279437478298425,0.3661506003341962,0.8937009496165054,2615217.3595511364,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0269,Lyxose,,,,,-0.9413756678715222,0.0953668404547798,0.8937009496165054,63897.144123563776,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0270,M-Salicylic Acid,,,,,-0.6345960372053706,0.2132382803239254,0.8937009496165054,94190.16760877504,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0271,"2,6-Diaminopimelic Acid",,,,,-0.0532236029886413,0.4613906360835972,0.8937009496165054,873340.802448018,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0272,1-Hydroxy-2-Naphthoate,,,,,-0.9348602674959454,0.2006611624721819,0.8937009496165054,424470.5513953143,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0273,4-Hydroxybenzoic Acid,,,,,-0.6345960372053706,0.2132382803239254,0.8937009496165054,94190.16760877504,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0274,Glucaric Acid,,,,,-0.6991282410073775,0.2884799762347468,0.8937009496165054,579447.1702341256,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0275,Gluconic Acid,,,,,-0.8586890738644186,0.2177542263542523,0.8937009496165054,2292184.5707982783,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0276,Quinic Acid,,,,,0.2146136967759311,0.6813671889478738,0.9139608058986984,2007885.6680281116,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0277,Protocatechuic Acid,,,,,-1.2593100940919515,0.0439479340472036,0.8937009496165054,54765.366170267785,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0278,Benzoic Acid,,,,,-0.602779890895298,0.2194960647541809,0.8937009496165054,115333.19747550956,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0279,5-Valerolactone,,,,,-0.0260435570838782,0.973188076538905,0.9857049649831352,3528.2186046170323,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0280,Theophylline,,,,,-0.4245194976658273,0.5586161198306122,0.8953345911408636,370151.83529344806,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0281,"2',4'-Dihydroxyacetophenone",,,,,-2.475493660579983,0.0956342694713394,0.8937009496165054,14073.04989250488,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0282,Xylose,,,,,-1.835130966245752,0.1978365193514872,0.8937009496165054,61255.57894082923,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0283,Adipic Acid,,,,,-0.52876142860744,0.4339416015989357,0.8937009496165054,3966785.0285034473,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0284,2-Aminoisobutyric Acid,,,,,0.0771525866632601,0.7046295008944006,0.9183848389773136,25144.65708311841,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0285,2-Acetamido-2-Deoxy-Beta-Glucosylamine,,,,,0.4560692528302772,0.0657945258190501,0.8937009496165054,20861.17738083651,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0286,Phthalate,,,,,-0.6467272450133961,0.0872142104696713,0.8937009496165054,311782.6706975098,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0287,Glycochenodeoxycholiccid,,,,,-0.3246022560914442,0.5727751752505501,0.8994552033274821,68941.16640638791,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0288,Ubiquinone/Coenzyme Q10,,,,,-0.3557901666859147,0.1943438974715285,0.8937009496165054,129029.0841048404,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0289,Glycinyl- lactose?,,,,,0.3059614640252854,0.3831054241438033,0.8937009496165054,124964.41578760537,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0290,Phosphocholine,,,"Glycerophospholipid metabolism, choline metabolism",Lipid metabolism,-0.4364180245218431,0.3471869569885003,0.8937009496165054,6289.923104858385,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0291,Lysophosphatidic Acid,,,"Glycerophospholipid metabolism, choline metabolism",Lipid metabolism,-0.0994959489850886,0.8815906317969797,0.9416463138783092,18990.940500676475,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0292,Glycerylphosphorylethanolamine,,,Glycerophospholipid metabolism,Lipid metabolism,-0.7862008436785022,0.181210784365464,0.8937009496165054,4165.237249549872,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0293,Sn-Glycero3-Phosphocholine,,,Glycerophospholipid metabolism,Lipid metabolism,-0.2556958719176601,0.4831948954871083,0.8937009496165054,231376.7108375296,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0294,Glycerol 1-Phosphoserine,,,Glycerophospholipid metabolism,Lipid metabolism,-0.7962884938108641,0.2521445957610103,0.8937009496165054,3623.475161720808,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0295,Sphingosine,,,Sphingolipid metabolism,Lipid metabolism,0.00016208006648,0.999429745780786,0.999429745780786,3486.070945208228,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0296,Sphingosine 1-phosphate,,,Sphingolipid metabolism,Lipid metabolism,-0.277570216909017,0.1755280817969963,0.8937009496165054,32212.85379316713,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0297,PC O-12:1,,,"1-alkyl,2-acylglycerophosphocholines [GP0102]",Glycerophosphocholines [GP01],0.0440686840628207,0.8685035971493984,0.9416463138783092,21544.054881721757,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0298,PC 12:4,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],-0.3454003898882009,0.4351094241570129,0.8937009496165054,32603.09590460459,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0299,LPC O-15:1,,,1Z-alkenylglycerophosphocholines [GP0107],Glycerophosphocholines [GP01],-0.5354778558844214,0.0951462408365155,0.8937009496165054,41272.13067065174,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0300,PC O-14:0,,,"1-alkyl,2-acylglycerophosphocholines [GP0102]",Glycerophosphocholines [GP01],-0.2867273718813953,0.3370761665590608,0.8937009496165054,343711.4325049335,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0301,LPC 15:1,,,Monoacylglycerophosphocholines [GP0105],Glycerophosphocholines [GP01],-0.1162051655625427,0.780256357502332,0.9216437931952424,742107.0805961884,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0302,LPC O-16:1,,,Monoalkylglycerophosphocholines [GP0106],Glycerophosphocholines [GP01],-0.3760365435788297,0.1233840810859715,0.8937009496165054,306813.7699759505,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0303,LPC 15:0,,,Monoacylglycerophosphocholines [GP0105],Glycerophosphocholines [GP01],-0.2122100672909314,0.244982358089512,0.8937009496165054,347610.70704330923,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0304,Lyso-PAF C16,,,Glycerophospholipid metabolism/PAF,Lipid metabolism,-0.4726036224168695,0.1366406596474727,0.8937009496165054,90002.04608258065,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0305,LPC O-16:0,,,Monoalkylglycerophosphocholines [GP0106],Glycerophosphocholines [GP01],-0.4726036224168695,0.1366406596474727,0.8937009496165054,90002.04608258065,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0306,Cytidine diphosphate choline (CDPcholine),,,Glycerophospholipid metabolism,Lipid metabolism,-0.2705223685689213,0.4179959125269223,0.8937009496165054,21764.77471692705,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0307,LPC 16:1,,,Monoacylglycerophosphocholines [GP0105],Glycerophosphocholines [GP01],-0.2098639973741146,0.3606562322895408,0.8937009496165054,870333.4278978673,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0308,LPC 16:0,,,Glycerophospholipid metabolism,Lipid metabolism,-0.1769609567154486,0.3369921868764531,0.8937009496165054,3301246.7899062973,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0309,PC 16:4,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],-0.0419341492975044,0.835182002220243,0.9362360523109484,8036.741341535352,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0310,LPC 17:1,,,Monoacylglycerophosphocholines [GP0105],Glycerophosphocholines [GP01],-0.3127239248415436,0.3441400618546599,0.8937009496165054,121605.0195112812,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0311,PC O-17:0,,,"1-alkyl,2-acylglycerophosphocholines [GP0102]",Glycerophosphocholines [GP01],-0.2919507126379994,0.2115553615343792,0.8937009496165054,803037.1892446802,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0312,LPC 18:3,,,Monoacylglycerophosphocholines [GP0105],Glycerophosphocholines [GP01],-0.1011742704459721,0.5592105767031947,0.8953345911408636,370124.96959318005,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0313,LPC 18:2,,,Monoacylglycerophosphocholines [GP0105],Glycerophosphocholines [GP01],-0.1191580370577686,0.6867569575590353,0.9159154227695816,28139141.95498997,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0314,LPC 18:1,,,Glycerophospholipid metabolism,Lipid metabolism,-0.2782658601680973,0.2615007890503499,0.8937009496165054,12344473.687844193,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0315,LPC 18:0,,,Glycerophospholipid metabolism,Lipid metabolism,-0.3296388445081036,0.173150747494072,0.8937009496165054,15272880.7170037,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0316,PAF C16:0,,,Glycerophospholipid metabolism,Lipid metabolism,-0.2843912299473325,0.2522447972475349,0.8937009496165054,1144547.8680207531,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0317,2-O-methyl PAF C-18,,,Glycerophospholipid metabolism/acylglycerol,Lipid metabolism,-0.3364224518998479,0.3390070142930429,0.8937009496165054,21742.172594878804,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0318,LPC O-19:0,,,Monoalkylglycerophosphocholines [GP0106],Glycerophosphocholines [GP01],-0.6378886212290645,0.257772998410984,0.8937009496165054,1318.4686781177973,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0319,LPC O-20:1,,,1Z-alkenylglycerophosphocholines [GP0107],Glycerophosphocholines [GP01],0.1652774470214004,0.8656174268047303,0.9416463138783092,4223.394359258468,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0320,PC O-19:0,,,"1-alkyl,2-acylglycerophosphocholines [GP0102]",Glycerophosphocholines [GP01],-0.4117522051743906,0.105601584644269,0.8937009496165054,55280.02832928469,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0321,C-PAF/methylCarbamyl-PAF C-16,,,Glycerophospholipid metabolism/PAF,Lipid metabolism,-0.7133159701077277,0.1266221484851151,0.8937009496165054,9767.441261670429,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0322,PC O-20:1,,,"1-alkyl,2-acylglycerophosphocholines [GP0102]",Glycerophosphocholines [GP01],-0.1744116858034868,0.4233125445085863,0.8937009496165054,121535.20574402624,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0323,PAF C18:0,,,Glycerophospholipid metabolism,Lipid metabolism,-0.3184039032409794,0.0754168270819903,0.8937009496165054,58492.31479940538,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0324,PC O-20:0,,,"1-alkyl,2-acylglycerophosphocholines [GP0102]",Glycerophosphocholines [GP01],-0.3270585879088143,0.0700243938555877,0.8937009496165054,58844.263065381325,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0325,PC 26:0,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.3371062346995648,0.4922376726296414,0.8937009496165054,28677.793322160203,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0326,PC 28:1,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.3091819095347231,0.4754883176320539,0.8937009496165054,16534.58877699132,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0327,PC 32:3,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],-0.1849101087037288,0.5935904067789122,0.8994552033274821,50973.62509871672,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0328,PC 32:1,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],-0.0868718454187192,0.7231966443054887,0.9204320927524402,3576121.0528281387,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0329,PC 34:3,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],-0.0628449369153261,0.7052380474724687,0.9183848389773136,3607938.210745617,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0330,PC 34:2,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],-0.0385963820350387,0.6248376444839309,0.9091171270782366,126783748.578492,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0331,PC 34:1,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.0623034074297167,0.7339650746958255,0.921131979732708,14381283.341765769,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0332,PC O-36:6,,,"1-(1Z-alkenyl),2-acylglycerophosphocholines [GP0103]",Glycerophosphocholines [GP01],-0.3062519061060653,0.2579327655455961,0.8937009496165054,268790.2168753866,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0333,PC O-36:5,,,"1-alkyl,2-acylglycerophosphocholines [GP0102]",Glycerophosphocholines [GP01],-0.264797331601771,0.1814299149951993,0.8937009496165054,3731286.442815063,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0334,PC 35:1,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],-0.0368252493448943,0.8602910550971684,0.9393125904873764,285431.88716836914,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0335,PC 36:7,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],-0.1985016992017092,0.4181429048175153,0.8937009496165054,736496.7053012409,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0336,PC 36:4,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],-0.0291593963925803,0.8511818541807088,0.9391323434918504,55190651.315130144,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0337,PC 36:3,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],-0.0613585090747409,0.4919832276465141,0.8937009496165054,36580690.549243495,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0338,PC 36:2,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],-0.0646531818609453,0.6487156726220296,0.9139608058986984,17711426.386453643,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0339,PC 38:8,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],-0.0670990191455713,0.7656730299110056,0.9216437931952424,69696.75778469724,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0340,PC O-38:1,,,"1-alkyl,2-acylglycerophosphocholines [GP0102]",Glycerophosphocholines [GP01],-0.0880755077031276,0.7128415654919149,0.9183848389773136,13256.660654000014,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0341,PC 38:6,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],-0.0847597226357342,0.6708409719503121,0.9139608058986984,24746567.17769201,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0342,PC 38:5,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],-0.0663506765290278,0.6092569214482291,0.9026025773280164,17474330.326398417,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0343,PC 38:4,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],-0.0346545699613686,0.8745750153806908,0.9416463138783092,23817887.391407724,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0344,PC O-40:8,,,"1-acyl,2-alkylglycerophosphocholines [GP0108]",Glycerophosphocholines [GP01],-0.1352689691998028,0.4490895770322103,0.8937009496165054,328850.7959209086,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0345,PC O-39:1,,,"1-alkyl,2-acylglycerophosphocholines [GP0102]",Glycerophosphocholines [GP01],-0.2185685721825024,0.3380570684956885,0.8937009496165054,19952.40978022745,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0346,PC O-40:7,,,"1-(1Z-alkenyl),2-acylglycerophosphocholines [GP0103]",Glycerophosphocholines [GP01],-0.0931449971444446,0.488663673798273,0.8937009496165054,977371.0131625512,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0347,PC O-40:2,,,"1-alkyl,2-acylglycerophosphocholines [GP0102]",Glycerophosphocholines [GP01],-0.1308448818768493,0.4909531045361158,0.8937009496165054,25644.607397683038,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0348,PC 40:6,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],-0.0721359664505608,0.6216906233955917,0.9066321591185712,6209941.337371395,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0349,PC 42:10,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],-0.0044410227626432,0.9869953200660287,0.9924109154258052,213872.4688942789,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0350,PC 42:9,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],-0.0456051709393843,0.7614331561889859,0.9216437931952424,203798.80716486243,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0351,PC 42:6,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],-0.3282378533143566,0.5476702160699944,0.8953345911408636,30374.06650387582,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0352,PC 44:12,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.0078948115278568,0.97859478011145,0.9880043453048294,17207.98521169535,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0353,PC 44:10,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],-0.1475883341522846,0.7313482017820954,0.921131979732708,4557.325018695721,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0354,PC 44:8,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],-0.2325927738735209,0.4275979680361251,0.8937009496165054,21521.850588266763,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0355,PC 54:12,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],-0.6175215036216744,0.1193155530265025,0.8937009496165054,39709.98919243879,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0356,PC 56:12,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],-0.4441890513763055,0.2732348850788363,0.8937009496165054,40701.64957029729,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0357,LPC 14:0,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],-0.0499982769258,0.8865258689476734,0.9416463138783092,4676874.733402704,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0358,LPC O-17:1,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],-0.0868673391209326,0.6549601669865226,0.9139608058986984,130957.53791059893,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0359,LPC O-18:2,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],-0.1111723613568896,0.5737207375274574,0.8994552033274821,249627.64352441905,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0360,LPC O-18:1,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],-0.056596600940998,0.8052656522213326,0.9223952016353446,484492.9987879757,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0361,LPC 17:0,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],-0.0529635703487192,0.7558408639806933,0.9216437931952424,7094995.490807693,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0362,LPC O-18:0,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.0519096930034187,0.7922592765618913,0.9216437931952424,656833.1252687338,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0363,LPC 18:2;O,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],-0.0276934227480246,0.8823976082866547,0.9416463138783092,270661.34842288395,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0364,LPC O-20:0,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.1437595729370579,0.2092088121052164,0.8937009496165054,140819.89704677073,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0365,LPC 20:5,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],-0.0769510884954452,0.8457316633436627,0.9391323434918504,2839977.073512329,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0366,LPC 20:4,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.0197720863965641,0.9466046274101232,0.9696925451518336,26394613.1918864,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0367,LPC 20:3,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.128151748683501,0.552983803739457,0.8953345911408636,7716344.439814744,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0368,LPC 20:1,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.0896764748700607,0.5594018489378301,0.8953345911408636,905577.4167597452,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0369,LPC 20:0,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.0495128241021315,0.7768603882200192,0.9216437931952424,65362.28694633696,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0370,LPC O-22:1,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.0597276181626773,0.7943819130267974,0.9216437931952424,152083.58328039042,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0371,LPC O-22:0,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.1644190538427728,0.130058965980837,0.8937009496165054,115822.03829132096,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0372,LPC 22:6,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.0096207812880327,0.9783940241512008,0.9880043453048294,6545305.474823154,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0373,PC 34:2;O,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.4872333204834839,0.267587124804179,0.8937009496165054,38810.268905006415,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0374,PC 36:4;O,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.1475489409264022,0.4235998162920452,0.8937009496165054,171791.10237515782,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0375,PC 38:6;O,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.2072183444360903,0.3626775545349604,0.8937009496165054,52352.25207570394,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0376,LPC 22:5,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],-0.0318027725644475,0.9169643843641572,0.9573290087590356,1800276.5722535036,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0377,LPC 22:4,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],-0.0786149106610156,0.7945060915577797,0.9216437931952424,451307.4972870255,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0378,LPC 22:1,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],-0.0091779227630123,0.9820522352413212,0.9899086531232518,57869.97465281352,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0379,LPC 22:0,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],-0.1789600681756947,0.3895924054599161,0.8937009496165054,133200.35087841804,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0380,LPC O-24:2,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.0350632828883296,0.7956813822496163,0.9216437931952424,99148.7311599859,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0381,LPC O-24:1,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.2130793441984775,0.4195374906782243,0.8937009496165054,181841.45646235655,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0382,LPC O-24:0,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.113700307045235,0.5781335147331503,0.8994552033274821,160071.50267494968,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0383,LPC 24:0,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.1162896444122588,0.6026623933402548,0.9026025773280164,316233.648614441,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0384,PC 28:0,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.2378841209806213,0.6804553097440391,0.9139608058986984,608000.1084436163,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0385,PC O-30:1,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.1661196049287839,0.2656916244048433,0.8937009496165054,100745.40171887196,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0386,PC 30:0,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.0421469128381233,0.9251103893403204,0.9633380913791764,92421.1224313557,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0387,PC 31:1,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.253490308832474,0.5403633055834947,0.8953345911408636,180212.1012796479,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0388,PC O-32:1,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.0470524986697442,0.8576825656335514,0.9393125904873764,781520.7122917942,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0389,PC 31:0,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.10602792030158,0.585843592093067,0.8994552033274821,1033315.5304712032,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0390,PC O-32:0,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.1526354899259888,0.3739404305503252,0.8937009496165054,2648655.0168816983,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0391,PC 32:2,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.1065029127864179,0.7930634619855402,0.9216437931952424,7348458.984798841,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0392,PC 32:0,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.1137858721430987,0.4891097957838498,0.8937009496165054,15220990.572429435,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0393,PC O-34:3,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],-0.112877611460907,0.4678830120203625,0.8937009496165054,12261259.17232398,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0394,PC 33:2,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.1590398510742637,0.3146298770973713,0.8937009496165054,5708238.756131485,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0395,PC O-34:2,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],-0.231657964173775,0.4474370698592761,0.8937009496165054,7415676.286749876,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0396,PC 33:1,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.078505552145734,0.7559070692066683,0.9216437931952424,3754838.425867117,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0397,PC O-34:1,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],-0.0729373603730416,0.909551816776875,0.953330623454658,752490.7586903275,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0398,PC 33:0,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.0423426329634195,0.7593295813336955,0.9216437931952424,1116302.4634775128,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0399,PC O-35:5,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.0628281788234468,0.7047192755195149,0.9183848389773136,601409.7668882649,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0400,PC 34:4,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.1512548848891392,0.7272280601923091,0.921131979732708,4562393.32360296,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0401,PC O-35:4,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],-0.1406928218828754,0.6676338913193751,0.9139608058986984,356965.26734531653,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0402,PC 34:0,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.1724743923513729,0.3806224248546478,0.8937009496165054,23502791.672590047,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0403,PC 35:5,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.2416480445996459,0.4821072614464862,0.8937009496165054,412464.3783140409,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0404,PC 35:4,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.251738993370232,0.202164530555373,0.8937009496165054,1901799.73828536,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0405,PC O-36:4,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.0144723432618063,0.9018343217576088,0.9469974787735674,23240026.080140468,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0406,PC O-36:3,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],-0.0343151513802397,0.8305032020958163,0.9343820942063354,4952230.749227553,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0407,PC 35:2,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.029745680294091,0.8553120635100012,0.9393125904873764,17466382.506951284,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0408,PC O-36:2,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.0196522097321539,0.8984424830210297,0.9469974787735674,1592000.2963382967,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0409,PC 36:6,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.1553454116855762,0.7453480246311208,0.9216437931952424,1912151.202397588,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0410,PC 36:5,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.1971305474636654,0.5899157922874547,0.8994552033274821,27855650.404940754,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0411,PC 36:1,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.110001765316623,0.4626919906556812,0.8937009496165054,34070842.874228515,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0412,PC O-38:7,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],-0.0948048238354273,0.5625177532631279,0.8953345911408636,1536356.8486548665,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0413,PC 37:6,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.2034427128108515,0.563197757127211,0.8953345911408636,1079782.6788079636,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0414,PC O-38:6,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.0388277461973881,0.7283474457410317,0.921131979732708,6357691.325255043,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0415,PC O-38:5,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.0734229281679435,0.3005241865826498,0.8937009496165054,16797451.717684016,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0416,PC 37:4,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.1499497918267384,0.4003331378172663,0.8937009496165054,4873625.855082375,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0417,PC O-38:4,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.1715286638462613,0.0978408036755384,0.8937009496165054,9564072.508831242,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0418,PC 38:7,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.1546645583041648,0.6758569703652519,0.9139608058986984,4330527.213920732,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0419,PC 38:3,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.1285016214468009,0.4832615902104211,0.8937009496165054,12314484.38119866,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0420,PC 38:2,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.165061781774587,0.4229772461788553,0.8937009496165054,4186685.1832412113,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0421,PC 39:6,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.016325835636919,0.9414148633018782,0.9689576429125903,1606173.6572138015,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0422,PC O-40:6,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.1612879533721994,0.1524558334289198,0.8937009496165054,1343633.893124086,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0423,PC 39:5,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.0581422554171676,0.6629870011505494,0.9139608058986984,1153567.0819415643,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0424,PC O-40:5,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.2211052656973449,0.0301838502500824,0.8937009496165054,2167197.727565134,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0425,PC 40:8,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.1645065069647252,0.4541146302812143,0.8937009496165054,2516168.3350909976,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0426,PC 40:7,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.0994987917006714,0.6703990678386473,0.9139608058986984,6776382.432547893,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0427,PC 40:5,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.0992630429647109,0.5868802610533643,0.8994552033274821,5586301.173227539,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0428,PC 40:4,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],0.1005342658500315,0.4356286705461597,0.8937009496165054,3736524.850435059,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0429,LPE O-16:1,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],-0.4669531115689799,0.0507814376523205,0.8937009496165054,36733.34955846056,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0430,LPE 16:0,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],0.1552758473247145,0.3385132155891672,0.8937009496165054,266342.1846981385,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0431,LPE O-18:2,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],-0.2620945344533127,0.523497098062202,0.8953345911408636,14719.72947919034,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0432,LPE O-18:1,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],-0.1590306559567401,0.3443699394144341,0.8937009496165054,92161.26955453472,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0433,LPE 17:0,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],-0.0500312738210246,0.8864560303808957,0.9416463138783092,4676981.7027247045,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0434,LPE 18:2,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],0.2794804055136042,0.2666677370666475,0.8937009496165054,925030.6725626217,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0435,LPE 18:1,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],0.0951063089067323,0.8320450076980226,0.9343820942063354,368664.6970519671,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0436,LPE 18:0,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],0.2275763446041258,0.2838120545694423,0.8937009496165054,332921.4097808856,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0437,LPE O-20:1,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],-0.0843636226568934,0.6641538453368373,0.9139608058986984,130957.53791059893,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0438,LPE 22:6,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],-0.1857488396223596,0.5939259755305278,0.8994552033274821,436272.97098548623,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0439,PE O-34:3,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],-0.2763850287734422,0.3608746934300204,0.8937009496165054,406859.256363823,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0440,PE O-34:2,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],-0.0830043144972885,0.5883945957326933,0.8994552033274821,206478.29589420592,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0441,PE 34:3,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],0.536365930532488,0.3146405606168552,0.8937009496165054,97680.61079659272,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0442,PE 34:2,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],0.7091012666115996,0.1588556768371016,0.8937009496165054,581024.2031080015,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0443,PE 34:1,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],0.253490308832474,0.5403633055834947,0.8953345911408636,180212.1012796479,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0444,PE 34:0,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],0.377008714699598,0.1368696567133532,0.8937009496165054,107075.94882862778,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0445,PE O-36:6,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],-0.272178422947312,0.2192355103396736,0.8937009496165054,63147.51181286625,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0446,PE O-36:5,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],-0.0924510767934898,0.619263741661167,0.9051882998759518,1783360.6698779997,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0447,PE O-36:4,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],0.038833971256986,0.841779363943308,0.9386212376712992,942805.4631000648,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0448,PE O-36:3,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],-0.2279123889048006,0.3118894342198401,0.8937009496165054,912321.7574289688,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0449,PE 35:2,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],0.1065863958463646,0.7928806242138513,0.9216437931952424,7347531.184865967,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0450,PE O-36:2,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],-0.0552379928036525,0.7778732038234621,0.9216437931952424,146194.01732550142,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0451,PE 35:1,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],0.1026039919897808,0.7931884185120867,0.9216437931952424,13341632.596857095,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0452,PE 36:5,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],0.7233678455370148,0.2422104673041124,0.8937009496165054,66015.27870305379,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0453,PE O-37:5,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],-0.1104574387488344,0.0915941526489468,0.8937009496165054,553568.4183028882,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0454,PE 36:4,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],0.5958613133920753,0.14200530067632,0.8937009496165054,842709.6037305957,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0455,PE 36:3,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],0.5272090602874581,0.1901937226298965,0.8937009496165054,786630.1576764727,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0456,PE 36:2,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],0.16028438458101,0.3126797204578617,0.8937009496165054,5612513.757568977,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0457,PE 36:1,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],0.0929843025679076,0.6736205126214482,0.9139608058986984,3530754.969724742,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0458,PE O-38:7,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],0.0223277543642168,0.91096037352334,0.953330623454658,1097283.6655935969,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0459,PE O-38:5,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],-0.0510756075336563,0.788886789692103,0.9216437931952424,2126136.2960416866,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0460,PE 37:4,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],0.1503926543277234,0.7307725409048818,0.921131979732708,4507882.232726153,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0461,PE O-38:4,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],0.0324017219162656,0.7339813552790785,0.921131979732708,575712.4722834724,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0462,PE 38:6,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],0.2691855379114312,0.5540641279416341,0.8953345911408636,3330375.7396615795,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0463,PE 38:5,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],0.2654060118758221,0.3169158334937056,0.8937009496165054,379014.5406088765,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0464,PE 38:4,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],0.2457213398561856,0.2039809854693493,0.8937009496165054,1982652.628441507,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0465,PE 38:3,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],0.1469969027359513,0.4759078306976961,0.8937009496165054,2305357.937712783,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0466,PE O-40:8,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],0.0627100295049733,0.7743697764199405,0.9216437931952424,583264.186556684,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0467,PE O-40:7,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],0.2321783746902038,0.3027426432450955,0.8937009496165054,867014.2650627759,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0468,PE 39:6,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],0.1533750775973947,0.7487834966362734,0.9216437931952424,1900716.8333502768,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0469,PE 40:6,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],0.1968053788113931,0.5775395031505797,0.8994552033274821,1064272.448881623,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0470,PE 40:5,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],0.1535092130723841,0.4683606855627877,0.8937009496165054,1324922.364554586,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0471,PE 40:4,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],0.1519171368933657,0.4036471394963874,0.8937009496165054,4927941.308065756,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0472,SM 30:1;O2,,,Ceramide phosphocholines (sphingomyelins) [SP0301],Phosphosphingolipids [SP03],-0.1235423810225071,0.7219536918193006,0.9204320927524402,70735.52967870589,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0473,SM 32:1;O2,,,Ceramide phosphocholines (sphingomyelins) [SP0301],Phosphosphingolipids [SP03],-0.1948051396425464,0.3203552918270187,0.8937009496165054,1185519.4653867611,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0474,SM 34:2;O2,,,Ceramide phosphocholines (sphingomyelins) [SP0301],Phosphosphingolipids [SP03],-0.1154522799839689,0.5461712737484522,0.8953345911408636,2374808.4754818366,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0475,SM 34:1;O2,,,Ceramide phosphocholines (sphingomyelins) [SP0301],Phosphosphingolipids [SP03],-0.1319256235569638,0.4141249185192204,0.8937009496165054,4898903.550135535,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0476,SM 34:1;O3,,,Ceramide phosphocholines (sphingomyelins) [SP0301],Phosphosphingolipids [SP03],-0.1093332892387737,0.4186952244100594,0.8937009496165054,226577.63807726363,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0477,SM 42:3;O2,,,Ceramide phosphocholines (sphingomyelins) [SP0301],Phosphosphingolipids [SP03],-0.0277801962688276,0.878647088913565,0.9416463138783092,2236124.924819801,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0478,SM 31:1;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],0.0830867870056818,0.6554197297986073,0.9139608058986984,594128.0748870241,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0479,SM 32:0;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],-0.0659169450192195,0.7405272798331146,0.9216437931952424,1785620.196057766,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0480,SM 32:2;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],0.1035990555541709,0.7013076414773249,0.9183848389773136,1822186.5416764228,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0481,SM 33:1;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],0.1857383939714871,0.1650109927764071,0.8937009496165054,27800632.785294395,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0482,SM 34:0;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],0.1197436357854268,0.4084883056413685,0.8937009496165054,12592512.308612926,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0483,SM 34:3;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],0.1027860775603038,0.5809808602647328,0.8994552033274821,237548.4101086376,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0484,SM 35:1;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],0.0884876886380682,0.4451811189491605,0.8937009496165054,4986509.806732656,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0485,SM 35:2;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],0.1847501126994642,0.3118589040233054,0.8937009496165054,1605212.3786267398,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0486,SM 36:1;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],0.0960940859947773,0.5222252433500478,0.8953345911408636,25767391.82607472,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0487,SM 36:2;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],0.1696343730572935,0.4237622659212284,0.8937009496165054,17870767.936595403,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0488,SM 36:3;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],0.2302831658633022,0.3172568231512837,0.8937009496165054,2762027.705308917,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0489,SM 37:2;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],0.0264832772932487,0.9019023607367308,0.9469974787735674,275111.5458361561,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0490,SM 38:1;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],0.037523073639269,0.8819820999948721,0.9416463138783092,21439273.41089439,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0491,SM 38:2;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],0.1039656829800389,0.6378094276124515,0.9139608058986984,5859594.841583695,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0492,SM 38:3;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],0.1181852354165466,0.6092155583749115,0.9026025773280164,307390.3371248117,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0493,SM 39:1;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],0.0560025364029869,0.665142892556718,0.9139608058986984,8832092.924910804,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0494,SM 40:1;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],0.0468285571537384,0.7705129112553916,0.9216437931952424,47888576.71098014,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0495,SM 40:2;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],0.0852236808498757,0.7979748684348104,0.9216437931952424,28268260.86940933,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0496,SM 40:3;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],0.1511503530483664,0.6066447863272431,0.9026025773280164,1668803.9915192863,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0497,SM 41:0;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],0.178641216405042,0.1408055471840479,0.8937009496165054,962148.0767785388,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0498,SM 41:1;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],0.113175969993005,0.2513035126840237,0.8937009496165054,16910863.67477907,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0499,SM 41:2;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],0.1339709125340309,0.3301661957246121,0.8937009496165054,13078783.944753176,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0500,SM 42:1;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],0.6340861955028602,0.0717233640319339,0.8937009496165054,2523072.4003303237,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0501,SM 42:2;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],0.2330948148429882,0.1717957615869434,0.8937009496165054,43121199.25073643,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0502,SM 43:1;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],0.3219331918677882,0.3802404246171066,0.8937009496165054,155295.6835329802,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0503,SM 43:2;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],0.1979735135246022,0.4493439616769994,0.8937009496165054,2181387.1862652125,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0504,SM 44:1;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],0.5505568700848017,0.1438830526565814,0.8937009496165054,7495355.631816,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0505,SM 44:2;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],0.6163435306700877,0.1559871972389236,0.8937009496165054,1897573.1155406693,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0506,SM 44:3;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],0.6514434921910294,0.1828060375498933,0.8937009496165054,391164.5209268388,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0507,Sph 18:1;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],-0.1904623689879332,0.540751771429075,0.8953345911408636,9358.690211504629,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0508,Cer 42:0;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,0.3894237285628635,0.0076662176998448,0.6602056906916773,33201.563746882144,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0509,Cer 42:1;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,0.079550115006008,0.6037913746945167,0.9026025773280164,255703.9943226613,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0510,Cer 32:1;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,0.3794322621269469,0.0558092787616692,0.8937009496165054,33772.673893503794,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0511,Cer 34:1;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,0.1160216730483912,0.5289834477720492,0.8953345911408636,71864.96420685326,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0512,Cer 36:1;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,0.0744520251163219,0.8501932803072711,0.9391323434918504,22691.61521327464,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0513,Cer 38:1;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,0.009388397974305,0.9608344701991416,0.976331800363644,87046.22992843114,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0514,Cer 39:1;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,0.0199490605292341,0.9289225287866844,0.964120581772012,61110.24257885993,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0515,Cer 40:2;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,-0.1362434600539733,0.5012525114515058,0.8953345911408636,150485.0786356202,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0516,Cer 41:1;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,0.1168703008261676,0.2917867856529957,0.8937009496165054,671331.618640035,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0517,Cer 41:2;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,-0.0061755591582565,0.9652677694569456,0.9792571574200896,140032.00845515434,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0518,Cer 40:1;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,0.0234940172632849,0.88424384794037,0.9416463138783092,668217.5495526784,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0519,Cer 42:2;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,0.0551976601325482,0.7284633379300027,0.921131979732708,688331.5704907534,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0520,Cer 44:1;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,0.1000844918143241,0.4542948467195877,0.8937009496165054,142125.88552166958,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0521,Cer 34:2;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,0.3312484061073625,0.2007504913456098,0.8937009496165054,13937.226812026973,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0522,Cer 42:3;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,0.8199129913461192,0.0045340579600978,0.6602056906916773,83005.91591542562,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0523,Cer 43:1;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,0.2013680269463614,0.420061162014103,0.8937009496165054,346678.29509903234,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0524,Cer 43:2;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,0.147388428073751,0.5075162915256457,0.8953345911408636,116925.91433307908,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0525,dhCer 40:0;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,0.6694880512032478,0.012610766175295,0.7944782690435889,159567.7194560167,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0526,dhCer 42:0;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,0.5036848389523908,0.0094315098670239,0.6602056906916773,512664.6471510176,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0527,dhCer 42:1;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,0.1249563773296367,0.4168729779636624,0.8937009496165054,2742588.3390925936,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0528,Cer 40:0;O,,,	Ceramides [SP02]	,	Ceramides [SP02]	,-0.0530848966147436,0.8919059193202643,0.9427864583418902,48544.84880532513,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0529,Cer 40:1;O,,,	Ceramides [SP02]	,	Ceramides [SP02]	,0.2800928700357473,0.2307619186610149,0.8937009496165054,68716.2674453149,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0530,HexCer 34:1;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,0.2468444655591051,0.2843934933515344,0.8937009496165054,10565849.99633439,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0531,HexCer 38:1;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,0.6703472840793938,0.2867715587394794,0.8937009496165054,1736861.8117210676,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0532,HexCer 40:1;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,0.0852741305339208,0.7987579541025434,0.9216437931952424,13647063.698106645,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0533,Hex2Cer 34:1;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,0.2387633080631566,0.3546952960866327,0.8937009496165054,368562.6965703227,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0534,Hex2Cer 40:1;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,0.1046958773523221,0.880930009407665,0.9416463138783092,10361.924981602995,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0535,Hex2Cer 42:1;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,0.3219196063086997,0.4725526775439792,0.8937009496165054,16719.310059323634,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0536,Hex2Cer 42:2;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,0.2467504417945279,0.4611183708899642,0.8937009496165054,93753.05483985908,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0537,Hex2Cer 34:2;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,0.0185165624112717,0.9362483869513988,0.9667751321875278,87672.15529657489,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0538,Hex3Cer 34:1;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,0.139051164005693,0.3583629823301137,0.8937009496165054,113771.42511655942,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0539,Hex3Cer 36:1;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,0.2585941205012422,0.2027112887968611,0.8937009496165054,87182.2081564433,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0540,Hex3Cer 40:1;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,0.3515113661449559,0.5285050042993353,0.8953345911408636,4160.609175460812,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0541,Hex3Cer 42:2;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,0.431956325876786,0.4223606167897462,0.8937009496165054,13473.833488873805,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0542,GM3 34:1;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,0.1694799994872119,0.2789832707665472,0.8937009496165054,77741.98286427306,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0543,GM3 36:1;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,0.2399559208380752,0.2579700518256129,0.8937009496165054,33882.41949574026,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0544,GM3 38:1;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,0.1956487841436205,0.8193380200338016,0.9267198431262028,4284.958507761631,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0545,GM3 40:1;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,0.2354053167471981,0.415044293167951,0.8937009496165054,153736.77848269136,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0546,GM3 42:1;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,0.021917596179508,0.956586784968491,0.9737444207683674,20201.714653360985,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0547,S1P 18:0;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,-0.5826111099757302,0.3492450033622143,0.8937009496165054,12223.397187574772,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0548,S1P 18:1;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],-0.0509676820069545,0.783863824787066,0.9216437931952424,78542.03105905866,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0549,LPI 18:1,,,Glycerophosphoinositols [GP06],Glycerophospholipids [GP],1.6696038414254393,0.0017157274804091,0.6602056906916773,20971.22839777629,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0550,PI 32:0,,,Glycerophosphoinositols [GP06],Glycerophospholipids [GP],0.0603806196280114,0.8596558292115497,0.9393125904873764,66900.01374835717,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0551,PI 34:1,,,Glycerophosphoinositols [GP06],Glycerophospholipids [GP],0.2766974560467688,0.4019382026322249,0.8937009496165054,860235.4212521329,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0552,PI 34:0,,,Glycerophosphoinositols [GP06],Glycerophospholipids [GP],0.1690155635247468,0.5026525496163856,0.8953345911408636,284577.69534117373,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0553,PI 35:2,,,Glycerophosphoinositols [GP06],Glycerophospholipids [GP],0.1209722543959921,0.6977810756653335,0.9183848389773136,191414.10772735733,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0554,PI 35:1,,,Glycerophosphoinositols [GP06],Glycerophospholipids [GP],0.3350473169455641,0.4764725266697505,0.8937009496165054,11725.21099598694,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0555,PI 36:4,,,Glycerophosphoinositols [GP06],Glycerophospholipids [GP],0.3105483677155642,0.1728526394557432,0.8937009496165054,118754.95974496966,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0556,PI 36:3,,,Glycerophosphoinositols [GP06],Glycerophospholipids [GP],0.2607392481291607,0.4193380290070356,0.8937009496165054,96190.2827753399,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0557,PI 36:2,,,Glycerophosphoinositols [GP06],Glycerophospholipids [GP],0.1377581866574646,0.5889331736298657,0.8994552033274821,180907.60539686843,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0558,PI 36:1,,,Glycerophosphoinositols [GP06],Glycerophospholipids [GP],0.1147400713025021,0.711778093132127,0.9183848389773136,645182.300217125,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0559,PI 38:6,,,Glycerophosphoinositols [GP06],Glycerophospholipids [GP],1.325325805950493,0.0183024757441228,0.8937009496165054,14128.313776743573,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0560,PI 38:5,,,Glycerophosphoinositols [GP06],Glycerophospholipids [GP],0.2008940347841748,0.3609977275469416,0.8937009496165054,88464.90656567381,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0561,PI 38:4,,,Glycerophosphoinositols [GP06],Glycerophospholipids [GP],0.2210510554644516,0.1857903067398209,0.8937009496165054,457430.526484024,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0562,PI 38:3,,,Glycerophosphoinositols [GP06],Glycerophospholipids [GP],0.3179661757257349,0.145217324786384,0.8937009496165054,354699.18334455864,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0563,PI 38:2,,,Glycerophosphoinositols [GP06],Glycerophospholipids [GP],0.2555514643761892,0.2865653324787552,0.8937009496165054,121778.46434692635,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0564,PI 40:6,,,Glycerophosphoinositols [GP06],Glycerophospholipids [GP],0.3988893650011896,0.4207809426653702,0.8937009496165054,59070.26352797438,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0565,PI 40:5,,,Glycerophosphoinositols [GP06],Glycerophospholipids [GP],0.5120815216024855,0.1794328494604286,0.8937009496165054,20791.04549908957,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0566,PI 40:4,,,Glycerophosphoinositols [GP06],Glycerophospholipids [GP],0.2328373137668665,0.2520528675975895,0.8937009496165054,104234.24858256785,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0567,PA 34:1,,,Glycerophosphates [GP10],Glycerophospholipids [GP],0.2081504031829854,0.7570704043051754,0.9216437931952424,81669.56683924612,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0568,PA 36:3,,,Glycerophosphates [GP10],Glycerophospholipids [GP],0.7091547527420163,0.1583267696864949,0.8937009496165054,580690.745145088,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0569,PA 36:4,,,Glycerophosphates [GP10],Glycerophospholipids [GP],0.536365930532488,0.3146405606168552,0.8937009496165054,97680.61079659272,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0570,PG 32:0,,,"
+Glycerophosphoglycerols [GP04]",Glycerophospholipids [GP],0.0028109336169802,0.9910001008896758,0.9941561521663944,3666545.056818539,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0571,PG 34:0,,,"
+Glycerophosphoglycerols [GP04]",Glycerophospholipids [GP],0.154899837208457,0.4644784314425361,0.8937009496165054,4466182.771135029,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0572,PG 36:0,,,"
+Glycerophosphoglycerols [GP04]",Glycerophospholipids [GP],0.2983923614339613,0.1200649128522844,0.8937009496165054,1335793.6150421544,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0573,PG 34:1,,,"
+Glycerophosphoglycerols [GP04]",Glycerophospholipids [GP],0.2052627325373749,0.4073066270608018,0.8937009496165054,2854177.2910292973,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0574,PG 36:1,,,"
+Glycerophosphoglycerols [GP04]",Glycerophospholipids [GP],0.2161847318806197,0.6157626779361136,0.9026025773280164,1071725.1960290526,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0575,PG 36:2,,,"
+Glycerophosphoglycerols [GP04]",Glycerophospholipids [GP],0.2052139247394733,0.4796529942329046,0.8937009496165054,2403162.713776796,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0576,PG 36:3,,,"
+Glycerophosphoglycerols [GP04]",Glycerophospholipids [GP],0.1443607407518556,0.6156774065923926,0.9026025773280164,1100649.552842245,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0577,NAE 16:0/Palmitoylethanolamide,,,"
+N-acyl ethanolamines","
+Fatty amides",-0.088874950402112,0.497322360831148,0.8953345911408636,32938.68105692544,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0578,NAE 20:0/Eicosanoyl-EA,,,"
+N-acyl ethanolamines","
+Fatty amides",0.2501741930467547,0.6160620765889635,0.9026025773280164,3643.160478997115,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0579,NAE 20:1,,,"
+N-acyl ethanolamines","
+Fatty amides",0.7441932838797897,0.1542812417057697,0.8937009496165054,8466.594835021633,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0580,NAE 18:1/Oleoyl-EA,,,"
+N-acyl ethanolamines","
+Fatty amides",0.2163417260225047,0.3948732332258878,0.8937009496165054,16337.010938448431,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0581,NAE 18:0/ Stearoyl-EA,,,"
+N-acyl ethanolamines","
+Fatty amides",-0.0549868849552667,0.8312292653203772,0.9343820942063354,14288.917978337602,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0582,CE 15:0,,,Sterols [ST01],"Sterol Lipids [ST]
+",0.0910486584988202,0.6784586500109897,0.9139608058986984,131701.54967965707,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0583,CE 16:0,,,Sterols [ST01],"Sterol Lipids [ST]
+",-0.0533815542587305,0.8019890233556197,0.9219946801351102,24798.20255370079,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0584,CE 17:0,,,Sterols [ST01],"Sterol Lipids [ST]
+",0.3191889313056705,0.5483461197384487,0.8953345911408636,6742.014569446918,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0585,CE 18:1,,,Sterols [ST01],"Sterol Lipids [ST]
+",0.0323489988330496,0.875113819080937,0.9416463138783092,550196.7088882449,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0586,CE 18:2,,,Sterols [ST01],"Sterol Lipids [ST]
+",-0.0776566767798329,0.7465329919662247,0.9216437931952424,5604772.6628556885,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0587,CE 18:3,,,Sterols [ST01],"Sterol Lipids [ST]
+",-0.2691840863187804,0.4596078725867476,0.8937009496165054,405974.7349967972,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0588,CE 20:3,,,Sterols [ST01],"Sterol Lipids [ST]
+",-0.0797628739047705,0.7191455977295936,0.9200644852631849,827560.8077828496,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0589,CE 20:4,,,Sterols [ST01],"Sterol Lipids [ST]
+",-0.2983963156922184,0.4209406072384621,0.8937009496165054,3653459.36768379,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0590,CE 20:5,,,Sterols [ST01],"Sterol Lipids [ST]
+",-0.1757366616559342,0.6575729855283783,0.9139608058986984,649850.0703305263,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0591,CE 22:4,,,Sterols [ST01],"Sterol Lipids [ST]
+",-0.1776516145223047,0.5957506951163554,0.900055007010321,34304.96239464316,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0592,CE 22:5,,,Sterols [ST01],"Sterol Lipids [ST]
+",-0.2463286969178189,0.5657501190311134,0.8953345911408636,281821.1924748279,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0593,CE 22:6,,,Sterols [ST01],"Sterol Lipids [ST]
+",-0.2885384098932435,0.5461681078765261,0.8953345911408636,1283796.472670171,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0594,CE 19:2,,,Sterols [ST01],"Sterol Lipids [ST]
+",-0.1262645838227685,0.7380290268137026,0.9216437931952424,11799.496903153757,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0595,2-AG,,,Monoacylglycerophosphocholines [GP0105],"Glycerolipids [GL]
+",-0.0311204259068843,0.928657273631378,0.964120581772012,16540.640316028595,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0596,DG 34:1,,,Diradylglycerols [GL02],"Glycerolipids [GL]
+",0.3037347806107338,0.357244095406187,0.8937009496165054,331513.8992779593,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0597,DG 34:2,,,Diradylglycerols [GL02],"Glycerolipids [GL]
+",0.4358656717274846,0.1159916650816372,0.8937009496165054,295388.25857244903,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0598,DG 36:1,,,Diradylglycerols [GL02],"Glycerolipids [GL]
+",0.2378578658409093,0.6062096102600256,0.9026025773280164,89508.68484161125,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0599,DG 36:2,,,Diradylglycerols [GL02],"Glycerolipids [GL]
+",0.1148623780018807,0.7106048645524456,0.9183848389773136,895524.8691599243,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0600,DG 36:3,,,Diradylglycerols [GL02],"Glycerolipids [GL]
+",0.2750574690970626,0.3300125272884544,0.8937009496165054,908907.8974552152,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0601,DG 36:4,,,Diradylglycerols [GL02],"Glycerolipids [GL]
+",0.4156285265692476,0.2494276242708043,0.8937009496165054,400075.9550053624,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0602,DG 38:5,,,Diradylglycerols [GL02],"Glycerolipids [GL]
+",0.6707608235395317,0.0290717281461503,0.8937009496165054,119843.30188595508,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0603,DG 40:7,,,Diradylglycerols [GL02],"Glycerolipids [GL]
+",0.8256420907032571,0.1279543210993211,0.8937009496165054,22205.80179793549,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0604,DG 40:8,,,Diradylglycerols [GL02],"Glycerolipids [GL]
+",0.733422297869409,0.3602179585631346,0.8937009496165054,9736.493859539796,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0605,TG 48:3,,,Triradylglycerols [GL03],"Glycerolipids [GL]
+",0.7222000660154152,0.1737760194798817,0.8937009496165054,7111359.657924238,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0606,TG 48:2,,,Triradylglycerols [GL03],"Glycerolipids [GL]
+",0.4018787123155561,0.3910765434453135,0.8937009496165054,16201879.618746066,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0607,TG 48:1,,,Triradylglycerols [GL03],"Glycerolipids [GL]
+",0.2182769016737096,0.6655244178323718,0.9139608058986984,18073906.43375076,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0608,TG 48:0,,,Triradylglycerols [GL03],"Glycerolipids [GL]
+",0.4024135057907534,0.4885170105698753,0.8937009496165054,8392183.666361438,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0609,TG 49:1,,,Triradylglycerols [GL03],"Glycerolipids [GL]
+",0.083512293188169,0.8379907034045937,0.937362954262856,3335504.813442158,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0610,TG 50:4,,,Triradylglycerols [GL03],"Glycerolipids [GL]
+",0.5432971208898728,0.1344082100996333,0.8937009496165054,10193492.630774897,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0611,TG 50:3,,,Triradylglycerols [GL03],"Glycerolipids [GL]
+",0.3108659084375978,0.2025150818019144,0.8937009496165054,30394683.32571904,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0612,TG 50:2,,,Triradylglycerols [GL03],"Glycerolipids [GL]
+",0.1895528829042302,0.3935446961213982,0.8937009496165054,52756088.78200018,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0613,TG 50:1,,,Triradylglycerols [GL03],"Glycerolipids [GL]
+",0.2709885689110138,0.3247857460409796,0.8937009496165054,51089222.15175838,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0614,TG 50:0,,,Triradylglycerols [GL03],"Glycerolipids [GL]
+",0.3953495757390108,0.3622751400665038,0.8937009496165054,13066126.79090966,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0615,TG 51:2,,,Triradylglycerols [GL03],"Glycerolipids [GL]
+",0.0605434540050639,0.7969827638466824,0.9216437931952424,6426541.492467119,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0616,TG 51:1,,,Triradylglycerols [GL03],"Glycerolipids [GL]
+",0.0986844859805489,0.7701626006978095,0.9216437931952424,4240443.432151902,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0617,TG 51:0,,,Triradylglycerols [GL03],"Glycerolipids [GL]
+",0.1702200036642055,0.7515939836409219,0.9216437931952424,1194687.5926716311,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0618,TG 52:5,,,Triradylglycerols [GL03],"Glycerolipids [GL]
+",0.3209794292478938,0.275298298582247,0.8937009496165054,18182546.246081043,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0619,TG 52:4,,,Triradylglycerols [GL03],"Glycerolipids [GL]
+",0.1831327045709527,0.5111742634454357,0.8953345911408636,71315115.52803405,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0620,TG 52:3,,,Triradylglycerols [GL03],"Glycerolipids [GL]
+",0.1081136006443515,0.5670452410558803,0.8953345911408636,143047039.98106655,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0621,TG 52:2,,,Triradylglycerols [GL03],"Glycerolipids [GL]
+",0.0654601146806026,0.7531551251035926,0.9216437931952424,158825674.39277366,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0622,TG 52:1,,,Triradylglycerols [GL03],"Glycerolipids [GL]
+",0.1983954360651015,0.5005989071249897,0.8953345911408636,45204644.15735648,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0623,TG 53:2,,,Triradylglycerols [GL03],"Glycerolipids [GL]
+",0.0021136515337128,0.9934276507750676,0.9950070270084144,5712971.277232322,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0624,TG 54:7,,,Triradylglycerols [GL03],"Glycerolipids [GL]
+",0.4076222407179298,0.2559569317717082,0.8937009496165054,5621200.61659827,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0625,TG 54:6,,,Triradylglycerols [GL03],"Glycerolipids [GL]
+",0.3276419243450677,0.2674039182465246,0.8937009496165054,19482563.48174839,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0626,TG 54:5,,,Triradylglycerols [GL03],"Glycerolipids [GL]
+",0.2468250529638358,0.2576852117933345,0.8937009496165054,38305974.28451044,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0627,TG 54:4,,,Triradylglycerols [GL03],Glycerolipids [GL],0.1881636240117356,0.3380360749420202,0.8937009496165054,54454937.61961108,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0628,TG 54:3,,,Triradylglycerols [GL03],Glycerolipids [GL],0.1241962048152778,0.6515537277384076,0.9139608058986984,62761238.28921058,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0629,TG 54:2,,,Triradylglycerols [GL03],Glycerolipids [GL],0.1337200595933401,0.7096882023342861,0.9183848389773136,35937334.77276901,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0630,TG 56:9,,,Triradylglycerols [GL03],Glycerolipids [GL],0.3699163746566116,0.4309649095654347,0.8937009496165054,1083140.802470958,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0631,TG 56:8,,,Triradylglycerols [GL03],Glycerolipids [GL],0.3499954420000623,0.2361540160507673,0.8937009496165054,5104473.623313083,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0632,TG 56:7,,,Triradylglycerols [GL03],Glycerolipids [GL],0.3105856083926817,0.1398368964999335,0.8937009496165054,10917946.051382769,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0633,TG 56:6,,,Triradylglycerols [GL03],Glycerolipids [GL],0.248739292516768,0.1235958477335599,0.8937009496165054,11739959.684607944,R+39_vs_Preflight,Polaris_Dawn
+MET_PD_0634,TG 58:10,,,Triradylglycerols [GL03],Glycerolipids [GL],0.2996479512527059,0.4829236861793085,0.8937009496165054,925475.6939950184,R+39_vs_Preflight,Polaris_Dawn

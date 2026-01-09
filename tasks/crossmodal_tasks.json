@@ -1,0 +1,42 @@
+{
+  "M1": {
+    "name": "Clinical-Transcriptomic Concordance",
+    "description": "Identify clinical markers that correlate with transcriptomic signatures",
+    "type": "discovery",
+    "input": {
+      "clinical": "34 CBC/CMP markers",
+      "transcriptomics": "500 genes fold changes"
+    },
+    "expected_findings": [
+      {
+        "clinical": "ABSOLUTE_LYMPHOCYTES",
+        "transcriptomic": "IL7R",
+        "mechanism": "lymphocyte markers"
+      },
+      {
+        "clinical": "Hemoglobin",
+        "transcriptomic": "HBB/HBA1/HBA2",
+        "mechanism": "erythroid"
+      },
+      {
+        "clinical": "PLATELET_COUNT",
+        "transcriptomic": "PF4/PPBP",
+        "mechanism": "platelet-derived"
+      }
+    ],
+    "difficulty": "hard"
+  },
+  "M2": {
+    "name": "Multi-Modal Spaceflight Signature",
+    "description": "Integrate clinical and transcriptomic data to define robust spaceflight biomarkers",
+    "type": "integration",
+    "input": {
+      "clinical_changes": "NLR, lymphocytes, liver enzymes",
+      "transcriptomic_changes": "erythroid genes, immune genes"
+    },
+    "output": {
+      "target": "integrated_spaceflight_score"
+    },
+    "difficulty": "expert"
+  }
+}

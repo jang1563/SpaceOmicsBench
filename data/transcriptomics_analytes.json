@@ -1,0 +1,135 @@
+{
+  "omics_type": "transcriptomics",
+  "platform": "cfRNA-seq",
+  "normalization": "DESeq2",
+  "total_genes": 500,
+  
+  "gene_signatures": {
+    "erythropoiesis": {
+      "description": "Erythroid lineage and hemoglobin genes",
+      "genes": ["HBB", "HBA1", "HBA2", "HBD", "ANK1", "SLC4A1", "EPB42", "SPTA1", "SPTB", "CA1", "CA2", "AHSP", "FECH", "TRIM58", "BPGM", "DMTN", "GYPA"],
+      "expected_direction": "DOWN",
+      "spaceflight_relevance": "Space anemia - neocytolysis and reduced erythropoiesis",
+      "benchmark_use": ["signature_enrichment", "pathway_prediction"]
+    },
+    
+    "immune_activation": {
+      "description": "Immune response and inflammation markers",
+      "genes": ["CD3D", "CD4", "CD8A", "CD14", "CD19", "IL6", "TNF", "IFNG", "IL1B", "IL10", "CXCL8", "CCL2"],
+      "expected_direction": "MIXED",
+      "spaceflight_relevance": "Immune dysregulation during spaceflight",
+      "benchmark_use": ["signature_enrichment", "immune_classification"]
+    },
+    
+    "oxidative_stress": {
+      "description": "Oxidative stress response genes",
+      "genes": ["SOD1", "SOD2", "CAT", "GPX1", "GPX4", "PRDX1", "PRDX2", "NRF2", "HMOX1", "NQO1"],
+      "expected_direction": "UP",
+      "spaceflight_relevance": "Radiation and microgravity-induced oxidative stress",
+      "benchmark_use": ["signature_enrichment", "stress_prediction"]
+    },
+    
+    "dna_damage_repair": {
+      "description": "DNA repair pathway genes",
+      "genes": ["XRCC1", "XRCC2", "XRCC3", "BRCA1", "BRCA2", "ATM", "ATR", "TP53", "RAD51", "PARP1"],
+      "expected_direction": "UP",
+      "spaceflight_relevance": "Response to cosmic radiation",
+      "benchmark_use": ["signature_enrichment", "radiation_response"]
+    },
+    
+    "apoptosis": {
+      "description": "Programmed cell death regulators",
+      "genes": ["BCL2", "BAX", "BAK1", "CASP3", "CASP8", "CASP9", "BAG1", "XIAP", "BIRC5", "MCL1"],
+      "expected_direction": "MIXED",
+      "spaceflight_relevance": "Cell turnover and stress response",
+      "benchmark_use": ["signature_enrichment"]
+    },
+    
+    "heat_shock": {
+      "description": "Heat shock and protein folding stress",
+      "genes": ["HSPA1A", "HSPA1B", "HSPA8", "HSP90AA1", "HSP90AB1", "DNAJB1", "HSPB1", "HSPD1"],
+      "expected_direction": "UP",
+      "spaceflight_relevance": "Cellular stress response",
+      "benchmark_use": ["signature_enrichment"]
+    },
+    
+    "platelet_derived": {
+      "description": "Platelet-derived cfRNA markers",
+      "genes": ["PF4", "PPBP", "GP1BA", "GP9", "ITGA2B", "ITGB3", "SELP", "THBS1"],
+      "expected_direction": "MIXED",
+      "spaceflight_relevance": "Platelet activation and coagulation",
+      "benchmark_use": ["tissue_deconvolution"]
+    },
+    
+    "endothelial": {
+      "description": "Endothelial cell markers",
+      "genes": ["VWF", "CDH5", "PECAM1", "NOS3", "KDR", "TIE1", "ANGPT2"],
+      "expected_direction": "MIXED",
+      "spaceflight_relevance": "Vascular adaptation to microgravity",
+      "benchmark_use": ["tissue_deconvolution"]
+    }
+  },
+  
+  "key_biomarkers": {
+    "tier1_validated": {
+      "description": "Reproducibly altered across multiple missions",
+      "genes": [
+        {"gene": "HBB", "direction": "DOWN", "concordance": 0.85, "effect_size": -1.2},
+        {"gene": "HBA2", "direction": "DOWN", "concordance": 0.82, "effect_size": -1.1},
+        {"gene": "ANK1", "direction": "DOWN", "concordance": 0.80, "effect_size": -1.5},
+        {"gene": "SLC4A1", "direction": "DOWN", "concordance": 0.78, "effect_size": -0.9},
+        {"gene": "EPB42", "direction": "DOWN", "concordance": 0.88, "effect_size": -1.3},
+        {"gene": "CA1", "direction": "DOWN", "concordance": 0.75, "effect_size": -1.4},
+        {"gene": "FHDC1", "direction": "DOWN", "concordance": 0.72, "effect_size": -1.7}
+      ]
+    },
+    
+    "tier2_suggestive": {
+      "description": "Altered in single mission or lower concordance",
+      "genes": [
+        {"gene": "XRCC1", "direction": "UP", "concordance": 0.65, "effect_size": 0.8},
+        {"gene": "HMBOX1", "direction": "UP", "concordance": 0.60, "effect_size": 0.7},
+        {"gene": "IGF2BP2", "direction": "UP", "concordance": 0.58, "effect_size": 1.2}
+      ]
+    }
+  },
+  
+  "temporal_patterns": {
+    "transient_response": {
+      "description": "Altered at R+1, normalized by R+39/45",
+      "pattern": "peak_immediate_recovery",
+      "typical_genes": ["HBB", "ANK1", "CA1"]
+    },
+    
+    "persistent_change": {
+      "description": "Maintained alteration through recovery period",
+      "pattern": "sustained",
+      "typical_genes": []
+    },
+    
+    "delayed_response": {
+      "description": "Not altered at R+1, changed at R+39/45",
+      "pattern": "delayed",
+      "typical_genes": []
+    }
+  },
+  
+  "quality_metrics": {
+    "min_genes_detected": 5000,
+    "min_reads_per_sample": 10000000,
+    "rRNA_contamination_max": 0.10,
+    "mapping_rate_min": 0.70
+  },
+  
+  "analysis_recommendations": {
+    "normalization": "DESeq2 median-of-ratios",
+    "batch_correction": "ComBat or limma::removeBatchEffect",
+    "differential_expression": "DESeq2 with paired design when available",
+    "pathway_analysis": "Gene set enrichment (GSEA) or over-representation (ORA)",
+    "significance_threshold": {
+      "padj": 0.10,
+      "log2FC": 0.5,
+      "note": "Relaxed threshold appropriate for small sample sizes"
+    }
+  }
+}

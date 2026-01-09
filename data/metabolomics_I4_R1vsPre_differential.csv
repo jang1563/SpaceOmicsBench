@@ -1,0 +1,455 @@
+metabolite_id,metabolite_name,HMDB_id,KEGG_id,pathway,super_pathway,log2FoldChange,pvalue,padj,baseMean,comparison,mission
+MET_I4_0001,Alanine,HMDB00161,C00041,"Alanine, Aspartate, and Glutamate metabolism",Amino acids,-0.128087871220748,0.3371082387081675,0.6635265153196083,1650319.75,R+1_vs_Preflight,Inspiration4
+MET_I4_0002,Succinic Semialdehyde,HMDB01259,C00232,"Alanine, Aspartate, and Glutamate metabolism",Amino acids,0.3757963981162013,0.2072854876380428,0.5842859682797332,101182.2125,R+1_vs_Preflight,Inspiration4
+MET_I4_0003,4-Aminobutanoate (GABA),HMDB00112,C00334,"Alanine, Aspartate, and Glutamate metabolism",Amino acids,0.4615038782150104,0.0708183064146785,0.4316088674732432,1391259.4583333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0004,Asparagine,HMDB00168,C00152,"Alanine, Aspartate, and Glutamate metabolism",Amino acids,0.0498516011164801,0.8666324414104536,0.9514184856318494,337812.4416666667,R+1_vs_Preflight,Inspiration4
+MET_I4_0005,Glutamine,HMDB00641,C00064,"Alanine, Aspartate, and Glutamate metabolism",Amino acids,0.0675746999884212,0.5641299942674743,0.8287382000476577,16813928.083333332,R+1_vs_Preflight,Inspiration4
+MET_I4_0006,Glutamic Acid,HMDB00148,C00025,"Alanine, Aspartate, and Glutamate metabolism",Amino acids,-0.0775083691551461,0.8120065651202202,0.9409478282768764,1116305.0333333332,R+1_vs_Preflight,Inspiration4
+MET_I4_0007,3-Hydroxyglutaric Acid,HMDB00428,,"Alanine, Aspartate, and Glutamate metabolism, glutamate degradation",Amino acids,-0.1750450057675243,0.6012306418479445,0.836628725087066,395080.8583333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0008,N-Acetylaspartic Acid,HMDB00812,C01042,"Alanine, aspartate, and glutamate metabolism",Amino acids,-0.0583427000725742,0.6584159761020905,0.8532919690288586,448327.2333333332,R+1_vs_Preflight,Inspiration4
+MET_I4_0009,N-Acetylaspartiylglutamate (NAAG),HMDB01067,C12270,"Alanine, aspartate, and glutamate metabolism",Amino acids,-0.0441980303032136,0.8339675624999778,0.9424372905349326,33323.25583333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0010,Urea,HMDB00294,C00086,Arginine and Proline metabolism,Amino acids,0.0466988051455943,0.7003795842031473,0.8804465545905312,7815303.0,R+1_vs_Preflight,Inspiration4
+MET_I4_0011,Creatinine,HMDB00562,C00791,Arginine and Proline metabolism,Amino acids,-0.2158317788638025,0.1095169869781242,0.4683643946690702,84414072.91666667,R+1_vs_Preflight,Inspiration4
+MET_I4_0012,Proline,HMDB00162,C00148,Arginine and Proline metabolism,Amino acids,0.2301517472786091,0.1221612950908682,0.4683643946690702,12335998.666666666,R+1_vs_Preflight,Inspiration4
+MET_I4_0013,4-Hydroxy-Proline,,C01157,Arginine and Proline metabolism,Amino acids,0.4502551369756872,0.2184252273412333,0.5880403552006206,237981.73333333337,R+1_vs_Preflight,Inspiration4
+MET_I4_0014,Ornithine,HMDB00214,C00077,Arginine and proline metabolism,Amino acids,-0.6051121032006754,0.1124991821447169,0.4683643946690702,609409.5416666666,R+1_vs_Preflight,Inspiration4
+MET_I4_0015,Arginine,HMDB00517,C00062,Arginine and Proline metabolism,Amino acids,0.5412049359609572,0.117654916440871,0.4683643946690702,966234.5,R+1_vs_Preflight,Inspiration4
+MET_I4_0016,Citrulline,HMDB00904,C00327,Arginine and Proline metabolism,Amino acids,-0.4351670687571199,0.1029336289078906,0.4683643946690702,122465.16083333334,R+1_vs_Preflight,Inspiration4
+MET_I4_0017,N-Acetydglutamic Acid,HMDB01138,C00624,Arginine and proline metabolism,Amino acids,-0.029061730740892,0.8844335220632403,0.9514184856318494,189616.2,R+1_vs_Preflight,Inspiration4
+MET_I4_0018,Dimethylarginine,HMDB03334,,Arginine and Proline metabolism,Amino acids,-0.2009603721560682,0.0775517623111691,0.4393682020118479,246649.6166666666,R+1_vs_Preflight,Inspiration4
+MET_I4_0019,Argininosuccinic Acid,HMDB00052,C03406,Arginine and Proline metabolism,Amino acids,0.2179859076300985,0.2444709525384556,0.6106672304348486,127509.34416666666,R+1_vs_Preflight,Inspiration4
+MET_I4_0020,Phosphocreatine,HMDB01511,C02305,"Arginine and Proline metabolism,Creatine metabolism",Amino acids,-0.192889208911618,0.5978106277580069,0.836628725087066,11793.85233333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0021,Guanidinosuccinic Acid,HMDB03157,C03139,"Arginine and Proline metabolism,L-Arginosuccinate oxidation",Amino acids,-0.080799866621507,0.511524440440249,0.7982613240088315,60531.49749999999,R+1_vs_Preflight,Inspiration4
+MET_I4_0022,Pyrrole-2-Carboxylic Acid,HMDB04230,C05942,Oxidation derivative of hydroxyproline,Amino acids,,,,78651.59222222223,R+1_vs_Preflight,Inspiration4
+MET_I4_0023,Proline Betaine,HMDB04827,C10172,"Arginine and Proline metabolism, osmolyte",Amino acids,-2.0667614973867887,0.0925030845407876,0.44943203779015,3576777.1,R+1_vs_Preflight,Inspiration4
+MET_I4_0024,Sulfite,HMDB00240,C00094,Cysteine and Methionine metabolism,Amino acids,0.0109583178680373,0.9809848377439788,0.9942115996012012,19236.51683333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0025,Thiosulfate,HMDB00257,C00320,Cysteine and Methionine metabolism,Amino acids,-0.9226373867159526,0.1541402020319136,0.5226859482435567,8839450.5,R+1_vs_Preflight,Inspiration4
+MET_I4_0026,Homocysteine Thiolactone,HMDB02287,,Cysteine and methionine metabolism,Amino acids,-0.0856973791954095,0.7929634474789384,0.931279900761281,54472.62,R+1_vs_Preflight,Inspiration4
+MET_I4_0027,Methionine,HMDB00696,C00073,Cysteine and methionine metabolism,Amino acids,0.2091131078318054,0.1275573817502868,0.470632807493079,3902545.1666666665,R+1_vs_Preflight,Inspiration4
+MET_I4_0028,N-Formylmethionine,HMDB01015,C03145,Cysteine and Methionine metabolism,Amino acids,-0.045039537154022,0.8178526578371077,0.9409478282768764,190007.1,R+1_vs_Preflight,Inspiration4
+MET_I4_0029,Cysteine-S-Sulfonic Acid,HMDB00731,C05824,Cysteine and Methionine metabolism,Amino acids,0.1146584759260569,0.6483149999744852,0.8502136175419236,6319287.0,R+1_vs_Preflight,Inspiration4
+MET_I4_0030,O-Succinylhomoserine,,C01118,Cysteine and methionine metabolism,Amino acids,-0.3429140558259274,0.3768485599578464,0.6853173408910835,26146.02666666667,R+1_vs_Preflight,Inspiration4
+MET_I4_0031,Methionine  Lactamide,,,"Cysteine and methionine metabolism,  from msms fragmentation",Amino acids,-2.819299503417891,0.1165279794236331,0.4683643946690702,15970.060249999997,R+1_vs_Preflight,Inspiration4
+MET_I4_0032,Cystine,HMDB00192,C00491,Cysteine and methionine metabolism,Amino acids,0.14677925343556,0.3880109613783673,0.6953615185590964,315369.95,R+1_vs_Preflight,Inspiration4
+MET_I4_0033,2-Hydroxybutyric acid,HMDB00008,C05984,Cysteine and methionine metabolism,Amino acids,0.4051905990482283,0.172318365040026,0.5472928354440263,4784448.916666667,R+1_vs_Preflight,Inspiration4
+MET_I4_0034,5'-Methylthioadenosine (MTA),HMDB01173,C00170,Cysteine and methionine metabolism,Amino acids,0.6385276884516498,0.1696480134009431,0.5426330074030167,14332.505749999998,R+1_vs_Preflight,Inspiration4
+MET_I4_0035,S-Adenosylhomocysteine (SAH),HMDB00939,C00021,Cysteine and methionine metabolism,Amino acids,-0.3072633309248377,0.2134243474495813,0.5880403552006206,10777.541833333336,R+1_vs_Preflight,Inspiration4
+MET_I4_0036,2-Aminobutyric Acid,HMDB00452,C02356,Cysteine and methionine metabolism,Amino acids,-0.1168138442308658,0.5227173983110849,0.8023312309255253,40000.5375,R+1_vs_Preflight,Inspiration4
+MET_I4_0037,Methylglyoxal,HMDB01167,C00546,"Glycine, serine, and threonine metabolism,pyruvate metabolism",Amino acids,-0.2422379025052343,0.1392521423392233,0.4830978168845363,157970.675,R+1_vs_Preflight,Inspiration4
+MET_I4_0038,Glycinamide,HMDB00123,C00037,"Glycine, serine, and threonine metabolism",Amino acids,-0.2222325869786514,0.3047589679851746,0.6522357789806338,20668.826666666668,R+1_vs_Preflight,Inspiration4
+MET_I4_0039,Glycine,HMDB00123,C00037,"Glycine, serine, and threonine metabolism",Amino acids,0.2445767335992913,0.4285144120540736,0.7184386611018111,58527.84333333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0040,2-Ketobutyric Acid,HMDB00005,C00109,"Glycine, serine, and threonine metabolism; Cysteine and methionine metabolism",Amino acids,-0.1462750198927629,0.7444328617588669,0.9188335127824035,230291.1958333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0041,Choline,HMDB00097,C00114,"Glycine, serine and threonine metabolism",Amino acids,0.0231057657547932,0.8246824179781436,0.9424372905349326,5156996.916666667,R+1_vs_Preflight,Inspiration4
+MET_I4_0042,Serine,HMDB00187,C00065,"Glycine, serine and threonine metabolism",Amino acids,0.2254388023259957,0.2351065636015387,0.6059032010531085,650714.9833333334,R+1_vs_Preflight,Inspiration4
+MET_I4_0043,Betaine,HMDB00043,C00719,"Glycine, serine and threonine metabolism",Amino acids,0.0692807915985751,0.7974795464559391,0.9317701436570688,41311238.583333336,R+1_vs_Preflight,Inspiration4
+MET_I4_0044,N-Formylglycine,,,"Glycine, serine and threonine metabolism",Amino acids,-0.2845387843703182,0.0487614816841536,0.4132029385853039,126955.375,R+1_vs_Preflight,Inspiration4
+MET_I4_0045,Threonine,HMDB00167,C00188,"Glycine, serine and threonine metabolism",Amino acids,-0.2341041042883265,0.233789214189226,0.6059032010531085,3559781.4166666665,R+1_vs_Preflight,Inspiration4
+MET_I4_0046,Creatine,HMDB00064,C00300,"Glycine, serine, and threonine metabolism. Arginine and Proline metabolism",Amino acids,0.2174685282909417,0.308432488015677,0.6522357789806338,1183018.525,R+1_vs_Preflight,Inspiration4
+MET_I4_0047,Histamine,HMDB00870,C00388,Histidine metabolism,Amino acids,-0.0693987624394841,0.2067300076930749,0.5842859682797332,96459.94,R+1_vs_Preflight,Inspiration4
+MET_I4_0048,4-Imidazoleacetic Acid,HMDB02024,C02835,Histidine metabolism,Amino acids,0.1825943621961952,0.3290871786684615,0.655057892400667,31802.68083333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0049,Histidine,HMDB00177,C00135,Histidine Metabolism,Amino acids,-0.0601403264667524,0.6001237951914459,0.836628725087066,1438154.4166666667,R+1_vs_Preflight,Inspiration4
+MET_I4_0050,3-Methylhistidine,HMDB00479,C01152,Histidine Metabolism,Amino acids,-1.2808911645608336,0.1584233330905812,0.5292512831396454,1188425.433333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0051,1-Methylhistidine,HMDB00480,C01153,Histidine Metabolism,Amino acids,-0.6390860946175535,0.4084721409355927,0.7144313054895768,14376.965333333334,R+1_vs_Preflight,Inspiration4
+MET_I4_0052,Ergothioneine,HMDB03045,C05570,Histidine metabolism,Amino acids,0.1965401756660607,0.6151901401614948,0.8372740894061015,69532.55083333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0053,Pipecolinic Acid,HMDB00070,C00408,Lysine degradation,Amino acids,-0.1022613456553391,0.6138743302097338,0.8372740894061015,74356.59333333334,R+1_vs_Preflight,Inspiration4
+MET_I4_0054,Glutaric Acid,HMDB00661,C00489,Lysine degradation,Amino acids,-0.0124708339647561,0.966793828727211,0.986479675918489,481076.91666666657,R+1_vs_Preflight,Inspiration4
+MET_I4_0055,Lysine,HMDB00182,C00047,Lysine metabolism,Amino acids,-0.270910769379961,0.2225886512205441,0.5940087674583753,1105273.6666666665,R+1_vs_Preflight,Inspiration4
+MET_I4_0056,2-Aminoadipic Acid,HMDB00510,C00956,Lysine degradation,Amino acids,-0.0659982685000023,0.7008432662926845,0.8804465545905312,122757.94666666668,R+1_vs_Preflight,Inspiration4
+MET_I4_0057,Trimethyllysine,HMDB11691,C03793,Lysine degradation,Amino acids,-0.3129151300807937,0.4930525220969664,0.786575210304444,177937.4833333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0058,2-Methylcitric Acid,HMDB03518,C01251,Lysine biosynthesis,Amino acids,-0.0349446891930255,0.84795563379253,0.948952830869556,368118.7583333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0059,Phenylpyruvic Acid,HMDB00205,C00166,Phenylalanine metabolism,Amino acids,-0.1390634049157649,0.675968327008017,0.8611912866684058,26597.43833333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0060,Phenylalanine,HMDB00159,C00079,Phenylalanine metabolism,Amino acids,-0.0671937681860169,0.5415147651349517,0.8130780389674174,14725269.416666666,R+1_vs_Preflight,Inspiration4
+MET_I4_0061,Melilotate,HMDB33752,C01198,Phenylalanine metabolism,Amino acids,0.0399227308339522,0.8860216495906358,0.9514184856318494,195713.9583333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0062,Hippuric Acid,HMDB00714,C01586,Phenylalanine metabolism,Amino acids,-0.7789515422048541,0.4941410190386736,0.786575210304444,8455579.25,R+1_vs_Preflight,Inspiration4
+MET_I4_0063,N-Acetylphenylalanine,HMDB00512,C03519,Phenylalanine metabolism,Amino acids,-1.3917422938243242,0.0147695385906582,0.3287483011092887,20262.169583333336,R+1_vs_Preflight,Inspiration4
+MET_I4_0064,2-Hydroxyphenylacetic Acid,,C01983,phenylalanine metabolism (phenylketonuria),Amino acids,0.1588957371434183,0.6204271861602205,0.8372740894061015,77166.56166666666,R+1_vs_Preflight,Inspiration4
+MET_I4_0065,Indole-3-Acetaldehyde,HMDB01190,C00637,Tryptophan metabolism,Amino acids,0.6460089361713792,0.0838605234670271,0.4393682020118479,5303.047444444444,R+1_vs_Preflight,Inspiration4
+MET_I4_0066,Quinaldic Acid,HMDB00842,C06325,Tryptophan metabolism,Amino acids,0.035709154905566,0.7280174496453842,0.9095176448478346,71926.87916666667,R+1_vs_Preflight,Inspiration4
+MET_I4_0067,3-Indoleacetic Acid,HMDB00197,C00954,Tryptophan metabolism,Amino acids,0.0278261645774289,0.9439102983958668,0.986479675918489,108402.02833333334,R+1_vs_Preflight,Inspiration4
+MET_I4_0068,Kynurenic Acid,HMDB00715,C01717,Tryptophan metabolism,Amino acids,-0.3283958017269264,0.1743162247176487,0.5497665548787385,298530.275,R+1_vs_Preflight,Inspiration4
+MET_I4_0069,"4-(2-Aminophenyl)-2,4-dioxobutanoic acid*",HMDB00978,C01252,Tryptophan metabolism,Amino acids,-1.1274427501996402,0.3736381588871013,0.6822299986157193,9897.649555555556,R+1_vs_Preflight,Inspiration4
+MET_I4_0070,5-Hydroxyindoleacetic Acid,HMDB00763,C05635,Tryptophan metabolism,Amino acids,-0.3390063427122006,0.3139655394378897,0.6525274575414205,30855.40166666666,R+1_vs_Preflight,Inspiration4
+MET_I4_0071,Tryptophan,HMDB00929,C00078,Tryptophan metabolism,Amino acids,-0.123719197272438,0.2484857051987738,0.6123882680035356,6280240.0,R+1_vs_Preflight,Inspiration4
+MET_I4_0072,Xanthurenic Acid,HMDB00881,C02470,Tryptophan metabolism,Amino acids,-0.4081336020690584,0.2154943531166921,0.5880403552006206,192393.94166666668,R+1_vs_Preflight,Inspiration4
+MET_I4_0073,Kynurenine,HMDB00684,C00328,Tryptophan metabolism,Amino acids,-0.3428803506130656,0.1225432340819296,0.4683643946690702,417010.5083333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0074,Indoxyl Sulfate,HMDB00682,,Tryptophan metabolism,Amino acids,-0.0171332933136736,0.9662223175669044,0.986479675918489,9715556.75,R+1_vs_Preflight,Inspiration4
+MET_I4_0075,Hydroquinone,HMDB02434,C00530,Tyrosine metabolism,Amino acids,-1.6079273405764596,0.0411417030316752,0.4033675666801199,199643.06416666665,R+1_vs_Preflight,Inspiration4
+MET_I4_0076,Tyramine,HMDB00306,C00483,Tyrosine metabolism,Amino acids,-0.4594157937456423,0.0144017810547902,0.3287483011092887,1909446.3333333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0077,3-Hydroxyphenylacetic Acid,HMDB00440,C05593,Tyrosine/phenylalanin metabolism,Amino acids,0.163973405263776,0.6084572546087752,0.836628725087066,76895.44583333332,R+1_vs_Preflight,Inspiration4
+MET_I4_0078,4-Hydroxyphenylacetic Acid,HMDB00020,C00642,Tyrosine metabolism,Amino acids,0.1558928992090892,0.6265819031658157,0.8372740894061015,78183.25749999999,R+1_vs_Preflight,Inspiration4
+MET_I4_0079,Gentisic Acid,HMDB00152,C00628,Tyrosine metabolism,Amino acids,-0.2408251282020615,0.5191356591497622,0.8023312309255253,108102.33416666668,R+1_vs_Preflight,Inspiration4
+MET_I4_0080,Homogentisic Acid,HMDB00130,C00544,Tyrosine metabolism,Amino acids,-1.0556749314490024,0.2793194579150035,0.6279076641753747,41315.285833333335,R+1_vs_Preflight,Inspiration4
+MET_I4_0081,"3,4-Dihydroxyphenylacetic Acid (DOPAC)",HMDB01336,C01161,Tyrosine metabolism; Dopamine metabolism,Amino acids,-0.3733310826828793,0.1188704381779165,0.4683643946690702,172522.11666666667,R+1_vs_Preflight,Inspiration4
+MET_I4_0082,4-Hydroxyphenylpyruvic Acid,HMDB00707,C01179,Tyrosine metabolism,Amino acids,0.636328843300202,0.0285878465196704,0.3484626697397672,216931.19166666665,R+1_vs_Preflight,Inspiration4
+MET_I4_0083,Tyrosine,HMDB00158,C00082,Tyrosine metabolism,Amino acids,0.0236779200548019,0.894459394635317,0.95592698336618,9182466.75,R+1_vs_Preflight,Inspiration4
+MET_I4_0084,Homovanillic Acid,HMDB00118,C05582,Tyrosine metabolism; dopamine/catecholamine metabolite,Amino acids,-0.1440625881016917,0.6265301688298255,0.8372740894061015,1990647.8333333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0085,4-Hydroxyphenyllactate,HMDB00755,C03672,Tyrosine metabolism,Amino acids,-0.1369515256026697,0.5459711569422478,0.8130780389674174,1002277.7416666668,R+1_vs_Preflight,Inspiration4
+MET_I4_0086,Vanillylmandelic Acid,HMDB00291,C05584,Tyrosine metabolism; catabolism of catecholamines,Amino acids,0.0201074567190177,0.9461722610800998,0.986479675918489,42159.880833333336,R+1_vs_Preflight,Inspiration4
+MET_I4_0087,2-Ketoisocaproic acid,HMDB00491,C00671,Isoleucine degradation,Amino acids,-0.0714181952121894,0.6274914461624441,0.8372740894061015,6152286.916666667,R+1_vs_Preflight,Inspiration4
+MET_I4_0088,2-Hydroxyisocaproic acid,HMDB00317,,Isoleucine metabolism,Amino acids,0.7429834554815608,0.0279022797669649,0.3484626697397672,51392.08833333334,R+1_vs_Preflight,Inspiration4
+MET_I4_0089,3-Hydroxymethylglutaric Acid,HMDB00355,C03761,Leucine degradation,Amino acids,-0.0168628128402333,0.952044383764605,0.986479675918489,87409.53083333334,R+1_vs_Preflight,Inspiration4
+MET_I4_0090,2-Hydroxyisovaleric acid,,,"Valine, leucine, and isoleucine biosynthesis / degradation",Amino acids,0.1313064876174538,0.6527910278693025,0.8508923513556516,1411444.4756953905,R+1_vs_Preflight,Inspiration4
+MET_I4_0091,2-Ketoisovaleric acid,,,"Valine, leucine, and isoleucine biosynthesis / degradation",Amino acids,-0.4849447882192769,0.0025090606365675,0.1981528754208853,459696.0150440096,R+1_vs_Preflight,Inspiration4
+MET_I4_0092,Valine,HMDB00883,C00183,"Valine, leucine, and isoleucine biosynthesis / degradation",Amino acids,0.0201326558258868,0.8902371669894338,0.9536744948034076,7554564.833333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0093,Methylmalonic Acid,HMDB00202,C02170,"Valine, leucine, and isoleucine degradation; Propanoate metabolism",Amino acids,-0.493850688141992,0.4708492539927202,0.7666173774394109,122768.2395,R+1_vs_Preflight,Inspiration4
+MET_I4_0094,Citraconic Acid,HMDB00634,C02226,"Valin, leucine, isoleucine biosynthesis",Amino acids,-1.0796742520205704,0.126925792011182,0.470632807493079,696102.6,R+1_vs_Preflight,Inspiration4
+MET_I4_0095,Ketoleucine,HMDB00695,C00233,"Valine, Leucine and Isoleucine Degradation",Amino acids,0.2376144403081949,0.3933590239232667,0.6984445660999736,267484.89166666666,R+1_vs_Preflight,Inspiration4
+MET_I4_0096,Leucine,HMDB00687,C00123,"Valine, leucine and isoleucine degradation/ biosynthesis",Amino acids,0.093094582857431,0.6064187306710718,0.836628725087066,5552844.0,R+1_vs_Preflight,Inspiration4
+MET_I4_0097,Isoleucine,HMDB00172,C00407,"Valine, leucine, isoleucine biosynthesis",Amino acids,0.1090620281804949,0.5480614719425607,0.8130780389674174,3634052.25,R+1_vs_Preflight,Inspiration4
+MET_I4_0098,N-Acetylglycine,HMDB00532,,Amino acid acetylation,Amino acids,0.4579464095456662,0.0250566995476767,0.3381288395367359,150495.305,R+1_vs_Preflight,Inspiration4
+MET_I4_0099,N-Acetydserine,HMDB02931,,Amino acid acetylation,Amino acids,-0.1476165722754252,0.3199203581671767,0.6537848462414385,393035.3499999999,R+1_vs_Preflight,Inspiration4
+MET_I4_0100,Putrescine,HMDB01414,C00134,Polyamine metabolism,Amino acids,-0.1014733238057964,0.1177142901878296,0.4683643946690702,91076.65333333332,R+1_vs_Preflight,Inspiration4
+MET_I4_0101,Spermine,HMDB01256,C00750,Polyamine metabolism,Amino acids,0.2011363537913722,0.4253659654956061,0.7184386611018111,5958.877583333334,R+1_vs_Preflight,Inspiration4
+MET_I4_0102,N1-Acetylspermidine,HMDB01276,C00612,Polyamine metabolism,Amino acids,0.0398547091416485,0.8355635846086028,0.9424372905349326,33010.33583333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0103,Hypotaurine,HMDB00965,C00519,Taurine and hypotaurine metabolism,Amino acids,0.6903155016365616,0.1762751387692593,0.551057338913218,5283.4808,R+1_vs_Preflight,Inspiration4
+MET_I4_0104,Taurine,HMDB00251,C00245,Taurine and hypotaurine metabolism,Amino acids,0.4706423684642907,0.0558242678487695,0.4132029385853039,2381176.333333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0105,Lipoic Acid,HMDB01451,C00725,Lipoic acid metabolism,Amino acids,-0.1276524275933606,0.4556456150895123,0.7527332322541027,61775.574166666665,R+1_vs_Preflight,Inspiration4
+MET_I4_0106,Fumaric Acid,HMDB00134,C00122,Citrate cycle (TCA cycle),Energy metabolism,-0.6149568977936444,0.1085738611446026,0.4683643946690702,61173.695,R+1_vs_Preflight,Inspiration4
+MET_I4_0107,Succinic Acid,HMDB00254,C00042,Citrate cycle (TCA cycle),Energy metabolism,0.0045839373146313,0.9640249636345226,0.986479675918489,1009137.35,R+1_vs_Preflight,Inspiration4
+MET_I4_0108,Malic Acid,HMDB00156,C00149,Citrate cycle (TCA cycle),Energy metabolism,-0.1923543747965211,0.483851954237209,0.7793472548606475,6914461.166666667,R+1_vs_Preflight,Inspiration4
+MET_I4_0109,Oxoglutaric Acid,HMDB00208,C00026,Citrate cycle (TCA cycle),Energy metabolism,,,,1307298.51,R+1_vs_Preflight,Inspiration4
+MET_I4_0110,2-ketoglutaramate,HMDB01552,C00940,"Citrate cycle (TCA cycle), Alanine, Aspartate, and Glutamate metabolism",Energy metabolism,-0.1414512360987288,0.507496763848772,0.7947258350548477,256438.425,R+1_vs_Preflight,Inspiration4
+MET_I4_0111,Aconitic Acid,HMDB00072,C00417,Citrate cycle (TCA cycle),Energy metabolism,-0.4495461041981606,0.0547612013672412,0.4132029385853039,1221168.45,R+1_vs_Preflight,Inspiration4
+MET_I4_0112,Beta-Carboxyglutaric Acid,HMDB31193,C19806,"Citrate cycle (TCA cycle) , from msms fragmentation",Energy metabolism,-1.158771148538462,0.1982952866885401,0.5794416127137928,87085.22099999999,R+1_vs_Preflight,Inspiration4
+MET_I4_0113,Citric Acid,HMDB00094,C00158,Citrate cycle (TCA cycle),Energy metabolism,0.0389941316158634,0.7422321962254023,0.9188335127824035,206833333.3333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0114,Methylenesuccinic Acid,HMDB02092,C00490,"Citrate cycle (TCA cycle), dibasic acid metabolism",Energy metabolism,-1.0334611367156192,0.1661623804357923,0.5426330074030167,737671.0166666666,R+1_vs_Preflight,Inspiration4
+MET_I4_0115,Glucose+Cl,HMDB03345,C00031,Glycolysis; Gluconogenesis; galactose metabolism,Energy metabolism,0.3490441373164472,0.1255529192165728,0.470632807493079,13210046.75,R+1_vs_Preflight,Inspiration4
+MET_I4_0116,2-Phosphoglyceric Acid,HMDB00362,C00631,Glycolysis / Gluconeogenesis,Energy metabolism,-0.0174517929164247,0.9776705165876024,0.9930842409482176,25693.50583333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0117,3-Phospho-Glycerate,HMDB00807,C00197,Glycolysis / Gluconeogenesis,Energy metabolism,-0.0398869740168676,0.9540463537587918,0.986479675918489,27088.358333333334,R+1_vs_Preflight,Inspiration4
+MET_I4_0118,Lactic Acid,HMDB00190,C00186,Glycolysis / Gluconeogenesis,Energy metabolism,-0.3008451296634061,0.1096076517452739,0.4683643946690702,244833333.3333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0119,Pyruvate,HMDB00243,C00022,Glycolysis / Gluconeogenesis,Energy metabolism,-2.914061652325257,0.0788020225797667,0.4393682020118479,499575.39583333343,R+1_vs_Preflight,Inspiration4
+MET_I4_0120,Pantothenic Acid,HMDB00210,C00864,Pantothenate and CoA biosynthesis,Energy metabolism,-0.1431656927378315,0.6802868760561163,0.8642517777501646,74256.6775,R+1_vs_Preflight,Inspiration4
+MET_I4_0121,Deoxyribose,HMDB03224,C01801,Pentose phosphate pathway,Energy metabolism,-0.1978503222191198,0.6745614740308381,0.8611912866684058,95607.07166666668,R+1_vs_Preflight,Inspiration4
+MET_I4_0122,Ribose,HMDB00283,C08353,Pentose phosphate pathway,Energy metabolism,-0.0864423754132885,0.5636853940564519,0.8287382000476577,228817.30833333332,R+1_vs_Preflight,Inspiration4
+MET_I4_0123,Gluconic Lactone,HMDB00150,C00198,Pentose phosphate pathway,Energy metabolism,-0.4206398103404798,0.3653933793217974,0.6753787462054534,301040.5416666667,R+1_vs_Preflight,Inspiration4
+MET_I4_0124,Ribose 5-Phosphate,HMDB01548,C00117,Pentose phosphate pathway,Energy metabolism,-0.1058209715439216,0.7322871028617124,0.912324539753128,24238.7465,R+1_vs_Preflight,Inspiration4
+MET_I4_0125,6-Phosphogluconic Acid,HMDB01316,C00345,Pentose phosphate pathway,Energy metabolism,0.1616963121657736,0.1072590805328559,0.4683643946690702,121702.69000000002,R+1_vs_Preflight,Inspiration4
+MET_I4_0126,Purine,HMDB01366,C15587,Purine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,0.541055393104636,0.1069450439390345,0.4683643946690702,325390.675,R+1_vs_Preflight,Inspiration4
+MET_I4_0127,Adenine,HMDB01384,C00147,Purine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,0.4040747441564605,0.6063476088511874,0.836628725087066,9270.5736,R+1_vs_Preflight,Inspiration4
+MET_I4_0128,3-Methyladenine,HMDB11600,C00913,Purine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,0.0019595502920867,0.984456183517874,0.9943092592316188,65395.45333333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0129,Hypoxanthine,HMDB00157,C00262,Purine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,2.435586492157781,5.140249533212322e-06,0.0023182525394787,6950445.945181818,R+1_vs_Preflight,Inspiration4
+MET_I4_0130,Xanthine,HMDB00292,C00385,Purine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,1.0153321368077484,0.0571251123083362,0.4132029385853039,145521.70666666664,R+1_vs_Preflight,Inspiration4
+MET_I4_0131,Allantoin,HMDB00462,C01551,Purine degradation (not produced in higher apes or humans),Purine  and pyrimidine metabolism/nucleotide metabolism,-0.2776840732817585,0.5973642337974947,0.836628725087066,84262.61166666665,R+1_vs_Preflight,Inspiration4
+MET_I4_0132,Uric Acid,HMDB00289,C00366,Purine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,-0.0734587148441744,0.7949950372352399,0.931279900761281,42026280.66666666,R+1_vs_Preflight,Inspiration4
+MET_I4_0133,5-Hydroxyisourate,HMDB11821,C11821,Purine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,-0.1805789750321043,0.4948446975003381,0.786575210304444,250833.59166666667,R+1_vs_Preflight,Inspiration4
+MET_I4_0134,Adenosine,HMDB00050,C00212,Purine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,-0.7538307902000876,0.2765550052272543,0.6279076641753747,11878.292428571429,R+1_vs_Preflight,Inspiration4
+MET_I4_0135,Inosine,HMDB00195,C00294,Purine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,6.155514013389829,0.0016045758088116,0.1981528754208853,67985.92688888889,R+1_vs_Preflight,Inspiration4
+MET_I4_0136,Succinoadenosine,HMDB00912,,Purine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,-0.1049297472900076,0.77096039547116,0.9269571401909784,32553.963333333337,R+1_vs_Preflight,Inspiration4
+MET_I4_0137,Adenylosuccinate,HMDB00536,C03794,,Purine  and pyrimidine metabolism/nucleotide metabolism,0.327079441120421,0.2004276975240613,0.5794416127137928,11356.951916666663,R+1_vs_Preflight,Inspiration4
+MET_I4_0138,5'-Phosphoribosylglycinamide(GAR),HMDB02022,C03838,Purine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,-0.1051414439242195,0.5752977265915238,0.8303133158069599,19863.573333333334,R+1_vs_Preflight,Inspiration4
+MET_I4_0139,5'-Phosphoribosyl-N-formylglycinamide (FGAR),HMDB01308,C04376,Purine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,-0.0476737009598369,0.4402957844910249,0.732743169023809,9247777.333333334,R+1_vs_Preflight,Inspiration4
+MET_I4_0140,N-FormyGAR (FGAR)--riboside,HMDB01308,C04376,Purine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,0.1041797866080578,0.5429149646691499,0.8130780389674174,3556734.1666666665,R+1_vs_Preflight,Inspiration4
+MET_I4_0141,AICA riboside,HMDB62179,,Purine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,0.1254361338908975,0.6181291360418993,0.8372740894061015,40757.93333333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0142,SAICAR-riboside,,,Purine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,-0.7968447659973639,0.1624438061729191,0.5347602670363982,2807.9129166666667,R+1_vs_Preflight,Inspiration4
+MET_I4_0143,GAR riboside,,,Purine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,-0.8324283684978825,0.1390756064263267,0.4830978168845363,9610.7005,R+1_vs_Preflight,Inspiration4
+MET_I4_0144,AMP,HMDB00045,C00020,Purine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,0.0489532711939986,0.8998847463021185,0.9581525720090784,30345.636,R+1_vs_Preflight,Inspiration4
+MET_I4_0145,ADP,HMDB01341,C00008,Purine metabolism. Oxidative phosphorylation,Purine  and pyrimidine metabolism/nucleotide metabolism,-0.1615749030220902,0.7690779310347073,0.9269571401909784,43561.90958333334,R+1_vs_Preflight,Inspiration4
+MET_I4_0146,Beta-Alanine,HMDB00056,C00099,Pyrimidine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,-0.2954477736458043,0.426029426157166,0.7184386611018111,11686.357499999998,R+1_vs_Preflight,Inspiration4
+MET_I4_0147,Cytosine,HMDB00630,C00380,Pyrimidine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,-0.0438676992336731,0.8593529361930456,0.9514184856318494,70676.94083333334,R+1_vs_Preflight,Inspiration4
+MET_I4_0148,N(4)-Acetylcytosine,,,Pyrimidine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,-0.0556947496460475,0.863111665516588,0.9514184856318494,15090.00509090909,R+1_vs_Preflight,Inspiration4
+MET_I4_0149,Uracil,HMDB00300,C00106,Pyrimidine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,0.0654941760382935,0.8415285791756941,0.9464573296963542,1156837.066666667,R+1_vs_Preflight,Inspiration4
+MET_I4_0150,Orotic Acid,HMDB00226,C00295,Pyrimidine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,0.0546882692621483,0.8801993944569466,0.9514184856318494,7070.9055,R+1_vs_Preflight,Inspiration4
+MET_I4_0151,Dihydroorotic Acid,HMDB00528,C00337,Pyrimidine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,-3.654116032234737,0.1788939524499941,0.551057338913218,53637.032636363634,R+1_vs_Preflight,Inspiration4
+MET_I4_0152,Uracil 5-Carboxylic Acid/Isoorotic Acid,,C03030,Pyrimidine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,0.0546862592216989,0.8802042192910595,0.9514184856318494,7070.913666666667,R+1_vs_Preflight,Inspiration4
+MET_I4_0153,Deoxyuridine,HMDB00012,C00526,Pyrimidine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,0.8577176360402249,0.0644965954421024,0.4132029385853039,9851.194,R+1_vs_Preflight,Inspiration4
+MET_I4_0154,Cytidine,HMDB00089,C00475,Pyrimidine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,-2.848653188515065,0.2153954047828556,0.5880403552006206,115602.9026,R+1_vs_Preflight,Inspiration4
+MET_I4_0155,Uridine,HMDB00296,C00299,Pyrimidine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,-0.0123806300439072,0.9735778224925716,0.9911593633050786,463110.5500000001,R+1_vs_Preflight,Inspiration4
+MET_I4_0156,Uridine+Cl,HMDB00296,C00299,Pyrimidine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,0.0383995596222738,0.9192538859590392,0.9663951108800156,8683359.416666666,R+1_vs_Preflight,Inspiration4
+MET_I4_0157,Orotidine,HMDB00788,C01103,Pyrimidine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,-0.2969756904199931,0.1343470059037838,0.4770905485244605,229307.8416666667,R+1_vs_Preflight,Inspiration4
+MET_I4_0158,UMP,HMDB00288,C00105,Pyrimidine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,0.3302087024104542,0.2681128109270538,0.6279076641753747,76400.39333333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0159,UDP,HMDB00295,C00015,Pyrimidine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,0.1747390771313566,0.0358174016306094,0.3846106698905918,122707.39166666663,R+1_vs_Preflight,Inspiration4
+MET_I4_0160,5-Hydroxymethyluracil,HMDB00469,C03088,Nucleotide modification,Purine  and pyrimidine metabolism/nucleotide metabolism,0.1154884109782741,0.6565233002649375,0.8532910905460716,6757.410416666667,R+1_vs_Preflight,Inspiration4
+MET_I4_0161,1-Methylguanine,HMDB03282,C04152,Nucleotide methylation,Purine  and pyrimidine metabolism/nucleotide metabolism,-0.3721151482758478,0.111955844856165,0.4683643946690702,362136.0333333334,R+1_vs_Preflight,Inspiration4
+MET_I4_0162,5-Methylcytidine,HMDB00982,,Nucleotide modification,Purine  and pyrimidine metabolism/nucleotide metabolism,-0.2782658742672627,0.3476518384656372,0.6643685557118745,49205.65333333334,R+1_vs_Preflight,Inspiration4
+MET_I4_0163,Ribothymidine,HMDB00884,C16744,Nucleotide modification,Purine  and pyrimidine metabolism/nucleotide metabolism,-0.1268371935231624,0.5705672291500998,0.8303133158069599,55907.28833333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0164,2-Methyladenosine,HMDB04326,C04779,Nucleotide modification,Purine  and pyrimidine metabolism/nucleotide metabolism,0.3610544193056997,0.6293632351739107,0.8372944515145536,42482.3155,R+1_vs_Preflight,Inspiration4
+MET_I4_0165,3-Methyladenosine,HMDB06023,,Nucleotide modification,Purine  and pyrimidine metabolism/nucleotide metabolism,0.3540408652400195,0.6344677599212515,0.8391347792506875,42689.34291666667,R+1_vs_Preflight,Inspiration4
+MET_I4_0166,1-Methyladenosine,HMDB03331,C02494,Nucleotide modification,Purine  and pyrimidine metabolism/nucleotide metabolism,-0.1644053353535499,0.2765680657256352,0.6279076641753747,69267.59833333334,R+1_vs_Preflight,Inspiration4
+MET_I4_0167,UDP-N-Acetylglucosamine,HMDB00290,C00043,Nucleotide sugar metabolism,Amino sugar and nucleotide sugar metabolism,0.0805531467650077,0.9021514835831076,0.9581525720090784,45390.85324999999,R+1_vs_Preflight,Inspiration4
+MET_I4_0168,N-Acetylneuraminic Acid,HMDB00230,C00270,Amino sugar metabolism,Amino sugar and nucleotide sugar metabolism,0.2793665587219694,0.5935442249276677,0.8365263920074316,14152.312666666665,R+1_vs_Preflight,Inspiration4
+MET_I4_0169,Maleic Acid,HMDB00176,C01384,Nicotinate and nicotinamide metabolism,"Cofactor, vitamin and antioxidant metabolism",-1.228635298457966,0.2988842846634219,0.6515513817823106,281564.825,R+1_vs_Preflight,Inspiration4
+MET_I4_0170,Nicotinamide,HMDB01406,C00153,Nicotinate and nicotinamide metabolism,"Cofactor, vitamin and antioxidant metabolism",0.4048588686819102,0.3220660216465486,0.6537848462414385,200763.7488,R+1_vs_Preflight,Inspiration4
+MET_I4_0171,Trigonelline/N-Methylnicotinate,HMDB00875,C01004,Nicotinate and nicotinamide metabolism,"Cofactor, vitamin and antioxidant metabolism",-1.4580136795067449,0.1808347808407012,0.551057338913218,1823753.1166666665,R+1_vs_Preflight,Inspiration4
+MET_I4_0172,Nicotinamide N-Oxide,HMDB02730,,Nicotinate and nicotinamide metabolism,"Cofactor, vitamin and antioxidant metabolism",-0.0404577967479514,0.8595195481370093,0.9514184856318494,128774.54583333332,R+1_vs_Preflight,Inspiration4
+MET_I4_0173,"2,3-Pyridinedicarboxylic Acid/Quinolinic Acid",HMDB00232,C03722,Nicotinate and Nicotinamide Metabolism,"Cofactor, vitamin and antioxidant metabolism",-0.1380022823004629,0.567812247531555,0.8303133158069599,536269.4833333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0174,1-Methylnicotinamide,HMDB01464,C02918,Nicotinate and nicotinamide metabolism,"Cofactor, vitamin and antioxidant metabolism",0.9096910112386708,0.0799117772459048,0.4393682020118479,37717.05054545454,R+1_vs_Preflight,Inspiration4
+MET_I4_0175,N1-Methy2-Pyridone-5-Carboxamide(2-PY),HMDB04193,C05842,Nicotinate and nicotinamide metabolism,"Cofactor, vitamin and antioxidant metabolism",-0.0739818720291113,0.5888699147436451,0.8325402242927398,127373.78500000002,R+1_vs_Preflight,Inspiration4
+MET_I4_0176,N1-Methy4-Pyridone-5-Carboxamide(4-PY),HMDB04194,C05843,Nicotinate and nicotinamide metabolism,"Cofactor, vitamin and antioxidant metabolism",-0.3363536302051914,0.1600564738726788,0.5307755126218981,537163.2166666667,R+1_vs_Preflight,Inspiration4
+MET_I4_0177,Dehydroascorbic Acid,HMDB01264,C05422,Ascorbate and aldarate metabolism,"Cofactor, vitamin and antioxidant metabolism",-1.3794343859664115,0.0587384674181277,0.4132029385853039,490939.35,R+1_vs_Preflight,Inspiration4
+MET_I4_0178,Ascorbic Acid,HMDB00044,C00072,Ascorbate and aldarate metabolism,"Cofactor, vitamin and antioxidant metabolism",-0.0882688145929671,0.790358991908069,0.931279900761281,158357.1625,R+1_vs_Preflight,Inspiration4
+MET_I4_0179,Glucuronolactone,HMDB06355,C02670,Ascorbate and aldarate metabolism,"Cofactor, vitamin and antioxidant metabolism",-0.618304126841741,0.4009529779150278,0.7063663790612404,22702.0915,R+1_vs_Preflight,Inspiration4
+MET_I4_0180,5-Oxo-Proline,HMDB00267,C01879,Glutathione metabolism,"Cofactor, vitamin and antioxidant metabolism",-0.438227124001934,0.1939995591999908,0.574788243588648,1933206.75,R+1_vs_Preflight,Inspiration4
+MET_I4_0181,N-Acetycysteine,HMDB01890,C06809,Glutathione synthesis,"Cofactor, vitamin and antioxidant metabolism",0.2280143820496422,0.4242175118377393,0.7184386611018111,68872.0775,R+1_vs_Preflight,Inspiration4
+MET_I4_0182,Cys-Gly,HMDB00078,C01419,Glutathione metabolism,"Cofactor, vitamin and antioxidant metabolism",-0.6039474340408516,0.1157206391919165,0.4683643946690702,23062.48083333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0183,Ophthalmic Acid,HMDB05765,,Glutathione analogue,"Cofactor, vitamin and antioxidant metabolism",-0.2138883490045596,0.285140242490135,0.635057202635105,26845.626666666667,R+1_vs_Preflight,Inspiration4
+MET_I4_0184,S-Hexyglutathione,,,Glutathione metabolism,"Cofactor, vitamin and antioxidant metabolism",-0.210729367388836,0.8826871006543008,0.9514184856318494,4492.707209090909,R+1_vs_Preflight,Inspiration4
+MET_I4_0185,Cysteineglutathione Disulfide,HMDB00656,,Glutathione metabolism,"Cofactor, vitamin and antioxidant metabolism",-1.2808077643081546,0.1877097049727311,0.5681683016288708,64168.10083333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0186,Thiamine (Vit B1),HMDB00235,C00378,Thiamine metabolism,"Cofactor, vitamin and antioxidant metabolism",0.2142379471974258,0.0157259401784268,0.3287483011092887,66886.25,R+1_vs_Preflight,Inspiration4
+MET_I4_0187,Thiamine Monophosphate,HMDB02666,C01081,Thiamine metabolism,"Cofactor, vitamin and antioxidant metabolism",0.2024325808399025,0.2677942825445443,0.6279076641753747,2462912.1666666665,R+1_vs_Preflight,Inspiration4
+MET_I4_0188,Pyridoxal,HMDB01545,C00250,Vitamine B6 metabolism,"Cofactor, vitamin and antioxidant metabolism",-0.8733060468993715,0.5189483472387616,0.8023312309255253,7643.629545454544,R+1_vs_Preflight,Inspiration4
+MET_I4_0189,4-Pyridoxic Acid,HMDB00017,C00847,Vitamin B6 Metabolism,"Cofactor, vitamin and antioxidant metabolism",-1.4029436774105286,0.0653844633119997,0.4132029385853039,39987.57,R+1_vs_Preflight,Inspiration4
+MET_I4_0190,Menaquinone (Vit K2),HMDB30017,C00828,"Vitamin K Metabolism, Ubiquinone and other terpenoid-quinone biosynthesis","Cofactor, vitamin and antioxidant metabolism",-0.403240739911921,0.3494917872873577,0.6650666500700352,56068.64000000001,R+1_vs_Preflight,Inspiration4
+MET_I4_0191,Ergocalciferol (Vit D2),HMDB00900,C05441,Vitamin D metabolism,"Cofactor, vitamin and antioxidant metabolism",0.4937995764867572,0.2773404200687772,0.6279076641753747,12590.146833333332,R+1_vs_Preflight,Inspiration4
+MET_I4_0192,Folic Acid,HMDB00121,C00504,Folate metabolism,"Cofactor, vitamin and antioxidant metabolism",-0.3580123117755254,0.0931439729066775,0.44943203779015,14500.693166666666,R+1_vs_Preflight,Inspiration4
+MET_I4_0193,Pimelic Acid,HMDB00857,C02656,Biotin metabolism,"Cofactor, vitamin and antioxidant metabolism",-0.4810557084314141,0.0547742199086233,0.4132029385853039,110304.87333333334,R+1_vs_Preflight,Inspiration4
+MET_I4_0194,Erythrose,,C01796,Carbohydrates,Carbohydrate metabolism,0.0032098934234358,0.9891568137065984,0.9943092592316188,66936.62000000001,R+1_vs_Preflight,Inspiration4
+MET_I4_0195,3'-Sialyllactose,HMDB00825,,"Carbohydrates, Oligosaccharide",Carbohydrate metabolism,-0.1821581935442717,0.7838516577099934,0.931279900761281,14641.965222222225,R+1_vs_Preflight,Inspiration4
+MET_I4_0196,Fucose,HMDB00174,C01019,Fructose and mannose metabolism; Glycan and glycoprotein component,Carbohydrate metabolism,-0.3197324324800744,0.3383838104734143,0.6635265153196083,26454.921833333337,R+1_vs_Preflight,Inspiration4
+MET_I4_0197,Galactose,HMDB00143,C01582,Galactose metabolism,Carbohydrate metabolism,-1.0615988265247664,0.3101717516529383,0.6522357789806338,636396.0158333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0198,Sorbitol,HMDB00247,C00749,Fructose and mannose metabolism; galactose metabolism,Carbohydrate metabolism,0.2609576119314088,0.5750504789757729,0.8303133158069599,197725.23166666663,R+1_vs_Preflight,Inspiration4
+MET_I4_0199,Myo-Inositol,HMDB00211,C00137,Galactose metabolism,Carbohydrate metabolism,-0.3148768359502262,0.2437095441713779,0.6106672304348486,551244.0416666666,R+1_vs_Preflight,Inspiration4
+MET_I4_0200,Lactose,HMDB00186,C00243,Galactose metabolism,Carbohydrate metabolism,-1.2478570888916694,0.3645853178208785,0.6753787462054534,34781.7921,R+1_vs_Preflight,Inspiration4
+MET_I4_0201,Sucrose,HMDB00258,C00089,Galactose metabolism; starch and sucrose metabolism,Carbohydrate metabolism,-1.27656612885822,0.3582701385783867,0.6716913961512664,35480.86809999999,R+1_vs_Preflight,Inspiration4
+MET_I4_0202,Stachyose Hydrate,HMDB03553,C01613,Galactose metabolism,Carbohydrate metabolism,0.9755360375437104,0.2258021977003328,0.5966606310133014,16373.77,R+1_vs_Preflight,Inspiration4
+MET_I4_0203,Galactaric Acid,HMDB00639,C00879,"Galactose metabolism,  oxidation of galactose",Carbohydrate metabolism,-0.5227533383850759,0.0659658793306915,0.4132029385853039,484147.5916666666,R+1_vs_Preflight,Inspiration4
+MET_I4_0204,Deoxycorticosterone Acetate,,C14554,Bile acid biosynthesis,Lipid metabolism,-0.2331976159074133,0.4280617268017538,0.7184386611018111,40754.31333333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0205,Lithocholic Acid,HMDB00761,C03990,Bile acid biosynthesis,Lipid metabolism,0.2354657989700666,0.3875817507473226,0.6953615185590964,74977.33454545453,R+1_vs_Preflight,Inspiration4
+MET_I4_0206,Chenodeoxycholate,HMDB00518,C02528,Bile acid biosynthesis,Lipid metabolism,-0.2488585750088164,0.6527127136922493,0.8508923513556516,9057.41909090909,R+1_vs_Preflight,Inspiration4
+MET_I4_0207,Taurolithocholic Acid,HMDB00722,C02592,Bile acid biosynthesis,Lipid metabolism,-0.1808134732171452,0.8306978183685345,0.9424372905349326,48522.17136363637,R+1_vs_Preflight,Inspiration4
+MET_I4_0208,Taurodeoxycholate,HMDB00896,C05463,Bile acid biosynthesis,Lipid metabolism,0.4626695021237909,0.3903473992017217,0.6958366681421996,194660.31833333336,R+1_vs_Preflight,Inspiration4
+MET_I4_0209,Taurocholic Acid,HMDB00036,C05122,Bile acid biosynthesis,Lipid metabolism,0.6420079777819299,0.2427681128821744,0.6106672304348486,63895.23308333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0210,Carnitine,HMDB00062,C00318,Carnitine metabolism,Lipid metabolism,0.1263494515067668,0.6671291082293392,0.860758957099996,58599894.5,R+1_vs_Preflight,Inspiration4
+MET_I4_0211,Acetylcarnitine,HMDB00201,C02571,Carnitine metabolism,Lipid metabolism,0.3411790972151824,0.3123789983587958,0.6522357789806338,18937830.666666668,R+1_vs_Preflight,Inspiration4
+MET_I4_0212,Propionylcarnitine,HMDB00824,C03017,Carnitine metabolism: Succinyl-CoA biosynthesis,Lipid metabolism,0.1144941489423514,0.7611541744727335,0.9252844546824874,1589050.9666666668,R+1_vs_Preflight,Inspiration4
+MET_I4_0213,Butyrylcarnitine,HMDB02013,C02862,Carnitine metabolism,Lipid metabolism,-0.0012460412791509,0.9961672742678986,0.9965672556695544,928492.3333333334,R+1_vs_Preflight,Inspiration4
+MET_I4_0214,Valerylcarnitine,HMDB13128,,Carnitine metabolism,Lipid metabolism,-0.0533560356614823,0.8779796325687126,0.9514184856318494,785110.6333333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0215,Hexanoylcarnitine,HMDB00705,,Carnitine metabolism,Lipid metabolism,0.4194291245404334,0.0596660851772134,0.4132029385853039,199915.04166666663,R+1_vs_Preflight,Inspiration4
+MET_I4_0216,Methylglutarylcarnitine,HMDB00552,,Carnitine metabolism,Lipid metabolism,-0.0575393305636013,0.6728686967841078,0.8611912866684058,83961.5825,R+1_vs_Preflight,Inspiration4
+MET_I4_0217,Methylmalonylcarnitine,HMDB13133,,Carnitine metabolism,Lipid Metabolism,0.0514828173815957,0.6423260875961281,0.8470440511867069,26515.14,R+1_vs_Preflight,Inspiration4
+MET_I4_0218,2-Octenoylcarnitine,HMDB13324,,Carnitine metabolism,Lipid metabolism,-0.462705273055605,0.1266984768422528,0.470632807493079,999606.7166666668,R+1_vs_Preflight,Inspiration4
+MET_I4_0219,Octanoylcarnitine,HMDB00791,C02838,Carnitine metabolism,Lipid metabolism,0.7039627386318036,0.0379182702399057,0.3886622699590338,178939.86916666667,R+1_vs_Preflight,Inspiration4
+MET_I4_0220,Dodecanoylcarnitine,HMDB02250,,Carnitine metabolism,Lipid metabolism,0.4315016990901014,0.3119585509933345,0.6522357789806338,195379.665,R+1_vs_Preflight,Inspiration4
+MET_I4_0221,"3,5-Tetradecadiencarnitine",HMDB13331,,Carnitine metabolism,Lipid metabolism,0.428278565838311,0.3031568685896911,0.6522357789806338,162330.1991666667,R+1_vs_Preflight,Inspiration4
+MET_I4_0222,Tetradecenoylcarnitine,HMDB02014,,Carnitine metabolism,Lipid metabolism,0.4632905146559388,0.2464333391111806,0.6106672304348486,233900.92833333332,R+1_vs_Preflight,Inspiration4
+MET_I4_0223,Hexadecenoylcarnitine,HMDB13207,,Carnitine metabolism,Lipid metabolism,-0.0879117510102802,0.7848297987981299,0.931279900761281,116652.74333333336,R+1_vs_Preflight,Inspiration4
+MET_I4_0224,Palmitoylcarnitine,HMDB00222,C02990,Carnitine metabolism,Lipid metabolism,-0.339713512212329,0.3278290327947512,0.655057892400667,492035.25,R+1_vs_Preflight,Inspiration4
+MET_I4_0225,Linolenyl Carnitine,HMDB06318,,Carnitine metabolism,Lipid metabolism,-0.8091768430280851,0.2262283102068171,0.5966606310133014,100302.595,R+1_vs_Preflight,Inspiration4
+MET_I4_0226,Linoleyl Carnitine,HMDB06469,,Carnitine metabolism,Lipid metabolism,-1.1191969423218977,0.2040773970106242,0.5825247218467818,887910.8249999998,R+1_vs_Preflight,Inspiration4
+MET_I4_0227,Oleoylcarnitine,HMDB05065,,Carnitine metabolism,Lipid metabolism,-0.5742108502376158,0.2190482919594329,0.5880403552006206,1496180.8583333334,R+1_vs_Preflight,Inspiration4
+MET_I4_0228,Stearoylcarnitine,HMDB00848,,Carnitine metabolism,Lipid metabolism,-0.9472138683302614,0.4961546741592273,0.786575210304444,597224.8250000001,R+1_vs_Preflight,Inspiration4
+MET_I4_0229,3-OH-Linolenyl carnitine,,,Carnitine metabolism,Lipid metabolism,0.0102314956967994,0.9895430148411894,0.9943092592316188,4356.7432,R+1_vs_Preflight,Inspiration4
+MET_I4_0230,3-OH-Linoleyl carnitine,,,Carnitine metabolism,Lipid metabolism,-0.4410132519453614,0.2708750514165923,0.6279076641753747,6075.270166666666,R+1_vs_Preflight,Inspiration4
+MET_I4_0231,3-OH-Oleoylcarnitine,HMDB13339,,Carnitine metabolism,Lipid metabolism,-0.0610208914377159,0.8841059236675965,0.9514184856318494,17097.970416666667,R+1_vs_Preflight,Inspiration4
+MET_I4_0232,3-OH-Stearoylcarnitine,HMDB13154,,Carnitine metabolism,Lipid metabolism,-0.9973743255078676,0.5313386346229068,0.8041400141440636,8646.17381818182,R+1_vs_Preflight,Inspiration4
+MET_I4_0233,3-Dehydroxycarnitine,,,Carnitine metabolism,Lipid metabolism,0.1715127700486372,0.359425189965567,0.6716913961512664,1178289.4,R+1_vs_Preflight,Inspiration4
+MET_I4_0234,Tiglylcarnitine,,,Carnitine metabolism,Lipid metabolism,0.0173665312340019,0.9551020094666742,0.986479675918489,83694.90416666666,R+1_vs_Preflight,Inspiration4
+MET_I4_0235,2-Methylbutyroylcarnitine,,,Carnitine metabolism,Lipid metabolism,-0.0718365342920585,0.8340097810464115,0.9424372905349326,805198.7666666666,R+1_vs_Preflight,Inspiration4
+MET_I4_0236,Malonylcarnitine,,,Carnitine metabolism,Lipid metabolism,0.0642303465116458,0.8778994111078602,0.9514184856318494,18203.16633333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0237,Hydroxybutyrylcarnitine,,,Carnitine metabolism,Lipid metabolism,0.5634304875357333,0.017048144770009,0.3287483011092887,167271.0416666667,R+1_vs_Preflight,Inspiration4
+MET_I4_0238,Glutarylcarnitine,,,Carnitine metabolism,Lipid metabolism,0.0206310877828996,0.9041054068967238,0.9581525720090784,224065.4583333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0239,3-Methylglutarylcarnitine,,,Carnitine metabolism,Lipid metabolism,-0.094273118556022,0.7467738157282637,0.9188335127824035,152036.26416666666,R+1_vs_Preflight,Inspiration4
+MET_I4_0240,Pimelylcarnitine,,,Carnitine metabolism,Lipid metabolism,-0.2975840763905378,0.3528629381990706,0.6686604417133649,66759.52083333334,R+1_vs_Preflight,Inspiration4
+MET_I4_0241,hydroxyoctanoyl carnitine,,,Carnitine metabolism,Lipid metabolism,0.3034836656197128,0.4375869126811336,0.7309322134044121,269145.50333333336,R+1_vs_Preflight,Inspiration4
+MET_I4_0242,Decenoylcarnitine,,,Carnitine metabolism,Lipid metabolism,0.3418124810945516,0.2331485287288104,0.6059032010531085,132132.69250000003,R+1_vs_Preflight,Inspiration4
+MET_I4_0243,Decanoylcarnitine,,,Carnitine metabolism,Lipid metabolism,0.7806954305019594,0.0499673772853856,0.4132029385853039,183874.66666666663,R+1_vs_Preflight,Inspiration4
+MET_I4_0244,Keto-decanoylcarnitine,,,Carnitine metabolism,Lipid metabolism,-0.0270567292046297,0.9330843698573174,0.9786536065247676,187369.13000000003,R+1_vs_Preflight,Inspiration4
+MET_I4_0245, Dimethylnonanoyl carnitine,,,Carnitine metabolism,Lipid metabolism,-0.1195347474713804,0.7476982243706034,0.9188335127824035,69515.62583333334,R+1_vs_Preflight,Inspiration4
+MET_I4_0246,hydroxydecanoyl carnitine,,,Carnitine metabolism,Lipid metabolism,0.3850452263361399,0.2699458915414788,0.6279076641753747,120389.18583333334,R+1_vs_Preflight,Inspiration4
+MET_I4_0247,Dodecenoylcarnitine,,,Carnitine metabolism,Lipid metabolism,0.3663220716621382,0.3297076309865885,0.655057892400667,225360.68166666667,R+1_vs_Preflight,Inspiration4
+MET_I4_0248,Dodecanedioylcarnitine,,,Carnitine metabolism,Lipid metabolism,0.0293001607046513,0.9479967590234804,0.986479675918489,166266.58,R+1_vs_Preflight,Inspiration4
+MET_I4_0249,Hydroxy-tetradecadiencarnitine,,,Carnitine metabolism,Lipid metabolism,0.1560510316739595,0.4970597226979302,0.786575210304444,24274.400833333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0250,Hexadecadienoylcarnitine,,,Carnitine metabolism,Lipid metabolism,0.1955174097772885,0.6889128636367488,0.8703072871153323,30835.52533333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0251,Hexadecanedioic acid mono-L-carnitine ester,,,Carnitine metabolism,Lipid metabolism,0.9857722467833928,0.2461212498423578,0.6106672304348486,55774.34416666668,R+1_vs_Preflight,Inspiration4
+MET_I4_0252,Hydroxy-octadecenoylcarnitine,,,Carnitine metabolism,Lipid metabolism,0.1650849465713582,0.2956885731855537,0.6505148610082182,44697.99583333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0253,Cervonyl carnitine,,,Carnitine metabolism,Lipid metabolism,-0.3357302495049796,0.0906566448586467,0.44943203779015,31531.647500000003,R+1_vs_Preflight,Inspiration4
+MET_I4_0254,Malondialdehyde,HMDB06112,C19440,Oxidative Stress; Lipid Peroxidation; Oxidative Damage,Lipid metabolism,-1.5640290196593858,0.1370752373023962,0.4829760314326617,63690.76825,R+1_vs_Preflight,Inspiration4
+MET_I4_0255,Archidonoyl Glycine,HMDB05096,,"Fatty acid metabolism, acylglycine",Lipid metabolism,0.281677181539879,0.2886098012190109,0.6380540213224212,32598.316666666666,R+1_vs_Preflight,Inspiration4
+MET_I4_0256,N-Linoleoylglycine,,,"Fatty acid metabolism, acylglycine",Lipid metabolism,-0.1118481974420109,0.7870251739692633,0.931279900761281,6080.7813750000005,R+1_vs_Preflight,Inspiration4
+MET_I4_0257,Isovaleric Acid,HMDB00718,C08262,"Fatty Acid metabolism, Branched fatty acids",Lipid metabolism,-0.1798785682877196,0.421536013465416,0.7184386611018111,121889.02333333332,R+1_vs_Preflight,Inspiration4
+MET_I4_0258,Malonic Acid,HMDB00691,C00383,Fatty acid biosynthesis,Lipid metabolism,0.6103084397964302,0.0833271162308329,0.4393682020118479,126481.96499999998,R+1_vs_Preflight,Inspiration4
+MET_I4_0259,5-Hydroxyhexanoic Acid,HMDB00525,,Fatty acid metabolism,Lipid metabolism,0.5373979089255073,0.0631948837519739,0.4132029385853039,48170.873333333344,R+1_vs_Preflight,Inspiration4
+MET_I4_0260,10-Hydroxydecanoate,,C02774,Fatty acid metabolism,Lipid metabolism,-0.0839300590335394,0.8456922464871591,0.9487741372281312,191372.90833333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0261,Lysophosphatidic Acid,HMDB07855,,Glycerophospholipid metabolism,Lipid metabolism,0.1239410757256671,0.410235361326503,0.7144313054895768,40257.69833333334,R+1_vs_Preflight,Inspiration4
+MET_I4_0262,Phosphocholine,HMDB01565,C00588,"Glycerophospholipid metabolism, choline metabolism",Lipid metabolism,0.2678506567870508,0.1156773403102583,0.4683643946690702,23314.124166666665,R+1_vs_Preflight,Inspiration4
+MET_I4_0263,Glycerylphosphorylethanolamine,HMDB00114,C01233,Glycerophospholipid metabolism,Lipid metabolism,-0.9973183187657746,0.1694862955319291,0.5426330074030167,3853.34075,R+1_vs_Preflight,Inspiration4
+MET_I4_0264,Glycerol 1-Phosphoserine,,,Glycerophospholipid metabolism,Lipid metabolism,0.0873631769992357,0.7526991185832974,0.922465495872465,27225.196,R+1_vs_Preflight,Inspiration4
+MET_I4_0265,Trimethylamine N-Oxide,HMDB00925,,Glycerophospholipid metabolism,Lipid metabolism,-0.2158420980905274,0.7728068397157604,0.9269571401909784,196956.7333333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0266,Sn-Glycero3-Phosphocholine,HMDB00086,C00670,Glycerophospholipid metabolism,Lipid metabolism,-0.785217518570151,0.1320460316042155,0.4726409543928665,413564.875,R+1_vs_Preflight,Inspiration4
+MET_I4_0267,LysoPC(16:1),HMDB10383,C04230,Glycerophospholipid metabolism,Lipid metabolism,-1.088656866544093,0.0107522717010131,0.3287483011092887,991331.975,R+1_vs_Preflight,Inspiration4
+MET_I4_0268,LysoPC(16:0),HMDB10382,C04230,Glycerophospholipid metabolism,Lipid metabolism,-0.7715310117203398,0.0239362584994271,0.3373516432263009,49448093.75,R+1_vs_Preflight,Inspiration4
+MET_I4_0269,LysoPC(18:3),HMDB10388,C04230,Glycerophospholipid metabolism,Lipid metabolism,-1.0712460860281363,0.0067740685963891,0.3287483011092887,457049.325,R+1_vs_Preflight,Inspiration4
+MET_I4_0270,LysoPC(18:2),HMDB10386,C04230,Glycerophospholipid metabolism,Lipid metabolism,1.9797188697098105,0.0161303312796105,0.3287483011092887,3316243.083333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0271,LysoPC(18:1),HMDB10385,C04230,Glycerophospholipid metabolism,Lipid metabolism,-0.6310479701093389,0.018978551028845,0.3287483011092887,16446572.333333334,R+1_vs_Preflight,Inspiration4
+MET_I4_0272,LysoPC(18:0),HMDB10384,C04230,Glycerophospholipid metabolism,Lipid metabolism,-1.007732733444849,0.0282239087440203,0.3484626697397672,22918046.33333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0273,PAF C18:1 /PC(O-18:1/2:0),HMDB11148,,Glycerophospholipid metabolism,Lipid metabolism,-0.1082459712177167,0.6713432714717136,0.8611912866684058,34217.21916666667,R+1_vs_Preflight,Inspiration4
+MET_I4_0274,PC(34:2),HMDB08004,C00157,Glycerophospholipid metabolism,Lipid metabolism,0.132387656349878,0.4253711669574266,0.7184386611018111,110962332.41666669,R+1_vs_Preflight,Inspiration4
+MET_I4_0275,PC(35:2),HMDB08330,C00157,Glycerophospholipid metabolism,Lipid metabolism,-0.2701560227851969,0.0585895871538247,0.4132029385853039,1517055.8333333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0276,PC(36:4),HMDB07983,C00157,Glycerophospholipid metabolism,Lipid metabolism,0.1518970218242095,0.2858461466406348,0.635057202635105,55168141.41666666,R+1_vs_Preflight,Inspiration4
+MET_I4_0277,PC(36:2),HMDB08590,C00157,Glycerophospholipid metabolism,Lipid metabolism,-0.2426354276744962,0.1691239092100735,0.5426330074030167,24957377.5,R+1_vs_Preflight,Inspiration4
+MET_I4_0278,lysoPC(6:0),,,Glycerophospholipid metabolism,Lipid metabolism,-0.8117510274304198,0.2653628876697804,0.6279076641753747,8089.060799999999,R+1_vs_Preflight,Inspiration4
+MET_I4_0279,LysoPC(14:1),,,Glycerophospholipid metabolism,Lipid metabolism,-0.1537708414932642,0.1949946813061267,0.574788243588648,168300.925,R+1_vs_Preflight,Inspiration4
+MET_I4_0280,LysoPC(14:0),,,Glycerophospholipid metabolism,Lipid metabolism,-1.5217455331456713,0.00263618016081,0.1981528754208853,712579.8000000002,R+1_vs_Preflight,Inspiration4
+MET_I4_0281,LysoPC(P-16:0),,,Glycerophospholipid metabolism,Lipid metabolism,-0.6056156257121861,0.0621543408928185,0.4132029385853039,511774.2166666666,R+1_vs_Preflight,Inspiration4
+MET_I4_0282,LysoPC(15:0),,,Glycerophospholipid metabolism,Lipid metabolism,-1.1969603652916545,0.001941386787789,0.1981528754208853,424768.525,R+1_vs_Preflight,Inspiration4
+MET_I4_0283,LysoPC(P-18:1),,,Glycerophospholipid metabolism,Lipid metabolism,0.4898795095093471,0.0410122193324315,0.4033675666801199,558357.2583333334,R+1_vs_Preflight,Inspiration4
+MET_I4_0284,LysoPC(P-18:0),,,Glycerophospholipid metabolism,Lipid metabolism,-0.7381829901427858,0.0441823221618152,0.4113439141027806,308069.44166666665,R+1_vs_Preflight,Inspiration4
+MET_I4_0285,LysoPC(17:0),,,Glycerophospholipid metabolism,Lipid metabolism,-1.0493137401083965,0.0133632428902656,0.3287483011092887,1064501.5,R+1_vs_Preflight,Inspiration4
+MET_I4_0286,LysoPC(20:5),,,Glycerophospholipid metabolism,Lipid metabolism,-1.2465657279082407,0.0945819063564997,0.44943203779015,414583.39166666666,R+1_vs_Preflight,Inspiration4
+MET_I4_0287,LysoPC(20:4),,,Glycerophospholipid metabolism,Lipid metabolism,-0.405222151557756,0.3444978407933082,0.6638324728093418,7054860.083333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0288,LysoPC(20:3),,,Glycerophospholipid metabolism,Lipid metabolism,-0.778069687795682,0.0497560038816167,0.4132029385853039,1684900.875,R+1_vs_Preflight,Inspiration4
+MET_I4_0289,LysoPC(20:2),,,Glycerophospholipid metabolism,Lipid metabolism,-0.4114291468868313,0.0031424876775344,0.2024659917954316,438727.5500000001,R+1_vs_Preflight,Inspiration4
+MET_I4_0290,LysoPC(20:1),,,Glycerophospholipid metabolism,Lipid metabolism,-0.4867319889024214,0.014283547232037,0.3287483011092887,228518.325,R+1_vs_Preflight,Inspiration4
+MET_I4_0291,LysoPC(20:0),,,Glycerophospholipid metabolism,Lipid metabolism,-0.9235841607838828,0.0367095750515378,0.3850236825172918,89163.16333333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0292,LysoPC(22:6),,,Glycerophospholipid metabolism,Lipid metabolism,-0.3375873797656247,0.3965349469942787,0.701322592527136,996417.95,R+1_vs_Preflight,Inspiration4
+MET_I4_0293,LysoPC(22:5),,,Glycerophospholipid metabolism,Lipid metabolism,-0.4888350579355741,0.3400059501626825,0.6638211407938088,403814.78333333327,R+1_vs_Preflight,Inspiration4
+MET_I4_0294,LysoPC(22:4),,,Glycerophospholipid metabolism,Lipid metabolism,-0.5225737757345817,0.2636986950891011,0.6279076641753747,110690.63583333336,R+1_vs_Preflight,Inspiration4
+MET_I4_0295,LysoPC(22:1),,,Glycerophospholipid metabolism,Lipid metabolism,-1.7792667755920974,0.2565992228752808,0.6264137887885457,3670.892490909091,R+1_vs_Preflight,Inspiration4
+MET_I4_0296,LysoPC(22:0),,,Glycerophospholipid metabolism,Lipid metabolism,-1.0027019555311791,0.360419773544582,0.6716913961512664,5550.96775,R+1_vs_Preflight,Inspiration4
+MET_I4_0297,LysoPC(24:0),,,Glycerophospholipid metabolism,Lipid metabolism,,,,4002.100375,R+1_vs_Preflight,Inspiration4
+MET_I4_0298,lysoPC(28:0),,,Glycerophospholipid metabolism,Lipid metabolism,0.0159724406412839,0.9647536064124396,0.986479675918489,5435.606666666667,R+1_vs_Preflight,Inspiration4
+MET_I4_0299,PC(28:1),,,Glycerophospholipid metabolism,Lipid metabolism,-2.04184971851804,0.0349015967645405,0.383917564409946,11448.824,R+1_vs_Preflight,Inspiration4
+MET_I4_0300,PC(28:0),,,Glycerophospholipid metabolism,Lipid metabolism,-1.1789334159133542,0.0640718716032503,0.4132029385853039,161246.58583333337,R+1_vs_Preflight,Inspiration4
+MET_I4_0301,PC(30:0)),,,Glycerophospholipid metabolism,Lipid metabolism,-0.7104284168038739,0.0091893918293252,0.3287483011092887,22670.739999999994,R+1_vs_Preflight,Inspiration4
+MET_I4_0302,PC(29:0)),,,Glycerophospholipid metabolism,Lipid metabolism,-2.3698871146988183,0.063454832915857,0.4132029385853039,9417.081733333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0303,PC(30:2),,,Glycerophospholipid metabolism,Lipid metabolism,-1.3643525274524924,0.0857303808803605,0.4393682020118479,27980.79475,R+1_vs_Preflight,Inspiration4
+MET_I4_0304,PC(30:1),,,Glycerophospholipid metabolism,Lipid metabolism,-1.1353896856994667,0.0766508990032408,0.4393682020118479,136132.96166666664,R+1_vs_Preflight,Inspiration4
+MET_I4_0305,PC(30:0),,,Glycerophospholipid metabolism,Lipid metabolism,-0.8425135227510036,0.0832049259316468,0.4393682020118479,611902.625,R+1_vs_Preflight,Inspiration4
+MET_I4_0306,PC(P-32:1),,,Glycerophospholipid metabolism,Lipid metabolism,-0.3714633901047952,0.1223070988211413,0.4683643946690702,75447.87833333334,R+1_vs_Preflight,Inspiration4
+MET_I4_0307,PC(P-32:0),,,Glycerophospholipid metabolism,Lipid metabolism,0.0341152754120427,0.758896544475935,0.92503335556391,216357.9333333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0308,PC(31:0),,,Glycerophospholipid metabolism,Lipid metabolism,-1.573591147174366,0.2024516351111037,0.5815648881217056,46643.78,R+1_vs_Preflight,Inspiration4
+MET_I4_0309,PC(32:6),,,Glycerophospholipid metabolism,Lipid metabolism,0.7189194343606292,0.2760857773019083,0.6279076641753747,1654.7975833333337,R+1_vs_Preflight,Inspiration4
+MET_I4_0310,PC(32:3),,,Glycerophospholipid metabolism,Lipid metabolism,-1.4254235762959246,0.0346800969986499,0.383917564409946,60105.77916666667,R+1_vs_Preflight,Inspiration4
+MET_I4_0311,PC(32:2),,,Glycerophospholipid metabolism,Lipid metabolism,-0.927649835077805,0.0302808851079048,0.3593862943069761,1558215.0,R+1_vs_Preflight,Inspiration4
+MET_I4_0312,PC(32:1,,,Glycerophospholipid metabolism,Lipid metabolism,-0.4554302240609628,0.2429516427587308,0.6106672304348486,2231704.558333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0313,PC(32:0),,,Glycerophospholipid metabolism,Lipid metabolism,-0.0020238272152343,0.9898999055321436,0.9943092592316188,1093870.3916666666,R+1_vs_Preflight,Inspiration4
+MET_I4_0314,PC(P-34:3),,,Glycerophospholipid metabolism,Lipid metabolism,-0.6299563848334077,0.0198858123044713,0.3287483011092887,65826.15916666668,R+1_vs_Preflight,Inspiration4
+MET_I4_0315,PC(O-34:3),,,Glycerophospholipid metabolism,Lipid metabolism,-0.085661011721918,0.6484999654865227,0.8502136175419236,1182962.1583333334,R+1_vs_Preflight,Inspiration4
+MET_I4_0316,PC(P-33:2),,,Glycerophospholipid metabolism,Lipid metabolism,-1.0389889692995726,0.6222087738658071,0.8372740894061015,75675.97750000001,R+1_vs_Preflight,Inspiration4
+MET_I4_0317,PC(P-34:1),,,Glycerophospholipid metabolism,Lipid metabolism,-0.2490279679298057,0.4595028331032768,0.755042431092116,1300288.075,R+1_vs_Preflight,Inspiration4
+MET_I4_0318,PC(34:0),,,Glycerophospholipid metabolism,Lipid metabolism,0.7025468714479577,0.0579243891693131,0.4132029385853039,415376.16416666674,R+1_vs_Preflight,Inspiration4
+MET_I4_0319,PC(34:5),,,Glycerophospholipid metabolism,Lipid metabolism,-1.548485606791148,0.1041891418472069,0.4683643946690702,36174.505,R+1_vs_Preflight,Inspiration4
+MET_I4_0320,PC(34:4),,,Glycerophospholipid metabolism,Lipid metabolism,-0.8357075892430738,0.0111037766059705,0.3287483011092887,452535.21666666673,R+1_vs_Preflight,Inspiration4
+MET_I4_0321,PC(34:3),,,Glycerophospholipid metabolism,Lipid metabolism,-0.5514786185277509,0.0225968898766916,0.3287483011092887,3515191.75,R+1_vs_Preflight,Inspiration4
+MET_I4_0322,PC(34:1),,,Glycerophospholipid metabolism,Lipid metabolism,0.0765411259755217,0.5830108845546457,0.8318047133454698,29372144.166666668,R+1_vs_Preflight,Inspiration4
+MET_I4_0323,PC(O-34:0),,,Glycerophospholipid metabolism,Lipid metabolism,0.0223744413638261,0.9090777986295946,0.9585977761674074,1914249.6666666667,R+1_vs_Preflight,Inspiration4
+MET_I4_0324,PC(P-36:1)),,,Glycerophospholipid metabolism,Lipid metabolism,0.0293215337740348,0.831000223802869,0.9424372905349326,3656582.75,R+1_vs_Preflight,Inspiration4
+MET_I4_0325,PC(P-36:3),,,Glycerophospholipid metabolism,Lipid metabolism,-0.0309812171253586,0.8081829692778167,0.9409478282768764,3380087.0,R+1_vs_Preflight,Inspiration4
+MET_I4_0326,PC(P-36:2),,,Glycerophospholipid metabolism,Lipid metabolism,-0.1172533813889688,0.3831328362994598,0.6939474263897847,1112249.6416666666,R+1_vs_Preflight,Inspiration4
+MET_I4_0327,PC(36:8),,,Glycerophospholipid metabolism,Lipid metabolism,-0.2272561482211526,0.2683363478967904,0.6279076641753747,79935.67,R+1_vs_Preflight,Inspiration4
+MET_I4_0328,PC(36:7),,,Glycerophospholipid metabolism,Lipid metabolism,0.0082941359169141,0.9610952076533676,0.986479675918489,62500.56583333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0329,PC(36:6),,,Glycerophospholipid metabolism,Lipid metabolism,-1.1016221909843034,0.0211847213147898,0.3287483011092887,162226.3525,R+1_vs_Preflight,Inspiration4
+MET_I4_0330,PC(36:5),,,Glycerophospholipid metabolism,Lipid metabolism,-0.7867732470813859,0.0794566336454296,0.4393682020118479,4350582.75,R+1_vs_Preflight,Inspiration4
+MET_I4_0331,PC(36:3),,,Glycerophospholipid metabolism,Lipid metabolism,-0.2167161290320541,0.0521337021967327,0.4132029385853039,24925245.83333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0332,PC(36:1),,,Glycerophospholipid metabolism,Lipid metabolism,-0.2456073853099356,0.1311373044891549,0.4726409543928665,3409963.0,R+1_vs_Preflight,Inspiration4
+MET_I4_0333,PC(P-38:6),,,Glycerophospholipid metabolism,Lipid metabolism,-0.137883104033361,0.5731277480263024,0.8303133158069599,616612.525,R+1_vs_Preflight,Inspiration4
+MET_I4_0334,PC(P-38:5),,,Glycerophospholipid metabolism,Lipid metabolism,-0.0482158534295495,0.785348957099695,0.931279900761281,1915635.3333333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0335,PC(P38:3),,,Glycerophospholipid metabolism,Lipid metabolism,0.6753685770469705,0.007654080549814,0.3287483011092887,560952.0833333334,R+1_vs_Preflight,Inspiration4
+MET_I4_0336,PC(38:8),,,Glycerophospholipid metabolism,Lipid metabolism,-0.8564651310018933,0.1211685962728043,0.4683643946690702,30589.76208333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0337,PC(38:7),,,Glycerophospholipid metabolism,Lipid metabolism,-0.455348099512974,0.0672911656608407,0.4157303522334134,592596.0833333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0338,PC(38:3),,,Glycerophospholipid metabolism,Lipid metabolism,-0.2722911604585762,0.0325340037315927,0.3762265559730339,4280864.25,R+1_vs_Preflight,Inspiration4
+MET_I4_0339,PC(P-40:6),,,Glycerophospholipid metabolism,Lipid metabolism,-0.030204444390033,0.90971141507683,0.9585977761674074,616485.6749999999,R+1_vs_Preflight,Inspiration4
+MET_I4_0340,PC(P-40:3),,,Glycerophospholipid metabolism,Lipid metabolism,0.9749766762401868,0.0049365878182929,0.2783001382562643,35474.9025,R+1_vs_Preflight,Inspiration4
+MET_I4_0341,PC(40:9),,,Glycerophospholipid metabolism,Lipid metabolism,-0.2740590319176854,0.3437177749285132,0.6638324728093418,96868.55416666664,R+1_vs_Preflight,Inspiration4
+MET_I4_0342,PC(P-40:1),,,Glycerophospholipid metabolism,Lipid metabolism,-0.2179840449398347,0.5248064592528381,0.8023312309255253,12388.014666666664,R+1_vs_Preflight,Inspiration4
+MET_I4_0343,PC(40:8),,,Glycerophospholipid metabolism,Lipid metabolism,-0.2933100349698136,0.0446914673858896,0.4113439141027806,717592.0333333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0344,PC(40:7),,,Glycerophospholipid metabolism,Lipid metabolism,-0.4427769887063971,0.0194351409089786,0.3287483011092887,1587760.4166666667,R+1_vs_Preflight,Inspiration4
+MET_I4_0345,PC(40:6),,,Glycerophospholipid metabolism,Lipid metabolism,-0.1314719964684673,0.5469291651911086,0.8130780389674174,4218425.583333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0346,PC(40:5),,,Glycerophospholipid metabolism,Lipid metabolism,-0.1431899927929013,0.3062643466081369,0.6522357789806338,1519160.0,R+1_vs_Preflight,Inspiration4
+MET_I4_0347,PC(38:4),,,Glycerophospholipid metabolism,Lipid metabolism,-0.1962759329564246,0.094414693764925,0.44943203779015,397729.5999999999,R+1_vs_Preflight,Inspiration4
+MET_I4_0348,PC(42:10),,,Glycerophospholipid metabolism,Lipid metabolism,-0.3949939810100727,0.2798435487788255,0.6279076641753747,221585.20833333337,R+1_vs_Preflight,Inspiration4
+MET_I4_0349,PC(42:9),,,Glycerophospholipid metabolism,Lipid metabolism,-0.4646300290068941,0.10699974101497,0.4683643946690702,136828.10333333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0350,PC(42:8),,,Glycerophospholipid metabolism,Lipid metabolism,-0.5194491971118377,0.0219574339401066,0.3287483011092887,85885.61499999999,R+1_vs_Preflight,Inspiration4
+MET_I4_0351,PC(42:6),,,Glycerophospholipid metabolism,Lipid metabolism,-0.7859211657105194,0.0254908659517716,0.3381288395367359,42796.55333333334,R+1_vs_Preflight,Inspiration4
+MET_I4_0352,PC(42:5),,,Glycerophospholipid metabolism,Lipid metabolism,-0.986425901854004,0.3213223528466008,0.6537848462414385,5244.067616666666,R+1_vs_Preflight,Inspiration4
+MET_I4_0353,PC(44:10),,,Glycerophospholipid metabolism,Lipid metabolism,0.2828636687156686,0.817416889936794,0.9409478282768764,6115.157327272726,R+1_vs_Preflight,Inspiration4
+MET_I4_0354,PC(44:9),,,Glycerophospholipid metabolism,Lipid metabolism,0.5913047786550966,0.5801391047335618,0.8318047133454698,7440.593,R+1_vs_Preflight,Inspiration4
+MET_I4_0355,PC(44:8),,,Glycerophospholipid metabolism,Lipid metabolism,0.226838757058159,0.5222680125215553,0.8023312309255253,26832.156666666662,R+1_vs_Preflight,Inspiration4
+MET_I4_0356,PC(44:7),,,Glycerophospholipid metabolism,Lipid metabolism,0.1109740281800368,0.6240656560429252,0.8372740894061015,113721.24916666666,R+1_vs_Preflight,Inspiration4
+MET_I4_0357,PC(44:6),,,Glycerophospholipid metabolism,Lipid metabolism,-0.2421949389232082,0.2374370851593391,0.6084325307208064,54965.406666666655,R+1_vs_Preflight,Inspiration4
+MET_I4_0358,PAF C16:0,,C04598,Glycerophospholipid metabolism,Lipid metabolism,-0.3556801134331498,0.1296198278541511,0.4714398577598561,56403.49083333332,R+1_vs_Preflight,Inspiration4
+MET_I4_0359,Lyso-PAF C16,,,Glycerophospholipid metabolism,Lipid metabolism,-0.9240331050701822,0.012459647938759,0.3287483011092887,233556.3583333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0360,C-PAF/methylCarbamyl-PAF C-16,,,Glycerophospholipid metabolism,Lipid metabolism,-1.9561454132318443,0.0847944408946987,0.4393682020118479,9223.326083333332,R+1_vs_Preflight,Inspiration4
+MET_I4_0361,Lyso-PAF C18,HMDB11149,,Glycerophospholipid metabolism,Lipid metabolism,-0.3251036759636611,0.1576015131278623,0.5292512831396454,125071.955,R+1_vs_Preflight,Inspiration4
+MET_I4_0362,1-AcyPAF,,,Glycerophospholipid metabolism,Lipid metabolism,-0.5170065300749124,0.3091800901290565,0.6522357789806338,10203.879333333332,R+1_vs_Preflight,Inspiration4
+MET_I4_0363,Sphingosine,HMDB00252,C00319,Glycerophospholipid metabolism,Lipid metabolism,-0.238832186469842,0.0725059473742563,0.4360024302105279,22801.36666666667,R+1_vs_Preflight,Inspiration4
+MET_I4_0364,Sphingosine 1-phosphate,HMDB00277,C06124,Glycerophospholipid metabolism,Lipid metabolism,-0.7082665476575486,0.0008219640556641,0.185352894552272,87348.68333333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0365,Sphingomyelin,HMDB01348,C00550,Glycerophospholipid metabolism,Lipid metabolism,0.1118914513898765,0.4234156464111087,0.7184386611018111,622464.7000000001,R+1_vs_Preflight,Inspiration4
+MET_I4_0366,SM(d30:1),,,Glycerophospholipid metabolism,Lipid metabolism,-0.9026642437356236,0.0193108166178614,0.3287483011092887,86309.82666666668,R+1_vs_Preflight,Inspiration4
+MET_I4_0367,SM(d32:1),,,Glycerophospholipid metabolism,Lipid metabolism,-0.1398530077998444,0.3421968081867476,0.6638324728093418,1334239.4666666666,R+1_vs_Preflight,Inspiration4
+MET_I4_0368,SM(d32:0),,,Glycerophospholipid metabolism,Lipid metabolism,-0.2570239780703168,0.2583436024715509,0.6264137887885457,89487.65083333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0369,SM(d34:1),,,Glycerophospholipid metabolism,Lipid metabolism,0.0205796489461131,0.7681500175839929,0.9269571401909784,5386447.416666667,R+1_vs_Preflight,Inspiration4
+MET_I4_0370,SM(d34:0),,,Glycerophospholipid metabolism,Lipid metabolism,-0.299029119679169,0.0567942885691805,0.4132029385853039,39638.33583333334,R+1_vs_Preflight,Inspiration4
+MET_I4_0371,SM(d36:2),,,Glycerophospholipid metabolism,Lipid metabolism,0.2946022629609933,0.0844409210904768,0.4393682020118479,1352341.6083333334,R+1_vs_Preflight,Inspiration4
+MET_I4_0372,SM(d36:1),,,Glycerophospholipid metabolism,Lipid metabolism,0.1041995979990124,0.5283074212358372,0.8026051136129689,213244.70000000004,R+1_vs_Preflight,Inspiration4
+MET_I4_0373,SM(d36:0),,,Glycerophospholipid metabolism,Lipid metabolism,0.0766996312378942,0.8099645700762457,0.9409478282768764,38796.246666666666,R+1_vs_Preflight,Inspiration4
+MET_I4_0374,SM(d38:3),,,Glycerophospholipid metabolism,Lipid metabolism,0.0842726248535205,0.8173008170076052,0.9409478282768764,88536.5,R+1_vs_Preflight,Inspiration4
+MET_I4_0375,SM(d38:1),,,Glycerophospholipid metabolism,Lipid metabolism,-0.2422699633837466,0.2002982845238826,0.5794416127137928,337069.76666666666,R+1_vs_Preflight,Inspiration4
+MET_I4_0376,SM(d38:0),,,Glycerophospholipid metabolism,Lipid metabolism,-1.2660711347614269,0.3458994037920073,0.6638324728093418,3646.5811363636367,R+1_vs_Preflight,Inspiration4
+MET_I4_0377,SM(d40:3),,,Glycerophospholipid metabolism,Lipid metabolism,-0.046387187365492,0.9050399017203268,0.9581525720090784,64497.76083333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0378,SM(d40:2),,,Glycerophospholipid metabolism,Lipid metabolism,-0.0653893591343898,0.5830808647258892,0.8318047133454698,1530029.9166666667,R+1_vs_Preflight,Inspiration4
+MET_I4_0379,SM(d40:1),,,Glycerophospholipid metabolism,Lipid metabolism,-0.2592041347683062,0.0990148632153129,0.4603680753619188,327803.325,R+1_vs_Preflight,Inspiration4
+MET_I4_0380,SM(d40:0),,,Glycerophospholipid metabolism,Lipid metabolism,-1.3273441893987592,0.0946697197118941,0.44943203779015,6566.447154545455,R+1_vs_Preflight,Inspiration4
+MET_I4_0381,SM(d41:1),,,Glycerophospholipid metabolism,Lipid metabolism,-0.3858283366735037,0.0436317822602462,0.4113439141027806,71683.49,R+1_vs_Preflight,Inspiration4
+MET_I4_0382,SM(d42:2),,,Glycerophospholipid metabolism,Lipid metabolism,-0.0940115086637158,0.3382787044160464,0.6635265153196083,1203735.9166666667,R+1_vs_Preflight,Inspiration4
+MET_I4_0383,SM(d42:1),,,Glycerophospholipid metabolism,Lipid metabolism,-0.225703425850625,0.1483266928054924,0.5067828670854323,130940.04166666664,R+1_vs_Preflight,Inspiration4
+MET_I4_0384,SM(d42:0),,,Glycerophospholipid metabolism,Lipid metabolism,-0.391339331483326,0.4535645691088661,0.7520500759856567,12316.664416666668,R+1_vs_Preflight,Inspiration4
+MET_I4_0385,SM(d43:2),,,Glycerophospholipid metabolism,Lipid metabolism,-0.978523155985984,0.1805154081946483,0.551057338913218,7004.436166666667,R+1_vs_Preflight,Inspiration4
+MET_I4_0386,SM(d42:1-OH),,,Glycerophospholipid metabolism,Lipid metabolism,-0.4808872422813323,0.2571950198635148,0.6264137887885457,11640.815166666667,R+1_vs_Preflight,Inspiration4
+MET_I4_0387,Diethanolamine,HMDB04437,C06772,Glycerophospholipid metabolism,Lipid metabolism,-0.4739043984441226,0.3230290541095652,0.6537848462414385,51293.76625000001,R+1_vs_Preflight,Inspiration4
+MET_I4_0388,O-Phosphoethanloamine,HMDB00224,,Glyerophospholipid metabolism,Lipid metabolism,-0.0432313645283398,0.5017072590135891,0.7883971213070686,287623.4583333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0389,LysoPE(18:2),HMDB11507,,Glycerophospholipid metabolism,Lipid metabolism,-0.4758257801183613,0.2338640219838856,0.6059032010531085,384741.0333333334,R+1_vs_Preflight,Inspiration4
+MET_I4_0390,LysoPE(18:0),HMDB11129,,Glycerophospholipid metabolism,Lipid metabolism,-0.8382828856794038,0.0772279326330081,0.4393682020118479,135234.45916666667,R+1_vs_Preflight,Inspiration4
+MET_I4_0391,PE(P-38:6),,,Glycerophospholipid metabolism,Lipid metabolism,-0.2346805175446053,0.4132379698712101,0.7168089400458298,769576.4666666667,R+1_vs_Preflight,Inspiration4
+MET_I4_0392,PE(34:1),,,Glycerophospholipid metabolism,Lipid metabolism,0.5368878127532982,0.6885203134812752,0.8703072871153323,30005.385857142854,R+1_vs_Preflight,Inspiration4
+MET_I4_0393,PE(36:2),,,Glycerophospholipid metabolism,Lipid metabolism,0.1729588906009005,0.7912795761281852,0.931279900761281,246429.12,R+1_vs_Preflight,Inspiration4
+MET_I4_0394,PE(36:4),,,Glycerophospholipid metabolism,Lipid metabolism,0.4358968177808605,0.4774158268013793,0.7744781566339691,523522.2333333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0395,PE(38:4),,,Glycerophospholipid metabolism,Lipid metabolism,0.4033066684721607,0.359999557041207,0.6716913961512664,683149.3083333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0396,PE(38:2),,,Glycerophospholipid metabolism,Lipid metabolism,0.6004054569271869,0.4992136275087417,0.7872214895330159,168759.90199999997,R+1_vs_Preflight,Inspiration4
+MET_I4_0397,PE(36:3),,,Glycerophospholipid metabolism,Lipid metabolism,0.1072418965358734,0.8746515084801851,0.9514184856318494,275724.28500000003,R+1_vs_Preflight,Inspiration4
+MET_I4_0398,PE(38:6),,,Glycerophospholipid metabolism,Lipid metabolism,0.30223622023407,0.5582723777716119,0.8255109586065473,654925.3250000001,R+1_vs_Preflight,Inspiration4
+MET_I4_0399,PE(O-38:5),,,Glycerophospholipid metabolism,Lipid metabolism,0.0702557114202346,0.7401486140999896,0.9188335127824035,1075665.0,R+1_vs_Preflight,Inspiration4
+MET_I4_0400,PE(16:0),,,Glycerophospholipid metabolism,Lipid metabolism,-0.4858589630431955,0.14651259465529,0.5044059556453115,275391.39166666666,R+1_vs_Preflight,Inspiration4
+MET_I4_0401,PE(O-36:4),,,Glycerophospholipid metabolism,Lipid metabolism,-0.4535557035490311,0.2777262132111283,0.6279076641753747,284957.9666666667,R+1_vs_Preflight,Inspiration4
+MET_I4_0402,PE(P-40:6),,,Glycerophospholipid metabolism,Lipid metabolism,-0.1469831294157686,0.6331714561099826,0.8391347792506875,363283.1166666666,R+1_vs_Preflight,Inspiration4
+MET_I4_0403,PE(38:3),,,Glycerophospholipid metabolism,Lipid metabolism,0.1370422719854313,0.855086040230275,0.9514184856318494,40269.93422222223,R+1_vs_Preflight,Inspiration4
+MET_I4_0404,PE(38:7),,,Glycerophospholipid metabolism,Lipid metabolism,-0.4238579973570847,0.5762484874669145,0.8303133158069599,54439.86466666666,R+1_vs_Preflight,Inspiration4
+MET_I4_0405,PE(P-36:2),,,Glycerophospholipid metabolism,Lipid metabolism,-0.3246573294333512,0.6082018972712533,0.836628725087066,78596.6925,R+1_vs_Preflight,Inspiration4
+MET_I4_0406,PE(P-38:5),,,Glycerophospholipid metabolism,Lipid metabolism,-0.138270695096521,0.4642710449867792,0.7586458017718747,1530773.2666666666,R+1_vs_Preflight,Inspiration4
+MET_I4_0407,PE(P-40:5),,,Glycerophospholipid metabolism,Lipid metabolism,-0.0880689855142575,0.7893160289471737,0.931279900761281,102821.75666666668,R+1_vs_Preflight,Inspiration4
+MET_I4_0408,PE(P-40:7),,,Glycerophospholipid metabolism,Lipid metabolism,-0.2600300979552307,0.5417319936403282,0.8130780389674174,282753.2533333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0409,PI(34:2),,,Glycerophospholipid metabolism,Lipid metabolism,-0.3123185881510911,0.586505318944256,0.8318047133454698,400083.6333333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0410,PI(34:1),,,Glycerophospholipid metabolism,Lipid metabolism,-0.3918860700936624,0.5850258090965508,0.8318047133454698,275000.7025000001,R+1_vs_Preflight,Inspiration4
+MET_I4_0411,PI(36:4),,,Glycerophospholipid metabolism,Lipid metabolism,-0.3846915688219486,0.2631218012566591,0.6279076641753747,484122.6833333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0412,PI(36:3),,,Glycerophospholipid metabolism,Lipid metabolism,-0.5020284469905417,0.3243231950480273,0.6537848462414385,348692.0333333334,R+1_vs_Preflight,Inspiration4
+MET_I4_0413,PI(36:2),,,Glycerophospholipid metabolism,Lipid metabolism,-0.4797442461513199,0.3885390303257036,0.6953615185590964,694756.0083333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0414,PI(36:5),,,Glycerophospholipid metabolism,Lipid metabolism,-0.7141828800999862,0.1168497873537288,0.4683643946690702,313603.05,R+1_vs_Preflight,Inspiration4
+MET_I4_0415,PI(38:4),,,Glycerophospholipid metabolism,Lipid metabolism,-0.2320299948716339,0.3699316173942869,0.6782079652228593,2454023.833333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0416,PI(38:3),,,Glycerophospholipid metabolism,Lipid metabolism,-0.2755254904373025,0.3247179724125991,0.6537848462414385,500900.56666666665,R+1_vs_Preflight,Inspiration4
+MET_I4_0417,PI(38:2),,,Glycerophospholipid metabolism,Lipid metabolism,-0.6638985388085151,0.4250245839959874,0.7184386611018111,31025.430272727277,R+1_vs_Preflight,Inspiration4
+MET_I4_0418,PI(40:6),,,Glycerophospholipid metabolism,Lipid metabolism,-0.2617529097374418,0.7231742668754417,0.9059766510022896,85409.49,R+1_vs_Preflight,Inspiration4
+MET_I4_0419,PI(40:7),,,Glycerophospholipid metabolism,Lipid metabolism,-0.3584301364711552,0.523095220484051,0.8023312309255253,268389.4441666667,R+1_vs_Preflight,Inspiration4
+MET_I4_0420,PI(40:5),,,Glycerophospholipid metabolism,Lipid metabolism,-0.5706685203988968,0.5285448309158576,0.8026051136129689,101184.06,R+1_vs_Preflight,Inspiration4
+MET_I4_0421,PI(42:9),,,Glycerophospholipid metabolism,Lipid metabolism,-0.3064103842855225,0.324493208288947,0.6537848462414385,307165.775,R+1_vs_Preflight,Inspiration4
+MET_I4_0422,LPA(18:2),,,Glycerophospholipid metabolism,Lipid metabolism,-1.5925812549072338,0.1933490715516324,0.574788243588648,72751.7129090909,R+1_vs_Preflight,Inspiration4
+MET_I4_0423,2-Arachidonoylglycerol,HMDB04666,C13856,"Glycerolipids, Monoacylglycerols",Lipid metabolism,0.760414299992014,0.0203305263897942,0.3287483011092887,7286.116272727272,R+1_vs_Preflight,Inspiration4
+MET_I4_0424,1-Hexadecy2-Arachidonoyglycerol,,,Glycerophospholipid metabolism/acylglycerol,Lipid metabolism,-0.0927597201058098,0.8645690528617905,0.9514184856318494,35396.34216666667,R+1_vs_Preflight,Inspiration4
+MET_I4_0425,Corticosterone,HMDB01547,C02140,Steroid hormone biosynthesis,Lipid metabolism,0.538147279965739,0.2187785119283669,0.5880403552006206,37242.746666666666,R+1_vs_Preflight,Inspiration4
+MET_I4_0426,Cortexolone,HMDB00015,C05488,Steroid biosynthesis,Lipid metabolism,-2.103275902983816,0.4102831665671849,0.7144313054895768,21932.575777777776,R+1_vs_Preflight,Inspiration4
+MET_I4_0427,Cortisol,HMDB00063,C00735,Steroid hormone biosynthesis,Lipid metabolism,0.6405150708327482,0.3688350011637201,0.6782079652228593,678364.9750000001,R+1_vs_Preflight,Inspiration4
+MET_I4_0428,Cholesteryl Acetate,HMDB03822,C02530,Cholesterol metabolism,Lipid metabolism,-0.0891195608257587,0.7687581227339435,0.9269571401909784,3416936.4166666665,R+1_vs_Preflight,Inspiration4
+MET_I4_0429,Mevalonic Acid,HMDB00227,C00418,Terpenoid backbone biosynthesis,Lipid metabolism,-0.1080210265197027,0.7563370432222187,0.9244119417160452,35382.03166666667,R+1_vs_Preflight,Inspiration4
+MET_I4_0430,"Anandamide (18:2,N-6)",HMDB12252,,N-acylethanolamine (NAE) metabolism,Lipid metabolism,-0.0296185244978793,0.826712241738067,0.9424372905349326,105831.98916666668,R+1_vs_Preflight,Inspiration4
+MET_I4_0431,Oleoyl Ethanolamide,HMDB02088,,N-acylethanolamine (NAE) metabolism,Lipid metabolism,0.2372349635464775,0.1942538386724143,0.574788243588648,144479.4208333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0432,Palmitoyl Ethanolamide,HMDB02100,C16512,N-acylethanolamine (NAE) metabolism,Lipid metabolism,0.2231400543264133,0.2109863170345337,0.5880403552006206,118537.53416666668,R+1_vs_Preflight,Inspiration4
+MET_I4_0433,Adrenoyl Ethanolamide,HMDB13626,C13829,N-acylethanolamine (NAE) metabolism,Lipid metabolism,0.09681108707689,0.8358645592327563,0.9424372905349326,36371.75166666667,R+1_vs_Preflight,Inspiration4
+MET_I4_0434,Arachidonyol Dopamine,,C12271,"Fatty amide metabolism, endocannabinoid",Lipid metabolism,-0.0328361990610115,0.9666311075045548,0.986479675918489,50130.05959999999,R+1_vs_Preflight,Inspiration4
+MET_I4_0435,N-Oleoyl Dopamine (OLDA),,C12272,"Fatty amide metabolism, endocannabinoid",Lipid metabolism,0.466989337799616,0.087031332189799,0.4410239417707796,30334.14333333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0436,Protoporphyrin,HMDB00241,C02191,Porphyrin and chlorophyll metabolism,Porphyrin metabolism,1.0372752754560446,0.0086980219505341,0.3287483011092887,65571.85333333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0437,Biliverdin,HMDB01008,,Porphyrin metabolism,Porphyrin metabolism,0.5456111618766769,0.3091810843576294,0.6522357789806338,1824980.0916666668,R+1_vs_Preflight,Inspiration4
+MET_I4_0438,Bilirubin,HMDB00054,C00486,Porphyrin metabolism,Porphyrin metabolism,0.6146122110137677,0.2990490821040761,0.6515513817823106,5638934.25,R+1_vs_Preflight,Inspiration4
+MET_I4_0439,Glyoxylic Acid,HMDB00119,C00048,Glyoxylate and dicarboxylate metabolism,Glycylate and dicarboxylate metabolism,-0.1032785043248143,0.4603917262756805,0.755042431092116,195298.69166666665,R+1_vs_Preflight,Inspiration4
+MET_I4_0440,Glycolic Acid,HMDB00115,C00160,Glyoxylate and dicarboxylate metabolism,Glycylate and dicarboxylate metabolism,-0.2320170412373567,0.0218873859290957,0.3287483011092887,164616.26666666663,R+1_vs_Preflight,Inspiration4
+MET_I4_0441,Oxalic Acid,HMDB02329,C00209,Glyoxylic or Ascorbic acid metabolism,Glycylate and dicarboxylate metabolism,0.0684641353450554,0.1802071852922562,0.551057338913218,6716586.916666667,R+1_vs_Preflight,Inspiration4
+MET_I4_0442,Glyceric Acid,HMDB00139,C00258,Glyoxylate and dicarboxylate metabolism,Glycylate and dicarboxylate metabolism,-0.329036568940235,0.2125606922786185,0.5880403552006206,1076898.25,R+1_vs_Preflight,Inspiration4
+MET_I4_0443,Meso-Tartaric Acid,HMDB62642,C00552,Glycylate and dicarboxylate metabolism,Glycylate and dicarboxylate metabolism,1.5496401456640347,0.057277392750165,0.4132029385853039,592673.3583333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0444,Tartaric Acid,HMDB00956,C00898,Glyoxylate and dicarboxylate metabolism,Glycylate and dicarboxylate metabolism,1.5562123097299303,0.0577763606187049,0.4132029385853039,588591.4666666667,R+1_vs_Preflight,Inspiration4
+MET_I4_0445,Acetoacetic Acid,HMDB00060,C00164,Ketone bodies,Keto-Acids and Derivatives,-0.2118801700905754,0.6679947560642985,0.860758957099996,251507.4883333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0446,3-Hydroxybutanoic Acid,HMDB00357,C01089,Ketone bodies,Keto-Acids and Derivatives,0.2442705145434628,0.6135866758593254,0.8372740894061015,2325663.083333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0447,Butyric Acid,HMDB00039,C00246,Butyrate metabolism,Butyrate metabolism,0.1695600050558203,0.8553069350572171,0.9514184856318494,16648.779545454545,R+1_vs_Preflight,Inspiration4
+MET_I4_0448,Paraxanthine,HMDB01860,C13747,Caffiene metabolism,Caffeine metabolism,-0.0351055089140199,0.8815660140283332,0.9514184856318494,38375.16083333333,R+1_vs_Preflight,Inspiration4
+MET_I4_0449,Caffeine,HMDB01847,C07481,Caffeine metabolism,Caffeine metabolism,-1.9281912660043825,0.0539088342346629,0.4132029385853039,930132.8316666664,R+1_vs_Preflight,Inspiration4
+MET_I4_0450,Theobromine,HMDB02825,C07480,Cacao alkaloid,Caffeine metabolism,-1.5548961986502334,0.128354402043567,0.470632807493079,666773.7216666667,R+1_vs_Preflight,Inspiration4
+MET_I4_0451,Gluconic Acid,HMDB00625,C00257,,,-0.1632869237490132,0.4791117643034975,0.7744781566339691,536742.3166666667,R+1_vs_Preflight,Inspiration4
+MET_I4_0452,Quinic Acid,HMDB03072,C00296,,,-2.510412946447793,0.0972505431846943,0.4568749476697618,2151651.7081666663,R+1_vs_Preflight,Inspiration4
+MET_I4_0453,115.027@1.04_ANPNEG,,,,,-1.805635084954143,0.0828698010542881,0.4393682020118479,97862.3125,R+1_vs_Preflight,Inspiration4
+MET_I4_0454,197.0635@3.33,,,Tyrosine metabolism,Amino acids,0.0007588554312223,0.9965672556695544,0.9965672556695544,54168.415,R+1_vs_Preflight,Inspiration4

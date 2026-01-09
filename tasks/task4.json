@@ -1,0 +1,59 @@
+{
+  "task_id": "task4_anomaly_detection",
+  "task_name": "Anomaly Detection and Explanation",
+  "task_type": "anomaly_detection + reasoning",
+  "difficulty": "medium",
+  "description": "\n    Identify anomalous biomarker values and provide explanations.\n    Ground truth includes known data quality issues (C003 L-92).\n    Tests both detection capability and reasoning quality.\n    ",
+  "subtasks": {
+    "4a_detection": {
+      "input": "single sample (34 analytes)",
+      "output": "binary flag per analyte (normal/anomalous)",
+      "metric": "f1_score, precision, recall"
+    },
+    "4b_explanation": {
+      "input": "flagged anomalous value + context",
+      "output": "free-text explanation of why anomalous",
+      "metric": "expert_rating (1-5 scale)"
+    }
+  },
+  "ground_truth": {
+    "known_anomalies": [
+      {
+        "mission": "Inspiration4",
+        "crew": "C003",
+        "timepoint": "L-92",
+        "analyte": "ABSOLUTE NEUTROPHILS",
+        "value": 10.1,
+        "expected_range": "2000-6000",
+        "explanation": "Likely data entry error or unit conversion issue"
+      },
+      {
+        "mission": "Inspiration4",
+        "crew": "C003",
+        "timepoint": "L-92",
+        "analyte": "PLATELET COUNT",
+        "value": 12.9,
+        "expected_range": "150-400",
+        "explanation": "Likely data entry error"
+      }
+    ],
+    "synthetic_anomalies": "Can inject additional synthetic anomalies for training"
+  },
+  "evaluation_metrics": {
+    "detection": [
+      "auroc",
+      "auprc",
+      "f1_at_threshold"
+    ],
+    "explanation": [
+      "expert_rating",
+      "factual_accuracy",
+      "completeness"
+    ]
+  },
+  "notes": [
+    "Very few ground truth anomalies \u2192 need synthetic augmentation",
+    "Explanation quality is subjective \u2192 requires expert annotation",
+    "Good for testing Claude-like reasoning capabilities"
+  ]
+}

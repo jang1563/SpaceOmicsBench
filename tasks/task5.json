@@ -1,0 +1,69 @@
+{
+  "task_id": "task5_scientific_reasoning",
+  "task_name": "Multi-Step Scientific Reasoning",
+  "task_type": "free_form_qa",
+  "difficulty": "expert",
+  "description": "\n    Answer complex scientific questions about spaceflight physiology\n    that require integrating data across missions and applying domain knowledge.\n    This is specifically designed for LLM evaluation.\n    ",
+  "question_types": {
+    "comparative": {
+      "example": "NLR increased 52% in Polaris Dawn but only 8% in Inspiration4. What mission-specific factors might explain this difference?",
+      "required_skills": [
+        "data_interpretation",
+        "hypothesis_generation",
+        "domain_knowledge"
+      ]
+    },
+    "predictive": {
+      "example": "Based on the data, which crew member is at highest risk for prolonged recovery? Justify your answer.",
+      "required_skills": [
+        "risk_stratification",
+        "evidence_synthesis",
+        "uncertainty_quantification"
+      ]
+    },
+    "counterfactual": {
+      "example": "If Inspiration4 had been 5 days instead of 3, predict the expected lymphocyte count at R+1.",
+      "required_skills": [
+        "causal_reasoning",
+        "extrapolation",
+        "uncertainty_expression"
+      ]
+    },
+    "mechanistic": {
+      "example": "Explain the physiological mechanism linking decreased lymphocytes with increased neutrophil percentage.",
+      "required_skills": [
+        "domain_knowledge",
+        "causal_chain_reasoning"
+      ]
+    }
+  },
+  "input_spec": {
+    "context": "Full dataset statistics + mission summaries",
+    "question": "Natural language question",
+    "format": "Can include specific data tables if needed"
+  },
+  "output_spec": {
+    "type": "free_text",
+    "expected_length": "2-5 paragraphs",
+    "structure": "claim + evidence + reasoning chain"
+  },
+  "evaluation_metrics": {
+    "expert_rating": {
+      "factual_accuracy": "Are stated facts correct? (1-5)",
+      "reasoning_quality": "Is the logic sound? (1-5)",
+      "completeness": "Are key factors addressed? (1-5)",
+      "uncertainty_calibration": "Appropriate hedging? (1-5)",
+      "domain_integration": "Uses relevant biology? (1-5)"
+    },
+    "automated": {
+      "claim_verification": "Check factual claims against data",
+      "consistency": "Internal logical consistency"
+    }
+  },
+  "question_bank_size": 50,
+  "notes": [
+    "Requires domain expert annotation for evaluation",
+    "No single 'correct' answer \u2192 rubric-based scoring",
+    "Tests Claude's scientific reasoning specifically"
+  ]
+}

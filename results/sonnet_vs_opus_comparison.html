@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpaceOmicsBench - Sonnet vs Opus Full Comparison</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0c1445 0%, #1a1a2e 50%, #16213e 100%);
+            color: #e8e8e8;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container { max-width: 1400px; margin: 0 auto; }
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .subtitle { text-align: center; color: #888; margin-bottom: 40px; font-size: 1.1rem; }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+        .hero-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .hero-card h3 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: #888; margin-bottom: 12px; }
+        .hero-value { font-size: 2rem; font-weight: 700; margin-bottom: 5px; }
+        .hero-label { color: #aaa; font-size: 0.85rem; }
+        .sonnet-gradient { background: linear-gradient(90deg, #667eea, #764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .opus-gradient { background: linear-gradient(90deg, #f093fb, #f5576c); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .winner-badge {
+            display: inline-block;
+            background: linear-gradient(90deg, #ffd700, #ffaa00);
+            color: #000;
+            padding: 3px 10px;
+            border-radius: 10px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-top: 6px;
+        }
+
+        .section {
+            background: rgba(255,255,255,0.03);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+        .section h2 { font-size: 1.4rem; margin-bottom: 24px; }
+
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 14px 16px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.08); }
+        th { background: rgba(255,255,255,0.05); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; color: #aaa; }
+        .number { text-align: right; font-variant-numeric: tabular-nums; }
+        .better { color: #4ade80; font-weight: 600; }
+
+        .score-bar-container { display: flex; align-items: center; gap: 10px; margin: 8px 0; }
+        .score-label { width: 180px; font-size: 0.9rem; }
+        .score-bars { flex: 1; }
+        .score-bar-row { display: flex; align-items: center; gap: 8px; margin: 4px 0; }
+        .score-bar-model { width: 50px; font-size: 0.75rem; color: #888; }
+        .score-bar-track { flex: 1; height: 24px; background: rgba(255,255,255,0.1); border-radius: 12px; overflow: hidden; }
+        .score-bar-fill { height: 100%; border-radius: 12px; display: flex; align-items: center; padding: 0 10px; font-size: 0.8rem; font-weight: 600; }
+        .bar-sonnet { background: linear-gradient(90deg, #667eea, #764ba2); }
+        .bar-opus { background: linear-gradient(90deg, #f093fb, #f5576c); }
+
+        .comparison-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+        .model-column { background: rgba(255,255,255,0.03); border-radius: 16px; padding: 24px; }
+        .model-header { font-size: 1.2rem; font-weight: 600; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid; }
+        .model-header.sonnet { border-color: #667eea; color: #667eea; }
+        .model-header.opus { border-color: #f093fb; color: #f093fb; }
+
+        .insights {
+            background: linear-gradient(135deg, rgba(102,126,234,0.15), rgba(118,75,162,0.15));
+            border-radius: 20px;
+            padding: 30px;
+            margin-top: 30px;
+            border: 1px solid rgba(102,126,234,0.3);
+        }
+        .insight-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .insight-card { background: rgba(0,0,0,0.2); border-radius: 12px; padding: 20px; }
+        .insight-card h4 { color: #667eea; margin-bottom: 10px; }
+        .insight-card p { color: #bbb; font-size: 0.95rem; line-height: 1.5; }
+
+        .footer { text-align: center; margin-top: 40px; color: #666; font-size: 0.9rem; }
+
+        @media (max-width: 1000px) { .hero-stats { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 768px) {
+            .hero-stats { grid-template-columns: repeat(2, 1fr); }
+            .comparison-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 SpaceOmicsBench Full Evaluation</h1>
+        <p class="subtitle">Claude Sonnet 4 vs Claude Opus 4 — Performance + Quality Scoring Comparison</p>
+
+        <div class="hero-stats">
+            <div class="hero-card">
+                <h3>Overall Score</h3>
+                <div class="hero-value opus-gradient">4.45/5</div>
+                <div class="hero-label">Opus wins</div>
+                <div class="winner-badge">+0.11</div>
+            </div>
+            <div class="hero-card">
+                <h3>Factual Accuracy</h3>
+                <div class="hero-value opus-gradient">4.32/5</div>
+                <div class="hero-label">Opus: 4.32 vs Sonnet: 4.22</div>
+            </div>
+            <div class="hero-card">
+                <h3>Speed Winner</h3>
+                <div class="hero-value sonnet-gradient">Sonnet</div>
+                <div class="hero-label">14.8s vs 18.8s</div>
+                <div class="winner-badge">27% Faster</div>
+            </div>
+            <div class="hero-card">
+                <h3>Cost Winner</h3>
+                <div class="hero-value sonnet-gradient">Sonnet</div>
+                <div class="hero-label">$1.22 vs $6.22</div>
+                <div class="winner-badge">5.1x Cheaper</div>
+            </div>
+            <div class="hero-card">
+                <h3>Success Rate</h3>
+                <div class="hero-value" style="color: #4ade80;">100%</div>
+                <div class="hero-label">Both: 115/115</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📊 Quality Scores by Dimension (LLM-as-Judge)</h2>
+            <p style="color: #888; margin-bottom: 20px;">Scored by Claude Sonnet 4 on 5 dimensions (1-5 scale)</p>
+
+            <div class="score-bar-container">
+                <div class="score-label">Factual Accuracy</div>
+                <div class="score-bars">
+                    <div class="score-bar-row">
+                        <span class="score-bar-model">Sonnet</span>
+                        <div class="score-bar-track">
+                            <div class="score-bar-fill bar-sonnet" style="width: 84%">4.22</div>
+                        </div>
+                    </div>
+                    <div class="score-bar-row">
+                        <span class="score-bar-model">Opus</span>
+                        <div class="score-bar-track">
+                            <div class="score-bar-fill bar-opus" style="width: 86%">4.32</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="score-bar-container">
+                <div class="score-label">Reasoning Quality</div>
+                <div class="score-bars">
+                    <div class="score-bar-row">
+                        <span class="score-bar-model">Sonnet</span>
+                        <div class="score-bar-track">
+                            <div class="score-bar-fill bar-sonnet" style="width: 94%">4.72</div>
+                        </div>
+                    </div>
+                    <div class="score-bar-row">
+                        <span class="score-bar-model">Opus</span>
+                        <div class="score-bar-track">
+                            <div class="score-bar-fill bar-opus" style="width: 95%">4.73</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="score-bar-container">
+                <div class="score-label">Completeness</div>
+                <div class="score-bars">
+                    <div class="score-bar-row">
+                        <span class="score-bar-model">Sonnet</span>
+                        <div class="score-bar-track">
+                            <div class="score-bar-fill bar-sonnet" style="width: 93%">4.65</div>
+                        </div>
+                    </div>
+                    <div class="score-bar-row">
+                        <span class="score-bar-model">Opus</span>
+                        <div class="score-bar-track">
+                            <div class="score-bar-fill bar-opus" style="width: 95%">4.76</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="score-bar-container">
+                <div class="score-label">Uncertainty Calibration</div>
+                <div class="score-bars">
+                    <div class="score-bar-row">
+                        <span class="score-bar-model">Sonnet</span>
+                        <div class="score-bar-track">
+                            <div class="score-bar-fill bar-sonnet" style="width: 73%">3.66</div>
+                        </div>
+                    </div>
+                    <div class="score-bar-row">
+                        <span class="score-bar-model">Opus</span>
+                        <div class="score-bar-track">
+                            <div class="score-bar-fill bar-opus" style="width: 78%">3.89</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="score-bar-container">
+                <div class="score-label">Domain Integration</div>
+                <div class="score-bars">
+                    <div class="score-bar-row">
+                        <span class="score-bar-model">Sonnet</span>
+                        <div class="score-bar-track">
+                            <div class="score-bar-fill bar-sonnet" style="width: 89%">4.43</div>
+                        </div>
+                    </div>
+                    <div class="score-bar-row">
+                        <span class="score-bar-model">Opus</span>
+                        <div class="score-bar-track">
+                            <div class="score-bar-fill bar-opus" style="width: 91%">4.55</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="score-bar-container">
+                <div class="score-label"><strong>OVERALL SCORE</strong></div>
+                <div class="score-bars">
+                    <div class="score-bar-row">
+                        <span class="score-bar-model">Sonnet</span>
+                        <div class="score-bar-track">
+                            <div class="score-bar-fill bar-sonnet" style="width: 87%">4.34</div>
+                        </div>
+                    </div>
+                    <div class="score-bar-row">
+                        <span class="score-bar-model">Opus</span>
+                        <div class="score-bar-track">
+                            <div class="score-bar-fill bar-opus" style="width: 89%">4.45</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <h2>📈 Quality Scores by Difficulty</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Difficulty</th>
+                        <th class="number">Sonnet Score</th>
+                        <th class="number">Opus Score</th>
+                        <th class="number">Difference</th>
+                        <th>Winner</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td><strong>Easy</strong></td>
+                        <td class="number">4.33</td>
+                        <td class="number">4.28</td>
+                        <td class="number">-0.06</td>
+                        <td><span class="sonnet-gradient">Sonnet</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Medium</strong></td>
+                        <td class="number">4.30</td>
+                        <td class="number">4.50</td>
+                        <td class="number">+0.19</td>
+                        <td><span class="opus-gradient">Opus</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Hard</strong></td>
+                        <td class="number">4.36</td>
+                        <td class="number">4.47</td>
+                        <td class="number">+0.11</td>
+                        <td><span class="opus-gradient">Opus</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Expert</strong></td>
+                        <td class="number">4.36</td>
+                        <td class="number">4.47</td>
+                        <td class="number">+0.11</td>
+                        <td><span class="opus-gradient">Opus</span></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>🧬 Quality Scores by Modality</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Modality</th>
+                        <th class="number">Sonnet Score</th>
+                        <th class="number">Opus Score</th>
+                        <th class="number">Difference</th>
+                        <th>Winner</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td><strong>Clinical</strong></td>
+                        <td class="number">4.19</td>
+                        <td class="number">4.30</td>
+                        <td class="number">+0.11</td>
+                        <td><span class="opus-gradient">Opus</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Transcriptomics</strong></td>
+                        <td class="number">4.42</td>
+                        <td class="number">4.54</td>
+                        <td class="number">+0.12</td>
+                        <td><span class="opus-gradient">Opus</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Metabolomics</strong></td>
+                        <td class="number">4.50</td>
+                        <td class="number">4.61</td>
+                        <td class="number">+0.11</td>
+                        <td><span class="opus-gradient">Opus</span></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>⚠️ Quality Flags (Issues Detected)</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Flag Type</th>
+                        <th class="number">Sonnet Count</th>
+                        <th class="number">Sonnet %</th>
+                        <th class="number">Opus Count</th>
+                        <th class="number">Opus %</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Hallucination</td>
+                        <td class="number">15</td>
+                        <td class="number">13.2%</td>
+                        <td class="number">17</td>
+                        <td class="number">14.8%</td>
+                    </tr>
+                    <tr>
+                        <td>Factual Error</td>
+                        <td class="number">20</td>
+                        <td class="number">17.5%</td>
+                        <td class="number">20</td>
+                        <td class="number">17.4%</td>
+                    </tr>
+                    <tr>
+                        <td>Harmful Content</td>
+                        <td class="number">0</td>
+                        <td class="number">0.0%</td>
+                        <td class="number">0</td>
+                        <td class="number">0.0%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>💰 Cost & Performance Summary</h2>
+            <div class="comparison-grid">
+                <div class="model-column">
+                    <div class="model-header sonnet">Claude Sonnet 4</div>
+                    <table>
+                        <tr><td>Overall Score</td><td class="number"><strong>4.34/5</strong></td></tr>
+                        <tr><td>Avg Response Time</td><td class="number">14.78s</td></tr>
+                        <tr><td>Total Cost</td><td class="number better">$1.22</td></tr>
+                        <tr><td>Cost per Question</td><td class="number">$0.0106</td></tr>
+                        <tr><td>Hallucination Rate</td><td class="number">13.2%</td></tr>
+                    </table>
+                </div>
+                <div class="model-column">
+                    <div class="model-header opus">Claude Opus 4</div>
+                    <table>
+                        <tr><td>Overall Score</td><td class="number"><strong>4.45/5</strong></td></tr>
+                        <tr><td>Avg Response Time</td><td class="number">18.81s</td></tr>
+                        <tr><td>Total Cost</td><td class="number">$6.22</td></tr>
+                        <tr><td>Cost per Question</td><td class="number">$0.0541</td></tr>
+                        <tr><td>Hallucination Rate</td><td class="number">14.8%</td></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="insights">
+            <h2>🔍 Key Insights & Recommendations</h2>
+            <div class="insight-grid">
+                <div class="insight-card">
+                    <h4>🏆 Quality Winner: Opus</h4>
+                    <p>Opus scores higher overall (<strong>4.45</strong> vs <strong>4.34</strong>), with notable advantages in Uncertainty Calibration (+0.23) and Completeness (+0.11).</p>
+                </div>
+                <div class="insight-card">
+                    <h4>⚡ Speed Winner: Sonnet</h4>
+                    <p>Sonnet is <strong>27% faster</strong> on average (14.8s vs 18.8s per question), making it better for time-sensitive applications.</p>
+                </div>
+                <div class="insight-card">
+                    <h4>💵 Cost Winner: Sonnet</h4>
+                    <p>Sonnet costs <strong>5.1x less</strong> ($1.22 vs $6.22). For the <strong>+2.6% quality improvement</strong>, Opus costs 5.1x more.</p>
+                </div>
+                <div class="insight-card">
+                    <h4>🎯 Recommendation</h4>
+                    <p><strong>Choose Sonnet</strong> for cost-efficiency and speed. <strong>Choose Opus</strong> when quality matters most (especially for uncertainty calibration and completeness). Both have similar hallucination rates (~14-15%).</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>SpaceOmicsBench v2.1 | 115 Questions | LLM-as-Judge Scoring by Claude Sonnet 4</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+{
+  "task_id": "task6_missing_modality",
+  "task_name": "Missing Modality Imputation",
+  "task_type": "regression",
+  "difficulty": "medium",
+  "description": "\n    Given a subset of analytes (e.g., only CBC), predict missing analytes (e.g., CMP).\n    Tests ability to leverage biological correlation structure.\n    ",
+  "scenarios": {
+    "cbc_to_cmp": {
+      "input": "20 CBC analytes",
+      "output": "14 CMP analytes",
+      "rationale": "CBC often available first; CMP requires different assay"
+    },
+    "partial_panel": {
+      "input": "randomly masked 50% of analytes",
+      "output": "masked analytes",
+      "rationale": "General imputation capability"
+    },
+    "key_markers_only": {
+      "input": "5 key markers (WBC, RBC, HGB, PLT, GLU)",
+      "output": "remaining 29 analytes",
+      "rationale": "Minimum viable panel"
+    }
+  },
+  "evaluation_metrics": {
+    "primary": "mae_normalized",
+    "secondary": [
+      "correlation",
+      "per_analyte_r2"
+    ],
+    "biological": "correlation_structure_preservation"
+  },
+  "baselines": {
+    "mean_imputation": "predict population mean",
+    "mission_mean": "predict mission-specific mean",
+    "correlation_based": "linear regression from correlated analytes"
+  }
+}

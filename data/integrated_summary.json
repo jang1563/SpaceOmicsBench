@@ -1,0 +1,23 @@
+{
+  "version": "2.1",
+  "modalities": {
+    "clinical": {
+      "samples": 63,
+      "features": 34,
+      "missions": 3
+    },
+    "transcriptomics": {
+      "genes": 5346,
+      "missions": 2,
+      "correlation": -0.02,
+      "concordance": 0.464
+    },
+    "metabolomics": {
+      "metabolites": 199,
+      "missions": 2,
+      "correlation": 0.4,
+      "concordance": 0.67
+    }
+  },
+  "key_insight": "Metabolomics shows 20x higher cross-mission correlation (r=0.40 vs r=-0.02) and significantly better concordance (67% vs 46%) compared to transcriptomics, suggesting metabolic responses are more conserved across spaceflight missions than transcriptional responses."
+}

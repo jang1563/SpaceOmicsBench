@@ -1,0 +1,950 @@
+metabolite_id,metabolite_name,HMDB_id,KEGG_id,pathway,super_pathway,chemical_class,formula,CAS_id
+MET_0001,Aspartic Acid,,,"Alanine, Aspartate, and Glutamate metabolism",Amino acids,Amino acid,C4H7NO4,56-84-8
+MET_0002,2-Hydroxyglutaric Acid,,,"Alanine, Aspartate, and Glutamate metabolism, glutamate degradation",Amino acids,Amino acid,C5H8O5,
+MET_0003,N-Acetylputrescine,,,Arginine and proline metabolism,Amino acids,Amino acid,C6H14N2O,5699-41-2
+MET_0004,4-Guanidinobutyric Acid,,,Arginine and proline metabolism,Amino acids,Amino acid,C5H11N3O2,463-00-3
+MET_0005,L-Monomethylarginine (LNMA),,,Arginine and Proline metabolism,Amino acids,Amino acid,C7H16N4O2,53308-83-1
+MET_0006,N-Acetylglutamic Acid,,,Arginine and proline metabolism,Amino acids,Amino acid,C7H11NO5,1188-37-0
+MET_0007,Cysteine,,,Cysteine and Methionine metabolism,Amino acids,Amino acid,C3H7NO2S,52-90-4
+MET_0008,Methylcysteine,,,Cysteine and methionine metabolism,Amino acids,Amino acid,C4H9NO2S,
+MET_0009,Sarcosine,,,"Glycine, serine, and threonine metabolism",Amino acids,Amino acid,C3H7NO2,107-97-1
+MET_0010,Dimethylglycine,,,Glycine metabolism,Amino acids,Amino acid,C4H9NO2,1118-68-9
+MET_0011,Guanidinoacetic Acid,,,"Glycine, serine, and threonine metabolism",Amino acids,Amino acid,C3H7N3O2,352-97-6
+MET_0012,3-Methylhistamine,,,"Histidine metabolism, histamine metabolite",Amino acids,Amino acid,C6H11N3,36475-47-5
+MET_0013,Histidinol,,,Histidine metabolism,Amino acids,Amino acid,C6H11N3O,4836-52-6
+MET_0014,5-Aminopentanoate,,,Lysine degradation,Amino acids,Amino acid,C5H11NO2,660-88-8
+MET_0015,2-Oxoadipic Acid,,,"lysine biosynthesis/degradation, tryptophan metabolism",Amino acids,Amino acid,C6H8O5,3184-35-8
+MET_0016,Phenylacetylglycine,,,Phenylalanine metabolism,Amino acids,Amino acid,C10H11NO3,500-98-1
+MET_0017,Picolinic Acid,,,Tryptophan metabolism,Amino acids,Amino acid,C6H5NO2,98-98-6
+MET_0018,3-Hydroxyanthranilic Acid,,,Tryptophan metabolism,Amino acids,Amino acid,C7H7NO3,548-93-6
+MET_0019,3-Methoxy-Tyrosine,,,Tyrosine metabolism,Amino acids,Amino acid,C10H13NO4,300-48-1
+MET_0020,3-Methy2-Oxopentanoic Acid,,,Isoleucine degradation,Amino acids,Amino acid,C6H10O3,1460-34-0
+MET_0021,2-Hydroxy-3-Methylpentanoic Acid,,,Isoleucine metabolism,Amino acids,Amino acid,C6H12O3,
+MET_0022,3-Methylglutaric Acid,,,Leucine metabolism,Amino acids,Amino acid,C6H10O4,626-51-7
+MET_0023,Itaconic Acid,,,"Valin, leucine, isoleucine biosynthesis",Amino acids,Amino acid,C5H6O4,
+MET_0024,N-Acetylalanine,,,Amino acid acetylation,Amino acids,Amino acid,C5H9NO3,97-69-8
+MET_0025,2-Methylglutaric Acid,,,"Citrate cycle (TCA cycle), Succinic acid metabolite",Energy metabolism,Energy metabolism,C6H10O4,18069-17-5
+MET_0026,Glucose,,,Glycolysis; Gluconogenesis; galactose metabolism,Energy metabolism,Energy metabolism,C6H12O6,492-62-6
+MET_0027,3-Phosphohexose?,,,Glycolysis -Cycle sugar phosphate?,Energy metabolism,Energy metabolism,C6H11O8P,
+MET_0028,2-DeoxyRibose 5-Phosphate-fragment?,,,Pentose phosphate pathway,Energy metabolism,Energy metabolism,C5H9O7P,4300-28-1
+MET_0029,Galacturonic Acid,,,Pentose and glucuronate interconversions,Energy metabolism,Energy metabolism,C6H10O7,685-73-4
+MET_0030,3-Aminoisobutyric Acid,,,Pyrimidine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,Nucleotide,C4H9NO2,144-90-1
+MET_0031,Thymidine+Cl,,,Pyrimidine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,Nucleotide,C10H15ClN2O5,50-89-5
+MET_0032,N-Acetylglucosamine (GlcNAc),,,Amino sugar metabolism,Amino sugar and nucleotide sugar metabolism,Amino acid,C8H15NO6,7512-17-6
+MET_0033,Rhamnose,,,Fructose and mannose metabolism,Carbohydrate metabolism,Carbohydrate,C6H12O5,10030-85-0
+MET_0034,Fructose,,,Fructose and mannose metabolism,Carbohydrate metabolism,Carbohydrate,C6H12O6,59-23-4
+MET_0035,Maltose,,,Starch and sucrose metabolism,Carbohydrate metabolism,Carbohydrate,C12H22O11,69-79-4
+MET_0036,Glycocholic Acid,,,Bile acid biosynthesis,Lipid metabolism,Lipid,C26H43NO6,475-31-0
+MET_0037,FA 28:0,,,Fatty acid metabolism,Fatty acid metabolism,Other,C28H56O2,
+MET_0038,FA 26:0,,,Fatty acid metabolism,Fatty acid metabolism,Other,C26H52O2,
+MET_0039,FA 24:1,,,Fatty acid metabolism,Fatty acid metabolism,Other,C24H46O2,
+MET_0040,FA 24:0,,,Fatty acid metabolism,Fatty acid metabolism,Other,C24H48O2,
+MET_0041,FA 22:6,,,Fatty acid metabolism,Fatty acid metabolism,Other,C22H32O2,
+MET_0042,FA 22:5,,,Fatty acid metabolism,Fatty acid metabolism,Other,C22H34O2,
+MET_0043,FA 22:4,,,Fatty acid metabolism,Fatty acid metabolism,Other,C22H36O2,
+MET_0044,FA 22:1,,,Fatty acid metabolism,Fatty acid metabolism,Other,C22H42O2,
+MET_0045,FA 22:0,,,Fatty acid metabolism,Fatty acid metabolism,Other,C22H44O2,
+MET_0046,FA 20:6,,,Fatty acid metabolism,Fatty acid metabolism,Other,C20H28O2,
+MET_0047,FA 20:5,,,Fatty acid metabolism,Fatty acid metabolism,Other,C20H30O2,
+MET_0048,FA 20:4,,,Fatty acid metabolism,Fatty acid metabolism,Other,C20H32O2,
+MET_0049,FA 20:3,,,Fatty acid metabolism,Fatty acid metabolism,Other,C20H34O2,
+MET_0050,FA 20:2,,,Fatty acid metabolism,Fatty acid metabolism,Other,C20H36O2,
+MET_0051,FA 20:1,,,Fatty acid metabolism,Fatty acid metabolism,Other,C20H38O2,
+MET_0052,FA 20:0,,,Fatty acid metabolism,Fatty acid metabolism,Other,C20H40O2,
+MET_0053,FA 18:3,,,Fatty acid metabolism,Fatty acid metabolism,Other,C18H30O2,
+MET_0054,FA 18:2,,,Fatty acid metabolism,Fatty acid metabolism,Other,C18H32O2,
+MET_0055,FA 18:1,,,Fatty acid metabolism,Fatty acid metabolism,Other,C18H34O2,
+MET_0056,FA 18:0,,,Fatty acid metabolism,Fatty acid metabolism,Other,C18H36O2,
+MET_0057,FA 17:1,,,Fatty acid metabolism,Fatty acid metabolism,Other,C17H32O2,
+MET_0058,FA 17:0,,,Fatty acid metabolism,Fatty acid metabolism,Other,C17H34O2,
+MET_0059,FA 16:0,,,Fatty acid metabolism,Fatty acid metabolism,Other,C16H32O2,
+MET_0060,FA 14:0,,,Fatty acid metabolism,Fatty acid metabolism,Other,C14H28O2,
+MET_0061,FA 26:0;O,,,Fatty acid metabolism,Fatty acid metabolism,Other,C26H52O3,
+MET_0062,FA 24:1;O,,,Fatty acid metabolism,Fatty acid metabolism,Other,C24H46O3,
+MET_0063,FA 24:0;O,,,Fatty acid metabolism,Fatty acid metabolism,Other,C24H48O3,
+MET_0064,FA 22:0;O,,,Fatty acid metabolism,Fatty acid metabolism,Other,C22H44O3,
+MET_0065,FA 18:1;O,,,Fatty acid metabolism,Fatty acid metabolism,Other,C18H34O3,
+MET_0066,FA 18:0;O,,,Fatty acid metabolism,Fatty acid metabolism,Other,C18H26O3,
+MET_0067,FA 16:0;O,,,Fatty acid metabolism,Fatty acid metabolism,Other,C16H32O3,
+MET_0068,FA 14:1;O,,,Fatty acid metabolism,Fatty acid metabolism,Other,C14H26O3,
+MET_0069,FA 12:0;O,,,Fatty acid metabolism,Fatty acid metabolism,Other,C12H24O3,
+MET_0070,9-PAHSA,,,Fatty acid metabolism,Fatty acid metabolism,Other,C34H66O4,
+MET_0071,"12,13 DiHOME",,,Fatty acid metabolism,Fatty acid metabolism,Other,C18H34O4,
+MET_0072,CAR 3:0,,,Acylcarnitine metabolism,Fatty acid metabolism,Other,C10H19NO4,
+MET_0073,CAR 4:0,,,Acylcarnitine metabolism,Fatty acid metabolism,Other,C11H21NO4,
+MET_0074,CAR 5:1,,,Acylcarnitine metabolism,Fatty acid metabolism,Other,C12H21NO4,
+MET_0075,CAR 5:0,,,Acylcarnitine metabolism,Fatty acid metabolism,Other,C12H23NO4,
+MET_0076,"CAR 5:0,iso",,,Acylcarnitine metabolism,Fatty acid metabolism,Other,C12H23NO4,
+MET_0077,CAR 6:1,,,Acylcarnitine metabolism,Fatty acid metabolism,Other,C13H23NO4,
+MET_0078,CAR 6:0,,,Acylcarnitine metabolism,Fatty acid metabolism,Other,C13H25NO4,
+MET_0079,CAR 8:1,,,Acylcarnitine metabolism,Fatty acid metabolism,Other,C15H27NO4,
+MET_0080,CAR 8:0,,,Acylcarnitine metabolism,Fatty acid metabolism,Other,C15H29NO4,
+MET_0081,CAR 8:0;O,,,Acylcarnitine metabolism,Fatty acid metabolism,Other,C15H29NO5,
+MET_0082,CAR 10:1,,,Acylcarnitine metabolism,Fatty acid metabolism,Other,C17H31NO4,
+MET_0083,CAR 10:0;O,,,Acylcarnitine metabolism,Fatty acid metabolism,Other,C17H33NO5,
+MET_0084,CAR 12:1,,,Acylcarnitine metabolism,Fatty acid metabolism,Other,C19H35NO4,
+MET_0085,CAR 12:0,,,Acylcarnitine metabolism,Fatty acid metabolism,Other,C19H37NO4,
+MET_0086,CAR 14:2,,,Acylcarnitine metabolism,Fatty acid metabolism,Other,C21H37NO4,
+MET_0087,CAR 14:1,,,Acylcarnitine metabolism,Fatty acid metabolism,Other,C21H39NO4,
+MET_0088,CAR 14:0,,,Acylcarnitine metabolism,Fatty acid metabolism,Other,C21H41NO4,
+MET_0089,CAR 16:2,,,Acylcarnitine metabolism,Fatty acid metabolism,Other,C23H41NO4,
+MET_0090,CAR 16:1,,,Carnitine metabolism,Lipid metabolism,Lipid,C23H43NO4,
+MET_0091,CAR 16:0,,,Carnitine metabolism,Lipid metabolism,Lipid,C23H45NO4,
+MET_0092,CAR 17:0,,,Acylcarnitine metabolism,Fatty acid metabolism,Other,C24H47NO4,
+MET_0093,CAR 18:3,,,Acylcarnitine metabolism,Fatty acid metabolism,Other,C25H43NO4,
+MET_0094,CAR 18:1,,,Acylcarnitine metabolism,Fatty acid metabolism,Other,C25H47NO4,
+MET_0095,CAR 18:0,,,Acylcarnitine metabolism,Fatty acid metabolism,Other,C25H49NO4,
+MET_0096,CAR 20:0,,,Acylcarnitine metabolism,Fatty acid metabolism,Other,C27H53NO4,
+MET_0097,CAR 10:0,,,Acylcarnitine metabolism,Fatty acid metabolism,Other,C17H33NO4,
+MET_0098,CAR 13:0,,,Acylcarnitine metabolism,Fatty acid metabolism,Other,C20H39NO4,
+MET_0099,CAR 14:0;O,,,Acylcarnitine metabolism,Fatty acid metabolism,Other,C21H41NO5,
+MET_0100,CAR 14:1;O,,,Acylcarnitine metabolism,Fatty acid metabolism,Other,C21H39NO5,
+MET_0101,CAR 16:0;O,,,Acylcarnitine metabolism,Fatty acid metabolism,Other,C23H45NO5,
+MET_0102,CAR 18:2,,,Acylcarnitine metabolism,Fatty acid metabolism,Other,C25H45NO4,
+MET_0103,CAR 24:0,,,Acylcarnitine metabolism,Fatty acid metabolism,Other,C31H61NO4,
+MET_0104,CAR 26:0,,,Acylcarnitine metabolism,Fatty acid metabolism,Other,C33H65NO4,
+MET_0105,Deoxycarnitine,,,Carnitine metabolism,Lipid metabolism,Lipid,C7H15NO2,407-64-7
+MET_0106,Methylglutarylcarnitine/C4:1;O2,,,Acylcarnitine metabolism,Fatty acid metabolism,Other,C11H19NO6,
+MET_0107,Linoleyl Carnitine/CAR 18:2,,,Acylcarnitine metabolism,Fatty acid metabolism,Other,C25H45NO4,
+MET_0108,Glutarylcarnitine/CAR 5:1;O2,,,Acylcarnitine metabolism,Fatty acid metabolism,Other,C12H21NO6,
+MET_0109,3-Methylglutarylcarnitine/CAR 6:1;O2,,,Acylcarnitine metabolism,Fatty acid metabolism,Other,C13H23NO6,
+MET_0110,Pimelylcarnitine/CAR 7:1;O2,,,Acylcarnitine metabolism,Fatty acid metabolism,Other,C14H25NO6,
+MET_0111,Keto-decanoylcarnitine/CAR 10:1:O,,,Acylcarnitine metabolism,Fatty acid metabolism,Other,C17H31NO5,
+MET_0112,Undecanoyl carnitine/CAR 11:0,,,Acylcarnitine metabolism,Fatty acid metabolism,Other,C18H35NO4,
+MET_0113,Isovaleric Acid/FA 5:0,,,"Fatty Acid metabolism, Branched fatty acids",Lipid metabolism,Lipid,C5H10O2,503-74-2
+MET_0114,Mevalolactone/FA 6:1;O,,,"Fatty Acid metabolism, Biosynthesis of terpenes and steroids",Lipid metabolism,Lipid,C6H10O3,503-48-0
+MET_0115,Ethylmalonic Acid/FA 5:1;O2,,,"Fatty Acid metabolism, dicarboxylic acid",Lipid metabolism,Lipid,C5H8O4,601-75-2
+MET_0116,Suberic Acid/FA 8:1;O2,,,"Fatty acid breakdown, dicarboxylic acid",Lipid metabolism,Lipid,C8H14O4,505-48-6
+MET_0117,Caproic Acid/FA 6:0,,,Fatty acid biosynthesis; Beta oxidation of fatty acids,Lipid metabolism,Lipid,C6H12O2,142-62-1
+MET_0118,5-Hydroxyhexanoic Acid/FA 6:0;O,,,Fatty acid metabolism,Lipid metabolism,Lipid,C6H12O3,
+MET_0119,Glutaric Acid Methyl Ester,,,"Fatty Acids and Conjugates, Dicarboxylic Acid Derivative",Lipid metabolism,Lipid,C6H10O4,1501-27-5
+MET_0120,"1,9-Nonanedioate/FA 9:1;O2",,,"Fatty Acid metabolism, Dicarboxylic Acids and Derivatives",Lipid metabolism,Lipid,C9H16O4,123-99-9
+MET_0121,10-Hydroxydecanoate/FA 10:0;O,,,Fatty acid metabolism,Lipid metabolism,Lipid,C10H20O3,1679-53-4
+MET_0122,Acetylcholine,,,"Glycerophospholipid metabolism, neurotransmitter",Lipid metabolism,Lipid,C7H15NO2,51-84-3
+MET_0123,Cortisone,,,Steroid hormone biosynthesis,Lipid metabolism,Lipid,C21H28O5,53-06-5
+MET_0124,Cholesterol Sulfate,,,Steroid hormone biosynthesis,Lipid metabolism,Lipid,C27H46O4S,1256-86-6
+MET_0125,5Allotetrahydrocortisol,,,Steroid metabolism (cortisol),Lipid metabolism,Lipid,C21H34O5,302-91-0
+MET_0126,Mevalonic acid/FA 6:0;O2,,,Terpenoid backbone biosynthesis,Lipid metabolism,Lipid,C6H12O4,17817-88-8
+MET_0127,"Anandamide  (20:4, N-6)",,,N-acylethanolamine (NAE) metabolism,Lipid metabolism,Lipid,C22H37NO2,94421-68-8
+MET_0128,5-Aminolevulinic Acid,,,Heme/porphyrin synthesis,Porphyrin metabolism,Other,C5H9NO3,106-60-5
+MET_0129,3-Hydrobutyrate/FA 4:0;O,,,Ketone bodies,Keto-Acids and Derivatives,Other,C4H8O3,300-85-6
+MET_0130,Caffeic Acid,,,Caffeine metabolism,Caffeine metabolism,Other,C9H8O4,331-39-5
+MET_0131,"2,3-Dihydroxybenzoic Acid",,,,,Unknown,C7H6O4,303-38-8
+MET_0132,4-Hydroxycinnamic Acid,,,,,Unknown,C9H8O3,501-98-4
+MET_0133,Salicylamide,,,,,Unknown,C7H7NO2,65-45-2
+MET_0134,Lyxose,,,,,Unknown,C5H10O5,1114-34-7
+MET_0135,M-Salicylic Acid,,,,,Unknown,C7H6O3,99-06-9
+MET_0136,"2,6-Diaminopimelic Acid",,,,,Unknown,C7H14N2O4,583-93-7
+MET_0137,1-Hydroxy-2-Naphthoate,,,,,Unknown,C11H8O3,86-48-6
+MET_0138,4-Hydroxybenzoic Acid,,,,,Unknown,C7H6O3,99-96-7
+MET_0139,Glucaric Acid,,,,,Unknown,C6H10O8,576-42-1
+MET_0140,Protocatechuic Acid,,,,,Unknown,C7H6O4,99-50-3
+MET_0141,Benzoic Acid,,,,,Unknown,C7H6O2,65-85-0
+MET_0142,5-Valerolactone,,,,,Unknown,C5H8O2,542-28-9
+MET_0143,Theophylline,,,,,Unknown,C7H8N4O2,58-55-9
+MET_0144,"2',4'-Dihydroxyacetophenone",,,,,Unknown,C8H8O3,89-84-9
+MET_0145,Xylose,,,,,Unknown,C5H10O5,58-86-6
+MET_0146,Adipic Acid,,,,,Unknown,C6H10O4,124-04-9
+MET_0147,2-Aminoisobutyric Acid,,,,,Unknown,C4H9NO2,62-57-7
+MET_0148,2-Acetamido-2-Deoxy-Beta-Glucosylamine,,,,,Unknown,C8H16N2O5,4229-38-3
+MET_0149,Phthalate,,,,,Unknown,C8H6O4,
+MET_0150,Glycochenodeoxycholiccid,,,,,Unknown,C26H43NO5,
+MET_0151,Ubiquinone/Coenzyme Q10,,,,,Unknown,C59H90O4,
+MET_0152,Glycinyl- lactose?,,,,,Unknown,C14H25NO12,
+MET_0153,PC O-12:1,,,"1-alkyl,2-acylglycerophosphocholines [GP0102]",Glycerophosphocholines [GP01],Other,C20H40NO7P,
+MET_0154,PC 12:4,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C20H32NO8P,
+MET_0155,LPC O-15:1,,,1Z-alkenylglycerophosphocholines [GP0107],Glycerophosphocholines [GP01],Other,C23H48NO6P,
+MET_0156,PC O-14:0,,,"1-alkyl,2-acylglycerophosphocholines [GP0102]",Glycerophosphocholines [GP01],Other,C22H46NO7P,
+MET_0157,LPC 15:1,,,Monoacylglycerophosphocholines [GP0105],Glycerophosphocholines [GP01],Other,C23H46NO7P,
+MET_0158,LPC O-16:1,,,Monoalkylglycerophosphocholines [GP0106],Glycerophosphocholines [GP01],Other,C24H50NO6P,
+MET_0159,LPC 15:0,,,Monoacylglycerophosphocholines [GP0105],Glycerophosphocholines [GP01],Other,C23H48NO7P,
+MET_0160,LPC O-16:0,,,Monoalkylglycerophosphocholines [GP0106],Glycerophosphocholines [GP01],Other,C24H52NO6P,
+MET_0161,Cytidine diphosphate choline (CDPcholine),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C14H26N4O11P2,987-78-0
+MET_0162,LPC 16:1,,,Monoacylglycerophosphocholines [GP0105],Glycerophosphocholines [GP01],Other,C24H48NO7P,
+MET_0163,LPC 16:0,,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C24H50NO7P,
+MET_0164,PC 16:4,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C24H40NO8P,
+MET_0165,LPC 17:1,,,Monoacylglycerophosphocholines [GP0105],Glycerophosphocholines [GP01],Other,C25H50NO7P,
+MET_0166,PC O-17:0,,,"1-alkyl,2-acylglycerophosphocholines [GP0102]",Glycerophosphocholines [GP01],Other,C25H52NO7P,
+MET_0167,LPC 18:3,,,Monoacylglycerophosphocholines [GP0105],Glycerophosphocholines [GP01],Other,C26H48NO7P,
+MET_0168,LPC 18:2,,,Monoacylglycerophosphocholines [GP0105],Glycerophosphocholines [GP01],Other,C26H50NO7P,
+MET_0169,LPC 18:1,,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C26H52NO7P,
+MET_0170,LPC 18:0,,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C26H54NO7P,
+MET_0171,2-O-methyl PAF C-18,,,Glycerophospholipid metabolism/acylglycerol,Lipid metabolism,Lipid,C27H58NO6P,77286-66-9
+MET_0172,LPC O-19:0,,,Monoalkylglycerophosphocholines [GP0106],Glycerophosphocholines [GP01],Other,C27H58NO6P,
+MET_0173,LPC O-20:1,,,1Z-alkenylglycerophosphocholines [GP0107],Glycerophosphocholines [GP01],Other,C28H58NO6P,
+MET_0174,PC O-19:0,,,"1-alkyl,2-acylglycerophosphocholines [GP0102]",Glycerophosphocholines [GP01],Other,C27H56NO7P,
+MET_0175,PC O-20:1,,,"1-alkyl,2-acylglycerophosphocholines [GP0102]",Glycerophosphocholines [GP01],Other,C28H56NO7P,
+MET_0176,PAF C18:0,,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C28H58NO7P,79549-26-1
+MET_0177,PC O-20:0,,,"1-alkyl,2-acylglycerophosphocholines [GP0102]",Glycerophosphocholines [GP01],Other,C28H58NO7P,
+MET_0178,PC 26:0,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C34H68NO8P,
+MET_0179,PC O-36:6,,,"1-(1Z-alkenyl),2-acylglycerophosphocholines [GP0103]",Glycerophosphocholines [GP01],Other,C44H78NO7P,
+MET_0180,PC O-36:5,,,"1-alkyl,2-acylglycerophosphocholines [GP0102]",Glycerophosphocholines [GP01],Other,C44H80NO7P,
+MET_0181,PC 35:1,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C43H84NO8P,
+MET_0182,PC O-38:1,,,"1-alkyl,2-acylglycerophosphocholines [GP0102]",Glycerophosphocholines [GP01],Other,C46H92NO7P,
+MET_0183,PC 38:6,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C46H80NO8P,
+MET_0184,PC 38:5,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C46H82NO8P,
+MET_0185,PC O-40:8,,,"1-acyl,2-alkylglycerophosphocholines [GP0108]",Glycerophosphocholines [GP01],Other,C48H82NO7P,
+MET_0186,PC O-39:1,,,"1-alkyl,2-acylglycerophosphocholines [GP0102]",Glycerophosphocholines [GP01],Other,C47H94NO7P,
+MET_0187,PC O-40:7,,,"1-(1Z-alkenyl),2-acylglycerophosphocholines [GP0103]",Glycerophosphocholines [GP01],Other,C48H84NO7P,
+MET_0188,PC O-40:2,,,"1-alkyl,2-acylglycerophosphocholines [GP0102]",Glycerophosphocholines [GP01],Other,C48H94NO7P,
+MET_0189,PC 44:12,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C52H80NO8P,
+MET_0190,PC 54:12,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C62H100NO8P,
+MET_0191,PC 56:12,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C64H104NO8P,
+MET_0192,LPC 14:0,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C22H46NO7P,
+MET_0193,LPC O-17:1,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C25H52NO6P,
+MET_0194,LPC O-18:2,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C26H52NO6P,
+MET_0195,LPC O-18:1,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C26H54NO6P,
+MET_0196,LPC 17:0,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C25H52NO7P,
+MET_0197,LPC O-18:0,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C26H56NO6P,
+MET_0198,LPC 18:2;O,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C26H50NO8P,
+MET_0199,LPC O-20:0,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C28H60NO6P,
+MET_0200,LPC 20:5,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C28H48NO7P,
+MET_0201,LPC 20:4,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C28H50NO7P,
+MET_0202,LPC 20:3,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C28H52NO7P,
+MET_0203,LPC 20:1,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C28H56NO7P,
+MET_0204,LPC 20:0,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C28H58NO7P,
+MET_0205,LPC O-22:1,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C30H62NO6P,
+MET_0206,LPC O-22:0,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C30H64NO6P,
+MET_0207,LPC 22:6,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C30H50NO7P,
+MET_0208,PC 34:2;O,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C42H80NO9P,
+MET_0209,PC 36:4;O,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C44H80NO9P,
+MET_0210,PC 38:6;O,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C46H80NO9P,
+MET_0211,LPC 22:5,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C30H52NO7P,
+MET_0212,LPC 22:4,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C30H54NO7P,
+MET_0213,LPC 22:1,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C30H60NO7P,
+MET_0214,LPC 22:0,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C30H62NO7P,
+MET_0215,LPC O-24:2,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C32H64NO6P,
+MET_0216,LPC O-24:1,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C32H66NO6P,
+MET_0217,LPC O-24:0,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C32H68NO6P,
+MET_0218,LPC 24:0,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C32H66NO7P,
+MET_0219,PC O-30:1,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C38H76NO7P,
+MET_0220,PC 31:1,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C39H76NO8P,
+MET_0221,PC O-32:1,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C40H80NO7P,
+MET_0222,PC O-32:0,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C40H82NO7P,
+MET_0223,PC 33:2,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C41H78NO8P,
+MET_0224,PC O-34:2,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C42H82NO7P,
+MET_0225,PC 33:1,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C41H80NO8P,
+MET_0226,PC O-34:1,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C42H84NO7P,
+MET_0227,PC 33:0,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C41H82NO8P,
+MET_0228,PC O-35:5,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C43H78NO7P,
+MET_0229,PC O-35:4,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C43H80NO7P,
+MET_0230,PC 35:5,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C43H76NO8P,
+MET_0231,PC 35:4,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C43H78NO8P,
+MET_0232,PC O-36:4,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C44H82NO7P,
+MET_0233,PC O-36:3,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C44H84NO7P,
+MET_0234,PC O-36:2,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C44H86NO7P,
+MET_0235,PC O-38:7,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C46H80NO7P,
+MET_0236,PC 37:6,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C45H78NO8P,
+MET_0237,PC O-38:6,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C46H82NO7P,
+MET_0238,PC O-38:5,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C46H84NO7P,
+MET_0239,PC 37:4,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C45H82NO8P,
+MET_0240,PC O-38:4,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C46H86NO7P,
+MET_0241,PC 38:2,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C46H88NO8P,
+MET_0242,PC 39:6,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C47H82NO8P,
+MET_0243,PC O-40:6,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C48H86NO7P,
+MET_0244,PC 39:5,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C47H84NO8P,
+MET_0245,PC O-40:5,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C48H88NO7P,
+MET_0246,PC 40:4,,,Diacylglycerophosphocholines [GP0101],Glycerophosphocholines [GP01],Other,C48H88NO8P,
+MET_0247,LPE O-16:1,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],Other,C21H44NO6P,
+MET_0248,LPE 16:0,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],Other,C21H44NO7P,
+MET_0249,LPE O-18:2,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],Other,C23H46NO6P,
+MET_0250,LPE O-18:1,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],Other,C23H48NO6P,
+MET_0251,LPE 17:0,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],Other,C22H46NO7P,
+MET_0252,LPE 18:2,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],Other,C23H44NO7P,
+MET_0253,LPE 18:1,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],Other,C23H46NO7P,
+MET_0254,LPE 18:0,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],Other,C23H48NO7P,
+MET_0255,LPE O-20:1,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],Other,C25H52NO6P,
+MET_0256,LPE 22:6,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],Other,C27H44NO7P,
+MET_0257,PE O-34:3,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],Other,C39H74NO7P,
+MET_0258,PE O-34:2,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],Other,C39H76NO7P,
+MET_0259,PE 34:3,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],Other,C39H72NO8P,
+MET_0260,PE 34:2,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],Other,C39H74NO8P,
+MET_0261,PE 34:0,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],Other,C39H78NO8P,
+MET_0262,PE O-36:6,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],Other,C41H72NO7P,
+MET_0263,PE O-36:5,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],Other,C41H74NO7P,
+MET_0264,PE O-36:3,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],Other,C41H78NO7P,
+MET_0265,PE 35:2,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],Other,C40H76NO8P,
+MET_0266,PE O-36:2,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],Other,C41H80NO7P,
+MET_0267,PE 35:1,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],Other,C40H78NO8P,
+MET_0268,PE 36:5,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],Other,C41H72NO8P,
+MET_0269,PE O-37:5,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],Other,C42H76NO7P,
+MET_0270,PE 36:1,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],Other,C41H80NO8P,
+MET_0271,PE O-38:7,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],Other,C43H74NO7P,
+MET_0272,PE 37:4,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],Other,C42H76NO8P,
+MET_0273,PE O-38:4,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],Other,C43H80NO7P,
+MET_0274,PE 38:5,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],Other,C43H76NO8P,
+MET_0275,PE O-40:8,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],Other,C45H76NO7P,
+MET_0276,PE O-40:7,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],Other,C45H78NO7P,
+MET_0277,PE 39:6,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],Other,C44H76NO8P,
+MET_0278,PE 40:6,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],Other,C45H78NO8P,
+MET_0279,PE 40:5,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],Other,C45H80NO8P,
+MET_0280,PE 40:4,,,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],Other,C45H82NO8P,
+MET_0281,SM 30:1;O2,,,Ceramide phosphocholines (sphingomyelins) [SP0301],Phosphosphingolipids [SP03],Lipid,C35H71N2O6P,
+MET_0282,SM 32:1;O2,,,Ceramide phosphocholines (sphingomyelins) [SP0301],Phosphosphingolipids [SP03],Lipid,C37H75N2O6P,
+MET_0283,SM 34:2;O2,,,Ceramide phosphocholines (sphingomyelins) [SP0301],Phosphosphingolipids [SP03],Lipid,C39H77N2O6P,
+MET_0284,SM 34:1;O2,,,Ceramide phosphocholines (sphingomyelins) [SP0301],Phosphosphingolipids [SP03],Lipid,C39H79N2O6P,
+MET_0285,SM 34:1;O3,,,Ceramide phosphocholines (sphingomyelins) [SP0301],Phosphosphingolipids [SP03],Lipid,C39H79N2O7P,
+MET_0286,SM 42:3;O2,,,Ceramide phosphocholines (sphingomyelins) [SP0301],Phosphosphingolipids [SP03],Lipid,C47H91N2O6P,
+MET_0287,SM 31:1;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],Lipid,C36H73N2O6P,
+MET_0288,SM 32:0;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],Lipid,C37H77N2O6P,
+MET_0289,SM 32:2;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],Lipid,C37H73N2O6P,
+MET_0290,SM 33:1;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],Lipid,C38H77N2O6P,
+MET_0291,SM 34:0;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],Lipid,C39H81N2O6P,
+MET_0292,SM 34:3;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],Lipid,C39H75N2O6P,
+MET_0293,SM 35:1;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],Lipid,C40H81N2O6P,
+MET_0294,SM 35:2;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],Lipid,C40H79N2O6P,
+MET_0295,SM 36:1;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],Lipid,C41H83N2O6P,
+MET_0296,SM 36:2;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],Lipid,C41H81N2O6P,
+MET_0297,SM 36:3;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],Lipid,C41H79N2O6P,
+MET_0298,SM 37:2;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],Lipid,C42H83N2O6P,
+MET_0299,SM 38:1;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],Lipid,C43H87N2O6P,
+MET_0300,SM 38:2;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],Lipid,C43H85N2O6P,
+MET_0301,SM 38:3;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],Lipid,C43H83N2O6P,
+MET_0302,SM 39:1;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],Lipid,C44H89N2O6P,
+MET_0303,SM 40:1;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],Lipid,C45H91N2O6P,
+MET_0304,SM 40:2;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],Lipid,C45H89N2O6P,
+MET_0305,SM 40:3;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],Lipid,C45H87N2O6P,
+MET_0306,SM 41:0;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],Lipid,C46H95N2O6P,
+MET_0307,SM 41:1;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],Lipid,C46H93N2O6P,
+MET_0308,SM 41:2;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],Lipid,C46H91N2O6P,
+MET_0309,SM 42:1;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],Lipid,C47H95N2O6P,
+MET_0310,SM 42:2;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],Lipid,C47H93N2O6P,
+MET_0311,SM 43:1;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],Lipid,C48H97N2O6P,
+MET_0312,SM 43:2;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],Lipid,C48H95N2O6P,
+MET_0313,SM 44:1;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],Lipid,C49H99N2O6P,
+MET_0314,SM 44:2;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],Lipid,C49H97N2O6P,
+MET_0315,SM 44:3;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],Lipid,C49H95N2O6P,
+MET_0316,Sph 18:1;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],Lipid,C18H37NO2,
+MET_0317,Cer 42:0;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,Other,C42H85NO3,
+MET_0318,Cer 42:1;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,Other,C42H83NO3,
+MET_0319,Cer 32:1;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,Other,C32H63NO3,
+MET_0320,Cer 34:1;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,Other,C34H67NO3,
+MET_0321,Cer 36:1;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,Other,C36H71NO3,
+MET_0322,Cer 38:1;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,Other,C38H75NO3,
+MET_0323,Cer 39:1;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,Other,C39H77NO3,
+MET_0324,Cer 40:2;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,Other,C40H77NO3,
+MET_0325,Cer 41:1;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,Other,C41H81NO3,
+MET_0326,Cer 41:2;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,Other,C41H79NO3,
+MET_0327,Cer 40:1;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,Other,C40H79NO3,
+MET_0328,Cer 42:2;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,Other,C42H81NO3,
+MET_0329,Cer 44:1;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,Other,C44H87NO3,
+MET_0330,Cer 34:2;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,Other,C34H65NO3,
+MET_0331,Cer 42:3;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,Other,C42H79NO3,
+MET_0332,Cer 43:1;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,Other,C43H85NO3,
+MET_0333,Cer 43:2;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,Other,C43H83NO3,
+MET_0334,dhCer 40:0;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,Other,C40H81NO3,
+MET_0335,dhCer 42:0;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,Other,C42H85NO3,
+MET_0336,dhCer 42:1;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,Other,C42H83NO3,
+MET_0337,Cer 40:0;O,,,	Ceramides [SP02]	,	Ceramides [SP02]	,Other,C40H81NO2,
+MET_0338,Cer 40:1;O,,,	Ceramides [SP02]	,	Ceramides [SP02]	,Other,C40H79NO2,
+MET_0339,HexCer 34:1;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,Other,C40H77NO8,
+MET_0340,HexCer 38:1;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,Other,C44H85NO8,
+MET_0341,HexCer 40:1;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,Other,C46H89NO8,
+MET_0342,Hex2Cer 34:1;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,Other,C46H87NO13,
+MET_0343,Hex2Cer 40:1;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,Other,C52H99NO13,
+MET_0344,Hex2Cer 42:1;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,Other,C54H103NO13,
+MET_0345,Hex2Cer 42:2;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,Other,C54H101NO13,
+MET_0346,Hex2Cer 34:2;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,Other,C46H85NO13,
+MET_0347,Hex3Cer 34:1;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,Other,C52H97NO18,
+MET_0348,Hex3Cer 36:1;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,Other,C54H101NO18,
+MET_0349,Hex3Cer 40:1;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,Other,C58H109NO18,
+MET_0350,Hex3Cer 42:2;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,Other,C60H111NO18,
+MET_0351,GM3 34:1;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,Other,C57H104N2O21,
+MET_0352,GM3 36:1;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,Other,C59H108N2O21,
+MET_0353,GM3 38:1;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,Other,C61H112N2O21,
+MET_0354,GM3 40:1;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,Other,C63H116N2O21,
+MET_0355,GM3 42:1;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,Other,C65H120N2O21,
+MET_0356,S1P 18:0;O2,,,	Ceramides [SP02]	,	Ceramides [SP02]	,Other,C18H40NO5P,
+MET_0357,S1P 18:1;O2,,,Phosphosphingolipids [SP03],Sphingolipids [SP],Lipid,C18H38NO5P,
+MET_0358,LPI 18:1,,,Glycerophosphoinositols [GP06],Glycerophospholipids [GP],Lipid,C27H54NO12P,
+MET_0359,PI 32:0,,,Glycerophosphoinositols [GP06],Glycerophospholipids [GP],Lipid,C41H82NO13P,
+MET_0360,PI 34:0,,,Glycerophosphoinositols [GP06],Glycerophospholipids [GP],Lipid,C43H86NO13P,
+MET_0361,PI 35:2,,,Glycerophosphoinositols [GP06],Glycerophospholipids [GP],Lipid,C44H84NO13P,
+MET_0362,PI 35:1,,,Glycerophosphoinositols [GP06],Glycerophospholipids [GP],Lipid,C44H86NO13P,
+MET_0363,PI 36:1,,,Glycerophosphoinositols [GP06],Glycerophospholipids [GP],Lipid,C45H88NO13P,
+MET_0364,PI 38:6,,,Glycerophosphoinositols [GP06],Glycerophospholipids [GP],Lipid,C47H82NO13P,
+MET_0365,PI 38:5,,,Glycerophosphoinositols [GP06],Glycerophospholipids [GP],Lipid,C47H84NO13P,
+MET_0366,PI 40:4,,,Glycerophosphoinositols [GP06],Glycerophospholipids [GP],Lipid,C49H90NO13P,
+MET_0367,PA 34:1,,,Glycerophosphates [GP10],Glycerophospholipids [GP],Lipid,C37H74NO8P,
+MET_0368,PA 36:3,,,Glycerophosphates [GP10],Glycerophospholipids [GP],Lipid,C39H74NO8P,
+MET_0369,PA 36:4,,,Glycerophosphates [GP10],Glycerophospholipids [GP],Lipid,C39H72NO8P,
+MET_0370,PG 32:0,,,"
+Glycerophosphoglycerols [GP04]",Glycerophospholipids [GP],Lipid,C38H75O10P,
+MET_0371,PG 34:0,,,"
+Glycerophosphoglycerols [GP04]",Glycerophospholipids [GP],Lipid,C40H79O10P,
+MET_0372,PG 36:0,,,"
+Glycerophosphoglycerols [GP04]",Glycerophospholipids [GP],Lipid,C42H83O10P,
+MET_0373,PG 34:1,,,"
+Glycerophosphoglycerols [GP04]",Glycerophospholipids [GP],Lipid,C40H77O10P,
+MET_0374,PG 36:1,,,"
+Glycerophosphoglycerols [GP04]",Glycerophospholipids [GP],Lipid,C42H81O10P,
+MET_0375,PG 36:2,,,"
+Glycerophosphoglycerols [GP04]",Glycerophospholipids [GP],Lipid,C42H79O10P,
+MET_0376,PG 36:3,,,"
+Glycerophosphoglycerols [GP04]",Glycerophospholipids [GP],Lipid,C42H77O10P,
+MET_0377,NAE 16:0/Palmitoylethanolamide,,,"
+N-acyl ethanolamines","
+Fatty amides",Other,C18H37NO2,
+MET_0378,NAE 20:0/Eicosanoyl-EA,,,"
+N-acyl ethanolamines","
+Fatty amides",Other,C22H45NO2,
+MET_0379,NAE 20:1,,,"
+N-acyl ethanolamines","
+Fatty amides",Other,C22H43NO2,
+MET_0380,NAE 18:1/Oleoyl-EA,,,"
+N-acyl ethanolamines","
+Fatty amides",Other,C20H39NO2,
+MET_0381,NAE 18:0/ Stearoyl-EA,,,"
+N-acyl ethanolamines","
+Fatty amides",Other,C20H41NO2,
+MET_0382,CE 15:0,,,Sterols [ST01],"Sterol Lipids [ST]
+",Lipid,C42H77NO2,
+MET_0383,CE 16:0,,,Sterols [ST01],"Sterol Lipids [ST]
+",Lipid,C43H79NO2,
+MET_0384,CE 17:0,,,Sterols [ST01],"Sterol Lipids [ST]
+",Lipid,C44H81NO2,
+MET_0385,CE 18:1,,,Sterols [ST01],"Sterol Lipids [ST]
+",Lipid,C45H81NO2,
+MET_0386,CE 18:2,,,Sterols [ST01],"Sterol Lipids [ST]
+",Lipid,C45H79NO2,
+MET_0387,CE 18:3,,,Sterols [ST01],"Sterol Lipids [ST]
+",Lipid,C45H77NO2,
+MET_0388,CE 20:3,,,Sterols [ST01],"Sterol Lipids [ST]
+",Lipid,C47H81NO2,
+MET_0389,CE 20:4,,,Sterols [ST01],"Sterol Lipids [ST]
+",Lipid,C47H79NO2,
+MET_0390,CE 20:5,,,Sterols [ST01],"Sterol Lipids [ST]
+",Lipid,C47H77NO2,
+MET_0391,CE 22:4,,,Sterols [ST01],"Sterol Lipids [ST]
+",Lipid,C49H83NO2,
+MET_0392,CE 22:5,,,Sterols [ST01],"Sterol Lipids [ST]
+",Lipid,C49H81NO2,
+MET_0393,CE 22:6,,,Sterols [ST01],"Sterol Lipids [ST]
+",Lipid,C49H79NO2,
+MET_0394,CE 19:2,,,Sterols [ST01],"Sterol Lipids [ST]
+",Lipid,C46H81NO2,
+MET_0395,2-AG,,,Monoacylglycerophosphocholines [GP0105],"Glycerolipids [GL]
+",Lipid,C23H38O4,
+MET_0396,DG 34:1,,,Diradylglycerols [GL02],"Glycerolipids [GL]
+",Lipid,C37H73NO5,
+MET_0397,DG 34:2,,,Diradylglycerols [GL02],"Glycerolipids [GL]
+",Lipid,C37H71NO5,
+MET_0398,DG 36:1,,,Diradylglycerols [GL02],"Glycerolipids [GL]
+",Lipid,C39H77NO5,
+MET_0399,DG 36:2,,,Diradylglycerols [GL02],"Glycerolipids [GL]
+",Lipid,C39H75NO5,
+MET_0400,DG 36:3,,,Diradylglycerols [GL02],"Glycerolipids [GL]
+",Lipid,C39H73NO5,
+MET_0401,DG 36:4,,,Diradylglycerols [GL02],"Glycerolipids [GL]
+",Lipid,C39H71NO5,
+MET_0402,DG 38:5,,,Diradylglycerols [GL02],"Glycerolipids [GL]
+",Lipid,C41H73NO5,
+MET_0403,DG 40:7,,,Diradylglycerols [GL02],"Glycerolipids [GL]
+",Lipid,C43H73NO5,
+MET_0404,DG 40:8,,,Diradylglycerols [GL02],"Glycerolipids [GL]
+",Lipid,C43H71NO5,
+MET_0405,TG 48:3,,,Triradylglycerols [GL03],"Glycerolipids [GL]
+",Lipid,C51H95NO6,
+MET_0406,TG 48:2,,,Triradylglycerols [GL03],"Glycerolipids [GL]
+",Lipid,C51H97NO6,
+MET_0407,TG 48:1,,,Triradylglycerols [GL03],"Glycerolipids [GL]
+",Lipid,C51H99NO6,
+MET_0408,TG 48:0,,,Triradylglycerols [GL03],"Glycerolipids [GL]
+",Lipid,C51H101NO6,
+MET_0409,TG 49:1,,,Triradylglycerols [GL03],"Glycerolipids [GL]
+",Lipid,C52H101NO6,
+MET_0410,TG 50:4,,,Triradylglycerols [GL03],"Glycerolipids [GL]
+",Lipid,C53H97NO6,
+MET_0411,TG 50:3,,,Triradylglycerols [GL03],"Glycerolipids [GL]
+",Lipid,C53H99NO6,
+MET_0412,TG 50:2,,,Triradylglycerols [GL03],"Glycerolipids [GL]
+",Lipid,C53H101NO6,
+MET_0413,TG 50:1,,,Triradylglycerols [GL03],"Glycerolipids [GL]
+",Lipid,C53H103NO6,
+MET_0414,TG 50:0,,,Triradylglycerols [GL03],"Glycerolipids [GL]
+",Lipid,C53H105NO6,
+MET_0415,TG 51:2,,,Triradylglycerols [GL03],"Glycerolipids [GL]
+",Lipid,C54H103NO6,
+MET_0416,TG 51:1,,,Triradylglycerols [GL03],"Glycerolipids [GL]
+",Lipid,C54H105NO6,
+MET_0417,TG 51:0,,,Triradylglycerols [GL03],"Glycerolipids [GL]
+",Lipid,C54H107NO6,
+MET_0418,TG 52:5,,,Triradylglycerols [GL03],"Glycerolipids [GL]
+",Lipid,C55H99NO6,
+MET_0419,TG 52:4,,,Triradylglycerols [GL03],"Glycerolipids [GL]
+",Lipid,C55H101NO6,
+MET_0420,TG 52:3,,,Triradylglycerols [GL03],"Glycerolipids [GL]
+",Lipid,C55H103NO6,
+MET_0421,TG 52:2,,,Triradylglycerols [GL03],"Glycerolipids [GL]
+",Lipid,C55H105NO6,
+MET_0422,TG 52:1,,,Triradylglycerols [GL03],"Glycerolipids [GL]
+",Lipid,C55H107NO6,
+MET_0423,TG 53:2,,,Triradylglycerols [GL03],"Glycerolipids [GL]
+",Lipid,C56H107NO6,
+MET_0424,TG 54:7,,,Triradylglycerols [GL03],"Glycerolipids [GL]
+",Lipid,C57H99NO6,
+MET_0425,TG 54:6,,,Triradylglycerols [GL03],"Glycerolipids [GL]
+",Lipid,C57H101NO6,
+MET_0426,TG 54:5,,,Triradylglycerols [GL03],"Glycerolipids [GL]
+",Lipid,C57H103NO6,
+MET_0427,TG 54:4,,,Triradylglycerols [GL03],Glycerolipids [GL],Lipid,C57H105NO6,
+MET_0428,TG 54:3,,,Triradylglycerols [GL03],Glycerolipids [GL],Lipid,C57H107NO6,
+MET_0429,TG 54:2,,,Triradylglycerols [GL03],Glycerolipids [GL],Lipid,C57H109NO6,
+MET_0430,TG 56:9,,,Triradylglycerols [GL03],Glycerolipids [GL],Lipid,C59H99NO6,
+MET_0431,TG 56:8,,,Triradylglycerols [GL03],Glycerolipids [GL],Lipid,C59H101NO6,
+MET_0432,TG 56:7,,,Triradylglycerols [GL03],Glycerolipids [GL],Lipid,C59H103NO6,
+MET_0433,TG 56:6,,,Triradylglycerols [GL03],Glycerolipids [GL],Lipid,C59H105NO6,
+MET_0434,TG 58:10,,,Triradylglycerols [GL03],Glycerolipids [GL],Lipid,C61H101NO6,
+MET_0435,Alanine,HMDB00161,C00041,"Alanine, Aspartate, and Glutamate metabolism",Amino acids,Amino acid,C3H7NO2,56-41-7
+MET_0436,Succinic Semialdehyde,HMDB01259,C00232,"Alanine, Aspartate, and Glutamate metabolism",Amino acids,Amino acid,C4H6O3,692-29-5
+MET_0437,4-Aminobutanoate (GABA),HMDB00112,C00334,"Alanine, Aspartate, and Glutamate metabolism",Amino acids,Amino acid,C4H9NO2,56-12-2
+MET_0438,Asparagine,HMDB00168,C00152,"Alanine, Aspartate, and Glutamate metabolism",Amino acids,Amino acid,C4H8N2O3,70-47-3
+MET_0439,Glutamine,HMDB00641,C00064,"Alanine, Aspartate, and Glutamate metabolism",Amino acids,Amino acid,C5H10N2O3,56-85-9
+MET_0440,Glutamic Acid,HMDB00148,C00025,"Alanine, Aspartate, and Glutamate metabolism",Amino acids,Amino acid,C5H9NO4,56-86-0
+MET_0441,3-Hydroxyglutaric Acid,HMDB00428,,"Alanine, Aspartate, and Glutamate metabolism, glutamate degradation",Amino acids,Amino acid,C5H8O5,
+MET_0442,N-Acetylaspartic Acid,HMDB00812,C01042,"Alanine, aspartate, and glutamate metabolism",Amino acids,Amino acid,C6H9NO5,997-55-7
+MET_0443,N-Acetylaspartiylglutamate (NAAG),HMDB01067,C12270,"Alanine, aspartate, and glutamate metabolism",Amino acids,Amino acid,C11H16N2O8,
+MET_0444,Urea,HMDB00294,C00086,Arginine and Proline metabolism,Amino acids,Amino acid,CH4N2O,57-13-6
+MET_0445,Creatinine,HMDB00562,C00791,Arginine and Proline metabolism,Amino acids,Amino acid,C4H7N3O,60-27-5
+MET_0446,Proline,HMDB00162,C00148,Arginine and Proline metabolism,Amino acids,Amino acid,C5H9NO2,
+MET_0447,4-Hydroxy-Proline,,C01157,Arginine and Proline metabolism,Amino acids,Amino acid,C5H9NO3,2584-71-6
+MET_0448,Ornithine,HMDB00214,C00077,Arginine and proline metabolism,Amino acids,Amino acid,C5H12N2O2,70-26-8
+MET_0449,Arginine,HMDB00517,C00062,Arginine and Proline metabolism,Amino acids,Amino acid,C6H14N4O2,74-79-3
+MET_0450,Citrulline,HMDB00904,C00327,Arginine and Proline metabolism,Amino acids,Amino acid,C6H13N3O3,372-75-8
+MET_0451,N-Acetydglutamic Acid,HMDB01138,C00624,Arginine and proline metabolism,Amino acids,Amino acid,C7H11NO5,1188-37-0
+MET_0452,Dimethylarginine,HMDB03334,,Arginine and Proline metabolism,Amino acids,Amino acid,C8H18N4O2,30344-00-4
+MET_0453,Argininosuccinic Acid,HMDB00052,C03406,Arginine and Proline metabolism,Amino acids,Amino acid,C10H18N4O6,2387-71-5
+MET_0454,Phosphocreatine,HMDB01511,C02305,"Arginine and Proline metabolism,Creatine metabolism",Amino acids,Amino acid,C4H10N3O5P,67-07-2
+MET_0455,Guanidinosuccinic Acid,HMDB03157,C03139,"Arginine and Proline metabolism,L-Arginosuccinate oxidation",Amino acids,Amino acid,C5H9N3O4,6133-30-8
+MET_0456,Pyrrole-2-Carboxylic Acid,HMDB04230,C05942,Oxidation derivative of hydroxyproline,Amino acids,Amino acid,C5H5NO2,634-97-9
+MET_0457,Proline Betaine,HMDB04827,C10172,"Arginine and Proline metabolism, osmolyte",Amino acids,Amino acid,C7H13NO2,471-87-4
+MET_0458,Sulfite,HMDB00240,C00094,Cysteine and Methionine metabolism,Amino acids,Amino acid,H2O3S,14265-45-3
+MET_0459,Thiosulfate,HMDB00257,C00320,Cysteine and Methionine metabolism,Amino acids,Amino acid,H2O3S2,
+MET_0460,Homocysteine Thiolactone,HMDB02287,,Cysteine and methionine metabolism,Amino acids,Amino acid,C4H7NOS,31828-68-9
+MET_0461,Methionine,HMDB00696,C00073,Cysteine and methionine metabolism,Amino acids,Amino acid,C5H11NO2S,63-68-3
+MET_0462,N-Formylmethionine,HMDB01015,C03145,Cysteine and Methionine metabolism,Amino acids,Amino acid,C6H11NO3S,4289-98-9
+MET_0463,Cysteine-S-Sulfonic Acid,HMDB00731,C05824,Cysteine and Methionine metabolism,Amino acids,Amino acid,C3H7NO5S2,1637-71-4
+MET_0464,O-Succinylhomoserine,,C01118,Cysteine and methionine metabolism,Amino acids,Amino acid,C8H13NO6,1492-23-5
+MET_0465,Methionine  Lactamide,,,"Cysteine and methionine metabolism,  from msms fragmentation",Amino acids,Amino acid,C8H15NO4S,
+MET_0466,Cystine,HMDB00192,C00491,Cysteine and methionine metabolism,Amino acids,Amino acid,C6H12N2O4S2,56-89-3
+MET_0467,2-Hydroxybutyric acid,HMDB00008,C05984,Cysteine and methionine metabolism,Amino acids,Amino acid,C4H8O3,600-15-7
+MET_0468,5'-Methylthioadenosine (MTA),HMDB01173,C00170,Cysteine and methionine metabolism,Amino acids,Amino acid,C11H15N5O3S,2457-80-9
+MET_0469,S-Adenosylhomocysteine (SAH),HMDB00939,C00021,Cysteine and methionine metabolism,Amino acids,Amino acid,C14H20N6O5S,979-92-0
+MET_0470,2-Aminobutyric Acid,HMDB00452,C02356,Cysteine and methionine metabolism,Amino acids,Amino acid,C4H9NO2,1492-24-6
+MET_0471,Methylglyoxal,HMDB01167,C00546,"Glycine, serine, and threonine metabolism,pyruvate metabolism",Amino acids,Amino acid,C3H4O2,78-98-8
+MET_0472,Glycinamide,HMDB00123,C00037,"Glycine, serine, and threonine metabolism",Amino acids,Amino acid,C2H6N2O,
+MET_0473,Glycine,HMDB00123,C00037,"Glycine, serine, and threonine metabolism",Amino acids,Amino acid,C2H5NO2,56-40-6
+MET_0474,2-Ketobutyric Acid,HMDB00005,C00109,"Glycine, serine, and threonine metabolism; Cysteine and methionine metabolism",Amino acids,Amino acid,C4H6O3,600-18-0
+MET_0475,Choline,HMDB00097,C00114,"Glycine, serine and threonine metabolism",Amino acids,Amino acid,C5H13NO,62-49-7
+MET_0476,Serine,HMDB00187,C00065,"Glycine, serine and threonine metabolism",Amino acids,Amino acid,C3H7NO3,56-45-1
+MET_0477,Betaine,HMDB00043,C00719,"Glycine, serine and threonine metabolism",Amino acids,Amino acid,C5H11NO2,107-43-7
+MET_0478,N-Formylglycine,,,"Glycine, serine and threonine metabolism",Amino acids,Amino acid,C3H5NO3,2491-15-8
+MET_0479,Threonine,HMDB00167,C00188,"Glycine, serine and threonine metabolism",Amino acids,Amino acid,C4H9NO3,72-19-5
+MET_0480,Creatine,HMDB00064,C00300,"Glycine, serine, and threonine metabolism. Arginine and Proline metabolism",Amino acids,Amino acid,C4H9N3O2,57-00-1
+MET_0481,Histamine,HMDB00870,C00388,Histidine metabolism,Amino acids,Amino acid,C5H9N3,51-45-6
+MET_0482,4-Imidazoleacetic Acid,HMDB02024,C02835,Histidine metabolism,Amino acids,Amino acid,C5H6N2O2,645-65-8
+MET_0483,Histidine,HMDB00177,C00135,Histidine Metabolism,Amino acids,Amino acid,C6H9N3O2,71-00-1
+MET_0484,3-Methylhistidine,HMDB00479,C01152,Histidine Metabolism,Amino acids,Amino acid,C7H11N3O2,368-16-1
+MET_0485,1-Methylhistidine,HMDB00480,C01153,Histidine Metabolism,Amino acids,Amino acid,C7H11N3O2,368-16-1
+MET_0486,Ergothioneine,HMDB03045,C05570,Histidine metabolism,Amino acids,Amino acid,C9H15N3O2S,58511-63-0
+MET_0487,Pipecolinic Acid,HMDB00070,C00408,Lysine degradation,Amino acids,Amino acid,C6H11NO2,3105-95-1
+MET_0488,Glutaric Acid,HMDB00661,C00489,Lysine degradation,Amino acids,Amino acid,C5H8O4,110-94-1
+MET_0489,Lysine,HMDB00182,C00047,Lysine metabolism,Amino acids,Amino acid,C6H14N2O2,56-87-1
+MET_0490,2-Aminoadipic Acid,HMDB00510,C00956,Lysine degradation,Amino acids,Amino acid,C6H11NO4,542-32-5
+MET_0491,Trimethyllysine,HMDB11691,C03793,Lysine degradation,Amino acids,Amino acid,C9H20N2O2,55528-53-5
+MET_0492,2-Methylcitric Acid,HMDB03518,C01251,Lysine biosynthesis,Amino acids,Amino acid,C7H10O7,
+MET_0493,Phenylpyruvic Acid,HMDB00205,C00166,Phenylalanine metabolism,Amino acids,Amino acid,C9H8O3,114-76-1
+MET_0494,Phenylalanine,HMDB00159,C00079,Phenylalanine metabolism,Amino acids,Amino acid,C9H11NO2,63-91-2
+MET_0495,Melilotate,HMDB33752,C01198,Phenylalanine metabolism,Amino acids,Amino acid,C9H10O3,495-78-3
+MET_0496,Hippuric Acid,HMDB00714,C01586,Phenylalanine metabolism,Amino acids,Amino acid,C9H9NO3,495-69-2
+MET_0497,N-Acetylphenylalanine,HMDB00512,C03519,Phenylalanine metabolism,Amino acids,Amino acid,C11H13NO3,2018-61-3
+MET_0498,2-Hydroxyphenylacetic Acid,,C01983,phenylalanine metabolism (phenylketonuria),Amino acids,Amino acid,C8H8O3,611-71-2
+MET_0499,Indole-3-Acetaldehyde,HMDB01190,C00637,Tryptophan metabolism,Amino acids,Amino acid,C10H9NO,20095-27-6
+MET_0500,Quinaldic Acid,HMDB00842,C06325,Tryptophan metabolism,Amino acids,Amino acid,C10H7NO2,93-10-7
+MET_0501,3-Indoleacetic Acid,HMDB00197,C00954,Tryptophan metabolism,Amino acids,Amino acid,C10H9NO2,87-51-4
+MET_0502,Kynurenic Acid,HMDB00715,C01717,Tryptophan metabolism,Amino acids,Amino acid,C10H7NO3,492-27-3
+MET_0503,"4-(2-Aminophenyl)-2,4-dioxobutanoic acid*",HMDB00978,C01252,Tryptophan metabolism,Amino acids,Amino acid,C10H9NO4,
+MET_0504,5-Hydroxyindoleacetic Acid,HMDB00763,C05635,Tryptophan metabolism,Amino acids,Amino acid,C10H9NO3,54-16-0
+MET_0505,Tryptophan,HMDB00929,C00078,Tryptophan metabolism,Amino acids,Amino acid,C11H12N2O2,73-22-3
+MET_0506,Xanthurenic Acid,HMDB00881,C02470,Tryptophan metabolism,Amino acids,Amino acid,C10H7NO4,59-00-7
+MET_0507,Kynurenine,HMDB00684,C00328,Tryptophan metabolism,Amino acids,Amino acid,C10H12N2O3,2922-83-0
+MET_0508,Indoxyl Sulfate,HMDB00682,,Tryptophan metabolism,Amino acids,Amino acid,C8H7NO4S,2642-37-7
+MET_0509,Hydroquinone,HMDB02434,C00530,Tyrosine metabolism,Amino acids,Amino acid,C6H6O2,123-31-9
+MET_0510,Tyramine,HMDB00306,C00483,Tyrosine metabolism,Amino acids,Amino acid,C8H11NO,51-67-2
+MET_0511,3-Hydroxyphenylacetic Acid,HMDB00440,C05593,Tyrosine/phenylalanin metabolism,Amino acids,Amino acid,C8H8O3,621-37-4
+MET_0512,4-Hydroxyphenylacetic Acid,HMDB00020,C00642,Tyrosine metabolism,Amino acids,Amino acid,C8H8O3,156-38-7
+MET_0513,Gentisic Acid,HMDB00152,C00628,Tyrosine metabolism,Amino acids,Amino acid,C7H6O4,490-79-9
+MET_0514,Homogentisic Acid,HMDB00130,C00544,Tyrosine metabolism,Amino acids,Amino acid,C8H8O4,451-13-8
+MET_0515,"3,4-Dihydroxyphenylacetic Acid (DOPAC)",HMDB01336,C01161,Tyrosine metabolism; Dopamine metabolism,Amino acids,Amino acid,C8H8O4,102-32-9
+MET_0516,4-Hydroxyphenylpyruvic Acid,HMDB00707,C01179,Tyrosine metabolism,Amino acids,Amino acid,C9H8O4,156-39-8
+MET_0517,Tyrosine,HMDB00158,C00082,Tyrosine metabolism,Amino acids,Amino acid,C9H11NO3,60-18-4
+MET_0518,Homovanillic Acid,HMDB00118,C05582,Tyrosine metabolism; dopamine/catecholamine metabolite,Amino acids,Amino acid,C9H10O4,306-08-1
+MET_0519,4-Hydroxyphenyllactate,HMDB00755,C03672,Tyrosine metabolism,Amino acids,Amino acid,C9H10O4,6482-98-0
+MET_0520,Vanillylmandelic Acid,HMDB00291,C05584,Tyrosine metabolism; catabolism of catecholamines,Amino acids,Amino acid,C9H10O5,55-10-7
+MET_0521,2-Ketoisocaproic acid,HMDB00491,C00671,Isoleucine degradation,Amino acids,Amino acid,C6H10O3,1460-34-0
+MET_0522,2-Hydroxyisocaproic acid,HMDB00317,,Isoleucine metabolism,Amino acids,Amino acid,C6H12O3,
+MET_0523,3-Hydroxymethylglutaric Acid,HMDB00355,C03761,Leucine degradation,Amino acids,Amino acid,C6H10O5,503-49-1
+MET_0524,2-Hydroxyisovaleric acid,,,"Valine, leucine, and isoleucine biosynthesis / degradation",Amino acids,Amino acid,C5H10O3,
+MET_0525,2-Ketoisovaleric acid,,,"Valine, leucine, and isoleucine biosynthesis / degradation",Amino acids,Amino acid,C5H8O3,
+MET_0526,Valine,HMDB00883,C00183,"Valine, leucine, and isoleucine biosynthesis / degradation",Amino acids,Amino acid,C5H11NO2,72-18-4
+MET_0527,Methylmalonic Acid,HMDB00202,C02170,"Valine, leucine, and isoleucine degradation; Propanoate metabolism",Amino acids,Amino acid,C4H6O4,516-05-2
+MET_0528,Citraconic Acid,HMDB00634,C02226,"Valin, leucine, isoleucine biosynthesis",Amino acids,Amino acid,C5H6O4,498-23-7
+MET_0529,Ketoleucine,HMDB00695,C00233,"Valine, Leucine and Isoleucine Degradation",Amino acids,Amino acid,C6H10O3,816-66-0
+MET_0530,Leucine,HMDB00687,C00123,"Valine, leucine and isoleucine degradation/ biosynthesis",Amino acids,Amino acid,C6H13NO2,328-39-2
+MET_0531,Isoleucine,HMDB00172,C00407,"Valine, leucine, isoleucine biosynthesis",Amino acids,Amino acid,C6H13NO2,73-32-5
+MET_0532,N-Acetylglycine,HMDB00532,,Amino acid acetylation,Amino acids,Amino acid,C4H7NO3,543-24-8
+MET_0533,N-Acetydserine,HMDB02931,,Amino acid acetylation,Amino acids,Amino acid,C5H9NO4,97-14-3
+MET_0534,Putrescine,HMDB01414,C00134,Polyamine metabolism,Amino acids,Amino acid,C4H12N2,110-60-1
+MET_0535,Spermine,HMDB01256,C00750,Polyamine metabolism,Amino acids,Amino acid,C10H26N4,71-44-3
+MET_0536,N1-Acetylspermidine,HMDB01276,C00612,Polyamine metabolism,Amino acids,Amino acid,C9H21N3O,14278-49-0
+MET_0537,Hypotaurine,HMDB00965,C00519,Taurine and hypotaurine metabolism,Amino acids,Amino acid,C2H7NO2S,300-84-5
+MET_0538,Taurine,HMDB00251,C00245,Taurine and hypotaurine metabolism,Amino acids,Amino acid,C2H7NO3S,107-35-7
+MET_0539,Lipoic Acid,HMDB01451,C00725,Lipoic acid metabolism,Amino acids,Amino acid,C8H14O2S2,1077-28-7
+MET_0540,Fumaric Acid,HMDB00134,C00122,Citrate cycle (TCA cycle),Energy metabolism,Energy metabolism,C4H4O4,110-17-8
+MET_0541,Succinic Acid,HMDB00254,C00042,Citrate cycle (TCA cycle),Energy metabolism,Energy metabolism,C4H6O4,110-15-6
+MET_0542,Malic Acid,HMDB00156,C00149,Citrate cycle (TCA cycle),Energy metabolism,Energy metabolism,C4H6O5,97-67-6
+MET_0543,Oxoglutaric Acid,HMDB00208,C00026,Citrate cycle (TCA cycle),Energy metabolism,Energy metabolism,C5H6O5,328-50-7
+MET_0544,2-ketoglutaramate,HMDB01552,C00940,"Citrate cycle (TCA cycle), Alanine, Aspartate, and Glutamate metabolism",Energy metabolism,Energy metabolism,C5H7NO4,
+MET_0545,Aconitic Acid,HMDB00072,C00417,Citrate cycle (TCA cycle),Energy metabolism,Energy metabolism,C6H6O6,499-12-7
+MET_0546,Beta-Carboxyglutaric Acid,HMDB31193,C19806,"Citrate cycle (TCA cycle) , from msms fragmentation",Energy metabolism,Energy metabolism,C6H8O6,
+MET_0547,Citric Acid,HMDB00094,C00158,Citrate cycle (TCA cycle),Energy metabolism,Energy metabolism,C6H8O7,77-92-9
+MET_0548,Methylenesuccinic Acid,HMDB02092,C00490,"Citrate cycle (TCA cycle), dibasic acid metabolism",Energy metabolism,Energy metabolism,C5H6O4,97-65-4
+MET_0549,Glucose+Cl,HMDB03345,C00031,Glycolysis; Gluconogenesis; galactose metabolism,Energy metabolism,Energy metabolism,C6H13ClO6,492-62-6
+MET_0550,2-Phosphoglyceric Acid,HMDB00362,C00631,Glycolysis / Gluconeogenesis,Energy metabolism,Energy metabolism,C3H7O7P,
+MET_0551,3-Phospho-Glycerate,HMDB00807,C00197,Glycolysis / Gluconeogenesis,Energy metabolism,Energy metabolism,C3H7O7P,80731-10-8
+MET_0552,Lactic Acid,HMDB00190,C00186,Glycolysis / Gluconeogenesis,Energy metabolism,Energy metabolism,C3H6O3,79-33-4
+MET_0553,Pyruvate,HMDB00243,C00022,Glycolysis / Gluconeogenesis,Energy metabolism,Energy metabolism,C3H4O3,127-17-3
+MET_0554,Pantothenic Acid,HMDB00210,C00864,Pantothenate and CoA biosynthesis,Energy metabolism,Energy metabolism,C9H17NO5,79-83-4
+MET_0555,Deoxyribose,HMDB03224,C01801,Pentose phosphate pathway,Energy metabolism,Energy metabolism,C5H10O4,533-67-5
+MET_0556,Ribose,HMDB00283,C08353,Pentose phosphate pathway,Energy metabolism,Energy metabolism,C5H10O5,50-69-1
+MET_0557,Gluconic Lactone,HMDB00150,C00198,Pentose phosphate pathway,Energy metabolism,Energy metabolism,C6H10O6,90-80-2
+MET_0558,Ribose 5-Phosphate,HMDB01548,C00117,Pentose phosphate pathway,Energy metabolism,Energy metabolism,C5H11O8P,4300-28-1
+MET_0559,6-Phosphogluconic Acid,HMDB01316,C00345,Pentose phosphate pathway,Energy metabolism,Energy metabolism,C6H13O10P,53411-70-4
+MET_0560,Purine,HMDB01366,C15587,Purine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,Nucleotide,C5H4N4,120-73-0
+MET_0561,Adenine,HMDB01384,C00147,Purine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,Nucleotide,C5H5N5,73-24-5
+MET_0562,3-Methyladenine,HMDB11600,C00913,Purine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,Nucleotide,C6H7N5,5142-23-4
+MET_0563,Hypoxanthine,HMDB00157,C00262,Purine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,Nucleotide,C5H4N4O,68-94-0
+MET_0564,Xanthine,HMDB00292,C00385,Purine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,Nucleotide,C5H4N4O2,69-89-6
+MET_0565,Allantoin,HMDB00462,C01551,Purine degradation (not produced in higher apes or humans),Purine  and pyrimidine metabolism/nucleotide metabolism,Nucleotide,C4H6N4O3,97-59-6
+MET_0566,Uric Acid,HMDB00289,C00366,Purine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,Nucleotide,C5H4N4O3,69-93-2
+MET_0567,5-Hydroxyisourate,HMDB11821,C11821,Purine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,Nucleotide,C5H4N4O4,
+MET_0568,Adenosine,HMDB00050,C00212,Purine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,Nucleotide,C10H13N5O4,58-61-7
+MET_0569,Inosine,HMDB00195,C00294,Purine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,Nucleotide,C10H12N4O5,58-63-9
+MET_0570,Succinoadenosine,HMDB00912,,Purine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,Nucleotide,C14H17N5O8,4542-23-8
+MET_0571,Adenylosuccinate,HMDB00536,C03794,,Purine  and pyrimidine metabolism/nucleotide metabolism,Nucleotide,C14H18N5O11P,
+MET_0572,5'-Phosphoribosylglycinamide(GAR),HMDB02022,C03838,Purine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,Nucleotide,C7H15N2O8P,10074-18-7
+MET_0573,5'-Phosphoribosyl-N-formylglycinamide (FGAR),HMDB01308,C04376,Purine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,Nucleotide,C8H15N2O9P,349-34-8
+MET_0574,N-FormyGAR (FGAR)--riboside,HMDB01308,C04376,Purine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,Nucleotide,C8H14N2O6,
+MET_0575,AICA riboside,HMDB62179,,Purine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,Nucleotide,C9H14N4O5,
+MET_0576,SAICAR-riboside,,,Purine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,Nucleotide,C13H18N4O9,
+MET_0577,GAR riboside,,,Purine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,Nucleotide,C7H14N2O5,
+MET_0578,AMP,HMDB00045,C00020,Purine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,Nucleotide,C10H14N5O7P,61-19-8
+MET_0579,ADP,HMDB01341,C00008,Purine metabolism. Oxidative phosphorylation,Purine  and pyrimidine metabolism/nucleotide metabolism,Nucleotide,C10H15N5O10P2,58-64-0
+MET_0580,Beta-Alanine,HMDB00056,C00099,Pyrimidine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,Nucleotide,C3H7NO2,107-95-9
+MET_0581,Cytosine,HMDB00630,C00380,Pyrimidine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,Nucleotide,C4H5N3O,71-30-7
+MET_0582,N(4)-Acetylcytosine,,,Pyrimidine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,Nucleotide,C6H7N3O2,14631-20-0
+MET_0583,Uracil,HMDB00300,C00106,Pyrimidine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,Nucleotide,C4H4N2O2,66-22-8
+MET_0584,Orotic Acid,HMDB00226,C00295,Pyrimidine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,Nucleotide,C5H4N2O4,65-86-1
+MET_0585,Dihydroorotic Acid,HMDB00528,C00337,Pyrimidine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,Nucleotide,C5H6N2O4,5988-19-2
+MET_0586,Uracil 5-Carboxylic Acid/Isoorotic Acid,,C03030,Pyrimidine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,Nucleotide,C5H4N2O4,23945-44-0
+MET_0587,Deoxyuridine,HMDB00012,C00526,Pyrimidine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,Nucleotide,C9H12N2O5,951-78-0
+MET_0588,Cytidine,HMDB00089,C00475,Pyrimidine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,Nucleotide,C9H13N3O5,65-46-3
+MET_0589,Uridine,HMDB00296,C00299,Pyrimidine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,Nucleotide,C9H12N2O6,58-96-8
+MET_0590,Uridine+Cl,HMDB00296,C00299,Pyrimidine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,Nucleotide,C9H13ClN2O6,58-96-8
+MET_0591,Orotidine,HMDB00788,C01103,Pyrimidine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,Nucleotide,C10H12N2O8,2149-82-8
+MET_0592,UMP,HMDB00288,C00105,Pyrimidine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,Nucleotide,C9H13N2O9P,58-97-9
+MET_0593,UDP,HMDB00295,C00015,Pyrimidine metabolism,Purine  and pyrimidine metabolism/nucleotide metabolism,Nucleotide,C9H14N2O12P2,58-98-0
+MET_0594,5-Hydroxymethyluracil,HMDB00469,C03088,Nucleotide modification,Purine  and pyrimidine metabolism/nucleotide metabolism,Nucleotide,C5H6N2O3,4433-40-3
+MET_0595,1-Methylguanine,HMDB03282,C04152,Nucleotide methylation,Purine  and pyrimidine metabolism/nucleotide metabolism,Nucleotide,C6H7N5O,938-85-2
+MET_0596,5-Methylcytidine,HMDB00982,,Nucleotide modification,Purine  and pyrimidine metabolism/nucleotide metabolism,Nucleotide,C10H15N3O5,2140-61-6
+MET_0597,Ribothymidine,HMDB00884,C16744,Nucleotide modification,Purine  and pyrimidine metabolism/nucleotide metabolism,Nucleotide,C10H14N2O6,1463-10-1
+MET_0598,2-Methyladenosine,HMDB04326,C04779,Nucleotide modification,Purine  and pyrimidine metabolism/nucleotide metabolism,Nucleotide,C11H15N5O4,2140-79-6
+MET_0599,3-Methyladenosine,HMDB06023,,Nucleotide modification,Purine  and pyrimidine metabolism/nucleotide metabolism,Nucleotide,C11H15N5O4,10300-22-8
+MET_0600,1-Methyladenosine,HMDB03331,C02494,Nucleotide modification,Purine  and pyrimidine metabolism/nucleotide metabolism,Nucleotide,C11H15N5O4,15763-06-1
+MET_0601,UDP-N-Acetylglucosamine,HMDB00290,C00043,Nucleotide sugar metabolism,Amino sugar and nucleotide sugar metabolism,Amino acid,C17H27N3O17P2,91183-98-1
+MET_0602,N-Acetylneuraminic Acid,HMDB00230,C00270,Amino sugar metabolism,Amino sugar and nucleotide sugar metabolism,Amino acid,C11H19NO9,131-48-6
+MET_0603,Maleic Acid,HMDB00176,C01384,Nicotinate and nicotinamide metabolism,"Cofactor, vitamin and antioxidant metabolism",Cofactor/Vitamin,C4H4O4,110-16-7
+MET_0604,Nicotinamide,HMDB01406,C00153,Nicotinate and nicotinamide metabolism,"Cofactor, vitamin and antioxidant metabolism",Cofactor/Vitamin,C6H6N2O,98-92-0
+MET_0605,Trigonelline/N-Methylnicotinate,HMDB00875,C01004,Nicotinate and nicotinamide metabolism,"Cofactor, vitamin and antioxidant metabolism",Cofactor/Vitamin,C7H7NO2,535-83-1
+MET_0606,Nicotinamide N-Oxide,HMDB02730,,Nicotinate and nicotinamide metabolism,"Cofactor, vitamin and antioxidant metabolism",Cofactor/Vitamin,C6H6N2O2,1986-81-8
+MET_0607,"2,3-Pyridinedicarboxylic Acid/Quinolinic Acid",HMDB00232,C03722,Nicotinate and Nicotinamide Metabolism,"Cofactor, vitamin and antioxidant metabolism",Cofactor/Vitamin,C7H5NO4,89-00-9
+MET_0608,1-Methylnicotinamide,HMDB01464,C02918,Nicotinate and nicotinamide metabolism,"Cofactor, vitamin and antioxidant metabolism",Cofactor/Vitamin,C7H8N2O,6456-44-6
+MET_0609,N1-Methy2-Pyridone-5-Carboxamide(2-PY),HMDB04193,C05842,Nicotinate and nicotinamide metabolism,"Cofactor, vitamin and antioxidant metabolism",Cofactor/Vitamin,C7H8N2O2,701-44-0
+MET_0610,N1-Methy4-Pyridone-5-Carboxamide(4-PY),HMDB04194,C05843,Nicotinate and nicotinamide metabolism,"Cofactor, vitamin and antioxidant metabolism",Cofactor/Vitamin,C7H8N2O2,769-49-3
+MET_0611,Dehydroascorbic Acid,HMDB01264,C05422,Ascorbate and aldarate metabolism,"Cofactor, vitamin and antioxidant metabolism",Cofactor/Vitamin,C6H6O6,490-83-5
+MET_0612,Ascorbic Acid,HMDB00044,C00072,Ascorbate and aldarate metabolism,"Cofactor, vitamin and antioxidant metabolism",Cofactor/Vitamin,C6H8O6,50-81-7
+MET_0613,Glucuronolactone,HMDB06355,C02670,Ascorbate and aldarate metabolism,"Cofactor, vitamin and antioxidant metabolism",Cofactor/Vitamin,C6H8O6,32449-92-6
+MET_0614,5-Oxo-Proline,HMDB00267,C01879,Glutathione metabolism,"Cofactor, vitamin and antioxidant metabolism",Cofactor/Vitamin,C5H7NO3,98-79-3
+MET_0615,N-Acetycysteine,HMDB01890,C06809,Glutathione synthesis,"Cofactor, vitamin and antioxidant metabolism",Cofactor/Vitamin,C5H9NO3S,616-91-1
+MET_0616,Cys-Gly,HMDB00078,C01419,Glutathione metabolism,"Cofactor, vitamin and antioxidant metabolism",Cofactor/Vitamin,C5H10N2O3S,19246-18-5
+MET_0617,Ophthalmic Acid,HMDB05765,,Glutathione analogue,"Cofactor, vitamin and antioxidant metabolism",Cofactor/Vitamin,C11H19N3O6,495-27-2
+MET_0618,S-Hexyglutathione,,,Glutathione metabolism,"Cofactor, vitamin and antioxidant metabolism",Cofactor/Vitamin,C16H29N3O6S,24425-56-7
+MET_0619,Cysteineglutathione Disulfide,HMDB00656,,Glutathione metabolism,"Cofactor, vitamin and antioxidant metabolism",Cofactor/Vitamin,C13H22N4O8S2,
+MET_0620,Thiamine (Vit B1),HMDB00235,C00378,Thiamine metabolism,"Cofactor, vitamin and antioxidant metabolism",Cofactor/Vitamin,C12H16N4OS,59-43-8
+MET_0621,Thiamine Monophosphate,HMDB02666,C01081,Thiamine metabolism,"Cofactor, vitamin and antioxidant metabolism",Cofactor/Vitamin,C12H17N4O4PS,532-40-1
+MET_0622,Pyridoxal,HMDB01545,C00250,Vitamine B6 metabolism,"Cofactor, vitamin and antioxidant metabolism",Cofactor/Vitamin,C8H9NO3,65-22-5
+MET_0623,4-Pyridoxic Acid,HMDB00017,C00847,Vitamin B6 Metabolism,"Cofactor, vitamin and antioxidant metabolism",Cofactor/Vitamin,C8H9NO4,82-82-6
+MET_0624,Menaquinone (Vit K2),HMDB30017,C00828,"Vitamin K Metabolism, Ubiquinone and other terpenoid-quinone biosynthesis","Cofactor, vitamin and antioxidant metabolism",Cofactor/Vitamin,C31H40O2,11032-49-8
+MET_0625,Ergocalciferol (Vit D2),HMDB00900,C05441,Vitamin D metabolism,"Cofactor, vitamin and antioxidant metabolism",Cofactor/Vitamin,C28H44O,50-14-6
+MET_0626,Folic Acid,HMDB00121,C00504,Folate metabolism,"Cofactor, vitamin and antioxidant metabolism",Cofactor/Vitamin,C19H19N7O6,59-30-3
+MET_0627,Pimelic Acid,HMDB00857,C02656,Biotin metabolism,"Cofactor, vitamin and antioxidant metabolism",Cofactor/Vitamin,C7H12O4,111-16-0
+MET_0628,Erythrose,,C01796,Carbohydrates,Carbohydrate metabolism,Carbohydrate,C4H8O4,583-50-6
+MET_0629,3'-Sialyllactose,HMDB00825,,"Carbohydrates, Oligosaccharide",Carbohydrate metabolism,Carbohydrate,C23H39NO19,35890-38-1
+MET_0630,Fucose,HMDB00174,C01019,Fructose and mannose metabolism; Glycan and glycoprotein component,Carbohydrate metabolism,Carbohydrate,C6H12O5,2438-80-4
+MET_0631,Galactose,HMDB00143,C01582,Galactose metabolism,Carbohydrate metabolism,Carbohydrate,C6H12O6,59-23-4
+MET_0632,Sorbitol,HMDB00247,C00749,Fructose and mannose metabolism; galactose metabolism,Carbohydrate metabolism,Carbohydrate,C6H14O6,50-70-4
+MET_0633,Myo-Inositol,HMDB00211,C00137,Galactose metabolism,Carbohydrate metabolism,Carbohydrate,C6H12O6,87-89-8
+MET_0634,Lactose,HMDB00186,C00243,Galactose metabolism,Carbohydrate metabolism,Carbohydrate,C12H22O11,63-42-3
+MET_0635,Sucrose,HMDB00258,C00089,Galactose metabolism; starch and sucrose metabolism,Carbohydrate metabolism,Carbohydrate,C12H22O11,57-50-1
+MET_0636,Stachyose Hydrate,HMDB03553,C01613,Galactose metabolism,Carbohydrate metabolism,Carbohydrate,C24H42O21,10094-58-3
+MET_0637,Galactaric Acid,HMDB00639,C00879,"Galactose metabolism,  oxidation of galactose",Carbohydrate metabolism,Carbohydrate,C6H10O8,526-99-8
+MET_0638,Deoxycorticosterone Acetate,,C14554,Bile acid biosynthesis,Lipid metabolism,Lipid,C23H32O4,
+MET_0639,Lithocholic Acid,HMDB00761,C03990,Bile acid biosynthesis,Lipid metabolism,Lipid,C24H40O3,434-13-9
+MET_0640,Chenodeoxycholate,HMDB00518,C02528,Bile acid biosynthesis,Lipid metabolism,Lipid,C24H40O4,474-25-9
+MET_0641,Taurolithocholic Acid,HMDB00722,C02592,Bile acid biosynthesis,Lipid metabolism,Lipid,C26H45NO5S,516-90-5
+MET_0642,Taurodeoxycholate,HMDB00896,C05463,Bile acid biosynthesis,Lipid metabolism,Lipid,C26H45NO6S,
+MET_0643,Taurocholic Acid,HMDB00036,C05122,Bile acid biosynthesis,Lipid metabolism,Lipid,C26H45NO7S,83830-80-2
+MET_0644,Carnitine,HMDB00062,C00318,Carnitine metabolism,Lipid metabolism,Lipid,C7H15NO3,541-15-1
+MET_0645,Acetylcarnitine,HMDB00201,C02571,Carnitine metabolism,Lipid metabolism,Lipid,C9H17NO4,3040-38-8
+MET_0646,Propionylcarnitine,HMDB00824,C03017,Carnitine metabolism: Succinyl-CoA biosynthesis,Lipid metabolism,Lipid,C10H19NO4,20064-19-1
+MET_0647,Butyrylcarnitine,HMDB02013,C02862,Carnitine metabolism,Lipid metabolism,Lipid,C11H21NO4,25576-40-6
+MET_0648,Valerylcarnitine,HMDB13128,,Carnitine metabolism,Lipid metabolism,Lipid,C12H23NO4,
+MET_0649,Hexanoylcarnitine,HMDB00705,,Carnitine metabolism,Lipid metabolism,Lipid,C13H25NO4,
+MET_0650,Methylglutarylcarnitine,HMDB00552,,Carnitine metabolism,Lipid metabolism,Lipid,C11H19NO6,
+MET_0651,Methylmalonylcarnitine,HMDB13133,,Carnitine metabolism,Lipid Metabolism,Lipid,C11H19NO6,
+MET_0652,2-Octenoylcarnitine,HMDB13324,,Carnitine metabolism,Lipid metabolism,Lipid,C15H27NO4,
+MET_0653,Octanoylcarnitine,HMDB00791,C02838,Carnitine metabolism,Lipid metabolism,Lipid,C15H29NO4,25243-95-2
+MET_0654,Dodecanoylcarnitine,HMDB02250,,Carnitine metabolism,Lipid metabolism,Lipid,C19H37NO4,25518-54-1
+MET_0655,"3,5-Tetradecadiencarnitine",HMDB13331,,Carnitine metabolism,Lipid metabolism,Lipid,C21H37NO4,
+MET_0656,Tetradecenoylcarnitine,HMDB02014,,Carnitine metabolism,Lipid metabolism,Lipid,C21H39NO4,
+MET_0657,Hexadecenoylcarnitine,HMDB13207,,Carnitine metabolism,Lipid metabolism,Lipid,C23H43NO4,
+MET_0658,Palmitoylcarnitine,HMDB00222,C02990,Carnitine metabolism,Lipid metabolism,Lipid,C23H45NO4,
+MET_0659,Linolenyl Carnitine,HMDB06318,,Carnitine metabolism,Lipid metabolism,Lipid,C25H43NO4,
+MET_0660,Linoleyl Carnitine,HMDB06469,,Carnitine metabolism,Lipid metabolism,Lipid,C25H45NO4,
+MET_0661,Oleoylcarnitine,HMDB05065,,Carnitine metabolism,Lipid metabolism,Lipid,C25H47NO4,
+MET_0662,Stearoylcarnitine,HMDB00848,,Carnitine metabolism,Lipid metabolism,Lipid,C25H49NO4,
+MET_0663,3-OH-Linolenyl carnitine,,,Carnitine metabolism,Lipid metabolism,Lipid,C25H43NO5,
+MET_0664,3-OH-Linoleyl carnitine,,,Carnitine metabolism,Lipid metabolism,Lipid,C25H45NO5,
+MET_0665,3-OH-Oleoylcarnitine,HMDB13339,,Carnitine metabolism,Lipid metabolism,Lipid,C25H47NO5,
+MET_0666,3-OH-Stearoylcarnitine,HMDB13154,,Carnitine metabolism,Lipid metabolism,Lipid,C25H49NO5,
+MET_0667,3-Dehydroxycarnitine,,,Carnitine metabolism,Lipid metabolism,Lipid,C7H15NO2,
+MET_0668,Tiglylcarnitine,,,Carnitine metabolism,Lipid metabolism,Lipid,C12H21NO4,
+MET_0669,2-Methylbutyroylcarnitine,,,Carnitine metabolism,Lipid metabolism,Lipid,C12H23NO4,
+MET_0670,Malonylcarnitine,,,Carnitine metabolism,Lipid metabolism,Lipid,C10H17NO6,
+MET_0671,Hydroxybutyrylcarnitine,,,Carnitine metabolism,Lipid metabolism,Lipid,C11H21NO5,
+MET_0672,Glutarylcarnitine,,,Carnitine metabolism,Lipid metabolism,Lipid,C12H21NO6,
+MET_0673,3-Methylglutarylcarnitine,,,Carnitine metabolism,Lipid metabolism,Lipid,C13H23NO6,
+MET_0674,Pimelylcarnitine,,,Carnitine metabolism,Lipid metabolism,Lipid,C14H25NO6,
+MET_0675,hydroxyoctanoyl carnitine,,,Carnitine metabolism,Lipid metabolism,Lipid,C15H29NO5,
+MET_0676,Decenoylcarnitine,,,Carnitine metabolism,Lipid metabolism,Lipid,C17H31NO4,
+MET_0677,Decanoylcarnitine,,,Carnitine metabolism,Lipid metabolism,Lipid,C17H33NO4,
+MET_0678,Keto-decanoylcarnitine,,,Carnitine metabolism,Lipid metabolism,Lipid,C17H31NO5,
+MET_0679, Dimethylnonanoyl carnitine,,,Carnitine metabolism,Lipid metabolism,Lipid,C18H35NO4,
+MET_0680,hydroxydecanoyl carnitine,,,Carnitine metabolism,Lipid metabolism,Lipid,C17H33NO5,
+MET_0681,Dodecenoylcarnitine,,,Carnitine metabolism,Lipid metabolism,Lipid,C19H35NO4,
+MET_0682,Dodecanedioylcarnitine,,,Carnitine metabolism,Lipid metabolism,Lipid,C19H35NO6,
+MET_0683,Hydroxy-tetradecadiencarnitine,,,Carnitine metabolism,Lipid metabolism,Lipid,C21H37NO5,
+MET_0684,Hexadecadienoylcarnitine,,,Carnitine metabolism,Lipid metabolism,Lipid,C23H41NO4,
+MET_0685,Hexadecanedioic acid mono-L-carnitine ester,,,Carnitine metabolism,Lipid metabolism,Lipid,C23H43NO6,
+MET_0686,Hydroxy-octadecenoylcarnitine,,,Carnitine metabolism,Lipid metabolism,Lipid,C25H47NO5,
+MET_0687,Cervonyl carnitine,,,Carnitine metabolism,Lipid metabolism,Lipid,C29H45NO4,
+MET_0688,Malondialdehyde,HMDB06112,C19440,Oxidative Stress; Lipid Peroxidation; Oxidative Damage,Lipid metabolism,Lipid,C3H4O2,542-78-9
+MET_0689,Archidonoyl Glycine,HMDB05096,,"Fatty acid metabolism, acylglycine",Lipid metabolism,Lipid,C22H35NO3,179113-91-8
+MET_0690,N-Linoleoylglycine,,,"Fatty acid metabolism, acylglycine",Lipid metabolism,Lipid,C20H35NO3,02764-03-6
+MET_0691,Isovaleric Acid,HMDB00718,C08262,"Fatty Acid metabolism, Branched fatty acids",Lipid metabolism,Lipid,C5H10O2,503-74-2
+MET_0692,Malonic Acid,HMDB00691,C00383,Fatty acid biosynthesis,Lipid metabolism,Lipid,C3H4O4,141-82-2
+MET_0693,5-Hydroxyhexanoic Acid,HMDB00525,,Fatty acid metabolism,Lipid metabolism,Lipid,C6H12O3,
+MET_0694,10-Hydroxydecanoate,,C02774,Fatty acid metabolism,Lipid metabolism,Lipid,C10H20O3,1679-53-4
+MET_0695,Lysophosphatidic Acid,HMDB07855,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C21H41O7P,22556-62-3
+MET_0696,Phosphocholine,HMDB01565,C00588,"Glycerophospholipid metabolism, choline metabolism",Lipid metabolism,Lipid,C5H14NO4P,107-73-3
+MET_0697,Glycerylphosphorylethanolamine,HMDB00114,C01233,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C5H14NO6P,
+MET_0698,Glycerol 1-Phosphoserine,,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C6H14NO8P,
+MET_0699,Trimethylamine N-Oxide,HMDB00925,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C3H9NO,1184-78-7
+MET_0700,Sn-Glycero3-Phosphocholine,HMDB00086,C00670,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C8H20NO6P,28319-77-9
+MET_0701,LysoPC(16:1),HMDB10383,C04230,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C24H48NO7P,
+MET_0702,LysoPC(16:0),HMDB10382,C04230,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C24H50NO7P,
+MET_0703,LysoPC(18:3),HMDB10388,C04230,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C26H48NO7P,
+MET_0704,LysoPC(18:2),HMDB10386,C04230,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C26H50NO7P,
+MET_0705,LysoPC(18:1),HMDB10385,C04230,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C26H52NO7P,
+MET_0706,LysoPC(18:0),HMDB10384,C04230,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C26H54NO7P,
+MET_0707,PAF C18:1 /PC(O-18:1/2:0),HMDB11148,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C28H56NO7P,86288-90-1
+MET_0708,PC(34:2),HMDB08004,C00157,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C42H80NO8P,8002-43-5
+MET_0709,PC(35:2),HMDB08330,C00157,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C43H82NO8P,
+MET_0710,PC(36:4),HMDB07983,C00157,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C44H80NO8P,
+MET_0711,PC(36:2),HMDB08590,C00157,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C44H84NO8P,
+MET_0712,lysoPC(6:0),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C14H30NO7P,
+MET_0713,LysoPC(14:1),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C22H44NO7P,
+MET_0714,LysoPC(14:0),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C22H46NO7P,
+MET_0715,LysoPC(P-16:0),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C24H50NO6P,
+MET_0716,LysoPC(15:0),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C23H48NO7P,
+MET_0717,LysoPC(P-18:1),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C26H52NO6P,
+MET_0718,LysoPC(P-18:0),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C26H54NO6P,
+MET_0719,LysoPC(17:0),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C25H52NO7P,
+MET_0720,LysoPC(20:5),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C28H48NO7P,
+MET_0721,LysoPC(20:4),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C28H50NO7P,
+MET_0722,LysoPC(20:3),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C28H52NO7P,
+MET_0723,LysoPC(20:2),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C28H54NO7P,
+MET_0724,LysoPC(20:1),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C28H56NO7P,
+MET_0725,LysoPC(20:0),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C28H58NO7P,
+MET_0726,LysoPC(22:6),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C30H50NO7P,
+MET_0727,LysoPC(22:5),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C30H52NO7P,
+MET_0728,LysoPC(22:4),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C30H54NO7P,
+MET_0729,LysoPC(22:1),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C30H60NO7P,
+MET_0730,LysoPC(22:0),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C30H62NO7P,
+MET_0731,LysoPC(24:0),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C32H66NO7P,
+MET_0732,lysoPC(28:0),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C36H74NO7P,
+MET_0733,PC(28:1),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C36H70NO8P,
+MET_0734,PC(28:0),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C36H72NO8P,
+MET_0735,PC(29:0)),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C37H74NO8P,
+MET_0736,PC(30:2),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C38H72NO8P,
+MET_0737,PC(30:1),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C38H74NO8P,
+MET_0738,PC(30:0),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C38H76NO8P,
+MET_0739,PC(P-32:1),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C40H78NO7P,
+MET_0740,PC(P-32:0),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C40H80NO7P,
+MET_0741,PC(31:0),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C39H78NO8P,
+MET_0742,PC(32:6),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C40H70NO8P,
+MET_0743,PC(32:3),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C40H74NO8P,
+MET_0744,PC(32:2),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C40H76NO8P,
+MET_0745,PC(32:1,,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C40H78NO8P,
+MET_0746,PC(32:0),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C40H80NO8P,
+MET_0747,PC(P-34:3),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C42H78NO7P,
+MET_0748,PC(O-34:3),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C42H80NO7P,
+MET_0749,PC(P-33:2),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C41H78NO8P,
+MET_0750,PC(P-34:1),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C42H82NO7P,
+MET_0751,PC(34:0),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C42H84NO7P,
+MET_0752,PC(34:5),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C42H74NO8P,
+MET_0753,PC(34:4),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C42H76NO8P,
+MET_0754,PC(34:3),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C42H78NO8P,
+MET_0755,PC(34:1),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C42H82NO8P,
+MET_0756,PC(O-34:0),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C42H84NO8P,
+MET_0757,PC(P-36:1)),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C44H80NO7P,
+MET_0758,PC(P-36:3),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C44H82NO7P,
+MET_0759,PC(P-36:2),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C44H84NO7P,
+MET_0760,PC(36:8),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C44H72NO8P,
+MET_0761,PC(36:7),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C44H74NO8P,
+MET_0762,PC(36:6),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C44H76NO8P,
+MET_0763,PC(36:5),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C44H78NO8P,
+MET_0764,PC(36:3),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C44H82NO8P,
+MET_0765,PC(36:1),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C44H86NO8P,
+MET_0766,PC(P-38:6),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C46H80NO7P,
+MET_0767,PC(P-38:5),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C46H82NO7P,
+MET_0768,PC(P38:3),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C46H86NO7P,
+MET_0769,PC(38:8),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C46H76NO8P,
+MET_0770,PC(38:7),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C46H78NO8P,
+MET_0771,PC(38:3),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C46H86NO8P,
+MET_0772,PC(P-40:6),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C48H84NO7P,
+MET_0773,PC(P-40:3),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C48H90NO7P,
+MET_0774,PC(40:9),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C48H78NO8P,
+MET_0775,PC(P-40:1),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C48H94NO7P,
+MET_0776,PC(40:8),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C48H80NO8P,
+MET_0777,PC(40:7),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C48H82NO8P,
+MET_0778,PC(40:6),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C48H84NO8P,
+MET_0779,PC(40:5),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C48H86NO8P,
+MET_0780,PC(38:4),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C48H88NO8P,
+MET_0781,PC(42:10),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C50H80NO8P,
+MET_0782,PC(42:9),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C50H82NO8P,
+MET_0783,PC(42:8),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C50H84NO8P,
+MET_0784,PC(42:6),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C50H88NO8P,
+MET_0785,PC(42:5),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C50H90NO8P,
+MET_0786,PC(44:10),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C52H84NO8P,
+MET_0787,PC(44:9),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C52H86NO8P,
+MET_0788,PC(44:8),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C52H88NO8P,
+MET_0789,PC(44:7),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C52H90NO8P,
+MET_0790,PC(44:6),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C52H92NO8P,
+MET_0791,PAF C16:0,,C04598,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C26H54NO7P,74389-68-7
+MET_0792,Lyso-PAF C16,,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C24H52NO6P,52691-62-0
+MET_0793,C-PAF/methylCarbamyl-PAF C-16,,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C26H55N2O7P,91575-58-5
+MET_0794,Lyso-PAF C18,HMDB11149,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C26H56NO6P,74430-89-0
+MET_0795,1-AcyPAF,,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C26H52NO8P,84062-61-3
+MET_0796,Sphingosine,HMDB00252,C00319,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C18H37NO2,123-78-4
+MET_0797,Sphingosine 1-phosphate,HMDB00277,C06124,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C18H38NO5P,26993-30-6
+MET_0798,Sphingomyelin,HMDB01348,C00550,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C41H83N2O6P,85187-10-6
+MET_0799,SM(d30:1),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C35H71N2O6P,
+MET_0800,SM(d32:1),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C37H75N2O6P,
+MET_0801,SM(d32:0),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C37H77N2O6P,
+MET_0802,SM(d34:1),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C39H79N2O6P,
+MET_0803,SM(d34:0),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C39H82N2O6P,
+MET_0804,SM(d36:2),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C41H81N2O6P,
+MET_0805,SM(d36:1),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C41H84N2O6P,
+MET_0806,SM(d36:0),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C41H85N2O6P,
+MET_0807,SM(d38:3),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C43H83N2O6P,
+MET_0808,SM(d38:1),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C43H87N2O6P,
+MET_0809,SM(d38:0),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C43H89N2O6P,
+MET_0810,SM(d40:3),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C45H85N2O6P,
+MET_0811,SM(d40:2),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C45H89N2O6P,
+MET_0812,SM(d40:1),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C45H91N2O6P,
+MET_0813,SM(d40:0),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C45H93N2O6P,
+MET_0814,SM(d41:1),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C46H93N2O6P,
+MET_0815,SM(d42:2),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C47H93N2O6P,
+MET_0816,SM(d42:1),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C47H95N2O6P,
+MET_0817,SM(d42:0),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C47H96N2O6P,
+MET_0818,SM(d43:2),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C48H96N2O6P,
+MET_0819,SM(d42:1-OH),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C47H93N2O7P,
+MET_0820,Diethanolamine,HMDB04437,C06772,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C4H11NO2,111-42-2
+MET_0821,O-Phosphoethanloamine,HMDB00224,,Glyerophospholipid metabolism,Lipid metabolism,Lipid,C2H8NO4P,1071-23-4
+MET_0822,LysoPE(18:2),HMDB11507,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C23H44NO7P,
+MET_0823,LysoPE(18:0),HMDB11129,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C23H48NO7P,
+MET_0824,PE(P-38:6),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C43H74NO7P,
+MET_0825,PE(34:1),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C39H76NO8P,26662-94-2
+MET_0826,PE(36:2),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C41H78NO8P,
+MET_0827,PE(36:4),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C41H74NO8P,
+MET_0828,PE(38:4),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C43H78NO8P,
+MET_0829,PE(38:2),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C39H74NO8P,
+MET_0830,PE(36:3),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C41H76NO8P,
+MET_0831,PE(38:6),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C43H74NO8P,
+MET_0832,PE(O-38:5),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C43H78NO7P,
+MET_0833,PE(16:0),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C21H44NO7P,
+MET_0834,PE(O-36:4),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C41H76NO7P,
+MET_0835,PE(P-40:6),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C45H78NO7P,
+MET_0836,PE(38:3),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C43H80NO8P,
+MET_0837,PE(38:7),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C45H76NO8P,
+MET_0838,PE(P-36:2),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C41H78NO7P,
+MET_0839,PE(P-38:5),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C43H76NO7P,
+MET_0840,PE(P-40:5),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C45H80NO7P,
+MET_0841,PE(P-40:7),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C45H76NO7P,
+MET_0842,PI(34:2),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C43H79O13P,
+MET_0843,PI(34:1),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C43H81O13P,
+MET_0844,PI(36:4),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C45H79O13P,
+MET_0845,PI(36:3),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C45H81O13P,
+MET_0846,PI(36:2),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C45H83O13P,
+MET_0847,PI(36:5),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C47H81O13P,
+MET_0848,PI(38:4),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C47H83O13P,
+MET_0849,PI(38:3),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C47H85O13P,
+MET_0850,PI(38:2),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C47H87O13P,
+MET_0851,PI(40:6),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C49H83O13P,
+MET_0852,PI(40:7),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C46H76NO10P,
+MET_0853,PI(40:5),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C46H80NO10P,
+MET_0854,PI(42:9),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C48H76NO10P,
+MET_0855,LPA(18:2),,,Glycerophospholipid metabolism,Lipid metabolism,Lipid,C21H39O7P,
+MET_0856,2-Arachidonoylglycerol,HMDB04666,C13856,"Glycerolipids, Monoacylglycerols",Lipid metabolism,Lipid,C23H38O4,53847-30-6
+MET_0857,1-Hexadecy2-Arachidonoyglycerol,,,Glycerophospholipid metabolism/acylglycerol,Lipid metabolism,Lipid,C39H70O4,
+MET_0858,Corticosterone,HMDB01547,C02140,Steroid hormone biosynthesis,Lipid metabolism,Lipid,C21H30O4,50-22-6
+MET_0859,Cortexolone,HMDB00015,C05488,Steroid biosynthesis,Lipid metabolism,Lipid,C21H30O4,152-58-9
+MET_0860,Cortisol,HMDB00063,C00735,Steroid hormone biosynthesis,Lipid metabolism,Lipid,C21H30O5,50-23-7
+MET_0861,Cholesteryl Acetate,HMDB03822,C02530,Cholesterol metabolism,Lipid metabolism,Lipid,C29H48O2,604-35-3
+MET_0862,Mevalonic Acid,HMDB00227,C00418,Terpenoid backbone biosynthesis,Lipid metabolism,Lipid,C6H12O4,17817-88-8
+MET_0863,"Anandamide (18:2,N-6)",HMDB12252,,N-acylethanolamine (NAE) metabolism,Lipid metabolism,Lipid,C20H37NO2,68171-52-8
+MET_0864,Oleoyl Ethanolamide,HMDB02088,,N-acylethanolamine (NAE) metabolism,Lipid metabolism,Lipid,C20H39NO2,111-58-0
+MET_0865,Palmitoyl Ethanolamide,HMDB02100,C16512,N-acylethanolamine (NAE) metabolism,Lipid metabolism,Lipid,C18H37NO2,544-31-0
+MET_0866,Adrenoyl Ethanolamide,HMDB13626,C13829,N-acylethanolamine (NAE) metabolism,Lipid metabolism,Lipid,C24H41NO2,150314-35-5
+MET_0867,Arachidonyol Dopamine,,C12271,"Fatty amide metabolism, endocannabinoid",Lipid metabolism,Lipid,C28H41NO3,199875-69-9
+MET_0868,N-Oleoyl Dopamine (OLDA),,C12272,"Fatty amide metabolism, endocannabinoid",Lipid metabolism,Lipid,C26H43NO3,105955-11-1
+MET_0869,Protoporphyrin,HMDB00241,C02191,Porphyrin and chlorophyll metabolism,Porphyrin metabolism,Other,C34H34N4O4,553-12-8
+MET_0870,Biliverdin,HMDB01008,,Porphyrin metabolism,Porphyrin metabolism,Other,C33H34N4O6,
+MET_0871,Bilirubin,HMDB00054,C00486,Porphyrin metabolism,Porphyrin metabolism,Other,C33H36N4O6,635-65-4
+MET_0872,Glyoxylic Acid,HMDB00119,C00048,Glyoxylate and dicarboxylate metabolism,Glycylate and dicarboxylate metabolism,Other,C2H2O3,298-12-4
+MET_0873,Glycolic Acid,HMDB00115,C00160,Glyoxylate and dicarboxylate metabolism,Glycylate and dicarboxylate metabolism,Other,C2H4O3,79-14-1
+MET_0874,Oxalic Acid,HMDB02329,C00209,Glyoxylic or Ascorbic acid metabolism,Glycylate and dicarboxylate metabolism,Other,C2H2O4,144-62-7
+MET_0875,Glyceric Acid,HMDB00139,C00258,Glyoxylate and dicarboxylate metabolism,Glycylate and dicarboxylate metabolism,Other,C3H6O4,14028-62-7
+MET_0876,Meso-Tartaric Acid,HMDB62642,C00552,Glycylate and dicarboxylate metabolism,Glycylate and dicarboxylate metabolism,Other,C4H6O6,147-73-9
+MET_0877,Tartaric Acid,HMDB00956,C00898,Glyoxylate and dicarboxylate metabolism,Glycylate and dicarboxylate metabolism,Other,C4H6O6,87-69-4
+MET_0878,Acetoacetic Acid,HMDB00060,C00164,Ketone bodies,Keto-Acids and Derivatives,Other,C4H6O3,541-50-4
+MET_0879,3-Hydroxybutanoic Acid,HMDB00357,C01089,Ketone bodies,Keto-Acids and Derivatives,Other,C4H8O3,300-85-6
+MET_0880,Butyric Acid,HMDB00039,C00246,Butyrate metabolism,Butyrate metabolism,Other,C4H8O2,107-92-6
+MET_0881,Paraxanthine,HMDB01860,C13747,Caffiene metabolism,Caffeine metabolism,Other,C7H8N4O2,611-59-6
+MET_0882,Caffeine,HMDB01847,C07481,Caffeine metabolism,Caffeine metabolism,Other,C8H10N4O2,58-08-2
+MET_0883,Theobromine,HMDB02825,C07480,Cacao alkaloid,Caffeine metabolism,Other,C7H8N4O2,83-67-0
+MET_0884,Gluconic Acid,HMDB00625,C00257,,,Unknown,C6H12O7,526-95-4
+MET_0885,Quinic Acid,HMDB03072,C00296,,,Unknown,C7H12O6,77-95-2
+MET_0886,115.027@1.04_ANPNEG,,,,,Unknown,,557-24-4
+MET_0887,197.0635@3.33,,,Tyrosine metabolism,Amino acids,Amino acid,C9H11NO4,59-92-7

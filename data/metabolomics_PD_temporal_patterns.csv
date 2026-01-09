@@ -1,0 +1,697 @@
+metabolite_name,super_pathway,sub_pathway,log2FC_R1,pvalue_R1,log2FC_R39,pvalue_R39,recovery_pattern
+Alanine,Amino acids,"Alanine, Aspartate, and Glutamate metabolism",-0.2105715559277204,0.2738866305555317,0.0869257119489255,0.6557744559349334,stable
+Succinic Semialdehyde,Amino acids,"Alanine, Aspartate, and Glutamate metabolism",-0.4750263658925902,0.4417641065522764,-0.4487697318903991,0.4379408302386809,stable
+Asparagine,Amino acids,"Alanine, Aspartate, and Glutamate metabolism",-0.496532268994578,0.2751193887562611,0.1062681421323103,0.7907654060743873,stable
+Aspartic Acid,Amino acids,"Alanine, Aspartate, and Glutamate metabolism",-0.0497750549049408,0.852814299128218,-0.1241144066144521,0.665020655652353,stable
+Glutamine,Amino acids,"Alanine, Aspartate, and Glutamate metabolism",-0.5945147901162281,0.1140911371057757,-0.2202706578938525,0.492255502045558,full_recovery
+Glutamic Acid,Amino acids,"Alanine, Aspartate, and Glutamate metabolism",-0.0028381974982843,0.9931824794238092,0.2528881082873183,0.4653584253993635,stable
+2-Hydroxyglutaric Acid,Amino acids,"Alanine, Aspartate, and Glutamate metabolism, glutamate degradation",-0.0474985887935023,0.8360225678685942,-0.0445311393864411,0.849676071235467,stable
+N-Acetylaspartic Acid,Amino acids,"Alanine, aspartate, and glutamate metabolism",-0.1940614626885331,0.7459021321255098,-0.2773690267694738,0.6543751540120537,stable
+Urea,Amino acids,Arginine and Proline metabolism,0.012554277622859,0.9586847561612116,-0.3657096709279696,0.162574878219388,stable
+Creatinine,Amino acids,Arginine and Proline metabolism,-0.0995193106592638,0.745529541114827,-0.2371647659074521,0.4717513899744656,stable
+Proline,Amino acids,Arginine and Proline metabolism,-0.6904555711500368,0.0936136357283239,-0.1695672788680744,0.5996998363769093,full_recovery
+N-Acetylputrescine,Amino acids,Arginine and proline metabolism,-0.0058688230618547,0.8886406940917813,-0.0897659980353406,0.0298437923134477,stable
+4-Hydroxy-Proline,Amino acids,Arginine and Proline metabolism,0.4354672186582283,0.4004510063313676,0.2264758202534892,0.6456546108544632,stable
+Ornithine,Amino acids,Arginine and proline metabolism,-0.175413038417296,0.6460032973492719,-0.172595058240196,0.645188917453124,stable
+4-Guanidinobutyric Acid,Amino acids,Arginine and proline metabolism,-0.2838156166548256,0.1590743774362979,-0.0718965235435784,0.6895560857968616,stable
+Arginine,Amino acids,Arginine and Proline metabolism,-0.0069100433851039,0.9809054850201576,-0.0927444289020032,0.7510919922895675,stable
+Citrulline,Amino acids,Arginine and Proline metabolism,0.0300328732105849,0.8399718916352981,-0.0581773663451931,0.719986970213889,stable
+L-Monomethylarginine (LNMA),Amino acids,Arginine and Proline metabolism,-0.7800608929818443,0.088731357686189,-0.0660763231276698,0.8599750641762353,full_recovery
+N-Acetylglutamic Acid,Amino acids,Arginine and proline metabolism,-0.9638229564874828,0.1217577034871675,-0.1769372491872897,0.7041760320856515,full_recovery
+Dimethylarginine,Amino acids,Arginine and Proline metabolism,-0.292671734040726,0.100409456750989,-0.1977642450094346,0.2519034496934117,stable
+Argininosuccinic Acid,Amino acids,Arginine and Proline metabolism,-0.0515726330846358,0.774589592115585,-0.1138837414589512,0.5307384947054896,stable
+Pyrrole-2-Carboxylic Acid,Amino acids,Oxidation derivative of hydroxyproline,,,-0.707705003579462,0.6138188246425941,stable
+Proline Betaine,Amino acids,"Arginine and Proline metabolism, osmolyte",-2.0523099440996844,0.1107914328779873,0.0418043458399495,0.9558096838775828,full_recovery
+Thiosulfate,Amino acids,Cysteine and Methionine metabolism,-1.03026073917847,0.3083204311442313,-1.3610901730211122,0.2252094773089129,persistent
+Cysteine,Amino acids,Cysteine and Methionine metabolism,-0.979879071008512,0.1525203551037397,-0.980623376028156,0.1391380079944809,persistent
+Methylcysteine,Amino acids,Cysteine and methionine metabolism,-0.7279670273882252,0.0072628730430843,-0.4648859242523602,0.1082772301210985,partial_recovery
+Methionine,Amino acids,Cysteine and methionine metabolism,0.0391755869940423,0.8144809209712538,0.1205222901801105,0.5254953612993816,stable
+Cysteine-S-Sulfonic Acid,Amino acids,Cysteine and Methionine metabolism,0.2592352601351734,0.4647817322278756,-0.433764712590477,0.273223751243304,stable
+O-Succinylhomoserine,Amino acids,Cysteine and methionine metabolism,-0.2035002826376028,0.6916688466075689,-0.0086268313279537,0.9876851491618728,stable
+Cystine,Amino acids,Cysteine and methionine metabolism,-0.2444184465689954,0.4013850953761544,-0.0763596639939648,0.7741864566991975,stable
+2-Hydroxybutyric acid,Amino acids,Cysteine and methionine metabolism,1.2612024980729948,0.0202892528669231,-0.6439863674174148,0.2794883872820798,partial_recovery
+2-Aminobutyric Acid,Amino acids,Cysteine and methionine metabolism,0.4321330201468757,0.0817598355448354,-0.1368038819963965,0.5653539684226297,stable
+Methylglyoxal,Amino acids,"Glycine, serine, and threonine metabolism,pyruvate metabolism",-1.736359202409252,0.216278780132955,-1.966024378547628,0.1898481556894516,persistent
+Glycine,Amino acids,"Glycine, serine, and threonine metabolism",-0.1859642662029964,0.5305686980010885,-0.1231066381367923,0.6753814091312682,stable
+Sarcosine,Amino acids,"Glycine, serine, and threonine metabolism",-0.0547349003891651,0.8051296527215299,-0.124011313084516,0.5911443771425434,stable
+2-Ketobutyric Acid,Amino acids,"Glycine, serine, and threonine metabolism; Cysteine and methionine metabolism",-0.4923514379693823,0.4195151559009515,-0.4612544548316352,0.4174016085986263,stable
+Dimethylglycine,Amino acids,Glycine metabolism,0.6864893622813629,0.2332010532568821,0.179575190601138,0.8127748001138458,full_recovery
+Choline,Amino acids,"Glycine, serine and threonine metabolism",-0.1728803229139385,0.1614062218342816,-0.2290339384807249,0.0974806903318497,stable
+Serine,Amino acids,"Glycine, serine and threonine metabolism",-0.1867829078988095,0.3889362141131884,0.0467393955141441,0.8391630257210329,stable
+Guanidinoacetic Acid,Amino acids,"Glycine, serine, and threonine metabolism",-0.3704897489894381,0.0936422923181707,-0.1180856850902572,0.5906342768370263,stable
+Betaine,Amino acids,"Glycine, serine and threonine metabolism",-0.2169724963845203,0.1391313272969791,-0.0122332611516672,0.9428111668339966,stable
+Threonine,Amino acids,"Glycine, serine and threonine metabolism",-0.2980000713305132,0.4161708970636026,-0.442913633811309,0.2384758414767432,stable
+3-Methylhistamine,Amino acids,"Histidine metabolism, histamine metabolite",0.3495206990848886,0.0147218194560726,0.2341647034277677,0.1839703314978839,stable
+4-Imidazoleacetic Acid,Amino acids,Histidine metabolism,-0.040939194759596,0.8721720183694406,-0.1533319134100889,0.5336325047877406,stable
+Histidinol,Amino acids,Histidine metabolism,-0.0292912332238513,0.4578029415163974,-0.1214219402644955,0.0075595006809054,stable
+Histidine,Amino acids,Histidine Metabolism,-0.2399278203838541,0.0255748181999344,-0.1277333947801284,0.1936313084552607,stable
+3-Methylhistidine,Amino acids,Histidine Metabolism,-0.0164148095117199,0.95524885791378,-0.1728492339833038,0.5631943539743385,stable
+5-Aminopentanoate,Amino acids,Lysine degradation,-0.2150676094636348,0.1356069344421533,-0.013112597575732,0.9376184218517134,stable
+Pipecolinic Acid,Amino acids,Lysine degradation,-0.3615723177763968,0.5346074370870337,-0.1283794077692862,0.8189925422290468,stable
+Glutaric Acid,Amino acids,Lysine degradation,-0.1961548564217379,0.3913935828718039,-0.2075606906730457,0.3652593719856538,stable
+Lysine,Amino acids,Lysine metabolism,-0.0118942911758831,0.9586103683713344,-0.0581774418247833,0.8019581882264146,stable
+2-Oxoadipic Acid,Amino acids,"lysine biosynthesis/degradation, tryptophan metabolism",-0.5647706189655692,0.3827763540649621,-0.8464248803779186,0.2169555334879027,persistent
+2-Aminoadipic Acid,Amino acids,Lysine degradation,0.0992375444428558,0.8323026067951145,0.3458974703095379,0.3216599389175633,stable
+Trimethyllysine,Amino acids,Lysine degradation,-0.106249018537233,0.8170532282464411,-0.5306302640621876,0.3116018556610243,stable
+2-Methylcitric Acid,Amino acids,Lysine biosynthesis,-0.8270453436730055,0.2698856607935329,-1.3023931770668091,0.1366062307804641,persistent
+Phenylalanine,Amino acids,Phenylalanine metabolism,-0.4272432372987273,0.0608459649015765,-0.2763192723685244,0.1440040364607867,stable
+Hippuric Acid,Amino acids,Phenylalanine metabolism,-2.385990368784546,0.17538401027414,-0.2755753247241067,0.775913459037874,full_recovery
+Phenylacetylglycine,Amino acids,Phenylalanine metabolism,-2.8109701950071466,0.5396376908495695,,,full_recovery
+Picolinic Acid,Amino acids,Tryptophan metabolism,-1.1056196589085203,0.1969642325370347,-1.3078198233073977,0.1512585758001128,persistent
+3-Hydroxyanthranilic Acid,Amino acids,Tryptophan metabolism,-0.3734835491885758,0.2288074179572732,-0.1532595588133257,0.5511670894714188,stable
+Kynurenic Acid,Amino acids,Tryptophan metabolism,-0.1964147873933542,0.5486790022629002,-0.4455835641636139,0.2008047549373897,stable
+Tryptophan,Amino acids,Tryptophan metabolism,-0.3891425488493399,0.0906304259013127,-0.3148367105410693,0.1168214351714498,stable
+Xanthurenic Acid,Amino acids,Tryptophan metabolism,-0.2312582198791357,0.7767411113274909,0.1477671464271388,0.8106880840181427,stable
+Kynurenine,Amino acids,Tryptophan metabolism,-0.2868934178474395,0.1057576412257211,-0.2201247093836459,0.126810469493938,stable
+Indoxyl Sulfate,Amino acids,Tryptophan metabolism,-0.6462433308470323,0.260776753653806,-0.138196662021853,0.7816721110939227,full_recovery
+Hydroquinone,Amino acids,Tyrosine metabolism,-2.4102199793001224,0.0068331982985013,0.0654329358286446,0.8882979172116753,full_recovery
+3-Hydroxyphenylacetic Acid,Amino acids,Tyrosine/phenylalanin metabolism,-0.0361298074853398,0.9280300938473798,-0.3640122892813164,0.3962675572967733,stable
+4-Hydroxyphenylacetic Acid,Amino acids,Tyrosine metabolism,-0.0293526048253386,0.94139903771697,-0.3666938495844524,0.394653979490566,stable
+Gentisic Acid,Amino acids,Tyrosine metabolism,-1.940310868942284,0.0097413160073608,-0.3649622026416325,0.4192471450174683,full_recovery
+Tyrosine,Amino acids,Tyrosine metabolism,-0.5565461560146924,0.0701573337488749,-0.3728196798115951,0.1951235182647777,partial_recovery
+Homovanillic Acid,Amino acids,Tyrosine metabolism; dopamine/catecholamine metabolite,-0.9411067508618224,0.1355467304657339,-1.3663945820605294,0.0503503031658448,persistent
+4-Hydroxyphenyllactate,Amino acids,Tyrosine metabolism,-0.9404372179805472,0.1358767154073086,-1.3673809856383687,0.0503465100833042,persistent
+3-Methoxy-Tyrosine,Amino acids,Tyrosine metabolism,,,,,stable
+3-Methy2-Oxopentanoic Acid,Amino acids,Isoleucine degradation,0.3560041807696273,0.4539103590579688,-0.2948272142762705,0.5018555363128016,stable
+2-Hydroxy-3-Methylpentanoic Acid,Amino acids,Isoleucine metabolism,1.4115986105475649,0.001149735933413,0.3304523026217131,0.3093874651449247,full_recovery
+3-Methylglutaric Acid,Amino acids,Leucine metabolism,-0.5865526196317237,0.3962935335393811,-0.5289801362638185,0.4339566363215074,persistent
+Valine,Amino acids,"Valine, leucine, and isoleucine biosynthesis / degradation",-0.2558291195516712,0.3231398726432557,-0.3843632307600171,0.1497978919277612,stable
+2-Ketoisovaleric acid,Amino acids,"Valine, leucine, and isoleucine biosynthesis / degradation",0.1688659274219549,0.4753467610151611,-0.27850722133064,0.2382883195094556,stable
+2-Hydroxy-isovaleric acid,Amino acids,"Valine, leucine, and isoleucine biosynthesis / degradation",1.5859882507794556,0.002797917261436,0.1944472210759653,0.6777821124810699,full_recovery
+Methylmalonic Acid,Amino acids,"Valine, leucine, and isoleucine degradation; Propanoate metabolism",-1.0046466494414183,0.0516394862988415,-0.4231801749269168,0.3006345856770354,full_recovery
+Citraconic Acid,Amino acids,"Valin, leucine, isoleucine biosynthesis",-0.6288246440416758,0.1254518160896347,-0.3318597566923423,0.3641797872605194,partial_recovery
+Itaconic Acid,Amino acids,"Valin, leucine, isoleucine biosynthesis",-0.1912296275917405,0.3030192160554196,-0.5914794066919252,0.0078268634884481,stable
+Ketoleucine,Amino acids,"Valine, Leucine and Isoleucine Degradation",0.3125664808466475,0.3156877845765978,-0.3985671398575878,0.1906486274258409,stable
+Leucine,Amino acids,"Valine, leucine and isoleucine degradation/ biosynthesis",-0.1606787230757306,0.4079966102553438,-0.3839645554597867,0.0831506421698887,stable
+Isoleucine,Amino acids,"Valine, leucine, isoleucine biosynthesis",-0.000262425936169,0.9988166678075616,-0.1678351627649661,0.3895208362529593,stable
+N-Acetylglycine,Amino acids,Amino acid acetylation,0.5694838782664152,0.1051245824674678,-0.5770186084988752,0.0505943723549222,persistent
+N-Acetylalanine,Amino acids,Amino acid acetylation,-0.2474677837155697,0.0876233694540808,-0.2489161116233518,0.067641091017136,stable
+N-Acetydserine,Amino acids,Amino acid acetylation,0.2080778532099377,0.287743174653642,0.2330763096497624,0.2398361524090082,stable
+Spermine,Amino acids,Polyamine metabolism,0.074184701503855,0.7958478025514244,0.1172576346093705,0.6402692663626597,stable
+N1-Acetylspermidine,Amino acids,Polyamine metabolism,-0.2977342562232494,0.5275217863397985,-0.2721029599316326,0.5453139792584878,stable
+Taurine,Amino acids,Taurine and hypotaurine metabolism,-0.4380893364819522,0.2659175922312088,-0.7377769504984893,0.087068856080403,stable
+Fumaric Acid,Energy metabolism,Citrate cycle (TCA cycle),-0.4131641199233689,0.2659245084016244,-0.7097507533475726,0.0913071107937799,stable
+Succinic Acid,Energy metabolism,Citrate cycle (TCA cycle),1.1187423942907293,0.1640357185253788,-0.5895463299316149,0.2447568298032334,partial_recovery
+2-Methylglutaric Acid,Energy metabolism,"Citrate cycle (TCA cycle), Succinic acid metabolite",-0.5863339119753453,0.3962606114134606,-0.5293822948593464,0.4335076789509426,persistent
+Malic Acid,Energy metabolism,Citrate cycle (TCA cycle),-0.4738796124208111,0.2447853253289459,-0.7950416129240417,0.0864287051421992,stable
+Oxoglutaric Acid,Energy metabolism,Citrate cycle (TCA cycle),-0.7018858741872562,0.2500650181292729,-1.003640410434785,0.1402700603089066,persistent
+2-ketoglutaramate,Energy metabolism,"Citrate cycle (TCA cycle), Alanine, Aspartate, and Glutamate metabolism",-0.170149957088006,0.7211464464954717,-0.5368876581172511,0.2884195416997019,stable
+Aconitic Acid,Energy metabolism,"Citrate cycle (TCA cycle), trans isomer of cis-Aconitic acid",-0.7071162841688493,0.3118197998481578,-1.502702301359336,0.1146699687077216,persistent
+Beta-Carboxyglutaric Acid,Energy metabolism,"Citrate cycle (TCA cycle) , from msms fragmentation",-0.2352137220462111,0.552911473464107,-0.9511584132405508,0.0645258988238037,stable
+Citric Acid,Energy metabolism,Citrate cycle (TCA cycle),-0.8536494663112646,0.2210687665729193,-1.2273935946494563,0.1205084297895877,persistent
+Glucose,Energy metabolism,Glycolysis; Gluconogenesis; galactose metabolism,-0.4413475189501743,0.3968543378199318,0.1108478776786891,0.7507823685329698,stable
+Lactic Acid,Energy metabolism,Glycolysis / Gluconeogenesis,-0.0655194040324596,0.7539046021682714,-0.2404721175089046,0.2931788952238188,stable
+Pyruvate,Energy metabolism,Glycolysis / Gluconeogenesis,-1.0122737714119754,0.1657612357414264,-0.654768670457267,0.3161818967237686,partial_recovery
+3-Phosphohexose?,Energy metabolism,Glycolysis -Cycle sugar phosphate?,-1.2118793733174638,0.0410746697693147,-1.1059006846742834,0.0536101810677364,persistent
+Pantothenic Acid,Energy metabolism,Pantothenate and CoA biosynthesis,-1.2547645338890396,0.227636957193631,-1.5309042905966856,0.1543818698912825,persistent
+Deoxyribose,Energy metabolism,Pentose phosphate pathway,-2.695772804259251,0.0936561456208021,-0.988960623687868,0.1618984192046454,full_recovery
+Ribose,Energy metabolism,Pentose phosphate pathway,-0.1627977238436276,0.6761388226318139,-0.947004521994266,0.0823964018076775,stable
+2-DeoxyRibose 5-Phosphate-fragment?,Energy metabolism,Pentose phosphate pathway,,,-2.3587328636518583,0.216549578921374,stable
+Galacturonic Acid,Energy metabolism,Pentose and glucuronate interconversions,-0.8905929138554562,0.1740176462030568,-0.3616812373537593,0.5126107308174973,full_recovery
+Hypoxanthine,Purine  and pyrimidine metabolism/nucleotide metabolism,Purine metabolism,-0.226955906239499,0.5586583310850823,-0.3352642891178993,0.3614044723320572,stable
+Xanthine,Purine  and pyrimidine metabolism/nucleotide metabolism,Purine metabolism,0.0745244886862498,0.9282424294244128,,,stable
+Uric Acid,Purine  and pyrimidine metabolism/nucleotide metabolism,Purine metabolism,-0.4006492707942492,0.2643049408003422,-0.6109821217948849,0.1029548054290298,stable
+5-Hydroxyisourate,Purine  and pyrimidine metabolism/nucleotide metabolism,Purine metabolism,-0.6635082847813871,0.4124521959486417,-0.8646617113908577,0.3184656008631625,persistent
+Adenosine,Purine  and pyrimidine metabolism/nucleotide metabolism,Purine metabolism,0.3601834331296339,0.1057713438450889,1.084867100798397,0.0191082426344814,stable
+Succinoadenosine,Purine  and pyrimidine metabolism/nucleotide metabolism,Purine metabolism,-0.773622036545381,0.2414871878259786,-1.0658153489683804,0.1436043595800731,persistent
+N-FormyGAR (FGAR)--riboside,Purine  and pyrimidine metabolism/nucleotide metabolism,Purine metabolism,0.1498844822985738,0.6585733725043688,0.2077284484791981,0.5297262786016788,stable
+Beta-Alanine,Purine  and pyrimidine metabolism/nucleotide metabolism,Pyrimidine metabolism,-0.2117159629539346,0.2723702046452879,0.0862130003611979,0.658592350108732,stable
+3-Aminoisobutyric Acid,Purine  and pyrimidine metabolism/nucleotide metabolism,Pyrimidine metabolism,0.6864893622813629,0.2332010532568821,0.179575190601138,0.8127748001138458,full_recovery
+Cytosine,Purine  and pyrimidine metabolism/nucleotide metabolism,Pyrimidine metabolism,-0.1003102745035131,0.2493596846111112,-0.1696065284641801,0.0673297736799683,stable
+Orotic Acid,Purine  and pyrimidine metabolism/nucleotide metabolism,Pyrimidine metabolism,-0.3974196769909097,0.5993901897849945,-0.1044526803763423,0.8800846174498687,stable
+Uracil 5-Carboxylic Acid/Isoorotic Acid,Purine  and pyrimidine metabolism/nucleotide metabolism,Pyrimidine metabolism,-0.3974196769909097,0.5993901897849945,-0.1044526803763423,0.8800846174498687,stable
+Thymidine+Cl,Purine  and pyrimidine metabolism/nucleotide metabolism,Pyrimidine metabolism,-0.1859890593639107,0.7277726802646589,-1.7647102014757876,0.0469462678821824,stable
+Uridine,Purine  and pyrimidine metabolism/nucleotide metabolism,Pyrimidine metabolism,-1.6943358229755203,0.3991192122463887,-2.5881507577750784,0.3820038257098699,persistent
+Uridine+Cl,Purine  and pyrimidine metabolism/nucleotide metabolism,Pyrimidine metabolism,-2.964911294370988,0.404232770104561,-3.816230810391505,0.3748774785404092,persistent
+5-Methylcytidine,Purine  and pyrimidine metabolism/nucleotide metabolism,Nucleotide modification,-0.4046725231470481,0.5515695247610205,-1.0615519203008212,0.2089041731275172,stable
+Ribothymidine,Purine  and pyrimidine metabolism/nucleotide metabolism,Nucleotide modification,0.2658814585472184,0.3071382106214371,0.0718747372863899,0.7617461456978566,stable
+1-Methyladenosine,Purine  and pyrimidine metabolism/nucleotide metabolism,Nucleotide modification,-0.335518798218142,0.0530975487787104,-0.3110981347823265,0.0547160833152739,stable
+N-Acetylglucosamine (GlcNAc),Amino sugar and nucleotide sugar metabolism,Amino sugar metabolism,0.1281032392476319,0.4892771175346109,0.1065359287862412,0.5620163069606409,stable
+N-Acetylneuraminic Acid,Amino sugar and nucleotide sugar metabolism,Amino sugar metabolism,-2.3405024378784245,0.2305846237816434,-3.881315233251672,0.1662759418038084,persistent
+Maleic Acid,"Cofactor, vitamin and antioxidant metabolism",Nicotinate and nicotinamide metabolism,-1.009200272106569,0.1110242775556145,-0.9819814981314848,0.1148853584303526,persistent
+Trigonelline/N-Methylnicotinate,"Cofactor, vitamin and antioxidant metabolism",Nicotinate and nicotinamide metabolism,-2.9526802406152237,0.052158949039958,0.5285038573187385,0.3659055571144585,full_recovery
+Nicotinamide N-Oxide,"Cofactor, vitamin and antioxidant metabolism",Nicotinate and nicotinamide metabolism,0.0279781675869789,0.8305309376153059,0.095690028324875,0.6010733347946852,stable
+1-Methylnicotinamide,"Cofactor, vitamin and antioxidant metabolism",Nicotinate and nicotinamide metabolism,1.088132488082025,0.0033390668125505,-1.7590311843195212,0.0382448932287724,persistent
+N1-Methy4-Pyridone-5-Carboxamide(4-PY),"Cofactor, vitamin and antioxidant metabolism",Nicotinate and nicotinamide metabolism,-0.1117736598705452,0.8325232240345737,-0.6591114973985831,0.3053818840172536,stable
+Dehydroascorbic Acid,"Cofactor, vitamin and antioxidant metabolism",Ascorbate and aldarate metabolism,-1.1381930096530892,0.0743733126445621,-1.1738155427049737,0.0702661384356401,persistent
+Ascorbic Acid,"Cofactor, vitamin and antioxidant metabolism",Ascorbate and aldarate metabolism,-1.3221248758731945,0.1602873014561198,-1.302969912118627,0.1632766854217958,persistent
+5-Oxo-Proline,"Cofactor, vitamin and antioxidant metabolism",Glutathione metabolism,-0.3663918378134246,0.4419646225885415,-0.6912731528291953,0.1985441681244926,stable
+N-Acetycysteine,"Cofactor, vitamin and antioxidant metabolism",Glutathione synthesis,-0.0011102446497472,0.9897145970419938,-0.0323751483764798,0.695814447837559,stable
+Cys-Gly,"Cofactor, vitamin and antioxidant metabolism",Glutathione metabolism,-1.00193097125804,0.0392727208479942,-0.613808130506441,0.1456494630799147,partial_recovery
+Cysteineglutathione Disulfide,"Cofactor, vitamin and antioxidant metabolism",Glutathione metabolism,-0.4805863922206536,0.2821679945785402,-0.0413216488959464,0.9178201925245356,stable
+Erythrose,Carbohydrate metabolism,Carbohydrates,-0.0683753814987015,0.8938308634869676,-0.7683406711376942,0.2276242331979738,stable
+Rhamnose,Carbohydrate metabolism,Fructose and mannose metabolism,0.0889114973483501,0.8133403801380364,-0.537991760517596,0.2047910707397243,stable
+Fucose,Carbohydrate metabolism,Fructose and mannose metabolism; Glycan and glycoprotein component,0.1247296961893095,0.730835402045576,-0.4293385193357791,0.2607209732707068,stable
+Fructose,Carbohydrate metabolism,Fructose and mannose metabolism,-2.720910147586673,0.0709936435959396,-0.7288248825477835,0.3850380579779315,full_recovery
+Sorbitol,Carbohydrate metabolism,Fructose and mannose metabolism; galactose metabolism,-2.0491585473245304,0.2029652564950257,-0.9401323927784292,0.4184964665589722,full_recovery
+Myo-Inositol,Carbohydrate metabolism,Galactose metabolism,-1.7133862515864458,0.0801601471542276,-0.8281676100184016,0.2581440383328891,full_recovery
+Lactose,Carbohydrate metabolism,Galactose metabolism,-1.7381353263592252,0.2058130610864856,-1.9945119876547288,0.1776495226078069,persistent
+Sucrose,Carbohydrate metabolism,Galactose metabolism; starch and sucrose metabolism,-1.7220211092131723,0.2064178146438947,-1.978397770508676,0.1777934042876877,persistent
+Galactaric Acid,Carbohydrate metabolism,"Galactose metabolism,  oxidation of galactose",-1.4075178272712976,0.0899304899559198,-0.7014475102278026,0.2856096161763727,full_recovery
+Maltose,Carbohydrate metabolism,Starch and sucrose metabolism,-1.679652420003076,0.2045104361524536,-1.9360290812985796,0.1748186745246611,persistent
+Lithocholic Acid,Lipid metabolism,Bile acid biosynthesis,-0.3913305817723257,0.3166078613959906,-0.1570250531608739,0.6662260543116896,stable
+Glycocholic Acid,Lipid metabolism,Bile acid biosynthesis,0.1724087789936666,0.85252027481488,-1.9193105589175052,0.1243328735355876,stable
+FA 28:0,Fatty acid metabolism,Fatty acid metabolism,0.1160068481412089,0.5255497364684845,-0.0151231783772074,0.9325723771939544,stable
+FA 26:0,Fatty acid metabolism,Fatty acid metabolism,0.1186186967286731,0.4344804216682094,0.0928155604671488,0.4936633816929268,stable
+FA 24:1,Fatty acid metabolism,Fatty acid metabolism,0.0290466859638008,0.8759119317191157,0.0606261975151097,0.689295321241597,stable
+FA 24:0,Fatty acid metabolism,Fatty acid metabolism,0.0726473850737623,0.6661458358057938,0.2242468139009633,0.1725817725925124,stable
+FA 22:6,Fatty acid metabolism,Fatty acid metabolism,0.4008375933580964,0.4098370639228176,-0.3741666329624026,0.5472438292011688,stable
+FA 22:5,Fatty acid metabolism,Fatty acid metabolism,0.0979717432237,0.795119964416741,-0.1498697974018789,0.7125164454214148,stable
+FA 22:4,Fatty acid metabolism,Fatty acid metabolism,0.4268499721531936,0.5668193837776623,-0.1049984105037903,0.89988104029123,stable
+FA 22:1,Fatty acid metabolism,Fatty acid metabolism,-0.0781197604662855,0.3569080478943063,-0.167205592518478,0.0546088204662584,stable
+FA 22:0,Fatty acid metabolism,Fatty acid metabolism,0.0457993586624309,0.5877213332852369,0.0729927263310098,0.4269649875318185,stable
+FA 20:6,Fatty acid metabolism,Fatty acid metabolism,0.059650877058096,0.7848534428177509,0.4147776352088973,0.0254108191696778,stable
+FA 20:5,Fatty acid metabolism,Fatty acid metabolism,0.2324329133635387,0.4583733647320662,-0.2476067695726998,0.5088560522849659,stable
+FA 20:4,Fatty acid metabolism,Fatty acid metabolism,0.7252096954416033,0.0538995536040349,-0.1472576242970545,0.7478851828183408,full_recovery
+FA 20:3,Fatty acid metabolism,Fatty acid metabolism,0.150080110753328,0.7830128049269477,-0.1743586508470544,0.780902797702454,stable
+FA 20:2,Fatty acid metabolism,Fatty acid metabolism,0.0165347768119887,0.979426376474454,-0.3251655567936009,0.6494356913310414,stable
+FA 20:1,Fatty acid metabolism,Fatty acid metabolism,-0.1661856513437041,0.7808711028115706,0.1577068527885965,0.7761933861518124,stable
+FA 20:0,Fatty acid metabolism,Fatty acid metabolism,0.0110693374277152,0.8772893216359772,0.0534890327262611,0.5579464201664772,stable
+FA 18:3,Fatty acid metabolism,Fatty acid metabolism,0.3578664076723224,0.4522060671700254,0.4842162901965349,0.3683938795114896,stable
+FA 18:2,Fatty acid metabolism,Fatty acid metabolism,0.2708972505225827,0.5924186925218278,0.3498862208590447,0.5626877571844591,stable
+FA 18:1,Fatty acid metabolism,Fatty acid metabolism,-0.278302869099546,0.7628516347469653,-0.3588341772142061,0.7069391322394147,stable
+FA 18:0,Fatty acid metabolism,Fatty acid metabolism,-0.0444457593019201,0.6796673040009239,-0.0316176750791955,0.7886799088706091,stable
+FA 17:1,Fatty acid metabolism,Fatty acid metabolism,-0.0020115962920791,0.9979446324742834,-0.3931964303440323,0.6725159225488577,stable
+FA 17:0,Fatty acid metabolism,Fatty acid metabolism,-0.0739163417041901,0.7480224107556657,-0.0126693156053212,0.9567425340565388,stable
+FA 16:0,Fatty acid metabolism,Fatty acid metabolism,-0.0456946866996623,0.7737801821535593,-0.0224911076050698,0.8893326297739587,stable
+FA 14:0,Fatty acid metabolism,Fatty acid metabolism,-0.0731222589219384,0.8105100703862933,-0.0537063309221542,0.8597964949510579,stable
+FA 26:0;O,Fatty acid metabolism,Fatty acid metabolism,0.2194244336514176,0.5636471151516851,0.0716484578869295,0.8471739720584895,stable
+FA 24:1;O,Fatty acid metabolism,Fatty acid metabolism,-0.1949937285418823,0.2501453977433183,0.0345528888309381,0.8038864146465948,stable
+FA 24:0;O,Fatty acid metabolism,Fatty acid metabolism,0.0930830526150588,0.7712594250139954,0.432456769664049,0.24057092019892,stable
+FA 22:0;O,Fatty acid metabolism,Fatty acid metabolism,-0.146647541692498,0.4390168561589046,0.2376079232120262,0.2927451795544415,stable
+FA 18:1;O,Fatty acid metabolism,Fatty acid metabolism,-0.0526027729756869,0.906571035891613,0.4178209840350297,0.3719720976449168,stable
+FA 18:0;O,Fatty acid metabolism,Fatty acid metabolism,0.0155184431528071,0.9132342005625688,0.119581704344608,0.514189921176126,stable
+FA 16:0;O,Fatty acid metabolism,Fatty acid metabolism,0.1742315103568589,0.3011933013225866,0.0739710813008068,0.677149879390163,stable
+FA 14:1;O,Fatty acid metabolism,Fatty acid metabolism,0.4694657588630703,0.3521537748875382,-0.1373345433795217,0.8217171486604069,stable
+FA 12:0;O,Fatty acid metabolism,Fatty acid metabolism,0.6909937700833716,0.1096909146457252,-0.1017354191558098,0.8765373096713543,full_recovery
+9-PAHSA,Fatty acid metabolism,Fatty acid metabolism,0.0777884408168547,0.5325869727914994,0.1094351203575695,0.490585846825051,stable
+"12,13 DiHOME",Fatty acid metabolism,Fatty acid metabolism,-0.4366972591966132,0.459638990390197,,,stable
+CAR 3:0,Fatty acid metabolism,Acylcarnitine metabolism,-0.1462522130750276,0.3854001525365487,0.0815501463261272,0.5651186288268621,stable
+CAR 4:0,Fatty acid metabolism,Acylcarnitine metabolism,0.0537021197085192,0.8843344680693678,-0.1298852820782681,0.6798995493388402,stable
+CAR 5:1,Fatty acid metabolism,Acylcarnitine metabolism,0.3941911502187908,0.0649259162411028,0.4306891548232378,0.0451385316885754,stable
+CAR 5:0,Fatty acid metabolism,Acylcarnitine metabolism,-0.0366945744197459,0.9099983783096728,-0.2378636677173785,0.4144036147643861,stable
+"CAR 5:0,iso",Fatty acid metabolism,Acylcarnitine metabolism,-0.0366945744197459,0.9099983783096728,-0.2378636677173785,0.4144036147643861,stable
+CAR 6:1,Fatty acid metabolism,Acylcarnitine metabolism,0.0315551917881921,0.8120443986549832,-0.0190607871546202,0.8889494056918998,stable
+CAR 6:0,Fatty acid metabolism,Acylcarnitine metabolism,0.7426952161126549,0.1041818057909721,-0.2699321831462656,0.6424082686059767,full_recovery
+CAR 8:1,Fatty acid metabolism,Acylcarnitine metabolism,-0.2716089259541707,0.5573837553774708,-0.2785670120252087,0.5476160541777381,stable
+CAR 8:0,Fatty acid metabolism,Acylcarnitine metabolism,1.413925294842397,0.0058434991683692,-0.4365597031934899,0.5748227270029498,full_recovery
+CAR 8:0;O,Fatty acid metabolism,Acylcarnitine metabolism,0.5352086501858102,0.2509332518425061,-0.502894025972864,0.4561533801887976,persistent
+CAR 10:1,Fatty acid metabolism,Acylcarnitine metabolism,0.8960291777724392,0.0386256433398683,-0.6159145891782312,0.3610044423520128,partial_recovery
+CAR  10:0,Fatty acid metabolism,Acylcarnitine metabolism,1.5500377870337274,0.0050466386132391,-0.7151924041739598,0.4516141666013683,full_recovery
+CAR 10:0;O,Fatty acid metabolism,Acylcarnitine metabolism,0.9892914923546564,0.0561635495084895,-0.64097815560132,0.4647338530150051,partial_recovery
+CAR 12:1,Fatty acid metabolism,Acylcarnitine metabolism,1.0715422040811764,0.0563166128589992,-0.8931089464306116,0.3834913041569801,persistent
+CAR 12:0,Fatty acid metabolism,Acylcarnitine metabolism,1.1090378917275687,0.0398149103477154,-0.8962654135734296,0.3361466340909115,persistent
+CAR 14:2,Fatty acid metabolism,Acylcarnitine metabolism,1.1610510604861444,0.0254842807699376,-0.6066950290322299,0.4901372301464481,partial_recovery
+CAR 14:1,Fatty acid metabolism,Acylcarnitine metabolism,0.7797748864717516,0.192137595387144,-0.890345631545961,0.3763736248480682,persistent
+CAR 14:0,Fatty acid metabolism,Acylcarnitine metabolism,0.282999516898993,0.3932733789778977,-0.4607541480502445,0.250525288617475,stable
+CAR 16:2,Fatty acid metabolism,Acylcarnitine metabolism,0.9259315572742738,0.0957940280261505,-0.6763253484198821,0.4450523787519678,partial_recovery
+CAR 16:1,Lipid metabolism,Carnitine metabolism,0.3399090820710715,0.5141943369851023,-0.6874266923813629,0.3107568798603668,stable
+CAR 16:0,Lipid metabolism,Carnitine metabolism,0.0125238266348886,0.9648312667845522,-0.1738880063884399,0.5125566508729493,stable
+CAR 17:0,Fatty acid metabolism,Acylcarnitine metabolism,-0.3608546404566654,0.3970921509307947,-0.3158752284981742,0.4176285111964183,stable
+CAR 18:3,Fatty acid metabolism,Acylcarnitine metabolism,0.0114621944484699,0.9676492407234518,-0.3291070153325584,0.3008663570829018,stable
+CAR 18:1,Fatty acid metabolism,Acylcarnitine metabolism,-0.0528255026172599,0.871182956142316,-0.4081752057742767,0.2388441364234799,stable
+CAR 18:0,Fatty acid metabolism,Acylcarnitine metabolism,-0.0405076915723232,0.8894845127531157,-0.2480607104494664,0.4160448292040505,stable
+CAR 20:0,Fatty acid metabolism,Acylcarnitine metabolism,-0.1218546751126707,0.7005686951002033,-0.375099179269916,0.2693129126364568,stable
+CAR 10:0,Fatty acid metabolism,Acylcarnitine metabolism,1.7235445666727414,0.0011695485932771,-0.3178428634202559,0.6905711520881767,full_recovery
+CAR 13:0,Fatty acid metabolism,Acylcarnitine metabolism,0.3432021411124198,0.3554468985235708,-0.3389036094957421,0.4334882415807717,stable
+CAR 14:0;O,Fatty acid metabolism,Acylcarnitine metabolism,0.4441502733882865,0.1550738147963594,-0.2114614487031318,0.5813698311807767,stable
+CAR 14:1;O,Fatty acid metabolism,Acylcarnitine metabolism,0.4737427342696069,0.1868236504232725,-0.1769691706488065,0.7181075066635807,stable
+CAR 16:0;O,Fatty acid metabolism,Acylcarnitine metabolism,0.5777360430237312,0.0706459621082706,0.1131590260656621,0.7531476679319067,full_recovery
+CAR 18:2,Fatty acid metabolism,Acylcarnitine metabolism,0.2285098238017117,0.2464201348220039,-0.0747240762686282,0.7055900355241048,stable
+CAR 24:0,Fatty acid metabolism,Acylcarnitine metabolism,-0.2170644155117627,0.4012818334507885,0.0874070857100709,0.6842638466703497,stable
+CAR 26:0,Fatty acid metabolism,Acylcarnitine metabolism,0.0342227591772996,0.9182244976090732,0.0240424002404216,0.946043426443301,stable
+Deoxycarnitine,Lipid metabolism,Carnitine metabolism,0.292978505371553,0.1037291365234527,-0.0797942109213373,0.6580799852887893,stable
+Carnitine,Lipid metabolism,Carnitine metabolism,0.1423730442217405,0.2088736574438447,-0.1159190900793685,0.3419231365875009,stable
+Acetylcarnitine,Lipid metabolism,Carnitine metabolism,0.1812172753145605,0.6907142331881059,-0.4645715450238857,0.397818333555952,stable
+Methylglutarylcarnitine/C4:1;O2,Fatty acid metabolism,Acylcarnitine metabolism,-0.0317211620161135,0.8739066027698863,0.0114218723396345,0.952917774346188,stable
+Linoleyl Carnitine/CAR 18:2,Fatty acid metabolism,Acylcarnitine metabolism,0.0445631217714409,0.8211734953223998,-0.2418044899916074,0.2730588396942279,stable
+Glutarylcarnitine/CAR 5:1;O2,Fatty acid metabolism,Acylcarnitine metabolism,-0.043435581967449,0.8947187489452935,-0.1493752474617956,0.6818437758291878,stable
+3-Methylglutarylcarnitine/CAR 6:1;O2,Fatty acid metabolism,Acylcarnitine metabolism,0.1882039196701585,0.4029828795840574,-0.1297193295037368,0.6121890101543259,stable
+Pimelylcarnitine/CAR 7:1;O2,Fatty acid metabolism,Acylcarnitine metabolism,-0.0320606929712314,0.9152572937827712,-0.3608558218303239,0.3272507880548315,stable
+Keto-decanoylcarnitine/CAR 10:1:O,Fatty acid metabolism,Acylcarnitine metabolism,-0.2777241721494665,0.2620614872728251,-0.0893180454990863,0.675574818189933,stable
+Undecanoyl carnitine/CAR 11:0,Fatty acid metabolism,Acylcarnitine metabolism,-0.0896180585721659,0.912934144347068,-2.1490255382202026,0.3220469032207854,stable
+Isovaleric Acid/FA 5:0,Lipid metabolism,"Fatty Acid metabolism, Branched fatty acids",-0.5360406778484266,0.3987940317782956,-0.465362550114351,0.4511528381703442,persistent
+Mevalolactone/FA 6:1;O,Lipid metabolism,"Fatty Acid metabolism, Biosynthesis of terpenes and steroids",0.3108362808717889,0.3178817799189484,-0.3981439529512662,0.1908989535722662,stable
+Ethylmalonic Acid/FA 5:1;O2,Lipid metabolism,"Fatty Acid metabolism, dicarboxylic acid",-1.0102886151053605,0.3100334553394316,-0.90805553265902,0.3285375434391048,persistent
+Suberic Acid/FA 8:1;O2,Lipid metabolism,"Fatty acid breakdown, dicarboxylic acid",-0.1157487639971246,0.7274996628679505,-0.5916155286294192,0.1398577340939897,stable
+Caproic Acid/FA 6:0,Lipid metabolism,Fatty acid biosynthesis; Beta oxidation of fatty acids,1.8634667836988703,0.3524608103094714,1.137721121050267,0.2567394988650596,partial_recovery
+5-Hydroxyhexanoic Acid/FA 6:0;O,Lipid metabolism,Fatty acid metabolism,0.3879283520700906,0.2287205033681701,-0.1828244173346954,0.5847544840607024,stable
+Glutaric Acid Methyl Ester,Lipid metabolism,"Fatty Acids and Conjugates, Dicarboxylic Acid Derivative",-0.5863339119753453,0.3962606114134606,-0.5293822948593464,0.4335076789509426,persistent
+"1,9-Nonanedioate/FA 9:1;O2",Lipid metabolism,"Fatty Acid metabolism, Dicarboxylic Acids and Derivatives",0.0411116164304529,0.8958958907545975,-0.182285599361129,0.5581656430042746,stable
+10-Hydroxydecanoate/FA 10:0;O,Lipid metabolism,Fatty acid metabolism,-1.6797996729737958,0.0325997783310525,-0.1980753085995649,0.7162347494397014,full_recovery
+Trimethylamine N-Oxide,Lipid metabolism,Glycerophospholipid metabolism,0.0563072421681396,0.9167866224481748,-0.5190034429772548,0.3845967152375167,stable
+Acetylcholine,Lipid metabolism,"Glycerophospholipid metabolism, neurotransmitter",0.2930070032599087,0.0987912388233933,-0.0772094234771316,0.6629985729437524,stable
+Corticosterone,Lipid metabolism,Steroid hormone biosynthesis,0.6042683890535724,0.0679556231462549,-0.355230759715489,0.4902366684556595,partial_recovery
+Cortisone,Lipid metabolism,Steroid hormone biosynthesis,0.0071304925987842,0.9678100106544676,-0.539098064672781,0.0084613648037804,stable
+Cortisol,Lipid metabolism,Steroid hormone biosynthesis,-0.1543169510359431,0.6295392829914896,-1.3618096422367536,0.0070528114744563,stable
+Cholesterol Sulfate,Lipid metabolism,Steroid hormone biosynthesis,0.3649760900676211,0.2267403931105247,0.3552991847093242,0.2532197732579453,stable
+5Allotetrahydrocortisol,Lipid metabolism,Steroid metabolism (cortisol),0.1926329581277346,0.64464241052726,-0.107290708930803,0.7710610032114744,stable
+Cholesteryl Acetate,Lipid metabolism,Cholesterol metabolism,0.0494894954521442,0.7594543095230726,0.11315899127918,0.4768379897013015,stable
+Mevalonic acid/FA 6:0;O2,Lipid metabolism,Terpenoid backbone biosynthesis,1.1501234057468723,0.0030961204287873,1.2666560312344464,0.0025020719941198,persistent
+"Anandamide  (20:4, N-6)",Lipid metabolism,N-acylethanolamine (NAE) metabolism,0.418685169094647,0.3168077766632102,-0.1062933980515186,0.8098563737062512,stable
+Oleoyl Ethanolamide,Lipid metabolism,N-acylethanolamine (NAE) metabolism,0.0323129709330068,0.8727817078233704,-0.2780603129156634,0.2159210220303781,stable
+5-Aminolevulinic Acid,Porphyrin metabolism,Heme/porphyrin synthesis,-0.0971647299021755,0.3613299565708862,0.0209638925996032,0.847560970292885,stable
+Biliverdin,Porphyrin metabolism,Porphyrin metabolism,-0.0184910337919315,0.978540003464068,-0.886687736505966,0.3099640213617264,stable
+Bilirubin,Porphyrin metabolism,Porphyrin metabolism,0.0149937694225692,0.9784228869665272,-0.4811454565548537,0.4513449405914034,stable
+Glycolic Acid,Glycylate and dicarboxylate metabolism,Glyoxylate and dicarboxylate metabolism,-0.1223373186928895,0.475345873903846,-0.1965961159784442,0.2272948469085282,stable
+Oxalic Acid,Glycylate and dicarboxylate metabolism,Glyoxylic or Ascorbic acid metabolism,-0.2829611029522216,0.4632834502447321,-0.6441850063350014,0.1447968968819088,stable
+Glyceric Acid,Glycylate and dicarboxylate metabolism,Glyoxylate and dicarboxylate metabolism,-0.5654613024681253,0.1266518053287956,-0.3605545804619824,0.2897248706038517,partial_recovery
+Meso-Tartaric Acid,Glycylate and dicarboxylate metabolism,Glycylate and dicarboxylate metabolism,-1.5070210763219332,0.5078887640792715,-1.4539411099620112,0.514087599752802,persistent
+Tartaric Acid,Glycylate and dicarboxylate metabolism,Glyoxylate and dicarboxylate metabolism,-1.594787368642529,0.5088577895986698,-1.535875531240707,0.5150913097955765,persistent
+3-Hydrobutyrate/FA 4:0;O,Keto-Acids and Derivatives,Ketone bodies,0.4469493250151229,0.5631134606279681,-0.5687831087271156,0.5311091465197726,stable
+Butyric Acid,Butyrate metabolism,Butyrate metabolism,-0.3619825931984642,0.7704682844324987,-0.2830645387799223,0.8141726135623223,stable
+Caffeic Acid,Caffeine metabolism,Caffeine metabolism,-0.5643352544662483,0.1610843565825193,-0.355228960314486,0.2889835834850138,partial_recovery
+Paraxanthine,Caffeine metabolism,Caffiene metabolism,-3.456047536549459,0.0415159786680273,-0.4245194976658273,0.5586161198306122,full_recovery
+Caffeine,Caffeine metabolism,Caffeine metabolism,-2.122356111710077,0.2348041809849405,-0.7018013988143852,0.3991042296185167,full_recovery
+Theobromine,Caffeine metabolism,Cacao alkaloid,-3.456047536549459,0.0415159786680273,-0.4245194976658273,0.5586161198306122,full_recovery
+"2,3-Dihydroxybenzoic Acid",,,-1.9452262087935028,0.0096398605951942,-0.367873595736153,0.4158016343754834,full_recovery
+4-Hydroxycinnamic Acid,,,-0.3385842167792288,0.5126445019307495,-0.0346991702843742,0.9371702527467796,stable
+Salicylamide,,,-2.987716097232178,0.0512085989608328,0.5279437478298425,0.3661506003341962,full_recovery
+Lyxose,,,-0.167187236546236,0.68203123079808,-0.9413756678715222,0.0953668404547798,stable
+M-Salicylic Acid,,,-1.033783648041048,0.0937357799419119,-0.6345960372053706,0.2132382803239254,partial_recovery
+"2,6-Diaminopimelic Acid",,,-0.0376524614643699,0.5951746542528051,-0.0532236029886413,0.4613906360835972,stable
+1-Hydroxy-2-Naphthoate,,,-0.446974079224426,0.4646140049275932,-0.9348602674959454,0.2006611624721819,stable
+4-Hydroxybenzoic Acid,,,-1.033783648041048,0.0937357799419119,-0.6345960372053706,0.2132382803239254,partial_recovery
+Glucaric Acid,,,-1.4051985580508728,0.0912874808782474,-0.6991282410073775,0.2884799762347468,full_recovery
+Gluconic Acid,,,-1.1404924531183744,0.1390768223348842,-0.8586890738644186,0.2177542263542523,persistent
+Quinic Acid,,,-3.7369440256938673,0.0139546012138237,0.2146136967759311,0.6813671889478738,full_recovery
+Protocatechuic Acid,,,-2.5849930329131787,0.0420915067359983,-1.2593100940919515,0.0439479340472036,full_recovery
+Benzoic Acid,,,0.0271384961920065,0.953058930564374,-0.602779890895298,0.2194960647541809,stable
+5-Valerolactone,,,-0.0013384945943864,0.9987307423880604,-0.0260435570838782,0.973188076538905,stable
+Theophylline,,,-3.456047536549459,0.0415159786680273,-0.4245194976658273,0.5586161198306122,full_recovery
+"2',4'-Dihydroxyacetophenone",,,-0.1192731335714222,0.8770226454647391,-2.475493660579983,0.0956342694713394,stable
+Xylose,,,-4.744385093826256,0.0920070338449294,-1.835130966245752,0.1978365193514872,full_recovery
+Adipic Acid,,,-0.5863339119753453,0.3962606114134606,-0.52876142860744,0.4339416015989357,persistent
+2-Aminoisobutyric Acid,,,0.2372639822383432,0.2411948563951933,0.0771525866632601,0.7046295008944006,stable
+2-Acetamido-2-Deoxy-Beta-Glucosylamine,,,-0.0014294635497125,0.9955239653251892,0.4560692528302772,0.0657945258190501,stable
+Phthalate,,,0.4057416599492364,0.3250684404615908,-0.6467272450133961,0.0872142104696713,stable
+Glycochenodeoxycholiccid,,,-0.0627035070807658,0.9218107158703126,-0.3246022560914442,0.5727751752505501,stable
+Ubiquinone/Coenzyme Q10,,,0.1854821785752647,0.551097197595182,-0.3557901666859147,0.1943438974715285,stable
+Glycinyl- lactose?,,,0.6333929417137029,0.0538365432669538,0.3059614640252854,0.3831054241438033,full_recovery
+Phosphocholine,Lipid metabolism,"Glycerophospholipid metabolism, choline metabolism",-1.300672863378369,0.0411402844073283,-0.4364180245218431,0.3471869569885003,full_recovery
+Lysophosphatidic Acid,Lipid metabolism,"Glycerophospholipid metabolism, choline metabolism",0.4123129860034312,0.4733128776399631,-0.0994959489850886,0.8815906317969797,stable
+Glycerylphosphorylethanolamine,Lipid metabolism,Glycerophospholipid metabolism,-0.9839392155001327,0.1136936914342907,-0.7862008436785022,0.181210784365464,persistent
+Sn-Glycero3-Phosphocholine,Lipid metabolism,Glycerophospholipid metabolism,0.0944834801672143,0.7690530869924697,-0.2556958719176601,0.4831948954871083,stable
+Glycerol 1-Phosphoserine,Lipid metabolism,Glycerophospholipid metabolism,-0.5781755961061611,0.3672260567781508,-0.7962884938108641,0.2521445957610103,persistent
+Sphingosine,Lipid metabolism,Sphingolipid metabolism,0.3926461965341301,0.0603031362414796,0.00016208006648,0.999429745780786,stable
+Sphingosine 1-phosphate,Lipid metabolism,Sphingolipid metabolism,0.0032479047692759,0.9871348487539922,-0.277570216909017,0.1755280817969963,stable
+PC O-12:1,Glycerophosphocholines [GP01],"1-alkyl,2-acylglycerophosphocholines [GP0102]",-0.1718098883050134,0.524122355782179,0.0440686840628207,0.8685035971493984,stable
+PC 12:4,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.7884080779188287,0.1124123983032299,-0.3454003898882009,0.4351094241570129,full_recovery
+LPC O-15:1,Glycerophosphocholines [GP01],1Z-alkenylglycerophosphocholines [GP0107],-0.2596485939425073,0.3574700555574641,-0.5354778558844214,0.0951462408365155,stable
+PC O-14:0,Glycerophosphocholines [GP01],"1-alkyl,2-acylglycerophosphocholines [GP0102]",-0.822252163780124,0.0366788512789284,-0.2867273718813953,0.3370761665590608,full_recovery
+LPC 15:1,Glycerophosphocholines [GP01],Monoacylglycerophosphocholines [GP0105],-1.1266756271600789,0.0613265227360945,-0.1162051655625427,0.780256357502332,full_recovery
+LPC O-16:1,Glycerophosphocholines [GP01],Monoalkylglycerophosphocholines [GP0106],0.0457113864115867,0.8287048574704532,-0.3760365435788297,0.1233840810859715,stable
+LPC 15:0,Glycerophosphocholines [GP01],Monoacylglycerophosphocholines [GP0105],-0.568333868779352,0.0065372540779706,-0.2122100672909314,0.244982358089512,full_recovery
+Lyso-PAF C16,Lipid metabolism,Glycerophospholipid metabolism/PAF,-0.2207916717979355,0.4330364342575208,-0.4726036224168695,0.1366406596474727,stable
+LPC O-16:0,Glycerophosphocholines [GP01],Monoalkylglycerophosphocholines [GP0106],-0.2207916717979355,0.4330364342575208,-0.4726036224168695,0.1366406596474727,stable
+Cytidine diphosphate choline (CDPcholine),Lipid metabolism,Glycerophospholipid metabolism,-0.1067466696171121,0.7368933648898479,-0.2705223685689213,0.4179959125269223,stable
+LPC 16:1,Glycerophosphocholines [GP01],Monoacylglycerophosphocholines [GP0105],-0.3172203485010297,0.1998671298598609,-0.2098639973741146,0.3606562322895408,stable
+LPC 16:0,Lipid metabolism,Glycerophospholipid metabolism,-0.2000622892241018,0.2954192995445154,-0.1769609567154486,0.3369921868764531,stable
+PC 16:4,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.3502171613394375,0.1415311314150641,-0.0419341492975044,0.835182002220243,stable
+LPC 17:1,Glycerophosphocholines [GP01],Monoacylglycerophosphocholines [GP0105],-0.6998096613525704,0.0748215587385175,-0.3127239248415436,0.3441400618546599,full_recovery
+PC O-17:0,Glycerophosphocholines [GP01],"1-alkyl,2-acylglycerophosphocholines [GP0102]",-0.5698262988193634,0.0295371025531466,-0.2919507126379994,0.2115553615343792,partial_recovery
+LPC 18:3,Glycerophosphocholines [GP01],Monoacylglycerophosphocholines [GP0105],-0.6541777888594351,0.0082293501729676,-0.1011742704459721,0.5592105767031947,full_recovery
+LPC 18:2,Glycerophosphocholines [GP01],Monoacylglycerophosphocholines [GP0105],-0.5613089366089645,0.112638176318648,-0.1191580370577686,0.6867569575590353,full_recovery
+LPC 18:1,Lipid metabolism,Glycerophospholipid metabolism,-0.5251886853803174,0.0583826464139135,-0.2782658601680973,0.2615007890503499,partial_recovery
+LPC 18:0,Lipid metabolism,Glycerophospholipid metabolism,-0.441448654390026,0.0766800503070559,-0.3296388445081036,0.173150747494072,stable
+PAF C16:0,Lipid metabolism,Glycerophospholipid metabolism,-0.5180015527783398,0.0484682394856701,-0.2843912299473325,0.2522447972475349,partial_recovery
+2-O-methyl PAF C-18,Lipid metabolism,Glycerophospholipid metabolism/acylglycerol,-0.0946513845066905,0.7685066172965963,-0.3364224518998479,0.3390070142930429,stable
+LPC O-19:0,Glycerophosphocholines [GP01],Monoalkylglycerophosphocholines [GP0106],0.0077809199785144,0.9889858321825382,-0.6378886212290645,0.257772998410984,stable
+LPC O-20:1,Glycerophosphocholines [GP01],1Z-alkenylglycerophosphocholines [GP0107],0.3996034027291815,0.5515051646117665,0.1652774470214004,0.8656174268047303,stable
+PC O-19:0,Glycerophosphocholines [GP01],"1-alkyl,2-acylglycerophosphocholines [GP0102]",-1.2304415220134726,0.0004349759867738,-0.4117522051743906,0.105601584644269,full_recovery
+C-PAF/methylCarbamyl-PAF C-16,Lipid metabolism,Glycerophospholipid metabolism/PAF,-2.1511762569423887,0.0082392909035636,-0.7133159701077277,0.1266221484851151,full_recovery
+PC O-20:1,Glycerophosphocholines [GP01],"1-alkyl,2-acylglycerophosphocholines [GP0102]",-0.4813474944941356,0.0299901023818463,-0.1744116858034868,0.4233125445085863,stable
+PAF C18:0,Lipid metabolism,Glycerophospholipid metabolism,-0.8544186311275561,0.0001208936288416,-0.3184039032409794,0.0754168270819903,full_recovery
+PC O-20:0,Glycerophosphocholines [GP01],"1-alkyl,2-acylglycerophosphocholines [GP0102]",-0.8630733157953913,0.0001202858500842,-0.3270585879088143,0.0700243938555877,full_recovery
+PC 26:0,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],0.4237820582379357,0.5350255021198786,0.3371062346995648,0.4922376726296414,stable
+PC 28:1,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.6415325029703316,0.2701403267662553,0.3091819095347231,0.4754883176320539,full_recovery
+PC 32:3,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.5173295994120175,0.2676618629511264,-0.1849101087037288,0.5935904067789122,full_recovery
+PC 32:1,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.3437098531173187,0.2270058658735254,-0.0868718454187192,0.7231966443054887,stable
+PC 34:3,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.49282525322421,0.0319309231563439,-0.0628449369153261,0.7052380474724687,stable
+PC 34:2,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.0657121384249232,0.4080075542012445,-0.0385963820350387,0.6248376444839309,stable
+PC 34:1,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.1405904208659398,0.4963091561474795,0.0623034074297167,0.7339650746958255,stable
+PC O-36:6,Glycerophosphocholines [GP01],"1-(1Z-alkenyl),2-acylglycerophosphocholines [GP0103]",-0.2398914848032276,0.3419542692679232,-0.3062519061060653,0.2579327655455961,stable
+PC O-36:5,Glycerophosphocholines [GP01],"1-alkyl,2-acylglycerophosphocholines [GP0102]",0.411390600205484,0.0782386327831873,-0.264797331601771,0.1814299149951993,stable
+PC 35:1,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.5332607947210312,0.0444799987625643,-0.0368252493448943,0.8602910550971684,full_recovery
+PC 36:7,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.1494282322294526,0.5259174594991325,-0.1985016992017092,0.4181429048175153,stable
+PC 36:4,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],0.1915811294261317,0.2411376140465956,-0.0291593963925803,0.8511818541807088,stable
+PC 36:3,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.4091655179006883,0.000923076573286,-0.0613585090747409,0.4919832276465141,stable
+PC 36:2,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.5248274906051631,0.0049971180090437,-0.0646531818609453,0.6487156726220296,full_recovery
+PC 38:8,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.428826863949675,0.0992026871393715,-0.0670990191455713,0.7656730299110056,stable
+PC O-38:1,Glycerophosphocholines [GP01],"1-alkyl,2-acylglycerophosphocholines [GP0102]",-0.2930995904947518,0.2579921944549527,-0.0880755077031276,0.7128415654919149,stable
+PC 38:6,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],0.1748072675290726,0.4071754262621146,-0.0847597226357342,0.6708409719503121,stable
+PC 38:5,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.2289219853172909,0.1008240123455467,-0.0663506765290278,0.6092569214482291,stable
+PC 38:4,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],0.0088920936337001,0.9687508359962878,-0.0346545699613686,0.8745750153806908,stable
+PC O-40:8,Glycerophosphocholines [GP01],"1-acyl,2-alkylglycerophosphocholines [GP0108]",0.0436475992212765,0.7969017382209842,-0.1352689691998028,0.4490895770322103,stable
+PC O-39:1,Glycerophosphocholines [GP01],"1-alkyl,2-acylglycerophosphocholines [GP0102]",-0.2343578295284169,0.3069593746547298,-0.2185685721825024,0.3380570684956885,stable
+PC O-40:7,Glycerophosphocholines [GP01],"1-(1Z-alkenyl),2-acylglycerophosphocholines [GP0103]",-0.0007099549049229,0.9950754613175824,-0.0931449971444446,0.488663673798273,stable
+PC O-40:2,Glycerophosphocholines [GP01],"1-alkyl,2-acylglycerophosphocholines [GP0102]",-0.4245885250892219,0.0582056967762363,-0.1308448818768493,0.4909531045361158,stable
+PC 40:6,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],0.0574387587385499,0.6999267318714204,-0.0721359664505608,0.6216906233955917,stable
+PC 42:10,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.1679134535197353,0.5373341647814432,-0.0044410227626432,0.9869953200660287,stable
+PC 42:9,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.1933514496003434,0.2011877850027039,-0.0456051709393843,0.7614331561889859,stable
+PC 42:6,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.3899725773002618,0.4854691347356168,-0.3282378533143566,0.5476702160699944,stable
+PC 44:12,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.1763898463945045,0.5130880415518706,0.0078948115278568,0.97859478011145,stable
+PC 44:10,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],0.330630659866086,0.4047683989883199,-0.1475883341522846,0.7313482017820954,stable
+PC 44:8,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],0.1353489219010471,0.6569512527917127,-0.2325927738735209,0.4275979680361251,stable
+PC 54:12,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.7012971973996907,0.0821670936369097,-0.6175215036216744,0.1193155530265025,persistent
+PC 56:12,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.9300860570844176,0.0425015692854508,-0.4441890513763055,0.2732348850788363,full_recovery
+LPC 14:0,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.6197207195786768,0.1817847491895639,-0.0499982769258,0.8865258689476734,full_recovery
+LPC O-17:1,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],0.2283159696472952,0.1912152097332246,-0.0868673391209326,0.6549601669865226,stable
+LPC O-18:2,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],0.1330382749795719,0.4573676265692969,-0.1111723613568896,0.5737207375274574,stable
+LPC O-18:1,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],0.1515329862541317,0.4749429270403028,-0.056596600940998,0.8052656522213326,stable
+LPC 17:0,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.3704030100733302,0.0626632476201524,-0.0529635703487192,0.7558408639806933,stable
+LPC O-18:0,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],0.1026120598095244,0.5845213571753932,0.0519096930034187,0.7922592765618913,stable
+LPC 18:2;O,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.2712819410278226,0.2362285476252775,-0.0276934227480246,0.8823976082866547,stable
+LPC O-20:0,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],0.0879131622377698,0.4284764786384355,0.1437595729370579,0.2092088121052164,stable
+LPC 20:5,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.8963801732303869,0.0951604501782716,-0.0769510884954452,0.8457316633436627,full_recovery
+LPC 20:4,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],0.2523585162970155,0.3668760608429925,0.0197720863965641,0.9466046274101232,stable
+LPC 20:3,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.6317565090404096,0.0516669511503159,0.128151748683501,0.552983803739457,full_recovery
+LPC 20:1,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.1839298669473259,0.2703577732845612,0.0896764748700607,0.5594018489378301,stable
+LPC 20:0,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.3297420622179806,0.0814753558080654,0.0495128241021315,0.7768603882200192,stable
+LPC O-22:1,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],0.0904998030350411,0.7153691265278397,0.0597276181626773,0.7943819130267974,stable
+LPC O-22:0,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],0.1611405339219931,0.0979219284503959,0.1644190538427728,0.130058965980837,stable
+LPC 22:6,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],0.2492349100613114,0.4388982720767264,0.0096207812880327,0.9783940241512008,stable
+PC 34:2;O,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-1.3068008560831947,0.1005900953310771,0.4872333204834839,0.267587124804179,full_recovery
+PC 36:4;O,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],0.4664455942279552,0.0175244609967823,0.1475489409264022,0.4235998162920452,stable
+PC 38:6;O,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],0.5450205593977754,0.0131860028325459,0.2072183444360903,0.3626775545349604,full_recovery
+LPC 22:5,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.0943456817686271,0.7576549400324888,-0.0318027725644475,0.9169643843641572,stable
+LPC 22:4,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.1649217143607751,0.6009731246036252,-0.0786149106610156,0.7945060915577797,stable
+LPC 22:1,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.2627424124649843,0.5450211985270992,-0.0091779227630123,0.9820522352413212,stable
+LPC 22:0,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.2942650049236373,0.2070286604306528,-0.1789600681756947,0.3895924054599161,stable
+LPC O-24:2,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],0.0907823728684768,0.5087039501386443,0.0350632828883296,0.7956813822496163,stable
+LPC O-24:1,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],0.0887333834145955,0.7562262922766897,0.2130793441984775,0.4195374906782243,stable
+LPC O-24:0,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],0.0824256198145624,0.6903783544545679,0.113700307045235,0.5781335147331503,stable
+LPC 24:0,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.2525845649548205,0.336811489434866,0.1162896444122588,0.6026623933402548,stable
+PC 28:0,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.6562319625437654,0.4642788079112704,0.2378841209806213,0.6804553097440391,full_recovery
+PC O-30:1,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],0.170367986476389,0.2720274151868174,0.1661196049287839,0.2656916244048433,stable
+PC 30:0,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.6715335169968898,0.2697613398348546,0.0421469128381233,0.9251103893403204,full_recovery
+PC 31:1,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-1.105703812006792,0.0566923787573836,0.253490308832474,0.5403633055834947,full_recovery
+PC O-32:1,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.0734256371488317,0.7978669289955784,0.0470524986697442,0.8576825656335514,stable
+PC 31:0,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.7563575907527166,0.0086592210199627,0.10602792030158,0.585843592093067,full_recovery
+PC O-32:0,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],0.0061118488117086,0.9729125856839128,0.1526354899259888,0.3739404305503252,stable
+PC 32:2,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.6367972602304449,0.2740261302476635,0.1065029127864179,0.7930634619855402,full_recovery
+PC 32:0,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.0472201978775933,0.7856941570164214,0.1137858721430987,0.4891097957838498,stable
+PC O-34:3,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.0085761913564698,0.9555426281285796,-0.112877611460907,0.4678830120203625,stable
+PC 33:2,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.6037003715200369,0.0112165882005723,0.1590398510742637,0.3146298770973713,full_recovery
+PC O-34:2,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.8904634454422263,0.0268751673234373,-0.231657964173775,0.4474370698592761,full_recovery
+PC 33:1,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.6708766609018147,0.0525350463919866,0.078505552145734,0.7559070692066683,full_recovery
+PC O-34:1,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],0.7000479371481856,0.1213037363627237,-0.0729373603730416,0.909551816776875,full_recovery
+PC 33:0,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.4675442520665025,0.0127688886011985,0.0423426329634195,0.7593295813336955,stable
+PC O-35:5,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.404283463208056,0.0584275518566545,0.0628281788234468,0.7047192755195149,stable
+PC 34:4,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.5891759137776371,0.3356266426173463,0.1512548848891392,0.7272280601923091,full_recovery
+PC O-35:4,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.4305874743242935,0.2349142504380728,-0.1406928218828754,0.6676338913193751,stable
+PC 34:0,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.1352556792056481,0.5267857702640484,0.1724743923513729,0.3806224248546478,stable
+PC 35:5,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.0982492715992981,0.8141477962747594,0.2416480445996459,0.4821072614464862,stable
+PC 35:4,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.3399857771530385,0.1504123691737456,0.251738993370232,0.202164530555373,stable
+PC O-36:4,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],0.0504139597898461,0.6910908503755607,0.0144723432618063,0.9018343217576088,stable
+PC O-36:3,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.473064955795564,0.0112086094627153,-0.0343151513802397,0.8305032020958163,stable
+PC 35:2,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.6831035780366991,0.0049375515755818,0.029745680294091,0.8553120635100012,full_recovery
+PC O-36:2,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.3426184440827521,0.0505084371596252,0.0196522097321539,0.8984424830210297,stable
+PC 36:6,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.4442080429590202,0.4807390527344209,0.1553454116855762,0.7453480246311208,stable
+PC 36:5,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.9154789407629488,0.0856571037454972,0.1971305474636654,0.5899157922874547,full_recovery
+PC 36:1,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.5208347998697523,0.0037944848787581,0.110001765316623,0.4626919906556812,full_recovery
+PC O-38:7,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],0.2436200577070833,0.1023234810809791,-0.0948048238354273,0.5625177532631279,stable
+PC 37:6,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.3450637256788618,0.410619750089257,0.2034427128108515,0.563197757127211,stable
+PC O-38:6,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],0.1178456312032265,0.2998220953306661,0.0388277461973881,0.7283474457410317,stable
+PC O-38:5,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],0.083949860138128,0.242136024040822,0.0734229281679435,0.3005241865826498,stable
+PC 37:4,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.1736855449219221,0.3052355493102789,0.1499497918267384,0.4003331378172663,stable
+PC O-38:4,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],0.1895489616638227,0.1105483235021276,0.1715286638462613,0.0978408036755384,stable
+PC 38:7,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.6307953765270078,0.1920824615075011,0.1546645583041648,0.6758569703652519,full_recovery
+PC 38:3,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],0.0880301330943345,0.6112968884182375,0.1285016214468009,0.4832615902104211,stable
+PC 38:2,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.8563283951400301,0.0123697807221016,0.165061781774587,0.4229772461788553,full_recovery
+PC 39:6,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.1989626291036895,0.4162240900420142,0.016325835636919,0.9414148633018782,stable
+PC O-40:6,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],0.1417543754246685,0.1848250338021389,0.1612879533721994,0.1524558334289198,stable
+PC 39:5,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.3344476962428533,0.024754639610175,0.0581422554171676,0.6629870011505494,stable
+PC O-40:5,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],0.1968993474919198,0.0486379094531844,0.2211052656973449,0.0301838502500824,stable
+PC 40:8,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.2554656643427399,0.3161033187882933,0.1645065069647252,0.4541146302812143,stable
+PC 40:7,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.310719812243146,0.2617527807326766,0.0994987917006714,0.6703990678386473,stable
+PC 40:5,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.0956975868495547,0.5904835269202743,0.0992630429647109,0.5868802610533643,stable
+PC 40:4,Glycerophosphocholines [GP01],Diacylglycerophosphocholines [GP0101],-0.1828983895704312,0.2036952768836,0.1005342658500315,0.4356286705461597,stable
+LPE O-16:1,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],-0.100538360168992,0.6055345624620623,-0.4669531115689799,0.0507814376523205,stable
+LPE 16:0,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],-0.0180755643571004,0.9268086239277684,0.1552758473247145,0.3385132155891672,stable
+LPE O-18:2,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],-0.5212562097736382,0.2204584547702449,-0.2620945344533127,0.523497098062202,partial_recovery
+LPE O-18:1,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],-0.0733556251166127,0.6516647550909915,-0.1590306559567401,0.3443699394144341,stable
+LPE 17:0,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],-0.6197537164739013,0.1817766219520216,-0.0500312738210246,0.8864560303808957,full_recovery
+LPE 18:2,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],-0.7161698788519233,0.0503968253771969,0.2794804055136042,0.2666677370666475,full_recovery
+LPE 18:1,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],-1.1458747696988152,0.0981091646916651,0.0951063089067323,0.8320450076980226,full_recovery
+LPE 18:0,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],-0.3341477487703301,0.241289066950106,0.2275763446041258,0.2838120545694423,stable
+LPE O-20:1,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],0.2283159696472952,0.1912152097332246,-0.0843636226568934,0.6641538453368373,stable
+LPE 22:6,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],-0.0212869388668875,0.9529724714426566,-0.1857488396223596,0.5939259755305278,stable
+PE O-34:3,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],-1.3734879048536472,0.0026028932968067,-0.2763850287734422,0.3608746934300204,full_recovery
+PE O-34:2,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],-0.4034223352459194,0.0201195280759283,-0.0830043144972885,0.5883945957326933,stable
+PE 34:3,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],-1.1832282992357148,0.1772509210327121,0.536365930532488,0.3146405606168552,full_recovery
+PE 34:2,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],-0.6890025809460163,0.2809072890735808,0.7091012666115996,0.1588556768371016,persistent
+PE 34:1,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],-1.105703812006792,0.0566923787573836,0.253490308832474,0.5403633055834947,full_recovery
+PE 34:0,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],-0.3602246530154409,0.2188654438490803,0.377008714699598,0.1368696567133532,stable
+PE O-36:6,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],-1.129100437772208,0.000988239054491,-0.272178422947312,0.2192355103396736,full_recovery
+PE O-36:5,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],-0.2478207122856006,0.2982168167375144,-0.0924510767934898,0.619263741661167,stable
+PE O-36:4,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],-0.7118761962361861,0.0035881493556219,0.038833971256986,0.841779363943308,full_recovery
+PE O-36:3,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],-1.0468879307264374,0.0032153450904281,-0.2279123889048006,0.3118894342198401,full_recovery
+PE 35:2,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],-0.6366647110807052,0.2740709535117582,0.1065863958463646,0.7928806242138513,full_recovery
+PE O-36:2,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],-0.3873436435019967,0.0798528677288115,-0.0552379928036525,0.7778732038234621,stable
+PE 35:1,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],-0.5587455081272699,0.2290972745179083,0.1026039919897808,0.7931884185120867,full_recovery
+PE 36:5,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],-0.7725634208323874,0.3822868811241291,0.7233678455370148,0.2422104673041124,persistent
+PE O-37:5,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],0.038641106296003,0.4692185034428666,-0.1104574387488344,0.0915941526489468,stable
+PE 36:4,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],-0.0403886636830373,0.9296477161568748,0.5958613133920753,0.14200530067632,stable
+PE 36:3,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],-1.0788256099478188,0.0853243463101566,0.5272090602874581,0.1901937226298965,full_recovery
+PE 36:2,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],-0.6035293466567916,0.0114432534922304,0.16028438458101,0.3126797204578617,full_recovery
+PE 36:1,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],-0.5976859495036908,0.0479227957909788,0.0929843025679076,0.6736205126214482,full_recovery
+PE O-38:7,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],-0.3248618964519871,0.0956431484481223,0.0223277543642168,0.91096037352334,stable
+PE O-38:5,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],0.0024602127446797,0.991540406304008,-0.0510756075336563,0.788886789692103,stable
+PE 37:4,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],-0.5927865424998557,0.3367110206034372,0.1503926543277234,0.7307725409048818,full_recovery
+PE O-38:4,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],-0.1714327476740126,0.0804188925630941,0.0324017219162656,0.7339813552790785,stable
+PE 38:6,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],0.0768844514292125,0.8885094271941595,0.2691855379114312,0.5540641279416341,stable
+PE 38:5,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],-0.4783985446824151,0.1487962024564108,0.2654060118758221,0.3169158334937056,stable
+PE 38:4,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],-0.339004557893008,0.1449098925189018,0.2457213398561856,0.2039809854693493,stable
+PE 38:3,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],-0.71700845190588,0.0176625021474703,0.1469969027359513,0.4759078306976961,full_recovery
+PE O-40:8,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],-0.3805458732385195,0.0884087820155066,0.0627100295049733,0.7743697764199405,stable
+PE O-40:7,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],-0.1458562818658701,0.3983573187244638,0.2321783746902038,0.3027426432450955,stable
+PE 39:6,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],-0.4434969571810413,0.4817707183810361,0.1533750775973947,0.7487834966362734,stable
+PE 40:6,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],-0.3419910520055592,0.4153850777011562,0.1968053788113931,0.5775395031505797,stable
+PE 40:5,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],-0.732048623873426,0.0161223217516154,0.1535092130723841,0.4683606855627877,full_recovery
+PE 40:4,Glycerophosethanolamines [GP01],Glycerophosethanolamines [GP01],-0.1779484809692296,0.3061941958668289,0.1519171368933657,0.4036471394963874,stable
+SM 30:1;O2,Phosphosphingolipids [SP03],Ceramide phosphocholines (sphingomyelins) [SP0301],-0.8635016025544306,0.0538129339668338,-0.1235423810225071,0.7219536918193006,full_recovery
+SM 32:1;O2,Phosphosphingolipids [SP03],Ceramide phosphocholines (sphingomyelins) [SP0301],-0.3729585609965861,0.0904633383598943,-0.1948051396425464,0.3203552918270187,stable
+SM 34:2;O2,Phosphosphingolipids [SP03],Ceramide phosphocholines (sphingomyelins) [SP0301],0.0265792368690589,0.8982054010922593,-0.1154522799839689,0.5461712737484522,stable
+SM 34:1;O2,Phosphosphingolipids [SP03],Ceramide phosphocholines (sphingomyelins) [SP0301],-0.2488295130413141,0.146032676760032,-0.1319256235569638,0.4141249185192204,stable
+SM 34:1;O3,Phosphosphingolipids [SP03],Ceramide phosphocholines (sphingomyelins) [SP0301],-0.3214998817443484,0.0452967991694848,-0.1093332892387737,0.4186952244100594,stable
+SM 42:3;O2,Phosphosphingolipids [SP03],Ceramide phosphocholines (sphingomyelins) [SP0301],-0.1388298835072658,0.483203893382683,-0.0277801962688276,0.878647088913565,stable
+SM 31:1;O2,Sphingolipids [SP],Phosphosphingolipids [SP03],-0.4135079932905159,0.0592808452238557,0.0830867870056818,0.6554197297986073,stable
+SM 32:0;O2,Sphingolipids [SP],Phosphosphingolipids [SP03],-0.1500944046887037,0.4899208608172211,-0.0659169450192195,0.7405272798331146,stable
+SM 32:2;O2,Sphingolipids [SP],Phosphosphingolipids [SP03],-0.481376219919342,0.1457076222331914,0.1035990555541709,0.7013076414773249,stable
+SM 33:1;O2,Sphingolipids [SP],Phosphosphingolipids [SP03],0.2157237577550255,0.1502661131762231,0.1857383939714871,0.1650109927764071,stable
+SM 34:0;O2,Sphingolipids [SP],Phosphosphingolipids [SP03],0.23170139227123,0.1875656227663417,0.1197436357854268,0.4084883056413685,stable
+SM 34:3;O2,Sphingolipids [SP],Phosphosphingolipids [SP03],-0.1581943554864673,0.4234273705422384,0.1027860775603038,0.5809808602647328,stable
+SM 35:1;O2,Sphingolipids [SP],Phosphosphingolipids [SP03],0.3243212647700096,0.0316626918987099,0.0884876886380682,0.4451811189491605,stable
+SM 35:2;O2,Sphingolipids [SP],Phosphosphingolipids [SP03],0.2330811389576267,0.2252463246084402,0.1847501126994642,0.3118589040233054,stable
+SM 36:1;O2,Sphingolipids [SP],Phosphosphingolipids [SP03],0.6004600771647263,0.0038124820206882,0.0960940859947773,0.5222252433500478,full_recovery
+SM 36:2;O2,Sphingolipids [SP],Phosphosphingolipids [SP03],0.4491399076738734,0.0506967436191263,0.1696343730572935,0.4237622659212284,stable
+SM 36:3;O2,Sphingolipids [SP],Phosphosphingolipids [SP03],0.2664663767022556,0.2442140770067926,0.2302831658633022,0.3172568231512837,stable
+SM 37:2;O2,Sphingolipids [SP],Phosphosphingolipids [SP03],0.5020631953497808,0.0279796780198911,0.0264832772932487,0.9019023607367308,full_recovery
+SM 38:1;O2,Sphingolipids [SP],Phosphosphingolipids [SP03],0.127345339497199,0.6057785627652883,0.037523073639269,0.8819820999948721,stable
+SM 38:2;O2,Sphingolipids [SP],Phosphosphingolipids [SP03],0.1901891545760437,0.3901351152476143,0.1039656829800389,0.6378094276124515,stable
+SM 38:3;O2,Sphingolipids [SP],Phosphosphingolipids [SP03],0.2731111357381777,0.200293082737816,0.1181852354165466,0.6092155583749115,stable
+SM 39:1;O2,Sphingolipids [SP],Phosphosphingolipids [SP03],-0.0142317677319625,0.919570458732966,0.0560025364029869,0.665142892556718,stable
+SM 40:1;O2,Sphingolipids [SP],Phosphosphingolipids [SP03],0.1966932101279173,0.2322987371028417,0.0468285571537384,0.7705129112553916,stable
+SM 40:2;O2,Sphingolipids [SP],Phosphosphingolipids [SP03],0.4556260932926411,0.1517810198162907,0.0852236808498757,0.7979748684348104,stable
+SM 40:3;O2,Sphingolipids [SP],Phosphosphingolipids [SP03],0.4107292049607549,0.1298821295078944,0.1511503530483664,0.6066447863272431,stable
+SM 41:0;O2,Sphingolipids [SP],Phosphosphingolipids [SP03],0.1013201894251663,0.4842467653105647,0.178641216405042,0.1408055471840479,stable
+SM 41:1;O2,Sphingolipids [SP],Phosphosphingolipids [SP03],0.0742675134987796,0.5293277523912787,0.113175969993005,0.2513035126840237,stable
+SM 41:2;O2,Sphingolipids [SP],Phosphosphingolipids [SP03],-0.027022437865227,0.8528277581917539,0.1339709125340309,0.3301661957246121,stable
+SM 42:1;O2,Sphingolipids [SP],Phosphosphingolipids [SP03],0.0320264565263763,0.923081103220698,0.6340861955028602,0.0717233640319339,stable
+SM 42:2;O2,Sphingolipids [SP],Phosphosphingolipids [SP03],0.2893267575459552,0.1465757821215311,0.2330948148429882,0.1717957615869434,stable
+SM 43:1;O2,Sphingolipids [SP],Phosphosphingolipids [SP03],0.0682395575600686,0.8325436987614802,0.3219331918677882,0.3802404246171066,stable
+SM 43:2;O2,Sphingolipids [SP],Phosphosphingolipids [SP03],0.0171217150584038,0.953869301321386,0.1979735135246022,0.4493439616769994,stable
+SM 44:1;O2,Sphingolipids [SP],Phosphosphingolipids [SP03],-0.469558843991389,0.2208469288977808,0.5505568700848017,0.1438830526565814,stable
+SM 44:2;O2,Sphingolipids [SP],Phosphosphingolipids [SP03],-0.4225979588035953,0.365630925602954,0.6163435306700877,0.1559871972389236,stable
+SM 44:3;O2,Sphingolipids [SP],Phosphosphingolipids [SP03],-0.2443076476133429,0.6567350090367049,0.6514434921910294,0.1828060375498933,stable
+Sph 18:1;O2,Sphingolipids [SP],Phosphosphingolipids [SP03],0.5024704387199086,0.1161451751534475,-0.1904623689879332,0.540751771429075,full_recovery
+Cer 42:0;O2,	Ceramides [SP02]	,	Ceramides [SP02]	,-0.070294239185485,0.6741337130710798,0.3894237285628635,0.0076662176998448,stable
+Cer 42:1;O2,	Ceramides [SP02]	,	Ceramides [SP02]	,-0.3120256964898388,0.0906548498406151,0.079550115006008,0.6037913746945167,stable
+Cer 32:1;O2,	Ceramides [SP02]	,	Ceramides [SP02]	,-0.0597747595555731,0.7845330354353641,0.3794322621269469,0.0558092787616692,stable
+Cer 34:1;O2,	Ceramides [SP02]	,	Ceramides [SP02]	,0.1615520279030138,0.4211697796843793,0.1160216730483912,0.5289834477720492,stable
+Cer 36:1;O2,	Ceramides [SP02]	,	Ceramides [SP02]	,0.5648515134010512,0.1567969216053088,0.0744520251163219,0.8501932803072711,full_recovery
+Cer 38:1;O2,	Ceramides [SP02]	,	Ceramides [SP02]	,-0.4778738747573105,0.0662445382452287,0.009388397974305,0.9608344701991416,stable
+Cer 39:1;O2,	Ceramides [SP02]	,	Ceramides [SP02]	,-0.9492706848631842,0.0132263835243117,0.0199490605292341,0.9289225287866844,full_recovery
+Cer 40:2;O2,	Ceramides [SP02]	,	Ceramides [SP02]	,-0.4520175458161617,0.0817739031667563,-0.1362434600539733,0.5012525114515058,stable
+Cer 41:1;O2,	Ceramides [SP02]	,	Ceramides [SP02]	,-0.4314187958699659,0.0064589307541974,0.1168703008261676,0.2917867856529957,stable
+Cer 41:2;O2,	Ceramides [SP02]	,	Ceramides [SP02]	,-0.8085850914376294,0.0012172803671012,-0.0061755591582565,0.9652677694569456,full_recovery
+Cer 40:1;O2,	Ceramides [SP02]	,	Ceramides [SP02]	,-0.4195899993423397,0.0496527317192097,0.0234940172632849,0.88424384794037,stable
+Cer 42:2;O2,	Ceramides [SP02]	,	Ceramides [SP02]	,-0.4702615687479766,0.0291742650848234,0.0551976601325482,0.7284633379300027,stable
+Cer 44:1;O2,	Ceramides [SP02]	,	Ceramides [SP02]	,-0.0867903047436153,0.5602999550003813,0.1000844918143241,0.4542948467195877,stable
+Cer 34:2;O2,	Ceramides [SP02]	,	Ceramides [SP02]	,0.1356530726608274,0.5931572904763704,0.3312484061073625,0.2007504913456098,stable
+Cer 42:3;O2,	Ceramides [SP02]	,	Ceramides [SP02]	,-0.0221588559744674,0.9298383642670516,0.8199129913461192,0.0045340579600978,stable
+Cer 43:1;O2,	Ceramides [SP02]	,	Ceramides [SP02]	,-0.6403068971338006,0.0783960522759904,0.2013680269463614,0.420061162014103,full_recovery
+Cer 43:2;O2,	Ceramides [SP02]	,	Ceramides [SP02]	,-0.5129736509347911,0.0665365526043657,0.147388428073751,0.5075162915256457,full_recovery
+dhCer 40:0;O2,	Ceramides [SP02]	,	Ceramides [SP02]	,-0.1935624327502484,0.4585626248162716,0.6694880512032478,0.012610766175295,stable
+dhCer 42:0;O2,	Ceramides [SP02]	,	Ceramides [SP02]	,-0.0011838208934529,0.9948724831179444,0.5036848389523908,0.0094315098670239,stable
+dhCer 42:1;O2,	Ceramides [SP02]	,	Ceramides [SP02]	,-0.287033646486056,0.1333599325717837,0.1249563773296367,0.4168729779636624,stable
+Cer 40:0;O,	Ceramides [SP02]	,	Ceramides [SP02]	,-0.5541164170977864,0.375639701795377,-0.0530848966147436,0.8919059193202643,full_recovery
+Cer 40:1;O,	Ceramides [SP02]	,	Ceramides [SP02]	,-0.7084992627872644,0.0151496554311569,0.2800928700357473,0.2307619186610149,full_recovery
+HexCer 34:1;O2,	Ceramides [SP02]	,	Ceramides [SP02]	,0.2918216632632534,0.2231782563932646,0.2468444655591051,0.2843934933515344,stable
+HexCer 38:1;O2,	Ceramides [SP02]	,	Ceramides [SP02]	,0.5900394785575138,0.3802521664970064,0.6703472840793938,0.2867715587394794,persistent
+HexCer 40:1;O2,	Ceramides [SP02]	,	Ceramides [SP02]	,0.3937018269231028,0.2132493968363494,0.0852741305339208,0.7987579541025434,stable
+Hex2Cer 34:1;O2,	Ceramides [SP02]	,	Ceramides [SP02]	,0.4480490013911083,0.1005772341195642,0.2387633080631566,0.3546952960866327,stable
+Hex2Cer 40:1;O2,	Ceramides [SP02]	,	Ceramides [SP02]	,-0.00062500394245,0.9993027653760432,0.1046958773523221,0.880930009407665,stable
+Hex2Cer 42:1;O2,	Ceramides [SP02]	,	Ceramides [SP02]	,0.3704730456804557,0.4047350781831144,0.3219196063086997,0.4725526775439792,stable
+Hex2Cer 42:2;O2,	Ceramides [SP02]	,	Ceramides [SP02]	,0.4082904497403461,0.2301560867966164,0.2467504417945279,0.4611183708899642,stable
+Hex2Cer 34:2;O2,	Ceramides [SP02]	,	Ceramides [SP02]	,0.3857772571998857,0.1122848273808484,0.0185165624112717,0.9362483869513988,stable
+Hex3Cer 34:1;O2,	Ceramides [SP02]	,	Ceramides [SP02]	,0.3032924684925856,0.0727229929812465,0.139051164005693,0.3583629823301137,stable
+Hex3Cer 36:1;O2,	Ceramides [SP02]	,	Ceramides [SP02]	,0.4872633176061735,0.0410536196369738,0.2585941205012422,0.2027112887968611,stable
+Hex3Cer 40:1;O2,	Ceramides [SP02]	,	Ceramides [SP02]	,0.6877116938797853,0.1619892175350999,0.3515113661449559,0.5285050042993353,partial_recovery
+Hex3Cer 42:2;O2,	Ceramides [SP02]	,	Ceramides [SP02]	,0.7354064660861664,0.1819404842756007,0.431956325876786,0.4223606167897462,partial_recovery
+GM3 34:1;O2,	Ceramides [SP02]	,	Ceramides [SP02]	,0.3500714632188309,0.0449995660659206,0.1694799994872119,0.2789832707665472,stable
+GM3 36:1;O2,	Ceramides [SP02]	,	Ceramides [SP02]	,0.4034809221224563,0.1161109793785324,0.2399559208380752,0.2579700518256129,stable
+GM3 38:1;O2,	Ceramides [SP02]	,	Ceramides [SP02]	,-0.0356967906581957,0.9740950880676092,0.1956487841436205,0.8193380200338016,stable
+GM3 40:1;O2,	Ceramides [SP02]	,	Ceramides [SP02]	,0.2095842378503226,0.4855258765311697,0.2354053167471981,0.415044293167951,stable
+GM3 42:1;O2,	Ceramides [SP02]	,	Ceramides [SP02]	,0.2104304908941691,0.5812274873414048,0.021917596179508,0.956586784968491,stable
+S1P 18:0;O2,	Ceramides [SP02]	,	Ceramides [SP02]	,0.026611089429511,0.9508928571776584,-0.5826111099757302,0.3492450033622143,stable
+S1P 18:1;O2,Sphingolipids [SP],Phosphosphingolipids [SP03],0.1151122869350141,0.5154685612990741,-0.0509676820069545,0.783863824787066,stable
+LPI 18:1,Glycerophospholipids [GP],Glycerophosphoinositols [GP06],1.232369472285147,0.00090796304178,1.6696038414254393,0.0017157274804091,persistent
+PI 32:0,Glycerophospholipids [GP],Glycerophosphoinositols [GP06],-0.9666620307787024,0.0594051773747618,0.0603806196280114,0.8596558292115497,full_recovery
+PI 34:1,Glycerophospholipids [GP],Glycerophosphoinositols [GP06],-0.0045787313153973,0.9894691726215186,0.2766974560467688,0.4019382026322249,stable
+PI 34:0,Glycerophospholipids [GP],Glycerophosphoinositols [GP06],0.2791215976913703,0.2827472841705504,0.1690155635247468,0.5026525496163856,stable
+PI 35:2,Glycerophospholipids [GP],Glycerophosphoinositols [GP06],-0.664639503241531,0.091776298163359,0.1209722543959921,0.6977810756653335,full_recovery
+PI 35:1,Glycerophospholipids [GP],Glycerophosphoinositols [GP06],-1.182396723850489,0.1184775937485948,0.3350473169455641,0.4764725266697505,full_recovery
+PI 36:4,Glycerophospholipids [GP],Glycerophosphoinositols [GP06],-0.5831091542820271,0.0628945713281607,0.3105483677155642,0.1728526394557432,partial_recovery
+PI 36:3,Glycerophospholipids [GP],Glycerophosphoinositols [GP06],-1.053801168855787,0.0241798721555779,0.2607392481291607,0.4193380290070356,full_recovery
+PI 36:2,Glycerophospholipids [GP],Glycerophosphoinositols [GP06],-0.4834032795449794,0.1074929956124197,0.1377581866574646,0.5889331736298657,stable
+PI 36:1,Glycerophospholipids [GP],Glycerophosphoinositols [GP06],-0.687247599390609,0.0837633516317423,0.1147400713025021,0.711778093132127,full_recovery
+PI 38:6,Glycerophospholipids [GP],Glycerophosphoinositols [GP06],-0.2120279070288805,0.7761012044080547,1.325325805950493,0.0183024757441228,stable
+PI 38:5,Glycerophospholipids [GP],Glycerophosphoinositols [GP06],-1.1947115568386393,0.0028044517904696,0.2008940347841748,0.3609977275469416,full_recovery
+PI 38:4,Glycerophospholipids [GP],Glycerophosphoinositols [GP06],-0.2539760766961669,0.1946899482406227,0.2210510554644516,0.1857903067398209,stable
+PI 38:3,Glycerophospholipids [GP],Glycerophosphoinositols [GP06],-0.6689145055258218,0.0248687781459921,0.3179661757257349,0.145217324786384,full_recovery
+PI 38:2,Glycerophospholipids [GP],Glycerophosphoinositols [GP06],-0.9156032085202463,0.0043256878793536,0.2555514643761892,0.2865653324787552,full_recovery
+PI 40:6,Glycerophospholipids [GP],Glycerophosphoinositols [GP06],-0.0779696451188609,0.8783747359283887,0.3988893650011896,0.4207809426653702,stable
+PI 40:5,Glycerophospholipids [GP],Glycerophosphoinositols [GP06],-0.6028171884867698,0.2559740791422704,0.5120815216024855,0.1794328494604286,persistent
+PI 40:4,Glycerophospholipids [GP],Glycerophosphoinositols [GP06],-0.5839146127144776,0.0250564013194845,0.2328373137668665,0.2520528675975895,full_recovery
+PA 34:1,Glycerophospholipids [GP],Glycerophosphates [GP10],-2.4354931986764248,0.145123812921827,0.2081504031829854,0.7570704043051754,full_recovery
+PA 36:3,Glycerophospholipids [GP],Glycerophosphates [GP10],-0.6881728857908086,0.2807667021694041,0.7091547527420163,0.1583267696864949,persistent
+PA 36:4,Glycerophospholipids [GP],Glycerophosphates [GP10],-1.1832282992357148,0.1772509210327121,0.536365930532488,0.3146405606168552,full_recovery
+PG 32:0,Glycerophospholipids [GP],"
+Glycerophosphoglycerols [GP04]",-0.1967599854768735,0.4757408696392203,0.0028109336169802,0.9910001008896758,stable
+PG 34:0,Glycerophospholipids [GP],"
+Glycerophosphoglycerols [GP04]",-0.5627350796634237,0.0397136987616992,0.154899837208457,0.4644784314425361,full_recovery
+PG 36:0,Glycerophospholipids [GP],"
+Glycerophosphoglycerols [GP04]",-0.4203606267761018,0.0616095699938493,0.2983923614339613,0.1200649128522844,stable
+PG 34:1,Glycerophospholipids [GP],"
+Glycerophosphoglycerols [GP04]",-0.4679093986403704,0.1283649051683327,0.2052627325373749,0.4073066270608018,stable
+PG 36:1,Glycerophospholipids [GP],"
+Glycerophosphoglycerols [GP04]",-0.6966309724261898,0.2395647883656738,0.2161847318806197,0.6157626779361136,full_recovery
+PG 36:2,Glycerophospholipids [GP],"
+Glycerophosphoglycerols [GP04]",-0.3376895385473824,0.2838143784888557,0.2052139247394733,0.4796529942329046,stable
+PG 36:3,Glycerophospholipids [GP],"
+Glycerophosphoglycerols [GP04]",-0.3240938977617387,0.2898937588519394,0.1443607407518556,0.6156774065923926,stable
+NAE 16:0/Palmitoylethanolamide,"
+Fatty amides","
+N-acyl ethanolamines",0.0433672603324043,0.743130493176301,-0.088874950402112,0.497322360831148,stable
+NAE 20:0/Eicosanoyl-EA,"
+Fatty amides","
+N-acyl ethanolamines",-0.079788276243004,0.8699337580929195,0.2501741930467547,0.6160620765889635,stable
+NAE 20:1,"
+Fatty amides","
+N-acyl ethanolamines",1.3418221583784755,0.1553893961370391,0.7441932838797897,0.1542812417057697,partial_recovery
+NAE 18:1/Oleoyl-EA,"
+Fatty amides","
+N-acyl ethanolamines",-0.0821724063104858,0.7792750402956591,0.2163417260225047,0.3948732332258878,stable
+NAE 18:0/ Stearoyl-EA,"
+Fatty amides","
+N-acyl ethanolamines",0.0125525419373094,0.9581527654379374,-0.0549868849552667,0.8312292653203772,stable
+CE 15:0,"Sterol Lipids [ST]
+",Sterols [ST01],-0.3110507814085909,0.2047154227813429,0.0910486584988202,0.6784586500109897,stable
+CE 16:0,"Sterol Lipids [ST]
+",Sterols [ST01],0.4661548564395868,0.0319030667587635,-0.0533815542587305,0.8019890233556197,stable
+CE 17:0,"Sterol Lipids [ST]
+",Sterols [ST01],-1.2089266517845954,0.1624010601391768,0.3191889313056705,0.5483461197384487,full_recovery
+CE 18:1,"Sterol Lipids [ST]
+",Sterols [ST01],0.3048296869221252,0.0801327946533048,0.0323489988330496,0.875113819080937,stable
+CE 18:2,"Sterol Lipids [ST]
+",Sterols [ST01],0.2958777043680228,0.2006496037608057,-0.0776566767798329,0.7465329919662247,stable
+CE 18:3,"Sterol Lipids [ST]
+",Sterols [ST01],-0.6492641655205337,0.1127077000691408,-0.2691840863187804,0.4596078725867476,full_recovery
+CE 20:3,"Sterol Lipids [ST]
+",Sterols [ST01],0.5600290619708173,0.0166698385621925,-0.0797628739047705,0.7191455977295936,full_recovery
+CE 20:4,"Sterol Lipids [ST]
+",Sterols [ST01],0.9038091721788242,0.008906912444676,-0.2983963156922184,0.4209406072384621,full_recovery
+CE 20:5,"Sterol Lipids [ST]
+",Sterols [ST01],-0.0152644321214901,0.97010542939616,-0.1757366616559342,0.6575729855283783,stable
+CE 22:4,"Sterol Lipids [ST]
+",Sterols [ST01],0.7931314633305698,0.0299202066042992,-0.1776516145223047,0.5957506951163554,full_recovery
+CE 22:5,"Sterol Lipids [ST]
+",Sterols [ST01],0.8799903819916062,0.021966092615305,-0.2463286969178189,0.5657501190311134,full_recovery
+CE 22:6,"Sterol Lipids [ST]
+",Sterols [ST01],0.961810333542021,0.0215153323397444,-0.2885384098932435,0.5461681078765261,full_recovery
+CE 19:2,"Sterol Lipids [ST]
+",Sterols [ST01],0.2029899443366319,0.5928863765534789,-0.1262645838227685,0.7380290268137026,stable
+2-AG,"Glycerolipids [GL]
+",Monoacylglycerophosphocholines [GP0105],-0.5979623008750106,0.1803318271448766,-0.0311204259068843,0.928657273631378,full_recovery
+DG 34:1,"Glycerolipids [GL]
+",Diradylglycerols [GL02],-0.099126825429073,0.8104916170320109,0.3037347806107338,0.357244095406187,stable
+DG 34:2,"Glycerolipids [GL]
+",Diradylglycerols [GL02],0.3161175028163376,0.2726602782310909,0.4358656717274846,0.1159916650816372,stable
+DG 36:1,"Glycerolipids [GL]
+",Diradylglycerols [GL02],-0.7017370902203345,0.2778662250902365,0.2378578658409093,0.6062096102600256,full_recovery
+DG 36:2,"Glycerolipids [GL]
+",Diradylglycerols [GL02],-0.3197659693546825,0.3963517118296128,0.1148623780018807,0.7106048645524456,stable
+DG 36:3,"Glycerolipids [GL]
+",Diradylglycerols [GL02],0.1211269860460159,0.6451613250670631,0.2750574690970626,0.3300125272884544,stable
+DG 36:4,"Glycerolipids [GL]
+",Diradylglycerols [GL02],0.2523002358546432,0.4224836173756807,0.4156285265692476,0.2494276242708043,stable
+DG 38:5,"Glycerolipids [GL]
+",Diradylglycerols [GL02],0.2237496224327201,0.4752345996919004,0.6707608235395317,0.0290717281461503,stable
+DG 40:7,"Glycerolipids [GL]
+",Diradylglycerols [GL02],0.98476332178826,0.0573453719520853,0.8256420907032571,0.1279543210993211,persistent
+DG 40:8,"Glycerolipids [GL]
+",Diradylglycerols [GL02],1.4173474887694029,0.062063748787891,0.733422297869409,0.3602179585631346,partial_recovery
+TG 48:3,"Glycerolipids [GL]
+",Triradylglycerols [GL03],-0.767402854316204,0.2379550694122956,0.7222000660154152,0.1737760194798817,persistent
+TG 48:2,"Glycerolipids [GL]
+",Triradylglycerols [GL03],-1.0596172638679358,0.115413573707572,0.4018787123155561,0.3910765434453135,full_recovery
+TG 48:1,"Glycerolipids [GL]
+",Triradylglycerols [GL03],-1.291907988341882,0.111307695868486,0.2182769016737096,0.6655244178323718,full_recovery
+TG 48:0,"Glycerolipids [GL]
+",Triradylglycerols [GL03],-1.160371874491141,0.2228593891531461,0.4024135057907534,0.4885170105698753,full_recovery
+TG 49:1,"Glycerolipids [GL]
+",Triradylglycerols [GL03],-0.9605291903754314,0.1033076365298782,0.083512293188169,0.8379907034045937,full_recovery
+TG 50:4,"Glycerolipids [GL]
+",Triradylglycerols [GL03],-0.4688938908371476,0.20146755532382,0.5432971208898728,0.1344082100996333,stable
+TG 50:3,"Glycerolipids [GL]
+",Triradylglycerols [GL03],-0.3790323361721718,0.1479566398082498,0.3108659084375978,0.2025150818019144,stable
+TG 50:2,"Glycerolipids [GL]
+",Triradylglycerols [GL03],-0.3279450825490186,0.2569344293488426,0.1895528829042302,0.3935446961213982,stable
+TG 50:1,"Glycerolipids [GL]
+",Triradylglycerols [GL03],-0.4616338182382882,0.2371697356197158,0.2709885689110138,0.3247857460409796,stable
+TG 50:0,"Glycerolipids [GL]
+",Triradylglycerols [GL03],-0.786012001929351,0.2213657641621092,0.3953495757390108,0.3622751400665038,partial_recovery
+TG 51:2,"Glycerolipids [GL]
+",Triradylglycerols [GL03],-0.6065168913743121,0.0616831785880937,0.0605434540050639,0.7969827638466824,full_recovery
+TG 51:1,"Glycerolipids [GL]
+",Triradylglycerols [GL03],-0.8114155105215539,0.0970548145193451,0.0986844859805489,0.7701626006978095,full_recovery
+TG 51:0,"Glycerolipids [GL]
+",Triradylglycerols [GL03],-1.082160225589238,0.1907793214539106,0.1702200036642055,0.7515939836409219,full_recovery
+TG 52:5,"Glycerolipids [GL]
+",Triradylglycerols [GL03],-0.0648737802723268,0.8201660504905722,0.3209794292478938,0.275298298582247,stable
+TG 52:4,"Glycerolipids [GL]
+",Triradylglycerols [GL03],0.1997568192537003,0.4567381461417924,0.1831327045709527,0.5111742634454357,stable
+TG 52:3,"Glycerolipids [GL]
+",Triradylglycerols [GL03],0.1190109644831008,0.5594912316707483,0.1081136006443515,0.5670452410558803,stable
+TG 52:2,"Glycerolipids [GL]
+",Triradylglycerols [GL03],-0.2033557177824043,0.4608238607589998,0.0654601146806026,0.7531551251035926,stable
+TG 52:1,"Glycerolipids [GL]
+",Triradylglycerols [GL03],-0.5425588361756921,0.1814014562013518,0.1983954360651015,0.5005989071249897,full_recovery
+TG 53:2,"Glycerolipids [GL]
+",Triradylglycerols [GL03],-0.5574163152802876,0.0946384321662826,0.0021136515337128,0.9934276507750676,full_recovery
+TG 54:7,"Glycerolipids [GL]
+",Triradylglycerols [GL03],0.0326978722456274,0.9297387052490504,0.4076222407179298,0.2559569317717082,stable
+TG 54:6,"Glycerolipids [GL]
+",Triradylglycerols [GL03],0.2140791494531958,0.4359394795503468,0.3276419243450677,0.2674039182465246,stable
+TG 54:5,"Glycerolipids [GL]
+",Triradylglycerols [GL03],0.1209591196194694,0.5509760304810076,0.2468250529638358,0.2576852117933345,stable
+TG 54:4,Glycerolipids [GL],Triradylglycerols [GL03],-0.0891611893395593,0.6657051691355512,0.1881636240117356,0.3380360749420202,stable
+TG 54:3,Glycerolipids [GL],Triradylglycerols [GL03],-0.3998778515950186,0.2424247406749266,0.1241962048152778,0.6515537277384076,stable
+TG 54:2,Glycerolipids [GL],Triradylglycerols [GL03],-0.6739256472153141,0.1698731170554518,0.1337200595933401,0.7096882023342861,full_recovery
+TG 56:9,Glycerolipids [GL],Triradylglycerols [GL03],0.2091683585175534,0.693563701894102,0.3699163746566116,0.4309649095654347,stable
+TG 56:8,Glycerolipids [GL],Triradylglycerols [GL03],0.4742743835553245,0.1226515007282504,0.3499954420000623,0.2361540160507673,stable
+TG 56:7,Glycerolipids [GL],Triradylglycerols [GL03],0.3314735675394586,0.1224747180197917,0.3105856083926817,0.1398368964999335,stable
+TG 56:6,Glycerolipids [GL],Triradylglycerols [GL03],0.1502832080706946,0.3252580066523921,0.248739292516768,0.1235958477335599,stable
+TG 58:10,Glycerolipids [GL],Triradylglycerols [GL03],0.52535838655464,0.2595201026498108,0.2996479512527059,0.4829236861793085,partial_recovery

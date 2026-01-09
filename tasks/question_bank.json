@@ -1,0 +1,1058 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "total_questions": 50,
+    "categories": [
+      "comparative",
+      "predictive",
+      "counterfactual",
+      "mechanistic",
+      "data_quality"
+    ],
+    "difficulty_levels": [
+      "easy",
+      "medium",
+      "hard",
+      "expert"
+    ],
+    "evaluation": "expert_rating (1-5 scale per dimension)"
+  },
+  "questions": [
+    {
+      "id": "Q01",
+      "category": "comparative",
+      "difficulty": "medium",
+      "question": "NLR increased by 52% in Polaris Dawn but only 8% in Inspiration4 (after excluding C003 baseline anomaly). What mission-specific factors might explain this difference?",
+      "context_required": [
+        "nlr_by_mission",
+        "mission_config"
+      ],
+      "expected_reasoning": [
+        "Consider mission duration (3 vs 5 days)",
+        "Consider baseline timing (L-92 vs L-21)",
+        "Consider EVA activities in Polaris Dawn",
+        "Consider individual variation with small N"
+      ],
+      "rubric": {
+        "factual_accuracy": "Cites correct NLR values and mission details",
+        "reasoning_quality": "Proposes plausible mechanistic explanations",
+        "completeness": "Addresses multiple potential factors",
+        "uncertainty": "Acknowledges limitations of comparison"
+      }
+    },
+    {
+      "id": "Q02",
+      "category": "comparative",
+      "difficulty": "hard",
+      "question": "AST and ALT both increased across all three missions (I4: +20%/+7%, PD: +67%/+74%, F2: +11%/+17%). Why might Polaris Dawn show much larger liver enzyme elevations than the other missions?",
+      "context_required": [
+        "mean_changes_comparison",
+        "mission_config"
+      ],
+      "expected_reasoning": [
+        "EVA stress in Polaris Dawn",
+        "Possible muscle breakdown contribution",
+        "Sample timing differences",
+        "Individual variation"
+      ],
+      "rubric": {
+        "factual_accuracy": "Cites correct percentage changes",
+        "reasoning_quality": "Distinguishes hepatic vs muscular sources",
+        "completeness": "Considers multiple mechanisms",
+        "uncertainty": "Notes cannot definitively distinguish sources"
+      }
+    },
+    {
+      "id": "Q03",
+      "category": "comparative",
+      "difficulty": "medium",
+      "question": "Absolute lymphocytes decreased in all missions (I4: -26%, PD: -40%, F2: -12%). Is this pattern consistent with known spaceflight physiology? What mechanisms might explain it?",
+      "context_required": [
+        "consistent_changes"
+      ],
+      "expected_reasoning": [
+        "Stress-induced lymphocyte redistribution",
+        "Cortisol effects on immune cells",
+        "Marginalization to tissues",
+        "Comparison to ISS studies"
+      ],
+      "rubric": {
+        "factual_accuracy": "Correct values, correct biological terminology",
+        "reasoning_quality": "Links to stress response mechanisms",
+        "completeness": "Addresses both magnitude and consistency",
+        "domain_knowledge": "References relevant spaceflight literature"
+      }
+    },
+    {
+      "id": "Q04",
+      "category": "comparative",
+      "difficulty": "easy",
+      "question": "MCV decreased 3% in Inspiration4 but increased 2% in Polaris Dawn. Both changes were statistically significant. How would you interpret this apparent contradiction?",
+      "context_required": [
+        "statistical_tests"
+      ],
+      "expected_reasoning": [
+        "Different baseline timepoints",
+        "Possible hydration differences",
+        "Statistical significance vs biological significance",
+        "Individual variation"
+      ],
+      "rubric": {
+        "factual_accuracy": "Correct direction and magnitude",
+        "reasoning_quality": "Recognizes this as notable finding",
+        "uncertainty": "Acknowledges cannot fully explain"
+      }
+    },
+    {
+      "id": "Q05",
+      "category": "comparative",
+      "difficulty": "hard",
+      "question": "Compare the recovery patterns across missions. Inspiration4 shows 41% worsening at R+45, Polaris Dawn 33% at R+39, and Fram2 51% at R+66. Given Fram2 has the longest recovery timepoint, why might it show the worst recovery?",
+      "context_required": [
+        "recovery_by_mission"
+      ],
+      "expected_reasoning": [
+        "Recovery is not linear",
+        "Possible secondary stress responses",
+        "Individual variation with smallest N",
+        "Different baseline proximity"
+      ],
+      "rubric": {
+        "factual_accuracy": "Correct recovery percentages",
+        "reasoning_quality": "Challenges assumption that more time = more recovery",
+        "completeness": "Considers multiple hypotheses",
+        "uncertainty": "Notes small sample limitations"
+      }
+    },
+    {
+      "id": "Q06",
+      "category": "comparative",
+      "difficulty": "medium",
+      "question": "Potassium consistently decreased across all missions (I4: -10%, PD: ~0%, F2: -9%). What physiological mechanisms could explain potassium loss during spaceflight?",
+      "context_required": [
+        "consistent_changes"
+      ],
+      "expected_reasoning": [
+        "Fluid redistribution effects",
+        "Aldosterone/cortisol changes",
+        "Dietary factors during flight",
+        "Renal adaptations"
+      ],
+      "rubric": {
+        "domain_knowledge": "Understands electrolyte physiology",
+        "reasoning_quality": "Links to spaceflight stressors",
+        "completeness": "Multiple mechanisms considered"
+      }
+    },
+    {
+      "id": "Q07",
+      "category": "comparative",
+      "difficulty": "easy",
+      "question": "Control groups (PD Earth, PD Ground) showed NLR decrease or stability, while all spaceflight missions showed NLR increase. What does this pattern tell us about NLR as a spaceflight biomarker?",
+      "context_required": [
+        "nlr_controls_vs_spaceflight"
+      ],
+      "expected_reasoning": [
+        "NLR is spaceflight-specific marker",
+        "Not due to sampling/testing effects",
+        "Validates stress response interpretation"
+      ],
+      "rubric": {
+        "reasoning_quality": "Correctly interprets divergent pattern",
+        "completeness": "Discusses implications for monitoring"
+      }
+    },
+    {
+      "id": "Q08",
+      "category": "comparative",
+      "difficulty": "hard",
+      "question": "Fram2 has only 3 crew members compared to 4 in other missions. How does this affect the statistical power and reliability of cross-mission comparisons? What analytical approaches could mitigate this?",
+      "context_required": [
+        "mission_config"
+      ],
+      "expected_reasoning": [
+        "Reduced statistical power",
+        "Wider confidence intervals",
+        "Effect size focus over p-values",
+        "Bayesian approaches",
+        "Meta-analytic combination"
+      ],
+      "rubric": {
+        "statistical_knowledge": "Understands small-N limitations",
+        "completeness": "Proposes multiple mitigation strategies",
+        "practicality": "Suggests feasible approaches"
+      }
+    },
+    {
+      "id": "Q09",
+      "category": "comparative",
+      "difficulty": "medium",
+      "question": "Basophil percentage increased dramatically in Polaris Dawn (+74%) compared to more modest increases in I4 (+7%) and F2 (+37%). What might cause such variable basophil responses?",
+      "context_required": [
+        "consistent_changes"
+      ],
+      "expected_reasoning": [
+        "Basophils are rare cells (high variability)",
+        "Possible allergic/inflammatory triggers",
+        "EVA suit exposure",
+        "Statistical noise with rare cells"
+      ],
+      "rubric": {
+        "domain_knowledge": "Understands basophil biology",
+        "reasoning_quality": "Addresses measurement variability",
+        "uncertainty": "Acknowledges difficulty interpreting rare cells"
+      }
+    },
+    {
+      "id": "Q10",
+      "category": "comparative",
+      "difficulty": "expert",
+      "question": "Design a statistical test to determine if the cross-mission variation in biomarker responses is greater than expected from individual variation alone. What would be your null hypothesis and test statistic?",
+      "context_required": [
+        "all_data"
+      ],
+      "expected_reasoning": [
+        "Mixed-effects model with mission as random effect",
+        "Variance component analysis",
+        "ICC calculation",
+        "Null: mission variance = 0"
+      ],
+      "rubric": {
+        "statistical_sophistication": "Proposes appropriate test",
+        "completeness": "Specifies null hypothesis clearly",
+        "practicality": "Acknowledges power limitations"
+      }
+    },
+    {
+      "id": "Q11",
+      "category": "predictive",
+      "difficulty": "hard",
+      "question": "Based on the data, which individual crew member across all missions appears to be at highest risk for prolonged recovery? Justify your answer with specific biomarker evidence.",
+      "context_required": [
+        "individual_trajectories",
+        "recovery_by_mission"
+      ],
+      "expected_reasoning": [
+        "Identify individuals with worst Recovery Index",
+        "Look for multiple biomarkers affected",
+        "Consider magnitude of perturbation",
+        "Note persistent elevations"
+      ],
+      "rubric": {
+        "factual_accuracy": "Cites correct individual data",
+        "reasoning_quality": "Uses multiple lines of evidence",
+        "completeness": "Considers multiple risk factors",
+        "uncertainty": "Acknowledges predictive limitations"
+      }
+    },
+    {
+      "id": "Q12",
+      "category": "predictive",
+      "difficulty": "medium",
+      "question": "If a new 5-day mission is planned, predict the expected NLR at R+1 based on the existing data. Provide a point estimate and uncertainty range.",
+      "context_required": [
+        "nlr_by_mission"
+      ],
+      "expected_reasoning": [
+        "Average of 5-day missions (PD, F2)",
+        "Consider individual variation",
+        "Provide confidence/prediction interval",
+        "Note small sample uncertainty"
+      ],
+      "rubric": {
+        "quantitative": "Provides reasonable point estimate (~2.0-2.1)",
+        "uncertainty": "Provides meaningful interval",
+        "reasoning": "Explains estimation approach"
+      }
+    },
+    {
+      "id": "Q13",
+      "category": "predictive",
+      "difficulty": "hard",
+      "question": "A crew member shows baseline NLR of 2.5 (above average). Predict their likely NLR trajectory through spaceflight and recovery, and identify any concerns.",
+      "context_required": [
+        "nlr_trajectories",
+        "individual_data"
+      ],
+      "expected_reasoning": [
+        "Higher baseline may indicate pre-existing stress",
+        "Predict further elevation post-flight",
+        "May exceed clinical concern threshold (>3)",
+        "Recommend monitoring"
+      ],
+      "rubric": {
+        "clinical_reasoning": "Identifies elevated baseline concern",
+        "prediction_quality": "Reasonable trajectory estimate",
+        "actionability": "Provides monitoring recommendations"
+      }
+    },
+    {
+      "id": "Q14",
+      "category": "predictive",
+      "difficulty": "expert",
+      "question": "Build a simple risk score for recovery difficulty using 3-5 biomarkers. Specify the biomarkers, their weights, and threshold for 'high risk'. Justify each choice.",
+      "context_required": [
+        "recovery_correlations",
+        "all_analytes"
+      ],
+      "expected_reasoning": [
+        "Select high-signal biomarkers (NLR, lymphocytes, AST)",
+        "Weight by effect size or clinical relevance",
+        "Define threshold based on distribution",
+        "Validate approach conceptually"
+      ],
+      "rubric": {
+        "clinical_validity": "Chooses appropriate biomarkers",
+        "quantitative_rigor": "Provides specific weights",
+        "justification": "Explains each choice",
+        "practicality": "Usable in practice"
+      }
+    },
+    {
+      "id": "Q15",
+      "category": "predictive",
+      "difficulty": "medium",
+      "question": "Based on the recovery data, how many days post-landing would you recommend monitoring astronauts before clearing them for normal activities? Justify with data.",
+      "context_required": [
+        "recovery_trajectories"
+      ],
+      "expected_reasoning": [
+        "Recovery incomplete at R+39-66",
+        "Suggest extended monitoring",
+        "Consider individual variation",
+        "Recommend tiered clearance"
+      ],
+      "rubric": {
+        "evidence_based": "References actual recovery data",
+        "practicality": "Reasonable recommendation",
+        "safety_focus": "Prioritizes crew health"
+      }
+    },
+    {
+      "id": "Q16",
+      "category": "predictive",
+      "difficulty": "easy",
+      "question": "If you could only measure 5 biomarkers pre- and post-flight, which would you choose to best capture spaceflight effects? Why?",
+      "context_required": [
+        "consistent_changes",
+        "effect_sizes"
+      ],
+      "expected_reasoning": [
+        "NLR (composite stress marker)",
+        "Absolute lymphocytes (immune)",
+        "AST or ALT (liver/muscle)",
+        "Hemoglobin (RBC)",
+        "Potassium (electrolyte)"
+      ],
+      "rubric": {
+        "completeness": "Covers multiple systems",
+        "justification": "Explains each choice",
+        "practicality": "Considers measurement feasibility"
+      }
+    },
+    {
+      "id": "Q17",
+      "category": "predictive",
+      "difficulty": "hard",
+      "question": "The models show large generalization gaps (0.5-0.6) when predicting across missions. What features or approaches might reduce this gap?",
+      "context_required": [
+        "baseline_results",
+        "lomo_splits"
+      ],
+      "expected_reasoning": [
+        "Domain-invariant features",
+        "Relative changes vs absolute values",
+        "Mission duration as covariate",
+        "Data augmentation",
+        "Transfer learning approaches"
+      ],
+      "rubric": {
+        "technical_depth": "Multiple valid approaches",
+        "practicality": "Feasible with available data",
+        "reasoning": "Explains why each might help"
+      }
+    },
+    {
+      "id": "Q18",
+      "category": "predictive",
+      "difficulty": "medium",
+      "question": "Predict which biomarkers will show the fastest recovery (return to baseline) and which will show the slowest. Explain your reasoning.",
+      "context_required": [
+        "recovery_indices"
+      ],
+      "expected_reasoning": [
+        "Fast: acute phase markers (neutrophils)",
+        "Slow: structural changes (RBC indices)",
+        "Consider half-lives",
+        "Reference actual data patterns"
+      ],
+      "rubric": {
+        "biological_reasoning": "Uses physiological knowledge",
+        "evidence": "References actual patterns",
+        "completeness": "Addresses both fast and slow"
+      }
+    },
+    {
+      "id": "Q19",
+      "category": "predictive",
+      "difficulty": "expert",
+      "question": "Design a Bayesian model for predicting individual recovery trajectories. Specify the priors, likelihood, and what mission-level and individual-level parameters you would estimate.",
+      "context_required": [
+        "all_data"
+      ],
+      "expected_reasoning": [
+        "Hierarchical structure",
+        "Mission-level random effects",
+        "Individual random effects",
+        "Informative priors from literature",
+        "Time-varying parameters"
+      ],
+      "rubric": {
+        "statistical_sophistication": "Correct Bayesian framework",
+        "hierarchy": "Appropriate multilevel structure",
+        "priors": "Reasonable prior choices",
+        "completeness": "Full model specification"
+      }
+    },
+    {
+      "id": "Q20",
+      "category": "predictive",
+      "difficulty": "hard",
+      "question": "If a crew member's lymphocyte count has not recovered by R+60, what would you predict about their other biomarkers? Use the correlation structure in the data.",
+      "context_required": [
+        "correlation_matrix"
+      ],
+      "expected_reasoning": [
+        "Correlations with other immune markers",
+        "Possible NLR elevation",
+        "Consider immune-metabolic links",
+        "Personalized pattern"
+      ],
+      "rubric": {
+        "correlation_awareness": "Uses data correlation structure",
+        "biological_coherence": "Predictions make biological sense",
+        "uncertainty": "Acknowledges individual variation"
+      }
+    },
+    {
+      "id": "Q21",
+      "category": "counterfactual",
+      "difficulty": "hard",
+      "question": "If Inspiration4 had been 5 days instead of 3, predict the expected absolute lymphocyte count at R+1. Show your reasoning using data from the 5-day missions.",
+      "context_required": [
+        "mission_durations",
+        "lymphocyte_data"
+      ],
+      "expected_reasoning": [
+        "Use PD and F2 as 5-day references",
+        "Scale I4 baseline by PD/F2 ratios",
+        "Consider dose-response relationship",
+        "Provide uncertainty bounds"
+      ],
+      "rubric": {
+        "methodology": "Clear extrapolation approach",
+        "quantitative": "Provides numeric estimate",
+        "uncertainty": "Acknowledges limitations",
+        "reasoning": "Logical chain of inference"
+      }
+    },
+    {
+      "id": "Q22",
+      "category": "counterfactual",
+      "difficulty": "medium",
+      "question": "What if the C003 neutrophil value at L-92 (10.1) had been the likely true value (~4000)? How would this change the Inspiration4 NLR analysis?",
+      "context_required": [
+        "anomaly_details",
+        "nlr_calculations"
+      ],
+      "expected_reasoning": [
+        "Recalculate NLR for C003",
+        "New baseline mean would be higher",
+        "Smaller apparent increase post-flight",
+        "More consistent with other missions"
+      ],
+      "rubric": {
+        "quantitative": "Correct recalculation",
+        "interpretation": "Explains impact on conclusions",
+        "completeness": "Addresses downstream effects"
+      }
+    },
+    {
+      "id": "Q23",
+      "category": "counterfactual",
+      "difficulty": "expert",
+      "question": "If we had collected samples at R+7 instead of R+1, how might the biomarker patterns differ? Which markers would you expect to be higher vs lower?",
+      "context_required": [
+        "temporal_dynamics"
+      ],
+      "expected_reasoning": [
+        "Acute phase response timing",
+        "Some markers peak later",
+        "Recovery may have started",
+        "Individual variation in timing"
+      ],
+      "rubric": {
+        "temporal_reasoning": "Understands dynamic patterns",
+        "specificity": "Names specific markers",
+        "biological_basis": "Grounded in physiology"
+      }
+    },
+    {
+      "id": "Q24",
+      "category": "counterfactual",
+      "difficulty": "medium",
+      "question": "If Polaris Dawn had not included EVA activities, would you expect different biomarker patterns? Which markers might be most affected?",
+      "context_required": [
+        "mission_activities"
+      ],
+      "expected_reasoning": [
+        "EVA adds physical/psychological stress",
+        "May affect cortisol \u2192 immune markers",
+        "Possibly liver enzymes (exertion)",
+        "Compare to non-EVA missions"
+      ],
+      "rubric": {
+        "mechanistic_reasoning": "Links EVA to specific stressors",
+        "specificity": "Identifies affected markers",
+        "uncertainty": "Notes cannot isolate EVA effect"
+      }
+    },
+    {
+      "id": "Q25",
+      "category": "counterfactual",
+      "difficulty": "hard",
+      "question": "Suppose we had pharmaceutical countermeasures that maintained lymphocyte counts during flight. Predict the downstream effects on NLR, recovery patterns, and other immune markers.",
+      "context_required": [
+        "immune_correlations"
+      ],
+      "expected_reasoning": [
+        "NLR would be lower (preserved denominator)",
+        "Recovery might be faster",
+        "Other immune markers may still change",
+        "Consider compensation mechanisms"
+      ],
+      "rubric": {
+        "systems_thinking": "Considers interconnected effects",
+        "biological_coherence": "Predictions are plausible",
+        "completeness": "Addresses multiple downstream effects"
+      }
+    },
+    {
+      "id": "Q26",
+      "category": "counterfactual",
+      "difficulty": "easy",
+      "question": "If we had measured biomarkers at L-7 (one week before launch) instead of varying baseline times, how might this improve cross-mission comparisons?",
+      "context_required": [
+        "baseline_timing"
+      ],
+      "expected_reasoning": [
+        "Standardized pre-flight window",
+        "Reduced baseline variation",
+        "Better isolation of flight effects",
+        "Training/preparation effects controlled"
+      ],
+      "rubric": {
+        "study_design_reasoning": "Understands baseline importance",
+        "completeness": "Multiple benefits identified",
+        "practicality": "Acknowledges feasibility"
+      }
+    },
+    {
+      "id": "Q27",
+      "category": "counterfactual",
+      "difficulty": "expert",
+      "question": "If we could genotype all crew members, which genetic variants would you hypothesize might explain individual variation in spaceflight biomarker responses?",
+      "context_required": [
+        "individual_variation"
+      ],
+      "expected_reasoning": [
+        "Immune gene polymorphisms (HLA)",
+        "Stress response genes (COMT, FKBP5)",
+        "Metabolic genes (CYP enzymes)",
+        "Iron metabolism (HFE)"
+      ],
+      "rubric": {
+        "genetic_knowledge": "Relevant genes identified",
+        "mechanism_linking": "Connects genes to phenotypes",
+        "completeness": "Multiple systems considered"
+      }
+    },
+    {
+      "id": "Q28",
+      "category": "counterfactual",
+      "difficulty": "medium",
+      "question": "What if Fram2 had 4 crew members instead of 3? Estimate how this would affect the statistical power for detecting significant changes.",
+      "context_required": [
+        "statistical_power"
+      ],
+      "expected_reasoning": [
+        "Power calculation principles",
+        "Small N = large effect needed",
+        "4 vs 3 gives modest power increase",
+        "Still limited power overall"
+      ],
+      "rubric": {
+        "statistical_reasoning": "Correct power concepts",
+        "quantitative": "Attempts to estimate impact",
+        "realism": "Notes still limited"
+      }
+    },
+    {
+      "id": "Q29",
+      "category": "counterfactual",
+      "difficulty": "hard",
+      "question": "If pre-flight stress management interventions reduced baseline cortisol by 20%, predict the effects on post-flight biomarker patterns.",
+      "context_required": [
+        "stress_markers"
+      ],
+      "expected_reasoning": [
+        "Lower baseline NLR",
+        "Possibly reduced post-flight elevation",
+        "But flight stress still occurs",
+        "Net effect uncertain"
+      ],
+      "rubric": {
+        "mechanistic_reasoning": "Links cortisol to downstream markers",
+        "nuance": "Considers baseline vs acute effects",
+        "uncertainty": "Appropriate hedging"
+      }
+    },
+    {
+      "id": "Q30",
+      "category": "counterfactual",
+      "difficulty": "expert",
+      "question": "Design an optimal sampling schedule for a future mission to maximize information about recovery dynamics while minimizing crew burden. Justify each timepoint.",
+      "context_required": [
+        "recovery_trajectories"
+      ],
+      "expected_reasoning": [
+        "Pre-flight: L-30, L-7",
+        "Post-flight: R+1, R+3, R+7, R+14, R+30, R+60",
+        "Focus on early recovery",
+        "Extended follow-up for slow markers"
+      ],
+      "rubric": {
+        "study_design": "Logical timepoint selection",
+        "justification": "Each timepoint explained",
+        "practicality": "Considers crew burden",
+        "completeness": "Covers full recovery arc"
+      }
+    },
+    {
+      "id": "Q31",
+      "category": "mechanistic",
+      "difficulty": "medium",
+      "question": "Explain the physiological mechanism linking decreased lymphocytes with increased neutrophil percentage during spaceflight.",
+      "context_required": [
+        "immune_changes"
+      ],
+      "expected_reasoning": [
+        "Stress \u2192 cortisol release",
+        "Cortisol causes lymphocyte apoptosis/marginalization",
+        "Neutrophil demargination from vessel walls",
+        "Differential cell trafficking"
+      ],
+      "rubric": {
+        "mechanistic_detail": "Correct pathway described",
+        "completeness": "Multiple steps explained",
+        "biological_accuracy": "Consistent with literature"
+      }
+    },
+    {
+      "id": "Q32",
+      "category": "mechanistic",
+      "difficulty": "hard",
+      "question": "Why might liver enzymes (AST, ALT) increase during spaceflight? Distinguish between hepatic and extra-hepatic sources.",
+      "context_required": [
+        "liver_markers"
+      ],
+      "expected_reasoning": [
+        "Hepatic: fluid shifts, hypoxia, metabolic stress",
+        "Muscular: exercise, vibration, deconditioning",
+        "AST more muscular, ALT more hepatic",
+        "Ratio interpretation"
+      ],
+      "rubric": {
+        "source_distinction": "Correctly identifies both sources",
+        "mechanistic_detail": "Plausible mechanisms for each",
+        "diagnostic_reasoning": "AST/ALT ratio interpretation"
+      }
+    },
+    {
+      "id": "Q33",
+      "category": "mechanistic",
+      "difficulty": "expert",
+      "question": "Propose a mechanistic model explaining why recovery may not be linear (some crew show 'worsening' at R+45-66 compared to R+1).",
+      "context_required": [
+        "recovery_patterns"
+      ],
+      "expected_reasoning": [
+        "Initial compensation mechanisms",
+        "Delayed inflammation",
+        "Readaptation stress (gravity return)",
+        "Behavioral changes (activity, diet)"
+      ],
+      "rubric": {
+        "non_linear_reasoning": "Explains non-monotonic recovery",
+        "multiple_mechanisms": "Several plausible pathways",
+        "temporal_dynamics": "Addresses time course"
+      }
+    },
+    {
+      "id": "Q34",
+      "category": "mechanistic",
+      "difficulty": "medium",
+      "question": "Explain how fluid shift in microgravity could affect multiple biomarkers simultaneously (hematocrit, sodium, albumin).",
+      "context_required": [
+        "fluid_markers"
+      ],
+      "expected_reasoning": [
+        "Headward fluid shift",
+        "Plasma volume changes",
+        "Concentration/dilution effects",
+        "Renal adaptation",
+        "Hemoconcentration vs hemodilution"
+      ],
+      "rubric": {
+        "physiology_accuracy": "Correct fluid shift description",
+        "multi_marker_reasoning": "Connects to multiple markers",
+        "directionality": "Correct expected changes"
+      }
+    },
+    {
+      "id": "Q35",
+      "category": "mechanistic",
+      "difficulty": "hard",
+      "question": "NLR is considered an inflammatory marker. However, spaceflight may involve both inflammation and immunosuppression. How do you reconcile these seemingly contradictory findings?",
+      "context_required": [
+        "nlr_interpretation"
+      ],
+      "expected_reasoning": [
+        "NLR reflects neutrophil/lymphocyte balance, not absolute inflammation",
+        "Innate immunity may be activated (neutrophils)",
+        "Adaptive immunity suppressed (lymphocytes)",
+        "Different arms of immune system"
+      ],
+      "rubric": {
+        "nuance": "Distinguishes innate/adaptive",
+        "reconciliation": "Resolves apparent paradox",
+        "biological_sophistication": "Understands immune complexity"
+      }
+    },
+    {
+      "id": "Q36",
+      "category": "mechanistic",
+      "difficulty": "easy",
+      "question": "Why is potassium consistently decreased after spaceflight? What role might aldosterone play?",
+      "context_required": [
+        "electrolyte_changes"
+      ],
+      "expected_reasoning": [
+        "Fluid redistribution \u2192 volume receptors",
+        "Aldosterone regulation",
+        "Renal potassium excretion",
+        "Stress hormone effects"
+      ],
+      "rubric": {
+        "pathway_knowledge": "Correct aldosterone mechanism",
+        "completeness": "Multiple factors considered",
+        "physiological_accuracy": "Consistent with known physiology"
+      }
+    },
+    {
+      "id": "Q37",
+      "category": "mechanistic",
+      "difficulty": "expert",
+      "question": "Propose a systems biology diagram showing the interconnections between stress hormones, immune markers, and metabolic biomarkers observed in this data.",
+      "context_required": [
+        "all_correlations"
+      ],
+      "expected_reasoning": [
+        "Central: stress/HPA axis",
+        "Downstream: immune, metabolic, hematologic",
+        "Feedback loops",
+        "Time-dependent relationships"
+      ],
+      "rubric": {
+        "systems_integration": "Connects multiple systems",
+        "mechanistic_coherence": "Pathways are biologically valid",
+        "completeness": "Major systems included",
+        "feedback": "Includes regulatory loops"
+      }
+    },
+    {
+      "id": "Q38",
+      "category": "mechanistic",
+      "difficulty": "medium",
+      "question": "Monocyte percentage increased in all missions. What functions do monocytes serve, and why might spaceflight activate them?",
+      "context_required": [
+        "monocyte_data"
+      ],
+      "expected_reasoning": [
+        "Monocyte roles: phagocytosis, inflammation, tissue repair",
+        "Stress/damage signals",
+        "Possible tissue adaptation",
+        "Infection surveillance"
+      ],
+      "rubric": {
+        "cell_biology": "Correct monocyte functions",
+        "mechanism": "Plausible activation reasons",
+        "spaceflight_context": "Links to flight environment"
+      }
+    },
+    {
+      "id": "Q39",
+      "category": "mechanistic",
+      "difficulty": "hard",
+      "question": "The data shows RDW (red cell distribution width) decreased in Inspiration4 (-16.5%). What cellular mechanisms could cause decreased RDW, and is this beneficial or concerning?",
+      "context_required": [
+        "rdw_data"
+      ],
+      "expected_reasoning": [
+        "RDW reflects RBC size variability",
+        "Decreased = more uniform cells",
+        "Could indicate synchronized production",
+        "Or selective destruction of abnormal cells",
+        "Generally not concerning if within range"
+      ],
+      "rubric": {
+        "hematology_knowledge": "Correct RDW interpretation",
+        "mechanism": "Plausible cellular explanation",
+        "clinical_interpretation": "Appropriate risk assessment"
+      }
+    },
+    {
+      "id": "Q40",
+      "category": "mechanistic",
+      "difficulty": "expert",
+      "question": "If you were to design a targeted intervention to accelerate post-flight recovery, which pathway would you target and why? Consider the mechanistic evidence in this data.",
+      "context_required": [
+        "all_pathways"
+      ],
+      "expected_reasoning": [
+        "Target immune reconstitution",
+        "Or stress hormone modulation",
+        "Consider safety",
+        "Evidence-based selection"
+      ],
+      "rubric": {
+        "target_selection": "Justified pathway choice",
+        "mechanism_reasoning": "Explains why intervention would work",
+        "safety_consideration": "Notes potential risks",
+        "evidence_grounding": "Based on observed data"
+      }
+    },
+    {
+      "id": "Q41",
+      "category": "data_quality",
+      "difficulty": "easy",
+      "question": "The C003 neutrophil value at L-92 is 10.1 while all other values for this crew are 4000-6400. Is this likely an error? What type of error might it be?",
+      "context_required": [
+        "anomaly_data"
+      ],
+      "expected_reasoning": [
+        "Clearly anomalous (1000x lower)",
+        "Likely data entry error",
+        "Possibly recorded as percentage",
+        "Or decimal place error"
+      ],
+      "rubric": {
+        "anomaly_recognition": "Correctly identifies as error",
+        "error_typing": "Plausible error mechanism",
+        "confidence": "Appropriate certainty"
+      }
+    },
+    {
+      "id": "Q42",
+      "category": "data_quality",
+      "difficulty": "medium",
+      "question": "There are 8 duplicate bilirubin measurements in the dataset (same crew/timepoint, different values from CMP vs Bilirubin Panel). How should these be handled for analysis?",
+      "context_required": [
+        "duplicate_data"
+      ],
+      "expected_reasoning": [
+        "Identify source of each measurement",
+        "Average, or prefer one panel",
+        "Document decision",
+        "Sensitivity analysis"
+      ],
+      "rubric": {
+        "problem_recognition": "Understands duplicate issue",
+        "solution_options": "Multiple approaches considered",
+        "decision_process": "Clear recommendation",
+        "documentation": "Notes importance of transparency"
+      }
+    },
+    {
+      "id": "Q43",
+      "category": "data_quality",
+      "difficulty": "hard",
+      "question": "The baseline timepoints vary across missions (L-92, L-21, L-3). How might this affect the validity of cross-mission comparisons, and what statistical adjustments could help?",
+      "context_required": [
+        "baseline_timing"
+      ],
+      "expected_reasoning": [
+        "Different pre-flight windows",
+        "Training effects possible",
+        "Could normalize to mission-specific baseline",
+        "Or use relative changes",
+        "Mixed models with baseline covariate"
+      ],
+      "rubric": {
+        "problem_identification": "Explains timing concern",
+        "statistical_solutions": "Valid adjustment methods",
+        "limitations": "Notes imperfect solutions"
+      }
+    },
+    {
+      "id": "Q44",
+      "category": "data_quality",
+      "difficulty": "medium",
+      "question": "With only 3-4 crew per mission, how many statistical tests can we reasonably perform before multiple testing becomes a serious concern? Propose a testing strategy.",
+      "context_required": [
+        "sample_sizes"
+      ],
+      "expected_reasoning": [
+        "Limited power for many tests",
+        "Focus on pre-specified hypotheses",
+        "Use FDR correction if exploratory",
+        "Or prioritize effect sizes",
+        "Consider composite endpoints"
+      ],
+      "rubric": {
+        "multiple_testing_awareness": "Understands the problem",
+        "practical_solution": "Feasible strategy proposed",
+        "statistical_validity": "Maintains rigor"
+      }
+    },
+    {
+      "id": "Q45",
+      "category": "data_quality",
+      "difficulty": "easy",
+      "question": "Some analytes have missing values (e.g., MCHC has 4 missing). Should these be imputed, excluded, or handled another way for the benchmark tasks?",
+      "context_required": [
+        "missing_data"
+      ],
+      "expected_reasoning": [
+        "Depends on missingness mechanism",
+        "Mean imputation simplest",
+        "Multiple imputation better",
+        "Or complete case analysis",
+        "Document approach"
+      ],
+      "rubric": {
+        "missingness_reasoning": "Considers MCAR/MAR/MNAR",
+        "solution_options": "Multiple approaches",
+        "recommendation": "Clear suggestion",
+        "transparency": "Notes assumptions"
+      }
+    },
+    {
+      "id": "Q46",
+      "category": "data_quality",
+      "difficulty": "hard",
+      "question": "The logistic regression achieves 100% training accuracy but only 44-58% test accuracy on LOMO splits. Diagnose this problem and propose solutions.",
+      "context_required": [
+        "baseline_results"
+      ],
+      "expected_reasoning": [
+        "Classic overfitting",
+        "High features:samples ratio",
+        "Regularization needed",
+        "Feature selection",
+        "Simpler models"
+      ],
+      "rubric": {
+        "diagnosis": "Correctly identifies overfitting",
+        "mechanistic_explanation": "Explains why it occurs",
+        "multiple_solutions": "Several valid approaches",
+        "implementation": "Practical suggestions"
+      }
+    },
+    {
+      "id": "Q47",
+      "category": "data_quality",
+      "difficulty": "expert",
+      "question": "Design a data quality report card for this benchmark. What metrics would you include, and what thresholds would indicate 'acceptable' quality?",
+      "context_required": [
+        "all_data"
+      ],
+      "expected_reasoning": [
+        "Missing rate per analyte",
+        "Outlier frequency",
+        "Cross-mission consistency",
+        "Sample size adequacy",
+        "Temporal coverage"
+      ],
+      "rubric": {
+        "comprehensiveness": "Multiple quality dimensions",
+        "quantitative_thresholds": "Specific cutoffs",
+        "practicality": "Implementable metrics",
+        "justification": "Thresholds explained"
+      }
+    },
+    {
+      "id": "Q48",
+      "category": "data_quality",
+      "difficulty": "medium",
+      "question": "If you were reviewing this dataset for a journal publication, what additional information or validation would you request from the authors?",
+      "context_required": [
+        "metadata"
+      ],
+      "expected_reasoning": [
+        "Assay methodology details",
+        "QC/calibration information",
+        "Sample handling protocols",
+        "Crew demographics",
+        "Mission activity logs"
+      ],
+      "rubric": {
+        "reviewer_mindset": "Appropriate critical questions",
+        "completeness": "Multiple domains covered",
+        "priority": "Most important items identified"
+      }
+    },
+    {
+      "id": "Q49",
+      "category": "data_quality",
+      "difficulty": "hard",
+      "question": "The 'other' phase samples (intermediate timepoints) were excluded from main analyses. Propose a strategy to incorporate this data to improve predictions without introducing confounds.",
+      "context_required": [
+        "all_timepoints"
+      ],
+      "expected_reasoning": [
+        "Use for trajectory modeling",
+        "Time-series approaches",
+        "Careful labeling",
+        "Cross-validation strategy"
+      ],
+      "rubric": {
+        "data_utilization": "Makes use of excluded data",
+        "methodological_rigor": "Avoids confounds",
+        "practical_approach": "Implementable strategy"
+      }
+    },
+    {
+      "id": "Q50",
+      "category": "data_quality",
+      "difficulty": "expert",
+      "question": "If this benchmark were to be used to evaluate foundation models for scientific reasoning, what additional annotations or ground truth would make it more valuable?",
+      "context_required": [
+        "benchmark_design"
+      ],
+      "expected_reasoning": [
+        "Expert reasoning traces",
+        "Uncertainty calibration ground truth",
+        "Counterfactual validation",
+        "Mechanistic pathway annotations",
+        "Literature-based evidence links"
+      ],
+      "rubric": {
+        "benchmark_design_thinking": "Understands evaluation needs",
+        "annotation_quality": "High-value annotations identified",
+        "feasibility": "Obtainable annotations",
+        "ml_evaluation_relevance": "Useful for model comparison"
+      }
+    }
+  ]
+}

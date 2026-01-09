@@ -1,0 +1,50 @@
+{
+  "Inspiration4": {
+    "baseline": "L-92",
+    "post_flight": "R+1",
+    "recovery": [
+      "R+45",
+      "R+82"
+    ],
+    "duration_days": 3,
+    "crews": [
+      "C001",
+      "C002",
+      "C003",
+      "C004"
+    ],
+    "known_issues": {
+      "C003_L-92_ABSOLUTE NEUTROPHILS": "anomaly_low",
+      "C003_L-92_PLATELET COUNT": "anomaly_low"
+    }
+  },
+  "Polaris Dawn": {
+    "baseline": "L-21",
+    "post_flight": "R+1",
+    "recovery": [
+      "R+39"
+    ],
+    "duration_days": 5,
+    "crews": [
+      "C001",
+      "C005",
+      "C006",
+      "C007"
+    ],
+    "known_issues": {}
+  },
+  "Fram2": {
+    "baseline": "L-3",
+    "post_flight": "R+1",
+    "recovery": [
+      "R+66"
+    ],
+    "duration_days": 5,
+    "crews": [
+      "C009",
+      "C010",
+      "C011"
+    ],
+    "known_issues": {}
+  }
+}

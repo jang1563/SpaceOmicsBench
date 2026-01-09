@@ -1,0 +1,199 @@
+{
+  "tasks": {
+    "task_T1_gene_classification": {
+      "id": "T1",
+      "name": "Gene Expression Phase Classification",
+      "type": "multi_class_classification",
+      "modality": "transcriptomics",
+      "difficulty": "medium",
+      "description": "Classify sample phase (Pre/Post/Recovery) from cfRNA gene expression profiles",
+      
+      "input": {
+        "features": "500 gene expression values (log2FC)",
+        "data_file": "cfrna_feature_matrix.csv"
+      },
+      
+      "output": {
+        "target": "phase",
+        "classes": ["Pre", "Post", "Recovery"],
+        "class_distribution": {"Pre": 8, "Post": 8, "Recovery": 8}
+      },
+      
+      "evaluation": {
+        "primary_metric": "macro_f1",
+        "secondary_metrics": ["accuracy", "balanced_accuracy", "confusion_matrix"],
+        "split_type": "stratified_5fold"
+      },
+      
+      "baselines": {
+        "random": {"f1": 0.33},
+        "logistic_regression": {"f1": 0.55},
+        "random_forest": {"f1": 0.62}
+      }
+    },
+    
+    "task_T2_cross_mission_generalization": {
+      "id": "T2",
+      "name": "Cross-Mission Transcriptomic Generalization",
+      "type": "domain_adaptation",
+      "modality": "transcriptomics",
+      "difficulty": "hard",
+      "description": "Train on one mission's transcriptomics, evaluate on held-out mission",
+      
+      "input": {
+        "train_mission": "Polaris_Dawn",
+        "test_mission": "Inspiration4",
+        "features": "500 gene expression values"
+      },
+      
+      "output": {
+        "target": "phase",
+        "classes": ["Pre", "Post", "Recovery"]
+      },
+      
+      "evaluation": {
+        "primary_metric": "generalization_gap",
+        "definition": "in_domain_f1 - cross_domain_f1",
+        "split_type": "lomo"
+      },
+      
+      "baselines": {
+        "logistic_regression": {"in_domain_f1": 0.65, "cross_domain_f1": 0.40, "gap": 0.25}
+      },
+      
+      "challenge_notes": "Mission-specific batch effects and biological variation make generalization difficult"
+    },
+    
+    "task_T3_signature_prediction": {
+      "id": "T3",
+      "name": "Gene Signature Prediction",
+      "type": "multi_label_classification",
+      "modality": "transcriptomics",
+      "difficulty": "medium",
+      "description": "Predict which gene signatures are activated/suppressed from full expression profile",
+      
+      "input": {
+        "features": "500 gene expression values"
+      },
+      
+      "output": {
+        "targets": ["erythropoiesis_DOWN", "immune_activation_UP", "oxidative_stress_UP", "dna_repair_UP"],
+        "type": "multi_label_binary"
+      },
+      
+      "evaluation": {
+        "primary_metric": "micro_f1",
+        "secondary_metrics": ["hamming_loss", "per_signature_auc"]
+      },
+      
+      "baselines": {
+        "signature_sum": {"micro_f1": 0.70}
+      }
+    },
+    
+    "task_T4_temporal_trajectory": {
+      "id": "T4",
+      "name": "Transcriptomic Recovery Prediction",
+      "type": "regression",
+      "modality": "transcriptomics",
+      "difficulty": "hard",
+      "description": "Predict days to normalization from immediate post-flight expression",
+      
+      "input": {
+        "features": "Post-flight (R+1) gene expression values",
+        "data_subset": "phase == 'Post'"
+      },
+      
+      "output": {
+        "target": "days_to_recovery",
+        "type": "continuous",
+        "range": [30, 90]
+      },
+      
+      "evaluation": {
+        "primary_metric": "mae",
+        "secondary_metrics": ["rmse", "r_squared"]
+      },
+      
+      "baselines": {
+        "mean_baseline": {"mae": 25},
+        "ridge_regression": {"mae": 18}
+      }
+    },
+    
+    "task_T5_concordance_prediction": {
+      "id": "T5",
+      "name": "Cross-Mission Concordance Prediction",
+      "type": "binary_classification",
+      "modality": "transcriptomics",
+      "difficulty": "medium",
+      "description": "Predict whether a gene will show concordant direction of change across missions",
+      
+      "input": {
+        "features": ["baseMean", "log2FC_mission1", "pvalue_mission1", "gene_type", "pathway"],
+        "n_genes": 5325
+      },
+      
+      "output": {
+        "target": "concordant",
+        "positive_class": "same direction in both missions",
+        "class_balance": {"concordant": 0.47, "discordant": 0.53}
+      },
+      
+      "evaluation": {
+        "primary_metric": "auc_roc",
+        "secondary_metrics": ["precision", "recall", "f1"]
+      },
+      
+      "baselines": {
+        "random": {"auc": 0.50},
+        "logistic_regression": {"auc": 0.58}
+      },
+      
+      "scientific_insight": "Helps identify reproducible biomarkers for future missions"
+    },
+    
+    "task_T6_multiomics_integration": {
+      "id": "T6",
+      "name": "Clinical-Transcriptomic Integration",
+      "type": "multi_modal_classification",
+      "modality": ["clinical", "transcriptomics"],
+      "difficulty": "hard",
+      "description": "Combine clinical biomarkers and gene expression for improved phase classification",
+      
+      "input": {
+        "clinical_features": 34,
+        "transcriptomic_features": 500,
+        "integration_methods": ["early_fusion", "late_fusion", "attention"]
+      },
+      
+      "output": {
+        "target": "phase"
+      },
+      
+      "evaluation": {
+        "primary_metric": "f1",
+        "comparison": "improvement over single modality"
+      },
+      
+      "baselines": {
+        "clinical_only": {"f1": 0.40},
+        "transcriptomics_only": {"f1": 0.55},
+        "early_fusion": {"f1": 0.62}
+      }
+    }
+  },
+  
+  "task_difficulty_rubric": {
+    "easy": "Well-defined, sufficient samples, clear signal",
+    "medium": "Moderate complexity, requires feature engineering",
+    "hard": "Domain shift, limited samples, requires advanced methods"
+  },
+  
+  "evaluation_protocol": {
+    "cross_validation": "5-fold stratified by mission and phase",
+    "held_out_test": "Leave-One-Mission-Out for generalization",
+    "metrics_reporting": "Mean ± std across folds",
+    "statistical_tests": "Paired t-test or Wilcoxon for model comparison"
+  }
+}

@@ -1,0 +1,257 @@
+{
+  "dataset_info": {
+    "polaris_dawn": {
+      "n_metabolites": 634,
+      "n_samples": 4,
+      "timepoints": [
+        "L-517",
+        "L-134",
+        "L-21",
+        "R+1",
+        "R+39"
+      ],
+      "n_preflight_samples": 12,
+      "n_postflight_samples": 4,
+      "n_recovery_samples": 4
+    },
+    "inspiration4": {
+      "n_metabolites": 454,
+      "n_samples": 4,
+      "timepoints": [
+        "L-92",
+        "L-44",
+        "L-3",
+        "R+1",
+        "R+45",
+        "R+82"
+      ],
+      "n_preflight_samples": 12,
+      "n_postflight_samples": 4,
+      "n_recovery_samples": 8
+    },
+    "common_metabolites": 199
+  },
+  "differential_expression": {
+    "polaris_dawn_R1": {
+      "padj_005": 2,
+      "padj_010": 9,
+      "pvalue_005": 87,
+      "pvalue_010": 165,
+      "up_regulated": 221,
+      "down_regulated": 410
+    },
+    "polaris_dawn_R39": {
+      "padj_005": 0,
+      "padj_010": 0,
+      "pvalue_005": 20,
+      "pvalue_010": 48,
+      "up_regulated": 286,
+      "down_regulated": 344
+    },
+    "inspiration4_R1": {
+      "padj_005": 1,
+      "padj_010": 1,
+      "pvalue_005": 52,
+      "pvalue_010": 97,
+      "up_regulated": 161,
+      "down_regulated": 290
+    },
+    "inspiration4_R45": {
+      "padj_005": 0,
+      "padj_010": 0,
+      "pvalue_005": 13,
+      "pvalue_010": 34
+    },
+    "inspiration4_R82": {
+      "padj_005": 3,
+      "padj_010": 3,
+      "pvalue_005": 28,
+      "pvalue_010": 53
+    }
+  },
+  "cross_mission_metrics": {
+    "pearson_r": 0.4043,
+    "pearson_p": 3.820782055074383e-09,
+    "direction_concordance": 0.6701,
+    "concordant_metabolites": 132,
+    "discordant_metabolites": 65
+  },
+  "top_pathways_affected": [
+    {
+      "pathway": "Amino acids",
+      "concordant_count": 0
+    },
+    {
+      "pathway": "Amino sugar and nucleotide sugar metabolism",
+      "concordant_count": 0
+    },
+    {
+      "pathway": "Butyrate metabolism",
+      "concordant_count": 0
+    },
+    {
+      "pathway": "Caffeine metabolism",
+      "concordant_count": 0
+    },
+    {
+      "pathway": "Carbohydrate metabolism",
+      "concordant_count": 0
+    },
+    {
+      "pathway": "Cofactor, vitamin and antioxidant metabolism",
+      "concordant_count": 0
+    },
+    {
+      "pathway": "Energy metabolism",
+      "concordant_count": 0
+    },
+    {
+      "pathway": "Glycerophosethanolamines [GP01]",
+      "concordant_count": 0
+    },
+    {
+      "pathway": "Glycerophosphocholines [GP01]",
+      "concordant_count": 0
+    },
+    {
+      "pathway": "Glycerophospholipids [GP]",
+      "concordant_count": 0
+    }
+  ],
+  "analysis_metadata": {
+    "analysis_date": "2026-01-08",
+    "fc_calculation": "log2(postflight_mean / preflight_mean)",
+    "statistical_test": "independent t-test",
+    "fdr_method": "Benjamini-Hochberg",
+    "matching_method": "name_normalization"
+  },
+  "temporal_patterns": {
+    "inspiration4": {
+      "full_recovery": 82,
+      "partial_recovery": 19,
+      "persistent": 33,
+      "delayed_onset": 28,
+      "stable": 292
+    },
+    "polaris_dawn": {
+      "full_recovery": 138,
+      "partial_recovery": 28,
+      "persistent": 51,
+      "stable": 417
+    }
+  },
+  "pathway_enrichment": [
+    {
+      "pathway": "Amino acids",
+      "n_metabolites": 66,
+      "n_concordant": 41,
+      "concordance_rate": 0.6212,
+      "mean_log2FC_PD": -0.3125,
+      "mean_log2FC_I4": -0.1308
+    },
+    {
+      "pathway": "Glycerophosphocholines [GP01]",
+      "n_metabolites": 35,
+      "n_concordant": 28,
+      "concordance_rate": 0.8,
+      "mean_log2FC_PD": -0.3146,
+      "mean_log2FC_I4": -0.4431
+    },
+    {
+      "pathway": "Energy metabolism",
+      "n_metabolites": 12,
+      "n_concordant": 11,
+      "concordance_rate": 0.9167,
+      "mean_log2FC_PD": -0.5771,
+      "mean_log2FC_I4": -0.513
+    },
+    {
+      "pathway": "Purine  and pyrimidine metabolism/nucleotide metabolism",
+      "n_metabolites": 16,
+      "n_concordant": 10,
+      "concordance_rate": 0.625,
+      "mean_log2FC_PD": -0.4825,
+      "mean_log2FC_I4": 0.1043
+    },
+    {
+      "pathway": "Glycerophospholipids [GP]",
+      "n_metabolites": 9,
+      "n_concordant": 9,
+      "concordance_rate": 1.0,
+      "mean_log2FC_PD": -0.516,
+      "mean_log2FC_I4": -0.418
+    },
+    {
+      "pathway": "Cofactor, vitamin and antioxidant metabolism",
+      "n_metabolites": 11,
+      "n_concordant": 9,
+      "concordance_rate": 0.8182,
+      "mean_log2FC_PD": -0.6607,
+      "mean_log2FC_I4": -0.5197
+    },
+    {
+      "pathway": "Lipid metabolism",
+      "n_metabolites": 18,
+      "n_concordant": 9,
+      "concordance_rate": 0.5,
+      "mean_log2FC_PD": -0.2405,
+      "mean_log2FC_I4": -0.204
+    },
+    {
+      "pathway": "Carbohydrate metabolism",
+      "n_metabolites": 7,
+      "n_concordant": 4,
+      "concordance_rate": 0.5714,
+      "mean_log2FC_PD": -1.2248,
+      "mean_log2FC_I4": -0.4882
+    },
+    {
+      "pathway": "Caffeine metabolism",
+      "n_metabolites": 3,
+      "n_concordant": 3,
+      "concordance_rate": 1.0,
+      "mean_log2FC_PD": -3.0115,
+      "mean_log2FC_I4": -1.1727
+    },
+    {
+      "pathway": "Glycerophosethanolamines [GP01]",
+      "n_metabolites": 9,
+      "n_concordant": 3,
+      "concordance_rate": 0.3333,
+      "mean_log2FC_PD": -0.5019,
+      "mean_log2FC_I4": 0.1903
+    },
+    {
+      "pathway": "Glycylate and dicarboxylate metabolism",
+      "n_metabolites": 5,
+      "n_concordant": 2,
+      "concordance_rate": 0.4,
+      "mean_log2FC_PD": -0.8145,
+      "mean_log2FC_I4": 0.5227
+    },
+    {
+      "pathway": "Porphyrin metabolism",
+      "n_metabolites": 2,
+      "n_concordant": 1,
+      "concordance_rate": 0.5,
+      "mean_log2FC_PD": -0.0017,
+      "mean_log2FC_I4": 0.5801
+    },
+    {
+      "pathway": "Butyrate metabolism",
+      "n_metabolites": 1,
+      "n_concordant": 0,
+      "concordance_rate": 0.0,
+      "mean_log2FC_PD": -0.362,
+      "mean_log2FC_I4": 0.1696
+    },
+    {
+      "pathway": "Amino sugar and nucleotide sugar metabolism",
+      "n_metabolites": 1,
+      "n_concordant": 0,
+      "concordance_rate": 0.0,
+      "mean_log2FC_PD": -2.3405,
+      "mean_log2FC_I4": 0.2794
+    }
+  ]
+}

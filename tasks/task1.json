@@ -1,0 +1,52 @@
+{
+  "task_id": "task1_phase_classification",
+  "task_name": "Spaceflight Phase Classification",
+  "task_type": "multi_class_classification",
+  "difficulty": "easy",
+  "description": "\n    Classify blood biomarker samples into spaceflight phases: \n    baseline (pre-flight), post_flight (immediate post-landing), or recovery.\n    This tests basic pattern recognition in physiological data.\n    ",
+  "input_spec": {
+    "features": "34 common analytes + 5 derived features (NLR, PLR, immune_stress, liver_stress, rbc_health)",
+    "feature_count": 39,
+    "normalization": "z-score standardization recommended",
+    "missing_handling": "mean imputation or model-specific handling"
+  },
+  "output_spec": {
+    "type": "categorical",
+    "classes": [
+      "baseline",
+      "post_flight",
+      "recovery"
+    ],
+    "class_encoding": {
+      "baseline": 0,
+      "post_flight": 1,
+      "recovery": 2
+    },
+    "format": "single integer label OR probability distribution over 3 classes"
+  },
+  "evaluation_metrics": {
+    "primary": "macro_f1",
+    "secondary": [
+      "accuracy",
+      "per_class_f1",
+      "confusion_matrix"
+    ],
+    "calibration": "expected_calibration_error (ECE)",
+    "uncertainty": "brier_score"
+  },
+  "splits": {
+    "default": "stratified_kfold_5",
+    "challenge": "leave_one_mission_out (LOMO)"
+  },
+  "baselines": {
+    "random": "~0.33 accuracy",
+    "majority": "~0.40 accuracy (baseline class)",
+    "target_good": ">0.70 macro_f1",
+    "target_excellent": ">0.85 macro_f1"
+  },
+  "notes": [
+    "Exclude 'other' phase samples (intermediate timepoints)",
+    "C003 L-92 anomalies should be handled (excluded or flagged)",
+    "Class imbalance exists: more baseline samples than recovery"
+  ]
+}

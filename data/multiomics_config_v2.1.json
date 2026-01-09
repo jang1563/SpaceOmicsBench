@@ -1,0 +1,76 @@
+{
+  "benchmark_info": {
+    "name": "SpaceOmicsBench",
+    "version": "2.1.0",
+    "description": "Multi-omics benchmark for spaceflight biomedical AI evaluation",
+    "release_date": "2026-01",
+    "modalities": [
+      "clinical",
+      "transcriptomics",
+      "metabolomics"
+    ]
+  },
+  "omics_layers": {
+    "clinical": {
+      "name": "Clinical Blood Biomarkers",
+      "data_file": "feature_matrix_full.csv",
+      "n_features": 34,
+      "missions": [
+        "Inspiration4",
+        "Polaris_Dawn",
+        "Fram2"
+      ],
+      "status": "complete"
+    },
+    "transcriptomics": {
+      "name": "Circulating Cell-Free RNA",
+      "data_file": "cfrna_crossmission_r1.csv",
+      "n_features": 5346,
+      "missions": [
+        "Inspiration4",
+        "Polaris_Dawn"
+      ],
+      "cross_mission_correlation": -0.02,
+      "direction_concordance": 0.464,
+      "status": "complete"
+    },
+    "metabolomics": {
+      "name": "Plasma Metabolomics",
+      "data_file": "metabolomics_cross_mission_comparison.csv",
+      "n_features": 199,
+      "missions": [
+        "Inspiration4",
+        "Polaris_Dawn"
+      ],
+      "cross_mission_correlation": 0.4,
+      "direction_concordance": 0.67,
+      "status": "complete"
+    }
+  },
+  "cross_omics_comparison": {
+    "concordance_comparison": {
+      "transcriptomics": 0.464,
+      "metabolomics": 0.67,
+      "interpretation": "Metabolic responses are more conserved than transcriptional"
+    },
+    "correlation_comparison": {
+      "transcriptomics": -0.02,
+      "metabolomics": 0.4,
+      "interpretation": "Metabolomics shows significant positive cross-mission correlation"
+    }
+  },
+  "task_summary": {
+    "clinical": 6,
+    "transcriptomics": 6,
+    "metabolomics": 6,
+    "cross_modal": 2,
+    "cross_omics": 3,
+    "total": 23
+  },
+  "llm_questions": {
+    "clinical": 50,
+    "transcriptomics": 40,
+    "metabolomics": 25,
+    "total": 115
+  }
+}

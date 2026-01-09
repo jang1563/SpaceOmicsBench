@@ -1,0 +1,158 @@
+{
+  "metadata": {
+    "modality": "metabolomics",
+    "platform": "untargeted_metabolomics",
+    "normalization": "various",
+    "note": "Tasks use aggregate fold-change data from differential analysis"
+  },
+  "Met1": {
+    "name": "Cross-Mission Metabolite Concordance Prediction",
+    "description": "Predict whether a metabolite will show the same direction of change in both missions",
+    "type": "binary_classification",
+    "input": {
+      "features": [
+        "log2FC_mission1",
+        "pvalue_mission1",
+        "pathway"
+      ],
+      "n_features": "3+"
+    },
+    "output": {
+      "target": "concordant",
+      "definition": "sign(lfc_PD) == sign(lfc_I4)"
+    },
+    "metrics": {
+      "primary": "f1",
+      "secondary": [
+        "accuracy",
+        "precision",
+        "recall",
+        "auc"
+      ]
+    },
+    "baseline": {
+      "random": 0.5,
+      "observed_rate": 0.67
+    },
+    "difficulty": "medium",
+    "n_samples": 199
+  },
+  "Met2": {
+    "name": "Pathway-Based Metabolite Classification",
+    "description": "Predict metabolite super-pathway from spaceflight response pattern",
+    "type": "multiclass_classification",
+    "input": {
+      "features": [
+        "log2FC_PD",
+        "log2FC_I4",
+        "concordant"
+      ]
+    },
+    "output": {
+      "target": "super_pathway",
+      "n_classes": 14
+    },
+    "metrics": {
+      "primary": "macro_f1",
+      "secondary": [
+        "accuracy",
+        "per_class_f1"
+      ]
+    },
+    "difficulty": "hard"
+  },
+  "Met3": {
+    "name": "Temporal Recovery Prediction",
+    "description": "Predict if R+1 metabolite change will normalize by R+39/R+45",
+    "type": "binary_classification",
+    "input": {
+      "features": [
+        "log2FC_R1",
+        "pvalue_R1",
+        "pathway"
+      ]
+    },
+    "output": {
+      "target": "normalized_by_recovery"
+    },
+    "metrics": {
+      "primary": "accuracy",
+      "secondary": [
+        "f1"
+      ]
+    },
+    "difficulty": "hard"
+  },
+  "Met4": {
+    "name": "Cross-Mission Effect Size Prediction",
+    "description": "Predict I4 fold change from PD fold change",
+    "type": "regression",
+    "input": {
+      "features": [
+        "log2FC_PD",
+        "pathway_encoded"
+      ]
+    },
+    "output": {
+      "target": "log2FC_I4"
+    },
+    "metrics": {
+      "primary": "r_squared",
+      "secondary": [
+        "mae",
+        "rmse",
+        "correlation"
+      ]
+    },
+    "baseline": {
+      "correlation": 0.4,
+      "note": "Significantly higher than transcriptomics (r=-0.02)"
+    },
+    "difficulty": "medium"
+  },
+  "Met5": {
+    "name": "Metabolite Ranking by Spaceflight Relevance",
+    "description": "Rank metabolites by their spaceflight relevance",
+    "type": "ranking",
+    "input": {
+      "features": "all differential analysis outputs"
+    },
+    "output": {
+      "target": "relevance_rank"
+    },
+    "metrics": {
+      "primary": "NDCG",
+      "secondary": [
+        "MAP",
+        "precision_at_k"
+      ]
+    },
+    "ground_truth_metabolites": [
+      "Corticosterone",
+      "1-Methylnicotinamide",
+      "Proline Betaine",
+      "Caffeine",
+      "Theobromine",
+      "Quinic Acid"
+    ],
+    "difficulty": "medium"
+  },
+  "Met6": {
+    "name": "Diet vs Spaceflight Effect Discrimination",
+    "description": "Distinguish metabolic changes due to diet (caffeine, food) from spaceflight physiology",
+    "type": "binary_classification",
+    "input": {
+      "features": [
+        "log2FC",
+        "pathway",
+        "metabolite_name"
+      ]
+    },
+    "output": {
+      "target": "is_spaceflight_specific",
+      "definition": "Not explained by controlled diet changes"
+    },
+    "difficulty": "expert",
+    "note": "Caffeine/theobromine changes may reflect diet rather than spaceflight"
+  }
+}

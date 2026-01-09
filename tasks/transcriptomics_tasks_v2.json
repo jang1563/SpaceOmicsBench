@@ -1,0 +1,181 @@
+{
+  "metadata": {
+    "modality": "transcriptomics",
+    "data_type": "DESeq2_aggregate",
+    "note": "Tasks use aggregate fold-change data, not sample-level expression"
+  },
+  "T1": {
+    "name": "Cross-Mission Concordance Prediction",
+    "description": "Predict whether a gene will show the same direction of change in both missions",
+    "type": "binary_classification",
+    "input": {
+      "features": [
+        "log2FoldChange_mission1",
+        "pvalue_mission1",
+        "baseMean_mission1"
+      ],
+      "n_features": 3
+    },
+    "output": {
+      "target": "concordant",
+      "definition": "sign(lfc_PD) == sign(lfc_I4)"
+    },
+    "metrics": {
+      "primary": "f1",
+      "secondary": [
+        "accuracy",
+        "precision",
+        "recall",
+        "auc"
+      ]
+    },
+    "baseline": {
+      "random": 0.5,
+      "observed_rate": 0.464
+    },
+    "difficulty": "medium",
+    "n_samples": 5346
+  },
+  "T2": {
+    "name": "DEG Identification",
+    "description": "Predict which genes are differentially expressed (padj < 0.10)",
+    "type": "binary_classification",
+    "input": {
+      "features": [
+        "log2FoldChange",
+        "baseMean",
+        "lfcSE"
+      ],
+      "per_mission": true
+    },
+    "output": {
+      "target": "is_DEG",
+      "threshold": "padj < 0.10"
+    },
+    "metrics": {
+      "primary": "precision_at_k",
+      "k_values": [
+        10,
+        20,
+        50
+      ],
+      "secondary": [
+        "recall",
+        "f1"
+      ]
+    },
+    "ground_truth": {
+      "PD_R1": 9,
+      "I4_FP1": 85
+    },
+    "difficulty": "medium"
+  },
+  "T3": {
+    "name": "Erythroid Signature Detection",
+    "description": "Identify erythroid pathway genes from expression patterns",
+    "type": "binary_classification",
+    "input": {
+      "features": [
+        "log2FoldChange_PD",
+        "log2FoldChange_I4",
+        "concordant"
+      ]
+    },
+    "output": {
+      "target": "is_erythroid_gene",
+      "n_positive": 20
+    },
+    "metrics": {
+      "primary": "recall_at_k",
+      "secondary": [
+        "precision",
+        "f1"
+      ]
+    },
+    "hypothesis": "Erythroid genes show consistent downregulation (75% concordance vs 46% background)",
+    "difficulty": "medium"
+  },
+  "T4": {
+    "name": "Temporal Recovery Prediction",
+    "description": "Predict whether R+1 DEG will normalize by R+39",
+    "type": "binary_classification",
+    "input": {
+      "features": [
+        "log2FoldChange_R1",
+        "pvalue_R1",
+        "baseMean"
+      ]
+    },
+    "output": {
+      "target": "normalized_by_R39",
+      "definition": "|lfc_R39| < 0.5 * |lfc_R1|"
+    },
+    "metrics": {
+      "primary": "accuracy",
+      "secondary": [
+        "f1"
+      ]
+    },
+    "n_samples": 9,
+    "note": "Limited to R+1 DEGs (n=9)",
+    "difficulty": "hard"
+  },
+  "T5": {
+    "name": "Gene Ranking by Spaceflight Relevance",
+    "description": "Rank genes by their spaceflight relevance using multi-mission evidence",
+    "type": "ranking",
+    "input": {
+      "features": "all DESeq2 outputs from both missions"
+    },
+    "output": {
+      "target": "relevance_rank",
+      "ground_truth": "literature-validated spaceflight genes"
+    },
+    "metrics": {
+      "primary": "NDCG",
+      "secondary": [
+        "MAP",
+        "precision_at_k"
+      ]
+    },
+    "ground_truth_genes": [
+      "EPB42",
+      "ANK1",
+      "HBB",
+      "HBA1",
+      "HBA2",
+      "SLC4A1",
+      "CA1",
+      "FHDC1"
+    ],
+    "difficulty": "hard"
+  },
+  "T6": {
+    "name": "Cross-Mission Effect Size Prediction",
+    "description": "Predict I4 fold change from PD fold change",
+    "type": "regression",
+    "input": {
+      "features": [
+        "log2FoldChange_PD",
+        "baseMean_PD",
+        "pvalue_PD"
+      ]
+    },
+    "output": {
+      "target": "log2FoldChange_I4"
+    },
+    "metrics": {
+      "primary": "r_squared",
+      "secondary": [
+        "mae",
+        "rmse",
+        "correlation"
+      ]
+    },
+    "baseline": {
+      "correlation": -0.02,
+      "interpretation": "Near-zero correlation suggests mission-specific effects dominate"
+    },
+    "difficulty": "hard"
+  }
+}

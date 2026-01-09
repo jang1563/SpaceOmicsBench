@@ -1,0 +1,56 @@
+{
+  "X1": {
+    "name": "Triple-Modal Phase Prediction",
+    "description": "Classify spaceflight phase using clinical + transcriptomics + metabolomics",
+    "type": "multiclass_classification",
+    "input": {
+      "clinical": "34 CBC/CMP markers",
+      "transcriptomics": "500 gene fold changes",
+      "metabolomics": "199 metabolite fold changes"
+    },
+    "output": {
+      "target": "phase",
+      "classes": [
+        "Pre",
+        "Post",
+        "Recovery"
+      ]
+    },
+    "difficulty": "hard"
+  },
+  "X2": {
+    "name": "Omics Concordance Comparison",
+    "description": "Compare predictability of cross-mission concordance across omics layers",
+    "type": "meta_analysis",
+    "comparison": {
+      "transcriptomics": {
+        "concordance": 0.464,
+        "correlation": -0.02
+      },
+      "metabolomics": {
+        "concordance": 0.67,
+        "correlation": 0.4
+      }
+    },
+    "hypothesis": "Metabolic responses are more conserved than transcriptional",
+    "difficulty": "medium"
+  },
+  "X3": {
+    "name": "Biological Pathway Integration",
+    "description": "Link transcriptomic and metabolomic changes through shared pathways",
+    "type": "discovery",
+    "expected_links": [
+      {
+        "transcriptomic": "HBB/HBA",
+        "metabolomic": "Bilirubin",
+        "pathway": "Heme degradation"
+      },
+      {
+        "transcriptomic": "immune genes",
+        "metabolomic": "Corticosterone",
+        "pathway": "Stress response"
+      }
+    ],
+    "difficulty": "expert"
+  }
+}

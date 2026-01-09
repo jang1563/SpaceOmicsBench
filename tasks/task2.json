@@ -1,0 +1,71 @@
+{
+  "task_id": "task2_cross_mission_generalization",
+  "task_name": "Cross-Mission Generalization (LOMO)",
+  "task_type": "ood_evaluation",
+  "difficulty": "hard",
+  "description": "\n    Evaluate model ability to generalize across missions.\n    Train on 2 missions, test on held-out mission.\n    This is the signature OOD task for SpaceOmicsBench.\n    ",
+  "protocol": {
+    "type": "leave_one_mission_out",
+    "folds": [
+      {
+        "train": [
+          "Inspiration4",
+          "Polaris Dawn"
+        ],
+        "test": [
+          "Fram2"
+        ]
+      },
+      {
+        "train": [
+          "Inspiration4",
+          "Fram2"
+        ],
+        "test": [
+          "Polaris Dawn"
+        ]
+      },
+      {
+        "train": [
+          "Polaris Dawn",
+          "Fram2"
+        ],
+        "test": [
+          "Inspiration4"
+        ]
+      }
+    ],
+    "task": "phase_classification"
+  },
+  "input_spec": {
+    "features": "same as task1",
+    "note": "Models should NOT use mission identity as a feature"
+  },
+  "output_spec": {
+    "type": "categorical",
+    "classes": [
+      "baseline",
+      "post_flight",
+      "recovery"
+    ]
+  },
+  "evaluation_metrics": {
+    "primary": "generalization_gap",
+    "definition": "generalization_gap = mean(train_accuracy) - mean(test_accuracy)",
+    "secondary": [
+      "per_mission_accuracy",
+      "worst_case_accuracy"
+    ],
+    "robustness": "std_across_folds"
+  },
+  "baselines": {
+    "target_gap_small": "<0.15 generalization gap",
+    "target_gap_good": "<0.10 generalization gap",
+    "worst_case_threshold": ">0.50 accuracy on worst mission"
+  },
+  "notes": [
+    "Fram2 has only 3 crew \u2192 smallest test set",
+    "Mission duration differs (3 vs 5 days) \u2192 potential confounder",
+    "Baseline timepoint differs across missions"
+  ]
+}

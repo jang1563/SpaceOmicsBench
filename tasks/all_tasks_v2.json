@@ -1,0 +1,385 @@
+{
+  "version": "2.0",
+  "task_categories": {
+    "clinical": "Tasks 1-6 (from v1.0)",
+    "transcriptomics": "Tasks T1-T6 (new in v2.0)",
+    "crossmodal": "Tasks M1-M4 (new in v2.0)"
+  },
+  "total_tasks": 16,
+  "transcriptomics_tasks": {
+    "T1": {
+      "name": "Gene Expression Phase Classification",
+      "description": "Classify spaceflight phase (Pre/Post/Recovery) from cfRNA gene expression profiles",
+      "type": "multiclass_classification",
+      "input": {
+        "modality": "transcriptomics",
+        "features": 500,
+        "feature_type": "log2_fold_change"
+      },
+      "output": {
+        "target": "phase",
+        "classes": [
+          "Pre",
+          "Post",
+          "Recovery"
+        ],
+        "n_classes": 3
+      },
+      "metrics": {
+        "primary": "macro_f1",
+        "secondary": [
+          "accuracy",
+          "per_class_f1",
+          "confusion_matrix"
+        ]
+      },
+      "splits": [
+        "stratified_3fold",
+        "lomo_transcriptomics"
+      ],
+      "difficulty": "medium",
+      "baselines": {
+        "random": {
+          "f1": 0.33
+        },
+        "majority": {
+          "f1": 0.19
+        },
+        "target_logistic_regression": {
+          "f1": 0.55
+        }
+      }
+    },
+    "T2": {
+      "name": "Cross-Mission Generalization (Transcriptomics)",
+      "description": "Evaluate generalization of gene expression models across missions (I4 \u2194 PD)",
+      "type": "domain_adaptation",
+      "input": {
+        "modality": "transcriptomics",
+        "features": 500
+      },
+      "output": {
+        "target": "phase",
+        "n_classes": 3
+      },
+      "protocol": {
+        "method": "leave_one_mission_out",
+        "folds": 2,
+        "fold_details": [
+          {
+            "train": "Inspiration4",
+            "test": "Polaris_Dawn"
+          },
+          {
+            "train": "Polaris_Dawn",
+            "test": "Inspiration4"
+          }
+        ]
+      },
+      "metrics": {
+        "primary": "generalization_gap",
+        "secondary": [
+          "train_accuracy",
+          "test_accuracy",
+          "worst_case_accuracy"
+        ]
+      },
+      "difficulty": "hard",
+      "baselines": {
+        "logistic_regression": {
+          "gap": 0.4
+        }
+      }
+    },
+    "T3": {
+      "name": "Pathway Activation Prediction",
+      "description": "Predict which biological pathways are activated from gene expression",
+      "type": "multilabel_classification",
+      "input": {
+        "modality": "transcriptomics",
+        "features": 500
+      },
+      "output": {
+        "target": "pathway_activation",
+        "labels": [
+          "Erythropoiesis_DOWN",
+          "Immune_UP",
+          "Coagulation_UP",
+          "DNA_Repair_UP",
+          "Oxidative_Stress_UP"
+        ],
+        "n_labels": 5
+      },
+      "metrics": {
+        "primary": "micro_f1",
+        "secondary": [
+          "macro_f1",
+          "hamming_loss",
+          "per_label_f1"
+        ]
+      },
+      "difficulty": "medium",
+      "splits": [
+        "stratified_3fold"
+      ]
+    },
+    "T4": {
+      "name": "Differential Expression Gene Discovery",
+      "description": "Identify significantly differentially expressed genes post-flight",
+      "type": "ranking",
+      "input": {
+        "modality": "transcriptomics",
+        "features": 500
+      },
+      "output": {
+        "target": "DEG_ranking",
+        "ground_truth_source": "DESeq2_padj_0.10"
+      },
+      "metrics": {
+        "primary": "precision_at_k",
+        "k_values": [
+          10,
+          20,
+          50
+        ],
+        "secondary": [
+          "recall_at_k",
+          "NDCG",
+          "average_precision"
+        ]
+      },
+      "difficulty": "hard",
+      "ground_truth": {
+        "n_true_DEGs": 9,
+        "method": "DESeq2",
+        "threshold": "padj < 0.10"
+      }
+    },
+    "T5": {
+      "name": "Expression Recovery Trajectory Prediction",
+      "description": "Predict recovery timepoint expression from baseline and R+1 values",
+      "type": "regression",
+      "input": {
+        "modality": "transcriptomics",
+        "features": "baseline + post_flight expression (1000 features)",
+        "feature_engineering": "concatenate baseline and R+1"
+      },
+      "output": {
+        "target": "recovery_expression",
+        "n_targets": 500
+      },
+      "metrics": {
+        "primary": "mean_absolute_error",
+        "secondary": [
+          "rmse",
+          "per_gene_mae",
+          "correlation"
+        ]
+      },
+      "splits": [
+        "leave_one_crew_out"
+      ],
+      "difficulty": "hard"
+    },
+    "T6": {
+      "name": "Gene Importance Ranking for Spaceflight",
+      "description": "Rank genes by their importance for distinguishing spaceflight phases",
+      "type": "feature_ranking",
+      "input": {
+        "modality": "transcriptomics",
+        "features": 500
+      },
+      "output": {
+        "target": "importance_ranking",
+        "evaluation": "compare against literature-validated spaceflight genes"
+      },
+      "metrics": {
+        "primary": "NDCG_at_k",
+        "k_values": [
+          10,
+          20,
+          50
+        ],
+        "secondary": [
+          "precision_at_k",
+          "recall_at_k"
+        ]
+      },
+      "ground_truth": {
+        "validated_genes": [
+          "HBB",
+          "HBA1",
+          "HBA2",
+          "EPB42",
+          "SPTA1",
+          "CA1",
+          "IL7R",
+          "CCL5",
+          "GZMA",
+          "F13A1",
+          "PF4",
+          "PPBP"
+        ],
+        "source": "Space medicine literature"
+      },
+      "difficulty": "medium"
+    }
+  },
+  "crossmodal_tasks": {
+    "M1": {
+      "name": "Multi-Modal Phase Classification",
+      "description": "Classify phase using both clinical biomarkers and gene expression",
+      "type": "multiclass_classification",
+      "input": {
+        "modalities": [
+          "clinical",
+          "transcriptomics"
+        ],
+        "clinical_features": 41,
+        "gene_features": 500,
+        "total_features": 541,
+        "fusion_strategies": [
+          "early_fusion",
+          "late_fusion",
+          "attention_fusion"
+        ]
+      },
+      "output": {
+        "target": "phase",
+        "classes": [
+          "Pre",
+          "Post",
+          "Recovery"
+        ]
+      },
+      "metrics": {
+        "primary": "macro_f1",
+        "secondary": [
+          "accuracy",
+          "modality_contribution_analysis"
+        ]
+      },
+      "baselines": {
+        "clinical_only": {
+          "f1": 0.43
+        },
+        "transcriptomics_only": {
+          "f1": 0.55
+        },
+        "early_fusion_target": {
+          "f1": 0.6
+        }
+      },
+      "difficulty": "medium",
+      "splits": [
+        "stratified_3fold_aligned",
+        "lomo_aligned"
+      ]
+    },
+    "M2": {
+      "name": "Clinical to Transcriptomics Prediction",
+      "description": "Predict gene expression profiles from clinical biomarkers",
+      "type": "regression",
+      "input": {
+        "modality": "clinical",
+        "features": 41
+      },
+      "output": {
+        "modality": "transcriptomics",
+        "features": 500
+      },
+      "metrics": {
+        "primary": "mean_r_squared",
+        "secondary": [
+          "per_gene_r2",
+          "top_predictable_genes",
+          "correlation"
+        ]
+      },
+      "hypothesis": "Clinical markers partially reflect underlying transcriptional state",
+      "difficulty": "hard",
+      "expected_performance": {
+        "r2_mean": "0.05-0.15",
+        "interpretation": "Low but non-zero indicates partial biological link"
+      }
+    },
+    "M3": {
+      "name": "Cross-Modal Concordance Discovery",
+      "description": "Identify biomarkers that show concordant changes across clinical and transcriptomic modalities",
+      "type": "discovery",
+      "input": {
+        "modalities": [
+          "clinical",
+          "transcriptomics"
+        ]
+      },
+      "output": {
+        "target": "concordant_biomarker_pairs",
+        "format": "list of (clinical_marker, gene) pairs with same direction"
+      },
+      "evaluation": {
+        "method": "correlation_significance",
+        "biological_validation": "literature_support"
+      },
+      "expected_findings": [
+        {
+          "clinical": "ABSOLUTE_LYMPHOCYTES",
+          "gene": "IL7R",
+          "direction": "both_down"
+        },
+        {
+          "clinical": "Hemoglobin",
+          "gene": "HBB",
+          "direction": "correlated"
+        },
+        {
+          "clinical": "PLATELET_COUNT",
+          "gene": "PF4",
+          "direction": "correlated"
+        }
+      ],
+      "difficulty": "hard",
+      "metrics": {
+        "primary": "discovery_precision",
+        "secondary": [
+          "recall_of_known_pairs",
+          "biological_plausibility_score"
+        ]
+      }
+    },
+    "M4": {
+      "name": "Integrated Recovery Forecasting",
+      "description": "Predict recovery status using both modalities",
+      "type": "regression",
+      "input": {
+        "modalities": [
+          "clinical",
+          "transcriptomics"
+        ],
+        "timepoints": [
+          "baseline",
+          "post_flight"
+        ],
+        "features": "concatenated baseline + R+1 from both modalities"
+      },
+      "output": {
+        "target": "recovery_index",
+        "definition": "Composite measure of recovery across all biomarkers"
+      },
+      "metrics": {
+        "primary": "mae",
+        "secondary": [
+          "rmse",
+          "correlation",
+          "per_modality_contribution"
+        ]
+      },
+      "comparison": {
+        "clinical_only_baseline": "mae ~X",
+        "transcriptomics_only_baseline": "mae ~Y",
+        "expected_improvement": "5-15% reduction in MAE"
+      },
+      "difficulty": "hard"
+    }
+  }
+}

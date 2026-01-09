@@ -1,0 +1,78 @@
+{
+  "version": "2.0",
+  "modalities": {
+    "clinical": {
+      "file": "clinical_feature_matrix.csv",
+      "n_features": 41,
+      "missions": [
+        "Inspiration4",
+        "Polaris_Dawn",
+        "Fram2"
+      ],
+      "n_samples": 37
+    },
+    "transcriptomics": {
+      "file": "cfrna_feature_matrix.csv",
+      "n_features": 500,
+      "missions": [
+        "Inspiration4",
+        "Polaris_Dawn"
+      ],
+      "n_samples": 24
+    },
+    "aligned": {
+      "file": "aligned_multimodal.csv",
+      "n_samples": 24,
+      "missions": [
+        "Polaris_Dawn",
+        "Inspiration4"
+      ],
+      "clinical_features": 41,
+      "gene_features": 500
+    }
+  },
+  "clinical_analytes": [
+    "ABSOLUTE BASOPHILS",
+    "ABSOLUTE EOSINOPHILS",
+    "ABSOLUTE LYMPHOCYTES",
+    "ABSOLUTE MONOCYTES",
+    "ABSOLUTE NEUTROPHILS",
+    "ALBUMIN",
+    "ALBUMIN/GLOBULIN RATIO",
+    "ALKALINE PHOSPHATASE",
+    "ALT",
+    "AST",
+    "BASOPHILS",
+    "CALCIUM",
+    "CARBON DIOXIDE",
+    "CHLORIDE",
+    "CREATININE",
+    "EOSINOPHILS",
+    "GLOBULIN",
+    "GLUCOSE",
+    "HEMATOCRIT",
+    "HEMOGLOBIN",
+    "LYMPHOCYTES",
+    "MCH",
+    "MCHC",
+    "MCV",
+    "MONOCYTES",
+    "MPV",
+    "NEUTROPHILS",
+    "PLATELET COUNT",
+    "POTASSIUM",
+    "RDW",
+    "RED BLOOD CELL COUNT",
+    "SODIUM",
+    "UREA NITROGEN (BUN)",
+    "WHITE BLOOD CELL COUNT",
+    "NLR",
+    "PLR",
+    "immune_stress",
+    "liver_stress",
+    "rbc_health",
+    "phase_label",
+    "spaceflight_exposed"
+  ],
+  "n_genes": 500
+}

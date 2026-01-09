@@ -1,0 +1,553 @@
+{
+  "metadata": {
+    "version": "2.0",
+    "total_questions": 40,
+    "categories": {
+      "original_transcriptomics": 30,
+      "real_data_based": 10
+    }
+  },
+  "questions": [
+    {
+      "id": "TX_001",
+      "type": "factual",
+      "difficulty": "easy",
+      "question": "The cfRNA-seq data shows 14 out of 17 erythroid genes are concordantly downregulated across both missions. What percentage concordance does this represent?",
+      "expected_answer": "82.4% (14/17 = 0.824)",
+      "scoring": {
+        "correct_calculation": 1.0
+      },
+      "requires_data": false
+    },
+    {
+      "id": "TX_002",
+      "type": "factual",
+      "difficulty": "easy",
+      "question": "What is the primary significance threshold used for differential expression analysis when sample sizes are small (n=4)?",
+      "expected_answer": "A relaxed threshold of padj < 0.10 is typically used for small sample sizes, compared to the standard padj < 0.05",
+      "scoring": {
+        "mentions_relaxed": 0.5,
+        "mentions_0.10": 0.5
+      },
+      "requires_data": false
+    },
+    {
+      "id": "TX_003",
+      "type": "interpretation",
+      "difficulty": "medium",
+      "question": "The cross-mission correlation of gene expression fold changes is r = -0.015 (Pearson). How should this be interpreted in the context of biomarker discovery?",
+      "expected_answer": "The near-zero correlation is expected because: 1) Most genes are not true spaceflight responders (noise dominates), 2) Only a small subset of genes show reproducible changes, 3) Correlation improves when focusing on significant genes. This supports targeted analysis of specific signatures rather than genome-wide correlation.",
+      "scoring": {
+        "explains_noise": 0.3,
+        "mentions_subset": 0.3,
+        "practical_implication": 0.4
+      },
+      "requires_data": false
+    },
+    {
+      "id": "TX_004",
+      "type": "reasoning",
+      "difficulty": "medium",
+      "question": "Why might erythroid genes show higher cross-mission concordance (82%) compared to the random baseline (47%)?",
+      "expected_answer": "Erythroid genes represent a true biological signal (space anemia) that is reproducible across missions. The microgravity-induced fluid shift and neocytolysis mechanism affects all astronauts similarly, producing consistent downregulation. Random genes reflect noise and individual variation rather than systematic spaceflight effects.",
+      "scoring": {
+        "mentions_biological_signal": 0.3,
+        "mentions_mechanism": 0.3,
+        "contrasts_with_noise": 0.4
+      },
+      "requires_data": false
+    },
+    {
+      "id": "TX_005",
+      "type": "interpretation",
+      "difficulty": "medium",
+      "question": "Given that HBB (hemoglobin beta) shows log2FC = -1.2 at R+1 but log2FC = -0.1 at R+39, what temporal pattern does this represent and what is its physiological significance?",
+      "expected_answer": "This represents a transient response pattern - acute suppression immediately post-flight with recovery to baseline by ~40 days. Physiologically, this indicates that erythropoietic suppression is an adaptive response to microgravity that reverses upon return to Earth gravity, consistent with the known space anemia recovery timeline.",
+      "scoring": {
+        "identifies_transient": 0.4,
+        "explains_recovery": 0.3,
+        "physiological_context": 0.3
+      },
+      "requires_data": false
+    },
+    {
+      "id": "TX_006",
+      "type": "reasoning",
+      "difficulty": "hard",
+      "question": "A machine learning model achieves 43% direction prediction accuracy when trained on Polaris Dawn (p<0.05 genes) and tested on Inspiration4. The accuracy improves to 60% when restricted to p<0.001 genes. Explain this observation.",
+      "expected_answer": "More stringent p-value thresholds select for genes with stronger, more reproducible signals that are more likely to represent true biological effects rather than noise. At p<0.05, many genes are false positives or have effects too small to replicate. At p<0.001, only genes with robust effects remain, which are more likely to show consistent direction across missions. This demonstrates the noise-signal tradeoff in small-sample studies.",
+      "scoring": {
+        "explains_stringency": 0.3,
+        "mentions_noise_filtering": 0.3,
+        "connects_to_reproducibility": 0.4
+      },
+      "requires_data": false
+    },
+    {
+      "id": "TX_007",
+      "type": "hypothesis",
+      "difficulty": "hard",
+      "question": "Based on the observed erythroid suppression in cfRNA, propose a testable hypothesis about EPO (erythropoietin) levels during spaceflight and describe what data would be needed to test it.",
+      "expected_answer": "Hypothesis: Plasma EPO levels are reduced during spaceflight, preceding the observed reduction in erythroid cfRNA. Testing requires: 1) Serial EPO measurements (pre-flight, in-flight, post-flight), 2) Correlation analysis between EPO and erythroid gene expression, 3) Time-lag analysis to establish temporal precedence. Expected result: EPO reduction at earlier timepoint predicts subsequent erythroid gene suppression.",
+      "scoring": {
+        "clear_hypothesis": 0.3,
+        "specifies_measurements": 0.3,
+        "describes_analysis": 0.4
+      },
+      "requires_data": false
+    },
+    {
+      "id": "TX_008",
+      "type": "experimental_design",
+      "difficulty": "hard",
+      "question": "Design a validation study to confirm whether the 26 conserved genes identified across missions represent reliable spaceflight biomarkers. Include sample size justification.",
+      "expected_answer": "Design: Prospective cohort study on new commercial spaceflight mission. Collect plasma samples at L-30, R+1, R+7, R+30, R+90. Target: 26-gene qPCR panel. Sample size: 10 crew members provides 80% power to detect effect size d=1.0 at alpha=0.05 for paired comparison. Controls: Within-subject baseline. Validation criteria: >70% genes showing same direction, correlation r>0.7 with RNA-seq in subset of samples.",
+      "scoring": {
+        "appropriate_design": 0.25,
+        "timepoints_justified": 0.25,
+        "sample_size_rationale": 0.25,
+        "validation_criteria": 0.25
+      },
+      "requires_data": false
+    },
+    {
+      "id": "TX_009",
+      "type": "interpretation",
+      "difficulty": "medium",
+      "question": "The cfRNA analysis shows that Polaris Dawn has 5,346 detected genes while Inspiration4 has 60,708 genes. What might explain this difference and how should it be handled in cross-study comparison?",
+      "expected_answer": "Differences likely due to: 1) Different sequencing depth, 2) Different filtering thresholds, 3) Different analysis pipelines. Handling: Use only the 5,325 genes common to both datasets for cross-study comparison. This ensures fair comparison but may miss genes only detected in the larger dataset. Sensitivity analysis could examine genes unique to each dataset.",
+      "scoring": {
+        "identifies_technical_reasons": 0.3,
+        "recommends_intersection": 0.4,
+        "acknowledges_limitation": 0.3
+      },
+      "requires_data": false
+    },
+    {
+      "id": "TX_010",
+      "type": "reasoning",
+      "difficulty": "medium",
+      "question": "Why is cfRNA (cell-free RNA) particularly useful for spaceflight monitoring compared to whole blood RNA-seq?",
+      "expected_answer": "cfRNA advantages: 1) Non-invasive (plasma vs. blood draw with cell separation), 2) Reflects systemic tissue damage/turnover from multiple organs, 3) Captures signals from tissues not accessible by blood cells (liver, muscle, etc.), 4) Less affected by blood cell composition changes during spaceflight, 5) Smaller sample volume required for repeat sampling.",
+      "scoring": {
+        "mentions_non_invasive": 0.2,
+        "mentions_tissue_coverage": 0.3,
+        "mentions_practical_aspects": 0.2,
+        "contrasts_with_whole_blood": 0.3
+      },
+      "requires_data": false
+    },
+    {
+      "id": "TX_011",
+      "type": "factual",
+      "difficulty": "easy",
+      "question": "What does a negative log2 fold change indicate for a gene's expression?",
+      "expected_answer": "A negative log2 fold change indicates the gene is downregulated (lower expression) in the experimental condition compared to the control/baseline. For example, log2FC = -1 means expression is halved (2^-1 = 0.5x).",
+      "scoring": {
+        "correct_direction": 0.5,
+        "provides_example": 0.5
+      },
+      "requires_data": false
+    },
+    {
+      "id": "TX_012",
+      "type": "reasoning",
+      "difficulty": "hard",
+      "question": "The DNA repair gene XRCC1 shows upregulation in cfRNA after spaceflight. What biological mechanism might this reflect, and what other data would help confirm this hypothesis?",
+      "expected_answer": "XRCC1 upregulation suggests increased DNA repair activity, likely in response to cosmic radiation exposure during spaceflight. Supporting data: 1) Gamma-H2AX foci (DNA damage marker) in blood cells, 2) Correlation with mission altitude/radiation dose, 3) Comet assay for DNA strand breaks, 4) Other DNA repair genes (BRCA1, ATM) expression patterns. If radiation-driven, expect dose-response relationship.",
+      "scoring": {
+        "identifies_radiation_mechanism": 0.3,
+        "suggests_supporting_data": 0.4,
+        "mentions_dose_response": 0.3
+      },
+      "requires_data": false
+    },
+    {
+      "id": "TX_013",
+      "type": "interpretation",
+      "difficulty": "medium",
+      "question": "Looking at the temporal classification results, 50% of genes are classified as 'Non_Responders' while only 0.5% are 'Transient_Concordant'. What does this distribution tell us about spaceflight effects on the transcriptome?",
+      "expected_answer": "This distribution indicates: 1) Most of the transcriptome is unaffected by short-duration spaceflight, 2) Only a small subset of genes show robust, reproducible responses, 3) The genes that do respond tend to be pathway-specific (e.g., erythroid), 4) High noise-to-signal ratio requires careful statistical filtering, 5) Targeted biomarker panels may be more useful than genome-wide profiling.",
+      "scoring": {
+        "identifies_selective_response": 0.3,
+        "discusses_noise": 0.3,
+        "practical_implications": 0.4
+      },
+      "requires_data": false
+    },
+    {
+      "id": "TX_014",
+      "type": "hypothesis",
+      "difficulty": "hard",
+      "question": "Given the strong erythroid suppression signature, propose a mechanistic hypothesis that explains why this would be adaptive in microgravity.",
+      "expected_answer": "Hypothesis: Erythroid suppression is an adaptive response to fluid shift. In microgravity, fluid redistributes from legs to upper body, increasing central blood volume. Baroreceptors sense this as volume overload and suppress erythropoietin production via kidney signaling. Reduced erythropoiesis corrects the perceived 'plethora' and reduces blood viscosity, which may help cardiac function in the altered hemodynamic environment.",
+      "scoring": {
+        "mentions_fluid_shift": 0.3,
+        "connects_to_epo": 0.3,
+        "explains_adaptive_value": 0.4
+      },
+      "requires_data": false
+    },
+    {
+      "id": "TX_015",
+      "type": "experimental_design",
+      "difficulty": "medium",
+      "question": "How would you design a ground-based analog study to test whether head-down bed rest reproduces the erythroid cfRNA signature observed in spaceflight?",
+      "expected_answer": "Design: Controlled bed rest study, 6-degree head-down tilt for 14 days. Collect plasma cfRNA at days -7, 0, +1, +3, +7, +14, and +30 (recovery). n=15 healthy volunteers. Controls: Ambulatory controls or within-subject baseline. Endpoints: 17-gene erythroid panel expression by qPCR and full cfRNA-seq. Success criterion: >50% erythroid genes showing same direction as spaceflight data by day 14.",
+      "scoring": {
+        "appropriate_analog": 0.25,
+        "reasonable_timepoints": 0.25,
+        "adequate_sample_size": 0.25,
+        "clear_endpoints": 0.25
+      },
+      "requires_data": false
+    },
+    {
+      "id": "TX_016",
+      "type": "factual",
+      "difficulty": "easy",
+      "question": "What is the purpose of the Benjamini-Hochberg correction applied to p-values in differential expression analysis?",
+      "expected_answer": "Benjamini-Hochberg correction controls the false discovery rate (FDR) when performing multiple statistical tests. In gene expression analysis with thousands of genes, many would appear significant by chance (5% at p<0.05). The correction adjusts p-values (producing 'padj') to account for multiple testing while being less conservative than Bonferroni correction.",
+      "scoring": {
+        "mentions_FDR": 0.4,
+        "explains_multiple_testing": 0.4,
+        "practical_context": 0.2
+      },
+      "requires_data": false
+    },
+    {
+      "id": "TX_017",
+      "type": "reasoning",
+      "difficulty": "medium",
+      "question": "Why might paired analysis (comparing each astronaut to their own pre-flight baseline) be preferred over unpaired analysis for spaceflight differential expression?",
+      "expected_answer": "Paired analysis advantages: 1) Controls for inter-individual variation in baseline expression, 2) Increases statistical power by reducing noise, 3) Each astronaut serves as their own control, 4) Especially important with small sample sizes (n=4) where individual variation can dominate. Limitation: Requires matched pre/post samples from same individuals.",
+      "scoring": {
+        "mentions_individual_variation": 0.3,
+        "mentions_power": 0.3,
+        "notes_sample_size": 0.2,
+        "acknowledges_limitation": 0.2
+      },
+      "requires_data": false
+    },
+    {
+      "id": "TX_018",
+      "type": "interpretation",
+      "difficulty": "hard",
+      "question": "The ensemble biomarker score combines magnitude (40%), significance (30%), and concordance (30%). Critique this weighting scheme and propose an alternative if you disagree.",
+      "expected_answer": "Critique: Concordance should perhaps be weighted higher since reproducibility is the key criterion for a biomarker. Alternative weighting: Concordance 50%, Magnitude 30%, Significance 20%. Rationale: A gene that is consistently altered across missions (even if modestly) is more reliable than a large-magnitude change seen in only one study. Significance can be inflated by large sample sizes and doesn't guarantee biological relevance.",
+      "scoring": {
+        "thoughtful_critique": 0.4,
+        "provides_alternative": 0.3,
+        "justifies_reasoning": 0.3
+      },
+      "requires_data": false
+    },
+    {
+      "id": "TX_019",
+      "type": "factual",
+      "difficulty": "easy",
+      "question": "What type of RNA does cfRNA-seq primarily detect, and what are the main cellular sources of cfRNA in plasma?",
+      "expected_answer": "cfRNA includes mRNA, miRNA, and other RNA species released from cells into plasma. Main sources: 1) Apoptotic/necrotic cells releasing RNA during death, 2) Active secretion in extracellular vesicles (exosomes), 3) Blood cells (especially erythroid precursors, platelets), 4) Solid tissues experiencing turnover (liver, muscle, endothelium).",
+      "scoring": {
+        "identifies_rna_types": 0.3,
+        "mentions_cell_death": 0.3,
+        "lists_tissue_sources": 0.4
+      },
+      "requires_data": false
+    },
+    {
+      "id": "TX_020",
+      "type": "reasoning",
+      "difficulty": "hard",
+      "question": "How would you approach the problem of batch effects when combining cfRNA data from Polaris Dawn and Inspiration4, which were processed by different labs?",
+      "expected_answer": "Approach: 1) First assess batch effect severity (PCA, clustering by lab), 2) Apply ComBat or limma::removeBatchEffect for linear correction, 3) Alternatively, analyze each mission separately and combine at the summary statistic level (meta-analysis approach), 4) Use matched samples if available as positive controls, 5) Validate that biological signal (erythroid signature) is preserved after correction. Caution: Over-correction can remove true biological differences between missions.",
+      "scoring": {
+        "mentions_assessment": 0.2,
+        "suggests_methods": 0.3,
+        "meta_analysis_option": 0.2,
+        "mentions_validation": 0.3
+      },
+      "requires_data": false
+    },
+    {
+      "id": "TX_021",
+      "type": "interpretation",
+      "difficulty": "medium",
+      "question": "What are the limitations of using cfRNA-seq for spaceflight biomarker discovery compared to direct tissue biopsy?",
+      "expected_answer": "Limitations: 1) cfRNA represents a mixture of all tissues, diluting tissue-specific signals, 2) Cannot determine which tissue is source of specific gene changes, 3) Affected by blood sample processing and storage, 4) Lower abundance requires more sequencing depth, 5) RNA degradation during sample handling. However, cfRNA is more practical than biopsy for serial monitoring during missions.",
+      "scoring": {
+        "mentions_tissue_mixing": 0.3,
+        "mentions_technical_issues": 0.3,
+        "acknowledges_tradeoff": 0.4
+      },
+      "requires_data": false
+    },
+    {
+      "id": "TX_022",
+      "type": "hypothesis",
+      "difficulty": "medium",
+      "question": "If a new commercial mission to higher altitude (longer duration in Van Allen belts) shows stronger DNA repair gene upregulation, what would this suggest about cfRNA as a radiation biodosimeter?",
+      "expected_answer": "This would suggest cfRNA DNA repair signature could serve as a non-invasive radiation biodosimeter. If correlation between radiation dose and gene expression is robust, the signature could: 1) Estimate cumulative radiation exposure, 2) Identify individuals with higher sensitivity, 3) Guide countermeasure interventions. Would need validation with physical dosimetry and longer missions with varying exposure levels.",
+      "scoring": {
+        "identifies_biodosimeter_potential": 0.3,
+        "mentions_dose_response": 0.3,
+        "discusses_applications": 0.4
+      },
+      "requires_data": false
+    },
+    {
+      "id": "TX_023",
+      "type": "experimental_design",
+      "difficulty": "hard",
+      "question": "Design a machine learning experiment to test whether adding cfRNA features to clinical biomarkers improves phase classification performance. Specify your cross-validation strategy.",
+      "expected_answer": "Experiment: Compare three models: 1) Clinical only (34 features), 2) cfRNA only (500 features), 3) Combined (534 features). Methods: Logistic regression, Random Forest, XGBoost. Cross-validation: Leave-One-Crew-Out to prevent data leakage, nested CV for hyperparameter tuning. Metrics: F1 score, balanced accuracy. Statistical test: Paired t-test across folds. Key consideration: Regularization for combined model to prevent overfitting on high-dimensional cfRNA features.",
+      "scoring": {
+        "clear_comparison": 0.25,
+        "appropriate_cv": 0.25,
+        "mentions_regularization": 0.25,
+        "statistical_testing": 0.25
+      },
+      "requires_data": false
+    },
+    {
+      "id": "TX_024",
+      "type": "factual",
+      "difficulty": "easy",
+      "question": "What is DESeq2 and why is it commonly used for cfRNA-seq differential expression analysis?",
+      "expected_answer": "DESeq2 is a statistical method for differential expression analysis of RNA-seq count data. It's preferred because: 1) Models count data with negative binomial distribution, 2) Provides robust normalization (median-of-ratios), 3) Handles small sample sizes with shrinkage estimators for fold changes, 4) Accounts for gene-specific dispersion, 5) Outputs adjusted p-values for multiple testing.",
+      "scoring": {
+        "correct_description": 0.3,
+        "mentions_statistical_model": 0.3,
+        "mentions_small_sample_handling": 0.4
+      },
+      "requires_data": false
+    },
+    {
+      "id": "TX_025",
+      "type": "reasoning",
+      "difficulty": "medium",
+      "question": "Why might recovery timepoint data (R+39/R+45) be important for distinguishing adaptive from maladaptive spaceflight responses?",
+      "expected_answer": "Recovery data is crucial because: 1) Transient changes that normalize suggest adaptive responses to microgravity, 2) Persistent changes may indicate lasting damage or slow recovery, 3) Helps distinguish acute stress response from chronic pathology, 4) Informs return-to-duty decisions for astronauts, 5) Recovery kinetics could predict individual susceptibility to long-duration missions.",
+      "scoring": {
+        "distinguishes_transient_persistent": 0.3,
+        "clinical_implications": 0.3,
+        "mentions_individual_variation": 0.4
+      },
+      "requires_data": false
+    },
+    {
+      "id": "TX_026",
+      "type": "interpretation",
+      "difficulty": "hard",
+      "question": "The Random Forest feature importance analysis shows that 'LFC_magnitude' is the most important feature for predicting concordance. What does this imply about biomarker selection strategy?",
+      "expected_answer": "This implies: 1) Genes with larger fold changes are more likely to replicate across studies, 2) Effect size may be more important than statistical significance for reproducibility, 3) Biomarker selection should prioritize magnitude over p-value when sample sizes are small, 4) May reflect signal-to-noise ratio - larger effects are detectable above noise. Strategy: Use magnitude-based filtering before statistical testing.",
+      "scoring": {
+        "interprets_correctly": 0.3,
+        "discusses_effect_size": 0.3,
+        "practical_recommendation": 0.4
+      },
+      "requires_data": false
+    },
+    {
+      "id": "TX_027",
+      "type": "hypothesis",
+      "difficulty": "medium",
+      "question": "Propose how you would use cfRNA signatures to predict which astronauts might be more susceptible to space anemia on long-duration missions.",
+      "expected_answer": "Approach: 1) Measure baseline pre-flight cfRNA erythroid signature, 2) Assess baseline erythropoietic reserve markers, 3) Correlate R+1 erythroid suppression magnitude with pre-flight profile, 4) Build predictive model: pre-flight features \u2192 post-flight erythroid response. Hypothesis: Individuals with lower baseline erythroid cfRNA or variant EPO response genes may show greater susceptibility. Validate on subsequent missions.",
+      "scoring": {
+        "baseline_measurement": 0.3,
+        "correlation_approach": 0.3,
+        "predictive_framework": 0.4
+      },
+      "requires_data": false
+    },
+    {
+      "id": "TX_028",
+      "type": "factual",
+      "difficulty": "easy",
+      "question": "What is a volcano plot and what information does it convey about differential expression results?",
+      "expected_answer": "A volcano plot visualizes differential expression results with log2 fold change on x-axis and -log10(p-value) on y-axis. Each point is a gene. It shows: 1) Magnitude of change (horizontal), 2) Statistical significance (vertical), 3) Up- vs down-regulated genes (left vs right), 4) Significance thresholds (horizontal/vertical lines), 5) Outlier genes of interest in upper corners.",
+      "scoring": {
+        "correct_axes": 0.4,
+        "interpretation": 0.4,
+        "identifies_regions": 0.2
+      },
+      "requires_data": false
+    },
+    {
+      "id": "TX_029",
+      "type": "reasoning",
+      "difficulty": "hard",
+      "question": "How would you address the concern that the 26 conserved genes might be false positives due to chance overlap between two noisy small-sample studies?",
+      "expected_answer": "Address by: 1) Permutation testing - shuffle sample labels and recalculate overlap, compare to observed, 2) Bootstrap analysis - resample and assess stability of gene list, 3) Pathway coherence - true positives should cluster in biologically related pathways (erythroid genes do), 4) External validation - compare to published spaceflight datasets, 5) Literature support - many genes have prior spaceflight/anemia associations. If observed overlap >> permutation null, confidence increases.",
+      "scoring": {
+        "permutation_testing": 0.3,
+        "pathway_coherence": 0.3,
+        "external_validation": 0.4
+      },
+      "requires_data": false
+    },
+    {
+      "id": "TX_030",
+      "type": "experimental_design",
+      "difficulty": "hard",
+      "question": "Design a study to determine whether the erythroid cfRNA changes observed in commercial spaceflight (3 days) scale with mission duration. What challenges would you anticipate?",
+      "expected_answer": "Design: Compare cfRNA across missions of varying duration (3 days, 2 weeks, 6 months ISS). Match sampling timepoints relative to landing (R+1, R+7, etc.). Challenges: 1) Confounded by mission type differences (vehicle, altitude, activities), 2) Limited sample size especially for long missions, 3) Different baseline populations (tourists vs. professional astronauts), 4) May need to control for countermeasures (exercise, nutrition), 5) Nonlinear relationship possible (plateau or adaptation). Analysis: Mixed-effects model with duration as continuous predictor.",
+      "scoring": {
+        "comparative_design": 0.25,
+        "identifies_challenges": 0.35,
+        "statistical_approach": 0.25,
+        "practical_considerations": 0.15
+      },
+      "requires_data": false
+    },
+    {
+      "id": "TQ31",
+      "category": "cross_mission",
+      "difficulty": "medium",
+      "question": "The cross-mission correlation of gene expression fold changes between Polaris Dawn and Inspiration4 is r = -0.02 (p = 0.11). Given that direction concordance is only 46.4%, how should researchers interpret biomarker discovery from a single mission?",
+      "expected_reasoning": [
+        "Near-zero correlation indicates mission-specific effects dominate",
+        "46.4% concordance is close to random chance (50%)",
+        "Single-mission findings may not generalize",
+        "Multi-mission validation is essential before clinical translation",
+        "Technical and biological batch effects may contribute"
+      ],
+      "data_source": "cfrna_crossmission_r1.csv"
+    },
+    {
+      "id": "TQ32",
+      "category": "erythroid",
+      "difficulty": "medium",
+      "question": "Erythroid genes (HBB, ANK1, EPB42, etc.) show 75% direction concordance across missions compared to 46% for all genes. What does this differential concordance rate tell us about the space anemia signature?",
+      "expected_reasoning": [
+        "75% vs 46% suggests erythroid changes are conserved spaceflight response",
+        "Space anemia is a robust biological phenomenon",
+        "Non-erythroid genes show more mission-specific variation",
+        "Erythroid signature could be a reliable biomarker",
+        "Statistical significance of this difference should be tested"
+      ],
+      "data_source": "Real concordance analysis"
+    },
+    {
+      "id": "TQ33",
+      "category": "temporal",
+      "difficulty": "hard",
+      "question": "At R+1, Polaris Dawn shows 9 DEGs (padj<0.10), but by R+39, there are 0 DEGs. Of the 9 R+1 DEGs, 5 normalized (|lfc| reduced >50%) while 4 persisted. What experimental design would you recommend to better characterize recovery kinetics?",
+      "expected_reasoning": [
+        "Current sampling misses the recovery trajectory between R+1 and R+39",
+        "Recommend intermediate timepoints: R+7, R+14, R+21",
+        "Individual tracking would reveal crew-specific patterns",
+        "Distinguish true normalization from regression to mean",
+        "Power analysis needed given small effect sizes at R+39"
+      ],
+      "data_source": "cfrna_temporal_pd.csv"
+    },
+    {
+      "id": "TQ34",
+      "category": "deg_analysis",
+      "difficulty": "hard",
+      "question": "FHDC1 is the top DEG in Polaris Dawn (padj=0.005, log2FC=-1.72) but shows no significant change in Inspiration4 (log2FC=+0.12). What factors could explain this discrepancy, and how does it affect biomarker validation?",
+      "expected_reasoning": [
+        "Mission-specific factors: EVA in PD, different mission durations",
+        "Technical differences: different sequencing protocols, analysis pipelines",
+        "Statistical power: different sample sizes or variance",
+        "Biological variation: individual crew member effects",
+        "FHDC1 may be PD-specific or a false positive",
+        "Validation in additional missions is required"
+      ],
+      "data_source": "Real DEG data"
+    },
+    {
+      "id": "TQ35",
+      "category": "mechanistic",
+      "difficulty": "hard",
+      "question": "The most consistently downregulated genes across both missions include EPB42 (erythrocyte membrane protein band 4.2), ANK1 (ankyrin 1), and HBD (hemoglobin subunit delta). What mechanistic pathway connects these genes, and how does it relate to known spaceflight physiology?",
+      "expected_reasoning": [
+        "All three are erythroid-specific genes expressed in red blood cells",
+        "EPB42 and ANK1 are structural membrane proteins",
+        "HBD is part of adult hemoglobin (HbA2)",
+        "Downregulation suggests reduced erythropoiesis or increased RBC destruction",
+        "Consistent with 'space anemia' - neocytolysis and reduced RBC production",
+        "cfRNA from degrading RBCs would show this pattern"
+      ],
+      "data_source": "Conserved biomarker analysis"
+    },
+    {
+      "id": "TQ36",
+      "category": "statistics",
+      "difficulty": "expert",
+      "question": "With only 9 DEGs at padj<0.10 in Polaris Dawn R+1 vs Pre-flight, how do you interpret the use of paired vs unpaired analysis? The paired analysis was used - what are the implications?",
+      "expected_reasoning": [
+        "Paired analysis controls for individual baseline variation",
+        "With n=4 crew members, pairing increases statistical power",
+        "Unpaired would have more degrees of freedom but more noise",
+        "9 DEGs with strict threshold suggests conservative analysis",
+        "False discovery rate of 10% means ~1 DEG could be false positive",
+        "Small number of DEGs may reflect true biology or low power"
+      ],
+      "data_source": "DEG analysis methodology"
+    },
+    {
+      "id": "TQ37",
+      "category": "clinical_integration",
+      "difficulty": "expert",
+      "question": "Clinical data shows NLR increases 52% in Polaris Dawn while absolute lymphocytes decrease 40%. The transcriptomic data shows immune-related genes with mixed direction (some up, some down). How would you integrate these multi-modal findings?",
+      "expected_reasoning": [
+        "NLR increase reflects neutrophil/lymphocyte redistribution",
+        "cfRNA captures different cell populations than CBC",
+        "Mixed immune gene expression may reflect cell type composition changes",
+        "Need cell-type deconvolution of cfRNA data",
+        "Clinical measures are functional; transcriptomics is mechanistic",
+        "Integration requires careful matching of biological compartments"
+      ],
+      "data_source": "Clinical + transcriptomic data"
+    },
+    {
+      "id": "TQ38",
+      "category": "biomarker",
+      "difficulty": "medium",
+      "question": "EPB42 shows the largest effect size in Polaris Dawn (log2FC = -4.17) and is also downregulated in Inspiration4 (log2FC = -1.21). Calculate the fold change in linear scale and discuss whether EPB42 could serve as a spaceflight biomarker.",
+      "expected_reasoning": [
+        "PD: 2^(-4.17) = 0.056, ~18-fold decrease",
+        "I4: 2^(-1.21) = 0.43, ~2.3-fold decrease",
+        "Consistent direction supports biomarker potential",
+        "Different magnitudes may reflect mission duration or individual variation",
+        "EPB42 is erythrocyte-specific - high specificity",
+        "Would need RT-qPCR validation for clinical use"
+      ],
+      "data_source": "EPB42 data"
+    },
+    {
+      "id": "TQ39",
+      "category": "interpretation",
+      "difficulty": "medium",
+      "question": "LCAT (log2FC = +5.06 in PD, +2.17 in I4) and CACNG2 (log2FC = +4.81 in PD, +2.57 in I4) are among the most consistently upregulated genes. LCAT is involved in cholesterol metabolism and CACNG2 in calcium channel regulation. What spaceflight-relevant processes might these reflect?",
+      "expected_reasoning": [
+        "LCAT upregulation may reflect altered lipid metabolism in microgravity",
+        "Cholesterol trafficking changes during spaceflight",
+        "CACNG2 could relate to altered calcium homeostasis",
+        "Muscle and bone metabolism involve calcium signaling",
+        "Both could be stress response genes",
+        "Need pathway enrichment analysis to confirm"
+      ],
+      "data_source": "Consistently upregulated genes"
+    },
+    {
+      "id": "TQ40",
+      "category": "data_quality",
+      "difficulty": "hard",
+      "question": "Inspiration4 shows 85 DEGs at R+1 (padj<0.10) while Polaris Dawn shows only 9. What factors could explain this 9-fold difference in DEG counts between missions?",
+      "expected_reasoning": [
+        "Sample size differences affecting statistical power",
+        "Different analysis pipelines or thresholds",
+        "Mission duration (3 days vs 5 days)",
+        "EVA in Polaris Dawn may increase variance",
+        "Different sequencing depth or quality",
+        "Biological: more individual variation in one mission",
+        "Need to compare effect size distributions, not just DEG counts"
+      ],
+      "data_source": "DEG comparison"
+    }
+  ]
+}

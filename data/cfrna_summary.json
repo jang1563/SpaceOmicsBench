@@ -1,0 +1,24 @@
+{
+  "n_common_genes": 5346,
+  "cross_mission_correlation": {
+    "pearson_r": -0.021738773726772034,
+    "pearson_p": 0.11199814021666804,
+    "spearman_rho": -0.08060760336793646,
+    "spearman_p": 3.5920679541626046e-09
+  },
+  "direction_concordance": 0.46352413019079686,
+  "degs": {
+    "PD_R1_padj_0.05": 6,
+    "PD_R1_padj_0.10": 9,
+    "PD_R39_padj_0.10": 0,
+    "I4_FP1_padj_0.05": 35,
+    "I4_FP1_padj_0.10": 55
+  },
+  "erythroid_concordance": 0.75,
+  "key_findings": [
+    "Near-zero cross-mission correlation indicates mission-specific effects dominate",
+    "Erythroid genes show high concordance (space anemia signature)",
+    "R+39 shows no DEGs - transient transcriptional response",
+    "Most R+1 changes normalize by recovery timepoint"
+  ]
+}

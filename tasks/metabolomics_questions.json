@@ -1,0 +1,134 @@
+{
+  "metadata": {
+    "modality": "metabolomics",
+    "n_questions": 25,
+    "based_on": "real cross-mission analysis"
+  },
+  "questions": [
+    {
+      "id": "MQ1",
+      "difficulty": "easy",
+      "question": "The cross-mission metabolomics correlation is r=0.40 while transcriptomics shows r=-0.02. What does this suggest about the relative conservation of metabolic vs transcriptional responses to spaceflight?"
+    },
+    {
+      "id": "MQ2",
+      "difficulty": "easy",
+      "question": "Caffeine, theobromine, and paraxanthine all show consistent downregulation in both missions. Given these are dietary metabolites, how should this finding be interpreted?"
+    },
+    {
+      "id": "MQ3",
+      "difficulty": "medium",
+      "question": "Corticosterone shows concordant upregulation (PD: +0.60, I4: +0.54 log2FC). How does this relate to the NLR (neutrophil-to-lymphocyte ratio) increases observed in clinical data?"
+    },
+    {
+      "id": "MQ4",
+      "difficulty": "medium",
+      "question": "Quinic acid shows the largest concordant downregulation (PD: -3.74, I4: -2.51 log2FC). What dietary sources contain quinic acid, and what might explain this change?"
+    },
+    {
+      "id": "MQ5",
+      "difficulty": "medium",
+      "question": "1-Methylnicotinamide is consistently upregulated (PD: +1.09, I4: +0.91). This metabolite is involved in NAD+ metabolism. What spaceflight stressors might drive this change?"
+    },
+    {
+      "id": "MQ6",
+      "difficulty": "hard",
+      "question": "Glycerophospholipids show 100% concordance (9/9 metabolites) while amino acids show 62% (41/66). What biological factors might explain this pathway-level difference?"
+    },
+    {
+      "id": "MQ7",
+      "difficulty": "hard",
+      "question": "Proline Betaine shows nearly identical downregulation in both missions (PD: -2.05, I4: -2.07 log2FC). This metabolite is primarily dietary. How could two independent missions show such similar changes?"
+    },
+    {
+      "id": "MQ8",
+      "difficulty": "hard",
+      "question": "2-Hydroxybutyric acid (PD: +1.26, I4: +0.41) is a marker of lipid oxidation and insulin resistance. Given spaceflight induces insulin resistance, how would you interpret this finding?"
+    },
+    {
+      "id": "MQ9",
+      "difficulty": "expert",
+      "question": "Design an analysis to distinguish metabolic changes due to: (a) controlled spaceflight diet, (b) microgravity physiology, (c) radiation exposure, (d) circadian disruption. What metabolites would serve as controls for each?"
+    },
+    {
+      "id": "MQ10",
+      "difficulty": "medium",
+      "question": "Bilirubin shows upregulation (I4: +0.61 log2FC) which should relate to the erythroid gene downregulation (HBB, HBA) seen in transcriptomics. Explain the mechanistic connection."
+    },
+    {
+      "id": "MQ11",
+      "difficulty": "medium",
+      "question": "Energy metabolism pathway shows 92% concordance (11/12 metabolites). What does this suggest about the fundamental metabolic adaptation to spaceflight?"
+    },
+    {
+      "id": "MQ12",
+      "difficulty": "hard",
+      "question": "The metabolomics correlation (r=0.40) is significantly positive while transcriptomics correlation (r=-0.02) is essentially zero. Propose three hypotheses that could explain this difference."
+    },
+    {
+      "id": "MQ13",
+      "difficulty": "easy",
+      "question": "What is the direction concordance rate for metabolomics (67%) compared to transcriptomics (46%)? Is this difference statistically significant given n=199 vs n=5346?"
+    },
+    {
+      "id": "MQ14",
+      "difficulty": "medium",
+      "question": "N-Acetylglycine shows concordant upregulation (PD: +0.57, I4: +0.46). This metabolite is involved in glycine conjugation and detoxification. What might this suggest about spaceflight stress?"
+    },
+    {
+      "id": "MQ15",
+      "difficulty": "hard",
+      "question": "4-Hydroxy-Proline shows consistent elevation (PD: +0.44, I4: +0.45). This is a collagen degradation marker. How does this relate to known musculoskeletal effects of spaceflight?"
+    },
+    {
+      "id": "MQ16",
+      "difficulty": "expert",
+      "question": "PC 44:10 (phosphatidylcholine) shows upregulation. Given the glycerophosphocholine pathway shows 80% concordance, what does this suggest about membrane lipid remodeling in spaceflight?"
+    },
+    {
+      "id": "MQ17",
+      "difficulty": "medium",
+      "question": "Hippuric acid shows downregulation (PD: -2.39, I4: -0.78). This is a gut microbiome-derived metabolite. What does this suggest about spaceflight effects on the gut microbiome?"
+    },
+    {
+      "id": "MQ18",
+      "difficulty": "hard",
+      "question": "Compare the temporal recovery patterns between metabolomics and transcriptomics. The cfRNA data shows 0 DEGs at R+39. What would you expect for metabolomics recovery?"
+    },
+    {
+      "id": "MQ19",
+      "difficulty": "easy",
+      "question": "Polaris Dawn has 634 metabolites while Inspiration4 has 454. Only 199 are common. What factors might explain the different metabolite coverage between missions?"
+    },
+    {
+      "id": "MQ20",
+      "difficulty": "medium",
+      "question": "Xanthine shows upregulation (PD: +0.07, I4: +1.02). This is a purine degradation product. Given the DNA damage/repair genes are upregulated in transcriptomics, is this consistent?"
+    },
+    {
+      "id": "MQ21",
+      "difficulty": "hard",
+      "question": "Succinic acid (TCA cycle intermediate) shows upregulation in PD (+1.12) but not I4 (+0.00). How should discordant metabolites be interpreted in the context of biomarker discovery?"
+    },
+    {
+      "id": "MQ22",
+      "difficulty": "expert",
+      "question": "Design a multi-omics integration analysis that combines: NLR increase (clinical), erythroid gene downregulation (transcriptomics), and corticosterone/bilirubin changes (metabolomics) into a unified spaceflight stress score."
+    },
+    {
+      "id": "MQ23",
+      "difficulty": "medium",
+      "question": "Trigonelline shows consistent downregulation (PD: -2.95, I4: -1.46). This is found in coffee and fenugreek. Is this likely a spaceflight physiological response or dietary artifact?"
+    },
+    {
+      "id": "MQ24",
+      "difficulty": "hard",
+      "question": "The fact that dietary metabolites (caffeine, theobromine) show consistent changes across missions suggests standardized diets. How does this affect interpretation of other metabolite changes?"
+    },
+    {
+      "id": "MQ25",
+      "difficulty": "medium",
+      "question": "Creatinine shows concordant changes. Given it's a muscle metabolism marker, how does this relate to muscle atrophy observed in spaceflight, and would you expect it to correlate with clinical muscle markers?"
+    }
+  ]
+}

@@ -1,0 +1,336 @@
+{
+  "task1": {
+    "task_id": "task1_phase_classification",
+    "task_name": "Spaceflight Phase Classification",
+    "task_type": "multi_class_classification",
+    "difficulty": "easy",
+    "description": "\n    Classify blood biomarker samples into spaceflight phases: \n    baseline (pre-flight), post_flight (immediate post-landing), or recovery.\n    This tests basic pattern recognition in physiological data.\n    ",
+    "input_spec": {
+      "features": "34 common analytes + 5 derived features (NLR, PLR, immune_stress, liver_stress, rbc_health)",
+      "feature_count": 39,
+      "normalization": "z-score standardization recommended",
+      "missing_handling": "mean imputation or model-specific handling"
+    },
+    "output_spec": {
+      "type": "categorical",
+      "classes": [
+        "baseline",
+        "post_flight",
+        "recovery"
+      ],
+      "class_encoding": {
+        "baseline": 0,
+        "post_flight": 1,
+        "recovery": 2
+      },
+      "format": "single integer label OR probability distribution over 3 classes"
+    },
+    "evaluation_metrics": {
+      "primary": "macro_f1",
+      "secondary": [
+        "accuracy",
+        "per_class_f1",
+        "confusion_matrix"
+      ],
+      "calibration": "expected_calibration_error (ECE)",
+      "uncertainty": "brier_score"
+    },
+    "splits": {
+      "default": "stratified_kfold_5",
+      "challenge": "leave_one_mission_out (LOMO)"
+    },
+    "baselines": {
+      "random": "~0.33 accuracy",
+      "majority": "~0.40 accuracy (baseline class)",
+      "target_good": ">0.70 macro_f1",
+      "target_excellent": ">0.85 macro_f1"
+    },
+    "notes": [
+      "Exclude 'other' phase samples (intermediate timepoints)",
+      "C003 L-92 anomalies should be handled (excluded or flagged)",
+      "Class imbalance exists: more baseline samples than recovery"
+    ]
+  },
+  "task2": {
+    "task_id": "task2_cross_mission_generalization",
+    "task_name": "Cross-Mission Generalization (LOMO)",
+    "task_type": "ood_evaluation",
+    "difficulty": "hard",
+    "description": "\n    Evaluate model ability to generalize across missions.\n    Train on 2 missions, test on held-out mission.\n    This is the signature OOD task for SpaceOmicsBench.\n    ",
+    "protocol": {
+      "type": "leave_one_mission_out",
+      "folds": [
+        {
+          "train": [
+            "Inspiration4",
+            "Polaris Dawn"
+          ],
+          "test": [
+            "Fram2"
+          ]
+        },
+        {
+          "train": [
+            "Inspiration4",
+            "Fram2"
+          ],
+          "test": [
+            "Polaris Dawn"
+          ]
+        },
+        {
+          "train": [
+            "Polaris Dawn",
+            "Fram2"
+          ],
+          "test": [
+            "Inspiration4"
+          ]
+        }
+      ],
+      "task": "phase_classification"
+    },
+    "input_spec": {
+      "features": "same as task1",
+      "note": "Models should NOT use mission identity as a feature"
+    },
+    "output_spec": {
+      "type": "categorical",
+      "classes": [
+        "baseline",
+        "post_flight",
+        "recovery"
+      ]
+    },
+    "evaluation_metrics": {
+      "primary": "generalization_gap",
+      "definition": "generalization_gap = mean(train_accuracy) - mean(test_accuracy)",
+      "secondary": [
+        "per_mission_accuracy",
+        "worst_case_accuracy"
+      ],
+      "robustness": "std_across_folds"
+    },
+    "baselines": {
+      "target_gap_small": "<0.15 generalization gap",
+      "target_gap_good": "<0.10 generalization gap",
+      "worst_case_threshold": ">0.50 accuracy on worst mission"
+    },
+    "notes": [
+      "Fram2 has only 3 crew \u2192 smallest test set",
+      "Mission duration differs (3 vs 5 days) \u2192 potential confounder",
+      "Baseline timepoint differs across missions"
+    ]
+  },
+  "task3": {
+    "task_id": "task3_recovery_forecasting",
+    "task_name": "Recovery Trajectory Forecasting",
+    "task_type": "regression",
+    "difficulty": "hard",
+    "description": "\n    Given baseline + immediate post-flight (R+1) values, predict biomarker \n    values at recovery timepoint. Tests long-horizon prediction capability.\n    ",
+    "input_spec": {
+      "features": [
+        "baseline_values (34 analytes)",
+        "post_flight_values (34 analytes)",
+        "delta_baseline_to_postflight (34 values)",
+        "mission_duration_days (scalar)"
+      ],
+      "total_features": 103,
+      "note": "Input is paired: baseline + R+1 for same individual"
+    },
+    "output_spec": {
+      "type": "continuous",
+      "targets": "recovery timepoint values (34 analytes)",
+      "alternative": "recovery_index per analyte (-inf to 1)"
+    },
+    "evaluation_metrics": {
+      "primary": "mean_absolute_error",
+      "secondary": [
+        "rmse",
+        "per_analyte_mae",
+        "correlation"
+      ],
+      "clinical": "percentage_within_reference_range",
+      "ranking": "spearman_correlation_recovery_ranking"
+    },
+    "splits": {
+      "default": "leave_one_crew_out",
+      "challenge": "leave_one_mission_out"
+    },
+    "baselines": {
+      "naive_baseline": "predict baseline value (assume full recovery)",
+      "naive_postflight": "predict post_flight value (assume no recovery)",
+      "linear_interpolation": "extrapolate from baseline\u2192R+1 trend"
+    },
+    "notes": [
+      "Recovery timepoints differ: R+45 (I4), R+39 (PD), R+66 (F2)",
+      "Must normalize for timepoint differences",
+      "Some analytes recover faster than others \u2192 per-analyte evaluation important"
+    ]
+  },
+  "task4": {
+    "task_id": "task4_anomaly_detection",
+    "task_name": "Anomaly Detection and Explanation",
+    "task_type": "anomaly_detection + reasoning",
+    "difficulty": "medium",
+    "description": "\n    Identify anomalous biomarker values and provide explanations.\n    Ground truth includes known data quality issues (C003 L-92).\n    Tests both detection capability and reasoning quality.\n    ",
+    "subtasks": {
+      "4a_detection": {
+        "input": "single sample (34 analytes)",
+        "output": "binary flag per analyte (normal/anomalous)",
+        "metric": "f1_score, precision, recall"
+      },
+      "4b_explanation": {
+        "input": "flagged anomalous value + context",
+        "output": "free-text explanation of why anomalous",
+        "metric": "expert_rating (1-5 scale)"
+      }
+    },
+    "ground_truth": {
+      "known_anomalies": [
+        {
+          "mission": "Inspiration4",
+          "crew": "C003",
+          "timepoint": "L-92",
+          "analyte": "ABSOLUTE NEUTROPHILS",
+          "value": 10.1,
+          "expected_range": "2000-6000",
+          "explanation": "Likely data entry error or unit conversion issue"
+        },
+        {
+          "mission": "Inspiration4",
+          "crew": "C003",
+          "timepoint": "L-92",
+          "analyte": "PLATELET COUNT",
+          "value": 12.9,
+          "expected_range": "150-400",
+          "explanation": "Likely data entry error"
+        }
+      ],
+      "synthetic_anomalies": "Can inject additional synthetic anomalies for training"
+    },
+    "evaluation_metrics": {
+      "detection": [
+        "auroc",
+        "auprc",
+        "f1_at_threshold"
+      ],
+      "explanation": [
+        "expert_rating",
+        "factual_accuracy",
+        "completeness"
+      ]
+    },
+    "notes": [
+      "Very few ground truth anomalies \u2192 need synthetic augmentation",
+      "Explanation quality is subjective \u2192 requires expert annotation",
+      "Good for testing Claude-like reasoning capabilities"
+    ]
+  },
+  "task5": {
+    "task_id": "task5_scientific_reasoning",
+    "task_name": "Multi-Step Scientific Reasoning",
+    "task_type": "free_form_qa",
+    "difficulty": "expert",
+    "description": "\n    Answer complex scientific questions about spaceflight physiology\n    that require integrating data across missions and applying domain knowledge.\n    This is specifically designed for LLM evaluation.\n    ",
+    "question_types": {
+      "comparative": {
+        "example": "NLR increased 52% in Polaris Dawn but only 8% in Inspiration4. What mission-specific factors might explain this difference?",
+        "required_skills": [
+          "data_interpretation",
+          "hypothesis_generation",
+          "domain_knowledge"
+        ]
+      },
+      "predictive": {
+        "example": "Based on the data, which crew member is at highest risk for prolonged recovery? Justify your answer.",
+        "required_skills": [
+          "risk_stratification",
+          "evidence_synthesis",
+          "uncertainty_quantification"
+        ]
+      },
+      "counterfactual": {
+        "example": "If Inspiration4 had been 5 days instead of 3, predict the expected lymphocyte count at R+1.",
+        "required_skills": [
+          "causal_reasoning",
+          "extrapolation",
+          "uncertainty_expression"
+        ]
+      },
+      "mechanistic": {
+        "example": "Explain the physiological mechanism linking decreased lymphocytes with increased neutrophil percentage.",
+        "required_skills": [
+          "domain_knowledge",
+          "causal_chain_reasoning"
+        ]
+      }
+    },
+    "input_spec": {
+      "context": "Full dataset statistics + mission summaries",
+      "question": "Natural language question",
+      "format": "Can include specific data tables if needed"
+    },
+    "output_spec": {
+      "type": "free_text",
+      "expected_length": "2-5 paragraphs",
+      "structure": "claim + evidence + reasoning chain"
+    },
+    "evaluation_metrics": {
+      "expert_rating": {
+        "factual_accuracy": "Are stated facts correct? (1-5)",
+        "reasoning_quality": "Is the logic sound? (1-5)",
+        "completeness": "Are key factors addressed? (1-5)",
+        "uncertainty_calibration": "Appropriate hedging? (1-5)",
+        "domain_integration": "Uses relevant biology? (1-5)"
+      },
+      "automated": {
+        "claim_verification": "Check factual claims against data",
+        "consistency": "Internal logical consistency"
+      }
+    },
+    "question_bank_size": 50,
+    "notes": [
+      "Requires domain expert annotation for evaluation",
+      "No single 'correct' answer \u2192 rubric-based scoring",
+      "Tests Claude's scientific reasoning specifically"
+    ]
+  },
+  "task6": {
+    "task_id": "task6_missing_modality",
+    "task_name": "Missing Modality Imputation",
+    "task_type": "regression",
+    "difficulty": "medium",
+    "description": "\n    Given a subset of analytes (e.g., only CBC), predict missing analytes (e.g., CMP).\n    Tests ability to leverage biological correlation structure.\n    ",
+    "scenarios": {
+      "cbc_to_cmp": {
+        "input": "20 CBC analytes",
+        "output": "14 CMP analytes",
+        "rationale": "CBC often available first; CMP requires different assay"
+      },
+      "partial_panel": {
+        "input": "randomly masked 50% of analytes",
+        "output": "masked analytes",
+        "rationale": "General imputation capability"
+      },
+      "key_markers_only": {
+        "input": "5 key markers (WBC, RBC, HGB, PLT, GLU)",
+        "output": "remaining 29 analytes",
+        "rationale": "Minimum viable panel"
+      }
+    },
+    "evaluation_metrics": {
+      "primary": "mae_normalized",
+      "secondary": [
+        "correlation",
+        "per_analyte_r2"
+      ],
+      "biological": "correlation_structure_preservation"
+    },
+    "baselines": {
+      "mean_imputation": "predict population mean",
+      "mission_mean": "predict mission-specific mean",
+      "correlation_based": "linear regression from correlated analytes"
+    }
+  }
+}

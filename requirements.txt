@@ -1,0 +1,4 @@
+# SpaceOmicsBench Requirements
+anthropic>=0.18.0
+pandas>=1.5.0
+tqdm>=4.65.0
