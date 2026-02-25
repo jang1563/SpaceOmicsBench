@@ -1,0 +1,32 @@
+{
+  "task_id": "C1",
+  "task_name": "Protein DE Prediction from Expression Profile",
+  "task_type": "binary_classification",
+  "difficulty": "medium",
+  "description": "Predict limma differential expression from protein expression across 21 plasma samples. Tests whether ML can learn statistical significance patterns.",
+  "data_files": [
+    "proteomics_plasma_matrix.csv",
+    "proteomics_plasma_de_clean.csv"
+  ],
+  "input_spec": {
+    "features": "21 sample expression values per protein",
+    "feature_count": 21,
+    "note": "Transpose: proteins as instances, samples as features"
+  },
+  "output_spec": {
+    "type": "binary",
+    "positive_class": "DE (adj_pval < 0.05)",
+    "positive_count": 57,
+    "negative_count": 1629,
+    "positive_rate": "3.4%"
+  },
+  "evaluation": {
+    "primary_metric": "auroc",
+    "secondary_metrics": [
+      "auprc",
+      "f1"
+    ]
+  },
+  "split": "feature_split_C1",
+  "n_samples": 1686
+}

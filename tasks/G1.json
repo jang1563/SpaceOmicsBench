@@ -1,0 +1,40 @@
+{
+  "task_id": "G1",
+  "task_name": "Multi-Modal Phase Classification",
+  "task_type": "multi_class_classification",
+  "difficulty": "hard",
+  "description": "Classify spaceflight phase using matched clinical + proteomics + metabolomics data. Tests multi-omic fusion benefit over single modality (A1).",
+  "data_files": [
+    "clinical_cbc.csv",
+    "clinical_cmp.csv",
+    "proteomics_plasma_matrix.csv",
+    "metabolomics_anppos_matrix.csv"
+  ],
+  "input_spec": {
+    "features": "39 clinical + 2,838 proteins + 454 metabolites",
+    "join_key": "crew + timepoint_days",
+    "note": "Sample ID formats differ across modalities"
+  },
+  "output_spec": {
+    "type": "categorical",
+    "target_column": "phase",
+    "classes": [
+      "pre_flight",
+      "post_flight",
+      "recovery"
+    ]
+  },
+  "evaluation": {
+    "primary_metric": "macro_f1",
+    "secondary_metrics": [
+      "accuracy"
+    ],
+    "confidence_interval": true
+  },
+  "split": "loco_multimodal",
+  "n_samples": 21,
+  "notes": [
+    "21 matched samples (crew \u00d7 timepoint_days intersection)",
+    "Compare with A1 to quantify multi-omic benefit"
+  ]
+}

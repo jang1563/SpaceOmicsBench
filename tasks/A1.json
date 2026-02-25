@@ -1,0 +1,52 @@
+{
+  "task_id": "A1",
+  "task_name": "Flight Phase Classification (Blood Panel)",
+  "task_type": "multi_class_classification",
+  "difficulty": "medium",
+  "description": "Classify spaceflight phase from standard blood panel (CBC + CMP). 4 crew \u00d7 7 timepoints.",
+  "data_files": [
+    "clinical_cbc.csv",
+    "clinical_cmp.csv"
+  ],
+  "input_spec": {
+    "features": "20 CBC analytes + 19 CMP analytes",
+    "feature_count": 39,
+    "meta_columns": [
+      "sample_id",
+      "crew",
+      "tissue",
+      "timepoint",
+      "timepoint_days",
+      "phase",
+      "mission"
+    ]
+  },
+  "output_spec": {
+    "type": "categorical",
+    "target_column": "phase",
+    "classes": [
+      "pre_flight",
+      "post_flight",
+      "recovery"
+    ],
+    "class_distribution": {
+      "pre_flight": 12,
+      "post_flight": 4,
+      "recovery": 12
+    }
+  },
+  "evaluation": {
+    "primary_metric": "macro_f1",
+    "secondary_metrics": [
+      "accuracy",
+      "per_class_f1"
+    ],
+    "confidence_interval": true
+  },
+  "split": "loco_clinical",
+  "n_samples": 28,
+  "notes": [
+    "N=28, small sample size \u2014 report 95% CI",
+    "post_flight has only 4 samples (1 per crew)"
+  ]
+}

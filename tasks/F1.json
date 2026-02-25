@@ -1,0 +1,53 @@
+{
+  "task_id": "F1",
+  "task_name": "Microbiome Body Site Classification (Taxonomy)",
+  "task_type": "multi_class_classification",
+  "difficulty": "easy",
+  "description": "Classify body site from skin microbiome taxonomy (CPM). 4 crew \u00d7 10 body sites \u00d7 7 timepoints.",
+  "data_files": [
+    "microbiome_human_taxonomy_cpm.csv"
+  ],
+  "metadata_file": "microbiome_metadata.csv",
+  "input_spec": {
+    "features": "16,172 taxa (CPM-normalized abundance)",
+    "feature_count": 16172
+  },
+  "output_spec": {
+    "type": "categorical",
+    "target_column": "body_site",
+    "classes": [
+      "ARM",
+      "EAR",
+      "GLU",
+      "NAC",
+      "NAP",
+      "ORC",
+      "PIT",
+      "TZO",
+      "UMB",
+      "WEB"
+    ],
+    "n_classes": 10,
+    "class_distribution": {
+      "ARM": 27,
+      "EAR": 28,
+      "GLU": 27,
+      "NAC": 28,
+      "NAP": 27,
+      "ORC": 28,
+      "PIT": 28,
+      "TZO": 28,
+      "UMB": 26,
+      "WEB": 28
+    }
+  },
+  "evaluation": {
+    "primary_metric": "macro_f1",
+    "secondary_metrics": [
+      "accuracy",
+      "per_class_f1"
+    ]
+  },
+  "split": "loco_microbiome_human",
+  "n_samples": 275
+}
