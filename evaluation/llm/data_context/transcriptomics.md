@@ -18,18 +18,18 @@
 
 ## Benchmark Tasks
 - **B1**: Spaceflight-responsive gene ranking (binary: DRR vs non-DRR)
-  - N=26,845, positives=466 (1.7%), metric=AUPRC
+  - N=26,845, positives=466 (1.7%), metric=AUPRC, Random baseline: 0.020
   - Feature 80/20 split (5 reps), seed=42
-  - Best baseline: RF = 0.885
+  - Best baseline: LightGBM=0.922 | XGBoost=0.911 | RF=0.884 | MLP=0.854 | LogReg=0.533
 - **B2**: Coregulated gene cluster prediction (multilabel, 16 clusters)
   - N=466, metric=micro_f1
   - Best baseline: LogReg = 0.154
 
 ## B1 Feature Ablation Study
-| Variant | LogReg | RF | MLP |
-|---------|--------|----|-----|
-| All 29 features | 0.533 | 0.885 | 0.839 |
-| Effect-only (fold-change/diff) | 0.248 | 0.813 | 0.756 |
-| No-effect (distribution only) | 0.527 | 0.863 | 0.865 |
+| Variant | LogReg | RF | MLP | XGBoost | LightGBM |
+|---------|--------|----|-----|---------|----------|
+| All 29 features | 0.533 | 0.884 | 0.854 | 0.911 | **0.922** |
+| Effect-only (fold-change/diff) | 0.248 | 0.813 | 0.741 | 0.780 | 0.801 |
+| No-effect (distribution only) | 0.527 | 0.863 | 0.847 | **0.899** | 0.884 |
 
-**Key finding**: Distribution-based features (means, ranges, IQRs) carry most predictive signal. Removing effect-size features barely affects RF/MLP performance, confirming the task tests genuine biological pattern recognition rather than simple fold-change thresholding.
+**Key finding**: Distribution-based features carry most predictive signal. LightGBM achieves overall best (0.922) but XGBoost has best no-effect score (0.899), suggesting XGBoost better exploits distribution-only features while LightGBM benefits more from the combined feature set.

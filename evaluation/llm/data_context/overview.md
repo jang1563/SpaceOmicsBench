@@ -36,9 +36,14 @@ SpaceOmicsBench is a multi-omics AI benchmark for spaceflight biomedical data, f
 |----------|-------|
 | Total tasks | 21 (19 main + 2 supplementary) |
 | Categories | A (Clinical), B (cfRNA), C (Proteomics), D (Metabolomics), E (Spatial), F (Microbiome), G (Multi-modal), H (Cross-tissue), I (Cross-mission) |
-| Difficulty tiers | Calibration (1), Standard (5), Advanced (8), Frontier (7) |
-| Evaluation strategies | LOCO (leave-one-crew-out), LOTO (leave-one-timepoint-out), Feature 80/20 (stratified) |
-| ML baselines | Random, Majority, LogReg, RF, MLP |
+| Difficulty tiers | Calibration (1), Standard (5), Advanced (9), Frontier (6) |
+| Evaluation strategies | LOCO, LOTO, Feature 80/20 (see below) |
+| ML baselines | Random, Majority, LogReg, RF, MLP, XGBoost, LightGBM |
+
+### Evaluation Strategy Mapping
+- **LOCO** (Leave-One-Crew-Out, 4 folds): A1, A2, C1, F1, F2, F4, F5, G1
+- **LOTO** (Leave-One-Timepoint-Out, 7 folds): F3
+- **Feature 80/20** (stratified, 5 reps): B1, B2, C2, D1, E1, E2, E3, E4, H1, I1, I2, I3
 
 ## Flight Phases
 - **pre_flight**: Samples collected before launch (L-92, L-44, L-3)
