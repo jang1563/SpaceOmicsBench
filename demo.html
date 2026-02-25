@@ -129,6 +129,7 @@ tr.supplementary td:first-child::after{content:' *';color:var(--frontier);font-s
 .cat-Microbiome{background:rgba(167,139,250,.1);color:var(--microbiome)}
 .cat-Multi-Modal{background:rgba(251,191,36,.1);color:var(--multimodal)}
 .cat-Cross-Tissue{background:rgba(45,212,191,.1);color:var(--crosstissue)}
+.cat-Cross-Mission{background:rgba(251,146,60,.1);color:#fb923c}
 
 /* ── CHARTS GRID ── */
 .charts-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:24px}
@@ -186,13 +187,13 @@ footer a:hover{text-decoration:underline}
 <!-- ═══════ HERO ═══════ -->
 <section class="hero fade-in">
   <h1>SpaceOmicsBench</h1>
-  <p class="tagline">A multi-omics AI benchmark for spaceflight biomedical data — 18 ML tasks across 8 modalities from the Inspiration4 mission and JAXA Cell-Free Epigenome study.</p>
+  <p class="tagline">A multi-omics AI benchmark for spaceflight biomedical data — 21 ML tasks across 9 modalities + 60-question LLM evaluation from the Inspiration4, NASA Twins, and JAXA CFE missions.</p>
   <div class="stats-row">
-    <div class="stat-card d1 fade-in"><div class="stat-val">18</div><div class="stat-label">ML Tasks</div></div>
-    <div class="stat-card d2 fade-in"><div class="stat-val">8</div><div class="stat-label">Modalities</div></div>
-    <div class="stat-card d3 fade-in"><div class="stat-val">4</div><div class="stat-label">Difficulty Tiers</div></div>
+    <div class="stat-card d1 fade-in"><div class="stat-val">21</div><div class="stat-label">ML Tasks</div></div>
+    <div class="stat-card d2 fade-in"><div class="stat-val">9</div><div class="stat-label">Modalities</div></div>
+    <div class="stat-card d3 fade-in"><div class="stat-val">60</div><div class="stat-label">LLM Questions</div></div>
     <div class="stat-card d4 fade-in"><div class="stat-val">5</div><div class="stat-label">Baselines</div></div>
-    <div class="stat-card d5 fade-in"><div class="stat-val">109K+</div><div class="stat-label">Total Samples</div></div>
+    <div class="stat-card d5 fade-in"><div class="stat-val">152K+</div><div class="stat-label">Total Samples</div></div>
   </div>
 </section>
 
@@ -211,6 +212,7 @@ footer a:hover{text-decoration:underline}
     <button class="pill" data-cat="Microbiome">Microbiome</button>
     <button class="pill" data-cat="Multi-Modal">Multi-Modal</button>
     <button class="pill" data-cat="Cross-Tissue">Cross-Tissue</button>
+    <button class="pill" data-cat="Cross-Mission">Cross-Mission</button>
   </div>
 
   <div class="table-wrap">
@@ -242,7 +244,7 @@ footer a:hover{text-decoration:underline}
       <canvas id="radarChart"></canvas>
     </div>
     <div class="chart-card">
-      <div class="chart-title">Difficulty Tier Distribution <small>— 18 tasks</small></div>
+      <div class="chart-title">Difficulty Tier Distribution <small>— 21 tasks</small></div>
       <canvas id="tierChart"></canvas>
     </div>
     <div class="chart-card">
@@ -302,6 +304,9 @@ const TASKS=[
   {id:'F5',name:'Flight Phase Detection (Pathways)',cat:'Microbiome',tier:'Frontier',metric:'macro_f1',random:.205,majority:.111,logreg:.240,rf:.254,mlp:.229},
   {id:'G1',name:'Multi-Modal Phase Classification',cat:'Multi-Modal',tier:'Advanced',metric:'macro_f1',random:.253,majority:.228,logreg:.481,rf:.349,mlp:.461},
   {id:'H1',name:'Cross-Tissue Gene Conservation',cat:'Cross-Tissue',tier:'Advanced',metric:'AUPRC',random:.060,majority:.048,logreg:.176,rf:.266,mlp:.062},
+  {id:'I1',name:'Hemoglobin Gene DE Prediction',cat:'Cross-Mission',tier:'Frontier',metric:'AUPRC',random:.003,majority:.002,logreg:.003,rf:.005,mlp:.002},
+  {id:'I2',name:'Cross-Mission Pathway Conservation',cat:'Cross-Mission',tier:'Advanced',metric:'AUROC',random:.482,majority:.500,logreg:.682,rf:.706,mlp:.592},
+  {id:'I3',name:'Cross-Mission Gene DE Conservation',cat:'Cross-Mission',tier:'Advanced',metric:'AUPRC',random:.050,majority:.052,logreg:.090,rf:.072,mlp:.056},
   {id:'E2',name:'Cross-Layer DE (inner_epidermis)',cat:'Spatial',tier:'Frontier',metric:'AUPRC',random:.001,majority:.001,logreg:.031,rf:.050,mlp:.011,supp:true},
   {id:'E3',name:'Cross-Layer DE (outer_dermis)',cat:'Spatial',tier:'Frontier',metric:'AUPRC',random:.002,majority:.001,logreg:.172,rf:.223,mlp:.168,supp:true},
 ];
@@ -355,7 +360,7 @@ new Chart(document.getElementById('compositeChart'),{
   data:{
     labels:['Random Forest','Logistic Regression','MLP'],
     datasets:[{
-      data:[.281,.214,.160],
+      data:[.269,.201,.151],
       backgroundColor:['rgba(6,182,212,.7)','rgba(167,139,250,.7)','rgba(236,72,153,.7)'],
       borderColor:['#06b6d4','#a78bfa','#ec4899'],
       borderWidth:1,borderRadius:6,
@@ -367,7 +372,7 @@ new Chart(document.getElementById('compositeChart'),{
       tooltip:{callbacks:{label:c=>` ${c.raw.toFixed(3)}`}}
     },
     scales:{
-      x:{min:0,max:.35,grid:{color:'rgba(30,38,80,.5)'},ticks:{callback:v=>v.toFixed(2)}},
+      x:{min:0,max:.30,grid:{color:'rgba(30,38,80,.5)'},ticks:{callback:v=>v.toFixed(2)}},
       y:{grid:{display:false}}
     }
   }
@@ -377,20 +382,20 @@ new Chart(document.getElementById('compositeChart'),{
 new Chart(document.getElementById('radarChart'),{
   type:'radar',
   data:{
-    labels:['Clinical','cfRNA','Proteomics','Metabolomics','Spatial','F:BodySite','F:Phase','F:Source','MultiModal','CrossTissue'],
+    labels:['Clinical','cfRNA','Proteomics','Metabolomics','Spatial','F:BodySite','F:Phase','F:Source','MultiModal','CrossTissue','CrossMission'],
     datasets:[
       {
-        label:'RF',data:[.173,.882,.174,.375,.004,.070,.052,.735,.128,.219],
+        label:'RF',data:[.173,.882,.174,.375,.004,.070,.052,.735,.128,.219,.148],
         backgroundColor:'rgba(6,182,212,.15)',borderColor:'#06b6d4',borderWidth:2,pointRadius:4,
         pointBackgroundColor:'#06b6d4',
       },
       {
-        label:'LogReg',data:[.389,.523,.257,.154,.014,.048,.042,.288,.304,.123],
+        label:'LogReg',data:[.389,.523,.257,.154,.014,.048,.042,.288,.304,.123,.121],
         backgroundColor:'rgba(167,139,250,.1)',borderColor:'#a78bfa',borderWidth:1.5,pointRadius:3,
         pointBackgroundColor:'#a78bfa',
       },
       {
-        label:'MLP',data:[.135,.836,.183,.147,.000,.000,.015,.000,.278,.002],
+        label:'MLP',data:[.135,.836,.183,.147,.000,.000,.015,.000,.278,.002,.067],
         backgroundColor:'rgba(236,72,153,.08)',borderColor:'#ec4899',borderWidth:1.5,pointRadius:3,
         pointBackgroundColor:'#ec4899',borderDash:[4,4],
       }
@@ -415,9 +420,9 @@ new Chart(document.getElementById('radarChart'),{
 new Chart(document.getElementById('tierChart'),{
   type:'doughnut',
   data:{
-    labels:['Calibration (1)','Standard (5)','Advanced (7)','Frontier (5)'],
+    labels:['Calibration (1)','Standard (5)','Advanced (8)','Frontier (7)'],
     datasets:[{
-      data:[1,5,7,5],
+      data:[1,5,8,7],
       backgroundColor:['rgba(34,197,94,.7)','rgba(59,130,246,.7)','rgba(245,158,11,.7)','rgba(239,68,68,.7)'],
       borderColor:['#22c55e','#3b82f6','#f59e0b','#ef4444'],
       borderWidth:2,hoverOffset:8,
@@ -428,7 +433,7 @@ new Chart(document.getElementById('tierChart'),{
     plugins:{
       legend:{position:'bottom',labels:{boxWidth:12,padding:14,font:{size:11}}},
       tooltip:{callbacks:{label:c=>{
-        const pct=((c.raw/18)*100).toFixed(0);
+        const pct=((c.raw/21)*100).toFixed(0);
         return ` ${c.label}: ${pct}%`;
       }}}
     }

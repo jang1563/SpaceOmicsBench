@@ -1,0 +1,57 @@
+{
+  "task_id": "I2",
+  "description": "Predict whether an I4 PBMC pathway enrichment is also significant in the NASA Twins Study. Features are aggregated pathway statistics from I4 single-cell PBMC GSEA; target is conservation in Twins blood cell transcriptomics.",
+  "category": "cross_mission",
+  "category_label": "Cross-Mission",
+  "modality": "Transcriptomics",
+  "missions": [
+    "Inspiration4",
+    "NASA Twins Study"
+  ],
+  "difficulty_tier": "advanced",
+  "task_type": "binary_classification",
+  "data_files": [
+    "cross_mission_pathway_features.csv"
+  ],
+  "input_spec": {
+    "description": "8 aggregated pathway features from I4 PBMC GSEA (mean/std NES, ES, padj, cell type count, pathway size, direction consistency)",
+    "n_features": 8,
+    "feature_columns": [
+      "mean_NES",
+      "std_NES",
+      "mean_ES",
+      "mean_padj",
+      "min_padj",
+      "n_celltypes",
+      "mean_size",
+      "direction_consistency"
+    ],
+    "id_column": "pathway"
+  },
+  "output_spec": {
+    "target_column": "label",
+    "target_type": "binary",
+    "classes": [
+      0,
+      1
+    ],
+    "class_labels": [
+      "i4_only",
+      "conserved_in_twins"
+    ],
+    "class_distribution": {
+      "0": 306,
+      "1": 146
+    }
+  },
+  "evaluation": {
+    "primary_metric": "auroc",
+    "secondary_metrics": [
+      "auprc",
+      "f1"
+    ]
+  },
+  "split": "feature_split_I2",
+  "n_samples": 452,
+  "task_name": "Cross-Mission Pathway Conservation"
+}

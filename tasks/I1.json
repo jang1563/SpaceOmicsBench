@@ -1,0 +1,51 @@
+{
+  "task_id": "I1",
+  "description": "Predict whether a gene belongs to the hemoglobin/erythropoiesis pathway based on Twins Study transcriptome fold-change features. Tests whether spaceflight-induced gene expression changes are predictive of hemoglobin pathway membership.",
+  "category": "cross_mission",
+  "category_label": "Cross-Mission",
+  "modality": "Transcriptomics",
+  "missions": [
+    "NASA Twins Study"
+  ],
+  "difficulty_tier": "frontier",
+  "task_type": "binary_classification",
+  "data_files": [
+    "cross_mission_hemoglobin_de.csv"
+  ],
+  "input_spec": {
+    "description": "3 fold-change features from Twins transcriptome DE analysis (Pre vs Flight, Pre vs Post, Flight vs Post)",
+    "n_features": 3,
+    "feature_columns": [
+      "fc_pre_vs_flight",
+      "fc_pre_vs_post",
+      "fc_flight_vs_post"
+    ],
+    "id_column": "gene"
+  },
+  "output_spec": {
+    "target_column": "label",
+    "target_type": "binary",
+    "classes": [
+      0,
+      1
+    ],
+    "class_labels": [
+      "non_hemoglobin",
+      "hemoglobin"
+    ],
+    "class_distribution": {
+      "0": 26788,
+      "1": 57
+    }
+  },
+  "evaluation": {
+    "primary_metric": "auprc",
+    "secondary_metrics": [
+      "auroc",
+      "f1"
+    ]
+  },
+  "split": "feature_split_I1",
+  "n_samples": 26845,
+  "task_name": "Cross-Mission Hemoglobin Gene DE Prediction"
+}

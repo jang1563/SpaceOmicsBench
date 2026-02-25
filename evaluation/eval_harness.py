@@ -52,6 +52,7 @@ MAIN_TASKS = [
     "F1", "F2", "F3", "F4", "F5",
     "G1",
     "H1",
+    "I1", "I2", "I3",
 ]
 SUPPLEMENTARY_TASKS = ["E2", "E3"]  # frontier, metric instability
 ALL_TASKS = MAIN_TASKS + SUPPLEMENTARY_TASKS
@@ -120,6 +121,8 @@ class SpaceOmicsBenchEvaluator:
             return self._load_g1_labels(meta)
         elif task_id == "H1":
             return self._load_h1_labels(meta)
+        elif task_id in ("I1", "I2", "I3"):
+            return self._load_cross_mission_labels(task_id, meta)
         else:
             raise ValueError(f"Unknown task: {task_id}")
 
@@ -242,6 +245,18 @@ class SpaceOmicsBenchEvaluator:
         df = pd.read_csv(self.data_dir / "conserved_pbmc_to_skin.csv")
         labels = df["skin_de"].astype(int).values
         meta["genes"] = df["human_gene"].values.tolist()
+        return labels, meta
+
+    def _load_cross_mission_labels(self, task_id, meta):
+        file_map = {
+            "I1": "cross_mission_hemoglobin_de.csv",
+            "I2": "cross_mission_pathway_features.csv",
+            "I3": "cross_mission_gene_de.csv",
+        }
+        id_col_map = {"I1": "gene", "I2": "pathway", "I3": "gene"}
+        df = pd.read_csv(self.data_dir / file_map[task_id])
+        labels = df["label"].astype(int).values
+        meta["ids"] = df[id_col_map[task_id]].values.tolist()
         return labels, meta
 
     # ─── Evaluation dispatcher ─────────────────────────────────────

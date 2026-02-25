@@ -63,6 +63,7 @@ MAIN_TASKS = [
     "E1", "E4",
     "F1", "F2", "F3", "F4", "F5",
     "G1", "H1",
+    "I1", "I2", "I3",
 ]
 SUPPLEMENTARY_TASKS = ["E2", "E3"]
 ALL_TASKS = MAIN_TASKS + SUPPLEMENTARY_TASKS
@@ -295,6 +296,26 @@ def load_task_data(task_id):
         feature_cols = ["CD4_T", "CD8_T", "other_T", "B", "NK", "CD14_Mono", "CD16_Mono", "DC", "other"]
         X = df[feature_cols].values.astype(float)
         y = df["skin_de"].astype(int).values
+
+    elif task_id == "I1":
+        df = pd.read_csv(DATA_DIR / "cross_mission_hemoglobin_de.csv")
+        X = df[["fc_pre_vs_flight", "fc_pre_vs_post", "fc_flight_vs_post"]].values.astype(float)
+        y = df["label"].astype(int).values
+
+    elif task_id == "I2":
+        df = pd.read_csv(DATA_DIR / "cross_mission_pathway_features.csv")
+        feat_cols = ["mean_NES", "std_NES", "mean_ES", "mean_padj", "min_padj",
+                     "n_celltypes", "mean_size", "direction_consistency"]
+        X = df[feat_cols].values.astype(float)
+        y = df["label"].astype(int).values
+
+    elif task_id == "I3":
+        df = pd.read_csv(DATA_DIR / "cross_mission_gene_de.csv")
+        feat_cols = ["mean_abs_log2fc", "max_abs_log2fc", "mean_base_expr",
+                     "mean_lfcSE", "mean_abs_wald", "n_cell_types",
+                     "n_contrasts", "n_total_deg_entries", "direction_consistency"]
+        X = df[feat_cols].values.astype(float)
+        y = df["label"].astype(int).values
 
     else:
         raise ValueError(f"Unknown task: {task_id}")
@@ -535,6 +556,7 @@ def compute_composite(all_results, random_baselines):
         "F_source": ["F3"],
         "G_multimodal": ["G1"],
         "H_crosstissue": ["H1"],
+        "I_crossmission": ["I1", "I2", "I3"],
     }
 
     # Collect all model names (exclude per_fold keys)

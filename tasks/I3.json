@@ -1,0 +1,58 @@
+{
+  "task_id": "I3",
+  "description": "Predict whether a gene differentially expressed in the NASA Twins Study blood cells is also DE in I4 cell-free RNA. Twins features are aggregated from single-cell DEG analysis across multiple cell types and contrasts; I4 target is based on cfRNA 3-group ANOVA FDR < 0.05.",
+  "category": "cross_mission",
+  "category_label": "Cross-Mission",
+  "modality": "Transcriptomics",
+  "missions": [
+    "Inspiration4",
+    "NASA Twins Study"
+  ],
+  "difficulty_tier": "advanced",
+  "task_type": "binary_classification",
+  "data_files": [
+    "cross_mission_gene_de.csv"
+  ],
+  "input_spec": {
+    "description": "9 aggregated Twins blood cell DE features per gene (log2FC magnitude, base expression, standard error, Wald statistic, cell type count, contrast count, total DEG entries, direction consistency)",
+    "n_features": 9,
+    "feature_columns": [
+      "mean_abs_log2fc",
+      "max_abs_log2fc",
+      "mean_base_expr",
+      "mean_lfcSE",
+      "mean_abs_wald",
+      "n_cell_types",
+      "n_contrasts",
+      "n_total_deg_entries",
+      "direction_consistency"
+    ],
+    "id_column": "gene"
+  },
+  "output_spec": {
+    "target_column": "label",
+    "target_type": "binary",
+    "classes": [
+      0,
+      1
+    ],
+    "class_labels": [
+      "not_de_in_i4",
+      "de_in_i4"
+    ],
+    "class_distribution": {
+      "0": 14726,
+      "1": 814
+    }
+  },
+  "evaluation": {
+    "primary_metric": "auprc",
+    "secondary_metrics": [
+      "auroc",
+      "f1"
+    ]
+  },
+  "split": "feature_split_I3",
+  "n_samples": 15540,
+  "task_name": "Cross-Mission Gene DE Conservation"
+}

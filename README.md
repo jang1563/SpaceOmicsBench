@@ -1,6 +1,6 @@
 # SpaceOmicsBench
 
-A multi-omics AI benchmark for spaceflight biomedical data, featuring **18 ML tasks** across **8 modalities** from the SpaceX Inspiration4 (I4) civilian astronaut mission and the JAXA Cell-Free Epigenome (CFE) study.
+A multi-omics AI benchmark for spaceflight biomedical data, featuring **21 ML tasks** across **9 modalities** and a **60-question LLM evaluation** framework. Data from the SpaceX Inspiration4 (I4) civilian astronaut mission, NASA Twins Study, and JAXA Cell-Free Epigenome (CFE) study.
 
 All data is derived from publicly accessible sources (NASA Open Science Data Repository and published supplementary data).
 
@@ -8,10 +8,11 @@ All data is derived from publicly accessible sources (NASA Open Science Data Rep
 
 | | |
 |---|---|
-| **Tasks** | 18 ML tasks (16 main + 2 supplementary) |
-| **Modalities** | Clinical, cfRNA, Proteomics, Metabolomics, Spatial Transcriptomics, Microbiome, Multi-modal, Cross-tissue |
-| **Difficulty Tiers** | Calibration (1) / Standard (5) / Advanced (7) / Frontier (5) |
-| **Missions** | Inspiration4 (4 crew, 3 days), JAXA CFE (6 astronauts, >120 days ISS) |
+| **ML Tasks** | 21 tasks (19 main + 2 supplementary) |
+| **LLM Evaluation** | 60 questions, 5-dimension Claude-as-judge scoring |
+| **Modalities** | Clinical, cfRNA, Proteomics, Metabolomics, Spatial Transcriptomics, Microbiome, Multi-modal, Cross-tissue, Cross-mission |
+| **Difficulty Tiers** | Calibration (1) / Standard (5) / Advanced (8) / Frontier (7) |
+| **Missions** | Inspiration4 (4 crew, 3 days LEO), NASA Twins (340 days ISS), JAXA CFE (6 astronauts, >120 days ISS) |
 | **Evaluation** | Leave-One-Crew-Out, Leave-One-Timepoint-Out, Stratified 80/20 feature splits |
 | **Baselines** | Random, Majority, LogReg, RF, MLP |
 
@@ -35,7 +36,7 @@ pip install numpy pandas scikit-learn
 python baselines/run_baselines.py
 ```
 
-This runs all 5 baseline models on all 18 tasks and outputs:
+This runs all 5 baseline models on all 21 tasks and outputs:
 - Per-task metrics (primary + secondary)
 - B1 feature ablation study
 - Normalized composite scores
@@ -121,6 +122,16 @@ Open `demo.html` in a browser for an interactive visualization of benchmark resu
 |----|------|------|------|---|--------|-------|
 | H1 | Cross-Tissue Gene Conservation | Binary | Advanced | 731 | AUPRC | Feature 80/20 (5-rep) |
 
+### Category I: Cross-Mission (NASA Twins × I4)
+
+| ID | Task | Type | Tier | N | Metric | Split |
+|----|------|------|------|---|--------|-------|
+| I1 | Hemoglobin Gene DE Prediction | Binary | Frontier | 26,845 | AUPRC | Feature 80/20 (5-rep) |
+| I2 | Cross-Mission Pathway Conservation | Binary | Advanced | 452 | AUROC | Feature 80/20 (5-rep) |
+| I3 | Cross-Mission Gene DE Conservation | Binary | Advanced | 15,540 | AUPRC | Feature 80/20 (5-rep) |
+
+*Uses NASA Twins Study (340-day ISS, N=1 astronaut with twin control) to predict Inspiration4 patterns. I1 tests whether Twins fold-changes identify hemoglobin pathway genes. I2/I3 test cross-mission conservation at pathway and gene levels.*
+
 ## Difficulty Tiers
 
 | Tier | Description | Baseline Behavior |
@@ -159,7 +170,7 @@ composite = mean(category_averages)
 |----------|---------|-------------|
 | LOCO | A1, A2, C1, F1-F5, G1 | Leave-One-Crew-Out (4 folds for I4 crew) |
 | LOTO | F3 | Leave-One-Timepoint-Out (7 folds) |
-| Feature 80/20 | B1, B2, C2, D1, E1-E4, H1 | Stratified random 80/20 (5 repetitions, seed=42) |
+| Feature 80/20 | B1, B2, C2, D1, E1-E4, H1, I1-I3 | Stratified random 80/20 (5 repetitions, seed=42) |
 
 ## Baseline Results
 
@@ -181,6 +192,9 @@ composite = mean(category_averages)
 | F5 | Frontier | macro_f1 | 0.205 | 0.111 | 0.240 | **0.254** | 0.229 |
 | G1 | Advanced | macro_f1 | 0.253 | 0.228 | **0.481** | 0.349 | 0.461 |
 | H1 | Advanced | AUPRC | 0.060 | 0.048 | 0.176 | **0.266** | 0.062 |
+| I1 | Frontier | AUPRC | 0.003 | 0.002 | 0.003 | **0.005** | 0.002 |
+| I2 | Advanced | AUROC | 0.482 | 0.500 | 0.682 | **0.706** | 0.592 |
+| I3 | Advanced | AUPRC | 0.050 | 0.052 | **0.090** | 0.072 | 0.056 |
 
 **Bold** = best performing baseline per task.
 
@@ -188,9 +202,9 @@ composite = mean(category_averages)
 
 | Model | Composite | Best Categories |
 |-------|-----------|-----------------|
-| RF | **0.281** | B_cfrna (0.882), F_source (0.735), D_metabolomics (0.375) |
-| LogReg | 0.214 | B_cfrna (0.523), A_clinical (0.389), G_multimodal (0.304) |
-| MLP | 0.160 | B_cfrna (0.836), G_multimodal (0.278), C_proteomics (0.183) |
+| RF | **0.269** | B_cfrna (0.882), F_source (0.735), D_metabolomics (0.375) |
+| LogReg | 0.201 | B_cfrna (0.523), A_clinical (0.389), G_multimodal (0.304) |
+| MLP | 0.151 | B_cfrna (0.836), G_multimodal (0.278), C_proteomics (0.183) |
 
 ### B1 Feature Ablation
 
@@ -204,28 +218,93 @@ The B1 task includes effect-size features (fold-changes, differences) alongside 
 
 Distribution-based features (means, ranges, IQRs) carry most of the predictive signal, confirming the task tests genuine biological pattern recognition rather than simple effect-size thresholding.
 
+## LLM Evaluation
+
+SpaceOmicsBench includes a question-based evaluation framework for assessing LLM understanding of spaceflight multi-omics data.
+
+### Question Bank
+
+60 questions across 9 modalities and 4 difficulty levels:
+
+| Modality | Easy | Medium | Hard | Expert | Total |
+|----------|------|--------|------|--------|-------|
+| Clinical | 2 | 2 | 2 | 1 | 7 |
+| Transcriptomics | 2 | 2 | 2 | 1 | 7 |
+| Proteomics | 1 | 2 | 2 | 1 | 6 |
+| Metabolomics | 1 | 2 | 2 | 1 | 6 |
+| Spatial | 0 | 2 | 1 | 1 | 4 |
+| Microbiome | 1 | 2 | 1 | 0 | 4 |
+| Cross-Mission | 2 | 5 | 5 | 4 | 16 |
+| Multi-Omics | 1 | 2 | 3 | 2 | 8 |
+| Methods | 1 | 1 | 0 | 0 | 2 |
+| **Total** | **11** | **20** | **18** | **11** | **60** |
+
+Question types: factual, interpretation, reasoning, counterfactual, experimental design, cross-mission comparison.
+
+### 5-Dimension Scoring (Claude-as-Judge)
+
+| Dimension | Weight | Description |
+|-----------|--------|-------------|
+| Factual Accuracy | 0.25 | Are stated facts correct? |
+| Reasoning Quality | 0.25 | Is scientific logic sound? |
+| Completeness | 0.20 | Are key factors addressed? |
+| Uncertainty Calibration | 0.15 | Appropriate hedging for small-N data? |
+| Domain Integration | 0.15 | Cross-omics/mission knowledge? |
+
+### Running LLM Evaluation
+
+```bash
+# Run evaluation (Claude)
+export ANTHROPIC_API_KEY="your-key"
+python evaluation/llm/run_llm_evaluation.py --model claude-sonnet-4-20250514 --sample 10
+
+# Run evaluation (OpenAI)
+export OPENAI_API_KEY="your-key"
+python evaluation/llm/run_llm_evaluation.py --model gpt-4o --full
+
+# Score responses with Claude-as-judge
+python evaluation/llm/score_responses.py results/eval_*.json
+
+# Generate comparison report
+python evaluation/llm/generate_report.py results/scored_*.json --compare
+```
+
 ## Directory Structure
 
 ```
 SpaceOmicsBench/
 ├── README.md
-├── demo.html                     # Interactive benchmark visualization
+├── demo.html                        # Interactive benchmark visualization
 ├── data/
-│   └── processed/                # Benchmark data (CSV)
-├── tasks/                        # Task definitions (JSON)
-│   ├── A1.json ... H1.json
-├── splits/                       # Train/test split indices (JSON)
+│   └── processed/                   # Benchmark data (CSV)
+│       ├── gt_clinical_cbc.csv      # Clinical CBC features
+│       ├── gt_cfrna_features.csv    # cfRNA gene features
+│       ├── cross_mission_*.csv      # I-series cross-mission data
+│       └── ...
+├── tasks/                           # Task definitions (JSON)
+│   ├── A1.json ... H1.json         # 16 main + 2 supplementary
+│   └── I1.json, I2.json, I3.json   # Cross-mission tasks
+├── splits/                          # Train/test split indices (JSON)
 │   ├── loco_clinical.json
 │   ├── feature_split_B1.json
+│   ├── feature_split_I1.json
 │   └── ...
 ├── evaluation/
-│   ├── eval_harness.py           # Evaluation harness
-│   └── metrics.py                # Metric implementations
+│   ├── eval_harness.py              # ML evaluation harness
+│   ├── metrics.py                   # Metric implementations
+│   └── llm/                         # LLM evaluation framework
+│       ├── question_bank.json       # 60 questions
+│       ├── annotation_schema.json   # 5-dimension scoring schema
+│       ├── data_context/            # 11 markdown context files
+│       ├── run_llm_evaluation.py    # Run LLM on questions
+│       ├── score_responses.py       # Claude-as-judge scoring
+│       └── generate_report.py       # Report generation
 ├── baselines/
-│   ├── run_baselines.py          # Baseline runner
-│   └── baseline_results.json     # Precomputed results
-├── scripts/                      # Data preprocessing scripts
-└── docs/                         # Additional documentation
+│   ├── run_baselines.py             # Baseline runner
+│   └── baseline_results.json        # Precomputed results
+├── scripts/                         # Data preprocessing scripts
+│   └── preprocess_cross_mission.py  # I-series data preprocessing
+└── docs/                            # Additional documentation
 ```
 
 ## Data Provenance
