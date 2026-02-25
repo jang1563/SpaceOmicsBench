@@ -9,7 +9,7 @@ All data is derived from publicly accessible sources (NASA Open Science Data Rep
 | | |
 |---|---|
 | **ML Tasks** | 21 tasks (19 main + 2 supplementary) |
-| **LLM Evaluation** | 60 questions, 5-dimension Claude-as-judge scoring |
+| **LLM Evaluation** | 100 questions, 5-dimension Claude-as-judge scoring |
 | **Modalities** | Clinical, cfRNA, Proteomics, Metabolomics, Spatial Transcriptomics, Microbiome, Multi-modal, Cross-tissue, Cross-mission |
 | **Difficulty Tiers** | Calibration (1) / Standard (5) / Advanced (9) / Frontier (6) |
 | **Missions** | Inspiration4 (4 crew, 3 days LEO), NASA Twins (340 days ISS), JAXA CFE (6 astronauts, >120 days ISS) |
@@ -226,20 +226,20 @@ SpaceOmicsBench includes a question-based evaluation framework for assessing LLM
 
 ### Question Bank
 
-60 questions across 9 modalities and 4 difficulty levels:
+100 questions across 9 modalities and 4 difficulty levels:
 
 | Modality | Easy | Medium | Hard | Expert | Total |
 |----------|------|--------|------|--------|-------|
-| Clinical | 2 | 2 | 2 | 1 | 7 |
-| Transcriptomics | 2 | 2 | 2 | 1 | 7 |
-| Proteomics | 1 | 2 | 2 | 1 | 6 |
-| Metabolomics | 1 | 2 | 2 | 1 | 6 |
-| Spatial | 0 | 2 | 1 | 1 | 4 |
-| Microbiome | 1 | 2 | 1 | 0 | 4 |
-| Cross-Mission | 2 | 5 | 5 | 4 | 16 |
-| Multi-Omics | 1 | 2 | 3 | 2 | 8 |
-| Methods | 1 | 1 | 0 | 0 | 2 |
-| **Total** | **11** | **20** | **18** | **11** | **60** |
+| Clinical | 3 | 3 | 3 | 1 | 10 |
+| Transcriptomics | 2 | 3 | 3 | 2 | 10 |
+| Proteomics | 2 | 3 | 3 | 2 | 10 |
+| Metabolomics | 2 | 3 | 3 | 2 | 10 |
+| Spatial | 1 | 4 | 3 | 2 | 10 |
+| Microbiome | 2 | 4 | 3 | 1 | 10 |
+| Cross-Mission | 2 | 5 | 6 | 5 | 18 |
+| Multi-Omics | 1 | 3 | 5 | 3 | 12 |
+| Methods | 2 | 4 | 2 | 2 | 10 |
+| **Total** | **17** | **32** | **31** | **20** | **100** |
 
 Question types: factual, interpretation, reasoning, counterfactual, experimental design, cross-mission comparison.
 

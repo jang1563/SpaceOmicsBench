@@ -1,11 +1,23 @@
 {
   "version": "2.0",
-  "description": "SpaceOmicsBench v2 LLM evaluation question bank. 60 questions across 9 modalities, 4 difficulty levels, 6 question categories.",
-  "total_questions": 60,
-  "difficulty_distribution": {"easy": 11, "medium": 20, "hard": 18, "expert": 11},
+  "description": "SpaceOmicsBench v2 LLM evaluation question bank. 100 questions across 9 modalities, 4 difficulty levels, 6 question categories.",
+  "total_questions": 100,
+  "difficulty_distribution": {
+    "easy": 17,
+    "medium": 32,
+    "hard": 31,
+    "expert": 20
+  },
   "modality_distribution": {
-    "clinical": 7, "transcriptomics": 7, "proteomics": 6, "metabolomics": 6,
-    "spatial": 4, "microbiome": 4, "cross_mission": 16, "multi_omics": 8, "methods": 2
+    "clinical": 10,
+    "cross_mission": 18,
+    "metabolomics": 10,
+    "methods": 10,
+    "microbiome": 10,
+    "multi_omics": 12,
+    "proteomics": 10,
+    "spatial": 10,
+    "transcriptomics": 10
   },
   "questions": [
     {
@@ -14,7 +26,10 @@
       "category": "factual",
       "difficulty": "easy",
       "question": "How many features are used in the clinical blood panel task A1, and what types of blood tests do they come from?",
-      "data_context_files": ["overview.md", "clinical.md"],
+      "data_context_files": [
+        "overview.md",
+        "clinical.md"
+      ],
       "expected_reasoning": [
         "A1 uses 20 CBC features",
         "CBC stands for Complete Blood Count",
@@ -36,7 +51,10 @@
       "category": "factual",
       "difficulty": "easy",
       "question": "What are the three flight phases used for classification in tasks A1 and A2, and how many matched samples are available?",
-      "data_context_files": ["overview.md", "clinical.md"],
+      "data_context_files": [
+        "overview.md",
+        "clinical.md"
+      ],
       "expected_reasoning": [
         "Three phases: pre-flight, in-flight, post-flight",
         "21 matched samples across 4 crew members",
@@ -58,7 +76,10 @@
       "category": "interpretation",
       "difficulty": "medium",
       "question": "LogReg achieves 0.546 macro_f1 on A1 (blood panel) versus 0.493 on A2 (immune markers). Why might standard blood panels be more predictive of flight phase than immune-specific cytokine markers?",
-      "data_context_files": ["clinical.md", "ground_truth.md"],
+      "data_context_files": [
+        "clinical.md",
+        "ground_truth.md"
+      ],
       "expected_reasoning": [
         "CBC changes (hematocrit, WBC shifts) are well-documented acute responses to spaceflight",
         "Cytokines have higher variance and may be more individually variable",
@@ -82,7 +103,10 @@
       "category": "reasoning",
       "difficulty": "medium",
       "question": "Why does LogReg consistently outperform RF and MLP on the clinical classification tasks (A1, A2), while RF tends to dominate in other task categories?",
-      "data_context_files": ["clinical.md", "ground_truth.md"],
+      "data_context_files": [
+        "clinical.md",
+        "ground_truth.md"
+      ],
       "expected_reasoning": [
         "Very small N (21 samples) favors simpler models with fewer parameters",
         "Linear relationships may dominate in CBC/cytokine response to spaceflight",
@@ -106,7 +130,11 @@
       "category": "counterfactual",
       "difficulty": "hard",
       "question": "If the I4 mission had lasted 340 days instead of 3 days (like the Twins mission), how would you expect the clinical marker patterns to differ? Would the A1/A2 classification tasks become easier or harder?",
-      "data_context_files": ["clinical.md", "cross_mission.md", "overview.md"],
+      "data_context_files": [
+        "clinical.md",
+        "cross_mission.md",
+        "overview.md"
+      ],
       "expected_reasoning": [
         "Longer missions show chronic adaptation vs acute stress responses",
         "Acute changes (e.g., fluid shift, stress response) may plateau or normalize",
@@ -131,7 +159,10 @@
       "category": "reasoning",
       "difficulty": "hard",
       "question": "The LOCO evaluation for clinical tasks leaves out all samples from one crew member at a time. With only 4 crew members and ~5 samples per crew, what are the statistical implications for reliability of performance estimates?",
-      "data_context_files": ["clinical.md", "ground_truth.md"],
+      "data_context_files": [
+        "clinical.md",
+        "ground_truth.md"
+      ],
       "expected_reasoning": [
         "Each fold tests on ~5 samples — very high variance per fold",
         "Individual biological variation dominates with N=1 per fold test set",
@@ -156,7 +187,11 @@
       "category": "experimental_design",
       "difficulty": "expert",
       "question": "If you were designing a follow-up clinical monitoring study for a 6-crew, 30-day mission with weekly sampling, how would you modify the A1/A2 task design to improve statistical power while maintaining LOCO evaluation?",
-      "data_context_files": ["clinical.md", "overview.md", "ground_truth.md"],
+      "data_context_files": [
+        "clinical.md",
+        "overview.md",
+        "ground_truth.md"
+      ],
       "expected_reasoning": [
         "6 crew × ~5 weekly timepoints = ~30 samples (more statistical power)",
         "LOCO with 6 folds would test on ~5 samples each but with more diverse training",
@@ -181,7 +216,9 @@
       "category": "factual",
       "difficulty": "easy",
       "question": "How many genes are in the I4 cfRNA dataset, and what fraction were identified as differentially-regulated response (DRR) genes?",
-      "data_context_files": ["transcriptomics.md"],
+      "data_context_files": [
+        "transcriptomics.md"
+      ],
       "expected_reasoning": [
         "26,845 genes total in cfRNA dataset",
         "466 DRR genes identified (1.7% of total)",
@@ -203,7 +240,9 @@
       "category": "factual",
       "difficulty": "easy",
       "question": "What are the 29 features used per gene in task B1, and why were p-values excluded from the feature set?",
-      "data_context_files": ["transcriptomics.md"],
+      "data_context_files": [
+        "transcriptomics.md"
+      ],
       "expected_reasoning": [
         "Features include effect-size features (fold-changes, mean differences) and distribution features (group means, range, IQR)",
         "P-values excluded to prevent data leakage",
@@ -226,7 +265,10 @@
       "category": "interpretation",
       "difficulty": "medium",
       "question": "In the B1 feature ablation study, removing effect-size features barely affects RF performance (0.885 → 0.863) while dramatically hurting LogReg (0.533 → 0.248). What does this tell us about how each model uses the features?",
-      "data_context_files": ["transcriptomics.md", "ground_truth.md"],
+      "data_context_files": [
+        "transcriptomics.md",
+        "ground_truth.md"
+      ],
       "expected_reasoning": [
         "RF captures nonlinear patterns in distribution features that compensate for missing effect-size",
         "LogReg relies heavily on linear fold-change signal — removing it is devastating",
@@ -251,7 +293,10 @@
       "category": "reasoning",
       "difficulty": "medium",
       "question": "Task B2 (coregulated gene cluster prediction) achieves much lower scores than B1 (best: 0.154 vs 0.922). Why is multi-label cluster prediction fundamentally harder than binary DRR classification?",
-      "data_context_files": ["transcriptomics.md", "ground_truth.md"],
+      "data_context_files": [
+        "transcriptomics.md",
+        "ground_truth.md"
+      ],
       "expected_reasoning": [
         "B2 is 16-class multilabel vs B1 binary — much harder classification",
         "N=466 for B2 (only DRR genes) vs N=26,845 for B1",
@@ -275,7 +320,9 @@
       "category": "reasoning",
       "difficulty": "hard",
       "question": "The B1 ablation shows that removing effect-size features actually IMPROVES MLP performance (0.839 → 0.865). How can removing features improve a model's performance, and what does this imply about MLP's behavior?",
-      "data_context_files": ["transcriptomics.md"],
+      "data_context_files": [
+        "transcriptomics.md"
+      ],
       "expected_reasoning": [
         "Removing features reduces input dimensionality → less overfitting",
         "Effect-size features may introduce noise or redundancy for MLP",
@@ -300,7 +347,11 @@
       "category": "counterfactual",
       "difficulty": "hard",
       "question": "If the JAXA CFE study (6 astronauts, >120 days ISS) had identical cfRNA processing, how would you use it to validate B1 DRR genes? What challenges would you expect?",
-      "data_context_files": ["transcriptomics.md", "overview.md", "cross_mission.md"],
+      "data_context_files": [
+        "transcriptomics.md",
+        "overview.md",
+        "cross_mission.md"
+      ],
       "expected_reasoning": [
         "JAXA CFE provides independent validation with different crew, duration, and orbit",
         "Challenge: different mission duration (120 days vs 3 days) — different temporal dynamics",
@@ -325,7 +376,10 @@
       "category": "experimental_design",
       "difficulty": "expert",
       "question": "The B1 task confirms that distribution features (means, IQR, range) carry more predictive signal than effect-size features (fold-changes). What does this imply about the nature of spaceflight gene regulation, and how would you design a feature set to capture this more effectively?",
-      "data_context_files": ["transcriptomics.md", "ground_truth.md"],
+      "data_context_files": [
+        "transcriptomics.md",
+        "ground_truth.md"
+      ],
       "expected_reasoning": [
         "Distribution features capture gene expression variability across conditions",
         "This implies DRR genes have distinct expression distributions, not just different means",
@@ -351,7 +405,10 @@
       "category": "factual",
       "difficulty": "easy",
       "question": "How many proteins are measured in the I4 plasma proteomics dataset, and why is PCA dimensionality reduction necessary for the classification tasks?",
-      "data_context_files": ["proteomics.md", "overview.md"],
+      "data_context_files": [
+        "proteomics.md",
+        "overview.md"
+      ],
       "expected_reasoning": [
         "2,845 proteins measured in the plasma dataset",
         "Only 21 matched samples available (p >> n problem)",
@@ -374,7 +431,10 @@
       "category": "interpretation",
       "difficulty": "medium",
       "question": "Task C2 (cross-biofluid protein DE concordance) achieves only RF=0.555 AUROC, barely above random (0.5). What does this near-random performance tell us about the relationship between plasma and EVP protein changes during spaceflight?",
-      "data_context_files": ["proteomics.md", "ground_truth.md"],
+      "data_context_files": [
+        "proteomics.md",
+        "ground_truth.md"
+      ],
       "expected_reasoning": [
         "Near-random AUROC suggests plasma and EVP DE patterns are largely independent",
         "Plasma and extracellular vesicle proteins may respond to different stimuli",
@@ -399,7 +459,10 @@
       "category": "reasoning",
       "difficulty": "medium",
       "question": "In task C1 (proteomics phase classification), all three models perform similarly (MLP=0.517, LogReg=0.512, RF=0.464) with PCA features and N=21. Why do simple models perform comparably to MLP here, and what does this suggest about the signal structure?",
-      "data_context_files": ["proteomics.md", "ground_truth.md"],
+      "data_context_files": [
+        "proteomics.md",
+        "ground_truth.md"
+      ],
       "expected_reasoning": [
         "PCA components capture linear variance — even simple models can exploit this",
         "Only 10 PCA components and 21 samples — very low dimensionality limits MLP advantage",
@@ -423,7 +486,10 @@
       "category": "counterfactual",
       "difficulty": "hard",
       "question": "If instead of PCA, you used protein pathway enrichment scores as features for C1, how might model performance change? What tradeoffs would you expect?",
-      "data_context_files": ["proteomics.md", "multi_omics.md"],
+      "data_context_files": [
+        "proteomics.md",
+        "multi_omics.md"
+      ],
       "expected_reasoning": [
         "Pathway scores would be biologically interpretable (unlike PCA components)",
         "Might improve performance if pathway-level changes are more consistent across crew",
@@ -448,7 +514,10 @@
       "category": "reasoning",
       "difficulty": "hard",
       "question": "Why is C2 classified as a Frontier-tier task while C1 is Standard? What makes cross-biofluid DE concordance fundamentally harder than single-biofluid phase classification?",
-      "data_context_files": ["proteomics.md", "ground_truth.md"],
+      "data_context_files": [
+        "proteomics.md",
+        "ground_truth.md"
+      ],
       "expected_reasoning": [
         "C1 has clear temporal signal — flight phases correspond to physiological states",
         "C2 requires cross-biofluid generalization — proteins may respond differently in plasma vs EVP",
@@ -472,7 +541,11 @@
       "category": "experimental_design",
       "difficulty": "expert",
       "question": "Design an improved cross-biofluid concordance task that could yield better-than-random performance. What additional features, data, or modeling approaches would you use?",
-      "data_context_files": ["proteomics.md", "multi_omics.md", "ground_truth.md"],
+      "data_context_files": [
+        "proteomics.md",
+        "multi_omics.md",
+        "ground_truth.md"
+      ],
       "expected_reasoning": [
         "Add protein-protein interaction network features to capture shared biology",
         "Include protein localization and secretion pathway information",
@@ -498,7 +571,9 @@
       "category": "factual",
       "difficulty": "easy",
       "question": "How many metabolites are measured in the I4 dataset, and what fraction show significant spaceflight response?",
-      "data_context_files": ["metabolomics.md"],
+      "data_context_files": [
+        "metabolomics.md"
+      ],
       "expected_reasoning": [
         "433 metabolites measured",
         "91 show significant spaceflight response (21% positive rate)",
@@ -519,7 +594,10 @@
       "category": "interpretation",
       "difficulty": "medium",
       "question": "Task D1 uses chemical properties (molecular weight, LogP, etc.) rather than expression values to predict spaceflight-responsive metabolites. Why is this an interesting experimental design choice?",
-      "data_context_files": ["metabolomics.md", "ground_truth.md"],
+      "data_context_files": [
+        "metabolomics.md",
+        "ground_truth.md"
+      ],
       "expected_reasoning": [
         "Tests whether chemical structure predicts biological behavior in space",
         "Chemical properties are intrinsic — independent of measurement platform",
@@ -543,7 +621,10 @@
       "category": "reasoning",
       "difficulty": "medium",
       "question": "RF achieves 0.676 AUROC on D1 while LogReg achieves only 0.561. What does RF's advantage suggest about the relationship between chemical properties and spaceflight metabolite response?",
-      "data_context_files": ["metabolomics.md", "ground_truth.md"],
+      "data_context_files": [
+        "metabolomics.md",
+        "ground_truth.md"
+      ],
       "expected_reasoning": [
         "RF's advantage suggests nonlinear relationships between chemical properties and DE",
         "Interaction effects between chemical features (e.g., MW × LogP) may be important",
@@ -567,7 +648,10 @@
       "category": "counterfactual",
       "difficulty": "hard",
       "question": "If metabolites were measured in both blood and urine from the same crew members, how would you design a cross-biofluid metabolomics task analogous to C2 (cross-biofluid protein concordance)?",
-      "data_context_files": ["metabolomics.md", "proteomics.md"],
+      "data_context_files": [
+        "metabolomics.md",
+        "proteomics.md"
+      ],
       "expected_reasoning": [
         "Blood metabolites reflect systemic metabolism; urine reflects renal clearance",
         "Concordance could test whether spaceflight affects metabolites consistently across biofluids",
@@ -592,7 +676,11 @@
       "category": "reasoning",
       "difficulty": "hard",
       "question": "D1 uses AUROC while B1 (cfRNA gene ranking) uses AUPRC. Both are binary classification tasks with different class imbalances (21% vs 1.7%). Why is the metric choice important, and how does it affect interpretation?",
-      "data_context_files": ["metabolomics.md", "transcriptomics.md", "ground_truth.md"],
+      "data_context_files": [
+        "metabolomics.md",
+        "transcriptomics.md",
+        "ground_truth.md"
+      ],
       "expected_reasoning": [
         "AUPRC is preferred for highly imbalanced data (B1: 1.7% positive)",
         "AUROC can be misleadingly high with severe imbalance",
@@ -617,7 +705,11 @@
       "category": "experimental_design",
       "difficulty": "expert",
       "question": "How would you integrate metabolomics data with cfRNA transcriptomics to create a multi-omics metabolite-gene interaction task? What biological questions could such a task address about spaceflight?",
-      "data_context_files": ["metabolomics.md", "transcriptomics.md", "multi_omics.md"],
+      "data_context_files": [
+        "metabolomics.md",
+        "transcriptomics.md",
+        "multi_omics.md"
+      ],
       "expected_reasoning": [
         "Map metabolites to metabolic enzymes/genes in cfRNA data",
         "Test whether enzyme gene expression changes predict metabolite changes",
@@ -643,7 +735,10 @@
       "category": "interpretation",
       "difficulty": "medium",
       "question": "Why do the spatial transcriptomics tasks (E1-E4) have such extreme class imbalance, with positive rates below 1%? What does this tell us about cross-layer differential expression in skin?",
-      "data_context_files": ["spatial.md", "ground_truth.md"],
+      "data_context_files": [
+        "spatial.md",
+        "ground_truth.md"
+      ],
       "expected_reasoning": [
         "Most genes are not differentially expressed between skin layers",
         "Skin layers share similar transcriptional programs despite spatial organization",
@@ -667,7 +762,10 @@
       "category": "reasoning",
       "difficulty": "medium",
       "question": "Tasks E2 and E3 are classified as supplementary rather than main tasks. What criteria might have been used to make this distinction, and what does it say about data quality?",
-      "data_context_files": ["spatial.md", "ground_truth.md"],
+      "data_context_files": [
+        "spatial.md",
+        "ground_truth.md"
+      ],
       "expected_reasoning": [
         "E2/E3 may have fewer genes meeting significance thresholds",
         "Inner epidermis and outer dermis may have lower signal-to-noise ratios",
@@ -691,7 +789,10 @@
       "category": "reasoning",
       "difficulty": "hard",
       "question": "E1 and E4 both achieve very low AUPRC scores (0.017 and 0.023 best). Given the extreme class imbalance, are these scores meaningful? How would you determine if the models are capturing real biological signal versus noise?",
-      "data_context_files": ["spatial.md", "ground_truth.md"],
+      "data_context_files": [
+        "spatial.md",
+        "ground_truth.md"
+      ],
       "expected_reasoning": [
         "Random AUPRC ≈ positive rate (0.008, 0.003), so 0.017/0.023 is ~2-8x random",
         "Small but potentially meaningful — consistent improvement over random across models",
@@ -716,7 +817,11 @@
       "category": "experimental_design",
       "difficulty": "expert",
       "question": "If you could add spatial proteomics or spatial metabolomics to complement the spatial transcriptomics data, which would you prioritize for improving cross-layer DE prediction? What technical challenges would each present?",
-      "data_context_files": ["spatial.md", "proteomics.md", "metabolomics.md"],
+      "data_context_files": [
+        "spatial.md",
+        "proteomics.md",
+        "metabolomics.md"
+      ],
       "expected_reasoning": [
         "Spatial proteomics: directly measures effector molecules; complements RNA data",
         "Spatial metabolomics (e.g., MALDI imaging): captures metabolic gradients across layers",
@@ -742,7 +847,9 @@
       "category": "factual",
       "difficulty": "easy",
       "question": "How many body sites are sampled in the I4 microbiome dataset, and how many total samples are collected from human versus environmental sources?",
-      "data_context_files": ["microbiome.md"],
+      "data_context_files": [
+        "microbiome.md"
+      ],
       "expected_reasoning": [
         "10 body sites sampled from crew members",
         "275 human samples and 39 environmental samples",
@@ -763,7 +870,10 @@
       "category": "interpretation",
       "difficulty": "medium",
       "question": "Task F3 (Human vs Environmental) is the only Calibration-tier task in the benchmark, achieving RF=0.841 AUROC. Why is this task so much easier than the other microbiome tasks?",
-      "data_context_files": ["microbiome.md", "ground_truth.md"],
+      "data_context_files": [
+        "microbiome.md",
+        "ground_truth.md"
+      ],
       "expected_reasoning": [
         "Human vs environmental microbiomes are fundamentally different",
         "Human-associated microbes are distinct from spacecraft environmental microbes",
@@ -787,7 +897,10 @@
       "category": "reasoning",
       "difficulty": "medium",
       "question": "F2 (Flight Phase Detection by taxonomy, macro_f1=0.238) and F5 (by pathways, macro_f1=0.254) both perform similarly near random. Why is detecting flight phase from microbiome data so difficult?",
-      "data_context_files": ["microbiome.md", "ground_truth.md"],
+      "data_context_files": [
+        "microbiome.md",
+        "ground_truth.md"
+      ],
       "expected_reasoning": [
         "Microbiome composition is highly individual — inter-person variation dominates",
         "LOCO evaluation means testing on unseen crew whose microbiome may be very different",
@@ -812,7 +925,10 @@
       "category": "reasoning",
       "difficulty": "hard",
       "question": "Body site classification (F1=0.199, F4=0.163) outperforms flight phase detection (F2=0.238, F5=0.254) in absolute terms but uses a harder metric (10-class vs 3-class macro_f1). Which set of tasks represents better ML performance relative to their difficulty?",
-      "data_context_files": ["microbiome.md", "ground_truth.md"],
+      "data_context_files": [
+        "microbiome.md",
+        "ground_truth.md"
+      ],
       "expected_reasoning": [
         "Random baseline for 10-class F1/F4 is ~0.112, for 3-class F2/F5 is ~0.205",
         "F1 achieves 0.199/0.112 = 1.78x random; F2 achieves 0.238/0.205 = 1.16x random",
@@ -837,7 +953,10 @@
       "category": "factual",
       "difficulty": "easy",
       "question": "What are the key differences between the Inspiration4 and NASA Twins Study missions in terms of duration, crew size, and orbital parameters?",
-      "data_context_files": ["overview.md", "cross_mission.md"],
+      "data_context_files": [
+        "overview.md",
+        "cross_mission.md"
+      ],
       "expected_reasoning": [
         "I4: 3 days, 4 civilian crew, LEO ~585 km, September 2021",
         "Twins: 340 days, 1 astronaut (Scott Kelly) with twin control (Mark Kelly), ISS ~408 km, 2015-2016",
@@ -858,7 +977,10 @@
       "category": "factual",
       "difficulty": "easy",
       "question": "How many pathways are conserved between the I4 PBMC and NASA Twins enrichment analyses, and what percentage of I4 pathways does this represent?",
-      "data_context_files": ["cross_mission.md", "ground_truth.md"],
+      "data_context_files": [
+        "cross_mission.md",
+        "ground_truth.md"
+      ],
       "expected_reasoning": [
         "146 pathways conserved out of 452 I4 PBMC pathways (32.3%)",
         "Twins had 152 unique significant pathways",
@@ -879,7 +1001,10 @@
       "category": "interpretation",
       "difficulty": "medium",
       "question": "Why is oxidative phosphorylation one of the key conserved pathways between I4 and Twins? What does this suggest about mitochondrial function in spaceflight?",
-      "data_context_files": ["cross_mission.md", "ground_truth.md"],
+      "data_context_files": [
+        "cross_mission.md",
+        "ground_truth.md"
+      ],
       "expected_reasoning": [
         "Oxidative phosphorylation is the primary ATP production pathway in mitochondria",
         "Disruption in both missions suggests microgravity directly affects mitochondrial function",
@@ -903,7 +1028,10 @@
       "category": "reasoning",
       "difficulty": "medium",
       "question": "Gene-level DE conservation (814/15,540 = 5.2%) is much lower than pathway-level conservation (146/452 = 32.3%). Why would pathways be more conserved than individual genes across missions?",
-      "data_context_files": ["cross_mission.md", "ground_truth.md"],
+      "data_context_files": [
+        "cross_mission.md",
+        "ground_truth.md"
+      ],
       "expected_reasoning": [
         "Pathways aggregate many genes — different individual genes can shift while pathway-level response is conserved",
         "Gene-level DE depends on exact fold-change magnitudes, which vary by platform and crew",
@@ -928,7 +1056,10 @@
       "category": "interpretation",
       "difficulty": "medium",
       "question": "HBB (beta-globin) shows approximately 40% post-flight expression increase in the I4 crew. How does this relate to the known phenomenon of space anemia?",
-      "data_context_files": ["hemoglobin.md", "cross_mission.md"],
+      "data_context_files": [
+        "hemoglobin.md",
+        "cross_mission.md"
+      ],
       "expected_reasoning": [
         "Space anemia involves increased red blood cell destruction (~54% more hemolysis in space)",
         "Post-flight HBB increase reflects compensatory erythropoiesis — body producing new RBCs",
@@ -954,7 +1085,11 @@
       "category": "reasoning",
       "difficulty": "medium",
       "question": "Task I1 (hemoglobin gene DE prediction from Twins fold-changes) achieves RF=0.005 AUPRC versus random=0.003. Why is this task so difficult despite hemoglobin pathway biology being well-characterized?",
-      "data_context_files": ["hemoglobin.md", "cross_mission.md", "ground_truth.md"],
+      "data_context_files": [
+        "hemoglobin.md",
+        "cross_mission.md",
+        "ground_truth.md"
+      ],
       "expected_reasoning": [
         "Only 3 features (fold-changes) to distinguish 57 positives from 26,788 negatives",
         "Extreme class imbalance: 0.21% positive rate",
@@ -979,7 +1114,10 @@
       "category": "cross_mission_comparison",
       "difficulty": "medium",
       "question": "The Twins Study analyzes 5 cell types (CD4, CD8, CD19, PBMC, LD) while I4 PBMC scRNA-seq identifies 9 cell types (CD4_T, CD8_T, other_T, B, NK, CD14_Mono, CD16_Mono, DC, other). How do these cell type categorizations overlap, and what challenges does this create for cross-mission comparison?",
-      "data_context_files": ["cross_mission.md", "overview.md"],
+      "data_context_files": [
+        "cross_mission.md",
+        "overview.md"
+      ],
       "expected_reasoning": [
         "CD4 ↔ CD4_T, CD8 ↔ CD8_T, CD19 ↔ B are direct correspondences",
         "I4 has finer resolution: CD14_Mono vs CD16_Mono, NK, DC separated",
@@ -1004,7 +1142,11 @@
       "category": "reasoning",
       "difficulty": "hard",
       "question": "Despite a 100-fold difference in mission duration (3 days vs 340 days), 32.3% of pathways are conserved between I4 and Twins. What biological mechanisms could explain pathway activation within just 3 days that persists over a year?",
-      "data_context_files": ["cross_mission.md", "hemoglobin.md", "ground_truth.md"],
+      "data_context_files": [
+        "cross_mission.md",
+        "hemoglobin.md",
+        "ground_truth.md"
+      ],
       "expected_reasoning": [
         "Acute stress responses (cortisol, fluid shifts) activate within hours",
         "Oxidative stress and mitochondrial dysfunction begin rapidly in microgravity",
@@ -1030,7 +1172,10 @@
       "category": "cross_mission_comparison",
       "difficulty": "hard",
       "question": "The I4 cfRNA analysis and Twins blood cell RNA-seq use fundamentally different molecular approaches. How do platform differences confound the interpretation of cross-mission conservation results?",
-      "data_context_files": ["cross_mission.md", "transcriptomics.md"],
+      "data_context_files": [
+        "cross_mission.md",
+        "transcriptomics.md"
+      ],
       "expected_reasoning": [
         "cfRNA captures cell-free RNA from all tissues; scRNA-seq captures intracellular RNA from blood cells",
         "cfRNA reflects whole-body tissue shedding; Twins data reflects blood cell transcription",
@@ -1056,7 +1201,11 @@
       "category": "counterfactual",
       "difficulty": "hard",
       "question": "If the Twins Study had N=4 crew with twin controls (instead of N=1), and I4 had a ground-based twin control for each crew member, how would the statistical power for cross-mission comparison change?",
-      "data_context_files": ["cross_mission.md", "ground_truth.md", "overview.md"],
+      "data_context_files": [
+        "cross_mission.md",
+        "ground_truth.md",
+        "overview.md"
+      ],
       "expected_reasoning": [
         "Twin controls would isolate spaceflight effects from individual variation",
         "N=4 Twins would allow per-gene variance estimation across individuals",
@@ -1082,7 +1231,10 @@
       "category": "reasoning",
       "difficulty": "hard",
       "question": "Task I2 (pathway conservation prediction) achieves RF=0.706 AUROC while I3 (gene-level DE conservation) achieves only LogReg=0.090 AUPRC. Given that I2 and I3 address the same biological question at different scales, why is the performance gap so large?",
-      "data_context_files": ["cross_mission.md", "ground_truth.md"],
+      "data_context_files": [
+        "cross_mission.md",
+        "ground_truth.md"
+      ],
       "expected_reasoning": [
         "I2 has richer features (8 features including NES, ES, cell type count, direction consistency)",
         "I3 features may not capture the determinants of cross-mission gene conservation",
@@ -1108,7 +1260,10 @@
       "category": "cross_mission_comparison",
       "difficulty": "hard",
       "question": "The hemoglobin gene set shows consistent upregulation in both I4 (3-day) and Twins (340-day) missions. Does this similarity suggest that space anemia develops within 3 days, or could there be alternative explanations?",
-      "data_context_files": ["hemoglobin.md", "cross_mission.md"],
+      "data_context_files": [
+        "hemoglobin.md",
+        "cross_mission.md"
+      ],
       "expected_reasoning": [
         "Hemolysis studies show ~54% increase in RBC destruction begins early in spaceflight",
         "Compensatory erythropoiesis would begin within days of initial hemolysis",
@@ -1135,7 +1290,11 @@
       "category": "experimental_design",
       "difficulty": "expert",
       "question": "Design a validation study to confirm that the 146 conserved pathways between I4 and Twins represent genuine spaceflight responses rather than platform artifacts or statistical noise. What data, controls, and analyses would you need?",
-      "data_context_files": ["cross_mission.md", "ground_truth.md", "overview.md"],
+      "data_context_files": [
+        "cross_mission.md",
+        "ground_truth.md",
+        "overview.md"
+      ],
       "expected_reasoning": [
         "Use JAXA CFE or other independent mission as a third validation set",
         "Ground-based analogs (bed rest, radiation exposure) as positive/negative controls",
@@ -1161,7 +1320,11 @@
       "category": "reasoning",
       "difficulty": "expert",
       "question": "Task I1 uses only 3 fold-change features from the Twins transcriptome to predict hemoglobin pathway membership (57 genes among 26,845). Is this task fundamentally impossible with so few features, or could alternative modeling approaches extract signal?",
-      "data_context_files": ["hemoglobin.md", "cross_mission.md", "ground_truth.md"],
+      "data_context_files": [
+        "hemoglobin.md",
+        "cross_mission.md",
+        "ground_truth.md"
+      ],
       "expected_reasoning": [
         "3 features may be insufficient if hemoglobin genes don't have unique fold-change signatures",
         "Many other gene families may share similar fold-change patterns",
@@ -1188,7 +1351,11 @@
       "category": "cross_mission_comparison",
       "difficulty": "expert",
       "question": "If you could add a third mission dataset (e.g., a 30-day lunar orbit mission with 6 crew), how would you redesign the I-series cross-mission tasks to leverage three-way comparisons? What new biological insights could emerge?",
-      "data_context_files": ["cross_mission.md", "hemoglobin.md", "ground_truth.md"],
+      "data_context_files": [
+        "cross_mission.md",
+        "hemoglobin.md",
+        "ground_truth.md"
+      ],
       "expected_reasoning": [
         "Three-way pathway conservation: test if 3-day, 30-day, and 340-day missions share core pathways",
         "Duration-response curves: identify pathways that scale with mission length",
@@ -1214,7 +1381,11 @@
       "category": "experimental_design",
       "difficulty": "expert",
       "question": "The cross-mission comparison is confounded by different crew demographics (civilians vs professional astronaut), different platforms (cfRNA vs scRNA-seq), and different durations (3 days vs 340 days). How would you design an ideal cross-mission study to minimize these confounders while maximizing biological insight?",
-      "data_context_files": ["cross_mission.md", "overview.md", "ground_truth.md"],
+      "data_context_files": [
+        "cross_mission.md",
+        "overview.md",
+        "ground_truth.md"
+      ],
       "expected_reasoning": [
         "Standardize platforms: use identical omics protocols across missions",
         "Include overlapping crew types: mixed civilian/professional astronauts",
@@ -1241,7 +1412,10 @@
       "category": "factual",
       "difficulty": "easy",
       "question": "What three modalities are fused in task G1, and how many matched samples are available for this multi-modal analysis?",
-      "data_context_files": ["multi_omics.md", "overview.md"],
+      "data_context_files": [
+        "multi_omics.md",
+        "overview.md"
+      ],
       "expected_reasoning": [
         "Three modalities: Clinical (CBC + CMP), Proteomics (PCA), Metabolomics (PCA)",
         "21 matched samples (timepoints where all 3 modalities collected)",
@@ -1262,7 +1436,11 @@
       "category": "interpretation",
       "difficulty": "medium",
       "question": "G1 (multi-modal) achieves LogReg=0.517 macro_f1, comparable to A1 (clinical only, 0.546). Yet RF drops to 0.254 and MLP to 0.285. Why do complex models struggle with multi-modal data here while LogReg remains stable?",
-      "data_context_files": ["multi_omics.md", "clinical.md", "ground_truth.md"],
+      "data_context_files": [
+        "multi_omics.md",
+        "clinical.md",
+        "ground_truth.md"
+      ],
       "expected_reasoning": [
         "Per-fold PCA on proteomics/metabolomics creates different feature spaces across folds",
         "RF and MLP are more sensitive to feature instability across folds than LogReg",
@@ -1288,7 +1466,10 @@
       "category": "reasoning",
       "difficulty": "medium",
       "question": "In task H1 (cross-tissue gene conservation), RF=0.266 AUPRC substantially outperforms LogReg=0.176 and MLP=0.062. What does RF's advantage tell us about the relationship between PBMC cell type effects and skin DE?",
-      "data_context_files": ["multi_omics.md", "ground_truth.md"],
+      "data_context_files": [
+        "multi_omics.md",
+        "ground_truth.md"
+      ],
       "expected_reasoning": [
         "RF captures nonlinear relationships between PBMC cell type log2FC and skin DE",
         "Some cell types may have threshold effects on skin DE conservation",
@@ -1313,7 +1494,10 @@
       "category": "reasoning",
       "difficulty": "hard",
       "question": "H1 uses 9 PBMC cell type log2FC values to predict skin DE. If a gene has high log2FC in CD14_Mono and CD16_Mono but low log2FC in T cells and B cells, what might this pattern mean for skin DE prediction?",
-      "data_context_files": ["multi_omics.md", "cross_mission.md"],
+      "data_context_files": [
+        "multi_omics.md",
+        "cross_mission.md"
+      ],
       "expected_reasoning": [
         "Monocytes are innate immune cells involved in tissue inflammation and repair",
         "High monocyte log2FC may indicate systemic inflammatory response affecting skin",
@@ -1339,7 +1523,11 @@
       "category": "counterfactual",
       "difficulty": "hard",
       "question": "If cfRNA transcriptomics were added as a fourth modality to the G1 multi-modal fusion, would you expect performance to improve? Consider both the potential benefits and challenges.",
-      "data_context_files": ["multi_omics.md", "transcriptomics.md", "ground_truth.md"],
+      "data_context_files": [
+        "multi_omics.md",
+        "transcriptomics.md",
+        "ground_truth.md"
+      ],
       "expected_reasoning": [
         "cfRNA captures systemic tissue-level gene expression — different information from clinical/proteomic/metabolomic",
         "Would add whole-transcriptome coverage (26,845 genes → PCA to 8-10 components)",
@@ -1365,7 +1553,11 @@
       "category": "experimental_design",
       "difficulty": "hard",
       "question": "The p >> n problem (many more features than samples) is pervasive across SpaceOmicsBench. Beyond PCA, what dimensionality reduction strategies could improve multi-modal integration with only 21 samples?",
-      "data_context_files": ["multi_omics.md", "proteomics.md", "ground_truth.md"],
+      "data_context_files": [
+        "multi_omics.md",
+        "proteomics.md",
+        "ground_truth.md"
+      ],
       "expected_reasoning": [
         "Sparse methods: LASSO or elastic net for automatic feature selection",
         "Biological priors: use pathway/GO-based feature grouping",
@@ -1391,7 +1583,12 @@
       "category": "experimental_design",
       "difficulty": "expert",
       "question": "Design an optimal multi-omics integration strategy that could realistically improve G1 phase classification performance beyond the current LogReg=0.517. Consider the constraint of N=21 and the available modalities.",
-      "data_context_files": ["multi_omics.md", "clinical.md", "proteomics.md", "metabolomics.md"],
+      "data_context_files": [
+        "multi_omics.md",
+        "clinical.md",
+        "proteomics.md",
+        "metabolomics.md"
+      ],
       "expected_reasoning": [
         "Use MOFA or similar joint factorization to find shared latent factors across modalities",
         "Feature selection within each modality before fusion (not all features contribute)",
@@ -1417,7 +1614,11 @@
       "category": "reasoning",
       "difficulty": "expert",
       "question": "H1 shows that PBMC DE patterns moderately predict skin DE (RF=0.266 AUPRC vs random=0.060). What does this tell us about systemic versus tissue-specific spaceflight responses, and what are the implications for using blood as a biomarker for whole-body effects?",
-      "data_context_files": ["multi_omics.md", "ground_truth.md", "hemoglobin.md"],
+      "data_context_files": [
+        "multi_omics.md",
+        "ground_truth.md",
+        "hemoglobin.md"
+      ],
       "expected_reasoning": [
         "Moderate signal suggests some genes respond systemically across blood and skin",
         "But AUPRC=0.266 (low) means most skin responses are tissue-specific",
@@ -1443,7 +1644,10 @@
       "category": "factual",
       "difficulty": "easy",
       "question": "What is LOCO (Leave-One-Crew-Out) evaluation, and why is it used instead of standard k-fold cross-validation in SpaceOmicsBench?",
-      "data_context_files": ["overview.md", "ground_truth.md"],
+      "data_context_files": [
+        "overview.md",
+        "ground_truth.md"
+      ],
       "expected_reasoning": [
         "LOCO trains on 3 crew members and tests on the 4th, rotating through all 4",
         "Prevents data leakage: samples from the same crew member are correlated",
@@ -1467,7 +1671,9 @@
       "category": "reasoning",
       "difficulty": "medium",
       "question": "The normalized composite score formula is (score - random) / (1 - random), averaged across categories. What are the strengths and limitations of this normalization approach for comparing models across very different tasks?",
-      "data_context_files": ["ground_truth.md"],
+      "data_context_files": [
+        "ground_truth.md"
+      ],
       "expected_reasoning": [
         "Strength: makes scores comparable across tasks with different random baselines",
         "Strength: accounts for different metrics (AUPRC, AUROC, macro_f1) having different scales",
@@ -1485,6 +1691,1215 @@
         "reasoning_quality": "Must discuss both strengths and limitations of normalization",
         "completeness": "Should identify at least 2 strengths and 2 limitations",
         "factual_accuracy": "Should correctly state the formula and its components"
+      }
+    },
+    {
+      "id": "Q61",
+      "modality": "clinical",
+      "category": "factual",
+      "difficulty": "easy",
+      "question": "What are the main categories of features in the Comprehensive Metabolic Panel (CMP), and how do they complement the CBC features in task A1?",
+      "data_context_files": [
+        "overview.md",
+        "clinical.md"
+      ],
+      "expected_reasoning": [
+        "CMP includes electrolytes, kidney function markers, liver enzymes, glucose, and protein levels",
+        "Together CBC+CMP provide ~40 features for clinical classification",
+        "CMP adds organ function assessment beyond the blood cell composition captured by CBC"
+      ],
+      "ground_truth_key_facts": [
+        "CMP = Comprehensive Metabolic Panel with ~20 additional features",
+        "CMP covers liver panel, kidney panel, and electrolyte panel",
+        "CBC and CMP together provide complementary views of systemic health"
+      ],
+      "rubric": {
+        "factual_accuracy": "Must correctly describe CMP components including electrolytes, liver enzymes, kidney function markers, glucose, and protein levels",
+        "completeness": "Should mention how CMP complements CBC by adding organ function assessment beyond blood cell composition"
+      }
+    },
+    {
+      "id": "Q62",
+      "modality": "clinical",
+      "category": "interpretation",
+      "difficulty": "medium",
+      "question": "The post-flight class in A1 has only 4 samples (one per crew at R+1), while pre-flight has 12 and recovery has 12. How does this extreme class imbalance affect macro_f1 evaluation, and why was macro_f1 chosen over accuracy?",
+      "data_context_files": [
+        "clinical.md",
+        "ground_truth.md"
+      ],
+      "expected_reasoning": [
+        "Macro_f1 weights all classes equally regardless of sample size, giving equal importance to the rare post-flight class",
+        "Accuracy would be dominated by pre-flight and recovery classes (24/28 = 86%), making a majority-class classifier appear strong",
+        "A majority-class classifier achieves only ~0.200 macro_f1 (correctly predicting only 1 of 3 classes) but much higher accuracy",
+        "The post-flight class has the highest biological signal (acute R+1 changes) but fewest samples, so the metric must reward detecting it"
+      ],
+      "ground_truth_key_facts": [
+        "Phase distribution: pre-flight=12, post-flight=4, recovery=12",
+        "Macro_f1 averages the F1 score per class equally regardless of class size",
+        "Majority-class baseline macro_f1 is approximately 0.200"
+      ],
+      "rubric": {
+        "factual_accuracy": "Must correctly state sample counts (pre=12, post=4, recovery=12) and define macro_f1 as equal-weight averaging across classes",
+        "reasoning_quality": "Must explain why macro_f1 is appropriate for imbalanced data by contrasting it with accuracy and showing how accuracy would mask poor performance on the rare post-flight class"
+      }
+    },
+    {
+      "id": "Q63",
+      "modality": "clinical",
+      "category": "counterfactual",
+      "difficulty": "hard",
+      "question": "If the Inspiration4 mission had included 10 crew members instead of 4, how would you expect the clinical classification results (A1, A2) to change? Consider both statistical power and the LOCO evaluation framework.",
+      "data_context_files": [
+        "clinical.md",
+        "ground_truth.md",
+        "overview.md"
+      ],
+      "expected_reasoning": [
+        "More crew means more LOCO folds (10 instead of 4) with larger training sets per fold (~63 samples instead of ~21)",
+        "Each fold would benefit from substantially more training data, improving model generalization",
+        "Small N is the primary limitation for these tasks: p<N for CBC but p>>N for cytokines in A2",
+        "RF and MLP might improve more than LogReg because complex models benefit more from additional data",
+        "Post-flight would have 10 samples instead of 4, greatly reducing class imbalance and stabilizing macro_f1 estimates"
+      ],
+      "ground_truth_key_facts": [
+        "Current setup: N=28 (4 crew x 7 timepoints), LOCO=4-fold",
+        "Hypothetical setup: N=70 (10 crew x 7 timepoints), LOCO=10-fold",
+        "A1 LogReg=0.546 is the current best performance"
+      ],
+      "rubric": {
+        "reasoning_quality": "Should address multiple factors including increased sample size per fold, more LOCO folds, reduced class imbalance, and differential model improvement",
+        "uncertainty_calibration": "Should acknowledge that predictions about performance scaling are speculative and depend on effect sizes",
+        "domain_integration": "Should reference known spaceflight biology considerations such as inter-individual variability"
+      }
+    },
+    {
+      "id": "Q64",
+      "modality": "transcriptomics",
+      "category": "reasoning",
+      "difficulty": "medium",
+      "question": "The B1 task uses 29 features per gene including both effect-size features (fold-changes between flight phases) and distribution features (means, ranges, IQRs). Why might distribution features be more informative than effect-size features for identifying spaceflight-responsive genes?",
+      "data_context_files": [
+        "transcriptomics.md",
+        "ground_truth.md"
+      ],
+      "expected_reasoning": [
+        "Distribution features capture within-group variability that effect-size features miss entirely",
+        "A gene can have a modest fold-change but very tight distribution, indicating consistent and reliable change",
+        "DRR genes may be characterized by altered variance patterns, not just mean shifts between conditions",
+        "Fold-changes between only 3 conditions (pre/flight/post) provide limited discriminative information compared to distribution features computed across all samples",
+        "The ablation study confirms this: removing effect-size features barely affects RF (0.885 to 0.863), while using only effect-size features drops to 0.813"
+      ],
+      "ground_truth_key_facts": [
+        "B1 ablation results: All features RF=0.885, No-effect-size RF=0.863, Effect-size-only RF=0.813",
+        "29 features per gene are used in B1",
+        "DRR = differentially-regulated response genes identified through multi-criteria analysis"
+      ],
+      "rubric": {
+        "reasoning_quality": "Must explain why distribution features capture more biological signal than simple fold-changes, including variance and consistency arguments",
+        "factual_accuracy": "Should cite correct ablation numbers showing distribution features are more important",
+        "domain_integration": "Should connect feature informativeness to biological mechanisms of gene regulation"
+      }
+    },
+    {
+      "id": "Q65",
+      "modality": "transcriptomics",
+      "category": "experimental_design",
+      "difficulty": "hard",
+      "question": "The JAXA CFE study (6 astronauts, >120 days ISS) collected cell-free RNA data. How would you design a cross-study validation experiment using JAXA CFE as external validation for the B1 gene ranking task?",
+      "data_context_files": [
+        "transcriptomics.md",
+        "overview.md",
+        "cross_mission.md"
+      ],
+      "expected_reasoning": [
+        "Train the B1 model on I4 data and apply it to JAXA genes to test whether the learned patterns generalize",
+        "Need to harmonize gene identifiers and feature definitions across studies, ensuring compatible feature engineering",
+        "JAXA has 6 subjects (vs I4's 4) but much longer duration (>120 days vs 3 days), producing potentially different DRR patterns",
+        "Could test whether I4-identified DRR genes also show differential expression in JAXA data as an orthogonal validation",
+        "Platform differences in cfRNA processing pipelines may introduce batch effects that confound cross-study comparison",
+        "Duration difference (3 days vs 120+ days) means acute versus chronic biological responses may dominate, limiting transferability"
+      ],
+      "ground_truth_key_facts": [
+        "JAXA CFE: 6 astronauts, >120 days on ISS, cfRNA focus",
+        "Inspiration4: 4 crew, 3-day mission in LEO",
+        "B1 uses 466 DRR genes as the positive class"
+      ],
+      "rubric": {
+        "reasoning_quality": "Should discuss how mission duration and platform confounders affect transferability of the B1 model",
+        "uncertainty_calibration": "Should acknowledge key assumptions and limitations of the proposed validation",
+        "completeness": "Must address cross-study harmonization of gene features, identifiers, and processing pipelines"
+      }
+    },
+    {
+      "id": "Q66",
+      "modality": "transcriptomics",
+      "category": "counterfactual",
+      "difficulty": "expert",
+      "question": "If p-values had been included as features in the B1 task (they were deliberately excluded to prevent leakage), how would this change the results and why would it constitute data leakage?",
+      "data_context_files": [
+        "transcriptomics.md",
+        "ground_truth.md"
+      ],
+      "expected_reasoning": [
+        "P-values directly encode statistical significance, which correlates strongly with DRR status since DRR genes were selected partly based on significance criteria",
+        "Including p-values creates circular reasoning: the target labels depend on significance testing, so including the test statistics as features leaks the label",
+        "Including p-values would inflate performance metrics artificially, giving misleading impressions of model capability",
+        "The task is designed to test whether biological signal patterns (not statistical artifacts) can identify responsive genes",
+        "Even adjusted p-values from the same dataset would leak information about the target variable",
+        "This is analogous to including the label itself as a feature — the model would trivially learn a threshold"
+      ],
+      "ground_truth_key_facts": [
+        "B1 features deliberately exclude p-values to prevent data leakage",
+        "466 DRR genes were defined by differential expression criteria that involve significance testing",
+        "Current best performance: LightGBM=0.922 AUPRC without p-values"
+      ],
+      "rubric": {
+        "reasoning_quality": "Must explain the specific leakage mechanism: DRR labels are defined using significance criteria, so p-value features encode label information",
+        "factual_accuracy": "Should correctly describe the feature exclusion decision and current performance levels",
+        "domain_integration": "Should discuss the broader feature engineering philosophy of avoiding circular definitions in benchmark design"
+      }
+    },
+    {
+      "id": "Q67",
+      "modality": "proteomics",
+      "category": "factual",
+      "difficulty": "easy",
+      "question": "How many proteins overlap between the plasma and EVP (extracellular vesicle particle) proteomics datasets, and what does the C2 task use this overlap for?",
+      "data_context_files": [
+        "proteomics.md",
+        "ground_truth.md"
+      ],
+      "expected_reasoning": [
+        "380 proteins are measured in both plasma and EVP biofluids",
+        "C2 uses plasma differential expression features (logFC, AveExpr, t-statistic, B-statistic) to predict EVP significance",
+        "The task tests whether protein abundance changes in one biofluid predict changes in another biofluid",
+        "The overlap represents proteins detectable in both secreted vesicle (EVP) and circulating (plasma) compartments"
+      ],
+      "ground_truth_key_facts": [
+        "380 proteins overlap between plasma and EVP datasets",
+        "C2 features are plasma DE statistics: logFC, AveExpr, t-statistic, B-statistic",
+        "C2 target: EVP adjusted p-value < 0.05",
+        "C2 best performance: LightGBM=0.565 AUROC"
+      ],
+      "rubric": {
+        "factual_accuracy": "Must correctly state 380 overlapping proteins and list the plasma DE feature types used",
+        "completeness": "Should explain the biological basis for the cross-biofluid concordance task and why it is scientifically meaningful"
+      }
+    },
+    {
+      "id": "Q68",
+      "modality": "proteomics",
+      "category": "reasoning",
+      "difficulty": "medium",
+      "question": "Task C1 applies PCA to reduce 2,845 proteins to 10 components before classification. Why is PCA applied per-fold rather than on the entire dataset, and what artifact would arise from applying PCA before splitting?",
+      "data_context_files": [
+        "proteomics.md",
+        "multi_omics.md",
+        "ground_truth.md"
+      ],
+      "expected_reasoning": [
+        "PCA on the full dataset before splitting causes data leakage because test set information influences the PCA transformation matrix",
+        "Per-fold PCA ensures principal components are derived from training data only, and the same transformation is applied to the held-out test set without refitting",
+        "With only 21 samples, even small information leakage can dramatically inflate apparent performance",
+        "This PCA leakage was identified and fixed in a prior version of the benchmark, with scores changing significantly (e.g., C1 LogReg dropped from 0.597 to 0.512)",
+        "The transformation learned on training data must be applied unchanged to test data to preserve evaluation integrity"
+      ],
+      "ground_truth_key_facts": [
+        "2,845 proteins are reduced to 10 PCA components per fold",
+        "N=21 total samples in C1",
+        "PCA leakage was identified and fixed, causing notable score drops",
+        "C1 best: MLP=0.517 macro_f1"
+      ],
+      "rubric": {
+        "reasoning_quality": "Must explain the specific leakage mechanism through PCA: test data influences component directions when PCA is fit on full data",
+        "factual_accuracy": "Should state the correct dimensionality reduction (2,845 to 10) and sample size (21)",
+        "completeness": "Should mention the practical impact of the leakage fix on reported scores"
+      }
+    },
+    {
+      "id": "Q69",
+      "modality": "proteomics",
+      "category": "interpretation",
+      "difficulty": "hard",
+      "question": "In task C1, MLP (0.517) slightly outperforms LogReg (0.512) despite having far more parameters. Given only 21 samples with per-fold PCA reducing to 10 features, what might explain MLP's advantage?",
+      "data_context_files": [
+        "proteomics.md",
+        "ground_truth.md"
+      ],
+      "expected_reasoning": [
+        "After PCA to 10 components, the effective dimensionality is manageable even for a parameter-rich MLP",
+        "The 3-class decision boundaries in PCA space may be nonlinear, giving MLP an inherent advantage over linear LogReg",
+        "MLP's regularization (alpha=0.01 and early_stopping) prevents overfitting despite small sample size",
+        "The alpha parameter and validation-based early stopping serve as implicit regularization equivalent to strong priors",
+        "However, the difference (0.517 vs 0.512) is well within noise for N=21 and may not be statistically significant",
+        "LOCO evaluation with only 4 folds means high variance in performance estimates"
+      ],
+      "ground_truth_key_facts": [
+        "C1 scores: MLP=0.517, LogReg=0.512, RF=0.464",
+        "PCA reduces 2,845 proteins to 10 components",
+        "LOCO with 4 folds (one per crew member)",
+        "MLP architecture: 256-128-64 hidden layers with alpha=0.01"
+      ],
+      "rubric": {
+        "reasoning_quality": "Should discuss both possible explanations (nonlinear boundaries, regularization) and why the difference may be meaningful or not",
+        "uncertainty_calibration": "Must explicitly acknowledge that the score difference (0.005) may not be statistically significant given N=21 and 4-fold evaluation",
+        "factual_accuracy": "Should cite correct model scores and architecture details"
+      }
+    },
+    {
+      "id": "Q70",
+      "modality": "proteomics",
+      "category": "experimental_design",
+      "difficulty": "expert",
+      "question": "Task C2 (cross-biofluid protein concordance) is at frontier difficulty with LightGBM=0.565 AUROC barely above random (0.529). Propose two concrete improvements to the task design that might make the concordance signal more detectable.",
+      "data_context_files": [
+        "proteomics.md",
+        "ground_truth.md",
+        "overview.md"
+      ],
+      "expected_reasoning": [
+        "Add protein physical/chemical properties as features (molecular weight, isoelectric point, subcellular localization) since some protein classes may concordantly change across biofluids",
+        "Use a softer prediction target: instead of binary significance, predict the direction of differential expression or the magnitude correlation between biofluids",
+        "Filter to protein families with known vesicle trafficking or secretion mechanisms, enriching for biologically concordant proteins",
+        "Include temporal features since some cross-biofluid concordance may be time-lagged rather than simultaneous",
+        "Increase N by including all 2,845 proteins with imputed or partial features rather than restricting to the 380-protein overlap",
+        "EVP represents active vesicle secretion while plasma includes passively leaked proteins, so features capturing secretion biology could help"
+      ],
+      "ground_truth_key_facts": [
+        "C2: N=380 overlapping proteins, 4 plasma DE features, target is EVP adj_pval < 0.05",
+        "LightGBM=0.565 AUROC, random baseline=0.529",
+        "EVP (extracellular vesicle particles) represent active secretion; plasma includes passively leaked proteins"
+      ],
+      "rubric": {
+        "reasoning_quality": "Proposed improvements should be biologically motivated and address identified weaknesses in the current design",
+        "domain_integration": "Should reference protein biology, vesicle trafficking, or biofluid-specific mechanisms to justify proposals",
+        "completeness": "Must propose at least two specific, actionable improvements with clear implementation details"
+      }
+    },
+    {
+      "id": "Q71",
+      "modality": "metabolomics",
+      "category": "factual",
+      "difficulty": "easy",
+      "question": "What are the input features available for each metabolite in the D1 task, and what biological information does each feature type encode?",
+      "data_context_files": [
+        "metabolomics.md",
+        "ground_truth.md"
+      ],
+      "expected_reasoning": [
+        "Mass: molecular weight from mass spectrometry, reflecting overall molecule size",
+        "Retention time (RT): chromatographic behavior reflecting chemical polarity and structure",
+        "annotation_confidence: quality score for metabolite identification certainty",
+        "SuperPathway: broad metabolic category (one-hot encoded), such as lipid or amino acid metabolism",
+        "SubPathway: specific metabolic pathway (one-hot encoded), providing finer functional grouping",
+        "Chemical formula decomposed into atom counts (C, H, N, O, S, P), capturing elemental composition"
+      ],
+      "ground_truth_key_facts": [
+        "Features include Mass, RT, annotation_confidence, SuperPathway (one-hot), SubPathway (one-hot), and formula-derived atom counts (C, H, N, O, S, P)",
+        "N=433 metabolites total in D1",
+        "91 metabolites (21%) are classified as spaceflight-responsive"
+      ],
+      "rubric": {
+        "factual_accuracy": "Must list all feature types correctly including mass, RT, annotation confidence, pathway encodings, and atom counts",
+        "completeness": "Should explain what each feature type represents biologically or chemically, not just list them"
+      }
+    },
+    {
+      "id": "Q72",
+      "modality": "metabolomics",
+      "category": "interpretation",
+      "difficulty": "medium",
+      "question": "In the D1 task, metabolites are classified as spaceflight-responsive using features including SuperPathway and SubPathway (one-hot encoded). Could the pathway features create a confound where the model learns which pathways are affected rather than individual metabolite properties?",
+      "data_context_files": [
+        "metabolomics.md",
+        "ground_truth.md"
+      ],
+      "expected_reasoning": [
+        "Yes, pathway membership could be a strong proxy for spaceflight response if entire pathways are coordinately disrupted",
+        "If whole pathways are affected, pathway one-hot encoding essentially encodes information very close to the label",
+        "However, this may be scientifically valid — metabolic pathways DO coordinate responses, so pathway membership IS a meaningful biological feature",
+        "The atom count features provide pathway-independent chemical information that could complement or replace pathway features",
+        "A feature ablation study (pathway features vs chemistry features) would clarify the relative contributions",
+        "SubPathway has many categories and could overfit with only 433 samples, creating spurious associations"
+      ],
+      "ground_truth_key_facts": [
+        "D1: 433 metabolites with 21% positive rate (91 spaceflight-responsive)",
+        "SuperPathway and SubPathway are one-hot encoded as input features",
+        "RF=0.676 AUROC is the best D1 performance"
+      ],
+      "rubric": {
+        "reasoning_quality": "Must discuss the pathway confounding issue from both sides: it could be a data leakage concern OR a valid biological signal",
+        "completeness": "Should consider both perspectives and not dismiss either the confound concern or the biological validity",
+        "uncertainty_calibration": "Should suggest how to test whether pathway features constitute a problematic confound (e.g., ablation study)"
+      }
+    },
+    {
+      "id": "Q73",
+      "modality": "metabolomics",
+      "category": "reasoning",
+      "difficulty": "hard",
+      "question": "The chemical formula features in D1 decompose molecular formulas into atom counts (C, H, N, O, S, P). What types of spaceflight-responsive metabolites might these simple features help identify, and what biochemistry would they miss?",
+      "data_context_files": [
+        "metabolomics.md",
+        "ground_truth.md"
+      ],
+      "expected_reasoning": [
+        "Atom counts capture molecular size (total atoms), lipid character (high C:H ratio with low O), and nitrogen content (amino acids, nucleotides)",
+        "Sulfur content flags glutathione and cysteine-related metabolites involved in oxidative stress response",
+        "Lipid metabolism changes are well-documented in spaceflight and could be captured by high C/H with low heteroatom counts",
+        "Formula features miss stereochemistry, functional groups, ring systems, and degree of unsaturation",
+        "Structural isomers (e.g., glucose and fructose, both C6H12O6) would have identical atom count features but different biology",
+        "Missing bond connectivity information means the features cannot distinguish between fundamentally different molecule classes sharing the same formula"
+      ],
+      "ground_truth_key_facts": [
+        "Formula features: C, H, N, O, S, P atom counts",
+        "Spaceflight affects lipid, amino acid, and nucleotide metabolism",
+        "21% of 433 metabolites are classified as spaceflight-responsive"
+      ],
+      "rubric": {
+        "reasoning_quality": "Must discuss both what atom counts can capture (size, polarity proxies, element-specific biology) and what they fundamentally miss (structural isomers, functional groups, bond topology)",
+        "domain_integration": "Should reference specific metabolite classes known to be affected by spaceflight, such as lipids and oxidative stress metabolites",
+        "factual_accuracy": "Chemistry statements must be correct (e.g., isomer examples, element-to-metabolite-class associations)"
+      }
+    },
+    {
+      "id": "Q74",
+      "modality": "metabolomics",
+      "category": "experimental_design",
+      "difficulty": "expert",
+      "question": "If you could redesign the D1 metabolomics task with access to temporal metabolite concentration data across all 7 I4 timepoints, how would you improve the task design? Consider both the feature engineering and the evaluation strategy.",
+      "data_context_files": [
+        "metabolomics.md",
+        "overview.md",
+        "clinical.md"
+      ],
+      "expected_reasoning": [
+        "Temporal features could include rate of change, recovery kinetics, peak timing, and area under the concentration-time curve",
+        "Could define more nuanced target labels: acute responders vs delayed responders vs non-responders instead of binary classification",
+        "Time-series features would increase dimensionality but capture real biological dynamics of metabolic adaptation",
+        "Could apply functional data analysis or curve-fitting to extract parametric features (half-life, time-to-peak, recovery rate)",
+        "Evaluation could use temporal cross-validation: train on early timepoints, predict responses at later timepoints",
+        "Could incorporate pharmacokinetic modeling concepts for metabolite clearance dynamics",
+        "However, with only 4 crew x 7 timepoints, the dataset remains severely limited by N"
+      ],
+      "ground_truth_key_facts": [
+        "I4 mission: 7 timepoints from L-92 to R+194 across 4 crew members",
+        "Current D1 uses only static chemical and pathway features (mass, RT, pathway, formula)",
+        "433 metabolites with 91 spaceflight-responsive (21% positive rate)"
+      ],
+      "rubric": {
+        "reasoning_quality": "Should address how the N limitation (4 crew x 7 timepoints) constrains what temporal approaches are feasible",
+        "domain_integration": "Should reference metabolic dynamics, pharmacokinetic concepts, or known temporal patterns in spaceflight metabolomics",
+        "completeness": "Must propose specific temporal feature engineering approaches with clear definitions, not just vague suggestions"
+      }
+    },
+    {
+      "id": "Q75",
+      "modality": "spatial",
+      "category": "factual",
+      "difficulty": "easy",
+      "question": "What tissue layers are analyzed in the spatial transcriptomics tasks (E-series), and how many genes are measured in total?",
+      "data_context_files": [
+        "spatial.md",
+        "ground_truth.md"
+      ],
+      "expected_reasoning": [
+        "Four tissue layers are analyzed: outer_epidermis (E1), inner_epidermis (E2), outer_dermis (E3), and epidermis combined (E4)",
+        "18,677 genes are measured across all layers",
+        "E1 and E4 are the main benchmark tasks, while E2 and E3 are designated as supplementary",
+        "Features for each gene come from all-skin differential expression analysis: baseMean, log2FoldChange, and lfcSE"
+      ],
+      "ground_truth_key_facts": [
+        "Four layers: outer_epidermis, inner_epidermis, epidermis (combined), outer_dermis",
+        "N=18,677 genes measured across all layers",
+        "3 features per gene from all-skin DE analysis",
+        "E2 and E3 are supplementary tasks; E1 and E4 are main tasks"
+      ],
+      "rubric": {
+        "factual_accuracy": "Must correctly list all 4 tissue layers and state the gene count of 18,677",
+        "completeness": "Should mention which tasks are main versus supplementary and describe the features used"
+      }
+    },
+    {
+      "id": "Q76",
+      "modality": "spatial",
+      "category": "factual",
+      "difficulty": "medium",
+      "question": "Tasks E2 and E3 are designated as supplementary rather than main benchmark tasks. What specific statistical property makes them unsuitable as reliable benchmark tasks?",
+      "data_context_files": [
+        "spatial.md",
+        "ground_truth.md"
+      ],
+      "expected_reasoning": [
+        "Extreme class imbalance: inner_epidermis (E2) has ~15 positives out of 18,677 genes (0.08%), outer_dermis (E3) has ~18 positives (0.10%)",
+        "With so few positives, even small random fluctuations cause large swings in evaluation metrics",
+        "AUPRC is highly sensitive to individual positive predictions when the positive count is very small",
+        "5-rep cross-validation cannot produce stable performance estimates with fewer than 20 positives",
+        "High variance across splits makes reliable model comparison essentially impossible",
+        "E1 (~35 positives) and E4 (~40 positives) have slightly more positives, making them more reliable though still very challenging"
+      ],
+      "ground_truth_key_facts": [
+        "E2: ~15 positive genes out of 18,677 (0.08% positive rate)",
+        "E3: ~18 positive genes out of 18,677 (0.10% positive rate)",
+        "E1: ~35 positives (0.19%), E4: ~40 positives (0.21%)",
+        "Designated supplementary due to metric instability from extreme imbalance"
+      ],
+      "rubric": {
+        "factual_accuracy": "Must state approximate positive counts for E2 and E3 and their extremely low positive rates",
+        "reasoning_quality": "Must explain why extreme class imbalance with very few positives causes metric instability and unreliable model comparisons"
+      }
+    },
+    {
+      "id": "Q77",
+      "modality": "spatial",
+      "category": "interpretation",
+      "difficulty": "medium",
+      "question": "E1 (outer_epidermis) achieves LogReg=0.017 AUPRC while E4 (epidermis combined) achieves LogReg=0.023 AUPRC. Since epidermis includes outer_epidermis, why might the combined layer be slightly more predictable?",
+      "data_context_files": [
+        "spatial.md",
+        "ground_truth.md"
+      ],
+      "expected_reasoning": [
+        "Combined epidermis (E4) has more positives (~40 vs ~35 for E1), providing a slightly more stable and detectable prediction target",
+        "The additional inner_epidermis positives may overlap with genes showing strong all-skin DE signal, making them easier to predict from all-skin features",
+        "All-skin features aggregate signal across all layers, so genes responding broadly across the epidermis are better captured by these features",
+        "Combining layers reduces noise from layer-specific variation, smoothing the prediction target",
+        "However, both scores are extremely low and near random baseline, so the difference may not be statistically meaningful"
+      ],
+      "ground_truth_key_facts": [
+        "E1: outer_epidermis, ~35 positives, LogReg AUPRC=0.017",
+        "E4: epidermis combined, ~40 positives, LogReg AUPRC=0.023",
+        "Both tasks use the same 3 features from all-skin DE analysis",
+        "Random baselines: E1=0.008, E4=0.003"
+      ],
+      "rubric": {
+        "reasoning_quality": "Should discuss both statistical explanations (more positives) and biological explanations (broader signal captured by all-skin features)",
+        "uncertainty_calibration": "Must acknowledge that both scores are near random and the difference may be within noise",
+        "factual_accuracy": "Should cite correct AUPRC scores for both tasks and their random baselines"
+      }
+    },
+    {
+      "id": "Q78",
+      "modality": "spatial",
+      "category": "reasoning",
+      "difficulty": "hard",
+      "question": "The E-series tasks have 0.1-0.2% positive rates with AUPRC as the metric. AUROC would give much higher absolute scores. Why is AUPRC more appropriate than AUROC for these extreme-imbalance tasks?",
+      "data_context_files": [
+        "spatial.md",
+        "ground_truth.md"
+      ],
+      "expected_reasoning": [
+        "AUROC is dominated by true negative ranking — a model that correctly ranks 99.8% of negatives achieves a high AUROC regardless of how well it identifies positives",
+        "AUPRC focuses on the precision-recall tradeoff among predicted positives, directly measuring the ability to find rare DE genes",
+        "With 0.2% positive rate, AUROC can exceed 0.95 for a model that identifies very few actual positives, giving a misleadingly optimistic picture",
+        "AUPRC random baseline approximates the positive prevalence (0.002-0.008), providing an honest assessment of task difficulty",
+        "In biomedical discovery, we care primarily about finding the rare positives (differentially expressed genes), not about correctly ranking the abundant negatives",
+        "AUPRC penalizes false positives among top-ranked predictions more severely, reflecting real-world prioritization needs"
+      ],
+      "ground_truth_key_facts": [
+        "E1 positive rate: 0.19%, random AUPRC baseline=0.008",
+        "AUROC random baseline is always approximately 0.5 regardless of class balance",
+        "AUPRC random baseline approximates the positive class prevalence",
+        "E1 best: LogReg=0.017 AUPRC"
+      ],
+      "rubric": {
+        "reasoning_quality": "Must clearly explain why AUROC is misleading for extreme imbalance by showing how high AUROC can coexist with poor positive detection",
+        "factual_accuracy": "Must correctly state the relationship between prevalence and AUPRC random baseline, and that AUROC baseline is ~0.5 regardless of imbalance",
+        "completeness": "Should compare both metrics and explain the practical implications for biomedical gene discovery"
+      }
+    },
+    {
+      "id": "Q79",
+      "modality": "spatial",
+      "category": "experimental_design",
+      "difficulty": "hard",
+      "question": "The E-series tasks use only 3 features (baseMean, log2FoldChange, lfcSE from all-skin DE). Propose additional features that could improve cross-layer DE prediction while remaining within the spatial transcriptomics data available.",
+      "data_context_files": [
+        "spatial.md",
+        "overview.md"
+      ],
+      "expected_reasoning": [
+        "Layer-adjacent DE features: use outer_epidermis DE statistics to predict inner_epidermis DE (biologically related layers), leveraging spatial proximity",
+        "Gene functional annotations: pathway membership, Gene Ontology terms, or known skin biology gene sets",
+        "Gene expression variability across crew members within each layer, capturing inter-individual consistency",
+        "Spatial autocorrelation features: how co-expressed a gene is with its spatial neighbors in the tissue",
+        "Gene-level technical features: gene length, GC content, which are known confounders affecting DE detection sensitivity",
+        "Cross-layer expression correlation: how correlated each gene's expression is across the different skin layers",
+        "With 18,677 samples (genes), additional features are feasible without overfitting if they capture genuine biological signal"
+      ],
+      "ground_truth_key_facts": [
+        "Current features: baseMean, log2FoldChange, lfcSE from all-skin DE analysis",
+        "N=18,677 genes per task",
+        "4 skin layers analyzed with spatial transcriptomics",
+        "Extreme class imbalance (0.1-0.2% positive) limits the practical benefit of feature engineering"
+      ],
+      "rubric": {
+        "reasoning_quality": "Proposed features should be biologically motivated and address weaknesses of the current 3-feature design",
+        "domain_integration": "Should reference spatial biology principles, skin tissue architecture, or gene regulation mechanisms",
+        "completeness": "Must propose specific, implementable features with clear definitions, not vague suggestions"
+      }
+    },
+    {
+      "id": "Q80",
+      "modality": "spatial",
+      "category": "reasoning",
+      "difficulty": "expert",
+      "question": "Skin is the outermost organ and receives different radiation doses at different depths. How might the gradient of cosmic radiation exposure explain the pattern of DE genes across skin layers (outer_epidermis > epidermis > inner_epidermis ≈ outer_dermis)?",
+      "data_context_files": [
+        "spatial.md",
+        "hemoglobin.md",
+        "overview.md"
+      ],
+      "expected_reasoning": [
+        "Cosmic radiation intensity decreases with tissue depth as particles are attenuated, so outer layers receive higher doses",
+        "Outer_epidermis has ~35 DE genes vs inner_epidermis ~15, consistent with a dose-dependent transcriptional response",
+        "DNA damage repair pathways would be more activated in superficial layers receiving the highest radiation flux",
+        "UV and particle radiation attenuate through skin tissue, with epidermal layers shielding the deeper dermis",
+        "However, Inspiration4 was only 3 days, so chronic radiation damage effects may not have fully manifested",
+        "Alternative explanation: outer skin layers have higher basal cell turnover and are more transcriptionally active, amplifying any perturbation",
+        "The pattern could also reflect inflammatory or environmental stress responses independent of direct radiation damage",
+        "I4 LEO orbit at ~585 km altitude has higher radiation exposure than ISS at ~408 km"
+      ],
+      "ground_truth_key_facts": [
+        "I4 orbit: ~585 km altitude (higher than ISS at ~408 km), increasing radiation exposure",
+        "DE genes by layer: outer_epidermis ~35, epidermis combined ~40, inner_epidermis ~15, outer_dermis ~18",
+        "Mission duration: 3 days only",
+        "Skin is the most radiation-exposed organ due to its position as the outermost tissue"
+      ],
+      "rubric": {
+        "reasoning_quality": "Must discuss the radiation dose gradient mechanism and how it explains the observed DE gene pattern across layers",
+        "domain_integration": "Should reference space radiation biology including LEO radiation environment, particle attenuation through tissue, and DNA damage response",
+        "uncertainty_calibration": "Should acknowledge alternative explanations (cell turnover, inflammation) and the limitation of the short 3-day mission duration for observing radiation effects"
+      }
+    },
+    {
+      "id": "Q81",
+      "modality": "microbiome",
+      "category": "factual",
+      "difficulty": "easy",
+      "question": "How many body sites are sampled in the I4 microbiome study, and how many human samples are available in total?",
+      "data_context_files": [
+        "microbiome.md",
+        "overview.md"
+      ],
+      "expected_reasoning": [
+        "10 body sites: EAR, NAC (nasal cavity), ORC (oral cavity), PIT (axilla), TZO (toe zone), WEB (toe web), ARM (forearm), GLU (gluteal), NAP (nape), UMB (umbilicus)",
+        "275 human samples across all sites",
+        "Additional 39 ISS environmental samples and 8 human gut samples",
+        "4 crew x 7 timepoints x ~10 sites"
+      ],
+      "ground_truth_key_facts": [
+        "10 body sites",
+        "275 human samples",
+        "39 environmental samples",
+        "8 gut samples",
+        "Taxonomy and pathway features available"
+      ],
+      "rubric": {
+        "factual_accuracy": "Must list body site count and sample count correctly",
+        "completeness": "Should mention environmental samples in addition to human samples"
+      }
+    },
+    {
+      "id": "Q82",
+      "modality": "microbiome",
+      "category": "interpretation",
+      "difficulty": "medium",
+      "question": "Taxonomy-based body site classification (F1, RF=0.199) outperforms pathway-based classification (F4, LogReg=0.163). Both use the same samples and LOCO evaluation. What biological factors might explain why taxonomic profiles better distinguish body sites than functional pathways?",
+      "data_context_files": [
+        "microbiome.md",
+        "ground_truth.md"
+      ],
+      "expected_reasoning": [
+        "Taxonomic composition is site-specific — skin sites have different dominant species than oral or nasal",
+        "Functional pathways show more redundancy — different species can perform the same metabolic functions (functional convergence)",
+        "Taxonomy captures community structure uniquely tied to body site ecology",
+        "Pathways may be more conserved across sites because basic metabolic functions are universal",
+        "However, the scores are both low — 10-class classification with macro_f1 is inherently difficult",
+        "Taxonomy features may also have higher dimensionality providing more discriminative power"
+      ],
+      "ground_truth_key_facts": [
+        "F1 (taxonomy): RF=0.199",
+        "F4 (pathways): LogReg=0.163",
+        "Both 10-class, N=275, LOCO",
+        "Random baseline 0.112"
+      ],
+      "rubric": {
+        "reasoning_quality": "Must discuss functional redundancy concept",
+        "domain_integration": "Should reference microbiome ecology",
+        "factual_accuracy": "Correct scores cited"
+      }
+    },
+    {
+      "id": "Q83",
+      "modality": "microbiome",
+      "category": "reasoning",
+      "difficulty": "medium",
+      "question": "Task F3 (Human vs Environmental classification) is the only calibration-tier task in the benchmark, with RF=0.841 AUROC. Why is distinguishing human from ISS environmental microbiomes so much easier than other microbiome tasks?",
+      "data_context_files": [
+        "microbiome.md",
+        "ground_truth.md"
+      ],
+      "expected_reasoning": [
+        "Human body sites have characteristic commensal communities",
+        "ISS environment dominated by surface-adapted microbes",
+        "The biological difference between human-associated and environmental microbiomes is fundamental",
+        "Human microbiomes are shaped by host immunity, temperature, and nutrients",
+        "Environmental microbiomes reflect ISS surface materials, cleaning protocols, and air filtration",
+        "The taxonomy profiles are drastically different — essentially different ecosystems",
+        "This validates the data quality and feature construction pipeline"
+      ],
+      "ground_truth_key_facts": [
+        "F3: RF=0.841 AUROC, 314 samples (275 human + 39 environmental)",
+        "Calibration tier — expected to be easily solvable",
+        "LOTO evaluation (7-fold)"
+      ],
+      "rubric": {
+        "reasoning_quality": "Must explain the fundamental ecological difference",
+        "domain_integration": "Should reference microbiome ecology",
+        "completeness": "Should mention what this validates about the benchmark"
+      }
+    },
+    {
+      "id": "Q84",
+      "modality": "microbiome",
+      "category": "reasoning",
+      "difficulty": "hard",
+      "question": "Flight phase detection from taxonomy (F2, LightGBM=0.280) and pathways (F5, LightGBM=0.304) are both frontier-tier tasks. Given that body site classification works reasonably (F1=0.199, F4=0.163) with the same data, why is temporal phase detection fundamentally harder?",
+      "data_context_files": [
+        "microbiome.md",
+        "ground_truth.md",
+        "overview.md"
+      ],
+      "expected_reasoning": [
+        "Body site differences are stable ecological niches — site identity doesn't change over time",
+        "Flight phases represent subtle temporal shifts within the same ecological niche",
+        "Microbiome composition has high intra-individual variability even without spaceflight",
+        "3-day mission too short for large microbiome community restructuring",
+        "4 phases (pre-flight, in-flight, post-flight, recovery) with only ~69 samples each",
+        "Microbiome changes may lag behind physiological responses",
+        "Interpersonal differences may overwhelm temporal effects",
+        "Pathways slightly outperform taxonomy for phase detection (0.304 > 0.280) — functional changes may precede community restructuring"
+      ],
+      "ground_truth_key_facts": [
+        "F2: LightGBM=0.280, random=0.205, 4-class",
+        "F5: LightGBM=0.304, random=0.205, 4-class",
+        "F1: RF=0.199, 10-class",
+        "3-day I4 mission",
+        "LOCO evaluation"
+      ],
+      "rubric": {
+        "reasoning_quality": "Must contrast site vs temporal classification difficulty",
+        "domain_integration": "Should discuss microbiome temporal dynamics",
+        "uncertainty_calibration": "Should acknowledge 3-day limitation"
+      }
+    },
+    {
+      "id": "Q85",
+      "modality": "microbiome",
+      "category": "experimental_design",
+      "difficulty": "hard",
+      "question": "The ISS environmental microbiome data contains only 39 samples. If you were designing a follow-up study to better characterize spaceflight microbiome changes, what sampling strategy improvements would you propose?",
+      "data_context_files": [
+        "microbiome.md",
+        "overview.md"
+      ],
+      "expected_reasoning": [
+        "Increase sampling frequency — daily samples for key body sites",
+        "Add pre-flight longitudinal baseline (weekly for 3 months)",
+        "Include ISS surface sampling at matched timepoints",
+        "Sample air/water in addition to surfaces",
+        "Include dietary logs and medication use as covariates",
+        "Pair with metabolomics to connect community changes to functional output",
+        "Expand to more body sites including gut (currently only 8 samples)",
+        "Use shotgun metagenomics for strain-level resolution",
+        "Include control subjects on ground with similar isolation conditions"
+      ],
+      "ground_truth_key_facts": [
+        "Current: 275 human samples, 39 environmental, 8 gut",
+        "10 body sites, 7 timepoints, 4 crew",
+        "3-day mission duration"
+      ],
+      "rubric": {
+        "completeness": "Must propose specific, practical improvements",
+        "domain_integration": "Should reference microbiome study best practices"
+      }
+    },
+    {
+      "id": "Q86",
+      "modality": "microbiome",
+      "category": "counterfactual",
+      "difficulty": "expert",
+      "question": "If longitudinal gut microbiome samples had been collected (currently only 8 gut samples exist), and a gut dysbiosis index was computed, how would you integrate this into the multi-modal G1 task? What challenges would arise?",
+      "data_context_files": [
+        "microbiome.md",
+        "multi_omics.md",
+        "ground_truth.md"
+      ],
+      "expected_reasoning": [
+        "Could add gut dysbiosis score as additional modality in G1 fusion",
+        "Challenge 1: gut microbiome has different sampling schedule — need to match timepoints",
+        "Challenge 2: 8 gut samples is far too few for any modeling — need at least matched crew/timepoint with other modalities",
+        "Challenge 3: microbiome features are compositional (sum to 100%) — standard PCA may not be appropriate (need CLR transform)",
+        "Could create a gut-derived inflammation index",
+        "Integration could capture gut-immune axis effects on blood biomarkers",
+        "However, adding another small-sample modality to already-small G1 (N=21) may not help"
+      ],
+      "ground_truth_key_facts": [
+        "G1: N=21 matched samples, 3 modalities currently",
+        "Current gut samples: only 8",
+        "Microbiome data is compositional",
+        "G1 best: LogReg=0.517"
+      ],
+      "rubric": {
+        "reasoning_quality": "Must address integration challenges",
+        "uncertainty_calibration": "Should acknowledge N limitations",
+        "completeness": "Should propose specific integration approach"
+      }
+    },
+    {
+      "id": "Q87",
+      "modality": "cross_mission",
+      "category": "cross_mission_comparison",
+      "difficulty": "hard",
+      "question": "XGBoost (0.716) and LightGBM (0.735) both substantially outperform RF (0.706) on task I2 (pathway conservation prediction). What properties of gradient boosting might explain their advantage on cross-mission pathway data?",
+      "data_context_files": [
+        "cross_mission.md",
+        "ground_truth.md"
+      ],
+      "expected_reasoning": [
+        "I2 has 8 engineered features (mean_NES, std_NES, mean_ES, mean_padj, min_padj, n_celltypes, mean_size, direction_consistency)",
+        "Gradient boosting excels at complex feature interactions — pathway conservation likely depends on combinations of features",
+        "Sequential tree building can model conditional relationships (e.g., high NES + many cell types -> more likely conserved)",
+        "LightGBM's leaf-wise growth may better capture the specific decision boundaries",
+        "N=452 with 32.3% positive rate provides enough data for gradient boosting to learn effectively",
+        "RF's random feature subsampling may miss important feature interactions at this moderate N",
+        "However, all ensemble methods perform well — the key signal is in the engineered features"
+      ],
+      "ground_truth_key_facts": [
+        "I2: N=452, 32.3% positive, 8 features",
+        "LightGBM=0.735, XGBoost=0.716, RF=0.706",
+        "Features: mean_NES, std_NES, mean_ES, mean_padj, min_padj, n_celltypes, mean_size, direction_consistency"
+      ],
+      "rubric": {
+        "reasoning_quality": "Must discuss gradient boosting mechanism vs RF for feature interactions",
+        "factual_accuracy": "Correct scores and features",
+        "domain_integration": "Should connect to pathway biology"
+      }
+    },
+    {
+      "id": "Q88",
+      "modality": "cross_mission",
+      "category": "cross_mission_comparison",
+      "difficulty": "expert",
+      "question": "The I4 mission lasted 3 days while the NASA Twins Study lasted 340 days, yet 32.3% of I4 pathways are conserved with Twins. Does this high conservation rate support or challenge the hypothesis that spaceflight responses are duration-dependent? Consider alternative explanations.",
+      "data_context_files": [
+        "cross_mission.md",
+        "hemoglobin.md",
+        "ground_truth.md",
+        "overview.md"
+      ],
+      "expected_reasoning": [
+        "32.3% conservation despite 100x duration difference suggests core acute stress pathways that activate regardless of duration",
+        "These may be initial stress responses (oxidative phosphorylation disruption, MYC targets) that persist through longer missions",
+        "The non-conserved 67.7% may represent duration-dependent adaptations only seen in Twins (chronic immune remodeling, cardiovascular changes)",
+        "Alternative: different crews, platforms, and analysis pipelines introduce systematic differences that mask true conservation",
+        "Alternative: I4 orbital altitude (585 km) higher than ISS (408 km) — radiation dose differences could contribute",
+        "The positive rate (32.3%) could partially reflect statistical noise — with hundreds of pathways, some overlap by chance",
+        "Gene-level conservation is much lower (5.2%) suggesting pathway analysis captures broader themes better"
+      ],
+      "ground_truth_key_facts": [
+        "I4: 3 days, 585 km orbit",
+        "Twins: 340 days, 408 km ISS",
+        "146/452 pathways conserved (32.3%)",
+        "814/15,540 genes conserved (5.2%)",
+        "Key conserved: HALLMARK_OXIDATIVE_PHOSPHORYLATION, HALLMARK_MYC_TARGETS_V1"
+      ],
+      "rubric": {
+        "reasoning_quality": "Must argue both sides — conservation supports and challenges duration hypothesis",
+        "domain_integration": "Should reference specific biological pathways",
+        "uncertainty_calibration": "Must acknowledge confounders: different crews, platforms, orbits"
+      }
+    },
+    {
+      "id": "Q89",
+      "modality": "multi_omics",
+      "category": "reasoning",
+      "difficulty": "medium",
+      "question": "G1 (multi-modal fusion) achieves LogReg=0.517 macro_f1, which is comparable to A1 (clinical only, LogReg=0.546). Why doesn't adding proteomics and metabolomics data substantially improve over clinical features alone?",
+      "data_context_files": [
+        "multi_omics.md",
+        "clinical.md",
+        "proteomics.md",
+        "ground_truth.md"
+      ],
+      "expected_reasoning": [
+        "PCA compression of proteomics (2,845->8 components) and metabolomics (->8 components) loses most information",
+        "Clinical features (40 raw) retain full information while PCA features are lossy summaries",
+        "With only 21 samples, the curse of dimensionality limits benefit of more features",
+        "Information overlap — clinical biomarkers may already capture the same physiological changes as proteomics/metabolomics",
+        "PCA components may not align with flight-phase discriminative dimensions",
+        "G1 actually uses fewer samples (21 vs 28 for A1) because it requires matched timepoints across all modalities",
+        "Adding noisy features to strong features can dilute signal"
+      ],
+      "ground_truth_key_facts": [
+        "G1: 21 samples, ~56 features (40 clinical + 8 PCA prot + 8 PCA met)",
+        "A1: 28 samples, ~40 features",
+        "G1 LogReg=0.517, A1 LogReg=0.546",
+        "PCA applied per-fold"
+      ],
+      "rubric": {
+        "reasoning_quality": "Must discuss information loss through PCA and sample size reduction",
+        "factual_accuracy": "Correct feature counts and sample sizes",
+        "completeness": "Should mention multiple contributing factors"
+      }
+    },
+    {
+      "id": "Q90",
+      "modality": "multi_omics",
+      "category": "interpretation",
+      "difficulty": "hard",
+      "question": "In G1, XGBoost (0.328) substantially outperforms RF (0.254) but both lag behind LogReg (0.517). Given that gradient boosting usually outperforms logistic regression on tabular data, what makes G1 unusual?",
+      "data_context_files": [
+        "multi_omics.md",
+        "ground_truth.md"
+      ],
+      "expected_reasoning": [
+        "N=21 is extremely small — complex models overfit regardless of regularization",
+        "LOCO evaluation with only 4 folds means each test set is ~5 samples",
+        "LogReg with L2 regularization is the most constrained model — prevents overfitting",
+        "Decision tree ensembles create discrete decision boundaries that are unreliable with 5 test samples",
+        "XGBoost's improvement over RF (0.328 vs 0.254) shows some benefit from sequential boosting",
+        "But even with regularization, 100 trees is too complex for N=21",
+        "LightGBM also collapses (0.228 = majority baseline), showing extreme sensitivity to small N",
+        "The result illustrates a fundamental principle: simpler models dominate in very low-N regimes"
+      ],
+      "ground_truth_key_facts": [
+        "G1: N=21, LOCO 4-fold (~5 test per fold)",
+        "LogReg=0.517, XGBoost=0.328, RF=0.254, MLP=0.285, LightGBM=0.228",
+        "LightGBM=0.228 equals majority baseline"
+      ],
+      "rubric": {
+        "reasoning_quality": "Must explain why complex models fail at very small N",
+        "factual_accuracy": "Correct scores",
+        "domain_integration": "Should connect to machine learning theory"
+      }
+    },
+    {
+      "id": "Q91",
+      "modality": "multi_omics",
+      "category": "experimental_design",
+      "difficulty": "hard",
+      "question": "If spatial transcriptomics and microbiome data could be added to the G1 multi-modal fusion, would you expect performance to improve? Consider both potential benefits and practical challenges.",
+      "data_context_files": [
+        "multi_omics.md",
+        "spatial.md",
+        "microbiome.md",
+        "ground_truth.md"
+      ],
+      "expected_reasoning": [
+        "Potential benefit: orthogonal biological information (skin changes, microbiome shifts) could complement blood-based modalities",
+        "Challenge 1: timepoint matching — spatial data may not be collected at all 7 I4 timepoints",
+        "Challenge 2: further PCA compression of already high-dimensional data (18,677 spatial genes)",
+        "Challenge 3: adding more features to N=21 increases overfitting risk",
+        "Challenge 4: different biological scales may not share common flight-phase signal",
+        "Given that current multi-modal fusion already doesn't improve over clinical alone, adding noisier modalities likely won't help",
+        "Would need substantially more samples to benefit from more modalities",
+        "Better strategy: improve sample size before adding modalities"
+      ],
+      "ground_truth_key_facts": [
+        "G1: N=21, clinical+proteomics+metabolomics",
+        "Spatial: 18,677 genes",
+        "Microbiome: 275 samples but different body sites",
+        "G1 LogReg=0.517 approximately equals A1 LogReg=0.546"
+      ],
+      "rubric": {
+        "reasoning_quality": "Should conclude that more samples needed before more modalities",
+        "uncertainty_calibration": "Should acknowledge prediction is speculative",
+        "completeness": "Must discuss both benefits and challenges"
+      }
+    },
+    {
+      "id": "Q92",
+      "modality": "multi_omics",
+      "category": "reasoning",
+      "difficulty": "expert",
+      "question": "Task H1 shows that PBMC cell-type DE patterns moderately predict skin DE (RF=0.266 AUPRC). If you computed a 'systemic response score' from H1 predictions and added it as a feature to G1 multi-modal classification, would this constitute data leakage?",
+      "data_context_files": [
+        "multi_omics.md",
+        "ground_truth.md",
+        "spatial.md"
+      ],
+      "expected_reasoning": [
+        "Depends on implementation: if H1 model is trained on all data, then adding its predictions to G1 leaks information (circular)",
+        "If H1 predictions are generated out-of-fold (cross-validated), no direct leakage",
+        "However, H1 and G1 share crew members — LOCO evaluation means the same crew is left out",
+        "The systemic response score would encode per-gene information aggregated across cell types",
+        "Even with proper cross-validation, the biological relationship between PBMC and skin DE is part of the same organism",
+        "Conceptually valid: a systemic spaceflight response score is biologically meaningful",
+        "Practically: would need nested cross-validation where both H1 and G1 are evaluated out-of-fold on the same held-out crew"
+      ],
+      "ground_truth_key_facts": [
+        "H1: 731 genes, 9 cell-type features, RF=0.266 AUPRC",
+        "G1: 21 samples, LOCO",
+        "Both use I4 crew data",
+        "Nested CV would be needed"
+      ],
+      "rubric": {
+        "reasoning_quality": "Must correctly distinguish leakage vs non-leakage scenarios",
+        "completeness": "Should discuss both statistical and biological perspectives",
+        "domain_integration": "Should reference cross-validation methodology"
+      }
+    },
+    {
+      "id": "Q93",
+      "modality": "methods",
+      "category": "factual",
+      "difficulty": "easy",
+      "question": "SpaceOmicsBench uses three evaluation strategies: LOCO, LOTO, and Feature 80/20 splits. What does each abbreviation stand for, and which tasks use each strategy?",
+      "data_context_files": [
+        "overview.md",
+        "ground_truth.md"
+      ],
+      "expected_reasoning": [
+        "LOCO = Leave-One-Crew-Out (4 folds, one crew held out per fold)",
+        "LOTO = Leave-One-Timepoint-Out (7 folds, one timepoint per fold)",
+        "Feature 80/20 = Stratified random 80/20 train/test split repeated 5 times",
+        "LOCO used by: A1, A2, C1, F1-F5, G1 (sample-level classification with crew structure)",
+        "LOTO used by: F3 only (human vs environmental, timepoint is main structure)",
+        "Feature 80/20 used by: B1, B2, C2, D1, E1-E4, H1, I1-I3 (gene/protein/metabolite-level classification)"
+      ],
+      "ground_truth_key_facts": [
+        "LOCO: 4-fold, crew-based",
+        "LOTO: 7-fold, timepoint-based",
+        "Feature 80/20: 5 reps, stratified",
+        "Tasks grouped by evaluation strategy"
+      ],
+      "rubric": {
+        "factual_accuracy": "Must correctly define all three abbreviations and list tasks",
+        "completeness": "Should explain why different strategies for different tasks"
+      }
+    },
+    {
+      "id": "Q94",
+      "modality": "methods",
+      "category": "factual",
+      "difficulty": "medium",
+      "question": "How is the normalized composite score calculated, and why does this normalization matter for comparing models across tasks with different metrics and random baselines?",
+      "data_context_files": [
+        "ground_truth.md",
+        "overview.md"
+      ],
+      "expected_reasoning": [
+        "Formula: normalized = (model_score - random_baseline) / (1.0 - random_baseline)",
+        "Category scores averaged within each of 11 categories",
+        "Composite is the mean across all category averages",
+        "Normalization removes the effect of different random baselines (e.g., AUROC random ~0.5 vs AUPRC random ~0.002)",
+        "Without normalization, AUROC tasks would dominate the composite",
+        "Floor at 0 prevents negative scores from below-random models",
+        "Equal category weighting ensures each biological domain contributes equally regardless of number of tasks"
+      ],
+      "ground_truth_key_facts": [
+        "11 categories (A_clinical through I_crossmission)",
+        "Formula: (score - random) / (1 - random)",
+        "RF=0.258 best composite",
+        "Categories weighted equally"
+      ],
+      "rubric": {
+        "factual_accuracy": "Must correctly state the formula and number of categories",
+        "reasoning_quality": "Must explain why normalization is needed"
+      }
+    },
+    {
+      "id": "Q95",
+      "modality": "methods",
+      "category": "reasoning",
+      "difficulty": "medium",
+      "question": "Several tasks use AUPRC instead of AUROC as the primary metric (B1, E1-E4, H1, I1, I3). What common characteristic of these tasks justifies AUPRC over AUROC?",
+      "data_context_files": [
+        "ground_truth.md",
+        "overview.md",
+        "spatial.md",
+        "transcriptomics.md"
+      ],
+      "expected_reasoning": [
+        "All these tasks have significant class imbalance — positive rates range from 0.08% (E2) to 5.2% (I3)",
+        "AUROC is insensitive to class imbalance because it evaluates true positive rate vs false positive rate across all thresholds",
+        "AUPRC (precision-recall) directly evaluates precision among predicted positives, which matters more when positives are rare",
+        "For B1 (1.7% positive), a model with 0.9 AUROC might still miss most DRR genes",
+        "AUPRC random baseline is approximately equal to prevalence, giving an honest difficulty assessment",
+        "These are all binary feature-level classification tasks where the goal is to identify a rare subset"
+      ],
+      "ground_truth_key_facts": [
+        "AUPRC tasks: B1 (1.7%), E1 (0.19%), E4 (0.21%), H1 (4.4%), I1 (0.21%), I3 (5.2%)",
+        "AUPRC random approximately equals prevalence",
+        "AUROC random approximately equals 0.5",
+        "All are binary classification with low positive rates"
+      ],
+      "rubric": {
+        "reasoning_quality": "Must explain AUPRC's advantage for imbalanced data",
+        "factual_accuracy": "Should cite specific positive rates",
+        "completeness": "Should contrast with AUROC behavior"
+      }
+    },
+    {
+      "id": "Q96",
+      "modality": "methods",
+      "category": "interpretation",
+      "difficulty": "medium",
+      "question": "LightGBM achieves the best score on 8 of 19 main tasks but RF has the highest composite score (0.258 vs 0.238). How is this possible, and what does it reveal about the normalized composite scoring system?",
+      "data_context_files": [
+        "ground_truth.md",
+        "overview.md"
+      ],
+      "expected_reasoning": [
+        "Composite score averages across 11 categories equally, not across individual tasks",
+        "LightGBM collapses on small-N tasks (A1=0.200, A2=0.200, C1=0.228, G1=0.228 — all equal to majority baseline)",
+        "These collapses pull down entire categories (A_clinical=0.000, G_multimodal=0.000)",
+        "RF is more robust — never collapses to majority baseline",
+        "Category averaging means one catastrophic category failure severely impacts composite",
+        "LightGBM wins on larger-N tasks (B1, F2, F5, I2) but zeros on small-N tasks",
+        "The composite rewards consistency across all task types, not peak performance on favorable tasks"
+      ],
+      "ground_truth_key_facts": [
+        "LightGBM: best on 8 tasks, composite=0.238, A_clinical=0.000, G_multimodal=0.000",
+        "RF: best on 2 tasks, composite=0.258, no zero categories",
+        "11 categories equally weighted"
+      ],
+      "rubric": {
+        "reasoning_quality": "Must explain the mechanism: category zeros from small-N collapse",
+        "factual_accuracy": "Correct composite scores and zero categories",
+        "completeness": "Should discuss what this means for model selection"
+      }
+    },
+    {
+      "id": "Q97",
+      "modality": "methods",
+      "category": "reasoning",
+      "difficulty": "hard",
+      "question": "XGBoost and LightGBM both collapse to majority-baseline performance on LOCO tasks with N<=28 (A1, A2, C1, G1) — LightGBM worse than XGBoost. Why are gradient boosting methods particularly vulnerable to very small sample sizes compared to LogReg?",
+      "data_context_files": [
+        "ground_truth.md",
+        "clinical.md",
+        "multi_omics.md"
+      ],
+      "expected_reasoning": [
+        "Gradient boosting builds sequential trees — each tree corrects previous errors, but with ~16-21 training samples per fold, there aren't enough samples to learn meaningful corrections",
+        "Tree-based splits require minimum samples per leaf — with N=21 LOCO (training ~16), most trees trivially overfit",
+        "LogReg has a single weight per feature, providing strong inductive bias that generalizes even with tiny N",
+        "LightGBM's leaf-wise growth is more aggressive than XGBoost's level-wise, causing worse overfitting at low N",
+        "Regularization parameters (max_depth=6, num_leaves=31) were tuned for moderate-N tasks",
+        "The effective degrees of freedom for gradient boosting (100 trees x splits) far exceeds N",
+        "LogReg's L2 regularization + class weighting + linear decision boundary provides minimal-complexity hypothesis"
+      ],
+      "ground_truth_key_facts": [
+        "LOCO training sets: ~16-21 samples",
+        "LightGBM A1=0.200, A2=0.200 (=majority)",
+        "XGBoost A1=0.332, A2=0.353 (above majority)",
+        "LogReg A1=0.546, A2=0.493 (best)",
+        "LightGBM: leaf-wise, XGBoost: level-wise growth"
+      ],
+      "rubric": {
+        "reasoning_quality": "Must explain the specific mechanism of gradient boosting overfitting at small N",
+        "factual_accuracy": "Correct scores and model parameters",
+        "domain_integration": "Should reference ML theory on model complexity vs sample size"
+      }
+    },
+    {
+      "id": "Q98",
+      "modality": "methods",
+      "category": "reasoning",
+      "difficulty": "hard",
+      "question": "The B1 ablation study shows that LightGBM achieves the highest overall score (0.922) but XGBoost has the best no-effect score (0.899). What does this pattern suggest about how each model uses different feature types?",
+      "data_context_files": [
+        "transcriptomics.md",
+        "ground_truth.md"
+      ],
+      "expected_reasoning": [
+        "LightGBM's advantage is largest with all features (0.922 vs 0.912 XGB) but reverses on no-effect features (0.884 vs 0.899)",
+        "This suggests LightGBM better exploits the combination of effect-size and distribution features",
+        "XGBoost may be better at extracting signal from distribution features alone",
+        "LightGBM's leaf-wise growth may find more specific feature interactions involving effect-size features",
+        "Without effect features, the task becomes more about distribution patterns where XGBoost's level-wise approach provides more balanced trees",
+        "Effect-only: both drop significantly (LGBM 0.801, XGB 0.780) confirming distribution features dominate",
+        "The overall ranking (LGBM > XGB > RF > MLP > LogReg) holds for all feature sets except no-effect"
+      ],
+      "ground_truth_key_facts": [
+        "B1 all: LGBM=0.922, XGB=0.912",
+        "B1 no-effect: XGB=0.899, LGBM=0.884",
+        "B1 effect-only: LGBM=0.801, XGB=0.780",
+        "N=26,845, 29 features"
+      ],
+      "rubric": {
+        "reasoning_quality": "Must analyze the cross-over pattern between feature sets",
+        "factual_accuracy": "Correct ablation scores",
+        "completeness": "Should discuss implications for feature importance"
+      }
+    },
+    {
+      "id": "Q99",
+      "modality": "methods",
+      "category": "experimental_design",
+      "difficulty": "expert",
+      "question": "Six of the 21 tasks are at frontier difficulty (near-random baseline performance). Propose a systematic approach to determine whether these tasks are genuinely unsolvable with current data or whether better methods could improve performance.",
+      "data_context_files": [
+        "ground_truth.md",
+        "overview.md"
+      ],
+      "expected_reasoning": [
+        "Frontier tasks: C2, F2, F5, I1, plus E2/E3 supplementary",
+        "Step 1: Feature analysis — compute mutual information between features and labels to check if signal exists",
+        "Step 2: Oracle upper bound — train on test set to determine if any model can achieve high performance (measures data quality)",
+        "Step 3: Relaxed targets — try softer thresholds or ordinal targets instead of binary",
+        "Step 4: Domain-specific features — add biological knowledge features (protein properties for C2, temporal for F2/F5)",
+        "Step 5: Deep learning with pre-training — leverage foundation models for biological sequence data",
+        "Step 6: Power analysis — calculate theoretical sample size needed for given effect sizes",
+        "Step 7: Ensemble approaches — combine multiple diverse models",
+        "If oracle performance is low, the task is data-limited; if oracle is high but baselines are low, better methods could help"
+      ],
+      "ground_truth_key_facts": [
+        "Frontier tasks and their scores: C2=0.565, F2=0.280, F5=0.304, I1=0.006",
+        "Near-random performance could mean: insufficient signal, wrong features, or insufficient samples",
+        "6 frontier-tier tasks in benchmark"
+      ],
+      "rubric": {
+        "reasoning_quality": "Should distinguish data-limited vs method-limited scenarios",
+        "completeness": "Must propose a systematic, multi-step approach"
+      }
+    },
+    {
+      "id": "Q100",
+      "modality": "methods",
+      "category": "interpretation",
+      "difficulty": "expert",
+      "question": "RF achieves the best composite score (0.258) despite being the 'best model' on only 2 individual tasks (D1, F3). Meanwhile, LightGBM wins 8 tasks but has a lower composite (0.238). LogReg wins 7 tasks with composite 0.201. What does this pattern tell us about optimal model selection for multi-task biomedical benchmarks?",
+      "data_context_files": [
+        "ground_truth.md",
+        "overview.md"
+      ],
+      "expected_reasoning": [
+        "RF's strength is consistency — never catastrophically fails on any task category",
+        "LightGBM's weakness is fragility — collapses on small-N tasks, creating zero categories",
+        "The benchmark intentionally includes diverse task types (N=21 to N=26,845), rewarding robust methods",
+        "For deployment, model selection should depend on the specific task's characteristics",
+        "Small N (LOCO, <=28 samples): LogReg is clearly best",
+        "Large N (feature splits, >400 samples): LightGBM or XGBoost is best",
+        "The composite metric rewards a portfolio strategy — perform reasonably everywhere rather than excel somewhere and fail elsewhere",
+        "This mirrors real biomedical settings where models must generalize across diverse data characteristics",
+        "No single model dominates — the benchmark successfully differentiates model capabilities"
+      ],
+      "ground_truth_key_facts": [
+        "Task wins: LightGBM=8, LogReg=7, RF=2, MLP=1, XGBoost=0",
+        "Composite: RF=0.258, XGB=0.250, LGBM=0.238, LogReg=0.201, MLP=0.133",
+        "LGBM zero categories: A_clinical, G_multimodal",
+        "LogReg best on small-N LOCO tasks",
+        "LGBM/XGB best on large-N feature tasks"
+      ],
+      "rubric": {
+        "reasoning_quality": "Must explain the consistency vs peak performance tradeoff",
+        "completeness": "Should discuss task-dependent model selection",
+        "domain_integration": "Should connect to practical biomedical ML deployment"
       }
     }
   ]
