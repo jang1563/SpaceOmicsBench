@@ -2,8 +2,8 @@
   "task_id": "E3",
   "task_name": "Cross-Layer DE Prediction (outer_dermis)",
   "task_type": "binary_classification",
-  "difficulty": "expert",
-  "description": "Predict outer_dermis layer-specific DE from global skin (all_skin) DE features. Tests whether aggregate skin response predicts spatially-resolved layer response.",
+  "difficulty_tier": "frontier",
+  "description": "Predict outer_dermis layer-specific DE from global skin (all_skin) DE features. Frontier task: only 18 positive genes out of 18,677 — at the boundary of learnability.",
   "data_files": [
     "gt_spatial_de_all_skin.csv"
   ],
@@ -31,5 +31,9 @@
     ]
   },
   "split": "feature_split_E3",
-  "n_samples": 18677
+  "n_samples": 18677,
+  "notes": [
+    "Frontier task: ~3-4 test positives per 80/20 split — metric stability is low",
+    "Performance above random baseline would be scientifically informative"
+  ]
 }

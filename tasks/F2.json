@@ -2,7 +2,7 @@
   "task_id": "F2",
   "task_name": "Flight Phase Detection (Taxonomy)",
   "task_type": "multi_class_classification",
-  "difficulty": "hard",
+  "difficulty_tier": "advanced",
   "description": "Detect spaceflight phase from skin microbiome taxonomy. Harder than body site \u2014 temporal changes are subtler.",
   "data_files": [
     "microbiome_human_taxonomy_cpm.csv"

@@ -1,0 +1,38 @@
+{
+  "task_id": "H1",
+  "task_name": "Cross-Tissue Spaceflight Gene Conservation",
+  "task_type": "binary_classification",
+  "difficulty_tier": "advanced",
+  "description": "Predict whether genes with spaceflight responses in PBMC immune cells (9 cell types) also show DE in skin tissue. Tests cross-tissue conservation of spaceflight molecular signatures within the I4 mission.",
+  "data_files": [
+    "conserved_pbmc_to_skin.csv"
+  ],
+  "ground_truth_source": "P03 Supplementary Data 15 (Conserved DEGs across I4 tissues)",
+  "input_spec": {
+    "features": "9 PBMC cell-type fold changes (CD4_T, CD8_T, other_T, B, NK, CD14_Mono, CD16_Mono, DC, other)",
+    "feature_count": 9,
+    "gene_column": "human_gene"
+  },
+  "output_spec": {
+    "type": "binary",
+    "target_column": "skin_de",
+    "positive_class": "DE in skin (adj_pval < 0.05)",
+    "positive_count": 32,
+    "negative_count": 699,
+    "positive_rate": "4.4%"
+  },
+  "evaluation": {
+    "primary_metric": "auprc",
+    "secondary_metrics": [
+      "auroc",
+      "f1"
+    ]
+  },
+  "split": "feature_split_H1",
+  "n_samples": 731,
+  "notes": [
+    "Unique I4 question: do immune cell responses predict skin tissue responses?",
+    "Uses processed conserved DEG data from P03 that was previously untasked",
+    "4.4% positive rate — moderate imbalance"
+  ]
+}

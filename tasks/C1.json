@@ -2,8 +2,9 @@
   "task_id": "C1",
   "task_name": "Protein DE Prediction from Expression Profile",
   "task_type": "binary_classification",
-  "difficulty": "medium",
-  "description": "Predict limma differential expression from protein expression across 21 plasma samples. Tests whether ML can learn statistical significance patterns.",
+  "difficulty_tier": "standard",
+  "task_role": "calibration",
+  "description": "Predict limma differential expression from protein expression across 21 plasma samples. Calibration task: tests whether ML can learn statistical significance patterns from the same data used by limma. Expected to be solvable by models that capture group mean differences.",
   "data_files": [
     "proteomics_plasma_matrix.csv",
     "proteomics_plasma_de_clean.csv"
@@ -11,7 +12,7 @@
   "input_spec": {
     "features": "21 sample expression values per protein",
     "feature_count": 21,
-    "note": "Transpose: proteins as instances, samples as features"
+    "note": "Transpose: proteins as instances, samples as features. Input overlaps with DE computation (intentional calibration design)."
   },
   "output_spec": {
     "type": "binary",
@@ -28,5 +29,10 @@
     ]
   },
   "split": "feature_split_C1",
-  "n_samples": 1686
+  "n_samples": 1686,
+  "notes": [
+    "Calibration task: input-target circularity is by design",
+    "Tests ML approximation of linear model (limma) decision boundary",
+    "High baseline performance expected; used as upper-bound reference"
+  ]
 }

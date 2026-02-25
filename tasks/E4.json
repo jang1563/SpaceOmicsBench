@@ -2,7 +2,7 @@
   "task_id": "E4",
   "task_name": "Cross-Layer DE Prediction (epidermis)",
   "task_type": "binary_classification",
-  "difficulty": "hard",
+  "difficulty_tier": "advanced",
   "description": "Predict epidermis layer-specific DE from global skin (all_skin) DE features. Tests whether aggregate skin response predicts spatially-resolved layer response.",
   "data_files": [
     "gt_spatial_de_all_skin.csv"

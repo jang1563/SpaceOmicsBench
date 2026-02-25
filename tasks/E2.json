@@ -2,8 +2,8 @@
   "task_id": "E2",
   "task_name": "Cross-Layer DE Prediction (inner_epidermis)",
   "task_type": "binary_classification",
-  "difficulty": "expert",
-  "description": "Predict inner_epidermis layer-specific DE from global skin (all_skin) DE features. Tests whether aggregate skin response predicts spatially-resolved layer response.",
+  "difficulty_tier": "frontier",
+  "description": "Predict inner_epidermis layer-specific DE from global skin (all_skin) DE features. Frontier task: only 11 positive genes out of 18,677 — tests whether any method can extract signal at this extreme imbalance.",
   "data_files": [
     "gt_spatial_de_all_skin.csv"
   ],
@@ -31,5 +31,10 @@
     ]
   },
   "split": "feature_split_E2",
-  "n_samples": 18677
+  "n_samples": 18677,
+  "notes": [
+    "Frontier task: ~2 test positives per 80/20 split — metric stability is low",
+    "Performance above random baseline would be scientifically informative",
+    "Report AUROC alongside AUPRC for more stable comparison"
+  ]
 }

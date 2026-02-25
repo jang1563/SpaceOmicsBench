@@ -1,47 +1,36 @@
 {
   "task_id": "D1",
-  "task_name": "Metabolite Super-Pathway Classification",
-  "task_type": "multi_class_classification",
-  "difficulty": "hard",
-  "description": "Predict metabolite super-pathway from expression profile and chemical annotations. Rare classes (<10) merged into 'Other'.",
+  "task_name": "Metabolite Spaceflight Response Prediction",
+  "task_type": "binary_classification",
+  "difficulty_tier": "advanced",
+  "description": "Predict which metabolites show significant spaceflight-induced changes (DE in any contrast, adj_pval < 0.05) from their chemical properties and pathway annotations. Tests whether metabolite identity predicts spaceflight susceptibility.",
   "data_files": [
-    "metabolomics_anppos_matrix.csv",
-    "metabolomics_de.csv"
+    "metabolomics_spaceflight_response.csv"
   ],
   "input_spec": {
-    "features": "24 sample expression values + chemical annotations (Mass, RT) + DE statistics",
-    "note": "metabolite_name is the key column"
+    "features": "Chemical annotations: Mass, RT, Formula, SuperPathway, SubPathway, annotation_confidence",
+    "feature_count": 6,
+    "note": "Expression values excluded to prevent circularity; only chemical identity features used"
   },
   "output_spec": {
-    "type": "categorical",
-    "target_column": "SuperPathway_merged",
-    "classes": [
-      "Amino acids",
-      "Carbohydrate metabolism",
-      "Cofactor, vitamin and antioxidant metabolism",
-      "Energy metabolism",
-      "Lipid metabolism",
-      "Other",
-      "Purine  and pyrimidine metabolism/nucleotide metabolism"
-    ],
-    "n_classes": 7,
-    "class_distribution": {
-      "Amino acids": 106,
-      "Carbohydrate metabolism": 10,
-      "Cofactor, vitamin and antioxidant metabolism": 25,
-      "Energy metabolism": 20,
-      "Lipid metabolism": 232,
-      "Other": 17,
-      "Purine  and pyrimidine metabolism/nucleotide metabolism": 41
-    }
+    "type": "binary",
+    "target_column": "is_spaceflight_de",
+    "positive_class": "Spaceflight DE metabolite",
+    "positive_count": 91,
+    "negative_count": 342,
+    "positive_rate": "21.0%"
   },
   "evaluation": {
-    "primary_metric": "macro_f1",
+    "primary_metric": "auroc",
     "secondary_metrics": [
-      "per_class_f1",
-      "accuracy"
+      "auprc",
+      "f1"
     ]
   },
   "split": "feature_split_D1",
-  "n_samples": 451
+  "n_samples": 433,
+  "notes": [
+    "Spaceflight-specific: target is spaceflight DE, not database annotation",
+    "Balanced positive rate (21%) makes AUROC appropriate as primary metric"
+  ]
 }
