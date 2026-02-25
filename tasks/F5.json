@@ -1,0 +1,38 @@
+{
+  "task_id": "F5",
+  "task_name": "Flight Phase Detection (Pathways)",
+  "task_type": "multi_class_classification",
+  "difficulty": "hard",
+  "description": "Detect spaceflight phase from microbiome functional pathways. Paired with F2 (taxonomy) for comparison.",
+  "data_files": [
+    "microbiome_human_pathways_cpm.csv"
+  ],
+  "metadata_file": "microbiome_metadata.csv",
+  "input_spec": {
+    "features": "567 MetaCyc pathways (CPM-normalized)",
+    "feature_count": 567
+  },
+  "output_spec": {
+    "type": "categorical",
+    "target_column": "phase",
+    "n_classes": 4,
+    "classes": [
+      "in_flight",
+      "post_flight",
+      "pre_flight",
+      "recovery"
+    ]
+  },
+  "evaluation": {
+    "primary_metric": "macro_f1",
+    "secondary_metrics": [
+      "accuracy",
+      "per_class_f1"
+    ]
+  },
+  "split": "loco_microbiome_human",
+  "n_samples": 275,
+  "notes": [
+    "Compare with F2 to assess taxonomy vs pathway features"
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "task_id": "B2",
+  "task_name": "Coregulated Gene Cluster Prediction",
+  "task_type": "multilabel_classification",
+  "difficulty": "hard",
+  "description": "Predict cluster membership of 466 DRR genes from gene-gene correlation patterns. 16 clusters, multi-label.",
+  "data_files": [
+    "gt_cfrna_correlation.csv"
+  ],
+  "ground_truth_files": [
+    "gt_cfrna_cluster_labels.csv"
+  ],
+  "input_spec": {
+    "features": "466-dimensional correlation vector per gene",
+    "feature_count": 466,
+    "gene_column": "gene"
+  },
+  "output_spec": {
+    "type": "multilabel",
+    "n_labels": 16,
+    "label_names": [
+      "MT",
+      "MUC",
+      "Platelet activation, signaling and aggregation",
+      "Chemical carcinogenesis - reactive oxygen species",
+      "cell junction organization",
+      "ameboidal-type cell migration",
+      "behavior",
+      "inorganic ion transmembrane transport",
+      "regulation of cell junction assembly",
+      "cell morphogenesis",
+      "regulation of synapse organization",
+      "placenta",
+      "skeletal muscle",
+      "Cerebellum",
+      "bone marrow",
+      "prostate cancer"
+    ],
+    "genes_with_labels": 226,
+    "genes_without_labels": 240
+  },
+  "evaluation": {
+    "primary_metric": "micro_f1",
+    "secondary_metrics": [
+      "hamming_loss",
+      "per_cluster_auroc"
+    ]
+  },
+  "split": "feature_split_B2",
+  "n_samples": 466
+}

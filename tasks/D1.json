@@ -1,0 +1,47 @@
+{
+  "task_id": "D1",
+  "task_name": "Metabolite Super-Pathway Classification",
+  "task_type": "multi_class_classification",
+  "difficulty": "hard",
+  "description": "Predict metabolite super-pathway from expression profile and chemical annotations. Rare classes (<10) merged into 'Other'.",
+  "data_files": [
+    "metabolomics_anppos_matrix.csv",
+    "metabolomics_de.csv"
+  ],
+  "input_spec": {
+    "features": "24 sample expression values + chemical annotations (Mass, RT) + DE statistics",
+    "note": "metabolite_name is the key column"
+  },
+  "output_spec": {
+    "type": "categorical",
+    "target_column": "SuperPathway_merged",
+    "classes": [
+      "Amino acids",
+      "Carbohydrate metabolism",
+      "Cofactor, vitamin and antioxidant metabolism",
+      "Energy metabolism",
+      "Lipid metabolism",
+      "Other",
+      "Purine  and pyrimidine metabolism/nucleotide metabolism"
+    ],
+    "n_classes": 7,
+    "class_distribution": {
+      "Amino acids": 106,
+      "Carbohydrate metabolism": 10,
+      "Cofactor, vitamin and antioxidant metabolism": 25,
+      "Energy metabolism": 20,
+      "Lipid metabolism": 232,
+      "Other": 17,
+      "Purine  and pyrimidine metabolism/nucleotide metabolism": 41
+    }
+  },
+  "evaluation": {
+    "primary_metric": "macro_f1",
+    "secondary_metrics": [
+      "per_class_f1",
+      "accuracy"
+    ]
+  },
+  "split": "feature_split_D1",
+  "n_samples": 451
+}

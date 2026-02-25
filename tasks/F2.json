@@ -1,0 +1,41 @@
+{
+  "task_id": "F2",
+  "task_name": "Flight Phase Detection (Taxonomy)",
+  "task_type": "multi_class_classification",
+  "difficulty": "hard",
+  "description": "Detect spaceflight phase from skin microbiome taxonomy. Harder than body site \u2014 temporal changes are subtler.",
+  "data_files": [
+    "microbiome_human_taxonomy_cpm.csv"
+  ],
+  "metadata_file": "microbiome_metadata.csv",
+  "input_spec": {
+    "features": "16,172 taxa (CPM-normalized abundance)",
+    "feature_count": 16172
+  },
+  "output_spec": {
+    "type": "categorical",
+    "target_column": "phase",
+    "classes": [
+      "in_flight",
+      "post_flight",
+      "pre_flight",
+      "recovery"
+    ],
+    "n_classes": 4,
+    "class_distribution": {
+      "in_flight": 78,
+      "post_flight": 40,
+      "pre_flight": 78,
+      "recovery": 79
+    }
+  },
+  "evaluation": {
+    "primary_metric": "macro_f1",
+    "secondary_metrics": [
+      "accuracy",
+      "per_class_f1"
+    ]
+  },
+  "split": "loco_microbiome_human",
+  "n_samples": 275
+}

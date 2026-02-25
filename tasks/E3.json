@@ -1,0 +1,35 @@
+{
+  "task_id": "E3",
+  "task_name": "Cross-Layer DE Prediction (outer_dermis)",
+  "task_type": "binary_classification",
+  "difficulty": "expert",
+  "description": "Predict outer_dermis layer-specific DE from global skin (all_skin) DE features. Tests whether aggregate skin response predicts spatially-resolved layer response.",
+  "data_files": [
+    "gt_spatial_de_all_skin.csv"
+  ],
+  "ground_truth_files": [
+    "gt_spatial_de_outer_dermis.csv"
+  ],
+  "input_spec": {
+    "features": "3 features from all_skin DESeq2: baseMean, log2FoldChange, lfcSE",
+    "feature_count": 3,
+    "gene_column": "gene",
+    "note": "stat and pval excluded to avoid trivial leakage"
+  },
+  "output_spec": {
+    "type": "binary",
+    "positive_class": "DE in outer_dermis (adj_pval < 0.05)",
+    "positive_count": 18,
+    "negative_count": 18659,
+    "positive_rate": "0.10%"
+  },
+  "evaluation": {
+    "primary_metric": "auprc",
+    "secondary_metrics": [
+      "auroc",
+      "precision_at_50"
+    ]
+  },
+  "split": "feature_split_E3",
+  "n_samples": 18677
+}

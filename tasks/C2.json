@@ -1,0 +1,36 @@
+{
+  "task_id": "C2",
+  "task_name": "Cross-Biofluid Protein DE Concordance",
+  "task_type": "binary_classification",
+  "difficulty": "hard",
+  "description": "Predict EVP (exosome) protein DE from plasma protein DE statistics. Tests cross-biofluid generalization of spaceflight response.",
+  "data_files": [
+    "proteomics_plasma_de_clean.csv",
+    "proteomics_evp_de_clean.csv"
+  ],
+  "input_spec": {
+    "features": "4 plasma DE statistics (logFC, AveExpr, t, B)",
+    "feature_count": 4,
+    "note": "Input from plasma; target from EVP"
+  },
+  "output_spec": {
+    "type": "binary",
+    "positive_class": "EVP DE (adj_pval < 0.05)",
+    "positive_count": 131,
+    "negative_count": 249
+  },
+  "evaluation": {
+    "primary_metric": "auroc",
+    "secondary_metrics": [
+      "auprc",
+      "f1",
+      "direction_concordance"
+    ]
+  },
+  "split": "feature_split_C2",
+  "n_samples": 380,
+  "notes": [
+    "380 overlapping proteins",
+    "Baseline direction concordance: 64.2%"
+  ]
+}

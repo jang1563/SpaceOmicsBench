@@ -1,0 +1,46 @@
+{
+  "task_id": "A2",
+  "task_name": "Flight Phase Classification (Immune Markers)",
+  "task_type": "multi_class_classification",
+  "difficulty": "medium",
+  "description": "Classify spaceflight phase from Eve immune cytokine panel (71 markers). Same samples as A1, different features.",
+  "data_files": [
+    "clinical_cytokines_eve.csv"
+  ],
+  "input_spec": {
+    "features": "71 Eve immune cytokine markers",
+    "feature_count": 71,
+    "meta_columns": [
+      "sample_id",
+      "crew",
+      "tissue",
+      "timepoint",
+      "timepoint_days",
+      "phase",
+      "mission"
+    ]
+  },
+  "output_spec": {
+    "type": "categorical",
+    "target_column": "phase",
+    "classes": [
+      "pre_flight",
+      "post_flight",
+      "recovery"
+    ]
+  },
+  "evaluation": {
+    "primary_metric": "macro_f1",
+    "secondary_metrics": [
+      "accuracy",
+      "per_class_f1"
+    ],
+    "confidence_interval": true
+  },
+  "split": "loco_clinical",
+  "n_samples": 28,
+  "notes": [
+    "Same sample set as A1, tests immune panel vs blood panel",
+    "Zero missing values"
+  ]
+}

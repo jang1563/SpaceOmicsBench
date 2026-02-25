@@ -1,0 +1,33 @@
+{
+  "task_id": "F4",
+  "task_name": "Microbiome Body Site Classification (Pathways)",
+  "task_type": "multi_class_classification",
+  "difficulty": "medium",
+  "description": "Classify body site from microbiome functional pathways (567 MetaCyc pathways). Paired with F1 (taxonomy) for feature representation comparison.",
+  "data_files": [
+    "microbiome_human_pathways_cpm.csv"
+  ],
+  "metadata_file": "microbiome_metadata.csv",
+  "input_spec": {
+    "features": "567 MetaCyc pathways (CPM-normalized)",
+    "feature_count": 567,
+    "note": "Drop 2 extra samples not in taxonomy metadata (C002_FD3_NAP, C002_R+82_ARM)"
+  },
+  "output_spec": {
+    "type": "categorical",
+    "target_column": "body_site",
+    "n_classes": 10
+  },
+  "evaluation": {
+    "primary_metric": "macro_f1",
+    "secondary_metrics": [
+      "accuracy",
+      "per_class_f1"
+    ]
+  },
+  "split": "loco_microbiome_human",
+  "n_samples": 275,
+  "notes": [
+    "Compare with F1 to assess taxonomy vs pathway features"
+  ]
+}
