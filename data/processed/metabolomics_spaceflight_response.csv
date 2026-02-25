@@ -1,0 +1,434 @@
+metabolite,SuperPathway,SubPathway,Formula,Mass,RT,annotation_confidence,is_spaceflight_de
+Alanine,Amino acids,"Alanine, Aspartate, and Glutamate metabolism",C3H7NO2,89.0472,9.56,1,False
+Succinic Semialdehyde,Amino acids,"Alanine, Aspartate, and Glutamate metabolism",C4H6O3,102.0319,2.45,1,False
+4-Aminobutanoate (GABA),Amino acids,"Alanine, Aspartate, and Glutamate metabolism",C4H9NO2,103.0629,9.14,1,True
+Asparagine,Amino acids,"Alanine, Aspartate, and Glutamate metabolism",C4H8N2O3,132.0506,9.66,1,False
+Glutamine,Amino acids,"Alanine, Aspartate, and Glutamate metabolism",C5H10N2O3,146.0695,9.89,1,False
+Glutamic Acid,Amino acids,"Alanine, Aspartate, and Glutamate metabolism",C5H9NO4,147.0529,9.53,1,False
+3-Hydroxyglutaric Acid,Amino acids,"Alanine, Aspartate, and Glutamate metabolism",C5H8O5,148.0378,8.32,1,False
+N-Acetylaspartic Acid,Amino acids,"Alanine, Aspartate, and Glutamate metabolism",C6H9NO5,175.0483,8.58,1,False
+N-Acetylaspartiylglutamate (NAAG),Amino acids,"Alanine, Aspartate, and Glutamate metabolism",C11H16N2O8,304.093,9.24,1,False
+Urea,Amino acids,Arginine and Proline metabolism,CH4N2O,60.0315,2.78,1,False
+Creatinine,Amino acids,Arginine and Proline metabolism,C4H7N3O,113.059,8.9,1,False
+Proline,Amino acids,Arginine and Proline metabolism,C5H9NO2,115.0635,10.29,1,True
+4-Hydroxy-Proline,Amino acids,Arginine and Proline metabolism,C5H9NO3,131.0585,9.53,1,False
+Ornithine,Amino acids,Arginine and Proline metabolism,C5H12N2O2,132.087,25.87,1,False
+Arginine,Amino acids,Arginine and Proline metabolism,C6H14N4O2,174.109,25.27,1,True
+Citrulline,Amino acids,Arginine and Proline metabolism,C6H13N3O3,175.0958,10.54,1,True
+N-Acetydglutamic Acid,Amino acids,Arginine and Proline metabolism,C7H11NO5,189.0652,8.83,1,False
+Dimethylarginine,Amino acids,Arginine and Proline metabolism,C8H18N4O2,202.1396,26.67,1,False
+Argininosuccinic Acid,Amino acids,Arginine and Proline metabolism,C10H18N4O6,290.1234,10.14,1,True
+Phosphocreatine,Amino acids,Arginine and Proline metabolism,C4H10N3O5P,211.0359,12.03,1,False
+Guanidinosuccinic Acid,Amino acids,Arginine and Proline metabolism,C5H9N3O4,175.0596,9.6,1,False
+Proline Betaine,Amino acids,Arginine and Proline metabolism,C7H13NO2,143.0944,11.53,1,True
+Sulfite,Amino acids,Cysteine and Methionine metabolism,H2O3S,81.9724,0.89,1,False
+Thiosulfate,Amino acids,Cysteine and Methionine metabolism,H2O3S2,113.9449,4.65,1,False
+Methionine,Amino acids,Cysteine and Methionine metabolism,C5H11NO2S,149.0513,7.92,1,True
+N-Formylmethionine,Amino acids,Cysteine and Methionine metabolism,C6H11NO3S,177.0466,2.19,1,False
+Cysteine-S-Sulfonic Acid,Amino acids,Cysteine and Methionine metabolism,C3H7NO5S2,200.9778,2.09,1,True
+Methionine  Lactamide,Amino acids,Cysteine and Methionine metabolism,C8H15NO4S,221.0689,2.09,1,True
+Cystine,Amino acids,Cysteine and Methionine metabolism,C6H12N2O4S2,240.024,11.67,1,False
+2-Hydroxybutyric acid,Amino acids,Cysteine and Methionine metabolism,C4H8O3,104.0478,2.31,1,False
+5'-Methylthioadenosine (MTA),Amino acids,Cysteine and Methionine metabolism,C11H15N5O3S,297.0932,2.39,1,False
+S-Adenosylhomocysteine (SAH),Amino acids,Cysteine and Methionine metabolism,C14H20N6O5S,384.1113,8.63,1,True
+2-Aminobutyric Acid,Amino acids,Cysteine and Methionine metabolism,C4H9NO2,103.0638,8.45,1,False
+Methylglyoxal,Amino acids,"Glycine, serine, and threonine metabolism",C3H4O2,72.0211,2.61,1,False
+Glycinamide,Amino acids,"Glycine, serine, and threonine metabolism",C2H6N2O,74.055,9.06,1,False
+Glycine,Amino acids,"Glycine, serine, and threonine metabolism",C2H5NO2,75.0313,9.94,1,False
+2-Ketobutyric Acid,Amino acids,"Glycine, serine, and threonine metabolism",C4H6O3,102.0319,2.09,1,False
+Choline,Amino acids,"Glycine, serine, and threonine metabolism",C5H13NO,103.0993,26.62,1,False
+Serine,Amino acids,"Glycine, serine, and threonine metabolism",C3H7NO3,105.0421,9.39,1,True
+Betaine,Amino acids,"Glycine, serine, and threonine metabolism",C5H11NO2,117.0793,11.15,1,False
+N-Formylglycine,Amino acids,"Glycine, serine, and threonine metabolism",C3H5NO3,103.0275,3.9,1,False
+Threonine,Amino acids,"Glycine, serine, and threonine metabolism",C4H9NO3,119.0587,9.01,1,False
+Creatine,Amino acids,"Glycine, serine, and threonine metabolism",C4H9N3O2,131.0674,10.62,1,True
+Histamine,Amino acids,Histidine Metabolism,C5H9N3,111.0844,26.62,1,False
+4-Imidazoleacetic Acid,Amino acids,Histidine Metabolism,C5H6N2O2,126.0431,9.71,1,False
+Histidine,Amino acids,Histidine Metabolism,C6H9N3O2,155.0696,11.54,1,False
+3-Methylhistidine,Amino acids,Histidine Metabolism,C7H11N3O2,169.0853,13.12,1,False
+1-Methylhistidine,Amino acids,Histidine Metabolism,C7H11N3O2,169.0858,11.94,1,False
+Ergothioneine,Amino acids,Histidine Metabolism,C9H15N3O2S,229.0885,10.13,1,False
+Pipecolinic Acid,Amino acids,"Lysine biosynthesis, metabolism,and degradation",C6H11NO2,129.0789,8.6,1,False
+Glutaric Acid,Amino acids,"Lysine biosynthesis, metabolism,and degradation",C5H8O4,132.0424,8.33,1,False
+Lysine,Amino acids,"Lysine biosynthesis, metabolism,and degradation",C6H14N2O2,146.1058,26.61,1,False
+2-Aminoadipic Acid,Amino acids,"Lysine biosynthesis, metabolism,and degradation",C6H11NO4,161.0691,8.57,1,False
+Trimethyllysine,Amino acids,"Lysine biosynthesis, metabolism,and degradation",C9H20N2O2,188.1507,26.67,1,False
+2-Methylcitric Acid,Amino acids,"Lysine biosynthesis, metabolism,and degradation",C7H10O7,206.0427,8.0,1,False
+Phenylpyruvic Acid,Amino acids,Phenylalanine metabolism,C9H8O3,164.0478,1.41,1,False
+Phenylalanine,Amino acids,Phenylalanine metabolism,C9H11NO2,165.0786,7.51,1,False
+Melilotate,Amino acids,Phenylalanine metabolism,C9H10O3,166.0635,1.6,1,False
+Hippuric Acid,Amino acids,Phenylalanine metabolism,C9H9NO3,179.0592,2.18,1,False
+N-Acetylphenylalanine,Amino acids,Phenylalanine metabolism,C11H13NO3,207.0891,2.18,1,True
+2-Hydroxyphenylacetic Acid,Amino acids,Phenylalanine metabolism,C8H8O3,152.0512,1.51,1,False
+Quinaldic Acid,Amino acids,Tryptophan metabolism,C10H7NO2,173.047,1.98,1,False
+3-Indoleacetic Acid,Amino acids,Tryptophan metabolism,C10H9NO2,175.0621,1.54,1,False
+Kynurenic Acid,Amino acids,Tryptophan metabolism,C10H7NO3,189.0434,2.11,1,False
+5-Hydroxyindoleacetic Acid,Amino acids,Tryptophan metabolism,C10H9NO3,191.058,2.15,1,False
+Tryptophan,Amino acids,Tryptophan metabolism,C11H12N2O2,204.0903,7.26,1,False
+Xanthurenic Acid,Amino acids,Tryptophan metabolism,C10H7NO4,205.0382,2.1,1,False
+Kynurenine,Amino acids,Tryptophan metabolism,C10H12N2O3,208.0858,7.22,1,False
+Indoxyl Sulfate,Amino acids,Tryptophan metabolism,C8H7NO4S,213.0106,0.89,1,False
+Hydroquinone,Amino acids,Tyrosine metabolism,C6H6O2,110.0371,0.89,1,True
+Tyramine,Amino acids,Tyrosine metabolism,C8H11NO,137.0838,8.92,1,True
+3-Hydroxyphenylacetic Acid,Amino acids,Tyrosine metabolism,C8H8O3,152.0512,1.51,1,False
+4-Hydroxyphenylacetic Acid,Amino acids,Tyrosine metabolism,C8H8O3,152.0512,1.51,1,False
+Gentisic Acid,Amino acids,Tyrosine metabolism,C7H6O4,154.0281,1.39,1,False
+Homogentisic Acid,Amino acids,Tyrosine metabolism,C8H8O4,168.0451,0.94,1,False
+"3,4-Dihydroxyphenylacetic Acid (DOPAC)",Amino acids,Tyrosine metabolism,C8H8O4,168.0428,1.56,1,False
+4-Hydroxyphenylpyruvic Acid,Amino acids,Tyrosine metabolism,C9H8O4,180.0437,1.55,1,False
+Tyrosine,Amino acids,Tyrosine metabolism,C9H11NO3,181.072,7.67,1,False
+Homovanillic Acid,Amino acids,Tyrosine metabolism,C9H10O4,182.0587,1.88,1,False
+4-Hydroxyphenyllactate,Amino acids,Tyrosine metabolism,C9H10O4,182.0588,1.68,1,False
+Vanillylmandelic Acid,Amino acids,Tyrosine metabolism,C9H10O5,198.0568,1.01,1,False
+2-Ketoisocaproic acid,Amino acids,"Valine, leucine, and isoleucine biosynthesis / degradation",C6H10O3,130.064,1.58,1,False
+2-Hydroxyisocaproic acid,Amino acids,"Valine, leucine, and isoleucine biosynthesis / degradation",C6H12O3,132.079,1.91,2,True
+3-Hydroxymethylglutaric Acid,Amino acids,"Valine, leucine, and isoleucine biosynthesis / degradation",C6H10O5,162.052,7.84,1,False
+2-Hydroxyisovaleric acid,Amino acids,"Valine, leucine, and isoleucine biosynthesis / degradation",C5H10O3,118.0634,1.95,2,False
+2-Ketoisovaleric acid,Amino acids,"Valine, leucine, and isoleucine biosynthesis / degradation",C5H8O3,116.0477,1.73,1,True
+Valine,Amino acids,"Valine, leucine, and isoleucine biosynthesis / degradation",C5H11NO2,117.0795,8.66,1,False
+Methylmalonic Acid,Amino acids,"Valine, leucine, and isoleucine biosynthesis / degradation",C4H6O4,118.0283,2.1,1,False
+Citraconic Acid,Amino acids,"Valine, leucine, and isoleucine biosynthesis / degradation",C5H6O4,130.0273,1.32,1,True
+Ketoleucine,Amino acids,"Valine, leucine, and isoleucine biosynthesis / degradation",C6H10O3,130.0636,0.99,1,False
+Leucine,Amino acids,"Valine, leucine, and isoleucine biosynthesis / degradation",C6H13NO2,131.0953,7.96,1,False
+Isoleucine,Amino acids,"Valine, leucine, and isoleucine biosynthesis / degradation",C6H13NO2,131.0951,8.18,1,False
+N-Acetylglycine,Amino acids,Amino acid acetylation,C4H7NO3,117.0431,5.11,1,False
+N-Acetydserine,Amino acids,Amino acid acetylation,C5H9NO4,147.049,3.27,1,False
+Putrescine,Amino acids,Polyamine metabolism,C4H12N2,88.1054,26.66,1,False
+Spermine,Amino acids,Polyamine metabolism,C10H26N4,202.2154,26.64,1,False
+N1-Acetylspermidine,Amino acids,Polyamine metabolism,C9H21N3O,187.166,26.67,1,False
+Taurine,Amino acids,Taurine and hypotaurine metabolism,C2H7NO3S,125.0149,5.87,1,True
+Lipoic Acid,Amino acids,Lipoic acid metabolism,C8H14O2S2,206.0417,2.13,1,False
+Fumaric Acid,Energy metabolism,Citrate cycle (TCA cycle),C4H4O4,116.0112,7.85,1,False
+Succinic Acid,Energy metabolism,Citrate cycle (TCA cycle),C4H6O4,118.027,8.02,1,False
+Malic Acid,Energy metabolism,Citrate cycle (TCA cycle),C4H6O5,134.0223,8.22,1,False
+2-ketoglutaramate,Energy metabolism,Citrate cycle (TCA cycle),C5H7NO4,145.038,2.71,1,False
+Aconitic Acid,Energy metabolism,Citrate cycle (TCA cycle),C6H6O6,174.017,7.59,1,False
+Beta-Carboxyglutaric Acid,Energy metabolism,Citrate cycle (TCA cycle),C6H8O6,176.0301,7.76,1,False
+Citric Acid,Energy metabolism,Citrate cycle (TCA cycle),C6H8O7,192.0288,9.44,1,False
+Methylenesuccinic Acid,Energy metabolism,Citrate cycle (TCA cycle),C5H6O4,130.0285,1.54,1,False
+Glucose+Cl,Energy metabolism,Glycolysis / Gluconeogenesis,C6H13ClO6,216.0413,3.53,1,False
+2-Phosphoglyceric Acid,Energy metabolism,Glycolysis / Gluconeogenesis,C3H7O7P,185.994,10.99,1,False
+3-Phospho-Glycerate,Energy metabolism,Glycolysis / Gluconeogenesis,C3H7O7P,185.994,10.99,1,False
+Lactic Acid,Energy metabolism,Glycolysis / Gluconeogenesis,C3H6O3,90.0324,2.62,1,False
+Pyruvate,Energy metabolism,Glycolysis / Gluconeogenesis,C3H4O3,88.016,1.04,1,True
+Pantothenic Acid,Energy metabolism,Pantothenate and CoA biosynthesis,C9H17NO5,219.1132,4.43,1,False
+Deoxyribose,Energy metabolism,Pentose phosphate pathway,C5H10O4,134.0587,2.25,1,False
+Ribose,Energy metabolism,Pentose phosphate pathway,C5H10O5,150.0531,2.26,1,False
+Gluconic Lactone,Energy metabolism,Pentose phosphate pathway,C6H10O6,178.0484,2.22,1,False
+Ribose 5-Phosphate,Energy metabolism,Pentose phosphate pathway,C5H11O8P,230.0195,9.2,1,False
+6-Phosphogluconic Acid,Energy metabolism,Pentose phosphate pathway,C6H13O10P,276.0179,8.5,1,True
+Purine,Purine  and pyrimidine metabolism/nucleotide metabolism,Purine metabolism,C5H4N4,120.0427,2.69,1,True
+Adenine,Purine  and pyrimidine metabolism/nucleotide metabolism,Purine metabolism,C5H5N5,135.0547,4.49,1,False
+3-Methyladenine,Purine  and pyrimidine metabolism/nucleotide metabolism,Purine metabolism,C6H7N5,149.068,9.61,1,False
+Hypoxanthine,Purine  and pyrimidine metabolism/nucleotide metabolism,Purine metabolism,C5H4N4O,136.0418,3.19,1,True
+Xanthine,Purine  and pyrimidine metabolism/nucleotide metabolism,Purine metabolism,C5H4N4O2,152.035,2.32,1,True
+Allantoin,Purine  and pyrimidine metabolism/nucleotide metabolism,Purine metabolism,C4H6N4O3,158.043,2.2,1,False
+Uric Acid,Purine  and pyrimidine metabolism/nucleotide metabolism,Purine metabolism,C5H4N4O3,168.0296,3.01,1,False
+5-Hydroxyisourate,Purine  and pyrimidine metabolism/nucleotide metabolism,Purine metabolism,C5H4N4O4,184.0243,1.68,1,False
+Inosine,Purine  and pyrimidine metabolism/nucleotide metabolism,Purine metabolism,C10H12N4O5,268.0814,3.26,1,True
+Succinoadenosine,Purine  and pyrimidine metabolism/nucleotide metabolism,Purine metabolism,C14H17N5O8,383.1176,8.32,1,False
+Adenylosuccinate,Purine  and pyrimidine metabolism/nucleotide metabolism,Purine metabolism,C14H18N5O11P,463.0606,9.34,1,False
+5'-Phosphoribosylglycinamide(GAR),Purine  and pyrimidine metabolism/nucleotide metabolism,Purine metabolism,C7H15N2O8P,286.0591,8.83,1,False
+5'-Phosphoribosyl-N-formylglycinamide (FGAR),Purine  and pyrimidine metabolism/nucleotide metabolism,Purine metabolism,C8H15N2O9P,314.0515,10.32,1,False
+N-FormyGAR (FGAR)--riboside,Purine  and pyrimidine metabolism/nucleotide metabolism,Purine metabolism,C8H14N2O6,234.0857,3.57,2,False
+AICA riboside,Purine  and pyrimidine metabolism/nucleotide metabolism,Purine metabolism,C9H14N4O5,258.0875,2.1,1,False
+SAICAR-riboside,Purine  and pyrimidine metabolism/nucleotide metabolism,Purine metabolism,C13H18N4O9,374.1093,8.72,1,False
+GAR riboside,Purine  and pyrimidine metabolism/nucleotide metabolism,Purine metabolism,C7H14N2O5,206.0953,7.27,2,False
+AMP,Purine  and pyrimidine metabolism/nucleotide metabolism,Purine metabolism,C10H14N5O7P,347.0634,10.92,1,False
+ADP,Purine  and pyrimidine metabolism/nucleotide metabolism,Purine metabolism,C10H15N5O10P2,427.0297,11.24,1,False
+Beta-Alanine,Purine  and pyrimidine metabolism/nucleotide metabolism,Pyrimidine metabolism,C3H7NO2,89.0472,11.55,1,False
+Cytosine,Purine  and pyrimidine metabolism/nucleotide metabolism,Pyrimidine metabolism,C4H5N3O,111.0431,5.39,1,False
+N(4)-Acetylcytosine,Purine  and pyrimidine metabolism/nucleotide metabolism,Pyrimidine metabolism,C6H7N3O2,153.0496,1.57,1,False
+Uracil,Purine  and pyrimidine metabolism/nucleotide metabolism,Pyrimidine metabolism,C4H4N2O2,112.0272,2.16,1,False
+Orotic Acid,Purine  and pyrimidine metabolism/nucleotide metabolism,Pyrimidine metabolism,C5H4N2O4,156.0155,2.2,1,False
+Dihydroorotic Acid,Purine  and pyrimidine metabolism/nucleotide metabolism,Pyrimidine metabolism,C5H6N2O4,158.0328,2.41,1,True
+Uracil 5-Carboxylic Acid/Isoorotic Acid,Purine  and pyrimidine metabolism/nucleotide metabolism,Pyrimidine metabolism,C5H4N2O4,156.0144,2.19,1,False
+Cytidine,Purine  and pyrimidine metabolism/nucleotide metabolism,Pyrimidine metabolism,C9H13N3O5,243.0897,5.56,1,False
+Uridine,Purine  and pyrimidine metabolism/nucleotide metabolism,Pyrimidine metabolism,C9H12N2O6,244.07,2.15,1,False
+Uridine+Cl,Purine  and pyrimidine metabolism/nucleotide metabolism,Pyrimidine metabolism,C9H13ClN2O6,280.0475,2.14,1,False
+Orotidine,Purine  and pyrimidine metabolism/nucleotide metabolism,Pyrimidine metabolism,C10H12N2O8,288.0599,2.1,1,False
+UMP,Purine  and pyrimidine metabolism/nucleotide metabolism,Pyrimidine metabolism,C9H13N2O9P,324.0405,8.41,1,True
+UDP,Purine  and pyrimidine metabolism/nucleotide metabolism,Pyrimidine metabolism,C9H14N2O12P2,404.0105,8.91,1,True
+5-Hydroxymethyluracil,Purine  and pyrimidine metabolism/nucleotide metabolism,Nucleotide modification,C5H6N2O3,142.0291,2.17,1,False
+1-Methylguanine,Purine  and pyrimidine metabolism/nucleotide metabolism,Nucleotide methylation,C6H7N5O,165.0659,4.91,1,True
+5-Methylcytidine,Purine  and pyrimidine metabolism/nucleotide metabolism,Nucleotide modification,C10H15N3O5,257.1022,5.39,1,False
+Ribothymidine,Purine  and pyrimidine metabolism/nucleotide metabolism,Nucleotide modification,C10H14N2O6,258.0855,2.05,1,False
+2-Methyladenosine,Purine  and pyrimidine metabolism/nucleotide metabolism,Nucleotide modification,C11H15N5O4,281.1102,2.13,1,False
+3-Methyladenosine,Purine  and pyrimidine metabolism/nucleotide metabolism,Nucleotide modification,C11H15N5O4,281.1102,2.13,1,False
+1-Methyladenosine,Purine  and pyrimidine metabolism/nucleotide metabolism,Nucleotide modification,C11H15N5O4,281.113,12.15,1,False
+UDP-N-Acetylglucosamine,Amino sugar and nucleotide sugar metabolism,Nucleotide sugar metabolism,C17H27N3O17P2,607.0775,7.81,1,False
+N-Acetylneuraminic Acid,Amino sugar and nucleotide sugar metabolism,Amino sugar metabolism,C11H19NO9,309.1059,6.9,1,True
+Maleic Acid,"Cofactor, vitamin and antioxidant metabolism",Nicotinate and nicotinamide metabolism,C4H4O4,116.0115,1.25,1,False
+Nicotinamide,"Cofactor, vitamin and antioxidant metabolism",Nicotinate and nicotinamide metabolism,C6H6N2O,122.048,2.39,1,False
+Trigonelline/N-Methylnicotinate,"Cofactor, vitamin and antioxidant metabolism",Nicotinate and nicotinamide metabolism,C7H7NO2,137.0479,11.05,1,True
+Nicotinamide N-Oxide,"Cofactor, vitamin and antioxidant metabolism",Nicotinate and nicotinamide metabolism,C6H6N2O2,138.0432,3.04,1,False
+"2,3-Pyridinedicarboxylic Acid/Quinolinic Acid","Cofactor, vitamin and antioxidant metabolism",Nicotinate and nicotinamide metabolism,C7H5NO4,167.0226,8.61,1,False
+1-Methylnicotinamide,"Cofactor, vitamin and antioxidant metabolism",Nicotinate and nicotinamide metabolism,C7H8N2O,136.0617,26.65,1,False
+N1-Methy2-Pyridone-5-Carboxamide(2-PY),"Cofactor, vitamin and antioxidant metabolism",Nicotinate and nicotinamide metabolism,C7H8N2O2,152.0562,1.61,1,False
+N1-Methy4-Pyridone-5-Carboxamide(4-PY),"Cofactor, vitamin and antioxidant metabolism",Nicotinate and nicotinamide metabolism,C7H8N2O2,152.0584,2.66,1,False
+Dehydroascorbic Acid,"Cofactor, vitamin and antioxidant metabolism",Ascorbate and aldarate metabolism,C6H6O6,174.0162,2.08,1,True
+Ascorbic Acid,"Cofactor, vitamin and antioxidant metabolism",Ascorbate and aldarate metabolism,C6H8O6,176.0328,2.09,1,False
+Glucuronolactone,"Cofactor, vitamin and antioxidant metabolism",Ascorbate and aldarate metabolism,C6H8O6,176.0332,1.67,1,False
+5-Oxo-Proline,"Cofactor, vitamin and antioxidant metabolism",Glutathione metabolism,C5H7NO3,129.0429,5.94,1,False
+N-Acetycysteine,"Cofactor, vitamin and antioxidant metabolism",Glutathione metabolism,C5H9NO3S,163.0313,6.66,1,False
+Cys-Gly,"Cofactor, vitamin and antioxidant metabolism",Glutathione metabolism,C5H10N2O3S,178.0415,9.57,1,False
+Ophthalmic Acid,"Cofactor, vitamin and antioxidant metabolism",Glutathione metabolism,C11H19N3O6,289.1287,8.69,1,False
+Cysteineglutathione Disulfide,"Cofactor, vitamin and antioxidant metabolism",Glutathione metabolism,C13H22N4O8S2,426.0883,11.35,1,False
+Thiamine (Vit B1),"Cofactor, vitamin and antioxidant metabolism",Thiamine metabolism,C12H16N4OS,264.1014,26.26,1,True
+Thiamine Monophosphate,"Cofactor, vitamin and antioxidant metabolism",Thiamine metabolism,C12H17N4O4PS,344.0627,26.28,1,False
+Pyridoxal,"Cofactor, vitamin and antioxidant metabolism",Vitamin B6 Metabolism,C8H9NO3,167.0537,3.36,1,False
+4-Pyridoxic Acid,"Cofactor, vitamin and antioxidant metabolism",Vitamin B6 Metabolism,C8H9NO4,183.0579,1.94,1,True
+Menaquinone (Vit K2),"Cofactor, vitamin and antioxidant metabolism","Vitamin K Metabolism, Ubiquinone and other terpenoid-quinone biosynthesis",C31H40O2,444.3131,1.52,1,False
+Ergocalciferol (Vit D2),"Cofactor, vitamin and antioxidant metabolism",Vitamin D metabolism,C28H44O,396.3402,1.45,1,False
+Folic Acid,"Cofactor, vitamin and antioxidant metabolism",Folate metabolism,C19H19N7O6,441.1372,8.92,1,False
+Pimelic Acid,"Cofactor, vitamin and antioxidant metabolism",Biotin metabolism,C7H12O4,160.0739,8.32,1,True
+Erythrose,Carbohydrate metabolism,Carbohydrates,C4H8O4,120.0441,1.62,1,True
+Fucose,Carbohydrate metabolism,"Fructose and mannose, and galactose metabolism",C6H12O5,164.0692,2.19,1,False
+Galactose,Carbohydrate metabolism,"Fructose and mannose, and galactose metabolism",C6H12O6,180.0631,2.18,1,False
+Sorbitol,Carbohydrate metabolism,"Fructose and mannose, and galactose metabolism",C6H14O6,182.0796,4.33,1,False
+Myo-Inositol,Carbohydrate metabolism,"Fructose and mannose, and galactose metabolism",C6H12O6,180.0641,6.1,1,False
+Stachyose Hydrate,Carbohydrate metabolism,"Fructose and mannose, and galactose metabolism",C24H42O21,666.2192,8.66,1,False
+Galactaric Acid,Carbohydrate metabolism,"Fructose and mannose, and galactose metabolism",C6H10O8,210.0371,7.84,1,False
+Deoxycorticosterone Acetate,Lipid metabolism,Bile acid biosynthesis,C23H32O4,372.2253,1.38,1,False
+Lithocholic Acid,Lipid metabolism,Bile acid biosynthesis,C24H40O3,376.306,1.4,1,False
+Chenodeoxycholate,Lipid metabolism,Bile acid biosynthesis,C24H40O4,392.2958,1.62,1,False
+Taurolithocholic Acid,Lipid metabolism,Bile acid biosynthesis,C26H45NO5S,483.3071,0.92,1,False
+Taurodeoxycholate,Lipid metabolism,Bile acid biosynthesis,C26H45NO6S,499.2971,1.35,1,False
+Taurocholic Acid,Lipid metabolism,Bile acid biosynthesis,C26H45NO7S,515.2777,1.19,1,False
+Carnitine,Lipid metabolism,Carnitine metabolism,C7H15NO3,161.1057,14.63,1,False
+Acetylcarnitine,Lipid metabolism,Carnitine metabolism,C9H17NO4,203.1163,13.95,1,False
+Propionylcarnitine,Lipid metabolism,Carnitine metabolism,C10H19NO4,217.1316,13.25,1,False
+Butyrylcarnitine,Lipid metabolism,Carnitine metabolism,C11H21NO4,231.147,12.62,1,False
+Valerylcarnitine,Lipid metabolism,Carnitine metabolism,C12H23NO4,245.1627,12.02,1,False
+Hexanoylcarnitine,Lipid metabolism,Carnitine metabolism,C13H25NO4,259.1783,11.48,1,False
+Methylglutarylcarnitine,Lipid metabolism,Carnitine metabolism,C11H19NO6,261.1214,13.25,1,False
+Methylmalonylcarnitine,Lipid metabolism,Carnitine metabolism,C11H19NO6,261.1213,12.24,1,False
+2-Octenoylcarnitine,Lipid metabolism,Carnitine metabolism,C15H27NO4,285.1945,11.06,1,False
+Octanoylcarnitine,Lipid metabolism,Carnitine metabolism,C15H29NO4,287.2103,10.95,1,False
+Dodecanoylcarnitine,Lipid metabolism,Carnitine metabolism,C19H37NO4,343.2723,10.35,1,False
+"3,5-Tetradecadiencarnitine",Lipid metabolism,Carnitine metabolism,C21H37NO4,367.2724,10.28,1,False
+Tetradecenoylcarnitine,Lipid metabolism,Carnitine metabolism,C21H39NO4,369.2906,10.18,1,False
+Hexadecenoylcarnitine,Lipid metabolism,Carnitine metabolism,C23H43NO4,397.3202,10.06,1,False
+Palmitoylcarnitine,Lipid metabolism,Carnitine metabolism,C23H45NO4,399.3355,10.05,1,False
+Linolenyl Carnitine,Lipid metabolism,Carnitine metabolism,C25H43NO4,421.3232,10.04,1,False
+Linoleyl Carnitine,Lipid metabolism,Carnitine metabolism,C25H45NO4,423.3355,10.01,1,False
+Oleoylcarnitine,Lipid metabolism,Carnitine metabolism,C25H47NO4,425.3514,9.94,1,False
+Stearoylcarnitine,Lipid metabolism,Carnitine metabolism,C25H49NO4,427.3664,9.91,1,False
+3-OH-Linolenyl carnitine,Lipid metabolism,Carnitine metabolism,C25H43NO5,437.3135,10.32,1,False
+3-OH-Linoleyl carnitine,Lipid metabolism,Carnitine metabolism,C25H45NO5,439.3292,10.37,1,False
+3-OH-Oleoylcarnitine,Lipid metabolism,Carnitine metabolism,C25H47NO5,441.3429,10.33,1,False
+3-OH-Stearoylcarnitine,Lipid metabolism,Carnitine metabolism,C25H49NO5,443.3613,10.35,1,False
+3-Dehydroxycarnitine,Lipid metabolism,Carnitine metabolism,C7H15NO2,145.1099,17.72,1,False
+Tiglylcarnitine,Lipid metabolism,Carnitine metabolism,C12H21NO4,243.1475,12.33,2,False
+2-Methylbutyroylcarnitine,Lipid metabolism,Carnitine metabolism,C12H23NO4,245.1627,12.02,2,False
+Malonylcarnitine,Lipid metabolism,Carnitine metabolism,C10H17NO6,247.1023,12.38,1,False
+Hydroxybutyrylcarnitine,Lipid metabolism,Carnitine metabolism,C11H21NO5,247.1417,13.8,1,True
+Glutarylcarnitine,Lipid metabolism,Carnitine metabolism,C12H21NO6,275.1374,13.37,1,False
+3-Methylglutarylcarnitine,Lipid metabolism,Carnitine metabolism,C13H23NO6,289.1529,13.32,2,False
+Pimelylcarnitine,Lipid metabolism,Carnitine metabolism,C14H25NO6,303.1685,9.13,2,False
+hydroxyoctanoyl carnitine,Lipid metabolism,Carnitine metabolism,C15H29NO5,303.2043,11.71,1,False
+Decenoylcarnitine,Lipid metabolism,Carnitine metabolism,C17H31NO4,313.226,10.55,1,False
+Decanoylcarnitine,Lipid metabolism,Carnitine metabolism,C17H33NO4,315.2416,10.54,1,False
+Keto-decanoylcarnitine,Lipid metabolism,Carnitine metabolism,C17H31NO5,329.2194,8.72,1,False
+hydroxydecanoyl carnitine,Lipid metabolism,Carnitine metabolism,C17H33NO5,331.2362,11.19,1,False
+Dodecenoylcarnitine,Lipid metabolism,Carnitine metabolism,C19H35NO4,341.2554,10.34,1,False
+Dodecanedioylcarnitine,Lipid metabolism,Carnitine metabolism,C19H35NO6,373.2455,8.72,1,False
+Hydroxy-tetradecadiencarnitine,Lipid metabolism,Carnitine metabolism,C21H37NO5,383.2604,10.31,1,False
+Hexadecadienoylcarnitine,Lipid metabolism,Carnitine metabolism,C23H41NO4,395.3038,10.11,2,False
+Hexadecanedioic acid mono-L-carnitine ester,Lipid metabolism,Carnitine metabolism,C23H43NO6,429.3067,9.14,2,False
+Hydroxy-octadecenoylcarnitine,Lipid metabolism,Carnitine metabolism,C25H47NO5,441.3434,9.13,1,False
+Cervonyl carnitine,Lipid metabolism,Carnitine metabolism,C29H45NO4,471.3285,8.91,2,False
+Malondialdehyde,Lipid metabolism,Oxidative Stress; Lipid Peroxidation; Oxidative Damage,C3H4O2,72.0211,1.27,1,False
+Archidonoyl Glycine,Lipid metabolism,Fatty acid metabolism,C22H35NO3,361.2702,1.54,1,False
+Isovaleric Acid,Lipid metabolism,Fatty acid metabolism,C5H10O2,102.0681,8.32,1,False
+Malonic Acid,Lipid metabolism,Fatty acid metabolism,C3H4O4,104.0112,2.89,1,True
+5-Hydroxyhexanoic Acid,Lipid metabolism,Fatty acid metabolism,C6H12O3,132.0791,2.35,1,False
+10-Hydroxydecanoate,Lipid metabolism,Fatty acid metabolism,C10H20O3,188.1421,1.53,1,False
+Lysophosphatidic Acid,Lipid metabolism,Glycerophospholipid metabolism,C21H41O7P,436.254,7.93,1,True
+Phosphocholine,Lipid metabolism,Glycerophospholipid metabolism,C5H14NO4P,183.0654,19.38,1,True
+Glycerylphosphorylethanolamine,Lipid metabolism,Glycerophospholipid metabolism,C5H14NO6P,215.0475,10.41,1,False
+Glycerol 1-Phosphoserine,Lipid metabolism,Glycerophospholipid metabolism,C6H14NO8P,259.0495,7.67,1,False
+Trimethylamine N-Oxide,Lipid metabolism,Glycerophospholipid metabolism,C3H9NO,75.0675,16.16,1,False
+Sn-Glycero3-Phosphocholine,Lipid metabolism,Glycerophospholipid metabolism,C8H20NO6P,257.1029,14.84,1,False
+LysoPC(16:1),Lipid metabolism,Glycerophospholipid metabolism,C24H48NO7P,493.3174,10.25,1,True
+LysoPC(16:0),Lipid metabolism,Glycerophospholipid metabolism,C24H50NO7P,495.3342,10.19,1,True
+LysoPC(18:3),Lipid metabolism,Glycerophospholipid metabolism,C26H48NO7P,517.3178,10.2,1,True
+LysoPC(18:2),Lipid metabolism,Glycerophospholipid metabolism,C26H50NO7P,519.3337,9.88,1,False
+LysoPC(18:1),Lipid metabolism,Glycerophospholipid metabolism,C26H52NO7P,521.3498,10.06,1,True
+LysoPC(18:0),Lipid metabolism,Glycerophospholipid metabolism,C26H54NO7P,523.3656,10.0,1,True
+PAF C18:1 /PC(O-18:1/2:0),Lipid metabolism,Glycerophospholipid metabolism,C28H56NO7P,549.3882,8.59,1,False
+PC(34:2),Lipid metabolism,Glycerophospholipid metabolism,C42H80NO8P,757.5651,8.44,1,False
+PC(35:2),Lipid metabolism,Glycerophospholipid metabolism,C43H82NO8P,771.5805,8.35,1,False
+PC(36:4),Lipid metabolism,Glycerophospholipid metabolism,C44H80NO8P,781.5654,8.17,1,False
+PC(36:2),Lipid metabolism,Glycerophospholipid metabolism,C44H84NO8P,785.5959,8.29,1,False
+lysoPC(6:0),Lipid metabolism,Glycerophospholipid metabolism,C14H30NO7P,355.1741,8.91,1,False
+LysoPC(14:1),Lipid metabolism,Glycerophospholipid metabolism,C22H44NO7P,465.285,8.92,1,False
+LysoPC(14:0),Lipid metabolism,Glycerophospholipid metabolism,C22H46NO7P,467.3016,10.39,1,True
+LysoPC(P-16:0),Lipid metabolism,Glycerophospholipid metabolism,C24H50NO6P,479.3381,9.88,1,True
+LysoPC(15:0),Lipid metabolism,Glycerophospholipid metabolism,C23H48NO7P,481.317,10.29,1,True
+LysoPC(P-18:1),Lipid metabolism,Glycerophospholipid metabolism,C26H52NO6P,505.3619,9.13,2,True
+LysoPC(P-18:0),Lipid metabolism,Glycerophospholipid metabolism,C26H54NO6P,507.3694,10.37,2,True
+LysoPC(17:0),Lipid metabolism,Glycerophospholipid metabolism,C25H52NO7P,509.3487,10.09,1,True
+LysoPC(20:5),Lipid metabolism,Glycerophospholipid metabolism,C28H48NO7P,541.3173,10.04,1,True
+LysoPC(20:4),Lipid metabolism,Glycerophospholipid metabolism,C28H50NO7P,543.3338,9.97,1,False
+LysoPC(20:3),Lipid metabolism,Glycerophospholipid metabolism,C28H52NO7P,545.3476,10.0,1,True
+LysoPC(20:2),Lipid metabolism,Glycerophospholipid metabolism,C28H54NO7P,547.3624,9.94,1,True
+LysoPC(20:1),Lipid metabolism,Glycerophospholipid metabolism,C28H56NO7P,549.3775,9.91,1,True
+LysoPC(20:0),Lipid metabolism,Glycerophospholipid metabolism,C28H58NO7P,551.3952,9.86,1,True
+LysoPC(22:6),Lipid metabolism,Glycerophospholipid metabolism,C30H50NO7P,567.3336,9.9,1,False
+LysoPC(22:5),Lipid metabolism,Glycerophospholipid metabolism,C30H52NO7P,569.3478,9.93,1,False
+LysoPC(22:4),Lipid metabolism,Glycerophospholipid metabolism,C30H54NO7P,571.3633,9.89,1,False
+LysoPC(22:1),Lipid metabolism,Glycerophospholipid metabolism,C30H60NO7P,577.4078,9.81,1,False
+LysoPC(22:0),Lipid metabolism,Glycerophospholipid metabolism,C30H62NO7P,579.4262,9.71,1,False
+lysoPC(28:0),Lipid metabolism,Glycerophospholipid metabolism,C36H74NO7P,663.5188,8.7,1,False
+PC(28:1),Lipid metabolism,Glycerophospholipid metabolism,C36H70NO8P,675.4815,8.64,1,False
+PC(28:0),Lipid metabolism,Glycerophospholipid metabolism,C36H72NO8P,677.5004,8.64,1,False
+PC(30:0)),Lipid metabolism,Glycerophospholipid metabolism,C38H76NO7P,689.536,8.53,1,True
+PC(29:0)),Lipid metabolism,Glycerophospholipid metabolism,C37H74NO8P,691.5161,8.57,1,True
+PC(30:2),Lipid metabolism,Glycerophospholipid metabolism,C38H72NO8P,701.5016,8.56,1,False
+PC(30:1),Lipid metabolism,Glycerophospholipid metabolism,C38H74NO8P,703.5164,8.55,1,False
+PC(30:0),Lipid metabolism,Glycerophospholipid metabolism,C38H76NO8P,705.532,8.56,1,False
+PC(P-32:1),Lipid metabolism,Glycerophospholipid metabolism,C40H78NO7P,715.5517,8.53,2,False
+PC(P-32:0),Lipid metabolism,Glycerophospholipid metabolism,C40H80NO7P,717.5663,8.53,2,False
+PC(31:0),Lipid metabolism,Glycerophospholipid metabolism,C39H78NO8P,719.5513,8.49,1,True
+PC(32:6),Lipid metabolism,Glycerophospholipid metabolism,C40H70NO8P,723.4857,9.03,1,False
+PC(32:3),Lipid metabolism,Glycerophospholipid metabolism,C40H74NO8P,727.5168,8.51,1,True
+PC(32:2),Lipid metabolism,Glycerophospholipid metabolism,C40H76NO8P,729.5322,8.49,1,True
+PC(32:1,Lipid metabolism,Glycerophospholipid metabolism,C40H78NO8P,731.5473,8.49,1,False
+PC(32:0),Lipid metabolism,Glycerophospholipid metabolism,C40H80NO8P,733.5621,8.52,1,False
+PC(P-34:3),Lipid metabolism,Glycerophospholipid metabolism,C42H78NO7P,739.5513,8.3,1,False
+PC(O-34:3),Lipid metabolism,Glycerophospholipid metabolism,C42H80NO7P,741.5677,8.26,2,False
+PC(P-34:1),Lipid metabolism,Glycerophospholipid metabolism,C42H82NO7P,743.5767,8.5,1,False
+PC(34:0),Lipid metabolism,Glycerophospholipid metabolism,C42H84NO7P,745.5906,8.52,1,True
+PC(34:5),Lipid metabolism,Glycerophospholipid metabolism,C42H74NO8P,751.5169,8.34,1,True
+PC(34:4),Lipid metabolism,Glycerophospholipid metabolism,C42H76NO8P,753.5326,8.27,1,True
+PC(34:3),Lipid metabolism,Glycerophospholipid metabolism,C42H78NO8P,755.5479,8.44,1,True
+PC(34:1),Lipid metabolism,Glycerophospholipid metabolism,C42H82NO8P,759.5779,8.44,1,False
+PC(O-34:0),Lipid metabolism,Glycerophospholipid metabolism,C42H84NO8P,761.5848,8.45,2,False
+PC(P-36:1)),Lipid metabolism,Glycerophospholipid metabolism,C44H80NO7P,765.5692,8.05,2,False
+PC(P-36:3),Lipid metabolism,Glycerophospholipid metabolism,C44H82NO7P,767.5835,8.24,2,False
+PC(P-36:2),Lipid metabolism,Glycerophospholipid metabolism,C44H84NO7P,769.5957,8.44,2,False
+PC(36:8),Lipid metabolism,Glycerophospholipid metabolism,C44H72NO8P,773.5082,8.68,1,False
+PC(36:7),Lipid metabolism,Glycerophospholipid metabolism,C44H74NO8P,775.5065,8.9,1,False
+PC(36:6),Lipid metabolism,Glycerophospholipid metabolism,C44H76NO8P,777.5321,8.2,1,True
+PC(36:5),Lipid metabolism,Glycerophospholipid metabolism,C44H78NO8P,779.5486,8.19,1,True
+PC(36:3),Lipid metabolism,Glycerophospholipid metabolism,C44H82NO8P,783.5792,8.27,1,False
+PC(36:1),Lipid metabolism,Glycerophospholipid metabolism,C44H86NO8P,787.6044,8.28,1,False
+PC(P-38:6),Lipid metabolism,Glycerophospholipid metabolism,C46H80NO7P,789.5679,8.01,2,False
+PC(P-38:5),Lipid metabolism,Glycerophospholipid metabolism,C46H82NO7P,791.5834,8.0,2,False
+PC(P38:3),Lipid metabolism,Glycerophospholipid metabolism,C46H86NO7P,795.6056,8.22,1,True
+PC(38:8),Lipid metabolism,Glycerophospholipid metabolism,C46H76NO8P,801.5289,8.16,1,True
+PC(38:7),Lipid metabolism,Glycerophospholipid metabolism,C46H78NO8P,803.546,8.14,1,True
+PC(38:3),Lipid metabolism,Glycerophospholipid metabolism,C46H86NO8P,811.6052,8.1,1,True
+PC(P-40:6),Lipid metabolism,Glycerophospholipid metabolism,C48H84NO7P,817.5988,8.02,2,False
+PC(P-40:3),Lipid metabolism,Glycerophospholipid metabolism,C48H90NO7P,823.6383,8.24,2,True
+PC(40:9),Lipid metabolism,Glycerophospholipid metabolism,C48H78NO8P,827.5449,8.09,1,False
+PC(P-40:1),Lipid metabolism,Glycerophospholipid metabolism,C48H94NO7P,827.6835,9.16,2,False
+PC(40:8),Lipid metabolism,Glycerophospholipid metabolism,C48H80NO8P,829.5631,7.98,1,False
+PC(40:7),Lipid metabolism,Glycerophospholipid metabolism,C48H82NO8P,831.5782,8.02,1,True
+PC(40:6),Lipid metabolism,Glycerophospholipid metabolism,C48H84NO8P,833.5946,8.02,1,False
+PC(40:5),Lipid metabolism,Glycerophospholipid metabolism,C48H86NO8P,835.6074,8.04,1,False
+PC(38:4),Lipid metabolism,Glycerophospholipid metabolism,C48H88NO8P,837.6224,8.05,1,True
+PC(42:10),Lipid metabolism,Glycerophospholipid metabolism,C50H80NO8P,853.5619,7.92,1,False
+PC(42:9),Lipid metabolism,Glycerophospholipid metabolism,C50H82NO8P,855.5769,7.95,1,False
+PC(42:8),Lipid metabolism,Glycerophospholipid metabolism,C50H84NO8P,857.5895,7.96,1,True
+PC(42:6),Lipid metabolism,Glycerophospholipid metabolism,C50H88NO8P,861.6228,7.98,1,True
+PC(42:5),Lipid metabolism,Glycerophospholipid metabolism,C50H90NO8P,863.6324,7.96,1,False
+PC(44:10),Lipid metabolism,Glycerophospholipid metabolism,C52H84NO8P,881.5905,9.08,1,False
+PC(44:9),Lipid metabolism,Glycerophospholipid metabolism,C52H86NO8P,883.5924,9.1,1,False
+PC(44:8),Lipid metabolism,Glycerophospholipid metabolism,C52H88NO8P,885.6068,9.13,1,False
+PC(44:7),Lipid metabolism,Glycerophospholipid metabolism,C52H90NO8P,887.6242,9.13,1,False
+PC(44:6),Lipid metabolism,Glycerophospholipid metabolism,C52H92NO8P,889.6419,9.13,1,False
+PAF C16:0,Lipid metabolism,Glycerophospholipid metabolism,C26H54NO7P,523.3622,9.05,1,False
+Lyso-PAF C16,Lipid metabolism,Glycerophospholipid metabolism,C24H52NO6P,481.3531,10.46,1,True
+C-PAF/methylCarbamyl-PAF C-16,Lipid metabolism,Glycerophospholipid metabolism,C26H55N2O7P,538.383,9.92,1,True
+Lyso-PAF C18,Lipid metabolism,Glycerophospholipid metabolism,C26H56NO6P,509.3825,10.32,1,False
+1-AcyPAF,Lipid metabolism,Glycerophospholipid metabolism,C26H52NO8P,537.335,8.16,1,False
+Sphingosine,Lipid metabolism,Glycerophospholipid metabolism,C18H37NO2,299.2818,9.83,1,False
+Sphingosine 1-phosphate,Lipid metabolism,Glycerophospholipid metabolism,C18H38NO5P,379.2491,11.18,1,True
+Sphingomyelin,Lipid metabolism,Glycerophospholipid metabolism,C41H83N2O6P,730.5977,9.31,1,False
+SM(d30:1),Lipid metabolism,Glycerophospholipid metabolism,C35H71N2O6P,646.5055,9.61,1,True
+SM(d32:1),Lipid metabolism,Glycerophospholipid metabolism,C37H75N2O6P,674.5373,9.5,1,False
+SM(d32:0),Lipid metabolism,Glycerophospholipid metabolism,C37H77N2O6P,676.5446,9.51,1,False
+SM(d34:1),Lipid metabolism,Glycerophospholipid metabolism,C39H79N2O6P,702.5686,9.41,1,False
+SM(d34:0),Lipid metabolism,Glycerophospholipid metabolism,C39H82N2O6P,705.5825,9.35,1,False
+SM(d36:2),Lipid metabolism,Glycerophospholipid metabolism,C41H81N2O6P,728.584,9.31,1,True
+SM(d36:1),Lipid metabolism,Glycerophospholipid metabolism,C41H84N2O6P,731.6021,9.29,1,False
+SM(d36:0),Lipid metabolism,Glycerophospholipid metabolism,C41H85N2O6P,732.6086,9.21,1,False
+SM(d38:3),Lipid metabolism,Glycerophospholipid metabolism,C43H83N2O6P,754.5986,9.19,1,False
+SM(d38:1),Lipid metabolism,Glycerophospholipid metabolism,C43H87N2O6P,758.6269,9.18,1,False
+SM(d38:0),Lipid metabolism,Glycerophospholipid metabolism,C43H89N2O6P,760.636,9.18,1,False
+SM(d40:3),Lipid metabolism,Glycerophospholipid metabolism,C45H85N2O6P,780.6147,9.17,1,False
+SM(d40:2),Lipid metabolism,Glycerophospholipid metabolism,C45H89N2O6P,784.6466,9.15,1,False
+SM(d40:1),Lipid metabolism,Glycerophospholipid metabolism,C45H91N2O6P,786.6568,9.16,1,False
+SM(d40:0),Lipid metabolism,Glycerophospholipid metabolism,C45H93N2O6P,788.6677,9.13,1,False
+SM(d41:1),Lipid metabolism,Glycerophospholipid metabolism,C46H93N2O6P,800.6711,9.15,2,False
+SM(d42:2),Lipid metabolism,Glycerophospholipid metabolism,C47H93N2O6P,812.6765,9.13,1,False
+SM(d42:1),Lipid metabolism,Glycerophospholipid metabolism,C47H95N2O6P,814.6855,9.13,1,False
+SM(d42:0),Lipid metabolism,Glycerophospholipid metabolism,C47H96N2O6P,815.6917,9.12,1,False
+SM(d43:2),Lipid metabolism,Glycerophospholipid metabolism,C48H96N2O6P,827.693,9.13,2,False
+SM(d42:1-OH),Lipid metabolism,Glycerophospholipid metabolism,C47H93N2O7P,828.6745,9.16,2,False
+Diethanolamine,Lipid metabolism,Glycerophospholipid metabolism,C4H11NO2,105.0786,13.67,1,False
+O-Phosphoethanloamine,Lipid metabolism,Glycerophospholipid metabolism,C2H8NO4P,141.0274,10.36,1,False
+LysoPE(18:2),Lipid metabolism,Glycerophospholipid metabolism,C23H44NO7P,477.2853,7.29,1,False
+LysoPE(18:0),Lipid metabolism,Glycerophospholipid metabolism,C23H48NO7P,481.3161,7.21,1,True
+PE(P-38:6),Lipid metabolism,Glycerophospholipid metabolism,C43H74NO7P,747.521,4.83,2,False
+PE(36:2),Lipid metabolism,Glycerophospholipid metabolism,C41H78NO8P,743.5464,5.3,1,False
+PE(36:4),Lipid metabolism,Glycerophospholipid metabolism,C41H74NO8P,739.5153,5.16,1,False
+PE(38:4),Lipid metabolism,Glycerophospholipid metabolism,C43H78NO8P,767.547,5.03,1,False
+PE(38:2),Lipid metabolism,Glycerophospholipid metabolism,C39H74NO8P,715.5156,5.41,1,False
+PE(36:3),Lipid metabolism,Glycerophospholipid metabolism,C41H76NO8P,741.5303,5.26,1,False
+PE(38:6),Lipid metabolism,Glycerophospholipid metabolism,C43H74NO8P,763.5155,5.07,1,False
+PE(O-38:5),Lipid metabolism,Glycerophospholipid metabolism,C43H78NO7P,751.5517,4.85,2,False
+PE(16:0),Lipid metabolism,Glycerophospholipid metabolism,C21H44NO7P,453.2861,7.33,1,False
+PE(O-36:4),Lipid metabolism,Glycerophospholipid metabolism,C41H76NO7P,725.5352,5.11,2,False
+PE(P-40:6),Lipid metabolism,Glycerophospholipid metabolism,C45H78NO7P,775.552,4.72,2,False
+PE(38:3),Lipid metabolism,Glycerophospholipid metabolism,C43H80NO8P,769.5554,5.06,1,False
+PE(P-36:2),Lipid metabolism,Glycerophospholipid metabolism,C41H78NO7P,727.5507,5.12,2,False
+PE(P-38:5),Lipid metabolism,Glycerophospholipid metabolism,C43H76NO7P,749.5362,4.82,2,False
+PE(P-40:5),Lipid metabolism,Glycerophospholipid metabolism,C45H80NO7P,777.566,4.8,2,False
+PE(P-40:7),Lipid metabolism,Glycerophospholipid metabolism,C45H76NO7P,773.5368,4.68,2,False
+PI(34:2),Lipid metabolism,Glycerophospholipid metabolism,C43H79O13P,834.5237,2.08,1,False
+PI(34:1),Lipid metabolism,Glycerophospholipid metabolism,C43H81O13P,836.5377,2.09,1,False
+PI(36:4),Lipid metabolism,Glycerophospholipid metabolism,C45H79O13P,858.5235,2.08,1,False
+PI(36:3),Lipid metabolism,Glycerophospholipid metabolism,C45H81O13P,860.5378,2.08,1,False
+PI(36:2),Lipid metabolism,Glycerophospholipid metabolism,C45H83O13P,862.5551,2.08,1,False
+PI(36:5),Lipid metabolism,Glycerophospholipid metabolism,C47H81O13P,884.5387,2.08,1,True
+PI(38:4),Lipid metabolism,Glycerophospholipid metabolism,C47H83O13P,886.5559,2.08,1,False
+PI(38:3),Lipid metabolism,Glycerophospholipid metabolism,C47H85O13P,888.5648,2.08,1,False
+PI(38:2),Lipid metabolism,Glycerophospholipid metabolism,C47H87O13P,890.5758,2.1,1,False
+PI(40:6),Lipid metabolism,Glycerophospholipid metabolism,C49H83O13P,910.5541,2.09,1,False
+PI(40:7),Lipid metabolism,Glycerophospholipid metabolism,C46H76NO10P,833.5241,2.08,1,False
+PI(40:5),Lipid metabolism,Glycerophospholipid metabolism,C46H80NO10P,837.5411,2.09,1,False
+PI(42:9),Lipid metabolism,Glycerophospholipid metabolism,C48H76NO10P,857.5207,2.08,1,False
+LPA(18:2),Lipid metabolism,Glycerophospholipid metabolism,C21H39O7P,434.2429,7.83,1,False
+2-Arachidonoylglycerol,Lipid metabolism,"Glycerolipids, Monoacylglycerols",C23H38O4,378.2875,1.47,1,True
+1-Hexadecy2-Arachidonoyglycerol,Lipid metabolism,Glycerophospholipid metabolism/acylglycerol,C39H70O4,602.5264,1.39,1,False
+Corticosterone,Lipid metabolism,Steroid hormone biosynthesis,C21H30O4,346.2141,1.62,1,False
+Cortisol,Lipid metabolism,Steroid hormone biosynthesis,C21H30O5,362.2102,1.64,1,False
+Cholesteryl Acetate,Lipid metabolism,Cholesterol metabolism,C29H48O2,428.3664,1.34,1,False
+Mevalonic Acid,Lipid metabolism,Terpenoid backbone biosynthesis,C6H12O4,148.0736,2.33,1,False
+"Anandamide (18:2,N-6)",Lipid metabolism,N-acylethanolamine (NAE) metabolism,C20H37NO2,323.2821,1.56,1,False
+Oleoyl Ethanolamide,Lipid metabolism,N-acylethanolamine (NAE) metabolism,C20H39NO2,325.2984,1.55,1,True
+Palmitoyl Ethanolamide,Lipid metabolism,N-acylethanolamine (NAE) metabolism,C18H37NO2,299.2818,1.58,1,False
+Adrenoyl Ethanolamide,Lipid metabolism,N-acylethanolamine (NAE) metabolism,C24H41NO2,375.3073,1.44,1,False
+N-Oleoyl Dopamine (OLDA),Lipid metabolism,"Fatty amide metabolism, endocannabinoid",C26H43NO3,417.3233,1.43,1,False
+Protoporphyrin,Porphyrin metabolism,Porphyrin and chlorophyll metabolism,C34H34N4O4,562.2488,2.26,1,True
+Biliverdin,Porphyrin metabolism,Porphyrin metabolism,C33H34N4O6,582.2477,2.92,1,False
+Bilirubin,Porphyrin metabolism,Porphyrin metabolism,C33H36N4O6,584.2632,1.42,1,False
+Glyoxylic Acid,Glycylate and dicarboxylate metabolism,Glyoxylate and dicarboxylate metabolism,C2H2O3,74.0004,2.2,1,False
+Glycolic Acid,Glycylate and dicarboxylate metabolism,Glyoxylate and dicarboxylate metabolism,C2H4O3,76.0161,3.16,1,False
+Oxalic Acid,Glycylate and dicarboxylate metabolism,Glyoxylic or Ascorbic acid metabolism,C2H2O4,89.9957,8.3,1,False
+Glyceric Acid,Glycylate and dicarboxylate metabolism,Glyoxylate and dicarboxylate metabolism,C3H6O4,106.027,3.19,1,False
+Meso-Tartaric Acid,Glycylate and dicarboxylate metabolism,Glycylate and dicarboxylate metabolism,C4H6O6,150.017,7.83,1,True
+Tartaric Acid,Glycylate and dicarboxylate metabolism,Glyoxylate and dicarboxylate metabolism,C4H6O6,150.017,7.83,1,True
+Acetoacetic Acid,Keto-Acids and Derivatives,Ketone bodies,C4H6O3,102.0319,2.09,1,False
+3-Hydroxybutanoic Acid,Keto-Acids and Derivatives,Ketone bodies,C4H8O3,104.0478,3.44,1,False
+Butyric Acid,Butyrate metabolism,Butyrate metabolism,C4H8O2,88.0523,2.0,1,False
+Paraxanthine,Caffeine metabolism,Caffiene metabolism,C7H8N4O2,180.0648,1.63,1,False
+Caffeine,Caffeine metabolism,Caffeine metabolism,C8H10N4O2,194.081,1.96,1,True
+Theobromine,Caffeine metabolism,Cacao alkaloid,C7H8N4O2,180.0641,1.95,1,False
+Gluconic Acid,,,C6H12O7,196.0592,5.0,1,False
+Quinic Acid,,,C7H12O6,192.0642,3.89,1,False
+115.027@1.04_ANPNEG,,,,115.027,1.04,1,True
+197.0635@3.33,Amino acids,Tyrosine metabolism,C9H11NO4,197.0635,3.33,4,True

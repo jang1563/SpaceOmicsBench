@@ -1,98 +1,257 @@
-# SpaceOmicsBench v2 (Public Release)
+# SpaceOmicsBench
 
-A comprehensive multi-omics AI benchmark for spaceflight biomedical data,
-built entirely from **publicly accessible processed data** -- no IRB-restricted
-or individually identifiable data included.
+A multi-omics AI benchmark for spaceflight biomedical data, featuring **18 ML tasks** across **8 modalities** from the SpaceX Inspiration4 (I4) civilian astronaut mission and the JAXA Cell-Free Epigenome (CFE) study.
 
-## Missions Covered
+All data is derived from publicly accessible sources (NASA Open Science Data Repository and published supplementary data).
 
-| Mission | Duration | Subjects | Data Sources |
-|---------|----------|----------|--------------|
-| SpaceX Inspiration4 | 3 days (585 km) | 4 civilians | NASA OSDR (OSD-569 to OSD-687) |
-| JAXA Cell-Free Epigenome | >120 days ISS | 6 astronauts | NASA OSDR (OSD-530) |
-| NASA Twins Study | 340 days ISS | 1 + twin control | Published supplementary data only |
+## Overview
 
-## Omics Modalities (10 types)
+| | |
+|---|---|
+| **Tasks** | 18 ML tasks (16 main + 2 supplementary) |
+| **Modalities** | Clinical, cfRNA, Proteomics, Metabolomics, Spatial Transcriptomics, Microbiome, Multi-modal, Cross-tissue |
+| **Difficulty Tiers** | Calibration (1) / Standard (5) / Advanced (7) / Frontier (5) |
+| **Missions** | Inspiration4 (4 crew, 3 days), JAXA CFE (6 astronauts, >120 days ISS) |
+| **Evaluation** | Leave-One-Crew-Out, Leave-One-Timepoint-Out, Stratified 80/20 feature splits |
+| **Baselines** | Random, Majority, LogReg, RF, MLP |
 
-1. **Clinical** -- CBC/CMP blood biomarkers
-2. **Bulk Transcriptomics** -- RNA-seq (whole blood)
-3. **Cell-free RNA** -- Plasma cfRNA-seq
-4. **Single-cell Multi-ome** -- snRNA-seq + snATAC-seq (PBMCs)
-5. **Proteomics** -- Plasma + EVP proteomics (LC-MS/MS)
-6. **Metabolomics** -- Plasma untargeted metabolomics
-7. **Spatial Transcriptomics** -- Skin (NanoString GeoMx)
-8. **Microbiome** -- Metagenomics + metatranscriptomics (multi-site)
-9. **Epigenomics** -- Chromatin accessibility, histone modifications
-10. **Telomere/TERRA** -- Telomeric RNA dynamics
+## Quick Start
+
+### 1. Setup
+
+```bash
+git clone https://github.com/jang1563/SpaceOmicsBench.git
+cd SpaceOmicsBench
+
+# Create conda environment
+conda create -n spaceomics python=3.11 -y
+conda activate spaceomics
+pip install numpy pandas scikit-learn
+```
+
+### 2. Run Baselines
+
+```bash
+python baselines/run_baselines.py
+```
+
+This runs all 5 baseline models on all 18 tasks and outputs:
+- Per-task metrics (primary + secondary)
+- B1 feature ablation study
+- Normalized composite scores
+- Results saved to `baselines/baseline_results.json`
+
+### 3. Evaluate Your Model
+
+```bash
+# Dry run — verify all tasks and splits load correctly
+python evaluation/eval_harness.py --dry-run
+
+# Evaluate predictions
+python evaluation/eval_harness.py --task all --predictions your_results/ --output results.json
+```
+
+Prediction file format: one JSON per task in the predictions directory. See `evaluation/eval_harness.py` header for format details.
+
+### 4. Interactive Demo
+
+Open `demo.html` in a browser for an interactive visualization of benchmark results, task descriptions, and baseline comparisons.
+
+## Task Catalog
+
+### Category A: Clinical Biomarkers
+
+| ID | Task | Type | Tier | N | Metric | Split |
+|----|------|------|------|---|--------|-------|
+| A1 | Flight Phase Classification (Blood Panel) | 3-class | Standard | 28 | macro_f1 | LOCO (4-fold) |
+| A2 | Flight Phase Classification (Immune Markers) | 3-class | Standard | 28 | macro_f1 | LOCO (4-fold) |
+
+### Category B: Cell-Free RNA
+
+| ID | Task | Type | Tier | N | Metric | Split |
+|----|------|------|------|---|--------|-------|
+| B1 | Spaceflight-Responsive Gene Ranking | Binary | Advanced | 26,845 | AUPRC | Feature 80/20 (5-rep) |
+| B2 | Coregulated Gene Cluster Prediction | Multilabel (16) | Advanced | 466 | micro_f1 | Feature 80/20 (5-rep) |
+
+### Category C: Proteomics
+
+| ID | Task | Type | Tier | N | Metric | Split |
+|----|------|------|------|---|--------|-------|
+| C1 | Proteomics Phase Classification | 3-class | Standard | 21 | macro_f1 | LOCO (4-fold) |
+| C2 | Cross-Biofluid Protein DE Concordance | Binary | Frontier | 380 | AUROC | Feature 80/20 (5-rep) |
+
+### Category D: Metabolomics
+
+| ID | Task | Type | Tier | N | Metric | Split |
+|----|------|------|------|---|--------|-------|
+| D1 | Metabolite Spaceflight Response Prediction | Binary | Advanced | 433 | AUROC | Feature 80/20 (5-rep) |
+
+### Category E: Spatial Transcriptomics
+
+| ID | Task | Type | Tier | N | Metric | Split |
+|----|------|------|------|---|--------|-------|
+| E1 | Cross-Layer DE (outer_epidermis) | Binary | Advanced | 18,677 | AUPRC | Feature 80/20 (5-rep) |
+| E4 | Cross-Layer DE (epidermis) | Binary | Advanced | 18,677 | AUPRC | Feature 80/20 (5-rep) |
+| E2* | Cross-Layer DE (inner_epidermis) | Binary | Frontier | 18,677 | AUPRC | Feature 80/20 (5-rep) |
+| E3* | Cross-Layer DE (outer_dermis) | Binary | Frontier | 18,677 | AUPRC | Feature 80/20 (5-rep) |
+
+*\* Supplementary: extreme class imbalance (11-18 positives out of 18,677), metric instability expected.*
+
+### Category F: Microbiome
+
+| ID | Task | Type | Tier | N | Metric | Split |
+|----|------|------|------|---|--------|-------|
+| F1 | Body Site Classification (Taxonomy) | 10-class | Standard | 275 | macro_f1 | LOCO (4-fold) |
+| F2 | Flight Phase Detection (Taxonomy) | 4-class | Frontier | 275 | macro_f1 | LOCO (4-fold) |
+| F3 | Human vs Environmental Classification | Binary | Calibration | 314 | AUROC | LOTO (7-fold) |
+| F4 | Body Site Classification (Pathways) | 10-class | Standard | 275 | macro_f1 | LOCO (4-fold) |
+| F5 | Flight Phase Detection (Pathways) | 4-class | Frontier | 275 | macro_f1 | LOCO (4-fold) |
+
+### Category G: Multi-Modal Integration
+
+| ID | Task | Type | Tier | N | Metric | Split |
+|----|------|------|------|---|--------|-------|
+| G1 | Multi-Modal Phase Classification | 3-class | Advanced | 21 | macro_f1 | LOCO (4-fold) |
+
+*Fuses clinical biomarkers + PCA(proteomics) + PCA(metabolomics).*
+
+### Category H: Cross-Tissue
+
+| ID | Task | Type | Tier | N | Metric | Split |
+|----|------|------|------|---|--------|-------|
+| H1 | Cross-Tissue Gene Conservation | Binary | Advanced | 731 | AUPRC | Feature 80/20 (5-rep) |
+
+## Difficulty Tiers
+
+| Tier | Description | Baseline Behavior |
+|------|-------------|-------------------|
+| **Calibration** | Easy validation tasks | Best baseline AUROC > 0.8 |
+| **Standard** | Learnable with standard methods | Best baseline clearly above random |
+| **Advanced** | Challenging, meaningful signal exists | Some baselines above random |
+| **Frontier** | At the boundary of learnability | Near-random baseline performance |
+
+## Evaluation
+
+### Metrics
+
+- **Classification (multi-class)**: macro F1, accuracy, per-class F1
+- **Binary classification**: AUROC, AUPRC, F1
+- **Multilabel**: micro F1, macro F1, Hamming loss
+- **Direction concordance**: for cross-biofluid tasks (C2)
+
+### Normalized Composite Score
+
+Individual task scores are normalized against the random baseline to handle metric scale differences:
+
+```
+normalized_score = (model_score - random_baseline) / (1.0 - random_baseline)
+```
+
+Category scores are averaged within each category, then the composite is the mean across all categories:
+
+```
+composite = mean(category_averages)
+```
+
+### Split Strategies
+
+| Strategy | Used By | Description |
+|----------|---------|-------------|
+| LOCO | A1, A2, C1, F1-F5, G1 | Leave-One-Crew-Out (4 folds for I4 crew) |
+| LOTO | F3 | Leave-One-Timepoint-Out (7 folds) |
+| Feature 80/20 | B1, B2, C2, D1, E1-E4, H1 | Stratified random 80/20 (5 repetitions, seed=42) |
+
+## Baseline Results
+
+| Task | Tier | Metric | Random | Majority | LogReg | RF | MLP |
+|------|------|--------|--------|----------|--------|----|-----|
+| A1 | Standard | macro_f1 | 0.214 | 0.200 | **0.546** | 0.326 | 0.310 |
+| A2 | Standard | macro_f1 | 0.214 | 0.200 | **0.493** | 0.374 | 0.331 |
+| B1 | Advanced | AUPRC | 0.020 | 0.017 | 0.533 | **0.885** | 0.839 |
+| B2 | Advanced | micro_f1 | 0.083 | 0.000 | **0.154** | 0.131 | 0.000 |
+| C1 | Standard | macro_f1 | 0.170 | 0.228 | **0.597** | 0.413 | 0.474 |
+| C2 | Frontier | AUROC | 0.529 | 0.500 | 0.500 | **0.555** | 0.524 |
+| D1 | Advanced | AUROC | 0.481 | 0.500 | 0.561 | **0.676** | 0.557 |
+| E1 | Advanced | AUPRC | 0.008 | 0.002 | **0.017** | 0.015 | 0.003 |
+| E4 | Advanced | AUPRC | 0.003 | 0.002 | **0.023** | 0.002 | 0.003 |
+| F1 | Standard | macro_f1 | 0.112 | 0.018 | 0.147 | **0.199** | 0.108 |
+| F2 | Frontier | macro_f1 | 0.205 | 0.111 | 0.236 | **0.238** | 0.204 |
+| F3 | Calibration | AUROC | 0.402 | 0.500 | 0.574 | **0.841** | 0.320 |
+| F4 | Standard | macro_f1 | 0.112 | 0.018 | **0.163** | 0.151 | 0.096 |
+| F5 | Frontier | macro_f1 | 0.205 | 0.111 | 0.240 | **0.254** | 0.229 |
+| G1 | Advanced | macro_f1 | 0.253 | 0.228 | **0.481** | 0.349 | 0.461 |
+| H1 | Advanced | AUPRC | 0.060 | 0.048 | 0.176 | **0.266** | 0.062 |
+
+**Bold** = best performing baseline per task.
+
+### Normalized Composite Scores
+
+| Model | Composite | Best Categories |
+|-------|-----------|-----------------|
+| RF | **0.281** | B_cfrna (0.882), F_source (0.735), D_metabolomics (0.375) |
+| LogReg | 0.214 | B_cfrna (0.523), A_clinical (0.389), G_multimodal (0.304) |
+| MLP | 0.160 | B_cfrna (0.836), G_multimodal (0.278), C_proteomics (0.183) |
+
+### B1 Feature Ablation
+
+The B1 task includes effect-size features (fold-changes, differences) alongside distribution features. Ablation reveals:
+
+| Variant | Features | LogReg | RF | MLP |
+|---------|----------|--------|----|-----|
+| B1 (all) | All 29 features | 0.533 | 0.885 | 0.839 |
+| B1 (effect-only) | Only fold-change/diff features | 0.248 | 0.813 | 0.756 |
+| B1 (no-effect) | Exclude fold-change/diff features | 0.527 | 0.863 | 0.865 |
+
+Distribution-based features (means, ranges, IQRs) carry most of the predictive signal, confirming the task tests genuine biological pattern recognition rather than simple effect-size thresholding.
 
 ## Directory Structure
 
 ```
-v2_public/
-├── README.md                    # This file
-├── DATA_INVENTORY.md            # Comprehensive data source documentation
-├── data/                        # Core processed data files
-│   ├── clinical/                # CBC/CMP biomarkers
-│   ├── transcriptomics/
-│   │   ├── bulk_rnaseq/         # Whole blood RNA-seq (I4)
-│   │   ├── cfrna/               # Cell-free RNA (I4 + JAXA CFE)
-│   │   └── single_cell/         # snRNA-seq + snATAC-seq (I4 PBMCs)
-│   ├── proteomics/              # Plasma + EVP proteins
-│   ├── metabolomics/            # Plasma metabolites
-│   ├── spatial_transcriptomics/ # Skin GeoMx data
-│   ├── microbiome/
-│   │   ├── human/               # Skin, oral, nasal, stool
-│   │   └── environmental/       # Dragon capsule
-│   ├── epigenomics/             # Chromatin, histone marks
-│   ├── telomere/                # TERRA dynamics
-│   ├── immune_repertoire/       # TCR/BCR V(D)J
-│   └── cross_mission/           # Aligned multi-mission data
-├── sources/                     # Raw supplementary files organized by paper
-│   ├── P01_SOMA_atlas/          # Nature 2024 (SOMA)
-│   ├── P02_secretome/           # Nat Commun 2024 (proteomics+metabolomics)
-│   ├── P03_singlecell_multiome/ # Nat Commun 2024 (single-cell)
-│   ├── P04_epigenomics/         # Nat Commun 2024 (epigenomics)
-│   ├── P05_microbiome/          # Nat Microbiol 2024 (microbiome)
-│   ├── P06_spatial_skin/        # Nat Commun 2024 (spatial)
-│   ├── P07_hemoglobin/          # Nat Commun 2024 (hemoglobin)
-│   ├── P08_JAXA_CFE_cfRNA/      # Nat Commun 2023 (JAXA cfRNA)
-│   ├── P09_TERRA/               # Commun Biol 2024 (telomere)
-│   └── P10_twins_study/         # Science 2019 (Twins)
-├── scripts/                     # Data fetching and processing scripts
-├── tasks/                       # Benchmark task definitions
-├── splits/                      # Train/test split definitions
-├── baselines/                   # Baseline model results
-├── evaluation/                  # Evaluation harness and metrics
-└── docs/                        # Additional documentation
+SpaceOmicsBench/
+├── README.md
+├── demo.html                     # Interactive benchmark visualization
+├── data/
+│   └── processed/                # Benchmark data (CSV)
+├── tasks/                        # Task definitions (JSON)
+│   ├── A1.json ... H1.json
+├── splits/                       # Train/test split indices (JSON)
+│   ├── loco_clinical.json
+│   ├── feature_split_B1.json
+│   └── ...
+├── evaluation/
+│   ├── eval_harness.py           # Evaluation harness
+│   └── metrics.py                # Metric implementations
+├── baselines/
+│   ├── run_baselines.py          # Baseline runner
+│   └── baseline_results.json     # Precomputed results
+├── scripts/                      # Data preprocessing scripts
+└── docs/                         # Additional documentation
 ```
 
 ## Data Provenance
 
-All data in this benchmark comes from two types of public sources:
+All data originates from:
 
-1. **NASA Open Science Data Repository (OSDR)** -- GeneLab-processed omics files
-   - API: `https://visualization.osdr.nasa.gov/biodata/api/`
-   - AWS S3: `s3://nasa-osdr/` (no auth required)
+1. **NASA Open Science Data Repository (OSDR)** — GeneLab-processed omics files from OSD-569 to OSD-687 (Inspiration4) and OSD-530 (JAXA CFE)
+2. **Published supplementary data** — Processed results from peer-reviewed publications on the Inspiration4 and JAXA missions
 
-2. **Published paper supplementary data** -- Processed results from 10 peer-reviewed papers
-   - See `DATA_INVENTORY.md` for complete paper list and data mapping
+See `docs/CITATIONS.bib` for the complete list of source publications.
 
-## Quick Start
+## Adding a New Model
 
-```bash
-# Fetch all public processed data
-python scripts/fetch_all_data.py
+1. Read task definitions from `tasks/` to understand input/output specifications
+2. Load data from `data/processed/` and splits from `splits/`
+3. Generate predictions in the required JSON format
+4. Run evaluation: `python evaluation/eval_harness.py --task all --predictions your_results/`
 
-# Or fetch specific modalities
-python scripts/fetch_genelab.py --datasets OSD-569,OSD-530,OSD-571
-python scripts/fetch_supplementary.py --papers P01,P02,P08
-```
-
-## Citation
-
-If you use this benchmark, please cite the original data papers (see `docs/CITATIONS.bib`).
+Each task JSON specifies:
+- `data_files`: which CSV(s) to load
+- `input_spec`: feature description and count
+- `output_spec`: target type, classes, and class distribution
+- `evaluation`: primary and secondary metrics
+- `split`: which split file to use
 
 ## License
 
-Benchmark code: MIT License
-Data: Subject to original source licenses (NASA OSDR: public domain; Nature papers: CC-BY 4.0)
+- **Benchmark code**: MIT License
+- **Data**: Subject to original source licenses (NASA OSDR: public domain; published supplementary: CC-BY 4.0)

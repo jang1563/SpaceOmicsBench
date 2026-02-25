@@ -2,7 +2,7 @@
   "task_id": "C2",
   "task_name": "Cross-Biofluid Protein DE Concordance",
   "task_type": "binary_classification",
-  "difficulty_tier": "advanced",
+  "difficulty_tier": "frontier",
   "description": "Predict EVP (exosome) protein DE from plasma protein DE statistics. Tests cross-biofluid generalization of spaceflight response.",
   "data_files": [
     "proteomics_plasma_de_clean.csv",

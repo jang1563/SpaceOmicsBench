@@ -2,7 +2,7 @@
   "task_id": "F1",
   "task_name": "Microbiome Body Site Classification (Taxonomy)",
   "task_type": "multi_class_classification",
-  "difficulty_tier": "calibration",
+  "difficulty_tier": "standard",
   "description": "Classify body site from skin microbiome taxonomy (CPM). 4 crew \u00d7 10 body sites \u00d7 7 timepoints.",
   "data_files": [
     "microbiome_human_taxonomy_cpm.csv"

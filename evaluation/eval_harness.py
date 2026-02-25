@@ -43,16 +43,18 @@ TASK_DIR = BASE_DIR / "tasks"
 SPLIT_DIR = BASE_DIR / "splits"
 
 # All 18 task IDs
-ALL_TASKS = [
+MAIN_TASKS = [
     "A1", "A2",
     "B1", "B2",
     "C1", "C2",
     "D1",
-    "E1", "E2", "E3", "E4",
+    "E1", "E4",
     "F1", "F2", "F3", "F4", "F5",
     "G1",
     "H1",
 ]
+SUPPLEMENTARY_TASKS = ["E2", "E3"]  # frontier, metric instability
+ALL_TASKS = MAIN_TASKS + SUPPLEMENTARY_TASKS
 
 
 class SpaceOmicsBenchEvaluator:
@@ -150,9 +152,11 @@ class SpaceOmicsBenchEvaluator:
         return labels, meta
 
     def _load_c1_labels(self, meta):
-        de = pd.read_csv(self.data_dir / "proteomics_plasma_de_clean.csv")
-        labels = (de["adj_pval"] < 0.05).astype(int).values
-        meta["proteins"] = de["protein"].values.tolist() if "protein" in de.columns else de.iloc[:, 0].values.tolist()
+        # Redesigned: sample-level proteomics phase classification
+        matrix = pd.read_csv(self.data_dir / "proteomics_plasma_matrix.csv")
+        labels = matrix["phase"].values
+        meta["crews"] = matrix["crew"].values.tolist()
+        meta["classes"] = ["pre_flight", "post_flight", "recovery"]
         return labels, meta
 
     def _load_c2_labels(self, meta):
@@ -290,7 +294,7 @@ class SpaceOmicsBenchEvaluator:
                 rank = ranking_metrics(y_true_test, y_score)
                 split_metrics.update(rank)
 
-            elif task_type == "multi_label_classification":
+            elif task_type == "multilabel_classification":
                 y_pred = np.asarray(pred["y_pred"])
                 y_score = np.asarray(pred.get("y_score")) if "y_score" in pred else None
                 split_metrics = multilabel_metrics(

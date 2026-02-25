@@ -1,38 +1,42 @@
 {
   "task_id": "C1",
-  "task_name": "Protein DE Prediction from Expression Profile",
-  "task_type": "binary_classification",
+  "task_name": "Proteomics Phase Classification",
+  "task_type": "multi_class_classification",
   "difficulty_tier": "standard",
-  "task_role": "calibration",
-  "description": "Predict limma differential expression from protein expression across 21 plasma samples. Calibration task: tests whether ML can learn statistical significance patterns from the same data used by limma. Expected to be solvable by models that capture group mean differences.",
+  "description": "Classify spaceflight phase from plasma protein expression profiles. 4 crew x 5-6 timepoints, 2,845 proteins. Compare with A1 (clinical features) to assess if proteomics adds value.",
   "data_files": [
-    "proteomics_plasma_matrix.csv",
-    "proteomics_plasma_de_clean.csv"
+    "proteomics_plasma_matrix.csv"
   ],
   "input_spec": {
-    "features": "21 sample expression values per protein",
-    "feature_count": 21,
-    "note": "Transpose: proteins as instances, samples as features. Input overlaps with DE computation (intentional calibration design)."
+    "features": "2,845 plasma protein abundances",
+    "feature_count": 2845,
+    "note": "PCA reduction recommended due to p>>n (2,845 features, 21 samples)"
   },
   "output_spec": {
-    "type": "binary",
-    "positive_class": "DE (adj_pval < 0.05)",
-    "positive_count": 57,
-    "negative_count": 1629,
-    "positive_rate": "3.4%"
+    "type": "categorical",
+    "target_column": "phase",
+    "classes": [
+      "pre_flight",
+      "post_flight",
+      "recovery"
+    ],
+    "class_distribution": {
+      "pre_flight": 9,
+      "post_flight": 4,
+      "recovery": 8
+    }
   },
   "evaluation": {
-    "primary_metric": "auroc",
+    "primary_metric": "macro_f1",
     "secondary_metrics": [
-      "auprc",
-      "f1"
+      "accuracy",
+      "per_class_f1"
     ]
   },
-  "split": "feature_split_C1",
-  "n_samples": 1686,
+  "split": "loco_proteomics",
+  "n_samples": 21,
   "notes": [
-    "Calibration task: input-target circularity is by design",
-    "Tests ML approximation of linear model (limma) decision boundary",
-    "High baseline performance expected; used as upper-bound reference"
+    "N=21, extreme p>>n — baseline uses PCA(k=10) for dimensionality reduction",
+    "Compare with A1 (39 clinical features) and G1 (multi-modal)"
   ]
 }

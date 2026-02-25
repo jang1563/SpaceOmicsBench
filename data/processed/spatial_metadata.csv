@@ -1,0 +1,9 @@
+sample_id,sample_col,crew,timepoint,timepoint_days,phase,mission,tissue
+C001_L-44,C001_L-44_DEL,C001,L-44,-44,pre_flight,I4,skin
+C001_R+1,C001_R+1_DEL,C001,R+1,1,post_flight,I4,skin
+C002_L-44,C002_L-44_DEL,C002,L-44,-44,pre_flight,I4,skin
+C002_R+1,C002_R+1_DEL,C002,R+1,1,post_flight,I4,skin
+C003_L-44,C003_L-44_DEL,C003,L-44,-44,pre_flight,I4,skin
+C003_R+1,C003_R+1_DEL,C003,R+1,1,post_flight,I4,skin
+C004_L-44,C004_L-44_DEL,C004,L-44,-44,pre_flight,I4,skin
+C004_R+1,C004_R+1_DEL,C004,R+1,1,post_flight,I4,skin
