@@ -148,11 +148,10 @@ def load_task_data(task_id):
         meta_cols = ["sample_id", "crew", "tissue", "timepoint", "timepoint_days",
                      "phase", "mission", "month_tp"]
         protein_cols = [c for c in matrix.columns if c not in meta_cols]
-        X_raw = matrix[protein_cols].apply(pd.to_numeric, errors="coerce").fillna(0).values
-        # PCA to handle p>>n (2,845 proteins → 10 components)
-        pca = PCA(n_components=min(10, X_raw.shape[0] - 1), random_state=SEED)
-        X = pca.fit_transform(X_raw)
+        X = matrix[protein_cols].apply(pd.to_numeric, errors="coerce").fillna(0).values
         y = matrix["phase"].values
+        # PCA is applied per-fold in run_single_task to prevent data leakage
+        task["_needs_pca"] = min(10, X.shape[0] - 1)
 
     elif task_id == "C2":
         plasma = pd.read_csv(DATA_DIR / "proteomics_plasma_de_clean.csv")
@@ -230,6 +229,7 @@ def load_task_data(task_id):
 
     elif task_id == "G1":
         # Multi-modal: clinical + PCA(proteomics) + PCA(metabolomics)
+        # PCA is applied per-fold to prevent data leakage
         cbc = pd.read_csv(DATA_DIR / "clinical_cbc.csv")
         cmp = pd.read_csv(DATA_DIR / "clinical_cmp.csv")
         prot_matrix = pd.read_csv(DATA_DIR / "proteomics_plasma_matrix.csv")
@@ -245,14 +245,15 @@ def load_task_data(task_id):
         matched = sorted(cbc_keys & prot_keys & met_keys)
         matched_set = set(matched)
 
-        # Clinical features
+        # Clinical features (no PCA needed)
         meta_cols = ["sample_id", "crew", "tissue", "timepoint", "timepoint_days", "phase", "mission"]
         mask_cbc = [(row.crew, row.timepoint_days) in matched_set for row in cbc.itertuples()]
         X_cbc = cbc[mask_cbc].drop(columns=[c for c in meta_cols if c in cbc.columns]).values.astype(float)
         X_cmp = cmp[mask_cbc].drop(columns=[c for c in meta_cols if c in cmp.columns]).values.astype(float)
         X_clinical = np.hstack([X_cbc, X_cmp])
+        n_clinical = X_clinical.shape[1]
 
-        # Proteomics features (PCA)
+        # Proteomics features (raw, PCA per-fold)
         prot_meta_cols = ["sample_id", "crew", "tissue", "timepoint", "timepoint_days",
                           "phase", "mission", "month_tp"]
         prot_protein_cols = [c for c in prot_matrix.columns if c not in prot_meta_cols]
@@ -262,16 +263,14 @@ def load_task_data(task_id):
             if (row["crew"], row["timepoint_days"]) in matched_set
         ]
         X_prot_raw = prot_vals.iloc[prot_matched_rows].values
-        n_prot_pca = min(8, X_prot_raw.shape[0] - 1, X_prot_raw.shape[1])
-        X_prot = PCA(n_components=n_prot_pca, random_state=SEED).fit_transform(X_prot_raw)
+        n_prot = X_prot_raw.shape[1]
 
-        # Metabolomics features (PCA)
+        # Metabolomics features (raw, PCA per-fold)
         met_feature_cols = [c for c in met_matrix.columns
                             if c not in ["SuperPathway", "SubPathway", "metabolite_name",
                                          "annotation_confidence", "Formula", "Mass", "RT",
                                          "CAS ID", "Mode", "KEGG", "HMDB"]]
         met_vals = met_matrix[met_feature_cols].apply(pd.to_numeric, errors="coerce").fillna(0)
-        # Transpose: samples as rows
         met_sample_ids = met_feature_cols
         met_t = met_vals.T
         met_matched_rows = []
@@ -280,14 +279,28 @@ def load_task_data(task_id):
                 if sid.startswith(crew):
                     met_matched_rows.append(sid)
                     break
-        if len(met_matched_rows) >= X_clinical.shape[0]:
+        has_met = len(met_matched_rows) >= X_clinical.shape[0]
+        if has_met:
             met_matched_rows = met_matched_rows[:X_clinical.shape[0]]
             X_met_raw = met_t.loc[met_matched_rows].values
-            n_met_pca = min(8, X_met_raw.shape[0] - 1, X_met_raw.shape[1])
-            X_met = PCA(n_components=n_met_pca, random_state=SEED).fit_transform(X_met_raw)
-            X = np.hstack([X_clinical, X_prot, X_met])
+            X = np.hstack([X_clinical, X_prot_raw, X_met_raw])
+            n_met = X_met_raw.shape[1]
         else:
-            X = np.hstack([X_clinical, X_prot])
+            X = np.hstack([X_clinical, X_prot_raw])
+            n_met = 0
+
+        # Store PCA group boundaries for per-fold PCA in run_single_task
+        pca_groups = [
+            {"start": n_clinical, "end": n_clinical + n_prot,
+             "n_components": min(8, X.shape[0] - 1, n_prot)},
+        ]
+        if has_met:
+            pca_groups.append({
+                "start": n_clinical + n_prot, "end": n_clinical + n_prot + n_met,
+                "n_components": min(8, X.shape[0] - 1, n_met),
+            })
+        task["_pca_groups"] = pca_groups
+        task["_n_clinical"] = n_clinical
 
         y = cbc[mask_cbc]["phase"].values
 
@@ -414,10 +427,6 @@ def run_single_task(task_id, verbose=True):
         splits = json.load(f)
     task_type = task["task_type"]
 
-    # Handle NaN in features
-    imputer = SimpleImputer(strategy="mean")
-    X = imputer.fit_transform(X)
-
     # Encode labels for multiclass
     le = None
     if task_type in ("multi_class_classification", "multi_class_feature_classification"):
@@ -442,6 +451,32 @@ def run_single_task(task_id, verbose=True):
 
             X_train, X_test = X[train_idx], X[test_idx]
             y_train, y_test = y_encoded[train_idx], y_encoded[test_idx]
+
+            # Impute NaN per-fold (fit on train only to prevent leakage)
+            imputer = SimpleImputer(strategy="mean")
+            X_train = imputer.fit_transform(X_train)
+            X_test = imputer.transform(X_test)
+
+            # Per-fold PCA for high-dimensional tasks (C1)
+            if "_needs_pca" in task:
+                n_pca = min(task["_needs_pca"], X_train.shape[0] - 1)
+                pca = PCA(n_components=n_pca, random_state=SEED)
+                X_train = pca.fit_transform(X_train)
+                X_test = pca.transform(X_test)
+
+            # Per-fold PCA for multi-modal tasks with sub-group PCA (G1)
+            if "_pca_groups" in task:
+                n_clinical = task["_n_clinical"]
+                train_parts = [X_train[:, :n_clinical]]
+                test_parts = [X_test[:, :n_clinical]]
+                for pg in task["_pca_groups"]:
+                    s, e, nc = pg["start"], pg["end"], pg["n_components"]
+                    nc = min(nc, X_train.shape[0] - 1)
+                    pca = PCA(n_components=nc, random_state=SEED)
+                    train_parts.append(pca.fit_transform(X_train[:, s:e]))
+                    test_parts.append(pca.transform(X_test[:, s:e]))
+                X_train = np.hstack(train_parts)
+                X_test = np.hstack(test_parts)
 
             # Scale features
             scaler = StandardScaler()

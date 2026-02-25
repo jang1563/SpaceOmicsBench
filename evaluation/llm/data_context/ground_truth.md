@@ -17,7 +17,7 @@
 | A2 | Standard | LogReg | 0.493 |
 | B1 | Advanced | RF | 0.885 |
 | B2 | Advanced | LogReg | 0.154 |
-| C1 | Standard | LogReg | 0.597 |
+| C1 | Standard | MLP | 0.517 |
 | C2 | Frontier | RF | 0.555 |
 | D1 | Advanced | RF | 0.676 |
 | E1 | Advanced | LogReg | 0.017 |
@@ -27,16 +27,16 @@
 | F3 | Calibration | RF | 0.841 |
 | F4 | Standard | LogReg | 0.163 |
 | F5 | Frontier | RF | 0.254 |
-| G1 | Advanced | LogReg | 0.481 |
+| G1 | Advanced | LogReg | 0.517 |
 | H1 | Advanced | RF | 0.266 |
 | I1 | Frontier | RF | 0.005 |
 | I2 | Advanced | RF | 0.706 |
 | I3 | Advanced | LogReg | 0.090 |
 
 ## Composite Scores (Normalized)
-- RF: 0.269 (best overall)
+- RF: 0.258 (best overall)
 - LogReg: 0.201
-- MLP: 0.151
+- MLP: 0.133
 
 ## Cross-Mission Facts
 - 146/452 pathways conserved between I4 and Twins (32.3%)

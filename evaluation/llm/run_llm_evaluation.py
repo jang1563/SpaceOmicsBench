@@ -90,6 +90,7 @@ class ClaudeBackend(BaseModelBackend):
             kwargs = {
                 "model": self.model_name,
                 "max_tokens": self.max_tokens,
+                "temperature": self.temperature,
                 "messages": [{"role": "user", "content": prompt}],
             }
             if system:
@@ -242,12 +243,25 @@ class HuggingFaceBackend(BaseModelBackend):
 
 def get_backend(model_name: str, adapter_path: Optional[str] = None,
                 max_tokens: int = 2000, temperature: float = 0.3,
-                use_4bit: bool = True) -> BaseModelBackend:
-    """Factory: pick Claude / OpenAI / HuggingFace backend by model name."""
+                use_4bit: bool = True,
+                backend_override: Optional[str] = None) -> BaseModelBackend:
+    """Factory: pick Claude / OpenAI / HuggingFace backend by model name or explicit override."""
+    if backend_override:
+        override = backend_override.lower()
+        if override == "claude":
+            return ClaudeBackend(model_name, max_tokens, temperature)
+        elif override == "openai":
+            return OpenAIBackend(model_name, max_tokens, temperature)
+        elif override == "huggingface":
+            return HuggingFaceBackend(model_name, max_tokens, temperature, adapter_path, use_4bit)
+        else:
+            raise ValueError(f"Unknown backend: {backend_override}. Use: claude, openai, huggingface")
+
+    # Auto-detect from model name
     name = model_name.lower()
-    if "claude" in name or "anthropic" in name:
+    if any(k in name for k in ["claude", "anthropic", "sonnet", "opus", "haiku"]):
         return ClaudeBackend(model_name, max_tokens, temperature)
-    elif "gpt" in name or "o1" in name or "o3" in name:
+    elif any(k in name for k in ["gpt", "o1", "o3", "o4", "chatgpt"]):
         return OpenAIBackend(model_name, max_tokens, temperature)
     else:
         return HuggingFaceBackend(model_name, max_tokens, temperature, adapter_path, use_4bit)
@@ -305,6 +319,8 @@ def run_evaluation(
     modality: Optional[str] = None,
     difficulty: Optional[str] = None,
     use_4bit: bool = True,
+    backend_override: Optional[str] = None,
+    log_prompts: bool = False,
 ):
     """Run LLM evaluation on the SpaceOmicsBench question bank."""
 
@@ -316,7 +332,8 @@ def run_evaluation(
     print(f"\nModel: {model_name}")
     if adapter_path:
         print(f"Adapter: {adapter_path}")
-    backend = get_backend(model_name, adapter_path, use_4bit=use_4bit)
+    backend = get_backend(model_name, adapter_path, use_4bit=use_4bit,
+                          backend_override=backend_override)
 
     # Load questions
     questions = load_question_bank(modality, difficulty, sample_size)
@@ -345,6 +362,12 @@ def run_evaluation(
             f"**Question ({qdiff}):** {qtext}\n\n"
             f"**Your Answer:**"
         )
+
+        if log_prompts:
+            prompt_log_dir = Path(output_dir) / "prompt_logs"
+            prompt_log_dir.mkdir(parents=True, exist_ok=True)
+            (prompt_log_dir / f"{qid}.txt").write_text(
+                f"=== SYSTEM ===\n{SYSTEM_PROMPT}\n\n=== PROMPT ===\n{prompt}")
 
         result = backend.generate(prompt, SYSTEM_PROMPT)
 
@@ -426,6 +449,11 @@ def main():
                         help="Output directory (default: results)")
     parser.add_argument("--no-4bit", action="store_true",
                         help="Disable 4-bit quantization (HuggingFace only)")
+    parser.add_argument("--backend", type=str, default=None,
+                        choices=["claude", "openai", "huggingface"],
+                        help="Force specific backend (overrides auto-detection from model name)")
+    parser.add_argument("--log-prompts", action="store_true",
+                        help="Save full prompts to output_dir/prompt_logs/")
 
     args = parser.parse_args()
 
@@ -439,6 +467,8 @@ def main():
         modality=args.modality,
         difficulty=args.difficulty,
         use_4bit=not args.no_4bit,
+        backend_override=args.backend,
+        log_prompts=args.log_prompts,
     )
 
 

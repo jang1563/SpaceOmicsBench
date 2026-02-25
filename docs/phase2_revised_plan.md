@@ -146,7 +146,7 @@
 ### Category G: Cross-Study & Multi-Modal (1 task)
 
 **G1: Multi-Modal Phase Classification**
-- Input: clinical_cbc + clinical_cmp (39 features) + proteomics_plasma_matrix (2,838 proteins) + metabolomics_anppos_matrix (454 metabolites)
+- Input: clinical_cbc + clinical_cmp (39 features) + proteomics_plasma_matrix (2,845 proteins) + metabolomics_anppos_matrix (454 metabolites)
 - Target: 3 phases
 - N: 21 matched samples (via crew + timepoint_days join)
 - Split: LOCO (4 folds)

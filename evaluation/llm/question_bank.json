@@ -353,19 +353,19 @@
       "question": "How many proteins are measured in the I4 plasma proteomics dataset, and why is PCA dimensionality reduction necessary for the classification tasks?",
       "data_context_files": ["proteomics.md", "overview.md"],
       "expected_reasoning": [
-        "2,838 proteins measured in the plasma dataset",
+        "2,845 proteins measured in the plasma dataset",
         "Only 21 matched samples available (p >> n problem)",
         "PCA reduces dimensionality to prevent overfitting",
         "8 PCA components used as features for classification"
       ],
       "ground_truth_key_facts": [
-        "2,838 proteins in plasma proteomics",
+        "2,845 proteins in plasma proteomics",
         "N=21 matched samples",
         "PCA to 8 components because p >> n"
       ],
       "rubric": {
-        "factual_accuracy": "Must state 2,838 proteins and explain p >> n",
-        "reasoning_quality": "Should explain why PCA is needed with 2,838 features and 21 samples"
+        "factual_accuracy": "Must state 2,845 proteins and explain p >> n",
+        "reasoning_quality": "Should explain why PCA is needed with 2,845 features and 21 samples"
       }
     },
     {
@@ -398,21 +398,22 @@
       "modality": "proteomics",
       "category": "reasoning",
       "difficulty": "medium",
-      "question": "In task C1 (proteomics phase classification), LogReg (0.597) substantially outperforms RF (0.413) and MLP (0.474). Given that PCA features are used, why might linear models have an advantage here?",
+      "question": "In task C1 (proteomics phase classification), all three models perform similarly (MLP=0.517, LogReg=0.512, RF=0.464) with PCA features and N=21. Why do simple models perform comparably to MLP here, and what does this suggest about the signal structure?",
       "data_context_files": ["proteomics.md", "ground_truth.md"],
       "expected_reasoning": [
-        "PCA components are designed to capture linear variance — linear models match this well",
-        "Only 8 PCA components and 21 samples — very low dimensionality favors simple models",
-        "RF/MLP may overfit interaction terms not supported by N=21",
-        "PCA already linearizes the feature space, making LogReg naturally suitable"
+        "PCA components capture linear variance — even simple models can exploit this",
+        "Only 10 PCA components and 21 samples — very low dimensionality limits MLP advantage",
+        "All models converge when signal is strong but data is scarce",
+        "Per-fold PCA means components may vary across folds, adding noise for all models",
+        "High variance in LOCO (4 folds) masks real differences between models"
       ],
       "ground_truth_key_facts": [
-        "C1: LogReg=0.597, RF=0.413, MLP=0.474",
-        "8 PCA components from 2,838 proteins",
+        "C1: MLP=0.517, LogReg=0.512, RF=0.464",
+        "10 PCA components from 2,845 proteins (per-fold to prevent leakage)",
         "N=21 samples, LOCO evaluation"
       ],
       "rubric": {
-        "reasoning_quality": "Must connect PCA's linear nature to LogReg's advantage",
+        "reasoning_quality": "Must connect PCA's low dimensionality to model convergence",
         "domain_integration": "Should discuss p >> n implications for model selection"
       }
     },
@@ -431,7 +432,7 @@
         "Number of pathways may still exceed sample size, requiring further selection"
       ],
       "ground_truth_key_facts": [
-        "Current C1 uses 8 PCA components from 2,838 proteins",
+        "Current C1 uses 8 PCA components from 2,845 proteins",
         "PCA loses interpretability but maximizes variance captured",
         "Pathway approach would be biologically motivated but may not be statistically optimal"
       ],
@@ -456,7 +457,7 @@
         "C1 benefits from physiological coherence within a single measurement"
       ],
       "ground_truth_key_facts": [
-        "C1: Standard tier, LogReg=0.597",
+        "C1: Standard tier, MLP=0.517",
         "C2: Frontier tier, RF=0.555 (near random 0.529)",
         "Tier assignment reflects best model performance relative to random"
       ],
@@ -482,7 +483,7 @@
       ],
       "ground_truth_key_facts": [
         "Current C2: near-random with simple DE features",
-        "2,838 proteins shared between biofluids",
+        "2,845 proteins shared between biofluids",
         "Concordance may exist at pathway level even if not at protein level"
       ],
       "rubric": {
@@ -1260,23 +1261,23 @@
       "modality": "multi_omics",
       "category": "interpretation",
       "difficulty": "medium",
-      "question": "G1 (multi-modal) achieves LogReg=0.481 macro_f1, which is lower than A1 (clinical only, 0.546). Does multi-modal fusion actually help here, and why might adding more data types hurt performance?",
+      "question": "G1 (multi-modal) achieves LogReg=0.517 macro_f1, comparable to A1 (clinical only, 0.546). Yet RF drops to 0.254 and MLP to 0.285. Why do complex models struggle with multi-modal data here while LogReg remains stable?",
       "data_context_files": ["multi_omics.md", "clinical.md", "ground_truth.md"],
       "expected_reasoning": [
-        "Adding proteomics and metabolomics PCA features increases dimensionality without adding proportional signal",
-        "With N=21, more features = more overfitting risk",
-        "PCA components may not capture phase-discriminative information",
-        "Clinical markers alone may have the strongest phase-specific signal",
-        "The curse of dimensionality: ~56 features with 21 samples",
-        "However, different models respond differently — LogReg best in both, so comparison is valid"
+        "Per-fold PCA on proteomics/metabolomics creates different feature spaces across folds",
+        "RF and MLP are more sensitive to feature instability across folds than LogReg",
+        "With N=21 and per-fold PCA, complex models overfit to fold-specific PCA components",
+        "LogReg regularization (L2) provides stability against varying PCA features",
+        "Clinical markers are consistent across folds; PCA components are not",
+        "The curse of dimensionality: ~2,845+ raw features reduced per-fold with only ~21 samples"
       ],
       "ground_truth_key_facts": [
-        "G1: LogReg=0.481, MLP=0.461, RF=0.349",
+        "G1: LogReg=0.517, MLP=0.285, RF=0.254",
         "A1 (clinical only): LogReg=0.546",
-        "Multi-modal has more features but same N=21"
+        "Per-fold PCA on proteomics (8 components) and metabolomics (8 components)"
       ],
       "rubric": {
-        "reasoning_quality": "Must explain curse of dimensionality with small N",
+        "reasoning_quality": "Must explain why complex models fail with per-fold PCA and small N",
         "factual_accuracy": "Must correctly compare G1 vs A1 scores",
         "uncertainty_calibration": "Should acknowledge that LOCO with 21 samples has high variance"
       }
@@ -1376,7 +1377,7 @@
       "ground_truth_key_facts": [
         "N=21 samples across all tasks with matched modalities",
         "Current: PCA for proteomics and metabolomics",
-        "2,838 proteins + 433 metabolites + clinical features"
+        "2,845 proteins + 433 metabolites + clinical features"
       ],
       "rubric": {
         "reasoning_quality": "Must propose methods suited to small N with justification",
@@ -1389,7 +1390,7 @@
       "modality": "multi_omics",
       "category": "experimental_design",
       "difficulty": "expert",
-      "question": "Design an optimal multi-omics integration strategy that could realistically improve G1 phase classification performance beyond the current LogReg=0.481. Consider the constraint of N=21 and the available modalities.",
+      "question": "Design an optimal multi-omics integration strategy that could realistically improve G1 phase classification performance beyond the current LogReg=0.517. Consider the constraint of N=21 and the available modalities.",
       "data_context_files": ["multi_omics.md", "clinical.md", "proteomics.md", "metabolomics.md"],
       "expected_reasoning": [
         "Use MOFA or similar joint factorization to find shared latent factors across modalities",
@@ -1400,7 +1401,7 @@
         "Nested cross-validation to avoid overfitting in model selection"
       ],
       "ground_truth_key_facts": [
-        "Current G1: early fusion of ~56 features, LogReg=0.481",
+        "Current G1: early fusion with per-fold PCA, LogReg=0.517",
         "3 modalities: Clinical (40), Proteomics (8 PCA), Metabolomics (8 PCA)",
         "N=21, LOCO evaluation, 3-class problem"
       ],

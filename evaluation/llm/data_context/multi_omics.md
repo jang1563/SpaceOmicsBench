@@ -5,12 +5,12 @@
 - **Matched samples**: 21 (only timepoints where all 3 modalities were collected)
 - **Feature construction**:
   - Clinical: ~40 raw CBC + CMP features
-  - Proteomics: PCA of 2,838 proteins → 8 components
+  - Proteomics: PCA of 2,845 proteins → 8 components
   - Metabolomics: PCA of metabolite matrix → 8 components
-  - Total: ~56 fused features
+  - Total: ~56 fused features (PCA applied per-fold to prevent data leakage)
 - **Task**: 3-class phase classification (pre_flight / post_flight / recovery)
 - **Evaluation**: LOCO (4-fold), macro_f1
-- **Results**: LogReg=0.481, MLP=0.461, RF=0.349
+- **Results**: LogReg=0.517, MLP=0.285, RF=0.254
 
 ## H1: Cross-Tissue Gene Conservation (PBMC → Skin)
 - **Question**: Do PBMC DE patterns predict skin DE?

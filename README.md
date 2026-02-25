@@ -176,11 +176,11 @@ composite = mean(category_averages)
 
 | Task | Tier | Metric | Random | Majority | LogReg | RF | MLP |
 |------|------|--------|--------|----------|--------|----|-----|
-| A1 | Standard | macro_f1 | 0.214 | 0.200 | **0.546** | 0.326 | 0.310 |
+| A1 | Standard | macro_f1 | 0.214 | 0.200 | **0.546** | 0.294 | 0.310 |
 | A2 | Standard | macro_f1 | 0.214 | 0.200 | **0.493** | 0.374 | 0.331 |
-| B1 | Advanced | AUPRC | 0.020 | 0.017 | 0.533 | **0.885** | 0.839 |
+| B1 | Advanced | AUPRC | 0.020 | 0.017 | 0.533 | **0.885** | 0.854 |
 | B2 | Advanced | micro_f1 | 0.083 | 0.000 | **0.154** | 0.131 | 0.000 |
-| C1 | Standard | macro_f1 | 0.170 | 0.228 | **0.597** | 0.413 | 0.474 |
+| C1 | Standard | macro_f1 | 0.170 | 0.228 | 0.512 | 0.464 | **0.517** |
 | C2 | Frontier | AUROC | 0.529 | 0.500 | 0.500 | **0.555** | 0.524 |
 | D1 | Advanced | AUROC | 0.481 | 0.500 | 0.561 | **0.676** | 0.557 |
 | E1 | Advanced | AUPRC | 0.008 | 0.002 | **0.017** | 0.015 | 0.003 |
@@ -190,11 +190,11 @@ composite = mean(category_averages)
 | F3 | Calibration | AUROC | 0.402 | 0.500 | 0.574 | **0.841** | 0.320 |
 | F4 | Standard | macro_f1 | 0.112 | 0.018 | **0.163** | 0.151 | 0.096 |
 | F5 | Frontier | macro_f1 | 0.205 | 0.111 | 0.240 | **0.254** | 0.229 |
-| G1 | Advanced | macro_f1 | 0.253 | 0.228 | **0.481** | 0.349 | 0.461 |
+| G1 | Advanced | macro_f1 | 0.253 | 0.228 | **0.517** | 0.254 | 0.285 |
 | H1 | Advanced | AUPRC | 0.060 | 0.048 | 0.176 | **0.266** | 0.062 |
-| I1 | Frontier | AUPRC | 0.003 | 0.002 | 0.003 | **0.005** | 0.002 |
-| I2 | Advanced | AUROC | 0.482 | 0.500 | 0.682 | **0.706** | 0.592 |
-| I3 | Advanced | AUPRC | 0.050 | 0.052 | **0.090** | 0.072 | 0.056 |
+| I1 | Frontier | AUPRC | 0.003 | 0.002 | 0.003 | **0.005** | 0.003 |
+| I2 | Advanced | AUROC | 0.504 | 0.500 | 0.586 | **0.706** | 0.580 |
+| I3 | Advanced | AUPRC | 0.059 | 0.052 | **0.090** | 0.081 | 0.090 |
 
 **Bold** = best performing baseline per task.
 
@@ -202,9 +202,9 @@ composite = mean(category_averages)
 
 | Model | Composite | Best Categories |
 |-------|-----------|-----------------|
-| RF | **0.269** | B_cfrna (0.882), F_source (0.735), D_metabolomics (0.375) |
-| LogReg | 0.201 | B_cfrna (0.523), A_clinical (0.389), G_multimodal (0.304) |
-| MLP | 0.151 | B_cfrna (0.836), G_multimodal (0.278), C_proteomics (0.183) |
+| RF | **0.258** | B_cfrna (0.882), F_source (0.735), D_metabolomics (0.375) |
+| LogReg | 0.201 | B_cfrna (0.523), A_clinical (0.389), G_multimodal (0.353) |
+| MLP | 0.133 | B_cfrna (0.851), C_proteomics (0.209), D_metabolomics (0.147) |
 
 ### B1 Feature Ablation
 
@@ -212,9 +212,9 @@ The B1 task includes effect-size features (fold-changes, differences) alongside 
 
 | Variant | Features | LogReg | RF | MLP |
 |---------|----------|--------|----|-----|
-| B1 (all) | All 29 features | 0.533 | 0.885 | 0.839 |
-| B1 (effect-only) | Only fold-change/diff features | 0.248 | 0.813 | 0.756 |
-| B1 (no-effect) | Exclude fold-change/diff features | 0.527 | 0.863 | 0.865 |
+| B1 (all) | All 29 features | 0.533 | 0.885 | 0.854 |
+| B1 (effect-only) | Only fold-change/diff features | 0.248 | 0.813 | 0.741 |
+| B1 (no-effect) | Exclude fold-change/diff features | 0.527 | 0.863 | 0.847 |
 
 Distribution-based features (means, ranges, IQRs) carry most of the predictive signal, confirming the task tests genuine biological pattern recognition rather than simple effect-size thresholding.
 
