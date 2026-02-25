@@ -642,7 +642,7 @@ def generate_G1():
             "metabolomics_anppos_matrix.csv",
         ],
         "input_spec": {
-            "features": "39 clinical + 2,838 proteins + 454 metabolites",
+            "features": "39 clinical + 2,845 proteins + 454 metabolites",
             "join_key": "crew + timepoint_days",
             "note": "Sample ID formats differ across modalities",
         },

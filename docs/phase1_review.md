@@ -94,7 +94,7 @@ EVP proteomics has 55.9% zeros representing undetected proteins (not true absenc
 
 ### 7. Contaminants in proteomics DE results
 
-30 CON_ (contaminant) entries and 4 PEPCAL (calibration) entries are in `proteomics_plasma_de.csv`. 79 DE entries total have no corresponding column in the matrix (1,765 DE vs 2,838 matrix proteins, overlap = 1,686).
+30 CON_ (contaminant) entries and 4 PEPCAL (calibration) entries are in `proteomics_plasma_de.csv`. 79 DE entries total have no corresponding column in the matrix (1,765 DE vs 2,845 matrix proteins, overlap = 1,686).
 
 ---
 

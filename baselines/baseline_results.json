@@ -98,12 +98,12 @@
     ],
     "rf": {
       "accuracy": {
-        "mean": 0.5357,
-        "std": 0.1185
+        "mean": 0.5,
+        "std": 0.0714
       },
       "macro_f1": {
-        "mean": 0.3264,
-        "std": 0.1342
+        "mean": 0.2944,
+        "std": 0.0944
       }
     },
     "rf_per_fold": [
@@ -118,8 +118,8 @@
         "test_crew": "C002"
       },
       {
-        "accuracy": 0.7143,
-        "macro_f1": 0.5167,
+        "accuracy": 0.5714,
+        "macro_f1": 0.3889,
         "test_crew": "C003"
       },
       {
@@ -354,16 +354,16 @@
     },
     "logreg": {
       "auroc": {
-        "mean": 0.9682,
+        "mean": 0.9681,
         "std": 0.0052
       },
       "auprc": {
         "mean": 0.5328,
-        "std": 0.0393
+        "std": 0.0387
       },
       "f1": {
-        "mean": 0.246,
-        "std": 0.0056
+        "mean": 0.2455,
+        "std": 0.0057
       }
     },
     "rf": {
@@ -372,8 +372,8 @@
         "std": 0.0046
       },
       "auprc": {
-        "mean": 0.8848,
-        "std": 0.0273
+        "mean": 0.8845,
+        "std": 0.0279
       },
       "f1": {
         "mean": 0.7862,
@@ -382,16 +382,16 @@
     },
     "mlp": {
       "auroc": {
-        "mean": 0.9959,
-        "std": 0.0012
+        "mean": 0.9958,
+        "std": 0.0015
       },
       "auprc": {
-        "mean": 0.8393,
-        "std": 0.0228
+        "mean": 0.8537,
+        "std": 0.03
       },
       "f1": {
-        "mean": 0.7524,
-        "std": 0.0597
+        "mean": 0.7506,
+        "std": 0.0691
       }
     }
   },
@@ -514,47 +514,15 @@
     ],
     "logreg": {
       "accuracy": {
-        "mean": 0.6167,
-        "std": 0.2843
-      },
-      "macro_f1": {
-        "mean": 0.5972,
-        "std": 0.2976
-      }
-    },
-    "logreg_per_fold": [
-      {
-        "accuracy": 1.0,
-        "macro_f1": 1.0,
-        "test_crew": "C001"
-      },
-      {
-        "accuracy": 0.2,
-        "macro_f1": 0.1667,
-        "test_crew": "C002"
-      },
-      {
-        "accuracy": 0.6,
-        "macro_f1": 0.6667,
-        "test_crew": "C003"
-      },
-      {
-        "accuracy": 0.6667,
-        "macro_f1": 0.5556,
-        "test_crew": "C004"
-      }
-    ],
-    "rf": {
-      "accuracy": {
-        "mean": 0.625,
+        "mean": 0.7083,
         "std": 0.1785
       },
       "macro_f1": {
-        "mean": 0.4127,
-        "std": 0.2067
+        "mean": 0.5119,
+        "std": 0.1856
       }
     },
-    "rf_per_fold": [
+    "logreg_per_fold": [
       {
         "accuracy": 0.8,
         "macro_f1": 0.619,
@@ -571,6 +539,38 @@
         "test_crew": "C003"
       },
       {
+        "accuracy": 0.8333,
+        "macro_f1": 0.619,
+        "test_crew": "C004"
+      }
+    ],
+    "rf": {
+      "accuracy": {
+        "mean": 0.625,
+        "std": 0.2278
+      },
+      "macro_f1": {
+        "mean": 0.4643,
+        "std": 0.3244
+      }
+    },
+    "rf_per_fold": [
+      {
+        "accuracy": 1.0,
+        "macro_f1": 1.0,
+        "test_crew": "C001"
+      },
+      {
+        "accuracy": 0.4,
+        "macro_f1": 0.1905,
+        "test_crew": "C002"
+      },
+      {
+        "accuracy": 0.6,
+        "macro_f1": 0.4444,
+        "test_crew": "C003"
+      },
+      {
         "accuracy": 0.5,
         "macro_f1": 0.2222,
         "test_crew": "C004"
@@ -578,33 +578,33 @@
     ],
     "mlp": {
       "accuracy": {
-        "mean": 0.575,
-        "std": 0.1479
+        "mean": 0.5083,
+        "std": 0.235
       },
       "macro_f1": {
-        "mean": 0.4736,
-        "std": 0.2154
+        "mean": 0.5167,
+        "std": 0.2659
       }
     },
     "mlp_per_fold": [
       {
         "accuracy": 0.6,
-        "macro_f1": 0.25,
+        "macro_f1": 0.6667,
         "test_crew": "C001"
+      },
+      {
+        "accuracy": 0.2,
+        "macro_f1": 0.1111,
+        "test_crew": "C002"
       },
       {
         "accuracy": 0.4,
         "macro_f1": 0.4667,
-        "test_crew": "C002"
-      },
-      {
-        "accuracy": 0.8,
-        "macro_f1": 0.8222,
         "test_crew": "C003"
       },
       {
-        "accuracy": 0.5,
-        "macro_f1": 0.3556,
+        "accuracy": 0.8333,
+        "macro_f1": 0.8222,
         "test_crew": "C004"
       }
     ]
@@ -1684,50 +1684,50 @@
     ],
     "logreg": {
       "accuracy": {
-        "mean": 0.525,
-        "std": 0.0829
+        "mean": 0.5333,
+        "std": 0.1826
       },
       "macro_f1": {
-        "mean": 0.4806,
-        "std": 0.1134
+        "mean": 0.5167,
+        "std": 0.1965
       }
     },
     "logreg_per_fold": [
       {
         "accuracy": 0.4,
-        "macro_f1": 0.3,
+        "macro_f1": 0.3333,
         "test_crew": "C001"
       },
       {
         "accuracy": 0.6,
-        "macro_f1": 0.4889,
+        "macro_f1": 0.5556,
         "test_crew": "C002"
       },
       {
-        "accuracy": 0.6,
-        "macro_f1": 0.6111,
+        "accuracy": 0.8,
+        "macro_f1": 0.8222,
         "test_crew": "C003"
       },
       {
-        "accuracy": 0.5,
-        "macro_f1": 0.5222,
+        "accuracy": 0.3333,
+        "macro_f1": 0.3556,
         "test_crew": "C004"
       }
     ],
     "rf": {
       "accuracy": {
-        "mean": 0.525,
-        "std": 0.0829
+        "mean": 0.3833,
+        "std": 0.0289
       },
       "macro_f1": {
-        "mean": 0.349,
-        "std": 0.1342
+        "mean": 0.2536,
+        "std": 0.0642
       }
     },
     "rf_per_fold": [
       {
-        "accuracy": 0.6,
-        "macro_f1": 0.4333,
+        "accuracy": 0.4,
+        "macro_f1": 0.3,
         "test_crew": "C001"
       },
       {
@@ -1736,45 +1736,45 @@
         "test_crew": "C002"
       },
       {
-        "accuracy": 0.6,
-        "macro_f1": 0.25,
+        "accuracy": 0.4,
+        "macro_f1": 0.1905,
         "test_crew": "C003"
       },
       {
-        "accuracy": 0.5,
-        "macro_f1": 0.5222,
+        "accuracy": 0.3333,
+        "macro_f1": 0.3333,
         "test_crew": "C004"
       }
     ],
     "mlp": {
       "accuracy": {
-        "mean": 0.5333,
-        "std": 0.1826
+        "mean": 0.425,
+        "std": 0.1479
       },
       "macro_f1": {
-        "mean": 0.4611,
-        "std": 0.2181
+        "mean": 0.2847,
+        "std": 0.103
       }
     },
     "mlp_per_fold": [
       {
         "accuracy": 0.6,
-        "macro_f1": 0.4444,
+        "macro_f1": 0.25,
         "test_crew": "C001"
       },
       {
-        "accuracy": 0.8,
-        "macro_f1": 0.8222,
+        "accuracy": 0.4,
+        "macro_f1": 0.3556,
         "test_crew": "C002"
       },
       {
-        "accuracy": 0.4,
-        "macro_f1": 0.3,
+        "accuracy": 0.2,
+        "macro_f1": 0.1333,
         "test_crew": "C003"
       },
       {
-        "accuracy": 0.3333,
-        "macro_f1": 0.2778,
+        "accuracy": 0.5,
+        "macro_f1": 0.4,
         "test_crew": "C004"
       }
     ]
@@ -2246,11 +2246,11 @@
         "std": 0.0077
       },
       "auprc": {
-        "mean": 0.2481,
+        "mean": 0.248,
         "std": 0.025
       },
       "f1": {
-        "mean": 0.1661,
+        "mean": 0.1662,
         "std": 0.0052
       }
     },
@@ -2270,16 +2270,16 @@
     },
     "mlp": {
       "auroc": {
-        "mean": 0.987,
-        "std": 0.0095
+        "mean": 0.9843,
+        "std": 0.0127
       },
       "auprc": {
-        "mean": 0.7564,
-        "std": 0.0439
+        "mean": 0.741,
+        "std": 0.0553
       },
       "f1": {
-        "mean": 0.6535,
-        "std": 0.0482
+        "mean": 0.6219,
+        "std": 0.0664
       }
     }
   },
@@ -2314,16 +2314,16 @@
     },
     "logreg": {
       "auroc": {
-        "mean": 0.9658,
-        "std": 0.0081
+        "mean": 0.9657,
+        "std": 0.0083
       },
       "auprc": {
-        "mean": 0.5273,
-        "std": 0.0373
+        "mean": 0.5271,
+        "std": 0.0372
       },
       "f1": {
         "mean": 0.2274,
-        "std": 0.0088
+        "std": 0.009
       }
     },
     "rf": {
@@ -2332,26 +2332,26 @@
         "std": 0.0026
       },
       "auprc": {
-        "mean": 0.8633,
-        "std": 0.0352
+        "mean": 0.8632,
+        "std": 0.0354
       },
       "f1": {
-        "mean": 0.7662,
-        "std": 0.034
+        "mean": 0.7653,
+        "std": 0.0343
       }
     },
     "mlp": {
       "auroc": {
-        "mean": 0.9968,
-        "std": 0.0011
+        "mean": 0.9965,
+        "std": 0.0013
       },
       "auprc": {
-        "mean": 0.8647,
-        "std": 0.0496
+        "mean": 0.8466,
+        "std": 0.0533
       },
       "f1": {
-        "mean": 0.7787,
-        "std": 0.0307
+        "mean": 0.7703,
+        "std": 0.0486
       }
     }
   },
@@ -2360,17 +2360,17 @@
       "category_scores": {
         "A_clinical": 0.3888,
         "B_cfrna": 0.5232,
-        "C_proteomics": 0.2574,
+        "C_proteomics": 0.206,
         "D_metabolomics": 0.1536,
         "E_spatial": 0.0144,
         "F_bodysite": 0.0483,
         "F_phase": 0.0417,
         "F_source": 0.2877,
-        "G_multimodal": 0.3045,
+        "G_multimodal": 0.3528,
         "H_crosstissue": 0.1227,
         "I_crossmission": 0.0663
       },
-      "composite": 0.2008,
+      "composite": 0.2005,
       "n_categories": 11
     },
     "majority": {
@@ -2393,18 +2393,18 @@
     "mlp": {
       "category_scores": {
         "A_clinical": 0.135,
-        "B_cfrna": 0.836,
-        "C_proteomics": 0.183,
+        "B_cfrna": 0.8507,
+        "C_proteomics": 0.2089,
         "D_metabolomics": 0.1467,
         "E_spatial": 0.0,
         "F_bodysite": 0.0,
         "F_phase": 0.015,
         "F_source": 0.0,
-        "G_multimodal": 0.2784,
+        "G_multimodal": 0.0422,
         "H_crosstissue": 0.0018,
         "I_crossmission": 0.0624
       },
-      "composite": 0.1508,
+      "composite": 0.133,
       "n_categories": 11
     },
     "multilabel_logreg": {
@@ -2447,19 +2447,19 @@
     },
     "rf": {
       "category_scores": {
-        "A_clinical": 0.1727,
-        "B_cfrna": 0.8824,
-        "C_proteomics": 0.1741,
+        "A_clinical": 0.1523,
+        "B_cfrna": 0.8821,
+        "C_proteomics": 0.2052,
         "D_metabolomics": 0.3749,
         "E_spatial": 0.0035,
         "F_bodysite": 0.0705,
         "F_phase": 0.0524,
         "F_source": 0.7349,
-        "G_multimodal": 0.1283,
+        "G_multimodal": 0.0005,
         "H_crosstissue": 0.219,
         "I_crossmission": 0.1443
       },
-      "composite": 0.2688,
+      "composite": 0.2581,
       "n_categories": 11
     }
   },

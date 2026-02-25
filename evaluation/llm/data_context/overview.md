@@ -48,6 +48,6 @@ SpaceOmicsBench is a multi-omics AI benchmark for spaceflight biomedical data, f
 
 ## Key Challenges
 - Extremely small sample sizes: N=4 crew (I4), N=1 treatment (Twins)
-- High dimensionality: 2,838 proteins, 26,845 genes, 433 metabolites
+- High dimensionality: 2,845 proteins, 26,845 genes, 433 metabolites
 - Class imbalance: some tasks have <0.2% positive rate
 - Cross-mission comparisons: 3-day vs 340-day missions with different measurement platforms

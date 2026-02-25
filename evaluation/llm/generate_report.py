@@ -24,14 +24,18 @@ from datetime import datetime
 from typing import Dict, List, Any, Optional
 from collections import defaultdict
 
+SCRIPT_DIR = Path(__file__).resolve().parent
+ANNOTATION_SCHEMA_FILE = SCRIPT_DIR / "annotation_schema.json"
 
-DIMENSION_WEIGHTS = {
-    "factual_accuracy": 0.25,
-    "reasoning_quality": 0.25,
-    "completeness": 0.20,
-    "uncertainty_calibration": 0.15,
-    "domain_integration": 0.15,
-}
+
+def _load_dimension_weights() -> Dict[str, float]:
+    """Load dimension weights from annotation_schema.json (single source of truth)."""
+    with open(ANNOTATION_SCHEMA_FILE) as f:
+        schema = json.load(f)
+    return {dim: cfg["weight"] for dim, cfg in schema["rating_dimensions"].items()}
+
+
+DIMENSION_WEIGHTS = _load_dimension_weights()
 
 DIFFICULTY_ORDER = ["easy", "medium", "hard", "expert"]
 MODALITY_ORDER = [

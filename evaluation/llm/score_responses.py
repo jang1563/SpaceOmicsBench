@@ -25,14 +25,15 @@ QUESTION_BANK_FILE = SCRIPT_DIR / "question_bank.json"
 ANNOTATION_SCHEMA_FILE = SCRIPT_DIR / "annotation_schema.json"
 GROUND_TRUTH_FILE = SCRIPT_DIR / "data_context" / "ground_truth.md"
 
-# Dimension weights from annotation_schema.json
-DIMENSION_WEIGHTS = {
-    "factual_accuracy": 0.25,
-    "reasoning_quality": 0.25,
-    "completeness": 0.20,
-    "uncertainty_calibration": 0.15,
-    "domain_integration": 0.15,
-}
+
+def _load_dimension_weights() -> Dict[str, float]:
+    """Load dimension weights from annotation_schema.json (single source of truth)."""
+    with open(ANNOTATION_SCHEMA_FILE) as f:
+        schema = json.load(f)
+    return {dim: cfg["weight"] for dim, cfg in schema["rating_dimensions"].items()}
+
+
+DIMENSION_WEIGHTS = _load_dimension_weights()
 
 
 def load_question_bank() -> Dict[str, Dict]:
@@ -145,6 +146,7 @@ def score_single(client, question_data: Dict, qb_entry: Dict,
                  ground_truth: str, judge_model: str) -> Dict[str, Any]:
     """Score a single response using Claude as judge."""
     prompt = build_scoring_prompt(question_data, qb_entry, ground_truth)
+    raw = ""
 
     try:
         resp = client.messages.create(
@@ -152,6 +154,9 @@ def score_single(client, question_data: Dict, qb_entry: Dict,
             max_tokens=1000,
             messages=[{"role": "user", "content": prompt}],
         )
+        if not resp.content:
+            return {"success": False, "error": "Empty response from judge model"}
+
         raw = resp.content[0].text
         scores = parse_judge_response(raw)
 
@@ -173,7 +178,7 @@ def score_single(client, question_data: Dict, qb_entry: Dict,
     except json.JSONDecodeError as e:
         return {"success": False, "error": f"JSON parse error: {e}", "raw": raw}
     except Exception as e:
-        return {"success": False, "error": str(e)}
+        return {"success": False, "error": str(e), "raw": raw}
 
 
 def score_all(input_file: str, output_file: Optional[str] = None,
