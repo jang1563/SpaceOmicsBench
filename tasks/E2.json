@@ -3,6 +3,7 @@
   "task_name": "Cross-Layer DE Prediction (inner_epidermis)",
   "task_type": "binary_classification",
   "difficulty_tier": "frontier",
+  "supplementary": true,
   "description": "Predict inner_epidermis layer-specific DE from global skin (all_skin) DE features. Frontier task: only 11 positive genes out of 18,677 — tests whether any method can extract signal at this extreme imbalance.",
   "data_files": [
     "gt_spatial_de_all_skin.csv"

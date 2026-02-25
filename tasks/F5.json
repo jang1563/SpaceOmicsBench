@@ -2,7 +2,7 @@
   "task_id": "F5",
   "task_name": "Flight Phase Detection (Pathways)",
   "task_type": "multi_class_classification",
-  "difficulty_tier": "advanced",
+  "difficulty_tier": "frontier",
   "description": "Detect spaceflight phase from microbiome functional pathways. Paired with F2 (taxonomy) for comparison.",
   "data_files": [
     "microbiome_human_pathways_cpm.csv"

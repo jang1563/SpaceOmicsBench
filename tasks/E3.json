@@ -3,6 +3,7 @@
   "task_name": "Cross-Layer DE Prediction (outer_dermis)",
   "task_type": "binary_classification",
   "difficulty_tier": "frontier",
+  "supplementary": true,
   "description": "Predict outer_dermis layer-specific DE from global skin (all_skin) DE features. Frontier task: only 18 positive genes out of 18,677 — at the boundary of learnability.",
   "data_files": [
     "gt_spatial_de_all_skin.csv"
