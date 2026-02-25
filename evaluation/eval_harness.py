@@ -42,7 +42,7 @@ DATA_DIR = BASE_DIR / "data" / "processed"
 TASK_DIR = BASE_DIR / "tasks"
 SPLIT_DIR = BASE_DIR / "splits"
 
-# All 17 task IDs
+# All 18 task IDs
 ALL_TASKS = [
     "A1", "A2",
     "B1", "B2",
@@ -51,6 +51,7 @@ ALL_TASKS = [
     "E1", "E2", "E3", "E4",
     "F1", "F2", "F3", "F4", "F5",
     "G1",
+    "H1",
 ]
 
 
@@ -115,6 +116,8 @@ class SpaceOmicsBenchEvaluator:
             return self._load_f3_labels(meta)
         elif task_id == "G1":
             return self._load_g1_labels(meta)
+        elif task_id == "H1":
+            return self._load_h1_labels(meta)
         else:
             raise ValueError(f"Unknown task: {task_id}")
 
@@ -170,16 +173,10 @@ class SpaceOmicsBenchEvaluator:
         return labels, meta
 
     def _load_d1_labels(self, meta):
-        # SuperPathway is in the anppos_matrix file as an annotation column
-        anp = pd.read_csv(self.data_dir / "metabolomics_anppos_matrix.csv")
-        anp = anp.dropna(subset=["SuperPathway"])
-        # Merge rare classes (<10 members) into "Other"
-        class_counts = anp["SuperPathway"].value_counts()
-        rare = set(class_counts[class_counts < 10].index)
-        labels = anp["SuperPathway"].apply(lambda x: "Other" if x in rare else x).values
-        name_col = "metabolite_name" if "metabolite_name" in anp.columns else anp.columns[0]
-        meta["metabolites"] = anp[name_col].values.tolist()
-        meta["classes"] = sorted(set(labels))
+        # Metabolite spaceflight response prediction
+        df = pd.read_csv(self.data_dir / "metabolomics_spaceflight_response.csv")
+        labels = df["is_spaceflight_de"].astype(int).values
+        meta["metabolites"] = df["metabolite"].values.tolist()
         return labels, meta
 
     def _load_spatial_labels(self, task_id, meta):
@@ -235,6 +232,12 @@ class SpaceOmicsBenchEvaluator:
         labels = cbc_matched["phase"].values
         meta["crews"] = cbc_matched["crew"].values.tolist()
         meta["classes"] = ["pre_flight", "post_flight", "recovery"]
+        return labels, meta
+
+    def _load_h1_labels(self, meta):
+        df = pd.read_csv(self.data_dir / "conserved_pbmc_to_skin.csv")
+        labels = df["skin_de"].astype(int).values
+        meta["genes"] = df["human_gene"].values.tolist()
         return labels, meta
 
     # ─── Evaluation dispatcher ─────────────────────────────────────

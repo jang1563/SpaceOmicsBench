@@ -2,7 +2,7 @@
   "task_id": "A1",
   "task_name": "Flight Phase Classification (Blood Panel)",
   "task_type": "multi_class_classification",
-  "difficulty": "medium",
+  "difficulty_tier": "standard",
   "description": "Classify spaceflight phase from standard blood panel (CBC + CMP). 4 crew \u00d7 7 timepoints.",
   "data_files": [
     "clinical_cbc.csv",

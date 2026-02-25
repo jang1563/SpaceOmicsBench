@@ -2,18 +2,24 @@
   "task_id": "B1",
   "task_name": "Spaceflight-Responsive Gene Ranking (cfRNA)",
   "task_type": "binary_classification",
-  "difficulty": "hard",
-  "description": "Predict which genes are Differentially Regulated in Response (DRR) to spaceflight using group-level DE statistics from JAXA cfRNA data.",
+  "difficulty_tier": "advanced",
+  "description": "Predict which genes are Differentially Regulated in Response (DRR) to spaceflight using effect-size statistics from JAXA cfRNA data. P-value/FDR/F-statistic columns removed to prevent leakage.",
   "data_files": [
-    "cfrna_3group_de.csv"
+    "cfrna_3group_de_noleak.csv"
   ],
   "ground_truth_files": [
     "cfrna_466drr.csv"
   ],
   "input_spec": {
-    "features": "38 DE statistics per gene (ANOVA, edgeR pairwise, group means)",
-    "feature_count": 38,
-    "gene_column": "gene"
+    "features": "29 effect-size statistics per gene (fold changes, differences, group means, experiment summaries)",
+    "feature_count": 29,
+    "gene_column": "gene",
+    "removed_for_leakage": [
+      "anova_pval", "anova_fdr", "anova_F",
+      "edge_pre_vs_flight_pval", "edge_pre_vs_flight_fdr",
+      "edge_pre_vs_post_pval", "edge_pre_vs_post_fdr",
+      "edge_flight_vs_post_pval", "edge_flight_vs_post_fdr"
+    ]
   },
   "output_spec": {
     "type": "binary",

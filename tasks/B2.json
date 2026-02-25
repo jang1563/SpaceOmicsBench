@@ -2,7 +2,7 @@
   "task_id": "B2",
   "task_name": "Coregulated Gene Cluster Prediction",
   "task_type": "multilabel_classification",
-  "difficulty": "hard",
+  "difficulty_tier": "advanced",
   "description": "Predict cluster membership of 466 DRR genes from gene-gene correlation patterns. 16 clusters, multi-label.",
   "data_files": [
     "gt_cfrna_correlation.csv"

@@ -2,7 +2,7 @@
   "task_id": "A2",
   "task_name": "Flight Phase Classification (Immune Markers)",
   "task_type": "multi_class_classification",
-  "difficulty": "medium",
+  "difficulty_tier": "standard",
   "description": "Classify spaceflight phase from Eve immune cytokine panel (71 markers). Same samples as A1, different features.",
   "data_files": [
     "clinical_cytokines_eve.csv"

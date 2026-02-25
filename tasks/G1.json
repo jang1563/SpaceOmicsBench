@@ -2,7 +2,7 @@
   "task_id": "G1",
   "task_name": "Multi-Modal Phase Classification",
   "task_type": "multi_class_classification",
-  "difficulty": "hard",
+  "difficulty_tier": "advanced",
   "description": "Classify spaceflight phase using matched clinical + proteomics + metabolomics data. Tests multi-omic fusion benefit over single modality (A1).",
   "data_files": [
     "clinical_cbc.csv",

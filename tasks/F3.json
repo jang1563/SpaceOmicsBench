@@ -2,7 +2,7 @@
   "task_id": "F3",
   "task_name": "Source Classification (Human vs Environmental)",
   "task_type": "binary_classification",
-  "difficulty": "easy",
+  "difficulty_tier": "calibration",
   "description": "Classify microbiome as human crew or Dragon capsule environmental. Requires taxid-based feature alignment (~5,830 shared taxa).",
   "data_files": [
     "microbiome_human_taxonomy_cpm.csv",
