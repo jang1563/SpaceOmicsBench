@@ -1,0 +1,19 @@
+# macOS
+.DS_Store
+
+# Downloaded data files (re-downloadable via scripts)
+data/**/*.xlsx
+data/**/*.xls
+data/**/*.csv
+data/**/*.tsv
+data/**/*.zip
+data/**/*.pdf
+data/**/*.txt
+
+# Keep README files in data directories
+!data/**/README.md
+
+# Python
+__pycache__/
+*.pyc
+.env
