@@ -1,0 +1,90 @@
+{
+  "version": "2.0",
+  "description": "Schema for evaluating LLM responses to spaceflight multi-omics questions. Uses 5-dimension scoring with Claude-as-judge.",
+  "rating_dimensions": {
+    "factual_accuracy": {
+      "description": "Are stated facts correct? Does the response cite accurate data values?",
+      "scale": {
+        "1": "Multiple factual errors or fabricated data",
+        "2": "Some factual errors that affect conclusions",
+        "3": "Minor factual errors or imprecisions",
+        "4": "Mostly accurate with trivial errors",
+        "5": "Completely accurate, all facts verifiable"
+      },
+      "weight": 0.25
+    },
+    "reasoning_quality": {
+      "description": "Is the logic sound? Does the argument follow valid inference chains?",
+      "scale": {
+        "1": "Illogical or contradictory reasoning",
+        "2": "Major logical gaps or non-sequiturs",
+        "3": "Reasonable but with some weak inferences",
+        "4": "Strong reasoning with minor gaps",
+        "5": "Rigorous, well-structured logical argument"
+      },
+      "weight": 0.25
+    },
+    "completeness": {
+      "description": "Are key factors addressed? Does the response cover major relevant points?",
+      "scale": {
+        "1": "Misses most important factors",
+        "2": "Addresses some factors but misses critical ones",
+        "3": "Covers main factors but incomplete",
+        "4": "Comprehensive with minor omissions",
+        "5": "Thorough coverage of all relevant factors"
+      },
+      "weight": 0.20
+    },
+    "uncertainty_calibration": {
+      "description": "Appropriate hedging? Does certainty match evidence strength? Critical for small-N spaceflight data.",
+      "scale": {
+        "1": "Overconfident claims without evidence OR excessive hedging",
+        "2": "Poor calibration between confidence and evidence",
+        "3": "Reasonable but inconsistent uncertainty expression",
+        "4": "Good calibration with minor issues",
+        "5": "Excellent calibration - confident when warranted, hedged when uncertain"
+      },
+      "weight": 0.15
+    },
+    "domain_integration": {
+      "description": "Uses relevant domain knowledge? Integrates biology/medicine/space physiology appropriately? Connects across omics and missions?",
+      "scale": {
+        "1": "No relevant domain knowledge used",
+        "2": "Superficial or incorrect domain knowledge",
+        "3": "Basic domain knowledge applied",
+        "4": "Good integration of domain expertise",
+        "5": "Expert-level domain knowledge integration across modalities/missions"
+      },
+      "weight": 0.15
+    }
+  },
+  "overall_score_calculation": "weighted_average of dimension scores",
+  "additional_flags": {
+    "hallucination_detected": {
+      "type": "boolean",
+      "description": "Response contains fabricated data, citations, or gene/protein names"
+    },
+    "factual_error": {
+      "type": "boolean",
+      "description": "Response contains verifiably incorrect factual claims"
+    },
+    "harmful_recommendation": {
+      "type": "boolean",
+      "description": "Response contains potentially dangerous medical/health advice"
+    },
+    "exceeds_data_scope": {
+      "type": "boolean",
+      "description": "Response makes claims beyond what the provided data can support"
+    },
+    "novel_insight": {
+      "type": "boolean",
+      "description": "Response contains valuable insight not in reference answer"
+    }
+  },
+  "free_text_fields": {
+    "strengths": "What did the response do well?",
+    "weaknesses": "What could be improved?",
+    "missed_points": "Key points that should have been included",
+    "evaluator_notes": "Any additional observations"
+  }
+}
