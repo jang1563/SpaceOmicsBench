@@ -15,26 +15,28 @@
 |------|------|-----------|-------|
 | A1 | Standard | LogReg | 0.546 |
 | A2 | Standard | LogReg | 0.493 |
-| B1 | Advanced | RF | 0.885 |
+| B1 | Advanced | LightGBM | 0.922 |
 | B2 | Advanced | LogReg | 0.154 |
 | C1 | Standard | MLP | 0.517 |
-| C2 | Frontier | RF | 0.555 |
+| C2 | Frontier | LightGBM | 0.565 |
 | D1 | Advanced | RF | 0.676 |
 | E1 | Advanced | LogReg | 0.017 |
 | E4 | Advanced | LogReg | 0.023 |
-| F1 | Standard | RF | 0.199 |
-| F2 | Frontier | RF | 0.238 |
+| F1 | Standard | LightGBM | 0.200 |
+| F2 | Frontier | LightGBM | 0.280 |
 | F3 | Calibration | RF | 0.841 |
 | F4 | Standard | LogReg | 0.163 |
-| F5 | Frontier | RF | 0.254 |
+| F5 | Frontier | LightGBM | 0.304 |
 | G1 | Advanced | LogReg | 0.517 |
-| H1 | Advanced | RF | 0.266 |
-| I1 | Frontier | RF | 0.005 |
-| I2 | Advanced | RF | 0.706 |
+| H1 | Advanced | LightGBM | 0.285 |
+| I1 | Frontier | LightGBM | 0.006 |
+| I2 | Advanced | LightGBM | 0.735 |
 | I3 | Advanced | LogReg | 0.090 |
 
 ## Composite Scores (Normalized)
 - RF: 0.258 (best overall)
+- XGBoost: 0.250
+- LightGBM: 0.238
 - LogReg: 0.201
 - MLP: 0.133
 

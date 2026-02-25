@@ -221,7 +221,7 @@ footer a:hover{text-decoration:underline}
         <tr>
           <th>Task</th><th>Name</th><th>Category</th><th>Tier</th><th>Metric</th>
           <th class="num">Random</th><th class="num">Majority</th>
-          <th class="num">LogReg</th><th class="num">RF</th><th class="num">MLP</th>
+          <th class="num">LogReg</th><th class="num">RF</th><th class="num">MLP</th><th class="num">XGB</th><th class="num">LGBM</th>
         </tr>
       </thead>
       <tbody id="tableBody"></tbody>
@@ -288,27 +288,27 @@ footer a:hover{text-decoration:underline}
 
 // ── DATA ──
 const TASKS=[
-  {id:'A1',name:'Flight Phase Classification (Blood Panel)',cat:'Clinical',tier:'Standard',metric:'macro_f1',random:.214,majority:.200,logreg:.546,rf:.294,mlp:.310},
-  {id:'A2',name:'Flight Phase Classification (Immune Markers)',cat:'Clinical',tier:'Standard',metric:'macro_f1',random:.214,majority:.200,logreg:.493,rf:.374,mlp:.331},
-  {id:'B1',name:'Spaceflight-Responsive Gene Ranking',cat:'cfRNA',tier:'Advanced',metric:'AUPRC',random:.020,majority:.017,logreg:.533,rf:.885,mlp:.854},
-  {id:'B2',name:'Coregulated Gene Cluster Prediction',cat:'cfRNA',tier:'Advanced',metric:'micro_f1',random:.083,majority:.000,logreg:.154,rf:.131,mlp:.000},
-  {id:'C1',name:'Proteomics Phase Classification',cat:'Proteomics',tier:'Standard',metric:'macro_f1',random:.170,majority:.228,logreg:.512,rf:.464,mlp:.517},
-  {id:'C2',name:'Cross-Biofluid Protein DE Concordance',cat:'Proteomics',tier:'Frontier',metric:'AUROC',random:.529,majority:.500,logreg:.500,rf:.555,mlp:.524},
-  {id:'D1',name:'Metabolite Spaceflight Response',cat:'Metabolomics',tier:'Advanced',metric:'AUROC',random:.481,majority:.500,logreg:.561,rf:.676,mlp:.557},
-  {id:'E1',name:'Cross-Layer DE (outer_epidermis)',cat:'Spatial',tier:'Advanced',metric:'AUPRC',random:.008,majority:.002,logreg:.017,rf:.015,mlp:.003},
-  {id:'E4',name:'Cross-Layer DE (epidermis)',cat:'Spatial',tier:'Advanced',metric:'AUPRC',random:.003,majority:.002,logreg:.023,rf:.002,mlp:.003},
-  {id:'F1',name:'Body Site Classification (Taxonomy)',cat:'Microbiome',tier:'Standard',metric:'macro_f1',random:.112,majority:.018,logreg:.147,rf:.199,mlp:.108},
-  {id:'F2',name:'Flight Phase Detection (Taxonomy)',cat:'Microbiome',tier:'Frontier',metric:'macro_f1',random:.205,majority:.111,logreg:.236,rf:.238,mlp:.204},
-  {id:'F3',name:'Human vs Environmental',cat:'Microbiome',tier:'Calibration',metric:'AUROC',random:.402,majority:.500,logreg:.574,rf:.841,mlp:.320},
-  {id:'F4',name:'Body Site Classification (Pathways)',cat:'Microbiome',tier:'Standard',metric:'macro_f1',random:.112,majority:.018,logreg:.163,rf:.151,mlp:.096},
-  {id:'F5',name:'Flight Phase Detection (Pathways)',cat:'Microbiome',tier:'Frontier',metric:'macro_f1',random:.205,majority:.111,logreg:.240,rf:.254,mlp:.229},
-  {id:'G1',name:'Multi-Modal Phase Classification',cat:'Multi-Modal',tier:'Advanced',metric:'macro_f1',random:.253,majority:.228,logreg:.517,rf:.254,mlp:.285},
-  {id:'H1',name:'Cross-Tissue Gene Conservation',cat:'Cross-Tissue',tier:'Advanced',metric:'AUPRC',random:.060,majority:.048,logreg:.176,rf:.266,mlp:.062},
-  {id:'I1',name:'Hemoglobin Gene DE Prediction',cat:'Cross-Mission',tier:'Frontier',metric:'AUPRC',random:.003,majority:.002,logreg:.003,rf:.005,mlp:.003},
-  {id:'I2',name:'Cross-Mission Pathway Conservation',cat:'Cross-Mission',tier:'Advanced',metric:'AUROC',random:.504,majority:.500,logreg:.586,rf:.706,mlp:.580},
-  {id:'I3',name:'Cross-Mission Gene DE Conservation',cat:'Cross-Mission',tier:'Advanced',metric:'AUPRC',random:.059,majority:.052,logreg:.090,rf:.081,mlp:.090},
-  {id:'E2',name:'Cross-Layer DE (inner_epidermis)',cat:'Spatial',tier:'Frontier',metric:'AUPRC',random:.001,majority:.001,logreg:.031,rf:.050,mlp:.011,supp:true},
-  {id:'E3',name:'Cross-Layer DE (outer_dermis)',cat:'Spatial',tier:'Frontier',metric:'AUPRC',random:.002,majority:.001,logreg:.172,rf:.223,mlp:.168,supp:true},
+  {id:'A1',name:'Flight Phase Classification (Blood Panel)',cat:'Clinical',tier:'Standard',metric:'macro_f1',random:.214,majority:.200,logreg:.546,rf:.294,mlp:.310,xgb:.332,lgbm:.200},
+  {id:'A2',name:'Flight Phase Classification (Immune Markers)',cat:'Clinical',tier:'Standard',metric:'macro_f1',random:.214,majority:.200,logreg:.493,rf:.374,mlp:.331,xgb:.353,lgbm:.200},
+  {id:'B1',name:'Spaceflight-Responsive Gene Ranking',cat:'cfRNA',tier:'Advanced',metric:'AUPRC',random:.020,majority:.017,logreg:.533,rf:.885,mlp:.854,xgb:.912,lgbm:.922},
+  {id:'B2',name:'Coregulated Gene Cluster Prediction',cat:'cfRNA',tier:'Advanced',metric:'micro_f1',random:.083,majority:.000,logreg:.154,rf:.131,mlp:.000,xgb:null,lgbm:null},
+  {id:'C1',name:'Proteomics Phase Classification',cat:'Proteomics',tier:'Standard',metric:'macro_f1',random:.170,majority:.228,logreg:.512,rf:.464,mlp:.517,xgb:.355,lgbm:.228},
+  {id:'C2',name:'Cross-Biofluid Protein DE Concordance',cat:'Proteomics',tier:'Frontier',metric:'AUROC',random:.529,majority:.500,logreg:.500,rf:.555,mlp:.524,xgb:.533,lgbm:.565},
+  {id:'D1',name:'Metabolite Spaceflight Response',cat:'Metabolomics',tier:'Advanced',metric:'AUROC',random:.481,majority:.500,logreg:.561,rf:.676,mlp:.557,xgb:.617,lgbm:.638},
+  {id:'E1',name:'Cross-Layer DE (outer_epidermis)',cat:'Spatial',tier:'Advanced',metric:'AUPRC',random:.008,majority:.002,logreg:.017,rf:.015,mlp:.003,xgb:.010,lgbm:.005},
+  {id:'E4',name:'Cross-Layer DE (epidermis)',cat:'Spatial',tier:'Advanced',metric:'AUPRC',random:.003,majority:.002,logreg:.023,rf:.002,mlp:.003,xgb:.006,lgbm:.009},
+  {id:'F1',name:'Body Site Classification (Taxonomy)',cat:'Microbiome',tier:'Standard',metric:'macro_f1',random:.112,majority:.018,logreg:.147,rf:.199,mlp:.108,xgb:.193,lgbm:.200},
+  {id:'F2',name:'Flight Phase Detection (Taxonomy)',cat:'Microbiome',tier:'Frontier',metric:'macro_f1',random:.205,majority:.111,logreg:.236,rf:.238,mlp:.204,xgb:.263,lgbm:.280},
+  {id:'F3',name:'Human vs Environmental',cat:'Microbiome',tier:'Calibration',metric:'AUROC',random:.402,majority:.500,logreg:.574,rf:.841,mlp:.320,xgb:.838,lgbm:.838},
+  {id:'F4',name:'Body Site Classification (Pathways)',cat:'Microbiome',tier:'Standard',metric:'macro_f1',random:.112,majority:.018,logreg:.163,rf:.151,mlp:.096,xgb:.134,lgbm:.160},
+  {id:'F5',name:'Flight Phase Detection (Pathways)',cat:'Microbiome',tier:'Frontier',metric:'macro_f1',random:.205,majority:.111,logreg:.240,rf:.254,mlp:.229,xgb:.300,lgbm:.304},
+  {id:'G1',name:'Multi-Modal Phase Classification',cat:'Multi-Modal',tier:'Advanced',metric:'macro_f1',random:.253,majority:.228,logreg:.517,rf:.254,mlp:.285,xgb:.328,lgbm:.228},
+  {id:'H1',name:'Cross-Tissue Gene Conservation',cat:'Cross-Tissue',tier:'Advanced',metric:'AUPRC',random:.060,majority:.048,logreg:.176,rf:.266,mlp:.062,xgb:.213,lgbm:.285},
+  {id:'I1',name:'Hemoglobin Gene DE Prediction',cat:'Cross-Mission',tier:'Frontier',metric:'AUPRC',random:.003,majority:.002,logreg:.003,rf:.005,mlp:.003,xgb:.005,lgbm:.006},
+  {id:'I2',name:'Cross-Mission Pathway Conservation',cat:'Cross-Mission',tier:'Advanced',metric:'AUROC',random:.504,majority:.500,logreg:.586,rf:.706,mlp:.580,xgb:.716,lgbm:.735},
+  {id:'I3',name:'Cross-Mission Gene DE Conservation',cat:'Cross-Mission',tier:'Advanced',metric:'AUPRC',random:.059,majority:.052,logreg:.090,rf:.081,mlp:.090,xgb:.081,lgbm:.086},
+  {id:'E2',name:'Cross-Layer DE (inner_epidermis)',cat:'Spatial',tier:'Frontier',metric:'AUPRC',random:.001,majority:.001,logreg:.031,rf:.050,mlp:.011,xgb:.020,lgbm:.005,supp:true},
+  {id:'E3',name:'Cross-Layer DE (outer_dermis)',cat:'Spatial',tier:'Frontier',metric:'AUPRC',random:.002,majority:.001,logreg:.172,rf:.223,mlp:.168,xgb:.160,lgbm:.088,supp:true},
 ];
 
 // ── TABLE RENDER ──
@@ -317,9 +317,11 @@ function renderTable(filter){
   tb.innerHTML='';
   const filtered=filter==='All'?TASKS:TASKS.filter(t=>t.cat===filter);
   for(const t of filtered){
-    const scores=[t.random,t.majority,t.logreg,t.rf,t.mlp];
-    const best=Math.max(...scores);
+    const scores=[t.random,t.majority,t.logreg,t.rf,t.mlp,t.xgb,t.lgbm];
+    const validScores=scores.filter(v=>v!==null);
+    const best=Math.max(...validScores);
     const fmt=v=>{
+      if(v===null) return `<td class="num">—</td>`;
       const s=v.toFixed(3);
       return v===best?`<td class="num best">${s}</td>`:`<td class="num">${s}</td>`;
     };
@@ -358,11 +360,11 @@ Chart.defaults.font.size=11;
 new Chart(document.getElementById('compositeChart'),{
   type:'bar',
   data:{
-    labels:['Random Forest','Logistic Regression','MLP'],
+    labels:['Random Forest','XGBoost','LightGBM','Logistic Regression','MLP'],
     datasets:[{
-      data:[.258,.201,.133],
-      backgroundColor:['rgba(6,182,212,.7)','rgba(167,139,250,.7)','rgba(236,72,153,.7)'],
-      borderColor:['#06b6d4','#a78bfa','#ec4899'],
+      data:[.258,.250,.238,.201,.133],
+      backgroundColor:['rgba(6,182,212,.7)','rgba(245,158,11,.7)','rgba(132,204,22,.7)','rgba(167,139,250,.7)','rgba(236,72,153,.7)'],
+      borderColor:['#06b6d4','#f59e0b','#84cc16','#a78bfa','#ec4899'],
       borderWidth:1,borderRadius:6,
     }]
   },
@@ -390,14 +392,24 @@ new Chart(document.getElementById('radarChart'),{
         pointBackgroundColor:'#06b6d4',
       },
       {
-        label:'LogReg',data:[.389,.523,.257,.154,.014,.048,.042,.288,.304,.123,.121],
-        backgroundColor:'rgba(167,139,250,.1)',borderColor:'#a78bfa',borderWidth:1.5,pointRadius:3,
-        pointBackgroundColor:'#a78bfa',
+        label:'XGBoost',data:[.163,.910,.117,.262,.002,.058,.096,.728,.100,.162,.151],
+        backgroundColor:'rgba(245,158,11,.1)',borderColor:'#f59e0b',borderWidth:1.5,pointRadius:3,
+        pointBackgroundColor:'#f59e0b',
       },
       {
-        label:'MLP',data:[.135,.836,.183,.147,.000,.000,.015,.000,.278,.002,.067],
-        backgroundColor:'rgba(236,72,153,.08)',borderColor:'#ec4899',borderWidth:1.5,pointRadius:3,
-        pointBackgroundColor:'#ec4899',borderDash:[4,4],
+        label:'LightGBM',data:[.000,.921,.074,.302,.003,.076,.110,.730,.000,.238,.165],
+        backgroundColor:'rgba(132,204,22,.08)',borderColor:'#84cc16',borderWidth:1.5,pointRadius:3,
+        pointBackgroundColor:'#84cc16',borderDash:[6,3],
+      },
+      {
+        label:'LogReg',data:[.389,.523,.206,.154,.014,.048,.042,.288,.353,.123,.066],
+        backgroundColor:'rgba(167,139,250,.08)',borderColor:'#a78bfa',borderWidth:1.5,pointRadius:3,
+        pointBackgroundColor:'#a78bfa',borderDash:[4,4],
+      },
+      {
+        label:'MLP',data:[.135,.851,.209,.147,.000,.000,.015,.000,.042,.002,.062],
+        backgroundColor:'rgba(236,72,153,.05)',borderColor:'#ec4899',borderWidth:1,pointRadius:2,
+        pointBackgroundColor:'#ec4899',borderDash:[2,4],
       }
     ]
   },
@@ -444,11 +456,11 @@ new Chart(document.getElementById('tierChart'),{
 new Chart(document.getElementById('ablationChart'),{
   type:'bar',
   data:{
-    labels:['LogReg','RF','MLP'],
+    labels:['LogReg','RF','MLP','XGBoost','LightGBM'],
     datasets:[
-      {label:'All features',data:[.533,.885,.854],backgroundColor:'rgba(6,182,212,.7)',borderColor:'#06b6d4',borderWidth:1,borderRadius:4},
-      {label:'Effect-only',data:[.248,.813,.741],backgroundColor:'rgba(245,158,11,.7)',borderColor:'#f59e0b',borderWidth:1,borderRadius:4},
-      {label:'No effect-size',data:[.527,.863,.847],backgroundColor:'rgba(167,139,250,.7)',borderColor:'#a78bfa',borderWidth:1,borderRadius:4},
+      {label:'All features',data:[.533,.885,.854,.912,.922],backgroundColor:'rgba(6,182,212,.7)',borderColor:'#06b6d4',borderWidth:1,borderRadius:4},
+      {label:'Effect-only',data:[.248,.813,.741,.780,.801],backgroundColor:'rgba(245,158,11,.7)',borderColor:'#f59e0b',borderWidth:1,borderRadius:4},
+      {label:'No effect-size',data:[.527,.863,.847,.899,.884],backgroundColor:'rgba(167,139,250,.7)',borderColor:'#a78bfa',borderWidth:1,borderRadius:4},
     ]
   },
   options:{

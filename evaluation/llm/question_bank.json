@@ -250,7 +250,7 @@
       "modality": "transcriptomics",
       "category": "reasoning",
       "difficulty": "medium",
-      "question": "Task B2 (coregulated gene cluster prediction) achieves much lower scores than B1 (best: 0.154 vs 0.885). Why is multi-label cluster prediction fundamentally harder than binary DRR classification?",
+      "question": "Task B2 (coregulated gene cluster prediction) achieves much lower scores than B1 (best: 0.154 vs 0.922). Why is multi-label cluster prediction fundamentally harder than binary DRR classification?",
       "data_context_files": ["transcriptomics.md", "ground_truth.md"],
       "expected_reasoning": [
         "B2 is 16-class multilabel vs B1 binary — much harder classification",
@@ -260,7 +260,7 @@
         "Random baseline is 0.083 (1/16 chance per class on average)"
       ],
       "ground_truth_key_facts": [
-        "B1: binary DRR vs non-DRR, N=26,845, RF=0.885",
+        "B1: binary DRR vs non-DRR, N=26,845, LightGBM=0.922 (best), RF=0.885",
         "B2: 16-class multilabel, N=466, LogReg=0.154",
         "B2 random baseline is 0.083"
       ],
@@ -1478,7 +1478,7 @@
       ],
       "ground_truth_key_facts": [
         "Composite formula: (score - random) / (1 - random)",
-        "RF=0.269 best overall composite",
+        "RF=0.258 best overall composite, XGBoost=0.250, LightGBM=0.238",
         "11 categories averaged equally"
       ],
       "rubric": {
