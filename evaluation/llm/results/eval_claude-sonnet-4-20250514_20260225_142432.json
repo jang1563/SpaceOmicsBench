@@ -1,0 +1,71 @@
+{
+  "metadata": {
+    "benchmark": "SpaceOmicsBench_v2",
+    "model": "claude-sonnet-4-20250514",
+    "adapter_path": null,
+    "timestamp": "20260225_142432",
+    "total_questions": 3,
+    "successful": 3,
+    "failed": 0,
+    "total_input_tokens": 4681,
+    "total_output_tokens": 1342,
+    "filters": {
+      "modality": null,
+      "difficulty": null,
+      "sample_size": 3
+    }
+  },
+  "results": [
+    {
+      "question_id": "Q82",
+      "modality": "microbiome",
+      "difficulty": "medium",
+      "category": "interpretation",
+      "question": "Taxonomy-based body site classification (F1, RF=0.199) outperforms pathway-based classification (F4, LogReg=0.163). Both use the same samples and LOCO evaluation. What biological factors might explain why taxonomic profiles better distinguish body sites than functional pathways?",
+      "data_context_files": [
+        "microbiome.md",
+        "ground_truth.md"
+      ],
+      "success": true,
+      "response": "The superior performance of taxonomy-based body site classification (F1, RF=0.199) over pathway-based classification (F4, LogReg=0.163) likely reflects several key biological principles about microbial community structure and function:\n\n## Taxonomic Specificity vs Functional Redundancy\n\n**Taxonomic profiles capture site-specific microbial signatures** that are highly distinctive between body sites. Each of the 10 body sites (ear canal, nasal cavity, oral cavity, axilla, etc.) harbors characteristic microbial communities shaped by local environmental conditions - pH, oxygen levels, moisture, nutrient availability, and host immune factors. For example, the oral cavity's *Streptococcus* and *Actinomyces* species differ markedly from the skin's *Staphylococcus* and *Corynebacterium* populations.\n\n**Functional pathways, however, exhibit significant redundancy** across different microbial taxa. Many distantly related bacteria can perform similar metabolic functions - multiple species can carry out glycolysis, amino acid biosynthesis, or vitamin production. This means that functionally similar communities can have very different taxonomic compositions, making pathway profiles less discriminative for body site classification.\n\n## Resolution and Information Content\n\nThe **taxonomic features likely provide higher resolution** for distinguishing body sites because they capture the specific evolutionary lineages present, while pathway features represent broader functional categories that may be shared across multiple body sites. A Random Forest model (which performed best for F1) can effectively leverage these fine-grained taxonomic differences.\n\n## Sample Size Considerations\n\nWith only **N=275 samples across 10 body sites (~27-28 samples each)**, the pathway-based approach may suffer more from the curse of dimensionality. Pathway databases typically contain thousands of functional categories, potentially leading to overfitting with limited training data, whereas taxonomic profiles might be more robust to small sample sizes.\n\nThis pattern suggests that **body site identity is more strongly encoded in \"who is there\" (taxonomy) rather than \"what they can do\" (pathways)** - at least for the resolution captured in this 3-day spaceflight study.",
+      "input_tokens": 1585,
+      "output_tokens": 480,
+      "response_time_sec": 12.6,
+      "model": "claude-sonnet-4-20250514"
+    },
+    {
+      "question_id": "Q15",
+      "modality": "proteomics",
+      "difficulty": "easy",
+      "category": "factual",
+      "question": "How many proteins are measured in the I4 plasma proteomics dataset, and why is PCA dimensionality reduction necessary for the classification tasks?",
+      "data_context_files": [
+        "proteomics.md",
+        "overview.md"
+      ],
+      "success": true,
+      "response": "Based on the provided data context, the I4 plasma proteomics dataset measures **2,845 proteins** across 21 samples (4 crew members × ~5-6 timepoints each).\n\nPCA dimensionality reduction is necessary for the classification tasks due to the classic **\"p >> n\" problem** - where the number of features (proteins) vastly exceeds the number of samples:\n\n- **Features (p)**: 2,845 proteins\n- **Samples (n)**: 21 samples\n\nThis creates a severe curse of dimensionality issue where:\n1. Most machine learning algorithms would overfit with 2,845 features and only 21 samples\n2. The feature space is extremely sparse, making meaningful pattern detection difficult\n3. Computational complexity becomes prohibitive\n\nTo address this, the benchmark implements PCA reduction that compresses the 2,845 protein features down to **10 principal components** for task C1 (proteomics phase classification). This dimensionality reduction:\n- Captures the most important variance in the protein expression data\n- Makes the problem computationally tractable\n- Reduces overfitting risk while preserving the biological signal\n\nDespite this extreme dimensionality challenge, task C1 still achieves reasonable classification performance (best baseline MLP = 0.517 macro F1), suggesting that there are indeed **strong proteomic shifts during spaceflight** that can be detected even with this small sample size after appropriate dimensionality reduction.",
+      "input_tokens": 1558,
+      "output_tokens": 329,
+      "response_time_sec": 8.33,
+      "model": "claude-sonnet-4-20250514"
+    },
+    {
+      "question_id": "Q04",
+      "modality": "clinical",
+      "difficulty": "medium",
+      "category": "reasoning",
+      "question": "Why does LogReg consistently outperform RF and MLP on the clinical classification tasks (A1, A2), while RF tends to dominate in other task categories?",
+      "data_context_files": [
+        "clinical.md",
+        "ground_truth.md"
+      ],
+      "success": true,
+      "response": "The consistent outperformance of LogReg over RF and MLP on clinical classification tasks A1 and A2 can be attributed to several key factors related to the dataset characteristics and task nature:\n\n## Sample Size Constraints\nThe most critical factor is the extremely small sample size (N=28 total samples, only 4 per crew). With such limited data:\n- **LogReg benefits from simplicity**: As a linear model with fewer parameters, LogReg is less prone to overfitting\n- **RF suffers from insufficient data**: Random forests typically require larger datasets to effectively leverage ensemble learning and feature randomization\n- **MLP is particularly vulnerable**: Neural networks generally need substantial data to learn meaningful representations, making them poorly suited for this scale\n\n## Severe Class Imbalance\nThe post-flight class has only 4 samples (one per crew at R+1) compared to 12 samples each for pre-flight and recovery phases. This 12:4:12 imbalance particularly challenges:\n- **RF**: Tree-based methods can struggle with minority classes, especially when combined with small sample sizes\n- **MLP**: Neural networks often require balanced datasets or sophisticated techniques to handle severe imbalance effectively\n- **LogReg**: Linear models with appropriate regularization can be more robust to class imbalance in small datasets\n\n## LOCO Evaluation Stringency\nThe Leave-One-Crew-Out evaluation means each fold tests on an entirely unseen crew member, creating an extremely challenging generalization task:\n- **LogReg's linear assumptions** may capture generalizable population-level trends better than complex non-linear models\n- **RF and MLP** may overfit to crew-specific patterns that don't generalize across the small crew population\n\n## Contrast with Other Task Categories\nRF's dominance in other categories (achieving best performance on tasks B1, D1, F3, and strong composite scores) suggests that when sample sizes are larger or data complexity is higher, RF's ensemble approach becomes advantageous. The clinical tasks A1/A2 represent a specific regime where simplicity trumps complexity due to the fundamental constraint of having only 4 crew members across 3 flight phases.\n\nThis pattern highlights a crucial lesson in space medicine ML: the extreme data scarcity inherent to human spaceflight studies often favors simpler, more interpretable models over sophisticated algorithms that excel in terrestrial biomedical applications with larger cohorts.",
+      "input_tokens": 1538,
+      "output_tokens": 533,
+      "response_time_sec": 13.99,
+      "model": "claude-sonnet-4-20250514"
+    }
+  ]
+}

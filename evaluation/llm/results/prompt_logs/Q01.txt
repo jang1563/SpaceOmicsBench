@@ -1,0 +1,108 @@
+=== SYSTEM ===
+You are an expert in space medicine, bioinformatics, and multi-omics data analysis. You are answering questions about spaceflight biomedical data from the SpaceOmicsBench benchmark, which includes data from the Inspiration4 (I4) 3-day mission and the NASA Twins Study (340-day ISS mission).
+
+When answering:
+1. Be specific and cite relevant statistics when available from the provided context
+2. Distinguish between what the data shows versus your interpretation
+3. Express uncertainty appropriately, especially given the extremely small sample sizes (N=4 for I4, N=1 for Twins)
+4. Consider multi-omics integration and cross-mission comparisons where relevant
+5. Do not fabricate statistics, gene names, or citations not present in the provided context
+
+=== PROMPT ===
+## Data Context
+
+# SpaceOmicsBench — Mission and Benchmark Overview
+
+## Benchmark Summary
+SpaceOmicsBench is a multi-omics AI benchmark for spaceflight biomedical data, featuring 21 ML tasks across 9 modalities from three human spaceflight studies.
+
+## Missions
+
+### Inspiration4 (I4)
+- **Type**: SpaceX commercial crew mission, first all-civilian orbital spaceflight
+- **Date**: September 15-18, 2021
+- **Duration**: ~3 days in low Earth orbit (LEO, ~585 km altitude)
+- **Crew**: 4 civilians (C001-C004), no prior spaceflight experience
+- **Sample collection**: 7 timepoints — L-92, L-44, L-3 (pre-flight), R+1 (post-flight), R+45, R+82, R+194 (recovery)
+- **Modalities collected**: CBC, CMP, cytokines, cfRNA, proteomics (plasma + EVP), metabolomics, spatial transcriptomics (skin), microbiome (10 body sites + ISS environmental)
+- **Data source**: NASA OSDR (OSD-569 to OSD-687)
+
+### JAXA Cell-Free Epigenome (CFE) Study
+- **Type**: ISS long-duration mission study
+- **Duration**: >120 days aboard ISS
+- **Subjects**: 6 astronauts
+- **Focus**: Cell-free RNA epigenome analysis
+- **Data source**: NASA OSDR (OSD-530)
+
+### NASA Twins Study
+- **Type**: Year-long ISS mission with identical twin control
+- **Date**: March 2015 - March 2016
+- **Duration**: 340 days aboard ISS
+- **Subjects**: Scott Kelly (space, N=1) vs Mark Kelly (ground control, N=1)
+- **Blood cell analysis**: Single-cell RNA-seq of CD4, CD8, CD19, PBMC, LD (lymphocyte-depleted)
+- **Contrasts analyzed**: 21 different coefficients (In-flight vs Pre-flight, Post-flight vs Pre-flight, etc.)
+- **Total DEG entries**: 115,493 across all cell types and contrasts (19,446 unique genes)
+
+## Benchmark Structure
+
+| Property | Value |
+|----------|-------|
+| Total tasks | 21 (19 main + 2 supplementary) |
+| Categories | A (Clinical), B (cfRNA), C (Proteomics), D (Metabolomics), E (Spatial), F (Microbiome), G (Multi-modal), H (Cross-tissue), I (Cross-mission) |
+| Difficulty tiers | Calibration (1), Standard (5), Advanced (8), Frontier (7) |
+| Evaluation strategies | LOCO (leave-one-crew-out), LOTO (leave-one-timepoint-out), Feature 80/20 (stratified) |
+| ML baselines | Random, Majority, LogReg, RF, MLP |
+
+## Flight Phases
+- **pre_flight**: Samples collected before launch (L-92, L-44, L-3)
+- **in_flight**: During spaceflight (I4 only ~3 days; Twins ~340 days)
+- **post_flight**: Immediately after return (R+1)
+- **recovery**: Extended post-flight period (R+45, R+82, R+194)
+
+## Key Challenges
+- Extremely small sample sizes: N=4 crew (I4), N=1 treatment (Twins)
+- High dimensionality: 2,845 proteins, 26,845 genes, 433 metabolites
+- Class imbalance: some tasks have <0.2% positive rate
+- Cross-mission comparisons: 3-day vs 340-day missions with different measurement platforms
+
+---
+
+# Clinical Biomarker Data
+
+## Dataset
+- **Source**: Inspiration4 mission, 4 civilian crew (C001-C004)
+- **Samples**: 28 total (4 crew × 7 timepoints)
+- **Phase distribution**: pre_flight=12, post_flight=4, recovery=12
+
+## CBC (Complete Blood Count) — 20 features
+Absolute counts: basophils, eosinophils, lymphocytes, monocytes, neutrophils
+Percentages: basophils, eosinophils, lymphocytes, monocytes, neutrophils
+Red cell indices: hematocrit, hemoglobin, MCH, MCHC, MCV, RBC count, RDW
+Platelets: platelet count, MPV
+White cells: WBC count
+
+## CMP (Comprehensive Metabolic Panel)
+Standard metabolic markers measured at same timepoints as CBC.
+
+## Cytokines/Immune Markers — 71 features
+EVE (extravehicular exposure) cytokine panel including inflammatory markers, growth factors, and chemokines. Measured in serum at all 7 timepoints.
+
+## Benchmark Tasks
+- **A1**: Flight phase classification from CBC + CMP features (3-class: pre/post/recovery)
+  - Metric: macro_f1, LOCO evaluation (4-fold)
+  - Best baseline: LogReg = 0.546
+- **A2**: Flight phase classification from immune/cytokine markers (3-class)
+  - Metric: macro_f1, LOCO evaluation (4-fold)
+  - Best baseline: LogReg = 0.493
+
+## Key Observations
+- Post-flight class has only 4 samples (one per crew at R+1), creating severe imbalance
+- CBC features show acute changes at R+1 including shifts in neutrophil/lymphocyte ratios
+- LogReg outperforms RF and MLP, likely due to small N favoring simpler models
+- LOCO evaluation is stringent: each fold tests on an entirely unseen crew member
+
+---
+
+**Question (easy):** How many features are used in the clinical blood panel task A1, and what types of blood tests do they come from?
+
+**Your Answer:**
