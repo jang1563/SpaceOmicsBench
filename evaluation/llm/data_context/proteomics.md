@@ -17,7 +17,7 @@
 - **C2**: Cross-biofluid protein DE concordance (frontier difficulty)
   - Predict EVP significance from plasma DE features
   - N=380 overlapping proteins, metric=AUROC
-  - Best baseline: RF = 0.555 (barely above random 0.529)
+  - Best baseline: LightGBM = 0.565 (barely above random 0.529)
 
 ## Key Observations
 - p >> n problem: 2,845 proteins vs 21 samples requires PCA dimensionality reduction

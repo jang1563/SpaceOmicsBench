@@ -14,7 +14,7 @@ All data is derived from publicly accessible sources (NASA Open Science Data Rep
 | **Difficulty Tiers** | Calibration (1) / Standard (5) / Advanced (9) / Frontier (6) |
 | **Missions** | Inspiration4 (4 crew, 3 days LEO), NASA Twins (340 days ISS), JAXA CFE (6 astronauts, >120 days ISS) |
 | **Evaluation** | Leave-One-Crew-Out, Leave-One-Timepoint-Out, Stratified 80/20 feature splits |
-| **Baselines** | Random, Majority, LogReg, RF, MLP |
+| **Baselines** | Random, Majority, LogReg, RF, MLP, XGBoost, LightGBM |
 
 ## Quick Start
 
@@ -27,7 +27,7 @@ cd SpaceOmicsBench
 # Create conda environment
 conda create -n spaceomics python=3.11 -y
 conda activate spaceomics
-pip install numpy pandas scikit-learn
+pip install numpy pandas scikit-learn xgboost lightgbm
 ```
 
 ### 2. Run Baselines
@@ -36,7 +36,7 @@ pip install numpy pandas scikit-learn
 python baselines/run_baselines.py
 ```
 
-This runs all 5 baseline models on all 21 tasks and outputs:
+This runs all 7 baseline models on all 21 tasks and outputs:
 - Per-task metrics (primary + secondary)
 - B1 feature ablation study
 - Normalized composite scores
@@ -174,35 +174,37 @@ composite = mean(category_averages)
 
 ## Baseline Results
 
-| Task | Tier | Metric | Random | Majority | LogReg | RF | MLP |
-|------|------|--------|--------|----------|--------|----|-----|
-| A1 | Standard | macro_f1 | 0.214 | 0.200 | **0.546** | 0.294 | 0.310 |
-| A2 | Standard | macro_f1 | 0.214 | 0.200 | **0.493** | 0.374 | 0.331 |
-| B1 | Advanced | AUPRC | 0.020 | 0.017 | 0.533 | **0.885** | 0.854 |
-| B2 | Advanced | micro_f1 | 0.083 | 0.000 | **0.154** | 0.131 | 0.000 |
-| C1 | Standard | macro_f1 | 0.170 | 0.228 | 0.512 | 0.464 | **0.517** |
-| C2 | Frontier | AUROC | 0.529 | 0.500 | 0.500 | **0.555** | 0.524 |
-| D1 | Advanced | AUROC | 0.481 | 0.500 | 0.561 | **0.676** | 0.557 |
-| E1 | Advanced | AUPRC | 0.008 | 0.002 | **0.017** | 0.015 | 0.003 |
-| E4 | Advanced | AUPRC | 0.003 | 0.002 | **0.023** | 0.002 | 0.003 |
-| F1 | Standard | macro_f1 | 0.112 | 0.018 | 0.147 | **0.199** | 0.108 |
-| F2 | Frontier | macro_f1 | 0.205 | 0.111 | 0.236 | **0.238** | 0.204 |
-| F3 | Calibration | AUROC | 0.402 | 0.500 | 0.574 | **0.841** | 0.320 |
-| F4 | Standard | macro_f1 | 0.112 | 0.018 | **0.163** | 0.151 | 0.096 |
-| F5 | Frontier | macro_f1 | 0.205 | 0.111 | 0.240 | **0.254** | 0.229 |
-| G1 | Advanced | macro_f1 | 0.253 | 0.228 | **0.517** | 0.254 | 0.285 |
-| H1 | Advanced | AUPRC | 0.060 | 0.048 | 0.176 | **0.266** | 0.062 |
-| I1 | Frontier | AUPRC | 0.003 | 0.002 | 0.003 | **0.005** | 0.003 |
-| I2 | Advanced | AUROC | 0.504 | 0.500 | 0.586 | **0.706** | 0.580 |
-| I3 | Advanced | AUPRC | 0.059 | 0.052 | **0.090** | 0.081 | 0.090 |
+| Task | Tier | Metric | Random | Majority | LogReg | RF | MLP | XGBoost | LightGBM |
+|------|------|--------|--------|----------|--------|----|-----|---------|----------|
+| A1 | Standard | macro_f1 | 0.214 | 0.200 | **0.546** | 0.294 | 0.310 | 0.332 | 0.200 |
+| A2 | Standard | macro_f1 | 0.214 | 0.200 | **0.493** | 0.374 | 0.331 | 0.353 | 0.200 |
+| B1 | Advanced | AUPRC | 0.020 | 0.017 | 0.533 | 0.885 | 0.854 | 0.912 | **0.922** |
+| B2 | Advanced | micro_f1 | 0.083 | 0.000 | **0.154** | 0.131 | 0.000 | — | — |
+| C1 | Standard | macro_f1 | 0.170 | 0.228 | 0.512 | 0.464 | **0.517** | 0.355 | 0.228 |
+| C2 | Frontier | AUROC | 0.529 | 0.500 | 0.500 | 0.555 | 0.524 | 0.533 | **0.565** |
+| D1 | Advanced | AUROC | 0.481 | 0.500 | 0.561 | **0.676** | 0.557 | 0.617 | 0.638 |
+| E1 | Advanced | AUPRC | 0.008 | 0.002 | **0.017** | 0.015 | 0.003 | 0.010 | 0.005 |
+| E4 | Advanced | AUPRC | 0.003 | 0.002 | **0.023** | 0.002 | 0.003 | 0.006 | 0.009 |
+| F1 | Standard | macro_f1 | 0.112 | 0.018 | 0.147 | 0.199 | 0.108 | 0.193 | **0.200** |
+| F2 | Frontier | macro_f1 | 0.205 | 0.111 | 0.236 | 0.238 | 0.204 | 0.263 | **0.280** |
+| F3 | Calibration | AUROC | 0.402 | 0.500 | 0.574 | **0.841** | 0.320 | 0.838 | 0.838 |
+| F4 | Standard | macro_f1 | 0.112 | 0.018 | **0.163** | 0.151 | 0.096 | 0.134 | 0.160 |
+| F5 | Frontier | macro_f1 | 0.205 | 0.111 | 0.240 | 0.254 | 0.229 | 0.300 | **0.304** |
+| G1 | Advanced | macro_f1 | 0.253 | 0.228 | **0.517** | 0.254 | 0.285 | 0.328 | 0.228 |
+| H1 | Advanced | AUPRC | 0.060 | 0.048 | 0.176 | 0.266 | 0.062 | 0.213 | **0.285** |
+| I1 | Frontier | AUPRC | 0.003 | 0.002 | 0.003 | 0.005 | 0.003 | 0.005 | **0.006** |
+| I2 | Advanced | AUROC | 0.504 | 0.500 | 0.586 | 0.706 | 0.580 | 0.716 | **0.735** |
+| I3 | Advanced | AUPRC | 0.059 | 0.052 | **0.090** | 0.081 | 0.090 | 0.081 | 0.086 |
 
-**Bold** = best performing baseline per task.
+**Bold** = best performing baseline per task. — = not applicable (multilabel task).
 
 ### Normalized Composite Scores
 
 | Model | Composite | Best Categories |
 |-------|-----------|-----------------|
 | RF | **0.258** | B_cfrna (0.882), F_source (0.735), D_metabolomics (0.375) |
+| XGBoost | 0.250 | B_cfrna (0.910), F_source (0.728), D_metabolomics (0.262) |
+| LightGBM | 0.238 | B_cfrna (0.921), F_source (0.730), D_metabolomics (0.302) |
 | LogReg | 0.201 | B_cfrna (0.523), A_clinical (0.389), G_multimodal (0.353) |
 | MLP | 0.133 | B_cfrna (0.851), C_proteomics (0.209), D_metabolomics (0.147) |
 
@@ -210,13 +212,13 @@ composite = mean(category_averages)
 
 The B1 task includes effect-size features (fold-changes, differences) alongside distribution features. Ablation reveals:
 
-| Variant | Features | LogReg | RF | MLP |
-|---------|----------|--------|----|-----|
-| B1 (all) | All 29 features | 0.533 | 0.885 | 0.854 |
-| B1 (effect-only) | Only fold-change/diff features | 0.248 | 0.813 | 0.741 |
-| B1 (no-effect) | Exclude fold-change/diff features | 0.527 | 0.863 | 0.847 |
+| Variant | Features | LogReg | RF | MLP | XGBoost | LightGBM |
+|---------|----------|--------|----|-----|---------|----------|
+| B1 (all) | All 29 features | 0.533 | 0.885 | 0.854 | 0.912 | **0.922** |
+| B1 (effect-only) | Only fold-change/diff | 0.248 | 0.813 | 0.741 | 0.780 | 0.801 |
+| B1 (no-effect) | Exclude fold-change/diff | 0.527 | 0.863 | 0.847 | **0.899** | 0.884 |
 
-Distribution-based features (means, ranges, IQRs) carry most of the predictive signal, confirming the task tests genuine biological pattern recognition rather than simple effect-size thresholding.
+Distribution-based features (means, ranges, IQRs) carry most of the predictive signal, confirming the task tests genuine biological pattern recognition rather than simple effect-size thresholding. Gradient boosting methods (XGBoost, LightGBM) achieve the highest B1 scores, with LightGBM reaching AUPRC=0.922.
 
 ## LLM Evaluation
 

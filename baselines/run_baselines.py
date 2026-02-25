@@ -2,12 +2,14 @@
 """
 SpaceOmicsBench v2 — ML Baselines
 
-Runs baseline models on all 18 tasks:
+Runs baseline models on all 21 tasks:
   1. Random: random predictions matching class distribution
   2. Majority: always predict majority class
   3. LogReg: Logistic Regression (L2, class-weighted)
   4. RF: Random Forest (100 trees, class-weighted)
   5. MLP: Multi-layer Perceptron (256→128→64, dropout-like via alpha)
+  6. XGBoost: Gradient Boosted Trees (100 trees, max_depth=6)
+  7. LightGBM: Gradient Boosted Trees (100 trees, 31 leaves)
 
 Additional analyses:
   - B1 feature ablation (effect-size only vs no-effect-size)
@@ -48,6 +50,13 @@ try:
 except Exception:
     HAS_XGB = False
     print("Warning: xgboost not available, skipping XGBoost baseline")
+
+try:
+    from lightgbm import LGBMClassifier
+    HAS_LGBM = True
+except Exception:
+    HAS_LGBM = False
+    print("Warning: lightgbm not available, skipping LightGBM baseline")
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 DATA_DIR = BASE_DIR / "data" / "processed"
@@ -374,6 +383,11 @@ def get_baselines(task_type, n_features=10):
                 n_estimators=100, max_depth=6,
                 random_state=SEED, eval_metric="logloss", verbosity=0,
             )
+        if HAS_LGBM:
+            models["lightgbm"] = LGBMClassifier(
+                n_estimators=100, max_depth=6, num_leaves=31,
+                random_state=SEED, verbose=-1, n_jobs=-1,
+            )
 
     elif task_type == "multilabel_classification":
         models["multilabel_logreg"] = "multilabel_logreg"
@@ -698,9 +712,9 @@ def main():
     print("\n" + "=" * 70)
     print("SUMMARY (main tasks)")
     print("=" * 70)
-    header = f"{'Task':>5} {'Tier':>10} {'Primary':>8} {'Random':>8} {'Major':>8} {'LogReg':>8} {'RF':>8} {'MLP':>8}"
+    header = f"{'Task':>5} {'Tier':>10} {'Primary':>8} {'Random':>8} {'Major':>8} {'LogReg':>8} {'RF':>8} {'MLP':>8} {'XGB':>8} {'LGBM':>8}"
     print(header)
-    print("-" * 70)
+    print("-" * 90)
 
     for task_id in ALL_TASKS:
         if task_id not in all_results or "error" in all_results[task_id]:
@@ -716,7 +730,7 @@ def main():
         supp = "*" if task_id in SUPPLEMENTARY_TASKS else " "
 
         row = f"{task_id:>4}{supp} {tier:>10} {primary:>8}"
-        for model in ["random", "majority", "logreg", "rf", "mlp",
+        for model in ["random", "majority", "logreg", "rf", "mlp", "xgboost", "lightgbm",
                        "multilabel_logreg", "multilabel_rf", "multilabel_mlp"]:
             if model in all_results[task_id] and primary in all_results[task_id][model]:
                 val = all_results[task_id][model][primary]["mean"]
@@ -730,7 +744,7 @@ def main():
     for variant in ["B1", "B1_effect_only", "B1_no_effect"]:
         if variant in all_results and "error" not in all_results[variant]:
             row = f"  {variant:20s}:"
-            for model in ["logreg", "rf", "mlp"]:
+            for model in ["logreg", "rf", "mlp", "xgboost", "lightgbm"]:
                 if model in all_results[variant] and "auprc" in all_results[variant][model]:
                     val = all_results[variant][model]["auprc"]["mean"]
                     row += f"  {model}={val:.4f}"
