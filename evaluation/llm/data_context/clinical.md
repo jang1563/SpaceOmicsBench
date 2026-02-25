@@ -19,12 +19,15 @@ Standard metabolic markers measured at same timepoints as CBC.
 EVE (extravehicular exposure) cytokine panel including inflammatory markers, growth factors, and chemokines. Measured in serum at all 7 timepoints.
 
 ## Benchmark Tasks
-- **A1**: Flight phase classification from CBC + CMP features (3-class: pre/post/recovery)
-  - Metric: macro_f1, LOCO evaluation (4-fold)
-  - Best baseline: LogReg = 0.546
-- **A2**: Flight phase classification from immune/cytokine markers (3-class)
-  - Metric: macro_f1, LOCO evaluation (4-fold)
-  - Best baseline: LogReg = 0.493
+- **A1**: Flight phase classification from CBC + CMP features (3-class: pre_flight/post_flight/recovery)
+  - 39 features (20 CBC + 19 CMP), N=28, LOCO evaluation (4-fold)
+  - Metric: macro_f1, Random baseline: 0.214
+  - Best baseline: LogReg=0.546 | RF=0.294 | MLP=0.310 | XGBoost=0.332 | LightGBM=0.200
+  - Note: LightGBM collapses to majority baseline (0.200) due to small training sets (~21 per fold)
+- **A2**: Flight phase classification from immune/cytokine markers (3-class: pre_flight/post_flight/recovery)
+  - 71 features, N=28, LOCO evaluation (4-fold)
+  - Metric: macro_f1, Random baseline: 0.214
+  - Best baseline: LogReg=0.493 | RF=0.374 | MLP=0.331 | XGBoost=0.353 | LightGBM=0.200
 
 ## Key Observations
 - Post-flight class has only 4 samples (one per crew at R+1), creating severe imbalance
