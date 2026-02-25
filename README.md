@@ -11,7 +11,7 @@ All data is derived from publicly accessible sources (NASA Open Science Data Rep
 | **ML Tasks** | 21 tasks (19 main + 2 supplementary) |
 | **LLM Evaluation** | 60 questions, 5-dimension Claude-as-judge scoring |
 | **Modalities** | Clinical, cfRNA, Proteomics, Metabolomics, Spatial Transcriptomics, Microbiome, Multi-modal, Cross-tissue, Cross-mission |
-| **Difficulty Tiers** | Calibration (1) / Standard (5) / Advanced (8) / Frontier (7) |
+| **Difficulty Tiers** | Calibration (1) / Standard (5) / Advanced (9) / Frontier (6) |
 | **Missions** | Inspiration4 (4 crew, 3 days LEO), NASA Twins (340 days ISS), JAXA CFE (6 astronauts, >120 days ISS) |
 | **Evaluation** | Leave-One-Crew-Out, Leave-One-Timepoint-Out, Stratified 80/20 feature splits |
 | **Baselines** | Random, Majority, LogReg, RF, MLP |

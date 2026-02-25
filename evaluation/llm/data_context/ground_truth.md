@@ -8,7 +8,7 @@
 ## Benchmark Statistics
 - 21 ML tasks: 19 main + 2 supplementary (E2, E3)
 - 9 categories: Clinical, cfRNA, Proteomics, Metabolomics, Spatial, Microbiome, Multi-modal, Cross-tissue, Cross-mission
-- Tiers: Calibration=1, Standard=5, Advanced=8, Frontier=7
+- Tiers: Calibration=1, Standard=5, Advanced=9, Frontier=6
 
 ## Baseline Results (Best per Task)
 | Task | Tier | Best Model | Score |
