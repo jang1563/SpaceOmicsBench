@@ -1,0 +1,93 @@
+=== SYSTEM ===
+You are an expert in space medicine, bioinformatics, and multi-omics data analysis. You are answering questions about spaceflight biomedical data from the SpaceOmicsBench benchmark, which includes data from the Inspiration4 (I4) 3-day mission and the NASA Twins Study (340-day ISS mission).
+
+When answering:
+1. Be specific and cite relevant statistics when available from the provided context
+2. Distinguish between what the data shows versus your interpretation
+3. Express uncertainty appropriately, especially given the extremely small sample sizes (N=4 for I4, N=1 for Twins)
+4. Consider multi-omics integration and cross-mission comparisons where relevant
+5. Do not fabricate statistics, gene names, or citations not present in the provided context
+
+=== PROMPT ===
+## Data Context
+
+# Space Anemia and Hemoglobin Pathway
+
+## Background
+Space anemia is a well-documented consequence of spaceflight. Key findings from literature:
+- ~54% more red blood cells destroyed in space compared to ground (Trudel et al., Nature Medicine 2022)
+- Hemolysis continues for at least 1 year post-flight
+- Compensatory erythropoiesis upregulates hemoglobin-related genes
+
+## Hemoglobin Gene Set
+- **Total genes**: 59 hemoglobin/erythropoiesis pathway genes
+- **Key genes**: HBA1, HBA2 (alpha-globins), HBB (beta-globin), HBBP1, ALAS2 (rate-limiting erythropoiesis enzyme)
+- **Overlap with DE data**: 57 of 59 genes found in the 26,845-gene Twins DE dataset
+
+## Expression Data (from gt_hemoglobin_globin_genes.csv)
+- 59 genes measured across 4 crew and 11 timepoints (Pre1-3, Flight1-4, Post1-4)
+- HBB expression: normalized means range from ~11,000 (Flight2) to ~33,000 (Post4), showing ~40% post-flight increase
+- HBA1 and HBA2 show similar patterns: decreased during flight, increased post-flight
+- ALAS2 (aminolevulinic acid synthase 2): key rate-limiting enzyme for heme biosynthesis
+
+## Cross-Mission DE (Task I1)
+- **Features**: 3 fold-change values from Twins transcriptome (Pre vs Flight FC, Pre vs Post FC, Flight vs Post FC)
+- **Target**: Whether gene is in the 57 hemoglobin/erythropoiesis gene set
+- **N=26,845**, positives=57 (0.21%)
+- **Metric**: AUPRC
+- **Difficulty**: Frontier — only 3 features with extreme class imbalance
+- **Baseline results**: RF=0.005, LogReg=0.003 (near random=0.003)
+
+## Biological Interpretation
+- Alpha-globin (HBA1, HBA2) and beta-globin (HBB) are the main oxygen-carrying proteins in hemoglobin
+- Spaceflight causes splenic hemolysis → compensatory upregulation of erythropoiesis genes
+- The post-flight increase is consistent with recovery response: body producing new RBCs to replace those lost in space
+- ALAS2 upregulation confirms active heme biosynthesis pathway activation
+- Cross-mission consistency (both I4 and Twins show hemoglobin pathway activation) suggests this is a universal spaceflight response
+
+---
+
+# Cross-Mission Comparison Data
+
+## Missions Compared
+| Property | Inspiration4 (I4) | NASA Twins Study |
+|----------|-------------------|-----------------|
+| Duration | 3 days | 340 days |
+| Orbit | LEO (~585 km) | ISS (~408 km) |
+| Crew | 4 civilians | 1 astronaut (twin control) |
+| Year | 2021 | 2015-2016 |
+| Blood analysis | cfRNA (cell-free), PBMC (single-cell) | Blood cell scRNA-seq (CD4, CD8, CD19, PBMC, LD) |
+
+## NASA Twins Study Details
+- **Subjects**: Scott Kelly (space) vs Mark Kelly (ground twin)
+- **Experiment types**: Multivariate (PolyA+ and Ribodepleted together), PolyA+, Ribodepleted
+- **Cell types**: CD4, CD8, CD19 (B cells), PBMC, LD (lymphocyte-depleted)
+- **Contrasts**: 21 different coefficients including In-flight vs Pre-flight, Post-flight vs Pre-flight, In-flight vs Post-flight, GLM models for time effects
+- **Total DEG entries**: 115,493 rows across all cell types, contrasts, and experiment types
+- **Unique genes tested**: 19,446
+
+## Cross-Mission Pathway Conservation (Task I2)
+- **I4 PBMC GSEA**: 452 unique pathways enriched across 9 cell types (CD4_T, CD8_T, other_T, B, NK, CD14_Mono, CD16_Mono, DC, other)
+- **Twins GSEA**: 152 unique pathways significant in CD4, CD8, CD19
+- **Conserved**: 146 pathways found in both missions (32.3% of I4 pathways)
+- **Key conserved pathways**: HALLMARK_OXIDATIVE_PHOSPHORYLATION, HALLMARK_MYC_TARGETS_V1, HALLMARK_UV_RESPONSE_DN
+- **Features**: mean NES, std NES, mean ES, mean/min padj, number of cell types, pathway size, direction consistency
+
+## Cross-Mission Gene DE Conservation (Task I3)
+- **Shared gene universe**: 15,540 genes (intersection of Twins 19,446 and I4 cfRNA 26,845)
+- **Conserved DE genes**: 814 (5.2%) — significant in both Twins blood cells and I4 cfRNA
+- **Twins features per gene**: mean absolute log2FC, max absolute log2FC, mean base expression, mean lfcSE, mean absolute Wald statistic, number of cell types DE, number of contrasts DE, total DEG entries, direction consistency
+- **I4 target**: cfRNA ANOVA FDR < 0.05
+
+## Biological Significance
+- Despite 100-fold difference in mission duration (3 days vs 340 days), 32.3% pathway overlap is remarkable
+- Suggests core spaceflight stress pathways that activate regardless of duration
+- Oxidative phosphorylation disruption is a hallmark of mitochondrial stress in microgravity
+- MYC targets relate to cell proliferation changes observed in both missions
+- The 5.2% gene-level conservation is lower than pathway-level, suggesting pathways capture broader biological themes while individual gene responses are more context-dependent
+
+---
+
+**Question (medium):** HBB (beta-globin) shows approximately 40% post-flight expression increase in the I4 crew. How does this relate to the known phenomenon of space anemia?
+
+**Your Answer:**

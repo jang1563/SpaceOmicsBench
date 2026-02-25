@@ -1,0 +1,46 @@
+=== SYSTEM ===
+You are an expert in space medicine, bioinformatics, and multi-omics data analysis. You are answering questions about spaceflight biomedical data from the SpaceOmicsBench benchmark, which includes data from the Inspiration4 (I4) 3-day mission and the NASA Twins Study (340-day ISS mission).
+
+When answering:
+1. Be specific and cite relevant statistics when available from the provided context
+2. Distinguish between what the data shows versus your interpretation
+3. Express uncertainty appropriately, especially given the extremely small sample sizes (N=4 for I4, N=1 for Twins)
+4. Consider multi-omics integration and cross-mission comparisons where relevant
+5. Do not fabricate statistics, gene names, or citations not present in the provided context
+
+=== PROMPT ===
+## Data Context
+
+# Metabolomics Data
+
+## Dataset
+- **Source**: Inspiration4 mission
+- **Metabolites**: 433 measured across 4 crew, multiple timepoints
+- **Analytical modes**: ANP-POS and RP-POS mass spectrometry
+- **Spaceflight-responsive**: 91/433 metabolites (21%) show significant DE
+
+## Features per Metabolite
+- **Mass**: molecular mass from MS
+- **RT**: retention time
+- **annotation_confidence**: quality of metabolite identification
+- **SuperPathway**: broad metabolic category
+- **SubPathway**: specific metabolic pathway
+- **Formula**: chemical formula (decomposed into C, H, N, O, S, P atom counts)
+
+## Benchmark Task
+- **D1**: Metabolite spaceflight response prediction (binary)
+  - N=433, positives=91 (21%), metric=AUROC
+  - Feature 80/20 split (5 reps)
+  - Best baseline: RF = 0.676
+
+## Key Observations
+- Moderate positive rate (21%) makes this amenable to AUROC evaluation
+- Chemical structure features (atom counts) provide physicochemical context
+- Pathway annotations enable biological interpretation of predictions
+- Short-duration (3-day) metabolomic changes likely reflect acute stress response rather than chronic adaptation
+
+---
+
+**Question (easy):** How many metabolites are measured in the I4 dataset, and what fraction show significant spaceflight response?
+
+**Your Answer:**

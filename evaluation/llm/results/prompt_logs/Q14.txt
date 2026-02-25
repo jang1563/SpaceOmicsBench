@@ -1,0 +1,110 @@
+=== SYSTEM ===
+You are an expert in space medicine, bioinformatics, and multi-omics data analysis. You are answering questions about spaceflight biomedical data from the SpaceOmicsBench benchmark, which includes data from the Inspiration4 (I4) 3-day mission and the NASA Twins Study (340-day ISS mission).
+
+When answering:
+1. Be specific and cite relevant statistics when available from the provided context
+2. Distinguish between what the data shows versus your interpretation
+3. Express uncertainty appropriately, especially given the extremely small sample sizes (N=4 for I4, N=1 for Twins)
+4. Consider multi-omics integration and cross-mission comparisons where relevant
+5. Do not fabricate statistics, gene names, or citations not present in the provided context
+
+=== PROMPT ===
+## Data Context
+
+# Cell-Free RNA Transcriptomics
+
+## I4 cfRNA Dataset
+- **Genes measured**: 26,845 across 4 crew, 7 timepoints
+- **Analysis**: 3-group differential expression (ANOVA + pairwise edge tests)
+- **Groups**: pre-flight vs in-flight vs post-flight
+- **DRR genes**: 466 differentially-regulated response genes identified (1.7% of total)
+
+## Feature Set (29 features per gene)
+- **Effect-size features**: fold-changes and mean differences for each pairwise comparison (pre vs flight, pre vs post, flight vs post)
+- **Distribution features**: group means (normalized, raw, transformed), experiment-level range, IQR, fold-change, difference across all samples
+- **No p-values included** (removed to prevent leakage)
+
+## JAXA CFE Study
+- 6 astronauts, >120 days ISS
+- Cell-free RNA epigenome analysis
+- Provides independent validation context for spaceflight transcriptomic changes
+
+## Benchmark Tasks
+- **B1**: Spaceflight-responsive gene ranking (binary: DRR vs non-DRR)
+  - N=26,845, positives=466 (1.7%), metric=AUPRC
+  - Feature 80/20 split (5 reps), seed=42
+  - Best baseline: RF = 0.885
+- **B2**: Coregulated gene cluster prediction (multilabel, 16 clusters)
+  - N=466, metric=micro_f1
+  - Best baseline: LogReg = 0.154
+
+## B1 Feature Ablation Study
+| Variant | LogReg | RF | MLP |
+|---------|--------|----|-----|
+| All 29 features | 0.533 | 0.885 | 0.839 |
+| Effect-only (fold-change/diff) | 0.248 | 0.813 | 0.756 |
+| No-effect (distribution only) | 0.527 | 0.863 | 0.865 |
+
+**Key finding**: Distribution-based features (means, ranges, IQRs) carry most predictive signal. Removing effect-size features barely affects RF/MLP performance, confirming the task tests genuine biological pattern recognition rather than simple fold-change thresholding.
+
+---
+
+# Ground Truth Key Facts
+
+## Mission Facts
+- I4: 4 civilian crew, 3 days LEO (~585 km), September 2021, SpaceX Dragon
+- NASA Twins: 340 days ISS, Scott Kelly vs Mark Kelly (twin control), 2015-2016
+- JAXA CFE: 6 astronauts, >120 days ISS, cell-free RNA epigenome
+
+## Benchmark Statistics
+- 21 ML tasks: 19 main + 2 supplementary (E2, E3)
+- 9 categories: Clinical, cfRNA, Proteomics, Metabolomics, Spatial, Microbiome, Multi-modal, Cross-tissue, Cross-mission
+- Tiers: Calibration=1, Standard=5, Advanced=9, Frontier=6
+
+## Baseline Results (Best per Task)
+| Task | Tier | Best Model | Score |
+|------|------|-----------|-------|
+| A1 | Standard | LogReg | 0.546 |
+| A2 | Standard | LogReg | 0.493 |
+| B1 | Advanced | LightGBM | 0.922 |
+| B2 | Advanced | LogReg | 0.154 |
+| C1 | Standard | MLP | 0.517 |
+| C2 | Frontier | LightGBM | 0.565 |
+| D1 | Advanced | RF | 0.676 |
+| E1 | Advanced | LogReg | 0.017 |
+| E4 | Advanced | LogReg | 0.023 |
+| F1 | Standard | LightGBM | 0.200 |
+| F2 | Frontier | LightGBM | 0.280 |
+| F3 | Calibration | RF | 0.841 |
+| F4 | Standard | LogReg | 0.163 |
+| F5 | Frontier | LightGBM | 0.304 |
+| G1 | Advanced | LogReg | 0.517 |
+| H1 | Advanced | LightGBM | 0.285 |
+| I1 | Frontier | LightGBM | 0.006 |
+| I2 | Advanced | LightGBM | 0.735 |
+| I3 | Advanced | LogReg | 0.090 |
+
+## Composite Scores (Normalized)
+- RF: 0.258 (best overall)
+- XGBoost: 0.250
+- LightGBM: 0.238
+- LogReg: 0.201
+- MLP: 0.133
+
+## Cross-Mission Facts
+- 146/452 pathways conserved between I4 and Twins (32.3%)
+- 814/15,540 genes show conserved DE (5.2%)
+- 57 hemoglobin/erythropoiesis genes in the dataset
+- HBB shows ~40% post-flight expression increase
+
+## Key Limitations
+- N=4 crew (I4), N=1 treatment (Twins) — extremely small sample sizes
+- 3-day mission may not capture chronic adaptation effects
+- LOCO evaluation stringent but low-N means high variance
+- Cross-mission comparisons confounded by different platforms, crews, and durations
+
+---
+
+**Question (expert):** The B1 task confirms that distribution features (means, IQR, range) carry more predictive signal than effect-size features (fold-changes). What does this imply about the nature of spaceflight gene regulation, and how would you design a feature set to capture this more effectively?
+
+**Your Answer:**

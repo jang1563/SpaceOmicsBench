@@ -1,0 +1,139 @@
+=== SYSTEM ===
+You are an expert in space medicine, bioinformatics, and multi-omics data analysis. You are answering questions about spaceflight biomedical data from the SpaceOmicsBench benchmark, which includes data from the Inspiration4 (I4) 3-day mission and the NASA Twins Study (340-day ISS mission).
+
+When answering:
+1. Be specific and cite relevant statistics when available from the provided context
+2. Distinguish between what the data shows versus your interpretation
+3. Express uncertainty appropriately, especially given the extremely small sample sizes (N=4 for I4, N=1 for Twins)
+4. Consider multi-omics integration and cross-mission comparisons where relevant
+5. Do not fabricate statistics, gene names, or citations not present in the provided context
+
+=== PROMPT ===
+## Data Context
+
+# Ground Truth Key Facts
+
+## Mission Facts
+- I4: 4 civilian crew, 3 days LEO (~585 km), September 2021, SpaceX Dragon
+- NASA Twins: 340 days ISS, Scott Kelly vs Mark Kelly (twin control), 2015-2016
+- JAXA CFE: 6 astronauts, >120 days ISS, cell-free RNA epigenome
+
+## Benchmark Statistics
+- 21 ML tasks: 19 main + 2 supplementary (E2, E3)
+- 9 categories: Clinical, cfRNA, Proteomics, Metabolomics, Spatial, Microbiome, Multi-modal, Cross-tissue, Cross-mission
+- Tiers: Calibration=1, Standard=5, Advanced=9, Frontier=6
+
+## Baseline Results (Best per Task)
+| Task | Tier | Best Model | Score |
+|------|------|-----------|-------|
+| A1 | Standard | LogReg | 0.546 |
+| A2 | Standard | LogReg | 0.493 |
+| B1 | Advanced | LightGBM | 0.922 |
+| B2 | Advanced | LogReg | 0.154 |
+| C1 | Standard | MLP | 0.517 |
+| C2 | Frontier | LightGBM | 0.565 |
+| D1 | Advanced | RF | 0.676 |
+| E1 | Advanced | LogReg | 0.017 |
+| E4 | Advanced | LogReg | 0.023 |
+| F1 | Standard | LightGBM | 0.200 |
+| F2 | Frontier | LightGBM | 0.280 |
+| F3 | Calibration | RF | 0.841 |
+| F4 | Standard | LogReg | 0.163 |
+| F5 | Frontier | LightGBM | 0.304 |
+| G1 | Advanced | LogReg | 0.517 |
+| H1 | Advanced | LightGBM | 0.285 |
+| I1 | Frontier | LightGBM | 0.006 |
+| I2 | Advanced | LightGBM | 0.735 |
+| I3 | Advanced | LogReg | 0.090 |
+
+## Composite Scores (Normalized)
+- RF: 0.258 (best overall)
+- XGBoost: 0.250
+- LightGBM: 0.238
+- LogReg: 0.201
+- MLP: 0.133
+
+## Cross-Mission Facts
+- 146/452 pathways conserved between I4 and Twins (32.3%)
+- 814/15,540 genes show conserved DE (5.2%)
+- 57 hemoglobin/erythropoiesis genes in the dataset
+- HBB shows ~40% post-flight expression increase
+
+## Key Limitations
+- N=4 crew (I4), N=1 treatment (Twins) — extremely small sample sizes
+- 3-day mission may not capture chronic adaptation effects
+- LOCO evaluation stringent but low-N means high variance
+- Cross-mission comparisons confounded by different platforms, crews, and durations
+
+---
+
+# Clinical Biomarker Data
+
+## Dataset
+- **Source**: Inspiration4 mission, 4 civilian crew (C001-C004)
+- **Samples**: 28 total (4 crew × 7 timepoints)
+- **Phase distribution**: pre_flight=12, post_flight=4, recovery=12
+
+## CBC (Complete Blood Count) — 20 features
+Absolute counts: basophils, eosinophils, lymphocytes, monocytes, neutrophils
+Percentages: basophils, eosinophils, lymphocytes, monocytes, neutrophils
+Red cell indices: hematocrit, hemoglobin, MCH, MCHC, MCV, RBC count, RDW
+Platelets: platelet count, MPV
+White cells: WBC count
+
+## CMP (Comprehensive Metabolic Panel)
+Standard metabolic markers measured at same timepoints as CBC.
+
+## Cytokines/Immune Markers — 71 features
+EVE (extravehicular exposure) cytokine panel including inflammatory markers, growth factors, and chemokines. Measured in serum at all 7 timepoints.
+
+## Benchmark Tasks
+- **A1**: Flight phase classification from CBC + CMP features (3-class: pre/post/recovery)
+  - Metric: macro_f1, LOCO evaluation (4-fold)
+  - Best baseline: LogReg = 0.546
+- **A2**: Flight phase classification from immune/cytokine markers (3-class)
+  - Metric: macro_f1, LOCO evaluation (4-fold)
+  - Best baseline: LogReg = 0.493
+
+## Key Observations
+- Post-flight class has only 4 samples (one per crew at R+1), creating severe imbalance
+- CBC features show acute changes at R+1 including shifts in neutrophil/lymphocyte ratios
+- LogReg outperforms RF and MLP, likely due to small N favoring simpler models
+- LOCO evaluation is stringent: each fold tests on an entirely unseen crew member
+
+---
+
+# Multi-Omics Integration and Cross-Tissue Analysis
+
+## G1: Multi-Modal Phase Classification
+- **Modalities fused**: Clinical (CBC + CMP) + Proteomics (PCA) + Metabolomics (PCA)
+- **Matched samples**: 21 (only timepoints where all 3 modalities were collected)
+- **Feature construction**:
+  - Clinical: ~40 raw CBC + CMP features
+  - Proteomics: PCA of 2,845 proteins → 8 components
+  - Metabolomics: PCA of metabolite matrix → 8 components
+  - Total: ~56 fused features (PCA applied per-fold to prevent data leakage)
+- **Task**: 3-class phase classification (pre_flight / post_flight / recovery)
+- **Evaluation**: LOCO (4-fold), macro_f1
+- **Results**: LogReg=0.517, MLP=0.285, RF=0.254
+
+## H1: Cross-Tissue Gene Conservation (PBMC → Skin)
+- **Question**: Do PBMC DE patterns predict skin DE?
+- **N**: 731 genes tested in both PBMC and skin
+- **Features**: 9 I4 PBMC cell type log2FC values (CD4_T, CD8_T, other_T, B, NK, CD14_Mono, CD16_Mono, DC, other)
+- **Target**: Whether gene is also significantly DE in skin (binary)
+- **Metric**: AUPRC
+- **Results**: RF=0.266, LogReg=0.176, MLP=0.062
+
+## Key Observations
+- Multi-modal fusion (G1) improves over single-modality approaches, but small N (21) limits gains
+- PCA is necessary for proteomics and metabolomics (p >> n) but loses interpretability
+- LOCO evaluation with N=21 means each fold tests on ~5 samples from one crew
+- Cross-tissue conservation (H1) shows moderate signal: some genes respond systemically to spaceflight across both blood and skin
+- RF best for H1, suggesting nonlinear relationships between PBMC cell type effects and skin DE
+
+---
+
+**Question (hard):** XGBoost and LightGBM both collapse to majority-baseline performance on LOCO tasks with N<=28 (A1, A2, C1, G1) — LightGBM worse than XGBoost. Why are gradient boosting methods particularly vulnerable to very small sample sizes compared to LogReg?
+
+**Your Answer:**

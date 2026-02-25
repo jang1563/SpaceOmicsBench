@@ -1,0 +1,76 @@
+=== SYSTEM ===
+You are an expert in space medicine, bioinformatics, and multi-omics data analysis. You are answering questions about spaceflight biomedical data from the SpaceOmicsBench benchmark, which includes data from the Inspiration4 (I4) 3-day mission and the NASA Twins Study (340-day ISS mission).
+
+When answering:
+1. Be specific and cite relevant statistics when available from the provided context
+2. Distinguish between what the data shows versus your interpretation
+3. Express uncertainty appropriately, especially given the extremely small sample sizes (N=4 for I4, N=1 for Twins)
+4. Consider multi-omics integration and cross-mission comparisons where relevant
+5. Do not fabricate statistics, gene names, or citations not present in the provided context
+
+=== PROMPT ===
+## Data Context
+
+# Proteomics Data
+
+## Plasma Proteomics
+- **Samples**: 21 (4 crew × ~5-6 timepoints, plasma tissue)
+- **Proteins measured**: 2,845
+- **DE analysis**: 1,686 proteins with differential expression statistics (logFC, AveExpr, t-statistic, B-statistic, adj_pval)
+
+## EVP (Extracellular Vesicle Particle) Proteomics
+- **DE analysis**: 496 proteins with DE statistics
+- **Overlap with plasma**: 380 proteins measured in both biofluids
+
+## Benchmark Tasks
+- **C1**: Proteomics phase classification (3-class: pre/post/recovery)
+  - N=21 samples, per-fold PCA reduction (2,845 proteins → 10 components)
+  - Metric: macro_f1, LOCO evaluation (4-fold)
+  - Best baseline: MLP = 0.517
+- **C2**: Cross-biofluid protein DE concordance (frontier difficulty)
+  - Predict EVP significance from plasma DE features
+  - N=380 overlapping proteins, metric=AUROC
+  - Best baseline: LightGBM = 0.565 (barely above random 0.529)
+
+## Key Observations
+- p >> n problem: 2,845 proteins vs 21 samples requires PCA dimensionality reduction
+- C1 achieves reasonable classification despite tiny N, suggesting strong proteomic shifts during spaceflight
+- C2 is frontier difficulty — plasma and EVP protein changes show weak concordance, reflecting different biological compartments
+- EVP cargo represents active cellular secretion, while plasma includes both secreted and leaked proteins
+
+---
+
+# Multi-Omics Integration and Cross-Tissue Analysis
+
+## G1: Multi-Modal Phase Classification
+- **Modalities fused**: Clinical (CBC + CMP) + Proteomics (PCA) + Metabolomics (PCA)
+- **Matched samples**: 21 (only timepoints where all 3 modalities were collected)
+- **Feature construction**:
+  - Clinical: ~40 raw CBC + CMP features
+  - Proteomics: PCA of 2,845 proteins → 8 components
+  - Metabolomics: PCA of metabolite matrix → 8 components
+  - Total: ~56 fused features (PCA applied per-fold to prevent data leakage)
+- **Task**: 3-class phase classification (pre_flight / post_flight / recovery)
+- **Evaluation**: LOCO (4-fold), macro_f1
+- **Results**: LogReg=0.517, MLP=0.285, RF=0.254
+
+## H1: Cross-Tissue Gene Conservation (PBMC → Skin)
+- **Question**: Do PBMC DE patterns predict skin DE?
+- **N**: 731 genes tested in both PBMC and skin
+- **Features**: 9 I4 PBMC cell type log2FC values (CD4_T, CD8_T, other_T, B, NK, CD14_Mono, CD16_Mono, DC, other)
+- **Target**: Whether gene is also significantly DE in skin (binary)
+- **Metric**: AUPRC
+- **Results**: RF=0.266, LogReg=0.176, MLP=0.062
+
+## Key Observations
+- Multi-modal fusion (G1) improves over single-modality approaches, but small N (21) limits gains
+- PCA is necessary for proteomics and metabolomics (p >> n) but loses interpretability
+- LOCO evaluation with N=21 means each fold tests on ~5 samples from one crew
+- Cross-tissue conservation (H1) shows moderate signal: some genes respond systemically to spaceflight across both blood and skin
+- RF best for H1, suggesting nonlinear relationships between PBMC cell type effects and skin DE
+
+---
+
+**Question (hard):** If instead of PCA, you used protein pathway enrichment scores as features for C1, how might model performance change? What tradeoffs would you expect?
+
+**Your Answer:**
