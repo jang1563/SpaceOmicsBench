@@ -3,7 +3,7 @@
 ## Dataset
 - **Source**: Inspiration4 skin biopsies
 - **Genes**: 18,677 measured across skin tissue layers
-- **Layers analyzed**: outer_epidermis, inner_epidermis, epidermis (combined), outer_dermis, vasculature
+- **Layers analyzed**: outer_epidermis, inner_epidermis, epidermis (combined), outer_dermis
 
 ## All-Skin DE Analysis (Feature Source)
 - Baseline DE statistics computed across entire skin tissue

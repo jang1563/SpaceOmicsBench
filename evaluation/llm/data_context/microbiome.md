@@ -2,9 +2,9 @@
 
 ## Dataset
 - **Source**: Inspiration4 mission
-- **Human samples**: 275 from 10 body sites across 4 crew, 7 timepoints
+- **Human samples**: 275 from 10 body sites across 4 crew, 7 timepoints (total human + environmental = 314)
 - **Environmental samples**: 39 from ISS surfaces
-- **Human gut samples**: 8
+- **Human gut samples**: 8 (separate from the 275 body-site samples; not used in F1-F5 tasks)
 - **Feature types**: Taxonomy-level CPM and Pathway-level CPM (MetaPhlAn/HUMAnN)
 
 ## Body Sites (10 sites, ~27-28 samples each)
