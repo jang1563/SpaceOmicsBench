@@ -23,7 +23,7 @@
   - Best baseline: LightGBM=0.922 | XGBoost=0.911 | RF=0.884 | MLP=0.854 | LogReg=0.533
 - **B2**: Coregulated gene cluster prediction (multilabel, 16 clusters)
   - N=466, metric=micro_f1
-  - Best baseline: LogReg = 0.154
+  - Best: LogReg=0.154 | RF=0.131 | MLP=0.000, Random: 0.083
 
 ## B1 Feature Ablation Study
 | Variant | LogReg | RF | MLP | XGBoost | LightGBM |

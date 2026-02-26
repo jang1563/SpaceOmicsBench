@@ -30,9 +30,24 @@ import json
 import os
 import argparse
 import time
+import time as time_module
 from datetime import datetime
 from pathlib import Path
 from typing import Optional, Dict, List, Any
+
+
+def retry_api_call(func, max_retries=3, base_delay=2):
+    """Retry API calls with exponential backoff."""
+    for attempt in range(max_retries):
+        try:
+            return func()
+        except Exception as e:
+            if attempt == max_retries - 1:
+                raise
+            delay = base_delay * (2 ** attempt)
+            print(f"  Retry {attempt+1}/{max_retries} after {delay}s: {e}")
+            time_module.sleep(delay)
+
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 DATA_CONTEXT_DIR = SCRIPT_DIR / "data_context"
@@ -95,7 +110,7 @@ class ClaudeBackend(BaseModelBackend):
             }
             if system:
                 kwargs["system"] = system
-            resp = self.client.messages.create(**kwargs)
+            resp = retry_api_call(lambda: self.client.messages.create(**kwargs))
             elapsed = time.time() - start
             self.total_input_tokens += resp.usage.input_tokens
             self.total_output_tokens += resp.usage.output_tokens
@@ -132,12 +147,12 @@ class OpenAIBackend(BaseModelBackend):
             if system:
                 messages.append({"role": "system", "content": system})
             messages.append({"role": "user", "content": prompt})
-            resp = self.client.chat.completions.create(
+            resp = retry_api_call(lambda: self.client.chat.completions.create(
                 model=self.model_name,
                 max_tokens=self.max_tokens,
                 temperature=self.temperature,
                 messages=messages,
-            )
+            ))
             elapsed = time.time() - start
             inp = resp.usage.prompt_tokens if resp.usage else 0
             out = resp.usage.completion_tokens if resp.usage else 0
@@ -159,12 +174,13 @@ class HuggingFaceBackend(BaseModelBackend):
     """HuggingFace local model backend with optional LoRA adapter support."""
 
     def __init__(self, model_name: str, max_tokens: int = 2000, temperature: float = 0.3,
-                 adapter_path: Optional[str] = None, use_4bit: bool = True):
+                 adapter_path: Optional[str] = None, use_4bit: bool = True,
+                 trust_remote_code: bool = False):
         super().__init__(model_name, max_tokens, temperature)
         self.adapter_path = adapter_path
-        self._load_model(model_name, adapter_path, use_4bit)
+        self._load_model(model_name, adapter_path, use_4bit, trust_remote_code)
 
-    def _load_model(self, model_name, adapter_path, use_4bit):
+    def _load_model(self, model_name, adapter_path, use_4bit, trust_remote_code):
         try:
             import torch
             self.torch = torch
@@ -179,7 +195,7 @@ class HuggingFaceBackend(BaseModelBackend):
             print("No GPU detected, using CPU (will be slow)")
 
         tok_path = adapter_path if adapter_path else model_name
-        self.tokenizer = AutoTokenizer.from_pretrained(tok_path, trust_remote_code=True)
+        self.tokenizer = AutoTokenizer.from_pretrained(tok_path, trust_remote_code=trust_remote_code)
         if self.tokenizer.pad_token is None:
             self.tokenizer.pad_token = self.tokenizer.eos_token
 
@@ -189,14 +205,14 @@ class HuggingFaceBackend(BaseModelBackend):
                 bnb = BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_quant_type="nf4",
                                          bnb_4bit_compute_dtype=torch.float16, bnb_4bit_use_double_quant=True)
                 self.model = AutoModelForCausalLM.from_pretrained(
-                    model_name, quantization_config=bnb, device_map=device_map, trust_remote_code=True)
+                    model_name, quantization_config=bnb, device_map=device_map, trust_remote_code=trust_remote_code)
             except ImportError:
                 self.model = AutoModelForCausalLM.from_pretrained(
-                    model_name, device_map=device_map, torch_dtype=torch.float16, trust_remote_code=True)
+                    model_name, device_map=device_map, torch_dtype=torch.float16, trust_remote_code=trust_remote_code)
         else:
             dt = torch.float16 if torch.cuda.is_available() else torch.float32
             self.model = AutoModelForCausalLM.from_pretrained(
-                model_name, device_map=device_map, torch_dtype=dt, trust_remote_code=True)
+                model_name, device_map=device_map, torch_dtype=dt, trust_remote_code=trust_remote_code)
 
         if adapter_path:
             from peft import PeftModel
@@ -209,9 +225,21 @@ class HuggingFaceBackend(BaseModelBackend):
     def generate(self, prompt: str, system: str = None) -> Dict[str, Any]:
         start = time.time()
         try:
-            fmt = f"### System:\n{system}\n\n### Instruction:\n{prompt}\n\n### Response:\n" if system \
-                else f"### Instruction:\n{prompt}\n\n### Response:\n"
-            inputs = self.tokenizer(fmt, return_tensors="pt")
+            messages = []
+            if system:
+                messages.append({"role": "system", "content": system})
+            messages.append({"role": "user", "content": prompt})
+
+            try:
+                formatted = self.tokenizer.apply_chat_template(
+                    messages, tokenize=False, add_generation_prompt=True
+                )
+            except Exception:
+                # Fallback for models without chat template
+                formatted = f"### System:\n{system}\n\n### Instruction:\n{prompt}\n\n### Response:\n" if system \
+                    else f"### Instruction:\n{prompt}\n\n### Response:\n"
+
+            inputs = self.tokenizer(formatted, return_tensors="pt")
             inputs = {k: v.to(self.model.device) for k, v in inputs.items()}
             n_in = inputs["input_ids"].shape[1]
 
@@ -244,7 +272,8 @@ class HuggingFaceBackend(BaseModelBackend):
 def get_backend(model_name: str, adapter_path: Optional[str] = None,
                 max_tokens: int = 2000, temperature: float = 0.3,
                 use_4bit: bool = True,
-                backend_override: Optional[str] = None) -> BaseModelBackend:
+                backend_override: Optional[str] = None,
+                trust_remote_code: bool = False) -> BaseModelBackend:
     """Factory: pick Claude / OpenAI / HuggingFace backend by model name or explicit override."""
     if backend_override:
         override = backend_override.lower()
@@ -253,7 +282,8 @@ def get_backend(model_name: str, adapter_path: Optional[str] = None,
         elif override == "openai":
             return OpenAIBackend(model_name, max_tokens, temperature)
         elif override == "huggingface":
-            return HuggingFaceBackend(model_name, max_tokens, temperature, adapter_path, use_4bit)
+            return HuggingFaceBackend(model_name, max_tokens, temperature, adapter_path, use_4bit,
+                                      trust_remote_code=trust_remote_code)
         else:
             raise ValueError(f"Unknown backend: {backend_override}. Use: claude, openai, huggingface")
 
@@ -264,7 +294,8 @@ def get_backend(model_name: str, adapter_path: Optional[str] = None,
     elif any(k in name for k in ["gpt", "o1", "o3", "o4", "chatgpt"]):
         return OpenAIBackend(model_name, max_tokens, temperature)
     else:
-        return HuggingFaceBackend(model_name, max_tokens, temperature, adapter_path, use_4bit)
+        return HuggingFaceBackend(model_name, max_tokens, temperature, adapter_path, use_4bit,
+                                  trust_remote_code=trust_remote_code)
 
 
 # ============================================================================
@@ -321,6 +352,7 @@ def run_evaluation(
     use_4bit: bool = True,
     backend_override: Optional[str] = None,
     log_prompts: bool = False,
+    trust_remote_code: bool = False,
 ):
     """Run LLM evaluation on the SpaceOmicsBench question bank."""
 
@@ -333,7 +365,8 @@ def run_evaluation(
     if adapter_path:
         print(f"Adapter: {adapter_path}")
     backend = get_backend(model_name, adapter_path, use_4bit=use_4bit,
-                          backend_override=backend_override)
+                          backend_override=backend_override,
+                          trust_remote_code=trust_remote_code)
 
     # Load questions
     questions = load_question_bank(modality, difficulty, sample_size)
@@ -359,7 +392,7 @@ def run_evaluation(
         prompt = (
             f"## Data Context\n\n{context}\n\n"
             f"---\n\n"
-            f"**Question ({qdiff}):** {qtext}\n\n"
+            f"**Question:** {qtext}\n\n"
             f"**Your Answer:**"
         )
 
@@ -404,8 +437,8 @@ def run_evaluation(
             "adapter_path": adapter_path,
             "timestamp": ts,
             "total_questions": len(results),
-            "successful": sum(1 for r in results if r.get("success")),
-            "failed": sum(1 for r in results if not r.get("success", True)),
+            "successful": sum(1 for r in results if r.get("success", False)),
+            "failed": sum(1 for r in results if not r.get("success", False)),
             "total_input_tokens": backend.total_input_tokens,
             "total_output_tokens": backend.total_output_tokens,
             "filters": {"modality": modality, "difficulty": difficulty, "sample_size": sample_size},
@@ -434,7 +467,7 @@ def main():
                         help="Model name (claude-*, gpt-*, or HuggingFace path)")
     parser.add_argument("--adapter-path", default=None,
                         help="Path to LoRA adapters (HuggingFace fine-tuned models)")
-    parser.add_argument("--sample", type=int, default=None,
+    parser.add_argument("--sample", type=int, default=10,
                         help="Number of questions to sample (default: 10)")
     parser.add_argument("--full", action="store_true",
                         help="Run all 60 questions (overrides --sample)")
@@ -454,10 +487,12 @@ def main():
                         help="Force specific backend (overrides auto-detection from model name)")
     parser.add_argument("--log-prompts", action="store_true",
                         help="Save full prompts to output_dir/prompt_logs/")
+    parser.add_argument("--trust-remote-code", action="store_true",
+                        help="Allow remote code execution for HuggingFace models")
 
     args = parser.parse_args()
 
-    sample_size = None if args.full else (args.sample or 10)
+    sample_size = None if args.full else args.sample
 
     run_evaluation(
         model_name=args.model,
@@ -469,6 +504,7 @@ def main():
         use_4bit=not args.no_4bit,
         backend_override=args.backend,
         log_prompts=args.log_prompts,
+        trust_remote_code=args.trust_remote_code,
     )
 
 

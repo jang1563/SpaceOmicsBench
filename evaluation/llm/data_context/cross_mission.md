@@ -23,12 +23,16 @@
 - **Conserved**: 146 pathways found in both missions (32.3% of I4 pathways)
 - **Key conserved pathways**: HALLMARK_OXIDATIVE_PHOSPHORYLATION, HALLMARK_MYC_TARGETS_V1, HALLMARK_UV_RESPONSE_DN
 - **Features**: mean NES, std NES, mean ES, mean/min padj, number of cell types, pathway size, direction consistency
+- **N=452**, metric=AUROC, Random: 0.504
+- **Best**: LightGBM=0.735 | XGBoost=0.716 | RF=0.706 | LogReg=0.586 | MLP=0.580
 
 ## Cross-Mission Gene DE Conservation (Task I3)
 - **Shared gene universe**: 15,540 genes (intersection of Twins 19,446 and I4 cfRNA 26,845)
 - **Conserved DE genes**: 814 (5.2%) — significant in both Twins blood cells and I4 cfRNA
 - **Twins features per gene**: mean absolute log2FC, max absolute log2FC, mean base expression, mean lfcSE, mean absolute Wald statistic, number of cell types DE, number of contrasts DE, total DEG entries, direction consistency
 - **I4 target**: cfRNA ANOVA FDR < 0.05
+- **N=15,540**, metric=AUPRC, Random: 0.059
+- **Best**: MLP=0.090 | LogReg=0.090 | LightGBM=0.086 | RF=0.081 | XGBoost=0.081
 
 ## Biological Significance
 - Despite 100-fold difference in mission duration (3 days vs 340 days), 32.3% pathway overlap is remarkable

@@ -17,7 +17,7 @@
 | A1 | 28 | 3 (pre/post/recovery) | 39 (20 CBC + 19 CMP) | macro_f1 | LOCO | Standard |
 | A2 | 28 | 3 (pre/post/recovery) | 71 cytokines | macro_f1 | LOCO | Standard |
 | B1 | 26845 | 2 (DRR vs non-DRR) | 29 per gene | AUPRC | Feature 80/20 | Advanced |
-| B2 | 466 | 16 clusters | 29 per gene | micro_f1 | Feature 80/20 | Advanced |
+| B2 | 466 | 16 clusters | 466 (correlation vector) | micro_f1 | Feature 80/20 | Advanced |
 | C1 | 21 | 3 (pre/post/recovery) | 2845 → PCA 10 | macro_f1 | LOCO | Standard |
 | C2 | 380 | 2 (DE concordance) | DE features | AUROC | Feature 80/20 | Frontier |
 | D1 | 433 | 2 (responsive) | chemical properties | AUROC | Feature 80/20 | Advanced |
@@ -31,8 +31,8 @@
 | G1 | 21 | 3 (pre/post/recovery) | ~56 fused (clinical + PCA 8 prot + PCA 8 met) | macro_f1 | LOCO | Advanced |
 | H1 | 731 | 2 (conserved DE) | tissue DE features | AUPRC | Feature 80/20 | Advanced |
 | I1 | 26845 | 2 (hemoglobin gene) | 3 fold-change features | AUPRC | Feature 80/20 | Frontier |
-| I2 | 452 | 2 (conserved pathway) | 4 aggregated features | AUROC | Feature 80/20 | Advanced |
-| I3 | 15540 | 2 (conserved DE gene) | 4 aggregated features | AUPRC | Feature 80/20 | Advanced |
+| I2 | 452 | 2 (conserved pathway) | 8 aggregated features | AUROC | Feature 80/20 | Advanced |
+| I3 | 15540 | 2 (conserved DE gene) | 9 aggregated features | AUPRC | Feature 80/20 | Advanced |
 
 Note: A1/A2 use N=28 (4 crew × 7 timepoints). C1/G1 use N=21 (4 crew × ~5 timepoints, plasma only). F2/F5 use 4-class phase (including in_flight). A1/A2/C1/G1 use 3-class (no in_flight clinical samples). G1 PCA uses 8 components per modality; C1 PCA uses 10 components.
 
