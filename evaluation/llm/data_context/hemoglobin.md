@@ -23,7 +23,7 @@ Space anemia is a well-documented consequence of spaceflight. Key findings from 
 - **N=26,845**, positives=57 (0.21%)
 - **Metric**: AUPRC
 - **Difficulty**: Frontier — only 3 features with extreme class imbalance
-- **Baseline results**: RF=0.005, LogReg=0.003 (near random=0.003)
+- **Baseline results**: LightGBM=0.006 | RF=0.005 | XGBoost=0.005 | LogReg=0.003 | MLP=0.003, Random: 0.003
 
 ## Biological Interpretation
 - Alpha-globin (HBA1, HBA2) and beta-globin (HBB) are the main oxygen-carrying proteins in hemoglobin

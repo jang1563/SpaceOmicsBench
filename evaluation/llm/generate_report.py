@@ -53,11 +53,14 @@ def load_scored_file(fpath: str) -> Dict[str, Any]:
 def extract_model_name(data: Dict) -> str:
     """Extract a short model name from metadata."""
     model = data.get("metadata", {}).get("model", "unknown")
-    # Shorten common names
-    for prefix in ["claude-", "gpt-", "mistralai/"]:
-        if model.startswith(prefix):
-            return model
-    return model
+    # Shorten common model names for display
+    shortcuts = {
+        "claude-sonnet-4-20250514": "Claude Sonnet 4",
+        "claude-opus-4-20250514": "Claude Opus 4",
+        "gpt-4o-2024-08-06": "GPT-4o",
+        "gpt-4o-mini-2024-07-18": "GPT-4o Mini",
+    }
+    return shortcuts.get(model, model)
 
 
 def compute_aggregates(results: List[Dict]) -> Dict[str, Any]:
@@ -229,9 +232,12 @@ def generate_comparison_report(models: List[Dict]) -> str:
         model_names.append(name)
         model_aggs.append(agg)
 
+    # Sanitize model names for markdown table (pipe chars break table formatting)
+    safe_names = [n.replace("|", "/") for n in model_names]
+
     # Overall comparison
-    header = "| Dimension | " + " | ".join(model_names) + " |"
-    sep = "|-----------|" + "|".join(["-------"] * len(model_names)) + "|"
+    header = "| Dimension | " + " | ".join(safe_names) + " |"
+    sep = "|-----------|" + "|".join(["-------"] * len(safe_names)) + "|"
     lines.extend(["## Overall Dimension Scores", "", header, sep])
 
     for dim in DIMENSION_WEIGHTS:
@@ -249,8 +255,8 @@ def generate_comparison_report(models: List[Dict]) -> str:
     lines.append("")
 
     # By difficulty comparison
-    header = "| Difficulty | " + " | ".join(model_names) + " |"
-    sep = "|------------|" + "|".join(["-------"] * len(model_names)) + "|"
+    header = "| Difficulty | " + " | ".join(safe_names) + " |"
+    sep = "|------------|" + "|".join(["-------"] * len(safe_names)) + "|"
     lines.extend(["## By Difficulty", "", header, sep])
     for diff in DIFFICULTY_ORDER:
         row = f"| {diff.title()} |"
@@ -261,8 +267,8 @@ def generate_comparison_report(models: List[Dict]) -> str:
     lines.append("")
 
     # By modality comparison
-    header = "| Modality | " + " | ".join(model_names) + " |"
-    sep = "|----------|" + "|".join(["-------"] * len(model_names)) + "|"
+    header = "| Modality | " + " | ".join(safe_names) + " |"
+    sep = "|----------|" + "|".join(["-------"] * len(safe_names)) + "|"
     lines.extend(["## By Modality", "", header, sep])
     for mod in MODALITY_ORDER:
         row = f"| {mod.replace('_', ' ').title()} |"
@@ -273,10 +279,10 @@ def generate_comparison_report(models: List[Dict]) -> str:
     lines.append("")
 
     # Flag comparison
-    header = "| Flag | " + " | ".join(model_names) + " |"
-    sep = "|------|" + "|".join(["-------"] * len(model_names)) + "|"
+    header = "| Flag | " + " | ".join(safe_names) + " |"
+    sep = "|------|" + "|".join(["-------"] * len(safe_names)) + "|"
     lines.extend(["## Quality Flags", "", header, sep])
-    for flag in ["hallucination", "factual_error", "novel_insight"]:
+    for flag in ["hallucination", "factual_error", "novel_insight", "harmful_recommendation", "exceeds_data_scope"]:
         row = f"| {flag.replace('_', ' ').title()} |"
         for agg in model_aggs:
             row += f" {agg.get('flags', {}).get(flag, 0)} |"

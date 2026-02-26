@@ -18,7 +18,7 @@
 - **D1**: Metabolite spaceflight response prediction (binary)
   - N=433, positives=91 (21%), metric=AUROC
   - Feature 80/20 split (5 reps)
-  - Best baseline: RF = 0.676
+  - Best: RF=0.676 | LightGBM=0.638 | XGBoost=0.617 | LogReg=0.561 | MLP=0.557, Random: 0.481
 
 ## Key Observations
 - Moderate positive rate (21%) makes this amenable to AUROC evaluation

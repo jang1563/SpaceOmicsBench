@@ -129,16 +129,27 @@ Respond ONLY with a JSON object (no markdown fences):
 
 def parse_judge_response(text: str) -> Dict[str, Any]:
     """Parse the judge's JSON response, handling markdown fences if present."""
-    # Try to extract JSON from markdown code blocks
+    # Try to extract JSON from markdown code blocks first
     json_match = re.search(r"```(?:json)?\s*(\{.*?\})\s*```", text, re.DOTALL)
     if json_match:
-        text = json_match.group(1)
-    else:
-        # Try to find raw JSON object
-        brace_match = re.search(r"\{.*\}", text, re.DOTALL)
-        if brace_match:
-            text = brace_match.group(0)
+        return json.loads(json_match.group(1).strip())
 
+    # Fall back to balanced brace matching (avoids greedy regex issues)
+    depth = 0
+    start = None
+    for i, ch in enumerate(text):
+        if ch == '{':
+            if depth == 0:
+                start = i
+            depth += 1
+        elif ch == '}':
+            depth -= 1
+            if depth == 0 and start is not None:
+                try:
+                    return json.loads(text[start:i+1])
+                except json.JSONDecodeError:
+                    start = None
+                    continue
     return json.loads(text.strip())
 
 
@@ -152,6 +163,8 @@ def score_single(client, question_data: Dict, qb_entry: Dict,
         resp = client.messages.create(
             model=judge_model,
             max_tokens=1000,
+            temperature=0,
+            system="You are an expert scientific benchmark evaluator. Score the response accurately and return only valid JSON.",
             messages=[{"role": "user", "content": prompt}],
         )
         if not resp.content:
@@ -160,13 +173,18 @@ def score_single(client, question_data: Dict, qb_entry: Dict,
         raw = resp.content[0].text
         scores = parse_judge_response(raw)
 
-        # Compute weighted score if not provided
-        if "weighted_score" not in scores:
-            ws = sum(
-                scores.get(dim, 3) * w
-                for dim, w in DIMENSION_WEIGHTS.items()
-            )
-            scores["weighted_score"] = round(ws, 3)
+        # Always recompute weighted_score server-side (don't trust judge arithmetic)
+        weights = {
+            "factual_accuracy": 0.25,
+            "reasoning_quality": 0.25,
+            "completeness": 0.20,
+            "uncertainty_calibration": 0.15,
+            "domain_integration": 0.15,
+        }
+        for dim in weights:
+            if dim in scores:
+                scores[dim] = max(1, min(5, scores[dim]))
+        scores["weighted_score"] = round(sum(scores.get(d, 3) * w for d, w in weights.items()), 2)
 
         scores["success"] = True
         scores["judge_tokens"] = {
@@ -311,8 +329,8 @@ def score_all(input_file: str, output_file: Optional[str] = None,
                 print(f"  {diff:<12s} {v:.2f}")
 
         print(f"\nFlags:")
-        for flag in ["hallucination", "factual_error", "novel_insight"]:
-            print(f"  {flag}: {summary.get(f'flag_{flag}', 0)}")
+        for flag_name in ["hallucination", "factual_error", "novel_insight", "harmful_recommendation", "exceeds_data_scope"]:
+            print(f"  {flag_name}: {summary.get(f'flag_{flag_name}', 0)}")
 
     print(f"\nJudge tokens: {total_judge_input:,} in / {total_judge_output:,} out")
     print(f"Saved to: {output_file}")
