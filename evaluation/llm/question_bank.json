@@ -324,27 +324,27 @@
       "modality": "transcriptomics",
       "category": "reasoning",
       "difficulty": "hard",
-      "question": "The B1 ablation shows that removing effect-size features actually improves XGBoost performance (0.911 → 0.918 AUPRC) and barely affects RF (0.884 → 0.863). What does this reveal about how different model families utilize feature types, and what implications does this have for feature engineering in genomic classification?",
+      "question": "The B1 ablation reveals a crossover pattern: LightGBM achieves the best overall score (0.922 AUPRC) but drops to 0.884 with distribution-only features, while XGBoost (0.911 overall) drops less to 0.899, becoming the best model in the distribution-only variant. What does this model-specific crossover reveal about how gradient boosting variants differently utilize effect-size vs. distribution features in genomic classification?",
       "data_context_files": [
         "transcriptomics.md"
       ],
       "expected_reasoning": [
-        "XGBoost may overfit to noisy effect-size features; removing them acts as implicit regularization",
-        "RF relies more on effect-size features for splitting, so removal hurts performance",
-        "Gradient boosting's sequential nature may amplify noise from correlated effect-size features",
-        "Feature selection strategies should be model-aware — one-size-fits-all hurts some models"
+        "LightGBM's larger boost from effect-size features (+0.038) suggests it better exploits cross-feature interactions",
+        "XGBoost's distribution-only performance (0.899) being near its full performance (0.911) suggests robustness to noisy features",
+        "Different leaf-wise (LightGBM) vs level-wise (XGBoost) splitting may explain different feature utilization patterns",
+        "Feature selection strategies should be model-aware — combined features help LightGBM more than XGBoost"
       ],
       "ground_truth_key_facts": [
-        "B1 All features: XGBoost=0.911, RF=0.884, MLP=0.854",
-        "B1 No-effect: XGBoost=0.918, RF=0.863, MLP=0.847",
-        "B1 Effect-only: XGBoost=0.862, RF=0.813, MLP=0.741",
-        "Removing effect-size features improves XGBoost by +0.007 but hurts RF by -0.021 and MLP by -0.007"
+        "B1 All features: LightGBM=0.922 (best), XGBoost=0.911, RF=0.884, MLP=0.854",
+        "B1 No-effect (distribution only): XGBoost=0.899 (best), LightGBM=0.884, RF=0.863, MLP=0.847",
+        "B1 Effect-only: LightGBM=0.801, XGBoost=0.780, RF=0.813, MLP=0.741",
+        "Crossover: LightGBM benefits more from combined features (+0.038 from effect-size), XGBoost less (+0.012)"
       ],
       "rubric": {
         "reasoning_quality": "Must explain overfitting/noise mechanism for improvement",
         "domain_integration": "Should discuss redundancy between effect-size and distribution features",
         "uncertainty_calibration": "Should note that 0.026 improvement is small and may not be significant",
-        "factual_accuracy": "Must correctly cite XGBoost improvement from 0.911 to 0.918 when effect-size features removed"
+        "factual_accuracy": "Must correctly cite the crossover: LightGBM best overall (0.922) but XGBoost best in no-effect variant (0.899)"
       }
     },
     {
@@ -617,7 +617,8 @@
       "ground_truth_key_facts": [
         "Features: MW, LogP, PSA, H-bond donors/acceptors, rotatable bonds, ring count, etc.",
         "Target: whether metabolite shows significant DE in spaceflight",
-        "RF=0.676 AUROC — moderate predictive signal from chemistry alone"
+        "RF=0.676 AUROC — moderate predictive signal from chemistry alone",
+        "91/433 metabolites (21%) show differential expression"
       ],
       "rubric": {
         "reasoning_quality": "Must explain why chemical features are a meaningful predictor",
@@ -871,7 +872,7 @@
       ],
       "ground_truth_key_facts": [
         "10 body sites",
-        "275 human + 39 environmental = 314 total samples",
+        "275 human + 39 environmental = 314 total samples (8 gut samples are separate, not included in 275)",
         "4 crew members"
       ],
       "rubric": {
@@ -1469,7 +1470,8 @@
       "ground_truth_key_facts": [
         "G1: LogReg=0.517, MLP=0.285, RF=0.254",
         "A1 (clinical only): LogReg=0.546",
-        "Per-fold PCA on proteomics (8 components) and metabolomics (8 components)"
+        "Per-fold PCA on proteomics (8 components) and metabolomics (8 components)",
+        "A1 uses N=28 (clinical), G1 uses N=21 (proteomics timepoints)"
       ],
       "rubric": {
         "reasoning_quality": "Must explain why complex models fail with per-fold PCA and small N",
@@ -1526,7 +1528,7 @@
       "ground_truth_key_facts": [
         "9 cell types: CD4_T, CD8_T, other_T, B, NK, CD14_Mono, CD16_Mono, DC, other",
         "Features are log2FC values for each cell type",
-        "Moderate signal: RF=0.266 AUPRC"
+        "Moderate signal: LightGBM=0.284 (best), RF=0.266 AUPRC"
       ],
       "rubric": {
         "reasoning_quality": "Must connect monocyte biology to skin tissue responses",
@@ -1645,7 +1647,7 @@
         "Implication: blood-only monitoring misses important tissue-specific adaptations"
       ],
       "ground_truth_key_facts": [
-        "H1: RF=0.266 AUPRC, random=0.060",
+        "H1: LightGBM=0.284 (best), RF=0.266 AUPRC, random=0.060",
         "731 genes tested in both PBMC and skin",
         "Moderate signal: some systemic, mostly tissue-specific"
       ],
@@ -2045,7 +2047,8 @@
       "ground_truth_key_facts": [
         "D1: 433 metabolites with 21% positive rate (91 spaceflight-responsive)",
         "SuperPathway and SubPathway are one-hot encoded as input features",
-        "RF=0.676 AUROC is the best D1 performance"
+        "RF=0.676 AUROC is the best D1 performance",
+        "D1 baselines: RF=0.676 (best), LightGBM=0.638, XGBoost=0.617, LogReg=0.561, MLP=0.557"
       ],
       "rubric": {
         "reasoning_quality": "Must discuss the pathway confounding issue from both sides: it could be a data leakage concern OR a valid biological signal",
@@ -2159,7 +2162,7 @@
         "E1 (~35 positives) and E4 (~40 positives) have slightly more positives, making them more reliable though still very challenging"
       ],
       "ground_truth_key_facts": [
-        "E2: ~15 positive genes out of 18,677 (0.08% positive rate)",
+        "E2: ~11 positive genes out of 18,677 (0.08% positive rate)",
         "E3: ~18 positive genes out of 18,677 (0.10% positive rate)",
         "E1: ~35 positives (0.19%), E4: ~40 positives (0.21%)",
         "Designated supplementary due to metric instability from extreme imbalance"
@@ -2282,7 +2285,7 @@
       ],
       "ground_truth_key_facts": [
         "I4 orbit: ~585 km altitude (higher than ISS at ~408 km), increasing radiation exposure",
-        "DE genes by layer: outer_epidermis ~35, epidermis combined ~40, inner_epidermis ~15, outer_dermis ~18",
+        "DE genes by layer: outer_epidermis ~35, epidermis combined ~40, inner_epidermis ~11, outer_dermis ~18",
         "Mission duration: 3 days only",
         "Skin is the most radiation-exposed organ due to its position as the outermost tissue"
       ],
