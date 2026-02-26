@@ -153,24 +153,60 @@ def parse_judge_response(text: str) -> Dict[str, Any]:
     return json.loads(text.strip())
 
 
+def _call_anthropic(client, prompt: str, judge_model: str) -> tuple:
+    """Call Anthropic API and return (raw_text, input_tokens, output_tokens)."""
+    resp = client.messages.create(
+        model=judge_model,
+        max_tokens=1000,
+        temperature=0,
+        system="You are an expert scientific benchmark evaluator. Score the response accurately and return only valid JSON.",
+        messages=[{"role": "user", "content": prompt}],
+    )
+    if not resp.content:
+        raise ValueError("Empty response from judge model")
+    return resp.content[0].text, resp.usage.input_tokens, resp.usage.output_tokens
+
+
+def _call_openai(client, prompt: str, judge_model: str,
+                 max_retries: int = 5) -> tuple:
+    """Call OpenAI API with retry on rate limits. Returns (raw_text, input_tokens, output_tokens)."""
+    for attempt in range(max_retries):
+        try:
+            resp = client.chat.completions.create(
+                model=judge_model,
+                max_tokens=1000,
+                temperature=0,
+                messages=[
+                    {"role": "system", "content": "You are an expert scientific benchmark evaluator. Score the response accurately and return only valid JSON."},
+                    {"role": "user", "content": prompt},
+                ],
+            )
+            if not resp.choices:
+                raise ValueError("Empty response from judge model")
+            return (resp.choices[0].message.content,
+                    resp.usage.prompt_tokens, resp.usage.completion_tokens)
+        except Exception as e:
+            if "429" in str(e) or "rate_limit" in str(e).lower():
+                wait = 2 ** attempt + 3  # 4, 5, 7, 11, 19 seconds
+                time.sleep(wait)
+                continue
+            raise
+    raise RuntimeError(f"Rate limit exceeded after {max_retries} retries")
+
+
 def score_single(client, question_data: Dict, qb_entry: Dict,
-                 ground_truth: str, judge_model: str) -> Dict[str, Any]:
-    """Score a single response using Claude as judge."""
+                 ground_truth: str, judge_model: str,
+                 judge_backend: str = "anthropic") -> Dict[str, Any]:
+    """Score a single response using an LLM judge."""
     prompt = build_scoring_prompt(question_data, qb_entry, ground_truth)
     raw = ""
 
     try:
-        resp = client.messages.create(
-            model=judge_model,
-            max_tokens=1000,
-            temperature=0,
-            system="You are an expert scientific benchmark evaluator. Score the response accurately and return only valid JSON.",
-            messages=[{"role": "user", "content": prompt}],
-        )
-        if not resp.content:
-            return {"success": False, "error": "Empty response from judge model"}
+        if judge_backend == "openai":
+            raw, tok_in, tok_out = _call_openai(client, prompt, judge_model)
+        else:
+            raw, tok_in, tok_out = _call_anthropic(client, prompt, judge_model)
 
-        raw = resp.content[0].text
         scores = parse_judge_response(raw)
 
         # Always recompute weighted_score server-side (don't trust judge arithmetic)
@@ -187,10 +223,7 @@ def score_single(client, question_data: Dict, qb_entry: Dict,
         scores["weighted_score"] = round(sum(scores.get(d, 3) * w for d, w in weights.items()), 2)
 
         scores["success"] = True
-        scores["judge_tokens"] = {
-            "input": resp.usage.input_tokens,
-            "output": resp.usage.output_tokens,
-        }
+        scores["judge_tokens"] = {"input": tok_in, "output": tok_out}
         return scores
 
     except json.JSONDecodeError as e:
@@ -200,16 +233,28 @@ def score_single(client, question_data: Dict, qb_entry: Dict,
 
 
 def score_all(input_file: str, output_file: Optional[str] = None,
-              judge_model: str = "claude-sonnet-4-20250514"):
+              judge_model: str = "claude-sonnet-4-20250514",
+              judge_backend: str = "anthropic"):
     """Score all responses in an evaluation results file."""
-    try:
-        import anthropic
-    except ImportError:
-        print("Error: pip install anthropic")
-        return None
+    if judge_backend == "openai":
+        try:
+            from openai import OpenAI
+        except ImportError:
+            print("Error: pip install openai")
+            return None
+        client = OpenAI()
+        judge_label = f"GPT-as-Judge ({judge_model})"
+    else:
+        try:
+            import anthropic
+        except ImportError:
+            print("Error: pip install anthropic")
+            return None
+        client = anthropic.Anthropic()
+        judge_label = f"Claude-as-Judge ({judge_model})"
 
     print("=" * 70)
-    print("SpaceOmicsBench v2 - Response Scoring (Claude-as-Judge)")
+    print(f"SpaceOmicsBench v2 - Response Scoring ({judge_label})")
     print("=" * 70)
 
     # Load inputs
@@ -219,7 +264,6 @@ def score_all(input_file: str, output_file: Optional[str] = None,
     results = data.get("results", [])
     qb = load_question_bank()
     gt = load_ground_truth()
-    client = anthropic.Anthropic()
 
     print(f"\nInput:       {input_file}")
     print(f"Judge model: {judge_model}")
@@ -240,7 +284,7 @@ def score_all(input_file: str, output_file: Optional[str] = None,
         print(f"[{i+1}/{len(results)}] Scoring {qid} ({r.get('difficulty', '?')})...", end=" ", flush=True)
 
         qb_entry = qb.get(qid, {})
-        scores = score_single(client, r, qb_entry, gt, judge_model)
+        scores = score_single(client, r, qb_entry, gt, judge_model, judge_backend)
 
         if scores.get("success"):
             ws = scores.get("weighted_score", "?")
@@ -252,7 +296,7 @@ def score_all(input_file: str, output_file: Optional[str] = None,
             print(f"ERROR: {scores.get('error', 'Unknown')}")
 
         scored.append({**r, "scores": scores})
-        time.sleep(0.5)  # Rate limit
+        time.sleep(6 if judge_backend == "openai" else 0.5)  # OpenAI Tier 1: 30K TPM
 
     # Aggregates
     ok = [s["scores"] for s in scored if s["scores"].get("success")]
@@ -343,13 +387,16 @@ def main():
     parser.add_argument("input_files", nargs="+", help="Evaluation result JSON file(s)")
     parser.add_argument("--output", default=None, help="Output file (single input only)")
     parser.add_argument("--judge-model", default="claude-sonnet-4-20250514",
-                        help="Claude model for judging (default: claude-sonnet-4-20250514)")
+                        help="Judge model (default: claude-sonnet-4-20250514)")
+    parser.add_argument("--judge-backend", default="anthropic",
+                        choices=["anthropic", "openai"],
+                        help="Judge API backend (default: anthropic)")
 
     args = parser.parse_args()
 
     for fpath in args.input_files:
         out = args.output if len(args.input_files) == 1 else None
-        score_all(fpath, out, args.judge_model)
+        score_all(fpath, out, args.judge_model, args.judge_backend)
         if len(args.input_files) > 1:
             print("\n")
 
