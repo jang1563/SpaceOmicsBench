@@ -56,7 +56,10 @@ def extract_model_name(data: Dict) -> str:
     # Shorten common model names for display
     shortcuts = {
         "claude-sonnet-4-20250514": "Claude Sonnet 4",
+        "claude-sonnet-4-6": "Claude Sonnet 4.6",
         "claude-opus-4-20250514": "Claude Opus 4",
+        "claude-opus-4-6": "Claude Opus 4.6",
+        "gpt-4o": "GPT-4o",
         "gpt-4o-2024-08-06": "GPT-4o",
         "gpt-4o-mini-2024-07-18": "GPT-4o Mini",
     }
