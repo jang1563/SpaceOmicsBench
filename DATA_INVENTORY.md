@@ -3,6 +3,10 @@
 > **Goal**: Build a fully public benchmark using only openly accessible processed data.
 > No raw sequencing data. No IRB-restricted individual-level data.
 > All sources are published papers (supplementary tables) + NASA OSDR processed outputs.
+>
+> **Tracks**:
+> - **Open track**: Publicly accessible processed/summary data only.
+> - **Controlled track (optional)**: Any restricted human sequence-level or individual data require approved access (e.g., OSDR DAR, dbGaP/LSDA).
 
 ---
 
@@ -213,6 +217,8 @@ Use only the **published aggregate/summary-level** Twins data from supplementary
 
 ### Key Constraint:
 For a fully public benchmark, we use ONLY the "OPEN" rows above. All controlled-access data is excluded.
+
+**Controlled-access note**: Any future controlled track must document access requirements per dataset (OSDR DAR, dbGaP/LSDA) and must not be redistributed in the open track.
 
 ---
 

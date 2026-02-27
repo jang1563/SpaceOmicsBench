@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+title: SpaceOmicsBench
+message: If you use this benchmark, please cite the repository and the source publications listed in docs/CITATIONS.bib.
+type: software
+authors:
+  - name: SpaceOmicsBench Contributors
+license: MIT
+repository-code: https://github.com/jang1563/SpaceOmicsBench
+url: https://github.com/jang1563/SpaceOmicsBench
+keywords:
+  - spaceflight
+  - multi-omics
+  - benchmark
+  - bioinformatics

@@ -1,8 +1,8 @@
 # SpaceOmicsBench
 
-A multi-omics AI benchmark for spaceflight biomedical data, featuring **21 ML tasks** across **9 modalities** and a **60-question LLM evaluation** framework. Data from the SpaceX Inspiration4 (I4) civilian astronaut mission, NASA Twins Study, and JAXA Cell-Free Epigenome (CFE) study.
+A multi-omics AI benchmark for spaceflight biomedical data, featuring **21 ML tasks** across **9 modalities** and a **100-question LLM evaluation** framework. Data from the SpaceX Inspiration4 (I4) civilian astronaut mission, NASA Twins Study, and JAXA Cell-Free Epigenome (CFE) study.
 
-All data is derived from publicly accessible sources (NASA Open Science Data Repository and published supplementary data).
+All benchmark tables are derived from OSDR public releases and/or published supplementary tables. Any human sequence-level or restricted files are excluded from the open track; a controlled-access track may require an approved OSDR Data Access Request (DAR).
 
 ## Overview
 
@@ -13,7 +13,7 @@ All data is derived from publicly accessible sources (NASA Open Science Data Rep
 | **Modalities** | Clinical, cfRNA, Proteomics, Metabolomics, Spatial Transcriptomics, Microbiome, Multi-modal, Cross-tissue, Cross-mission |
 | **Difficulty Tiers** | Calibration (1) / Standard (5) / Advanced (9) / Frontier (6) |
 | **Missions** | Inspiration4 (4 crew, 3 days LEO), NASA Twins (340 days ISS), JAXA CFE (6 astronauts, >120 days ISS) |
-| **Evaluation** | Leave-One-Crew-Out, Leave-One-Timepoint-Out, Stratified 80/20 feature splits |
+| **Evaluation** | Leave-One-Crew-Out, Leave-One-Timepoint-Out, 80/20 feature splits (5 reps) |
 | **Baselines** | Random, Majority, LogReg, RF, MLP, XGBoost, LightGBM |
 
 ## Quick Start
@@ -170,7 +170,7 @@ composite = mean(category_averages)
 |----------|---------|-------------|
 | LOCO | A1, A2, C1, F1-F5, G1 | Leave-One-Crew-Out (4 folds for I4 crew) |
 | LOTO | F3 | Leave-One-Timepoint-Out (7 folds) |
-| Feature 80/20 | B1, B2, C2, D1, E1-E4, H1, I1-I3 | Stratified random 80/20 (5 repetitions, seed=42) |
+| Feature 80/20 | B1, B2, C2, D1, E1-E4, H1, I1-I3 | Random 80/20 (5 repetitions, seed=42) |
 
 ## Baseline Results
 
@@ -191,7 +191,7 @@ composite = mean(category_averages)
 | F4 | Standard | macro_f1 | 0.112 | 0.018 | **0.163** | 0.151 | 0.096 | 0.134 | 0.160 |
 | F5 | Frontier | macro_f1 | 0.205 | 0.111 | 0.240 | 0.254 | 0.229 | 0.300 | **0.304** |
 | G1 | Advanced | macro_f1 | 0.253 | 0.228 | **0.517** | 0.254 | 0.285 | 0.328 | 0.228 |
-| H1 | Advanced | AUPRC | 0.060 | 0.048 | 0.176 | 0.266 | 0.062 | 0.213 | **0.285** |
+| H1 | Advanced | AUPRC | 0.060 | 0.048 | 0.176 | 0.266 | 0.062 | 0.213 | **0.284** |
 | I1 | Frontier | AUPRC | 0.003 | 0.002 | 0.003 | 0.005 | 0.003 | 0.005 | **0.006** |
 | I2 | Advanced | AUROC | 0.504 | 0.500 | 0.586 | 0.706 | 0.580 | 0.716 | **0.735** |
 | I3 | Advanced | AUPRC | 0.059 | 0.052 | **0.090** | 0.081 | 0.090 | 0.081 | 0.086 |
@@ -267,9 +267,35 @@ python evaluation/llm/run_llm_evaluation.py --model gpt-4o --full
 # Score responses with Claude-as-judge
 python evaluation/llm/score_responses.py results/eval_*.json
 
+# Score with GPT-4o as judge (cross-judge verification)
+python evaluation/llm/score_responses.py results/eval_*.json --judge-backend openai --judge-model gpt-4o
+
 # Generate comparison report
 python evaluation/llm/generate_report.py results/scored_*.json --compare
 ```
+
+### LLM Evaluation Results
+
+**2×2 Cross-Judge Verification** — Both Claude and GPT-4o as judges, scoring responses from both models:
+
+| | Claude-as-Judge | GPT-4o-as-Judge |
+|---|---|---|
+| **Claude Sonnet 4** | **4.55** / 5.00 | 4.76 / 5.00 |
+| **GPT-4o** | 3.64 / 5.00 | 4.36 / 5.00 |
+
+Both judges consistently rank Claude Sonnet above GPT-4o. GPT-4o-as-judge is uniformly more lenient (+0.51 same-vendor differential) but does not reverse the ranking.
+
+**Claude Sonnet 4 — Dimension Breakdown** (Claude-as-Judge):
+
+| Dimension | Weight | Score |
+|-----------|--------|-------|
+| Factual Accuracy | 0.25 | 4.60 |
+| Reasoning Quality | 0.25 | 4.83 |
+| Completeness | 0.20 | 4.75 |
+| Uncertainty Calibration | 0.15 | 3.90 |
+| Domain Integration | 0.15 | 4.38 |
+
+**GPT-4o** — largest gaps vs Claude in Completeness (−1.18) and Domain Integration (−1.21), reflecting less thorough coverage of cross-omics connections and key reasoning points.
 
 ## Directory Structure
 
@@ -279,12 +305,12 @@ SpaceOmicsBench/
 ├── demo.html                        # Interactive benchmark visualization
 ├── data/
 │   └── processed/                   # Benchmark data (CSV)
-│       ├── gt_clinical_cbc.csv      # Clinical CBC features
-│       ├── gt_cfrna_features.csv    # cfRNA gene features
+│       ├── clinical_cbc.csv         # Clinical CBC features
+│       ├── cfrna_3group_de_noleak.csv # cfRNA gene features (no leakage)
 │       ├── cross_mission_*.csv      # I-series cross-mission data
 │       └── ...
 ├── tasks/                           # Task definitions (JSON)
-│   ├── A1.json ... H1.json         # 16 main + 2 supplementary
+│   ├── A1.json ... H1.json         # 19 main + 2 supplementary
 │   └── I1.json, I2.json, I3.json   # Cross-mission tasks
 ├── splits/                          # Train/test split indices (JSON)
 │   ├── loco_clinical.json
@@ -295,9 +321,9 @@ SpaceOmicsBench/
 │   ├── eval_harness.py              # ML evaluation harness
 │   ├── metrics.py                   # Metric implementations
 │   └── llm/                         # LLM evaluation framework
-│       ├── question_bank.json       # 60 questions
+│       ├── question_bank.json       # 100 questions
 │       ├── annotation_schema.json   # 5-dimension scoring schema
-│       ├── data_context/            # 11 markdown context files
+│       ├── data_context/            # 12 markdown context files
 │       ├── run_llm_evaluation.py    # Run LLM on questions
 │       ├── score_responses.py       # Claude-as-judge scoring
 │       └── generate_report.py       # Report generation
@@ -335,4 +361,4 @@ Each task JSON specifies:
 ## License
 
 - **Benchmark code**: MIT License
-- **Data**: Subject to original source licenses (NASA OSDR: public domain; published supplementary: CC-BY 4.0)
+- **Data**: Subject to original source licenses and terms (OSDR terms/Science Information Policy; publisher supplementary licenses). The open track includes only publicly accessible processed/summary tables; controlled-access data is excluded unless explicitly obtained via approved DAR.
