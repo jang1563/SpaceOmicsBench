@@ -216,3 +216,16 @@ Dragon capsule metagenomics: taxonomy coverages, pathway abundances, QC reports.
 - [x] ~~P04~~ EXCLUDED from benchmark
 - [x] ~~P10 Table S7~~ Does not exist in the original paper
 - [ ] Verify MOESM-to-SuppTable/SuppData numbering by spot-checking xlsx contents
+
+---
+
+## Optional: Checksums for Reproducibility
+
+For local verification, you can generate checksums after downloading:
+
+```bash
+cd SpaceOmicsBench/v2_public/data
+find . -type f \\( -name \"*.xlsx\" -o -name \"*.csv\" -o -name \"*.tsv\" \\) | sort | xargs shasum -a 256 > checksums.sha256
+```
+
+Store the resulting `checksums.sha256` alongside the download metadata if you plan to publish a fixed snapshot.

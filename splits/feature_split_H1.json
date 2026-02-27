@@ -737,7 +737,12 @@
       730
     ],
     "train_size": 584,
-    "test_size": 147
+    "test_size": 147,
+    "split_type": "feature_stratified_80_20",
+    "stratified": true,
+    "seed": 42,
+    "generated_by": "scripts/generate_tasks_and_splits.py",
+    "generated_on": "2026-02-27"
   },
   {
     "rep": 1,
@@ -1477,7 +1482,12 @@
       727
     ],
     "train_size": 584,
-    "test_size": 147
+    "test_size": 147,
+    "split_type": "feature_stratified_80_20",
+    "stratified": true,
+    "seed": 42,
+    "generated_by": "scripts/generate_tasks_and_splits.py",
+    "generated_on": "2026-02-27"
   },
   {
     "rep": 2,
@@ -2217,7 +2227,12 @@
       727
     ],
     "train_size": 584,
-    "test_size": 147
+    "test_size": 147,
+    "split_type": "feature_stratified_80_20",
+    "stratified": true,
+    "seed": 42,
+    "generated_by": "scripts/generate_tasks_and_splits.py",
+    "generated_on": "2026-02-27"
   },
   {
     "rep": 3,
@@ -2957,7 +2972,12 @@
       722
     ],
     "train_size": 584,
-    "test_size": 147
+    "test_size": 147,
+    "split_type": "feature_stratified_80_20",
+    "stratified": true,
+    "seed": 42,
+    "generated_by": "scripts/generate_tasks_and_splits.py",
+    "generated_on": "2026-02-27"
   },
   {
     "rep": 4,
@@ -3697,6 +3717,11 @@
       721
     ],
     "train_size": 584,
-    "test_size": 147
+    "test_size": 147,
+    "split_type": "feature_stratified_80_20",
+    "stratified": true,
+    "seed": 42,
+    "generated_by": "scripts/generate_tasks_and_splits.py",
+    "generated_on": "2026-02-27"
   }
 ]

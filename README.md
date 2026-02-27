@@ -27,7 +27,10 @@ cd SpaceOmicsBench
 # Create conda environment
 conda create -n spaceomics python=3.11 -y
 conda activate spaceomics
-pip install numpy pandas scikit-learn xgboost lightgbm
+pip install -r requirements.txt
+
+# Optional: LLM evaluation dependencies
+pip install -r requirements-llm.txt
 ```
 
 ### 2. Run Baselines
@@ -170,9 +173,15 @@ composite = mean(category_averages)
 |----------|---------|-------------|
 | LOCO | A1, A2, C1, F1-F5, G1 | Leave-One-Crew-Out (4 folds for I4 crew) |
 | LOTO | F3 | Leave-One-Timepoint-Out (7 folds) |
-| Feature 80/20 | B1, B2, C2, D1, E1-E4, H1, I1-I3 | Random 80/20 (5 repetitions, seed=42) |
+| Feature 80/20 | B1, B2, C2, D1, E1-E4, H1, I1-I3 | Stratified 80/20 (5 repetitions, seed=42) |
 
 ## Baseline Results
+
+Tables below are generated from `baselines/baseline_results.json`.
+To refresh them after re-running baselines:
+`python scripts/generate_readme_tables.py --update-readme README.md`
+
+<!-- BEGIN BASELINE_TABLE -->
 
 | Task | Tier | Metric | Random | Majority | LogReg | RF | MLP | XGBoost | LightGBM |
 |------|------|--------|--------|----------|--------|----|-----|---------|----------|
@@ -196,9 +205,13 @@ composite = mean(category_averages)
 | I2 | Advanced | AUROC | 0.504 | 0.500 | 0.586 | 0.706 | 0.580 | 0.716 | **0.735** |
 | I3 | Advanced | AUPRC | 0.059 | 0.052 | **0.090** | 0.081 | 0.090 | 0.081 | 0.086 |
 
+<!-- END BASELINE_TABLE -->
+
 **Bold** = best performing baseline per task. — = not applicable (multilabel task).
 
 ### Normalized Composite Scores
+
+<!-- BEGIN COMPOSITE_TABLE -->
 
 | Model | Composite | Best Categories |
 |-------|-----------|-----------------|
@@ -207,6 +220,8 @@ composite = mean(category_averages)
 | LightGBM | 0.238 | B_cfrna (0.921), F_source (0.730), D_metabolomics (0.302) |
 | LogReg | 0.201 | B_cfrna (0.523), A_clinical (0.389), G_multimodal (0.353) |
 | MLP | 0.133 | B_cfrna (0.851), C_proteomics (0.209), D_metabolomics (0.147) |
+
+<!-- END COMPOSITE_TABLE -->
 
 ### B1 Feature Ablation
 
@@ -273,6 +288,11 @@ python evaluation/llm/score_responses.py results/eval_*.json --judge-backend ope
 # Generate comparison report
 python evaluation/llm/generate_report.py results/scored_*.json --compare
 ```
+
+**LLM reproducibility notes**:
+- Default generation settings: `temperature=0.3`, `max_tokens=2000`
+- No fixed random seed is set by default; expect small variability across runs
+- For model comparisons, report the exact model name, temperature, and max_tokens
 
 ### LLM Evaluation Results
 
@@ -344,6 +364,18 @@ All data originates from:
 
 See `docs/CITATIONS.bib` for the complete list of source publications.
 
+## Data Redistribution & Access
+
+This repository includes only **publicly shareable processed/summary tables**. Raw sequencing data and controlled-access human data are **not redistributed**. For any controlled-access material (e.g., human sequence-level data), users must obtain access directly via the original source (e.g., OSDR DAR, dbGaP/LSDA).
+
+## Results Policy
+
+The `results/` directory is intended for example outputs and local experiments. If you publish benchmark results, treat `baselines/baseline_results.json` as the canonical baseline reference and provide your own model results separately.
+
+## Provenance Table
+
+For a consolidated source/track/license view, see `docs/PROVENANCE.md`.
+
 ## Adding a New Model
 
 1. Read task definitions from `tasks/` to understand input/output specifications
@@ -357,6 +389,10 @@ Each task JSON specifies:
 - `output_spec`: target type, classes, and class distribution
 - `evaluation`: primary and secondary metrics
 - `split`: which split file to use
+
+## Task Schema Validation
+
+Task JSON files are expected to follow the schema in `docs/task_schema.json`. This can be used for local validation or CI checks if you extend the benchmark.
 
 ## License
 

@@ -2,14 +2,16 @@
 """
 Generate task definitions (JSON) and split files for SpaceOmicsBench v2.
 
-17 tasks across 7 categories:
+21 tasks across 9 categories:
   A (Clinical):      A1 blood panel phase, A2 immune marker phase
   B (cfRNA):         B1 DEG ranking, B2 cluster prediction
   C (Proteomics):    C1 expression→DE, C2 cross-biofluid
   D (Metabolomics):  D1 pathway classification
-  E (Spatial):       E1-E4 cross-layer DE prediction
+  E (Spatial):       E1-E4 cross-layer DE prediction (E2/E3 supplementary)
   F (Microbiome):    F1-F5 body site / phase / source classification
   G (Multi-modal):   G1 multi-modal phase
+  H (Cross-tissue):  H1 PBMC ↔ skin conservation
+  I (Cross-mission): I1-I3 Twins ↔ I4 conservation
 
 Output:
   - tasks/*.json: Task definitions
@@ -18,6 +20,7 @@ Output:
 
 import json
 import sys
+import argparse
 from pathlib import Path
 
 import numpy as np
@@ -674,8 +677,27 @@ def generate_G1():
 # ============================================================
 
 def main():
+    parser = argparse.ArgumentParser(
+        description=(
+            "Legacy task/split generator. "
+            "Current benchmark tasks/splits are maintained separately; "
+            "do not run this script unless you intentionally want legacy regeneration."
+        )
+    )
+    parser.add_argument(
+        "--allow-legacy-write",
+        action="store_true",
+        help="Allow writing task/split JSON files from this legacy generator.",
+    )
+    args = parser.parse_args()
+
+    if not args.allow_legacy_write:
+        print("Refusing to run legacy generator without --allow-legacy-write.")
+        print("Use current benchmark assets in tasks/ and splits/ directly.")
+        return 2
+
     print("=" * 60)
-    print("SpaceOmicsBench v2 -- Task & Split Generation")
+    print("SpaceOmicsBench v2 -- Legacy Task & Split Generation")
     print("=" * 60)
 
     TASK_DIR.mkdir(parents=True, exist_ok=True)

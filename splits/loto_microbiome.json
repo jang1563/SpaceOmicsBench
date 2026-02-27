@@ -320,7 +320,12 @@
       312
     ],
     "train_size": 265,
-    "test_size": 49
+    "test_size": 49,
+    "split_type": "loto",
+    "stratified": false,
+    "seed": null,
+    "generated_by": "scripts/generate_tasks_and_splits.py",
+    "generated_on": "2026-02-27"
   },
   {
     "test_timepoint": "FD3",
@@ -643,7 +648,12 @@
       313
     ],
     "train_size": 265,
-    "test_size": 49
+    "test_size": 49,
+    "split_type": "loto",
+    "stratified": false,
+    "seed": null,
+    "generated_by": "scripts/generate_tasks_and_splits.py",
+    "generated_on": "2026-02-27"
   },
   {
     "test_timepoint": "L-44",
@@ -966,7 +976,12 @@
       311
     ],
     "train_size": 264,
-    "test_size": 50
+    "test_size": 50,
+    "split_type": "loto",
+    "stratified": false,
+    "seed": null,
+    "generated_by": "scripts/generate_tasks_and_splits.py",
+    "generated_on": "2026-02-27"
   },
   {
     "test_timepoint": "L-92",
@@ -1289,7 +1304,12 @@
       310
     ],
     "train_size": 267,
-    "test_size": 47
+    "test_size": 47,
+    "split_type": "loto",
+    "stratified": false,
+    "seed": null,
+    "generated_by": "scripts/generate_tasks_and_splits.py",
+    "generated_on": "2026-02-27"
   },
   {
     "test_timepoint": "R+1",
@@ -1612,7 +1632,12 @@
       270
     ],
     "train_size": 274,
-    "test_size": 40
+    "test_size": 40,
+    "split_type": "loto",
+    "stratified": false,
+    "seed": null,
+    "generated_by": "scripts/generate_tasks_and_splits.py",
+    "generated_on": "2026-02-27"
   },
   {
     "test_timepoint": "R+45",
@@ -1935,7 +1960,12 @@
       273
     ],
     "train_size": 274,
-    "test_size": 40
+    "test_size": 40,
+    "split_type": "loto",
+    "stratified": false,
+    "seed": null,
+    "generated_by": "scripts/generate_tasks_and_splits.py",
+    "generated_on": "2026-02-27"
   },
   {
     "test_timepoint": "R+82",
@@ -2258,6 +2288,11 @@
       274
     ],
     "train_size": 275,
-    "test_size": 39
+    "test_size": 39,
+    "split_type": "loto",
+    "stratified": false,
+    "seed": null,
+    "generated_by": "scripts/generate_tasks_and_splits.py",
+    "generated_on": "2026-02-27"
   }
 ]

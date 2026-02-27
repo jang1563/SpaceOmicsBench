@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SpaceOmicsBench Task Schema",
+  "type": "object",
+  "required": [
+    "task_id",
+    "task_name",
+    "task_type",
+    "difficulty_tier",
+    "description",
+    "data_files",
+    "input_spec",
+    "output_spec",
+    "evaluation",
+    "split",
+    "n_samples"
+  ],
+  "properties": {
+    "task_id": { "type": "string" },
+    "task_name": { "type": "string" },
+    "task_type": { "type": "string" },
+    "difficulty_tier": { "type": "string" },
+    "description": { "type": "string" },
+    "data_files": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "ground_truth_files": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "input_spec": { "type": "object" },
+    "output_spec": { "type": "object" },
+    "evaluation": { "type": "object" },
+    "split": { "type": "string" },
+    "n_samples": { "type": "integer" },
+    "notes": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "additionalProperties": true
+}
