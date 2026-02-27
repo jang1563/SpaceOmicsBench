@@ -127,6 +127,217 @@ Respond ONLY with a JSON object (no markdown fences):
 }}"""
 
 
+def _load_dimension_descriptions() -> Dict[str, Dict]:
+    """Load full dimension definitions from annotation_schema.json."""
+    with open(ANNOTATION_SCHEMA_FILE) as f:
+        schema = json.load(f)
+    return schema["rating_dimensions"]
+
+
+DIMENSION_DEFS = _load_dimension_descriptions()
+
+
+# Per-dimension scoring instructions (dimension-specific anchoring)
+_PERDIM_INSTRUCTIONS = {
+    "factual_accuracy": (
+        "Are stated facts correct? Does it cite accurate data values from the context? "
+        "Flag factual_error if: wrong numerical values, wrong task descriptions "
+        "(classes, metric, N), wrong model rankings, or wrong methodology."
+    ),
+    "reasoning_quality": (
+        "Is the scientific reasoning sound and well-structured? "
+        "Evaluate logical coherence, valid inference chains, and argument quality."
+    ),
+    "completeness": (
+        "Does it cover the expected reasoning points and key factors? "
+        "Check against the expected reasoning points and key facts listed above."
+    ),
+    "uncertainty_calibration": (
+        "Does it appropriately acknowledge limitations? "
+        "CRITICAL: This benchmark uses N=4 crew and N=1 twin. "
+        "Responses MUST acknowledge small sample size limitations to score above 3. "
+        "Score 4+ requires explicit discussion of statistical power constraints."
+    ),
+    "domain_integration": (
+        "Does it connect findings across omics layers, missions, and space physiology? "
+        "Evaluate depth of domain expertise and cross-modality reasoning."
+    ),
+}
+
+
+def build_single_dimension_prompt(
+    question_data: Dict, question_bank_entry: Dict,
+    ground_truth: str, dimension: str
+) -> str:
+    """Build a prompt for scoring a single dimension independently."""
+    qid = question_data.get("question_id", "?")
+    question_text = question_data.get("question", "")
+    response_text = question_data.get("response", "")
+    difficulty = question_data.get("difficulty", "unknown")
+
+    rubric = question_bank_entry.get("rubric", {})
+    expected = question_bank_entry.get("expected_reasoning", [])
+    key_facts = question_bank_entry.get("ground_truth_key_facts", [])
+
+    expected_text = "\n".join(f"  - {r}" for r in expected)
+    facts_text = "\n".join(f"  - {f}" for f in key_facts)
+
+    # Dimension-specific rubric from question bank (if available)
+    dim_rubric = rubric.get(dimension, "")
+    dim_rubric_line = f"\n**Question-Specific Guidance:** {dim_rubric}" if dim_rubric else ""
+
+    # Scale anchors from annotation schema
+    dim_def = DIMENSION_DEFS.get(dimension, {})
+    scale = dim_def.get("scale", {})
+    scale_text = "\n".join(f"  {k}: {v}" for k, v in sorted(scale.items()))
+
+    instruction = _PERDIM_INSTRUCTIONS.get(dimension, dim_def.get("description", ""))
+
+    return f"""You are an expert evaluator for the SpaceOmicsBench benchmark on spaceflight biomedical AI.
+You are scoring ONLY the **{dimension}** dimension.
+
+## Ground Truth Reference
+{ground_truth}
+
+## Question-Specific Context
+
+**Question ID:** {qid}
+**Difficulty:** {difficulty}
+**Question:** {question_text}
+
+**Expected Reasoning Points:**
+{expected_text}
+
+**Key Facts (must be accurate):**
+{facts_text}
+{dim_rubric_line}
+
+---
+
+## Response to Evaluate
+
+{response_text}
+
+---
+
+## Scoring: {dimension}
+
+{instruction}
+
+**Scale:**
+{scale_text}
+
+Score this response on **{dimension}** ONLY (1-5 scale).
+
+Respond ONLY with a JSON object (no markdown fences):
+{{
+  "score": <1-5>,
+  "justification": "1-2 sentence justification for the {dimension} score."
+}}"""
+
+
+def score_single_perdim(
+    client, question_data: Dict, qb_entry: Dict,
+    ground_truth: str, judge_model: str,
+    judge_backend: str = "anthropic"
+) -> Dict[str, Any]:
+    """Score a single response with independent per-dimension LLM calls (5 calls)."""
+    scores = {}
+    total_in = 0
+    total_out = 0
+
+    for dim in DIMENSION_WEIGHTS:
+        prompt = build_single_dimension_prompt(question_data, qb_entry, ground_truth, dim)
+        try:
+            if judge_backend == "openai":
+                raw, tok_in, tok_out = _call_openai(client, prompt, judge_model)
+            else:
+                raw, tok_in, tok_out = _call_anthropic(client, prompt, judge_model)
+
+            total_in += tok_in
+            total_out += tok_out
+
+            parsed = parse_judge_response(raw)
+            score_val = parsed.get("score", 3)
+            scores[dim] = max(1, min(5, score_val))
+            scores[f"{dim}_justification"] = parsed.get("justification", "")
+
+            time.sleep(0.3)  # Small delay between dimension calls
+
+        except Exception as e:
+            scores[dim] = 3  # Neutral default on failure
+            scores[f"{dim}_error"] = str(e)
+
+    # Compute weighted score
+    scores["weighted_score"] = round(
+        sum(scores.get(d, 3) * w for d, w in DIMENSION_WEIGHTS.items()), 2
+    )
+    scores["success"] = True
+    scores["scoring_mode"] = "per_dimension"
+    scores["judge_tokens"] = {"input": total_in, "output": total_out}
+
+    # Flags — run a separate quick call for flags only
+    try:
+        flag_prompt = _build_flag_prompt(question_data, qb_entry, ground_truth)
+        if judge_backend == "openai":
+            raw, tok_in, tok_out = _call_openai(client, flag_prompt, judge_model)
+        else:
+            raw, tok_in, tok_out = _call_anthropic(client, flag_prompt, judge_model)
+        total_in += tok_in
+        total_out += tok_out
+        flag_result = parse_judge_response(raw)
+        scores["flags"] = flag_result.get("flags", {})
+        scores["strengths"] = flag_result.get("strengths", [])
+        scores["weaknesses"] = flag_result.get("weaknesses", [])
+        scores["missed_points"] = flag_result.get("missed_points", [])
+        scores["judge_tokens"] = {"input": total_in, "output": total_out}
+    except Exception:
+        scores["flags"] = {}
+
+    return scores
+
+
+def _build_flag_prompt(question_data: Dict, question_bank_entry: Dict, ground_truth: str) -> str:
+    """Build a prompt for flags/strengths/weaknesses only (used in per-dimension mode)."""
+    qid = question_data.get("question_id", "?")
+    question_text = question_data.get("question", "")
+    response_text = question_data.get("response", "")
+    key_facts = question_bank_entry.get("ground_truth_key_facts", [])
+    facts_text = "\n".join(f"  - {f}" for f in key_facts)
+
+    return f"""You are an expert evaluator for SpaceOmicsBench.
+
+## Ground Truth
+{ground_truth}
+
+## Question: {qid}
+{question_text}
+
+## Key Facts
+{facts_text}
+
+## Response
+{response_text}
+
+---
+
+Identify flags, strengths, weaknesses, and missed points. Do NOT score dimensions.
+
+Respond ONLY with JSON:
+{{
+  "flags": {{
+    "hallucination": <bool>,
+    "factual_error": <bool>,
+    "harmful_recommendation": <bool>,
+    "exceeds_data_scope": <bool>,
+    "novel_insight": <bool>
+  }},
+  "strengths": ["...", "..."],
+  "weaknesses": ["...", "..."],
+  "missed_points": ["..."]
+}}"""
+
+
 def parse_judge_response(text: str) -> Dict[str, Any]:
     """Parse the judge's JSON response, handling markdown fences if present."""
     # Try to extract JSON from markdown code blocks first
@@ -234,7 +445,9 @@ def score_single(client, question_data: Dict, qb_entry: Dict,
 
 def score_all(input_file: str, output_file: Optional[str] = None,
               judge_model: str = "claude-sonnet-4-20250514",
-              judge_backend: str = "anthropic"):
+              judge_backend: str = "anthropic",
+              per_dimension: bool = False,
+              sample_n: Optional[int] = None):
     """Score all responses in an evaluation results file."""
     if judge_backend == "openai":
         try:
@@ -265,8 +478,16 @@ def score_all(input_file: str, output_file: Optional[str] = None,
     qb = load_question_bank()
     gt = load_ground_truth()
 
+    # Sample if requested
+    if sample_n and sample_n < len(results):
+        import random
+        random.seed(42)
+        results = random.sample(results, sample_n)
+
+    scoring_mode = "per_dimension" if per_dimension else "combined"
     print(f"\nInput:       {input_file}")
     print(f"Judge model: {judge_model}")
+    print(f"Scoring:     {scoring_mode}")
     print(f"Responses:   {len(results)}")
     print("-" * 70)
 
@@ -284,7 +505,10 @@ def score_all(input_file: str, output_file: Optional[str] = None,
         print(f"[{i+1}/{len(results)}] Scoring {qid} ({r.get('difficulty', '?')})...", end=" ", flush=True)
 
         qb_entry = qb.get(qid, {})
-        scores = score_single(client, r, qb_entry, gt, judge_model, judge_backend)
+        if per_dimension:
+            scores = score_single_perdim(client, r, qb_entry, gt, judge_model, judge_backend)
+        else:
+            scores = score_single(client, r, qb_entry, gt, judge_model, judge_backend)
 
         if scores.get("success"):
             ws = scores.get("weighted_score", "?")
@@ -336,13 +560,15 @@ def score_all(input_file: str, output_file: Optional[str] = None,
     # Output
     if not output_file:
         stem = Path(input_file).stem
-        output_file = str(Path(input_file).parent / f"scored_{stem}.json")
+        suffix = "_perdim" if per_dimension else ""
+        output_file = str(Path(input_file).parent / f"scored_{stem}{suffix}.json")
 
     output = {
         "metadata": {
             **data.get("metadata", {}),
             "scoring_timestamp": datetime.now().isoformat(),
             "judge_model": judge_model,
+            "scoring_mode": scoring_mode,
             "judge_tokens_input": total_judge_input,
             "judge_tokens_output": total_judge_output,
         },
@@ -391,12 +617,17 @@ def main():
     parser.add_argument("--judge-backend", default="anthropic",
                         choices=["anthropic", "openai"],
                         help="Judge API backend (default: anthropic)")
+    parser.add_argument("--per-dimension", action="store_true",
+                        help="Score each dimension independently (5 API calls per question)")
+    parser.add_argument("--sample", type=int, default=None,
+                        help="Score only N randomly sampled questions")
 
     args = parser.parse_args()
 
     for fpath in args.input_files:
         out = args.output if len(args.input_files) == 1 else None
-        score_all(fpath, out, args.judge_model, args.judge_backend)
+        score_all(fpath, out, args.judge_model, args.judge_backend,
+                  args.per_dimension, args.sample)
         if len(args.input_files) > 1:
             print("\n")
 
