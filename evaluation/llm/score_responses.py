@@ -99,10 +99,10 @@ def build_scoring_prompt(question_data: Dict, question_bank_entry: Dict, ground_
 
 Score the response on these 5 dimensions (1-5 scale, 5 = excellent):
 
-1. **factual_accuracy** (weight {DIMENSION_WEIGHTS['factual_accuracy']}): Are stated facts correct? Does it cite accurate data values from the context?
+1. **factual_accuracy** (weight {DIMENSION_WEIGHTS['factual_accuracy']}): Are stated facts correct? Does it cite accurate data values from the context? Flag factual_error if: wrong numerical values, wrong task descriptions (classes, metric, N), wrong model rankings, or wrong methodology (e.g., wrong sequencing technology).
 2. **reasoning_quality** (weight {DIMENSION_WEIGHTS['reasoning_quality']}): Is the scientific reasoning sound and well-structured?
 3. **completeness** (weight {DIMENSION_WEIGHTS['completeness']}): Does it cover the expected reasoning points and key factors?
-4. **uncertainty_calibration** (weight {DIMENSION_WEIGHTS['uncertainty_calibration']}): Does it appropriately acknowledge limitations, especially given small sample sizes (N=4, N=1)?
+4. **uncertainty_calibration** (weight {DIMENSION_WEIGHTS['uncertainty_calibration']}): Does it appropriately acknowledge limitations? CRITICAL: This benchmark uses N=4 crew and N=1 twin. Responses must acknowledge small sample size limitations to score above 3. Score 4+ requires explicit discussion of statistical power constraints.
 5. **domain_integration** (weight {DIMENSION_WEIGHTS['domain_integration']}): Does it connect findings across omics layers, missions, and space physiology?
 
 Respond ONLY with a JSON object (no markdown fences):

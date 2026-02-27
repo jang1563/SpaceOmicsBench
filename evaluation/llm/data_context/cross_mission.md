@@ -7,7 +7,7 @@
 | Orbit | LEO (~585 km) | ISS (~408 km) |
 | Crew | 4 civilians | 1 astronaut (twin control) |
 | Year | 2021 | 2015-2016 |
-| Blood analysis | cfRNA (cell-free), PBMC (single-cell) | Blood cell scRNA-seq (CD4, CD8, CD19, PBMC, LD) |
+| Blood analysis | cfRNA (cell-free), PBMC scRNA-seq (9 cell types) | Bulk RNA-seq of sorted populations (CD4, CD8, CD19, PBMC, LD) |
 
 ## NASA Twins Study Details
 - **Subjects**: Scott Kelly (space) vs Mark Kelly (ground twin)

@@ -32,3 +32,5 @@ EAR (ear canal), NAC (nasal cavity), ORC (oral cavity), PIT (axilla), TZO (toe z
 - Flight phase detection (F2, F5) is frontier difficulty — microbiome changes during 3-day spaceflight are subtle
 - Body site classification achieves modest performance — 10-class problem with limited taxonomic resolution
 - Taxonomy and pathway features give similar results for body site but slightly different for phase detection
+- To compare tasks with different class counts and baselines, use normalization: `(score - random) / (1 - random)`
+- Normalized comparison: F1 body site = (0.200-0.112)/(1-0.112) = 0.099 vs F2 phase = (0.280-0.205)/(1-0.205) = 0.094
