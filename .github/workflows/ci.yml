@@ -1,28 +1,52 @@
-name: benchmark-ci
+name: CI
 
 on:
   push:
+    branches: [main]
   pull_request:
+    branches: [main]
 
 jobs:
-  dry-run:
+  validate:
+    name: Validate tasks and README sync
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - name: Install minimal dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install numpy pandas scikit-learn jsonschema
-      - name: Validate task schema
-        run: |
-          python scripts/validate_tasks.py
-      - name: Verify README tables are up to date
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # ── Task schema validation ──────────────────────────────────────────
+      - name: Validate task JSON files
+        run: python scripts/validate_tasks.py
+
+      # ── README baseline table sync ──────────────────────────────────────
+      - name: Check README baseline tables are up to date
         run: |
           python scripts/generate_readme_tables.py --update-readme README.md
-          git diff --exit-code README.md
-      - name: Eval harness dry run
+          if ! git diff --quiet README.md; then
+            echo "ERROR: README baseline tables are out of sync with baseline_results.json"
+            echo "Run: python scripts/generate_readme_tables.py --update-readme README.md"
+            git diff README.md
+            exit 1
+          fi
+          echo "README baseline tables are in sync."
+
+      # ── Eval harness dry run ────────────────────────────────────────────
+      - name: Evaluation harness dry run
+        run: python evaluation/eval_harness.py --dry-run
+
+      # ── Python syntax check ─────────────────────────────────────────────
+      - name: Syntax check all Python files
         run: |
-          python evaluation/eval_harness.py --dry-run
+          find . -name "*.py" \
+            -not -path "./.venv/*" \
+            -not -path "*/__pycache__/*" \
+            | xargs python -m py_compile && echo "All Python files OK"
