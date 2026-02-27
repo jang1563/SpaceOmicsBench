@@ -294,6 +294,43 @@ python evaluation/llm/generate_report.py results/scored_*.json --compare
 - No fixed random seed is set by default; expect small variability across runs
 - For model comparisons, report the exact model name, temperature, and max_tokens
 
+**Reproducing the results table** — commands used to generate the numbers in the Results section below:
+
+```bash
+# Step 1: Run full evaluation (100 questions)
+python evaluation/llm/run_llm_evaluation.py --model claude-sonnet-4-6 --full
+python evaluation/llm/run_llm_evaluation.py --model gpt-4o --full
+
+# Step 2: Score with Sonnet 4.6 as judge (primary judge for the table)
+python evaluation/llm/score_responses.py results/eval_claude-sonnet-4-6_*.json \
+    --judge-model claude-sonnet-4-6 --judge-backend anthropic \
+    --output results/scored_eval_claude-sonnet-4-6_judged-by-sonnet46.json
+
+python evaluation/llm/score_responses.py results/eval_claude-sonnet-4-20250514_*.json \
+    --judge-model claude-sonnet-4-6 --judge-backend anthropic \
+    --output results/scored_eval_claude-sonnet-4_judged-by-sonnet46.json
+
+python evaluation/llm/score_responses.py results/eval_gpt-4o_*.json \
+    --judge-model claude-sonnet-4-6 --judge-backend anthropic \
+    --output results/scored_eval_gpt-4o_judged-by-sonnet46.json
+
+# Step 3: Score with Sonnet 4 as judge (for cross-judge column)
+python evaluation/llm/score_responses.py results/eval_claude-sonnet-4-6_*.json \
+    --judge-model claude-sonnet-4-20250514 --judge-backend anthropic \
+    --output results/scored_eval_claude-sonnet-4-6_judged-by-sonnet4.json
+
+# Step 4: Score with GPT-4o as judge (for cross-judge column)
+python evaluation/llm/score_responses.py results/eval_claude-sonnet-4-20250514_*.json \
+    --judge-backend openai --judge-model gpt-4o \
+    --output results/scored_eval_claude-sonnet-4_judged-by-gpt4o.json
+
+python evaluation/llm/score_responses.py results/eval_gpt-4o_*.json \
+    --judge-backend openai --judge-model gpt-4o \
+    --output results/scored_eval_gpt-4o_judged-by-gpt4o.json
+```
+
+A summary of the scored outputs used to generate the table is in `docs/samples/llm_eval_summary.json`.
+
 ### LLM Evaluation Results
 
 **3-Model Cross-Judge Matrix** — Three respondent models scored by three judges (weighted score, 1–5 scale):
@@ -356,8 +393,11 @@ SpaceOmicsBench/
 ├── baselines/
 │   ├── run_baselines.py             # Baseline runner
 │   └── baseline_results.json        # Precomputed results
-├── scripts/                         # Data preprocessing scripts
-│   └── preprocess_cross_mission.py  # I-series data preprocessing
+├── scripts/                         # Preprocessing and utility scripts
+│   ├── preprocess_cross_mission.py  # I-series data preprocessing
+│   ├── generate_readme_tables.py    # Regenerate baseline tables in README
+│   ├── validate_tasks.py            # Validate all task JSON files against schema
+│   └── generate_tasks_and_splits.py # [LEGACY] original task/split generator
 └── docs/                            # Additional documentation
 ```
 

@@ -1,0 +1,141 @@
+{
+  "_description": "Aggregated LLM evaluation summary for SpaceOmicsBench v2. Each entry is one (respondent, judge) pair. Supports the cross-judge matrix in README.md.",
+  "_dimensions_weight": {
+    "factual_accuracy": 0.25,
+    "reasoning_quality": 0.25,
+    "completeness": 0.2,
+    "uncertainty_calibration": 0.15,
+    "domain_integration": 0.15
+  },
+  "_cross_judge_matrix": {
+    "Claude Sonnet 4.6": {
+      "Sonnet 4 Judge": 4.73,
+      "Sonnet 4.6 Judge": 4.6,
+      "GPT-4o Judge": null
+    },
+    "Claude Sonnet 4": {
+      "Sonnet 4 Judge": 4.55,
+      "Sonnet 4.6 Judge": 4.03,
+      "GPT-4o Judge": 4.76
+    },
+    "GPT-4o": {
+      "Sonnet 4 Judge": 3.64,
+      "Sonnet 4.6 Judge": 3.3,
+      "GPT-4o Judge": 4.36
+    }
+  },
+  "entries": [
+    {
+      "respondent_model": "claude-sonnet-4-6",
+      "judge_model": "claude-sonnet-4-6",
+      "n_scored": 100,
+      "weighted_score": 4.596,
+      "dimensions": {
+        "factual_accuracy": 4.59,
+        "reasoning_quality": 4.96,
+        "completeness": 4.73,
+        "uncertainty_calibration": 4.09,
+        "domain_integration": 4.33
+      },
+      "flags": {
+        "hallucination": 11,
+        "factual_error": 10,
+        "novel_insight": 92
+      },
+      "scoring_timestamp": "2026-02-27T08:18:20.111452"
+    },
+    {
+      "respondent_model": "claude-sonnet-4-20250514",
+      "judge_model": "claude-sonnet-4-6",
+      "n_scored": 100,
+      "weighted_score": 4.028,
+      "dimensions": {
+        "factual_accuracy": 4.26,
+        "reasoning_quality": 4.47,
+        "completeness": 4.07,
+        "uncertainty_calibration": 3.14,
+        "domain_integration": 3.74
+      },
+      "flags": {
+        "hallucination": 10,
+        "factual_error": 18,
+        "novel_insight": 44
+      },
+      "scoring_timestamp": "2026-02-27T08:49:12.612749"
+    },
+    {
+      "respondent_model": "gpt-4o",
+      "judge_model": "claude-sonnet-4-6",
+      "n_scored": 100,
+      "weighted_score": 3.301,
+      "dimensions": {
+        "factual_accuracy": 3.98,
+        "reasoning_quality": 3.6,
+        "completeness": 3.13,
+        "uncertainty_calibration": 2.57,
+        "domain_integration": 2.63
+      },
+      "flags": {
+        "hallucination": 3,
+        "factual_error": 12,
+        "novel_insight": 0
+      },
+      "scoring_timestamp": "2026-02-27T17:32:16.942062"
+    },
+    {
+      "respondent_model": "claude-sonnet-4-6",
+      "judge_model": "claude-sonnet-4-20250514",
+      "n_scored": 100,
+      "weighted_score": 4.726,
+      "dimensions": {
+        "factual_accuracy": 4.86,
+        "reasoning_quality": 4.93,
+        "completeness": 4.97,
+        "uncertainty_calibration": 4.13,
+        "domain_integration": 4.43
+      },
+      "flags": {
+        "hallucination": 1,
+        "factual_error": 3,
+        "novel_insight": 95
+      },
+      "scoring_timestamp": "2026-02-27T02:00:41.536479"
+    },
+    {
+      "respondent_model": "claude-sonnet-4-20250514",
+      "judge_model": "claude-sonnet-4-20250514",
+      "n_scored": 100,
+      "weighted_score": 4.55,
+      "dimensions": {
+        "factual_accuracy": 4.6,
+        "reasoning_quality": 4.83,
+        "completeness": 4.75,
+        "uncertainty_calibration": 3.9,
+        "domain_integration": 4.38
+      },
+      "flags": {},
+      "scoring_timestamp": "2026-02-25",
+      "note": "Self-judged (Sonnet 4 as judge). Source: eval_claude-sonnet-4-20250514_20260225_193250.json scored by same model."
+    },
+    {
+      "respondent_model": "claude-sonnet-4-20250514",
+      "judge_model": "gpt-4o",
+      "n_scored": 100,
+      "weighted_score": 4.76,
+      "dimensions": {},
+      "flags": {},
+      "scoring_timestamp": "2026-02-25",
+      "note": "GPT-4o as judge. Source: eval_claude-sonnet-4-20250514_20260225_193250.json scored by gpt-4o."
+    },
+    {
+      "respondent_model": "gpt-4o",
+      "judge_model": "gpt-4o",
+      "n_scored": 100,
+      "weighted_score": 4.36,
+      "dimensions": {},
+      "flags": {},
+      "scoring_timestamp": "2026-02-25",
+      "note": "Self-judged (GPT-4o as judge). Source: eval_gpt-4o_20260225_204004.json scored by same model."
+    }
+  ]
+}
