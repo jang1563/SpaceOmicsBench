@@ -1,6 +1,12 @@
 #!/usr/bin/env python3
 """
-Generate task definitions (JSON) and split files for SpaceOmicsBench v2.
+[LEGACY] Generate task definitions (JSON) and split files for SpaceOmicsBench v2.
+
+NOTE: This script is a LEGACY generator retained for reproducibility reference only.
+      The canonical task/split files are already committed to the repository under
+      tasks/ and splits/. Do NOT run this script to regenerate them unless you
+      intentionally want to overwrite existing files (requires --allow-legacy-write).
+      For normal use, load tasks/*.json and splits/*.json directly.
 
 21 tasks across 9 categories:
   A (Clinical):      A1 blood panel phase, A2 immune marker phase
