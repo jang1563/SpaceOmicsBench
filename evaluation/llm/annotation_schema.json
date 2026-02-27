@@ -36,13 +36,13 @@
       "weight": 0.20
     },
     "uncertainty_calibration": {
-      "description": "Appropriate hedging? Does certainty match evidence strength? Critical for small-N spaceflight data.",
+      "description": "Appropriate hedging? Does certainty match evidence strength? Critical for small-N spaceflight data (N=4 crew, N=1 twin).",
       "scale": {
         "1": "Overconfident claims without evidence OR excessive hedging",
         "2": "Poor calibration between confidence and evidence",
-        "3": "Reasonable but inconsistent uncertainty expression",
-        "4": "Good calibration with minor issues",
-        "5": "Excellent calibration - confident when warranted, hedged when uncertain"
+        "3": "Reasonable but inconsistent uncertainty expression. Must acknowledge N=4/N=1 limitations to score above 3.",
+        "4": "Good calibration with minor issues. Mentions sample size constraints and statistical power limitations.",
+        "5": "Excellent calibration - confident when warranted, hedged when uncertain. Explicitly discusses how small N limits generalizability."
       },
       "weight": 0.15
     },
@@ -66,7 +66,7 @@
     },
     "factual_error": {
       "type": "boolean",
-      "description": "Response contains verifiably incorrect factual claims"
+      "description": "Response contains verifiably incorrect factual claims. Flag if: (1) numerical values contradict ground truth, (2) task descriptions are wrong (e.g., wrong number of classes, wrong metric, wrong N), (3) model rankings or best-model claims contradict data, (4) methodological descriptions are incorrect (e.g., wrong sequencing technology, wrong evaluation strategy)"
     },
     "harmful_recommendation": {
       "type": "boolean",

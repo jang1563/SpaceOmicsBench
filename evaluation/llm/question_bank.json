@@ -311,8 +311,9 @@
       ],
       "ground_truth_key_facts": [
         "B1: binary DRR vs non-DRR, N=26,845, LightGBM=0.922 (best), RF=0.884",
-        "B2: 16-class multilabel, N=466, LogReg=0.154",
-        "B2 random baseline is 0.083"
+        "B2: 16-class cluster prediction, N=466, LogReg=0.154 (best), micro_f1 metric",
+        "B2 random baseline is 0.083",
+        "Key difficulty factors: 16 classes vs 2, much smaller N (466 vs 26,845), correlation-based features"
       ],
       "rubric": {
         "reasoning_quality": "Must discuss class count, sample size, and metric differences",
@@ -954,11 +955,13 @@
       "ground_truth_key_facts": [
         "F1: macro_f1=0.200 (LightGBM), 10 classes, random=0.112",
         "F2: macro_f1=0.280 (LightGBM), 4 classes (pre/in/post/recovery), random=0.205",
-        "Body site signal is relatively stronger than flight phase signal",
-        "Normalized: F1 (0.200-0.112)/(1-0.112)=0.099 vs F2 (0.280-0.205)/(1-0.205)=0.094"
+        "Normalized: F1 = (0.200-0.112)/(1-0.112) = 0.099",
+        "Normalized: F2 = (0.280-0.205)/(1-0.205) = 0.094",
+        "Body site classification (F1) slightly outperforms flight phase (F2) after normalization",
+        "Must use normalization formula, not simple difference"
       ],
       "rubric": {
-        "reasoning_quality": "Must normalize scores relative to random baselines for comparison",
+        "reasoning_quality": "Must use normalized formula: (score - random) / (1 - random), not simple difference",
         "factual_accuracy": "Must correctly compare scores and random baselines",
         "completeness": "Should discuss both body site and flight phase tasks"
       }
@@ -1144,10 +1147,11 @@
       "ground_truth_key_facts": [
         "Twins: CD4, CD8, CD19, PBMC, LD",
         "I4: CD4_T, CD8_T, other_T, B, NK, CD14_Mono, CD16_Mono, DC, other",
-        "Approximate mapping exists but resolution differs"
+        "Approximate mapping exists but resolution differs",
+        "I4 uses scRNA-seq for PBMC cell typing; Twins Study uses bulk RNA-seq with sorted populations"
       ],
       "rubric": {
-        "factual_accuracy": "Must correctly list cell types for both missions",
+        "factual_accuracy": "Must correctly list cell types for both missions; I4 uses scRNA-seq, Twins uses bulk RNA-seq",
         "reasoning_quality": "Should explain granularity mismatch and its consequences",
         "domain_integration": "Should show understanding of immune cell biology"
       }
@@ -2663,15 +2667,18 @@
         "Practically: would need nested cross-validation where both H1 and G1 are evaluated out-of-fold on the same held-out crew"
       ],
       "ground_truth_key_facts": [
-        "H1: 731 genes, 9 cell-type features, RF=0.266 AUPRC",
-        "G1: 21 samples, LOCO",
-        "Both use I4 crew data",
-        "Nested CV would be needed"
+        "H1: Cross-tissue gene conservation — predicts whether PBMC DE genes are also DE in skin (binary classification, NOT temporal phase classification)",
+        "H1 uses 9 PBMC cell-type log2FC features to predict skin DE status for 731 genes",
+        "G1: 21 samples, 3-class phase classification, LOCO evaluation",
+        "Both use I4 crew data — risk of data leakage if H1 predictions are used as G1 features",
+        "Nested cross-validation would be required to avoid leakage",
+        "H1 RF=0.266, LightGBM=0.284 AUPRC"
       ],
       "rubric": {
         "reasoning_quality": "Must correctly distinguish leakage vs non-leakage scenarios",
         "completeness": "Should discuss both statistical and biological perspectives",
-        "domain_integration": "Should reference cross-validation methodology"
+        "domain_integration": "Should reference cross-validation methodology",
+        "factual_accuracy": "Must correctly describe H1 as cross-tissue gene conservation (PBMC→skin DE prediction), NOT temporal classification"
       }
     },
     {

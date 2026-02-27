@@ -13,7 +13,8 @@
 - **Results**: LogReg=0.517 | XGBoost=0.328 | MLP=0.285 | RF=0.254 | LightGBM=0.228, Random: 0.253
 
 ## H1: Cross-Tissue Gene Conservation (PBMC → Skin)
-- **Question**: Do PBMC DE patterns predict skin DE?
+- **Goal**: Predict whether genes differentially expressed in PBMC are also DE in skin tissue (cross-tissue conservation)
+- **This is NOT a temporal/phase classification task** — it predicts gene-level conservation of DE patterns across tissue types
 - **N**: 731 genes tested in both PBMC and skin
 - **Features**: 9 I4 PBMC cell type log2FC values (CD4_T, CD8_T, other_T, B, NK, CD14_Mono, CD16_Mono, DC, other)
 - **Target**: Whether gene is also significantly DE in skin (binary)
