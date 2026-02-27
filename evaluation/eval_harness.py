@@ -42,7 +42,7 @@ DATA_DIR = BASE_DIR / "data" / "processed"
 TASK_DIR = BASE_DIR / "tasks"
 SPLIT_DIR = BASE_DIR / "splits"
 
-# All 18 task IDs
+# All 19 main task IDs
 MAIN_TASKS = [
     "A1", "A2",
     "B1", "B2",

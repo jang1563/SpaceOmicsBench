@@ -18,7 +18,7 @@ Usage:
     # HuggingFace (local, requires GPU)
     python run_llm_evaluation.py --model mistralai/Mistral-7B-v0.3 --sample 5
 
-    # Full evaluation (all 60 questions)
+    # Full evaluation (all 100 questions)
     python run_llm_evaluation.py --model claude-sonnet-4-20250514 --full
 
     # Filter by modality or difficulty
@@ -470,7 +470,7 @@ def main():
     parser.add_argument("--sample", type=int, default=10,
                         help="Number of questions to sample (default: 10)")
     parser.add_argument("--full", action="store_true",
-                        help="Run all 60 questions (overrides --sample)")
+                        help="Run all 100 questions (overrides --sample)")
     parser.add_argument("--modality", type=str, default=None,
                         choices=["clinical", "transcriptomics", "proteomics", "metabolomics",
                                  "spatial", "microbiome", "cross_mission", "multi_omics", "methods"],

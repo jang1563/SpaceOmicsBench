@@ -187,12 +187,12 @@ footer a:hover{text-decoration:underline}
 <!-- ═══════ HERO ═══════ -->
 <section class="hero fade-in">
   <h1>SpaceOmicsBench</h1>
-  <p class="tagline">A multi-omics AI benchmark for spaceflight biomedical data — 21 ML tasks across 9 modalities + 60-question LLM evaluation from the Inspiration4, NASA Twins, and JAXA CFE missions.</p>
+  <p class="tagline">A multi-omics AI benchmark for spaceflight biomedical data — 21 ML tasks across 9 modalities + 100-question LLM evaluation from the Inspiration4, NASA Twins, and JAXA CFE missions.</p>
   <div class="stats-row">
     <div class="stat-card d1 fade-in"><div class="stat-val">21</div><div class="stat-label">ML Tasks</div></div>
     <div class="stat-card d2 fade-in"><div class="stat-val">9</div><div class="stat-label">Modalities</div></div>
-    <div class="stat-card d3 fade-in"><div class="stat-val">60</div><div class="stat-label">LLM Questions</div></div>
-    <div class="stat-card d4 fade-in"><div class="stat-val">5</div><div class="stat-label">Baselines</div></div>
+    <div class="stat-card d3 fade-in"><div class="stat-val">100</div><div class="stat-label">LLM Questions</div></div>
+    <div class="stat-card d4 fade-in"><div class="stat-val">7</div><div class="stat-label">Baselines</div></div>
     <div class="stat-card d5 fade-in"><div class="stat-val">152K+</div><div class="stat-label">Total Samples</div></div>
   </div>
 </section>
@@ -258,6 +258,27 @@ footer a:hover{text-decoration:underline}
   </div>
 </section>
 
+<!-- ═══════ LLM EVALUATION ═══════ -->
+<section id="llm-eval" class="fade-in">
+  <div class="section-head">LLM Evaluation</div>
+  <div class="section-sub">100-question benchmark with 5-dimension Claude-as-Judge scoring. Cross-judge verification with GPT-4o-as-Judge.</div>
+
+  <div class="charts-grid">
+    <div class="chart-card">
+      <div class="chart-title">2×2 Cross-Judge Verification <small>— weighted score (1-5)</small></div>
+      <canvas id="crossJudgeChart"></canvas>
+      <div class="ablation-insight" style="margin-top:16px">
+        <strong>Finding:</strong> Both judges consistently rank Claude Sonnet above GPT-4o.
+        GPT-4o-as-Judge is uniformly more lenient (+0.51 same-vendor differential) but does not reverse the ranking.
+      </div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title">Dimension Breakdown <small>— Claude Sonnet (Claude-as-Judge)</small></div>
+      <canvas id="dimensionChart"></canvas>
+    </div>
+  </div>
+</section>
+
 <!-- ═══════ FOOTER ═══════ -->
 <footer>
   <p>SpaceOmicsBench — <a href="https://github.com/jang1563/SpaceOmicsBench" target="_blank">GitHub Repository</a></p>
@@ -303,7 +324,7 @@ const TASKS=[
   {id:'F4',name:'Body Site Classification (Pathways)',cat:'Microbiome',tier:'Standard',metric:'macro_f1',random:.112,majority:.018,logreg:.163,rf:.151,mlp:.096,xgb:.134,lgbm:.160},
   {id:'F5',name:'Flight Phase Detection (Pathways)',cat:'Microbiome',tier:'Frontier',metric:'macro_f1',random:.205,majority:.111,logreg:.240,rf:.254,mlp:.229,xgb:.300,lgbm:.304},
   {id:'G1',name:'Multi-Modal Phase Classification',cat:'Multi-Modal',tier:'Advanced',metric:'macro_f1',random:.253,majority:.228,logreg:.517,rf:.254,mlp:.285,xgb:.328,lgbm:.228},
-  {id:'H1',name:'Cross-Tissue Gene Conservation',cat:'Cross-Tissue',tier:'Advanced',metric:'AUPRC',random:.060,majority:.048,logreg:.176,rf:.266,mlp:.062,xgb:.213,lgbm:.285},
+  {id:'H1',name:'Cross-Tissue Gene Conservation',cat:'Cross-Tissue',tier:'Advanced',metric:'AUPRC',random:.060,majority:.048,logreg:.176,rf:.266,mlp:.062,xgb:.213,lgbm:.284},
   {id:'I1',name:'Hemoglobin Gene DE Prediction',cat:'Cross-Mission',tier:'Frontier',metric:'AUPRC',random:.003,majority:.002,logreg:.003,rf:.005,mlp:.003,xgb:.005,lgbm:.006},
   {id:'I2',name:'Cross-Mission Pathway Conservation',cat:'Cross-Mission',tier:'Advanced',metric:'AUROC',random:.504,majority:.500,logreg:.586,rf:.706,mlp:.580,xgb:.716,lgbm:.735},
   {id:'I3',name:'Cross-Mission Gene DE Conservation',cat:'Cross-Mission',tier:'Advanced',metric:'AUPRC',random:.059,majority:.052,logreg:.090,rf:.081,mlp:.090,xgb:.081,lgbm:.086},
@@ -470,6 +491,59 @@ new Chart(document.getElementById('ablationChart'),{
       y:{min:0,max:1,grid:{color:'rgba(30,38,80,.5)'},ticks:{callback:v=>v.toFixed(1)}},
       x:{grid:{display:false}}
     }
+  }
+});
+
+// ── CROSS-JUDGE 2×2 BAR CHART ──
+new Chart(document.getElementById('crossJudgeChart'),{
+  type:'bar',
+  data:{
+    labels:['Claude Sonnet 4','GPT-4o'],
+    datasets:[
+      {label:'Claude-as-Judge',data:[4.55,3.64],backgroundColor:'rgba(6,182,212,.7)',borderColor:'#06b6d4',borderWidth:1,borderRadius:4},
+      {label:'GPT-4o-as-Judge',data:[4.76,4.36],backgroundColor:'rgba(245,158,11,.7)',borderColor:'#f59e0b',borderWidth:1,borderRadius:4},
+    ]
+  },
+  options:{
+    responsive:true,
+    plugins:{legend:{position:'bottom',labels:{boxWidth:12,padding:12}}},
+    scales:{
+      y:{min:2.5,max:5,grid:{color:'rgba(30,38,80,.5)'},ticks:{callback:v=>v.toFixed(1)}},
+      x:{grid:{display:false}}
+    }
+  }
+});
+
+// ── DIMENSION BREAKDOWN RADAR ──
+new Chart(document.getElementById('dimensionChart'),{
+  type:'radar',
+  data:{
+    labels:['Factual\nAccuracy','Reasoning\nQuality','Completeness','Uncertainty\nCalibration','Domain\nIntegration'],
+    datasets:[
+      {
+        label:'Claude Sonnet',data:[4.60,4.83,4.75,3.90,4.38],
+        backgroundColor:'rgba(6,182,212,.15)',borderColor:'#06b6d4',borderWidth:2,pointRadius:4,
+        pointBackgroundColor:'#06b6d4',
+      },
+      {
+        label:'GPT-4o',data:[4.02,4.04,3.57,2.92,3.17],
+        backgroundColor:'rgba(245,158,11,.1)',borderColor:'#f59e0b',borderWidth:2,pointRadius:4,
+        pointBackgroundColor:'#f59e0b',
+      }
+    ]
+  },
+  options:{
+    responsive:true,
+    scales:{
+      r:{
+        min:1,max:5,
+        angleLines:{color:'rgba(30,38,80,.6)'},
+        grid:{color:'rgba(30,38,80,.5)'},
+        pointLabels:{font:{size:10}},
+        ticks:{stepSize:1,backdropColor:'transparent',font:{size:9}}
+      }
+    },
+    plugins:{legend:{position:'bottom',labels:{boxWidth:12,padding:12}}}
   }
 });
 </script>
