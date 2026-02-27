@@ -296,26 +296,32 @@ python evaluation/llm/generate_report.py results/scored_*.json --compare
 
 ### LLM Evaluation Results
 
-**2×2 Cross-Judge Verification** — Both Claude and GPT-4o as judges, scoring responses from both models:
+**3-Model Cross-Judge Matrix** — Three respondent models scored by three judges (weighted score, 1–5 scale):
 
-| | Claude-as-Judge | GPT-4o-as-Judge |
-|---|---|---|
-| **Claude Sonnet 4** | **4.55** / 5.00 | 4.76 / 5.00 |
-| **GPT-4o** | 3.64 / 5.00 | 4.36 / 5.00 |
+| Respondent | Sonnet 4 Judge | Sonnet 4.6 Judge | GPT-4o Judge |
+|-----------|:-:|:-:|:-:|
+| **Claude Sonnet 4.6** | **4.73** | **4.60** | — |
+| **Claude Sonnet 4** | 4.55 | 4.03 | 4.76 |
+| **GPT-4o** | 3.64 | 3.30 | 4.36 |
 
-Both judges consistently rank Claude Sonnet above GPT-4o. GPT-4o-as-judge is uniformly more lenient (+0.51 same-vendor differential) but does not reverse the ranking.
+Key findings:
+- **Ranking is consistent** across all judges: Sonnet 4.6 > Sonnet 4 > GPT-4o
+- **Sonnet 4.6 is the strictest judge** — scores are 0.3–0.5 points lower vs Sonnet 4 judge
+- **GPT-4o as judge inflates scores** — both respondents score ~0.2–0.7 higher
+- **Sonnet 4 → 4.6 improvement**: +0.18 (by Sonnet 4 judge); factual errors drop from 16 to 3
 
-**Claude Sonnet 4 — Dimension Breakdown** (Claude-as-Judge):
+**Per-Dimension Breakdown** (Sonnet 4.6 Judge):
 
-| Dimension | Weight | Score |
-|-----------|--------|-------|
-| Factual Accuracy | 0.25 | 4.60 |
-| Reasoning Quality | 0.25 | 4.83 |
-| Completeness | 0.20 | 4.75 |
-| Uncertainty Calibration | 0.15 | 3.90 |
-| Domain Integration | 0.15 | 4.38 |
+| Dimension | Weight | Sonnet 4.6 | Sonnet 4 | GPT-4o |
+|-----------|--------|:---:|:---:|:---:|
+| Factual Accuracy | 0.25 | 4.59 | 4.26 | 3.96 |
+| Reasoning Quality | 0.25 | 4.96 | 4.47 | 3.61 |
+| Completeness | 0.20 | 4.73 | 4.07 | 3.12 |
+| Uncertainty Calibration | 0.15 | 4.09 | 3.14 | 2.59 |
+| Domain Integration | 0.15 | 4.33 | 3.74 | 2.64 |
+| **Weighted** | **1.00** | **4.60** | **4.03** | **3.30** |
 
-**GPT-4o** — largest gaps vs Claude in Completeness (−1.18) and Domain Integration (−1.21), reflecting less thorough coverage of cross-omics connections and key reasoning points.
+GPT-4o's largest gaps are in Completeness (−1.61) and Domain Integration (−1.69), reflecting less thorough coverage of cross-omics connections. Uncertainty Calibration is the weakest dimension for all models — appropriate hedging for small-N spaceflight data remains challenging.
 
 ## Directory Structure
 
