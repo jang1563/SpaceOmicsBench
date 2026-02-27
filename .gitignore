@@ -26,3 +26,7 @@ data/**/*.csv
 __pycache__/
 *.pyc
 .env
+
+# Local run outputs (keep policy docs only)
+results/*
+!results/README.md

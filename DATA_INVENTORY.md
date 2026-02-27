@@ -220,6 +220,8 @@ For a fully public benchmark, we use ONLY the "OPEN" rows above. All controlled-
 
 **Controlled-access note**: Any future controlled track must document access requirements per dataset (OSDR DAR, dbGaP/LSDA) and must not be redistributed in the open track.
 
+**Recommended directory split**: If a controlled track is added later, keep files separate (e.g., `data/open/` and `data/controlled/`) to avoid accidental mixing.
+
 ---
 
 ## 6. Data Fetching Methods
