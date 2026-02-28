@@ -77,10 +77,19 @@ SpaceOmicsBench/
 
 ## 5. 진행 전 확인 사항 (TODO)
 
-- [ ] OSDR에서 Axiom-1/2 직접 검색: 어떤 OSD ID? GeneLab 표준 처리 파일 있는가?
-- [ ] Polaris Dawn 데이터 공개 여부 확인 (2025년 10월 비행)
+- [x] OSDR에서 Axiom-1/2 직접 검색 **→ 결과 (2026-02-28): OSDR 624개 데이터셋 중 Axiom 관련 OSD ID 없음. GeneLab 표준 파이프라인(GLbulkRNAseq) DE 파일도 없음.**
+- [x] SOMA (Nature 2024) 데이터 범위 확인 **→ 결과 (2026-02-28): 2,911 샘플은 I4 전용. Axiom/Polaris는 SOMA 플랫폼의 미래 계획으로만 언급됨.**
+- [ ] Polaris Dawn 데이터 공개 여부 확인 (2024년 9월 비행 → 처리 후 OSDR 등록까지 시간 필요)
 - [ ] SOMA 원시 데이터 다운로드 방법 확인 (soma.weill.cornell.edu)
 - [ ] missions/ 디렉토리 생성 전 새 미션 데이터 샘플 1개 수동 처리로 파이프라인 검증
+
+### OSDR 데이터 조사 결과 요약 (2026-02-28)
+
+OSD 688~900 범위 스캔 결과:
+- OSD-781, OSD-784, OSD-787: GeneLab DE 파일 있음, 단 인간 비우주비행(지상) 연구
+- Axiom-1/2, Polaris Dawn: OSDR에 미등록 또는 미처리 상태
+- NASA Twins Study (OSD-53): 마이크로어레이 형식, GeneLab RNA-seq 파이프라인 아님
+- **결론**: v3 신규 미션 데이터 추가는 Axiom/Polaris OSDR 등록 대기 필요
 
 ---
 
