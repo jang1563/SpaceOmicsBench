@@ -1,5 +1,8 @@
 # SpaceOmicsBench
 
+[![CI](https://github.com/jang1563/SpaceOmicsBench/actions/workflows/ci.yml/badge.svg)](https://github.com/jang1563/SpaceOmicsBench/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 A multi-omics AI benchmark for spaceflight biomedical data, featuring **21 ML tasks** across **9 modalities** and a **100-question LLM evaluation** framework. Data from the SpaceX Inspiration4 (I4) civilian astronaut mission, NASA Twins Study, and JAXA Cell-Free Epigenome (CFE) study.
 
 All benchmark tables are derived from OSDR public releases and/or published supplementary tables. Any human sequence-level or restricted files are excluded from the open track; a controlled-access track may require an approved OSDR Data Access Request (DAR).
@@ -9,12 +12,13 @@ All benchmark tables are derived from OSDR public releases and/or published supp
 | | |
 |---|---|
 | **ML Tasks** | 21 tasks (19 main + 2 supplementary) |
-| **LLM Evaluation** | 100 questions, 5-dimension Claude-as-judge scoring |
+| **LLM Evaluation** | 100 questions, 5-dimension Claude-as-judge scoring, 5 models evaluated |
 | **Modalities** | Clinical, cfRNA, Proteomics, Metabolomics, Spatial Transcriptomics, Microbiome, Multi-modal, Cross-tissue, Cross-mission |
 | **Difficulty Tiers** | Calibration (1) / Standard (5) / Advanced (9) / Frontier (6) |
 | **Missions** | Inspiration4 (4 crew, 3 days LEO), NASA Twins (340 days ISS), JAXA CFE (6 astronauts, >120 days ISS) |
 | **Evaluation** | Leave-One-Crew-Out, Leave-One-Timepoint-Out, 80/20 feature splits (5 reps) |
-| **Baselines** | Random, Majority, LogReg, RF, MLP, XGBoost, LightGBM |
+| **ML Baselines** | Random, Majority, LogReg, RF, MLP, XGBoost, LightGBM |
+| **LLM Evaluated** | Claude Sonnet 4.6, Haiku 4.5, Sonnet 4, GPT-4o, GPT-4o Mini |
 
 ## Quick Start
 
