@@ -2,6 +2,8 @@
 
 [![CI](https://github.com/jang1563/SpaceOmicsBench/actions/workflows/ci.yml/badge.svg)](https://github.com/jang1563/SpaceOmicsBench/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![ML Tasks](https://img.shields.io/badge/ML_Tasks-Interactive_Demo-06b6d4)](https://jang1563.github.io/SpaceOmicsBench/demo.html)
+[![LLM Leaderboard](https://img.shields.io/badge/LLM_Leaderboard-Interactive_Viz-a78bfa)](https://jang1563.github.io/SpaceOmicsBench/llm_leaderboard.html)
 
 A multi-omics AI benchmark for spaceflight biomedical data, featuring **21 ML tasks** across **9 modalities** and a **100-question LLM evaluation** framework. Data from the SpaceX Inspiration4 (I4) civilian astronaut mission, NASA Twins Study, and JAXA Cell-Free Epigenome (CFE) study.
 
@@ -392,6 +394,8 @@ A summary of the scored outputs used to generate the table is in `docs/samples/l
 - Cross-judge verification with ≥ 2 judges (inter-rater reliability)
 
 ### LLM Evaluation Results
+
+> 📊 **[Interactive Leaderboard →](https://jang1563.github.io/SpaceOmicsBench/llm_leaderboard.html)** — bar charts, difficulty profiles, radar, modality heatmap, sortable table
 
 **9-Model Ranking** (Judge: Claude Sonnet 4.6, 100 questions, 1–5 scale):
 
