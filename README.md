@@ -386,6 +386,7 @@ SpaceOmicsBench/
 ├── evaluation/
 │   ├── eval_harness.py              # ML evaluation harness
 │   ├── metrics.py                   # Metric implementations
+│   ├── signature_query.py           # Compare new DE data vs. benchmark signatures
 │   └── llm/                         # LLM evaluation framework
 │       ├── question_bank.json       # 100 questions
 │       ├── annotation_schema.json   # 5-dimension scoring schema
@@ -438,6 +439,44 @@ Each task JSON specifies:
 - `output_spec`: target type, classes, and class distribution
 - `evaluation`: primary and secondary metrics
 - `split`: which split file to use
+
+## Signature Query: Compare New Data Against Benchmark
+
+If you have DE results from a new spaceflight mission, compare them against SpaceOmicsBench
+reference signatures to identify biological overlap with known spaceflight responses.
+
+**Input:** any CSV with `gene`, `log2FC` (or `logFC`/`log2FoldChange`), and `padj` columns.
+
+```bash
+python evaluation/signature_query.py --input my_de_results.csv
+```
+
+**Options:**
+```
+--padj-threshold FLOAT   Adjusted p-value cutoff for DE (default: 0.05)
+--fc-threshold   FLOAT   Minimum |log2FC| for DE (default: 0, disabled)
+--signatures     IDs...  Subset of signatures to query (default: all 8)
+--output-dir     DIR     Output directory for JSON + Markdown report (default: results/)
+```
+
+**Available reference signatures:**
+
+| Signature ID | Description | N |
+|---|---|---|
+| `I4_cfRNA_DRR` | Inspiration4 cfRNA spaceflight-responsive genes (JAXA IHSP) | 466 |
+| `I4_Plasma_Proteomics` | Inspiration4 plasma DE proteins | 57 |
+| `I4_PBMC_CD4T` | Inspiration4 CD4+ T cell DE genes | 736 |
+| `I4_PBMC_CD8T` | Inspiration4 CD8+ T cell DE genes | 661 |
+| `I4_PBMC_CD14Mono` | Inspiration4 CD14+ Monocyte DE genes | 709 |
+| `GeneLab_Mouse` | GeneLab rodent spaceflight DE genes (conserved with I4) | 134 |
+| `JAXA_cfRNA` | JAXA cfRNA DE genes | 36 |
+| `CrossMission_Conserved` | Cross-mission conserved spaceflight genes | 814 |
+
+**Metrics computed:** Jaccard index, overlap coefficient, hypergeometric enrichment (FDR-corrected),
+direction concordance, and Spearman correlation of log2FC values.
+
+**Note:** This is an exploratory overlap tool. I4 had n=4 crew; reference signatures reflect
+one specific mission cohort. See `docs/extension_plan.md` for planned ingestion pipeline.
 
 ## Task Schema Validation
 
