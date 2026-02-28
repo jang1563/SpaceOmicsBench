@@ -333,32 +333,31 @@ A summary of the scored outputs used to generate the table is in `docs/samples/l
 
 ### LLM Evaluation Results
 
-**3-Model Cross-Judge Matrix** — Three respondent models scored by three judges (weighted score, 1–5 scale):
+**5-Model Ranking** (Judge: Claude Sonnet 4.6, 100 questions, 1–5 scale):
+
+| Rank | Model | Weighted Score | Factual | Reasoning | Completeness | Uncertainty | Domain |
+|------|-------|:-:|:-:|:-:|:-:|:-:|:-:|
+| 1 | **Claude Sonnet 4.6** | **4.60** | 4.59 | 4.96 | 4.73 | 4.09 | 4.33 |
+| 2 | **Claude Haiku 4.5** | **4.39** | 4.35 | 4.84 | 4.53 | 3.82 | 4.12 |
+| 3 | **Claude Sonnet 4** | **4.03** | 4.26 | 4.47 | 4.07 | 3.14 | 3.74 |
+| 4 | **GPT-4o** | **3.30** | 3.98 | 3.60 | 3.13 | 2.57 | 2.63 |
+| 5 | **GPT-4o Mini** | **3.30** | 3.91 | 3.51 | 3.19 | 2.75 | 2.63 |
+
+Key findings:
+- **Claude models rank 1–3**; Haiku 4.5 notably outperforms Sonnet 4 (+0.36) despite being a smaller model
+- **GPT-4o ≈ GPT-4o Mini** (3.30 vs 3.30) — scale provides negligible benefit for this task type
+- **Uncertainty Calibration** is the weakest dimension across all models; small-N spaceflight data requires careful hedging that all models underperform
+- **Domain Integration** gap is largest between Claude and GPT models (−1.70 for GPT-4o), reflecting less thorough cross-omics reasoning
+
+**Cross-Judge Verification** — Sonnet 4, Sonnet 4.6, and GPT-4o were additionally scored by Sonnet 4 and GPT-4o judges for bias analysis:
 
 | Respondent | Sonnet 4 Judge | Sonnet 4.6 Judge | GPT-4o Judge |
 |-----------|:-:|:-:|:-:|
-| **Claude Sonnet 4.6** | **4.73** | **4.60** | — |
+| **Claude Sonnet 4.6** | 4.73 | **4.60** | — |
 | **Claude Sonnet 4** | 4.55 | 4.03 | 4.76 |
 | **GPT-4o** | 3.64 | 3.30 | 4.36 |
 
-Key findings:
-- **Ranking is consistent** across all judges: Sonnet 4.6 > Sonnet 4 > GPT-4o
-- **Sonnet 4.6 is the strictest judge** — scores are 0.3–0.5 points lower vs Sonnet 4 judge
-- **GPT-4o as judge inflates scores** — both respondents score ~0.2–0.7 higher
-- **Sonnet 4 → 4.6 improvement**: +0.18 (by Sonnet 4 judge); factual errors drop from 16 to 3
-
-**Per-Dimension Breakdown** (Sonnet 4.6 Judge):
-
-| Dimension | Weight | Sonnet 4.6 | Sonnet 4 | GPT-4o |
-|-----------|--------|:---:|:---:|:---:|
-| Factual Accuracy | 0.25 | 4.59 | 4.26 | 3.96 |
-| Reasoning Quality | 0.25 | 4.96 | 4.47 | 3.61 |
-| Completeness | 0.20 | 4.73 | 4.07 | 3.12 |
-| Uncertainty Calibration | 0.15 | 4.09 | 3.14 | 2.59 |
-| Domain Integration | 0.15 | 4.33 | 3.74 | 2.64 |
-| **Weighted** | **1.00** | **4.60** | **4.03** | **3.30** |
-
-GPT-4o's largest gaps are in Completeness (−1.61) and Domain Integration (−1.69), reflecting less thorough coverage of cross-omics connections. Uncertainty Calibration is the weakest dimension for all models — appropriate hedging for small-N spaceflight data remains challenging.
+Sonnet 4.6 is the strictest judge (scores 0.3–0.5 lower); GPT-4o as judge inflates scores by ~0.2–0.7 but does not change ranking order.
 
 ## Directory Structure
 
