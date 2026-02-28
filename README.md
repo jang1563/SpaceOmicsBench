@@ -275,21 +275,55 @@ Question types: factual, interpretation, reasoning, counterfactual, experimental
 ### Running LLM Evaluation
 
 ```bash
-# Run evaluation (Claude)
+# ── Proprietary models ────────────────────────────────────────────────────
+# Claude
 export ANTHROPIC_API_KEY="your-key"
-python evaluation/llm/run_llm_evaluation.py --model claude-sonnet-4-20250514 --sample 10
+python evaluation/llm/run_llm_evaluation.py --model claude-sonnet-4-6 --sample 10
 
-# Run evaluation (OpenAI)
+# OpenAI
 export OPENAI_API_KEY="your-key"
 python evaluation/llm/run_llm_evaluation.py --model gpt-4o --full
 
-# Score responses with Claude-as-judge
+# ── Open-source via API (OpenAI-compatible) ───────────────────────────────
+# Groq (Llama 3.3 70B — free tier, fast)
+export GROQ_API_KEY="your-key"
+python evaluation/llm/run_llm_evaluation.py --model llama-3.3-70b-versatile \
+    --base-url https://api.groq.com/openai/v1 --api-key-env GROQ_API_KEY --full
+
+# Together.ai (Qwen 2.5 72B)
+export TOGETHER_API_KEY="your-key"
+python evaluation/llm/run_llm_evaluation.py --model Qwen/Qwen2.5-72B-Instruct-Turbo \
+    --base-url https://api.together.xyz/v1 --api-key-env TOGETHER_API_KEY --full
+
+# DeepSeek R1
+export DEEPSEEK_API_KEY="your-key"
+python evaluation/llm/run_llm_evaluation.py --model deepseek-reasoner \
+    --base-url https://api.deepseek.com/v1 --api-key-env DEEPSEEK_API_KEY --full
+
+# ── Open-source via Ollama (fully local, Apple Silicon supported) ─────────
+# Pull model first: ollama pull llama3.3
+python evaluation/llm/run_llm_evaluation.py --model llama3.3:70b \
+    --base-url http://localhost:11434/v1 --full
+
+# ── HuggingFace local (Apple Silicon MPS auto-detected) ──────────────────
+python evaluation/llm/run_llm_evaluation.py \
+    --model meta-llama/Llama-3.3-70B-Instruct --sample 10
+
+# ── Scoring (Claude / GPT-4o / open-source as judge) ─────────────────────
+# Claude as judge (default)
 python evaluation/llm/score_responses.py results/eval_*.json
 
-# Score with GPT-4o as judge (cross-judge verification)
-python evaluation/llm/score_responses.py results/eval_*.json --judge-backend openai --judge-model gpt-4o
+# GPT-4o as judge
+python evaluation/llm/score_responses.py results/eval_*.json \
+    --judge-backend openai --judge-model gpt-4o
 
-# Generate comparison report
+# Open-source as judge via Groq
+python evaluation/llm/score_responses.py results/eval_*.json \
+    --judge-backend compatible --judge-model llama-3.3-70b-versatile \
+    --judge-base-url https://api.groq.com/openai/v1 \
+    --judge-api-key-env GROQ_API_KEY
+
+# ── Generate comparison report ────────────────────────────────────────────
 python evaluation/llm/generate_report.py results/scored_*.json --compare
 ```
 
@@ -334,6 +368,21 @@ python evaluation/llm/score_responses.py results/eval_gpt-4o_*.json \
 ```
 
 A summary of the scored outputs used to generate the table is in `docs/samples/llm_eval_summary.json`.
+
+**Supported backends summary:**
+
+| Backend flag | Covers | API key env |
+|---|---|---|
+| `anthropic` (default) | Claude models | `ANTHROPIC_API_KEY` |
+| `openai` | GPT-4o, o1/o3 | `OPENAI_API_KEY` |
+| `compatible` + `--base-url` | Groq, Together, DeepSeek, Mistral, OpenRouter, Ollama | via `--api-key-env` |
+| `huggingface` | Local models (CUDA / Apple MPS / CPU) | — |
+
+**For publication-quality benchmarking**, aim to evaluate at minimum:
+- 2 proprietary frontier models (Claude + GPT-4o)
+- 2–3 open-source flagship models (Llama 3.3 70B + DeepSeek R1 + Qwen 2.5 72B)
+- 1 biomedical-specialized model (BioMistral, Meditron, etc.)
+- Cross-judge verification with ≥ 2 judges (inter-rater reliability)
 
 ### LLM Evaluation Results
 

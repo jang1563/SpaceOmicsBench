@@ -4,26 +4,46 @@ SpaceOmicsBench v2 - LLM Evaluation Script
 ============================================
 
 Runs LLM models on the SpaceOmicsBench question bank with dynamic data context loading.
-Supports Claude, OpenAI, and HuggingFace (local) model backends.
+Supports Claude, OpenAI, OpenAI-compatible (Groq, Together, DeepSeek, Ollama, …),
+and HuggingFace local model backends.
 
 Usage:
-    # Claude (API)
+    # Claude (Anthropic API)
     export ANTHROPIC_API_KEY="your-key"
-    python run_llm_evaluation.py --model claude-sonnet-4-20250514 --sample 5
+    python run_llm_evaluation.py --model claude-sonnet-4-6 --sample 5
 
     # OpenAI (API)
     export OPENAI_API_KEY="your-key"
     python run_llm_evaluation.py --model gpt-4o --sample 5
 
-    # HuggingFace (local, requires GPU)
-    python run_llm_evaluation.py --model mistralai/Mistral-7B-v0.3 --sample 5
+    # Open-source via Groq (Llama 3.3 70B — free tier)
+    export GROQ_API_KEY="your-key"
+    python run_llm_evaluation.py --model llama-3.3-70b-versatile \
+        --base-url https://api.groq.com/openai/v1 --api-key-env GROQ_API_KEY
+
+    # Open-source via Together.ai (Qwen 2.5 72B)
+    export TOGETHER_API_KEY="your-key"
+    python run_llm_evaluation.py --model Qwen/Qwen2.5-72B-Instruct-Turbo \
+        --base-url https://api.together.xyz/v1 --api-key-env TOGETHER_API_KEY
+
+    # DeepSeek R1 via DeepSeek API
+    export DEEPSEEK_API_KEY="your-key"
+    python run_llm_evaluation.py --model deepseek-reasoner \
+        --base-url https://api.deepseek.com/v1 --api-key-env DEEPSEEK_API_KEY
+
+    # Ollama (fully local, no auth)
+    python run_llm_evaluation.py --model llama3.3:70b \
+        --base-url http://localhost:11434/v1 --api-key-env OLLAMA_API_KEY
+
+    # HuggingFace local (Apple Silicon MPS supported)
+    python run_llm_evaluation.py --model meta-llama/Llama-3.3-70B-Instruct --sample 5
 
     # Full evaluation (all 100 questions)
-    python run_llm_evaluation.py --model claude-sonnet-4-20250514 --full
+    python run_llm_evaluation.py --model claude-sonnet-4-6 --full
 
     # Filter by modality or difficulty
-    python run_llm_evaluation.py --model claude-sonnet-4-20250514 --modality cross_mission
-    python run_llm_evaluation.py --model claude-sonnet-4-20250514 --difficulty expert
+    python run_llm_evaluation.py --model claude-sonnet-4-6 --modality cross_mission
+    python run_llm_evaluation.py --model claude-sonnet-4-6 --difficulty expert
 """
 
 import json
@@ -170,6 +190,69 @@ class OpenAIBackend(BaseModelBackend):
             return {"success": False, "error": str(e), "response_time_sec": round(time.time() - start, 2)}
 
 
+class OpenAICompatibleBackend(BaseModelBackend):
+    """Backend for any OpenAI-compatible API endpoint.
+
+    Supports: Groq, Together.ai, DeepSeek, Mistral API, OpenRouter, Ollama, etc.
+
+    Examples:
+        Groq       : base_url="https://api.groq.com/openai/v1",   api_key_env="GROQ_API_KEY"
+        Together   : base_url="https://api.together.xyz/v1",       api_key_env="TOGETHER_API_KEY"
+        DeepSeek   : base_url="https://api.deepseek.com/v1",       api_key_env="DEEPSEEK_API_KEY"
+        Mistral    : base_url="https://api.mistral.ai/v1",         api_key_env="MISTRAL_API_KEY"
+        OpenRouter : base_url="https://openrouter.ai/api/v1",      api_key_env="OPENROUTER_API_KEY"
+        Ollama     : base_url="http://localhost:11434/v1",          api_key_env=None (uses "ollama")
+    """
+
+    def __init__(self, model_name: str, max_tokens: int = 2000, temperature: float = 0.3,
+                 base_url: Optional[str] = None, api_key_env: Optional[str] = None):
+        super().__init__(model_name, max_tokens, temperature)
+        try:
+            from openai import OpenAI
+        except ImportError:
+            raise ImportError("Install openai: pip install openai")
+        # Ollama and some local servers accept any non-empty key
+        env_var = api_key_env or "OPENAI_API_KEY"
+        api_key = os.environ.get(env_var, "ollama")
+        if api_key_env and not os.environ.get(api_key_env):
+            raise ValueError(f"API key not found. Set the {api_key_env} environment variable.")
+        client_kwargs: Dict[str, Any] = {"api_key": api_key}
+        if base_url:
+            client_kwargs["base_url"] = base_url
+        self.client = OpenAI(**client_kwargs)
+        self.base_url = base_url or "(default)"
+
+    def generate(self, prompt: str, system: str = None) -> Dict[str, Any]:
+        start = time.time()
+        try:
+            messages = []
+            if system:
+                messages.append({"role": "system", "content": system})
+            messages.append({"role": "user", "content": prompt})
+            resp = retry_api_call(lambda: self.client.chat.completions.create(
+                model=self.model_name,
+                max_tokens=self.max_tokens,
+                temperature=self.temperature,
+                messages=messages,
+            ))
+            elapsed = time.time() - start
+            inp = resp.usage.prompt_tokens if resp.usage else 0
+            out = resp.usage.completion_tokens if resp.usage else 0
+            self.total_input_tokens += inp
+            self.total_output_tokens += out
+            return {
+                "success": True,
+                "response": resp.choices[0].message.content,
+                "input_tokens": inp,
+                "output_tokens": out,
+                "response_time_sec": round(elapsed, 2),
+                "model": self.model_name,
+                "base_url": self.base_url,
+            }
+        except Exception as e:
+            return {"success": False, "error": str(e), "response_time_sec": round(time.time() - start, 2)}
+
+
 class HuggingFaceBackend(BaseModelBackend):
     """HuggingFace local model backend with optional LoRA adapter support."""
 
@@ -189,10 +272,17 @@ class HuggingFaceBackend(BaseModelBackend):
             raise ImportError("Install transformers and torch: pip install transformers torch accelerate")
 
         print(f"Loading HuggingFace model: {model_name}")
-        device_map = "auto" if torch.cuda.is_available() else "cpu"
-        if not torch.cuda.is_available():
+        if torch.cuda.is_available():
+            device_map = "auto"
+            print("CUDA GPU detected.")
+        elif hasattr(torch.backends, "mps") and torch.backends.mps.is_available():
+            device_map = "mps"
+            use_4bit = False  # BitsAndBytes not supported on MPS
+            print("Apple Silicon MPS detected — using float16, 4-bit quantization disabled.")
+        else:
+            device_map = "cpu"
             use_4bit = False
-            print("No GPU detected, using CPU (will be slow)")
+            print("No GPU detected, using CPU (will be slow).")
 
         tok_path = adapter_path if adapter_path else model_name
         self.tokenizer = AutoTokenizer.from_pretrained(tok_path, trust_remote_code=trust_remote_code)
@@ -210,9 +300,18 @@ class HuggingFaceBackend(BaseModelBackend):
                 self.model = AutoModelForCausalLM.from_pretrained(
                     model_name, device_map=device_map, torch_dtype=torch.float16, trust_remote_code=trust_remote_code)
         else:
-            dt = torch.float16 if torch.cuda.is_available() else torch.float32
-            self.model = AutoModelForCausalLM.from_pretrained(
-                model_name, device_map=device_map, torch_dtype=dt, trust_remote_code=trust_remote_code)
+            # MPS prefers float16; CPU falls back to float32
+            dt = torch.float32 if device_map == "cpu" else torch.float16
+            load_kwargs: Dict[str, Any] = {
+                "torch_dtype": dt, "trust_remote_code": trust_remote_code
+            }
+            if device_map == "mps":
+                load_kwargs["low_cpu_mem_usage"] = True
+            else:
+                load_kwargs["device_map"] = device_map
+            self.model = AutoModelForCausalLM.from_pretrained(model_name, **load_kwargs)
+            if device_map == "mps":
+                self.model = self.model.to("mps")
 
         if adapter_path:
             from peft import PeftModel
@@ -273,27 +372,44 @@ def get_backend(model_name: str, adapter_path: Optional[str] = None,
                 max_tokens: int = 2000, temperature: float = 0.3,
                 use_4bit: bool = True,
                 backend_override: Optional[str] = None,
-                trust_remote_code: bool = False) -> BaseModelBackend:
-    """Factory: pick Claude / OpenAI / HuggingFace backend by model name or explicit override."""
+                trust_remote_code: bool = False,
+                base_url: Optional[str] = None,
+                api_key_env: Optional[str] = None) -> BaseModelBackend:
+    """Factory: select backend by model name or explicit override.
+
+    Backends:
+        claude      — Anthropic API (claude-*)
+        openai      — OpenAI API (gpt-*, o1/o3/o4)
+        compatible  — Any OpenAI-compatible endpoint (Groq, Together, DeepSeek, Ollama, …)
+        huggingface — Local inference via HuggingFace transformers (CUDA / Apple MPS / CPU)
+    """
     if backend_override:
         override = backend_override.lower()
         if override == "claude":
             return ClaudeBackend(model_name, max_tokens, temperature)
         elif override == "openai":
             return OpenAIBackend(model_name, max_tokens, temperature)
+        elif override == "compatible":
+            return OpenAICompatibleBackend(model_name, max_tokens, temperature, base_url, api_key_env)
         elif override == "huggingface":
             return HuggingFaceBackend(model_name, max_tokens, temperature, adapter_path, use_4bit,
                                       trust_remote_code=trust_remote_code)
         else:
-            raise ValueError(f"Unknown backend: {backend_override}. Use: claude, openai, huggingface")
+            raise ValueError(f"Unknown backend: {backend_override}. Use: claude, openai, compatible, huggingface")
 
-    # Auto-detect from model name
+    # If a base_url is provided, always use the compatible backend
+    if base_url:
+        return OpenAICompatibleBackend(model_name, max_tokens, temperature, base_url, api_key_env)
+
+    # Auto-detect from model name prefix/keywords
     name = model_name.lower()
     if any(k in name for k in ["claude", "anthropic", "sonnet", "opus", "haiku"]):
         return ClaudeBackend(model_name, max_tokens, temperature)
     elif any(k in name for k in ["gpt", "o1", "o3", "o4", "chatgpt"]):
         return OpenAIBackend(model_name, max_tokens, temperature)
     else:
+        # Open-source models default to HuggingFace local
+        # (use --base-url to route to an API instead)
         return HuggingFaceBackend(model_name, max_tokens, temperature, adapter_path, use_4bit,
                                   trust_remote_code=trust_remote_code)
 
@@ -343,7 +459,7 @@ def load_question_bank(
 # ============================================================================
 
 def run_evaluation(
-    model_name: str = "claude-sonnet-4-20250514",
+    model_name: str = "claude-sonnet-4-6",
     adapter_path: Optional[str] = None,
     output_dir: str = "results",
     sample_size: Optional[int] = None,
@@ -353,6 +469,8 @@ def run_evaluation(
     backend_override: Optional[str] = None,
     log_prompts: bool = False,
     trust_remote_code: bool = False,
+    base_url: Optional[str] = None,
+    api_key_env: Optional[str] = None,
 ):
     """Run LLM evaluation on the SpaceOmicsBench question bank."""
 
@@ -364,9 +482,12 @@ def run_evaluation(
     print(f"\nModel: {model_name}")
     if adapter_path:
         print(f"Adapter: {adapter_path}")
+    if base_url:
+        print(f"Endpoint: {base_url}")
     backend = get_backend(model_name, adapter_path, use_4bit=use_4bit,
                           backend_override=backend_override,
-                          trust_remote_code=trust_remote_code)
+                          trust_remote_code=trust_remote_code,
+                          base_url=base_url, api_key_env=api_key_env)
 
     # Load questions
     questions = load_question_bank(modality, difficulty, sample_size)
@@ -481,10 +602,19 @@ def main():
     parser.add_argument("--output-dir", default="results",
                         help="Output directory (default: results)")
     parser.add_argument("--no-4bit", action="store_true",
-                        help="Disable 4-bit quantization (HuggingFace only)")
+                        help="Disable 4-bit quantization (HuggingFace/CUDA only; auto-disabled on MPS)")
     parser.add_argument("--backend", type=str, default=None,
-                        choices=["claude", "openai", "huggingface"],
-                        help="Force specific backend (overrides auto-detection from model name)")
+                        choices=["claude", "openai", "compatible", "huggingface"],
+                        help="Force specific backend (overrides auto-detection from model name). "
+                             "Use 'compatible' for Groq/Together/DeepSeek/Ollama/OpenRouter.")
+    parser.add_argument("--base-url", type=str, default=None,
+                        help="Base URL for OpenAI-compatible endpoints "
+                             "(e.g. https://api.groq.com/openai/v1). "
+                             "Automatically selects the 'compatible' backend.")
+    parser.add_argument("--api-key-env", type=str, default=None,
+                        help="Environment variable name containing the API key for --base-url "
+                             "(e.g. GROQ_API_KEY, TOGETHER_API_KEY). "
+                             "Defaults to OPENAI_API_KEY if not set.")
     parser.add_argument("--log-prompts", action="store_true",
                         help="Save full prompts to output_dir/prompt_logs/")
     parser.add_argument("--trust-remote-code", action="store_true",
@@ -505,6 +635,8 @@ def main():
         backend_override=args.backend,
         log_prompts=args.log_prompts,
         trust_remote_code=args.trust_remote_code,
+        base_url=args.base_url,
+        api_key_env=args.api_key_env,
     )
 
 
