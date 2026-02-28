@@ -12,13 +12,13 @@ All benchmark tables are derived from OSDR public releases and/or published supp
 | | |
 |---|---|
 | **ML Tasks** | 21 tasks (19 main + 2 supplementary) |
-| **LLM Evaluation** | 100 questions, 5-dimension Claude-as-judge scoring, 5 models evaluated |
+| **LLM Evaluation** | 100 questions, 5-dimension Claude-as-judge scoring, 9 models evaluated |
 | **Modalities** | Clinical, cfRNA, Proteomics, Metabolomics, Spatial Transcriptomics, Microbiome, Multi-modal, Cross-tissue, Cross-mission |
 | **Difficulty Tiers** | Calibration (1) / Standard (5) / Advanced (9) / Frontier (6) |
 | **Missions** | Inspiration4 (4 crew, 3 days LEO), NASA Twins (340 days ISS), JAXA CFE (6 astronauts, >120 days ISS) |
 | **Evaluation** | Leave-One-Crew-Out, Leave-One-Timepoint-Out, 80/20 feature splits (5 reps) |
 | **ML Baselines** | Random, Majority, LogReg, RF, MLP, XGBoost, LightGBM |
-| **LLM Evaluated** | Claude Sonnet 4.6, Haiku 4.5, Sonnet 4, GPT-4o, GPT-4o Mini |
+| **LLM Evaluated** | Claude Sonnet 4.6, Haiku 4.5, Sonnet 4, GPT-4o, GPT-4o Mini, DeepSeek-V3, Gemini 2.5 Flash, Llama-3.3-70B |
 
 ## Quick Start
 
@@ -290,15 +290,22 @@ export GROQ_API_KEY="your-key"
 python evaluation/llm/run_llm_evaluation.py --model llama-3.3-70b-versatile \
     --base-url https://api.groq.com/openai/v1 --api-key-env GROQ_API_KEY --full
 
-# Together.ai (Qwen 2.5 72B)
+# Together.ai (Llama 3.3 70B — serverless, no dedicated endpoint needed)
 export TOGETHER_API_KEY="your-key"
-python evaluation/llm/run_llm_evaluation.py --model Qwen/Qwen2.5-72B-Instruct-Turbo \
+python evaluation/llm/run_llm_evaluation.py \
+    --model meta-llama/Llama-3.3-70B-Instruct-Turbo \
     --base-url https://api.together.xyz/v1 --api-key-env TOGETHER_API_KEY --full
 
-# DeepSeek R1
+# DeepSeek-V3
 export DEEPSEEK_API_KEY="your-key"
-python evaluation/llm/run_llm_evaluation.py --model deepseek-reasoner \
+python evaluation/llm/run_llm_evaluation.py --model deepseek-chat \
     --base-url https://api.deepseek.com/v1 --api-key-env DEEPSEEK_API_KEY --full
+
+# Gemini 2.5 Flash (via OpenAI-compatible endpoint; billing must be active)
+export GEMINI_API_KEY="your-key"
+python evaluation/llm/run_llm_evaluation.py --model models/gemini-2.5-flash \
+    --base-url https://generativelanguage.googleapis.com/v1beta/openai/ \
+    --api-key-env GEMINI_API_KEY --full
 
 # ── Open-source via Ollama (fully local, Apple Silicon supported) ─────────
 # Pull model first: ollama pull llama3.3
@@ -386,21 +393,29 @@ A summary of the scored outputs used to generate the table is in `docs/samples/l
 
 ### LLM Evaluation Results
 
-**5-Model Ranking** (Judge: Claude Sonnet 4.6, 100 questions, 1–5 scale):
+**9-Model Ranking** (Judge: Claude Sonnet 4.6, 100 questions, 1–5 scale):
 
-| Rank | Model | Weighted Score | Factual | Reasoning | Completeness | Uncertainty | Domain |
-|------|-------|:-:|:-:|:-:|:-:|:-:|:-:|
-| 1 | **Claude Sonnet 4.6** | **4.60** | 4.59 | 4.96 | 4.73 | 4.09 | 4.33 |
-| 2 | **Claude Haiku 4.5** | **4.39** | 4.35 | 4.84 | 4.53 | 3.82 | 4.12 |
-| 3 | **Claude Sonnet 4** | **4.03** | 4.26 | 4.47 | 4.07 | 3.14 | 3.74 |
-| 4 | **GPT-4o** | **3.30** | 3.98 | 3.60 | 3.13 | 2.57 | 2.63 |
-| 5 | **GPT-4o Mini** | **3.30** | 3.91 | 3.51 | 3.19 | 2.75 | 2.63 |
+🔒 = proprietary API &nbsp; 🔓 = open-weights
+
+| Rank | Model | Score | Easy | Med | Hard | Expert | Factual | Reasoning | Complete | Uncert | Domain |
+|------|-------|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+| 1 | 🔒 **Claude Sonnet 4.6** | **4.60** | 4.58 | 4.49 | 4.66 | 4.68 | 4.59 | 4.96 | 4.73 | 4.09 | 4.33 |
+| 2 | 🔒 **Claude Haiku 4.5** | **4.39** | 4.35 | 4.45 | 4.38 | 4.37 | 4.35 | 4.84 | 4.53 | 3.82 | 4.12 |
+| 3 | 🔓 **DeepSeek-V3** | **4.31** | 4.11 | 4.22 | 4.42 | 4.46 | 4.34 | 4.72 | 4.37 | 3.72 | 4.09 |
+| 4 | 🔒 **Claude Sonnet 4** | **4.03** | 4.05 | 4.05 | 4.00 | 4.01 | 4.26 | 4.47 | 4.07 | 3.14 | 3.74 |
+| 5 | 🔒 **Gemini 2.5 Flash** | **3.43** | 3.68 | 3.91 | 3.25 | 2.75 | 4.13 | 3.75 | 3.22 | 2.62 | 2.83 |
+| 6 | 🔓 **Llama-3.3-70B** (Together) | **3.30** | 3.57 | 3.33 | 3.29 | 3.06 | 3.98 | 3.49 | 3.22 | 2.65 | 2.63 |
+| 7 | 🔒 **GPT-4o** | **3.30** | 3.24 | 3.40 | 3.28 | 3.22 | 3.98 | 3.60 | 3.13 | 2.57 | 2.63 |
+| 8 | 🔒 **GPT-4o Mini** | **3.30** | 3.37 | 3.40 | 3.29 | 3.10 | 3.91 | 3.51 | 3.19 | 2.75 | 2.63 |
+| 9 | 🔓 **Llama-3.3-70B** (Groq) | **3.29** | 3.48 | 3.35 | 3.27 | 3.06 | 4.02 | 3.50 | 3.18 | 2.58 | 2.58 |
 
 Key findings:
-- **Claude models rank 1–3**; Haiku 4.5 notably outperforms Sonnet 4 (+0.36) despite being a smaller model
-- **GPT-4o ≈ GPT-4o Mini** (3.30 vs 3.30) — scale provides negligible benefit for this task type
-- **Uncertainty Calibration** is the weakest dimension across all models; small-N spaceflight data requires careful hedging that all models underperform
-- **Domain Integration** gap is largest between Claude and GPT models (−1.70 for GPT-4o), reflecting less thorough cross-omics reasoning
+- **Claude models dominate the top tier**; Haiku 4.5 notably outperforms Sonnet 4 (+0.36) despite being a smaller model
+- **DeepSeek-V3 (#3, 4.31)** is the strongest open-weights model, surpassing Claude Sonnet 4 and all GPT/Gemini variants — particularly strong on Hard and Expert questions
+- **Gemini 2.5 Flash** excels on Easy/Medium (+3.68–3.91) but collapses on Expert questions (2.75), suggesting surface-level competence without deep spaceflight domain knowledge
+- **GPT-4o ≈ GPT-4o Mini ≈ Llama-3.3-70B** (all ~3.30) — no meaningful scaling advantage in this tier for this specialized domain
+- **Uncertainty Calibration** is the weakest dimension across all models; small-N spaceflight data requires careful hedging that all models underperform on
+- **Novel insight flags**: DeepSeek-V3 (62 flagged) and Claude models (44–92 flagged) generate novel cross-modal reasoning; GPT/Llama variants generate none
 
 **Cross-Judge Verification** — Sonnet 4, Sonnet 4.6, and GPT-4o were additionally scored by Sonnet 4 and GPT-4o judges for bias analysis:
 
