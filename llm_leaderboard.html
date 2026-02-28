@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SpaceOmicsBench — LLM Evaluation Leaderboard</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#060918;--bg2:#0c1029;--bg3:#111638;--bg4:#181e4a;
+  --text:#e2e8f0;--text2:#94a3b8;--text3:#64748b;
+  --border:#1e2650;--border2:#2a3568;
+  --cyan:#06b6d4;--purple:#a78bfa;--emerald:#10b981;--sky:#38bdf8;
+  --amber:#f59e0b;--rose:#f43f5e;--lime:#84cc16;--orange:#f97316;--indigo:#818cf8;
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  line-height:1.6;overflow-x:hidden;
+}
+canvas#starfield{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.35}
+.wrap{position:relative;z-index:1;max-width:1280px;margin:0 auto;padding:0 24px}
+
+/* HERO */
+.hero{padding:80px 0 48px;text-align:center;position:relative}
+.hero h1{
+  font-size:clamp(2rem,4.5vw,3.5rem);font-weight:800;letter-spacing:-.02em;
+  background:linear-gradient(135deg,#e2e8f0 0%,#06b6d4 50%,#a78bfa 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hero .sub{font-size:1.05rem;color:var(--text2);margin:14px 0 0;max-width:640px;margin-inline:auto}
+.badge-row{display:flex;justify-content:center;gap:10px;margin-top:32px;flex-wrap:wrap}
+.badge{
+  padding:6px 16px;border-radius:20px;font-size:.8rem;font-weight:600;letter-spacing:.04em;
+  border:1px solid;text-transform:uppercase;
+}
+.badge.judge{background:rgba(6,182,212,.1);border-color:rgba(6,182,212,.3);color:var(--cyan)}
+.badge.n{background:rgba(167,139,250,.1);border-color:rgba(167,139,250,.3);color:var(--purple)}
+.badge.scale{background:rgba(16,185,129,.1);border-color:rgba(16,185,129,.3);color:var(--emerald)}
+
+/* SECTION */
+.section{margin:48px 0}
+.section-title{
+  font-size:1.35rem;font-weight:700;letter-spacing:-.01em;margin-bottom:6px;
+  display:flex;align-items:center;gap:10px;
+}
+.section-title .icon{font-size:1.1rem}
+.section-desc{font-size:.88rem;color:var(--text2);margin-bottom:24px}
+
+/* CARD */
+.card{
+  background:var(--bg2);border:1px solid var(--border);border-radius:16px;
+  padding:28px;margin-bottom:20px;
+}
+.card-sm{padding:20px}
+
+/* GRID LAYOUTS */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
+@media(max-width:900px){.grid-2,.grid-3{grid-template-columns:1fr}}
+
+/* CHART CONTAINERS */
+.chart-wrap{position:relative;width:100%}
+.chart-wrap.tall{height:420px}
+.chart-wrap.medium{height:340px}
+.chart-wrap.short{height:280px}
+
+/* MODEL LEGEND */
+.legend{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:16px}
+.legend-item{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text2)}
+.legend-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.legend-item .lock{font-size:.7rem;opacity:.7}
+
+/* HEATMAP */
+.heatmap-wrap{overflow-x:auto}
+.heatmap{border-collapse:collapse;width:100%;font-size:.78rem;min-width:700px}
+.heatmap th{
+  padding:8px 10px;text-align:left;color:var(--text2);font-weight:500;
+  border-bottom:1px solid var(--border);white-space:nowrap;
+}
+.heatmap th.rotate{
+  writing-mode:vertical-rl;transform:rotate(180deg);
+  text-align:left;padding:10px 6px;min-width:36px;height:90px;vertical-align:bottom;
+}
+.heatmap td{
+  padding:7px 10px;border-bottom:1px solid rgba(30,38,80,.5);
+  text-align:center;font-weight:600;font-size:.75rem;border-radius:4px;
+  transition:transform .15s;cursor:default;
+}
+.heatmap td:hover{transform:scale(1.1);z-index:10;position:relative}
+.heatmap td.model-name{
+  text-align:left;font-weight:500;font-size:.8rem;color:var(--text);
+  white-space:nowrap;padding-right:16px;
+}
+.heatmap td.overall{font-weight:700}
+
+/* RADAR CONTROLS */
+.radar-controls{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.model-btn{
+  padding:5px 12px;border-radius:20px;border:1px solid var(--border2);
+  background:transparent;color:var(--text2);font-size:.78rem;cursor:pointer;
+  transition:all .2s;font-family:inherit;
+}
+.model-btn:hover,.model-btn.active{border-color:currentColor;color:var(--text)}
+.model-btn.active{background:rgba(255,255,255,.06)}
+
+/* DATA TABLE */
+.data-table{width:100%;border-collapse:collapse;font-size:.8rem}
+.data-table th{
+  padding:10px 12px;text-align:left;color:var(--text2);font-weight:600;
+  border-bottom:2px solid var(--border2);cursor:pointer;white-space:nowrap;
+  user-select:none;
+}
+.data-table th:hover{color:var(--text)}
+.data-table th.sort-asc::after{content:' ▲';font-size:.65rem}
+.data-table th.sort-desc::after{content:' ▼';font-size:.65rem}
+.data-table td{
+  padding:9px 12px;border-bottom:1px solid var(--border);
+  vertical-align:middle;
+}
+.data-table tr:hover td{background:rgba(255,255,255,.025)}
+.data-table .rank{font-weight:700;color:var(--text2);width:36px}
+.data-table .model-cell{font-weight:600}
+.data-table .score-cell{font-weight:700;font-size:.9rem}
+.data-table .num{text-align:right;color:var(--text2)}
+.access-tag{
+  display:inline-block;padding:2px 8px;border-radius:10px;font-size:.68rem;
+  font-weight:600;margin-left:6px;
+}
+.access-tag.prop{background:rgba(6,182,212,.1);color:var(--cyan)}
+.access-tag.open{background:rgba(16,185,129,.1);color:var(--emerald)}
+
+/* INSIGHT CARDS */
+.insights{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:24px}
+.insight-card{
+  background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:18px;
+}
+.insight-card .ico{font-size:1.5rem;margin-bottom:8px}
+.insight-card h4{font-size:.88rem;font-weight:700;margin-bottom:6px;color:var(--text)}
+.insight-card p{font-size:.78rem;color:var(--text2);line-height:1.6}
+
+/* NAV */
+.nav{
+  position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);
+  background:rgba(6,9,24,.8);border-bottom:1px solid var(--border);
+  padding:12px 0;
+}
+.nav-inner{display:flex;gap:4px;overflow-x:auto;padding:0 4px}
+.nav-link{
+  padding:5px 14px;border-radius:20px;color:var(--text2);font-size:.82rem;
+  text-decoration:none;white-space:nowrap;transition:all .2s;
+}
+.nav-link:hover{color:var(--text);background:rgba(255,255,255,.05)}
+
+/* FOOTER */
+footer{text-align:center;padding:48px 0 32px;color:var(--text3);font-size:.8rem;border-top:1px solid var(--border);margin-top:64px}
+footer a{color:var(--text2);text-decoration:none}
+footer a:hover{color:var(--cyan)}
+
+/* SCORE BAR inline */
+.sbar{display:inline-block;height:4px;border-radius:2px;vertical-align:middle;margin-left:6px}
+</style>
+</head>
+<body>
+
+<canvas id="starfield"></canvas>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="wrap">
+    <div class="nav-inner">
+      <a class="nav-link" href="#leaderboard">🏆 Leaderboard</a>
+      <a class="nav-link" href="#difficulty">📈 Difficulty Profile</a>
+      <a class="nav-link" href="#radar">🕸️ Dimensions</a>
+      <a class="nav-link" href="#modality">🧬 By Modality</a>
+      <a class="nav-link" href="#table">📋 Full Table</a>
+      <a class="nav-link" href="README.md">← README</a>
+      <a class="nav-link" href="demo.html">ML Tasks →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap">
+    <h1>LLM Evaluation Leaderboard</h1>
+    <p class="sub">SpaceOmicsBench — 100 questions across 9 spaceflight omics modalities &amp; 4 difficulty tiers</p>
+    <div class="badge-row">
+      <span class="badge judge">Judge: Claude Sonnet 4.6</span>
+      <span class="badge n">100 Questions</span>
+      <span class="badge scale">1–5 Scale</span>
+      <span class="badge judge">9 Models</span>
+      <span class="badge n">5 Dimensions</span>
+    </div>
+  </div>
+</div>
+
+<!-- LEADERBOARD -->
+<div class="section" id="leaderboard">
+  <div class="wrap">
+    <div class="section-title"><span class="icon">🏆</span> Overall Leaderboard</div>
+    <div class="section-desc">Weighted score across 5 dimensions (Factual 25%, Reasoning 25%, Completeness 20%, Uncertainty 15%, Domain 15%). 🔒 proprietary API · 🔓 open-weights</div>
+    <div class="card">
+      <div class="chart-wrap tall">
+        <canvas id="leaderboardChart"></canvas>
+      </div>
+    </div>
+    <!-- Insight cards -->
+    <div class="insights">
+      <div class="insight-card">
+        <div class="ico">🌟</div>
+        <h4>Claude Sonnet 4.6 leads at 4.60</h4>
+        <p>Top across all difficulty tiers with exceptional Reasoning (4.96) and Completeness (4.73). 92 novel insights flagged.</p>
+      </div>
+      <div class="insight-card">
+        <div class="ico">🔓</div>
+        <h4>DeepSeek-V3: best open-weights</h4>
+        <p>4.31/5.00 — surpasses Claude Sonnet 4, GPT-4o, and Gemini 2.5 Flash. Especially strong on Hard &amp; Expert questions.</p>
+      </div>
+      <div class="insight-card">
+        <div class="ico">⚠️</div>
+        <h4>Gemini collapses at Expert level</h4>
+        <p>Easy/Medium scores (3.7–3.9) look competitive, but Expert score drops to 2.75 — lowest in the benchmark.</p>
+      </div>
+      <div class="insight-card">
+        <div class="ico">≈</div>
+        <h4>GPT-4o ≈ GPT-4o Mini ≈ Llama-70B</h4>
+        <p>All cluster at ~3.30. Scale and cost provide negligible benefit for this specialized spaceflight domain.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DIFFICULTY PROFILE -->
+<div class="section" id="difficulty">
+  <div class="wrap">
+    <div class="section-title"><span class="icon">📈</span> Difficulty Profile</div>
+    <div class="section-desc">Score trajectory from Easy → Expert questions. Reveals which models degrade gracefully vs. collapse under complexity.</div>
+    <div class="card">
+      <div class="legend" id="diffLegend"></div>
+      <div class="chart-wrap tall">
+        <canvas id="difficultyChart"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RADAR -->
+<div class="section" id="radar">
+  <div class="wrap">
+    <div class="section-title"><span class="icon">🕸️</span> 5-Dimension Breakdown</div>
+    <div class="section-desc">Select up to 3 models to compare across the 5 scoring dimensions. Uncertainty Calibration is the universal weak spot.</div>
+    <div class="card">
+      <div class="radar-controls" id="radarControls"></div>
+      <div class="grid-2">
+        <div class="chart-wrap medium">
+          <canvas id="radarChart"></canvas>
+        </div>
+        <div>
+          <div id="radarStats" style="padding-top:8px"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODALITY HEATMAP -->
+<div class="section" id="modality">
+  <div class="wrap">
+    <div class="section-title"><span class="icon">🧬</span> Performance by Modality</div>
+    <div class="section-desc">Score breakdown across 9 omics modalities. Color: <span style="color:#ef4444">■</span> low → <span style="color:#f59e0b">■</span> mid → <span style="color:#22c55e">■</span> high (scale 1–5).</div>
+    <div class="card card-sm">
+      <div class="heatmap-wrap">
+        <table class="heatmap" id="modalityHeatmap"></table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FULL TABLE -->
+<div class="section" id="table">
+  <div class="wrap">
+    <div class="section-title"><span class="icon">📋</span> Full Data Table</div>
+    <div class="section-desc">Click column headers to sort. All scores on 1–5 scale, judged by Claude Sonnet 4.6.</div>
+    <div class="card card-sm" style="overflow-x:auto">
+      <table class="data-table" id="fullTable">
+        <thead>
+          <tr>
+            <th class="rank" data-col="rank">#</th>
+            <th data-col="name">Model</th>
+            <th data-col="score">Score</th>
+            <th data-col="easy">Easy</th>
+            <th data-col="medium">Med</th>
+            <th data-col="hard">Hard</th>
+            <th data-col="expert">Expert</th>
+            <th data-col="factual">Factual</th>
+            <th data-col="reasoning">Reason</th>
+            <th data-col="completeness">Complete</th>
+            <th data-col="uncertainty">Uncert</th>
+            <th data-col="domain">Domain</th>
+            <th data-col="halluc">Halluc</th>
+            <th data-col="novel">Novel</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>SpaceOmicsBench · Data from NASA OSDR · Judge: <strong>Claude Sonnet 4.6</strong> · Eval date: 2026-02-28</p>
+    <p style="margin-top:8px"><a href="https://github.com/jang1563/SpaceOmicsBench">GitHub</a> · <a href="demo.html">ML Task Results</a> · <a href="README.md">Documentation</a></p>
+  </div>
+</footer>
+
+<script>
+// ── DATA ──────────────────────────────────────────────────────────────────────
+const MODELS = [
+  {
+    name:"Claude Sonnet 4.6", short:"Sonnet 4.6", family:"claude", access:"prop",
+    color:"#06b6d4",
+    score:4.596, easy:4.582, medium:4.486, hard:4.661, expert:4.685,
+    factual:4.59, reasoning:4.96, completeness:4.73, uncertainty:4.09, domain:4.33,
+    clinical:4.76, transcriptomics:4.325, proteomics:4.465, metabolomics:4.645,
+    spatial:4.34, microbiome:4.655, multi_omics:4.588, cross_mission:4.869, methods:4.505,
+    halluc:11, novel:92, n:100,
+  },
+  {
+    name:"Claude Haiku 4.5", short:"Haiku 4.5", family:"claude", access:"prop",
+    color:"#a78bfa",
+    score:4.394, easy:4.347, medium:4.448, hard:4.381, expert:4.37,
+    factual:4.354, reasoning:4.838, completeness:4.525, uncertainty:3.818, domain:4.121,
+    clinical:4.495, transcriptomics:4.061, proteomics:4.29, metabolomics:4.68,
+    spatial:3.94, microbiome:4.415, multi_omics:4.483, cross_mission:4.558, methods:4.44,
+    halluc:15, novel:79, n:99,
+  },
+  {
+    name:"DeepSeek-V3", short:"DeepSeek-V3", family:"deepseek", access:"open",
+    color:"#10b981",
+    score:4.311, easy:4.106, medium:4.219, hard:4.419, expert:4.462,
+    factual:4.34, reasoning:4.72, completeness:4.37, uncertainty:3.72, domain:4.09,
+    clinical:4.505, transcriptomics:4.13, proteomics:4.3, metabolomics:4.355,
+    spatial:3.885, microbiome:4.33, multi_omics:4.112, cross_mission:4.561, methods:4.455,
+    halluc:11, novel:62, n:100,
+  },
+  {
+    name:"Claude Sonnet 4", short:"Sonnet 4", family:"claude", access:"prop",
+    color:"#38bdf8",
+    score:4.028, easy:4.053, medium:4.055, hard:4.002, expert:4.008,
+    factual:4.26, reasoning:4.47, completeness:4.07, uncertainty:3.14, domain:3.74,
+    clinical:4.275, transcriptomics:3.67, proteomics:3.905, metabolomics:4.04,
+    spatial:3.52, microbiome:4.025, multi_omics:3.942, cross_mission:4.317, methods:4.35,
+    halluc:10, novel:44, n:100,
+  },
+  {
+    name:"Gemini 2.5 Flash", short:"Gemini 2.5F", family:"google", access:"prop",
+    color:"#f59e0b",
+    score:3.432, easy:3.679, medium:3.906, hard:3.245, expert:2.75,
+    factual:4.13, reasoning:3.75, completeness:3.22, uncertainty:2.62, domain:2.83,
+    clinical:3.74, transcriptomics:3.035, proteomics:3.46, metabolomics:3.405,
+    spatial:3.01, microbiome:3.415, multi_omics:3.021, cross_mission:3.833, methods:3.725,
+    halluc:9, novel:5, n:100,
+  },
+  {
+    name:"Llama-3.3-70B (Together)", short:"Llama Together", family:"meta", access:"open",
+    color:"#f43f5e",
+    score:3.304, easy:3.574, medium:3.327, hard:3.289, expert:3.06,
+    factual:3.98, reasoning:3.49, completeness:3.22, uncertainty:2.65, domain:2.63,
+    clinical:3.5, transcriptomics:3.04, proteomics:3.28, metabolomics:3.295,
+    spatial:3.055, microbiome:3.41, multi_omics:3.308, cross_mission:3.544, methods:3.105,
+    halluc:5, novel:0, n:100,
+  },
+  {
+    name:"GPT-4o", short:"GPT-4o", family:"openai", access:"prop",
+    color:"#84cc16",
+    score:3.301, easy:3.244, medium:3.402, hard:3.279, expert:3.223,
+    factual:3.98, reasoning:3.6, completeness:3.13, uncertainty:2.57, domain:2.63,
+    clinical:3.38, transcriptomics:3.02, proteomics:3.435, metabolomics:3.255,
+    spatial:2.905, microbiome:3.38, multi_omics:3.325, cross_mission:3.531, methods:3.29,
+    halluc:3, novel:0, n:100,
+  },
+  {
+    name:"GPT-4o Mini", short:"GPT-4o Mini", family:"openai", access:"prop",
+    color:"#bef264",
+    score:3.3, easy:3.374, medium:3.398, hard:3.289, expert:3.098,
+    factual:3.91, reasoning:3.51, completeness:3.19, uncertainty:2.75, domain:2.63,
+    clinical:3.595, transcriptomics:3.06, proteomics:3.13, metabolomics:3.235,
+    spatial:2.995, microbiome:3.14, multi_omics:3.342, cross_mission:3.583, methods:3.385,
+    halluc:9, novel:0, n:100,
+  },
+  {
+    name:"Llama-3.3-70B (Groq)", short:"Llama Groq", family:"meta", access:"open",
+    color:"#f97316",
+    score:3.29, easy:3.482, medium:3.348, hard:3.271, expert:3.063,
+    factual:4.02, reasoning:3.5, completeness:3.18, uncertainty:2.58, domain:2.58,
+    clinical:3.57, transcriptomics:2.93, proteomics:3.39, metabolomics:3.315,
+    spatial:2.965, microbiome:3.425, multi_omics:3.158, cross_mission:3.564, methods:3.1,
+    halluc:5, novel:0, n:100,
+  },
+];
+
+const MODALITIES = [
+  {key:"clinical",      label:"Clinical"},
+  {key:"transcriptomics",label:"cfRNA/Trans"},
+  {key:"proteomics",    label:"Proteomics"},
+  {key:"metabolomics",  label:"Metabolomics"},
+  {key:"spatial",       label:"Spatial"},
+  {key:"microbiome",    label:"Microbiome"},
+  {key:"multi_omics",   label:"Multi-Omics"},
+  {key:"cross_mission", label:"Cross-Mission"},
+  {key:"methods",       label:"Methods"},
+];
+
+const DIMS = [
+  {key:"factual",      label:"Factual Accuracy"},
+  {key:"reasoning",    label:"Reasoning Quality"},
+  {key:"completeness", label:"Completeness"},
+  {key:"uncertainty",  label:"Uncertainty Calib."},
+  {key:"domain",       label:"Domain Integration"},
+];
+
+// ── HELPERS ───────────────────────────────────────────────────────────────────
+function scoreColor(v) {
+  // 1=red, 3=amber, 5=green
+  const t = (v - 1) / 4;  // 0..1
+  if (t < 0.5) {
+    const r = Math.round(239 + (245-239)*t*2);
+    const g = Math.round(68  + (158-68) *t*2);
+    const b = Math.round(68  + (11 -68) *t*2);
+    return `rgb(${r},${g},${b})`;
+  } else {
+    const s = (t-0.5)*2;
+    const r = Math.round(245 + (34-245)*s);
+    const g = Math.round(158 + (197-158)*s);
+    const b = Math.round(11  + (94 -11) *s);
+    return `rgb(${r},${g},${b})`;
+  }
+}
+function scoreTextColor(v) { return v >= 3.5 ? '#0f172a' : '#e2e8f0'; }
+function fmt(v){ return (typeof v==='number') ? v.toFixed(2) : v; }
+
+// ── STARFIELD ─────────────────────────────────────────────────────────────────
+(function(){
+  const c=document.getElementById('starfield');
+  const ctx=c.getContext('2d');
+  let W,H,stars=[];
+  function resize(){W=c.width=window.innerWidth;H=c.height=window.innerHeight;stars=[];
+    for(let i=0;i<120;i++)stars.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.5+.2,o:Math.random()*.7+.1,s:Math.random()*.0005+.0001});
+  }
+  function draw(){ctx.clearRect(0,0,W,H);
+    stars.forEach(s=>{s.o+=s.s;if(s.o>0.8||s.o<0.1)s.s*=-1;
+      ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fillStyle=`rgba(226,232,240,${s.o})`;ctx.fill();});
+    requestAnimationFrame(draw);}
+  resize();window.addEventListener('resize',resize);draw();
+})();
+
+// ── LEADERBOARD CHART ─────────────────────────────────────────────────────────
+(function(){
+  const sorted=[...MODELS].sort((a,b)=>b.score-a.score);
+  const ctx=document.getElementById('leaderboardChart').getContext('2d');
+  new Chart(ctx,{
+    type:'bar',
+    data:{
+      labels:sorted.map(m=>(m.access==='prop'?'🔒 ':'🔓 ')+m.name),
+      datasets:[
+        {label:'Overall Score',data:sorted.map(m=>m.score),
+         backgroundColor:sorted.map(m=>m.color+'cc'),
+         borderColor:sorted.map(m=>m.color),
+         borderWidth:2,borderRadius:6,
+        },
+        {label:'Easy',data:sorted.map(m=>m.easy),
+         backgroundColor:'rgba(255,255,255,.08)',borderColor:'rgba(255,255,255,.2)',
+         borderWidth:1,borderRadius:4,
+        },
+        {label:'Expert',data:sorted.map(m=>m.expert),
+         backgroundColor:'rgba(255,255,255,.04)',borderColor:'rgba(255,255,255,.12)',
+         borderWidth:1,borderRadius:4,
+        },
+      ]
+    },
+    options:{
+      indexAxis:'y',responsive:true,maintainAspectRatio:false,
+      layout:{padding:{right:60}},
+      plugins:{
+        legend:{display:true,position:'top',labels:{color:'#94a3b8',font:{size:11},boxWidth:12}},
+        tooltip:{callbacks:{label:ctx=>`${ctx.dataset.label}: ${ctx.parsed.x.toFixed(3)}`}},
+      },
+      scales:{
+        x:{min:1,max:5,grid:{color:'rgba(30,38,80,.6)'},ticks:{color:'#64748b',stepSize:.5},
+           title:{display:true,text:'Score (1–5)',color:'#64748b'}},
+        y:{grid:{display:false},ticks:{color:'#e2e8f0',font:{size:11}}},
+      }
+    }
+  });
+})();
+
+// ── DIFFICULTY CHART ──────────────────────────────────────────────────────────
+(function(){
+  const sorted=[...MODELS].sort((a,b)=>b.score-a.score);
+  const legend=document.getElementById('diffLegend');
+  sorted.forEach(m=>{
+    legend.innerHTML+=`<div class="legend-item"><div class="legend-dot" style="background:${m.color}"></div><span>${m.access==='prop'?'🔒':'🔓'} ${m.short}</span></div>`;
+  });
+  const ctx=document.getElementById('difficultyChart').getContext('2d');
+  new Chart(ctx,{
+    type:'line',
+    data:{
+      labels:['Easy','Medium','Hard','Expert'],
+      datasets:sorted.map(m=>({
+        label:(m.access==='prop'?'🔒 ':'🔓 ')+m.short,
+        data:[m.easy,m.medium,m.hard,m.expert],
+        borderColor:m.color,
+        backgroundColor:m.color+'20',
+        borderWidth:2.5,pointRadius:5,pointHoverRadius:7,
+        tension:.3,fill:false,
+      }))
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{
+        legend:{display:false},
+        tooltip:{mode:'index',intersect:false,
+          callbacks:{label:ctx=>`${ctx.dataset.label}: ${ctx.parsed.y.toFixed(2)}`}},
+      },
+      scales:{
+        y:{min:1,max:5.2,grid:{color:'rgba(30,38,80,.6)'},ticks:{color:'#64748b',stepSize:.5},
+           title:{display:true,text:'Score (1–5)',color:'#64748b'}},
+        x:{grid:{color:'rgba(30,38,80,.3)'},ticks:{color:'#94a3b8',font:{size:12}}},
+      },
+      interaction:{mode:'index',intersect:false},
+    }
+  });
+})();
+
+// ── RADAR CHART ───────────────────────────────────────────────────────────────
+(function(){
+  const controls=document.getElementById('radarControls');
+  const radarStats=document.getElementById('radarStats');
+  let selected=['Claude Sonnet 4.6','DeepSeek-V3','GPT-4o'];
+  let radarChart=null;
+
+  // Build buttons
+  MODELS.forEach(m=>{
+    const btn=document.createElement('button');
+    btn.className='model-btn'+(selected.includes(m.name)?' active':'');
+    btn.textContent=(m.access==='prop'?'🔒 ':'🔓 ')+m.short;
+    btn.style.setProperty('--c',m.color);
+    btn.addEventListener('click',()=>{
+      if(selected.includes(m.name)){
+        if(selected.length>1){selected=selected.filter(n=>n!==m.name);btn.classList.remove('active');}
+      } else {
+        if(selected.length>=3){
+          const oldest=selected.shift();
+          controls.querySelectorAll('.model-btn').forEach(b=>{if(b.textContent.includes(oldest.split(' ')[1]))b.classList.remove('active');});
+        }
+        selected.push(m.name);btn.classList.add('active');
+      }
+      updateRadar();
+    });
+    controls.appendChild(btn);
+  });
+
+  function updateRadar(){
+    const sel=MODELS.filter(m=>selected.includes(m.name));
+    const datasets=sel.map(m=>({
+      label:(m.access==='prop'?'🔒 ':'🔓 ')+m.short,
+      data:DIMS.map(d=>m[d.key]),
+      borderColor:m.color,backgroundColor:m.color+'25',
+      borderWidth:2.5,pointRadius:4,pointBackgroundColor:m.color,
+    }));
+    if(radarChart){radarChart.destroy();}
+    const ctx=document.getElementById('radarChart').getContext('2d');
+    radarChart=new Chart(ctx,{
+      type:'radar',
+      data:{labels:DIMS.map(d=>d.label),datasets},
+      options:{
+        responsive:true,maintainAspectRatio:false,
+        scales:{r:{min:1,max:5,ticks:{stepSize:1,color:'#64748b',backdropColor:'transparent',font:{size:10}},
+          grid:{color:'rgba(30,38,80,.8)'},pointLabels:{color:'#94a3b8',font:{size:11}},
+          angleLines:{color:'rgba(30,38,80,.8)'}}},
+        plugins:{legend:{labels:{color:'#94a3b8',font:{size:11},boxWidth:12}}},
+      }
+    });
+    // Stats sidebar
+    let html='';
+    sel.forEach(m=>{
+      html+=`<div style="margin-bottom:18px;padding:12px;background:rgba(255,255,255,.03);border-radius:8px;border-left:3px solid ${m.color}">`;
+      html+=`<div style="font-weight:700;color:${m.color};margin-bottom:8px">${m.access==='prop'?'🔒 ':'🔓 '}${m.short} · ${m.score.toFixed(3)}</div>`;
+      DIMS.forEach(d=>{
+        const v=m[d.key];const pct=((v-1)/4*100).toFixed(0);
+        html+=`<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;font-size:.75rem">`;
+        html+=`<span style="color:#94a3b8;width:130px">${d.label}</span>`;
+        html+=`<div style="flex:1;height:4px;background:rgba(255,255,255,.08);border-radius:2px;margin:0 8px">`;
+        html+=`<div style="width:${pct}%;height:100%;background:${m.color};border-radius:2px"></div></div>`;
+        html+=`<span style="color:#e2e8f0;font-weight:600;width:32px;text-align:right">${v.toFixed(2)}</span></div>`;
+      });
+      html+='</div>';
+    });
+    radarStats.innerHTML=html;
+  }
+  updateRadar();
+})();
+
+// ── MODALITY HEATMAP ──────────────────────────────────────────────────────────
+(function(){
+  const sorted=[...MODELS].sort((a,b)=>b.score-a.score);
+  const tbl=document.getElementById('modalityHeatmap');
+  // Header
+  let thead='<thead><tr><th style="text-align:left">Model</th><th>Overall</th>';
+  MODALITIES.forEach(mod=>{thead+=`<th class="rotate">${mod.label}</th>`;});
+  thead+='</tr></thead>';
+  // Body
+  let tbody='<tbody>';
+  sorted.forEach((m,i)=>{
+    tbody+=`<tr>`;
+    tbody+=`<td class="model-name"><span style="color:${m.color}">${m.access==='prop'?'🔒':'🔓'}</span> ${m.name}</td>`;
+    const sc=m.score;const bg=scoreColor(sc);const tc=scoreTextColor(sc);
+    tbody+=`<td class="overall" style="background:${bg};color:${tc};min-width:54px">${sc.toFixed(2)}</td>`;
+    MODALITIES.forEach(mod=>{
+      const v=m[mod.key]||0;const bg2=scoreColor(v);const tc2=scoreTextColor(v);
+      tbody+=`<td style="background:${bg2};color:${tc2};min-width:52px" title="${mod.label}: ${v.toFixed(2)}">${v.toFixed(2)}</td>`;
+    });
+    tbody+='</tr>';
+  });
+  tbody+='</tbody>';
+  tbl.innerHTML=thead+tbody;
+})();
+
+// ── FULL TABLE ────────────────────────────────────────────────────────────────
+(function(){
+  let sortCol='score';let sortDir=-1;
+  const COLS=['rank','name','score','easy','medium','hard','expert','factual','reasoning','completeness','uncertainty','domain','halluc','novel'];
+
+  function buildRows(){
+    const data=[...MODELS].map((m,i)=>({rank:i+1,...m}));
+    data.sort((a,b)=>{
+      if(sortCol==='name')return sortDir*(a.name<b.name?-1:1);
+      return sortDir*(b[sortCol]-a[sortCol]);
+    });
+    return data;
+  }
+
+  function renderTable(){
+    const rows=buildRows();
+    const globalRank=[...MODELS].sort((a,b)=>b.score-a.score);
+    const tbody=document.getElementById('tableBody');
+    tbody.innerHTML=rows.map((m,i)=>{
+      const rk=globalRank.findIndex(x=>x.name===m.name)+1;
+      return `<tr>
+        <td class="rank num">${rk}</td>
+        <td class="model-cell"><span style="color:${m.color}">●</span> ${m.name}
+          <span class="access-tag ${m.access==='prop'?'prop':'open'}">${m.access==='prop'?'proprietary':'open-weights'}</span>
+        </td>
+        <td class="score-cell" style="color:${m.color}">${m.score.toFixed(3)}</td>
+        <td class="num">${m.easy.toFixed(2)}</td>
+        <td class="num">${m.medium.toFixed(2)}</td>
+        <td class="num">${m.hard.toFixed(2)}</td>
+        <td class="num">${m.expert.toFixed(2)}</td>
+        <td class="num">${m.factual.toFixed(2)}</td>
+        <td class="num">${m.reasoning.toFixed(2)}</td>
+        <td class="num">${m.completeness.toFixed(2)}</td>
+        <td class="num">${m.uncertainty.toFixed(2)}</td>
+        <td class="num">${m.domain.toFixed(2)}</td>
+        <td class="num">${m.halluc}</td>
+        <td class="num">${m.novel}</td>
+      </tr>`;
+    }).join('');
+  }
+
+  document.querySelectorAll('.data-table th[data-col]').forEach(th=>{
+    th.addEventListener('click',()=>{
+      const col=th.dataset.col;
+      if(sortCol===col)sortDir*=-1; else{sortCol=col;sortDir=-1;}
+      document.querySelectorAll('.data-table th').forEach(h=>h.classList.remove('sort-asc','sort-desc'));
+      th.classList.add(sortDir===1?'sort-asc':'sort-desc');
+      renderTable();
+    });
+  });
+
+  // Default sort by score desc
+  document.querySelector('.data-table th[data-col="score"]').classList.add('sort-desc');
+  renderTable();
+})();
+</script>
+</body>
+</html>
