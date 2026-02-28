@@ -13,6 +13,7 @@ Usage:
 """
 
 import json
+import os
 import argparse
 import time
 import re
@@ -249,7 +250,7 @@ def score_single_perdim(
     for dim in DIMENSION_WEIGHTS:
         prompt = build_single_dimension_prompt(question_data, qb_entry, ground_truth, dim)
         try:
-            if judge_backend == "openai":
+            if judge_backend in ("openai", "compatible"):
                 raw, tok_in, tok_out = _call_openai(client, prompt, judge_model)
             else:
                 raw, tok_in, tok_out = _call_anthropic(client, prompt, judge_model)
@@ -279,7 +280,7 @@ def score_single_perdim(
     # Flags — run a separate quick call for flags only
     try:
         flag_prompt = _build_flag_prompt(question_data, qb_entry, ground_truth)
-        if judge_backend == "openai":
+        if judge_backend in ("openai", "compatible"):
             raw, tok_in, tok_out = _call_openai(client, flag_prompt, judge_model)
         else:
             raw, tok_in, tok_out = _call_anthropic(client, flag_prompt, judge_model)
@@ -380,7 +381,7 @@ def _call_anthropic(client, prompt: str, judge_model: str) -> tuple:
 
 def _call_openai(client, prompt: str, judge_model: str,
                  max_retries: int = 5) -> tuple:
-    """Call OpenAI API with retry on rate limits. Returns (raw_text, input_tokens, output_tokens)."""
+    """Call OpenAI (or OpenAI-compatible) API with retry. Returns (raw_text, in_tokens, out_tokens)."""
     for attempt in range(max_retries):
         try:
             resp = client.chat.completions.create(
@@ -394,8 +395,9 @@ def _call_openai(client, prompt: str, judge_model: str,
             )
             if not resp.choices:
                 raise ValueError("Empty response from judge model")
-            return (resp.choices[0].message.content,
-                    resp.usage.prompt_tokens, resp.usage.completion_tokens)
+            in_tok = resp.usage.prompt_tokens if resp.usage else 0
+            out_tok = resp.usage.completion_tokens if resp.usage else 0
+            return resp.choices[0].message.content, in_tok, out_tok
         except Exception as e:
             if "429" in str(e) or "rate_limit" in str(e).lower():
                 wait = 2 ** attempt + 3  # 4, 5, 7, 11, 19 seconds
@@ -413,7 +415,7 @@ def score_single(client, question_data: Dict, qb_entry: Dict,
     raw = ""
 
     try:
-        if judge_backend == "openai":
+        if judge_backend in ("openai", "compatible"):
             raw, tok_in, tok_out = _call_openai(client, prompt, judge_model)
         else:
             raw, tok_in, tok_out = _call_anthropic(client, prompt, judge_model)
@@ -447,16 +449,27 @@ def score_all(input_file: str, output_file: Optional[str] = None,
               judge_model: str = "claude-sonnet-4-20250514",
               judge_backend: str = "anthropic",
               per_dimension: bool = False,
-              sample_n: Optional[int] = None):
+              sample_n: Optional[int] = None,
+              judge_base_url: Optional[str] = None,
+              judge_api_key_env: Optional[str] = None):
     """Score all responses in an evaluation results file."""
-    if judge_backend == "openai":
+    if judge_backend in ("openai", "compatible"):
         try:
             from openai import OpenAI
         except ImportError:
             print("Error: pip install openai")
             return None
-        client = OpenAI()
-        judge_label = f"GPT-as-Judge ({judge_model})"
+        if judge_backend == "compatible":
+            env_var = judge_api_key_env or "OPENAI_API_KEY"
+            api_key = os.environ.get(env_var, "ollama")
+            client_kwargs: dict = {"api_key": api_key}
+            if judge_base_url:
+                client_kwargs["base_url"] = judge_base_url
+            client = OpenAI(**client_kwargs)
+            judge_label = f"OpenAI-Compatible-as-Judge ({judge_model} @ {judge_base_url or 'default'})"
+        else:
+            client = OpenAI()
+            judge_label = f"GPT-as-Judge ({judge_model})"
     else:
         try:
             import anthropic
@@ -615,8 +628,15 @@ def main():
     parser.add_argument("--judge-model", default="claude-sonnet-4-20250514",
                         help="Judge model (default: claude-sonnet-4-20250514)")
     parser.add_argument("--judge-backend", default="anthropic",
-                        choices=["anthropic", "openai"],
-                        help="Judge API backend (default: anthropic)")
+                        choices=["anthropic", "openai", "compatible"],
+                        help="Judge API backend. Use 'compatible' for Groq/Together/DeepSeek/Ollama "
+                             "(default: anthropic)")
+    parser.add_argument("--judge-base-url", type=str, default=None,
+                        help="Base URL for OpenAI-compatible judge endpoint "
+                             "(e.g. https://api.groq.com/openai/v1). Required when --judge-backend=compatible.")
+    parser.add_argument("--judge-api-key-env", type=str, default=None,
+                        help="Environment variable for judge API key when using --judge-backend=compatible "
+                             "(e.g. GROQ_API_KEY).")
     parser.add_argument("--per-dimension", action="store_true",
                         help="Score each dimension independently (5 API calls per question)")
     parser.add_argument("--sample", type=int, default=None,
@@ -627,7 +647,9 @@ def main():
     for fpath in args.input_files:
         out = args.output if len(args.input_files) == 1 else None
         score_all(fpath, out, args.judge_model, args.judge_backend,
-                  args.per_dimension, args.sample)
+                  args.per_dimension, args.sample,
+                  judge_base_url=args.judge_base_url,
+                  judge_api_key_env=args.judge_api_key_env)
         if len(args.input_files) > 1:
             print("\n")
 
