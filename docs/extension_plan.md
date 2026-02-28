@@ -1,7 +1,7 @@
 # SpaceOmicsBench v2 — Extension Plan: New Mission Data Integration
 
 **Date:** 2026-02-27
-**Status:** Module 2 (signature_query.py) — in implementation
+**Status:** All 3 modules implemented. Module 2 in v2_public; Modules 1 & 3 in missions/.
 
 ---
 
@@ -15,10 +15,19 @@ against the benchmark's curated reference signatures for biological interpretati
 
 ## 3-Module Architecture
 
+Modules 1 and 3 live in the **separate `missions/` directory** (sibling to v2_public),
+keeping v2_public frozen and citable. Module 2 is in v2_public/evaluation/.
+
 ```
-scripts/ingest_osdr.py          # Module 1: OSDR → benchmark CSV format (future)
-evaluation/signature_query.py   # Module 2: DE results → biological similarity (current)
-scripts/add_mission_task.py     # Module 3: Register new task from new mission (future)
+SpaceOmicsBench/
+├── v2_public/                          ← FROZEN core benchmark
+│   └── evaluation/
+│       └── signature_query.py          # Module 2 (DONE): DE → biological similarity
+└── missions/                           ← Extension benchmark (new missions)
+    ├── schema/task_schema.json
+    └── scripts/
+        ├── ingest_osdr.py              # Module 1 (DONE): OSDR → benchmark CSV
+        └── add_mission_task.py         # Module 3 (DONE): Register new task + splits
 ```
 
 ---
@@ -74,21 +83,31 @@ for accurate hypergeometric background.
 
 ---
 
-## Module 1: `scripts/ingest_osdr.py` (Future)
+## Module 1: `missions/scripts/ingest_osdr.py` (DONE)
 
-Convert GeneLab standard DE output (`differential_expression_GLbulkRNAseq.csv`)
+Convert GeneLab standard DE output (`differential_expression_GLbulkRNAseq*.csv`)
 to benchmark-compatible format. Key GeneLab columns: Gene.ID, log2FC, adj.P.Val, baseMean.
 
+- Queries OSDR Biodata REST API for file listing
+- Auto-detects GeneLab standard DE files
+- Downloads via GEODE endpoint (no auth needed for open-access)
+- Maps column names to benchmark standard (gene, log2FC, padj, ...)
+- Writes provenance sidecar JSON
+
 SOMA dataset (2024, n=2911 samples) uses GeneLab format for Axiom/Polaris missions.
+Use `--dry-run` to check available files before committing to download.
 
 ---
 
-## Module 3: `scripts/add_mission_task.py` (Future)
+## Module 3: `missions/scripts/add_mission_task.py` (DONE)
 
 Register a new mission dataset as a benchmark task (Category I pattern: cross-mission prediction).
-- Create task JSON conforming to task_schema.json
-- Generate split files (feature-level stratified 80/20, 5 reps)
-- Validate with validate_tasks.py
+- Load processed benchmark CSV (output of Module 1 or manual)
+- Validate required columns + integer label column
+- Build task JSON conforming to missions/schema/task_schema.json (v2-compatible)
+- Generate stratified 80/20 split files (5 reps, same logic as v2_public)
+- Validate JSON against schema (requires jsonschema)
+- Optionally run Module 2 (signature_query.py) for biological comparison
 
 ---
 
