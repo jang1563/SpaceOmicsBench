@@ -1,6 +1,6 @@
-MIT License
+MIT License (Code)
 
-Copyright (c) 2026 SpaceOmicsBench
+Copyright (c) 2025 JangKeun Kim
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +19,37 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+---
+
+CC BY-NC 4.0 License (Benchmark Data)
+
+Copyright (c) 2025 JangKeun Kim
+
+The benchmark data files (data/processed/, tasks/, splits/, evaluation/llm/question_bank.json,
+results/v2.1/, baselines/baseline_results.json) are licensed under the Creative Commons
+Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0).
+
+You are free to:
+  Share — copy and redistribute the material in any medium or format
+  Adapt — remix, transform, and build upon the material
+
+Under the following terms:
+  Attribution — You must give appropriate credit, provide a link to the license,
+                and indicate if changes were made.
+  NonCommercial — You may not use the material for commercial purposes.
+
+Full license text: https://creativecommons.org/licenses/by-nc/4.0/
+
+For commercial licensing inquiries, contact: silveray1563@gmail.com
+
+---
+
+Data Sources Notice:
+
+Benchmark tables are derived from NASA Open Science Data Repository (OSDR) public releases
+and published supplementary materials. Original data sources retain their respective terms:
+  - NASA OSDR data: NASA Science Information Policy (public domain for US government works)
+  - Published supplementary data: Subject to original publisher licenses
+
+See docs/PROVENANCE.md for a complete provenance table.

@@ -3,8 +3,11 @@ title: SpaceOmicsBench
 message: If you use this benchmark, please cite the repository and the source publications listed in docs/CITATIONS.bib.
 type: software
 authors:
-  - name: SpaceOmicsBench Contributors
+  - family-names: Kim
+    given-names: JangKeun
+    email: silveray1563@gmail.com
 license: MIT
+license-url: https://github.com/jang1563/SpaceOmicsBench/blob/main/LICENSE
 repository-code: https://github.com/jang1563/SpaceOmicsBench
 url: https://github.com/jang1563/SpaceOmicsBench
 keywords:
@@ -12,3 +15,5 @@ keywords:
   - multi-omics
   - benchmark
   - bioinformatics
+  - astronaut
+  - omics
