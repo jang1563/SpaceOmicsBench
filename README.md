@@ -546,7 +546,7 @@ python evaluation/signature_query.py --input my_de_results.csv
 direction concordance, and Spearman correlation of log2FC values.
 
 **Note:** This is an exploratory overlap tool. I4 had n=4 crew; reference signatures reflect
-one specific mission cohort. See `docs/extension_plan.md` for planned ingestion pipeline.
+one specific mission cohort. See `docs/extension_plan.md` for the multi-mission ingestion pipeline.
 
 ## Task Schema Validation
 

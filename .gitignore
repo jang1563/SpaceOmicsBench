@@ -30,3 +30,18 @@ __pycache__/
 # Local run outputs (keep policy docs only)
 results/*
 !results/README.md
+
+# Internal / development docs (not for public release)
+docs/v3_plan.md
+docs/external_data_roadmap.md
+docs/llm_eval_review_*.md
+docs/ERROR_HALLUCINATION_REVIEW_*.md
+docs/phase1_review.md
+docs/phase2_revised_plan.md
+
+# Virtual environments
+.venv/
+
+# Allow v2.1 scored results (public leaderboard data)
+!results/v2.1/
+!results/v2.1/*.json
