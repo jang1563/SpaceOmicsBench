@@ -18,7 +18,8 @@
     "judge_model": "claude-sonnet-4-6",
     "scoring_mode": "combined",
     "judge_tokens_input": 335119,
-    "judge_tokens_output": 60942
+    "judge_tokens_output": 60942,
+    "judge_max_tokens": 2048
   },
   "summary": {
     "avg_factual_accuracy": 4.0,
@@ -85,7 +86,7 @@
           "Does not mention specific CMP markers or what metabolic information they capture"
         ],
         "missed_points": [
-          "N=28 samples (4 crew × 7 timepoints) and implications for model reliability",
+          "N=28 samples (4 crew \u00d7 7 timepoints) and implications for model reliability",
           "LOCO (Leave-One-Crew-Out) evaluation methodology",
           "Small sample size means high variance in results",
           "Specific examples of CBC features like WBC, RBC, hemoglobin, hematocrit, platelets"
@@ -193,7 +194,7 @@
           "Well-structured reasoning with multiple complementary explanations"
         ],
         "weaknesses": [
-          "Does not explicitly connect to the N=4 crew constraint or discuss statistical power limitations in depth — only mentions N=28 without noting this is 4 crew × 7 timepoints",
+          "Does not explicitly connect to the N=4 crew constraint or discuss statistical power limitations in depth \u2014 only mentions N=28 without noting this is 4 crew \u00d7 7 timepoints",
           "Domain integration is shallow; does not reference known spaceflight hematological literature or cross-mission findings (e.g., Twins study)",
           "Does not discuss inter-individual variability in cytokine responses as a specific biological mechanism",
           "Uncertainty acknowledgment is generic rather than specific to the extreme small-N problem (N=4 crew)"
@@ -201,7 +202,7 @@
         "missed_points": [
           "Cytokines are more individually variable across people, making them harder to generalize across LOCO folds with only 4 crew",
           "CBC changes are well-documented and consistent across spaceflight missions, lending more signal",
-          "LOCO evaluation with N=4 crew means each fold trains on ~3 crew members — extremely high variance context not explicitly discussed"
+          "LOCO evaluation with N=4 crew means each fold trains on ~3 crew members \u2014 extremely high variance context not explicitly discussed"
         ],
         "flags": {
           "hallucination": false,
@@ -309,11 +310,11 @@
           "Acknowledges cumulative effects of radiation and microgravity"
         ],
         "weaknesses": [
-          "Does not explicitly distinguish acute stress responses (fluid shifts, immune activation) from chronic adaptations (bone loss, immune suppression) — a key expected reasoning point",
+          "Does not explicitly distinguish acute stress responses (fluid shifts, immune activation) from chronic adaptations (bone loss, immune suppression) \u2014 a key expected reasoning point",
           "Fails to mention specific known long-duration effects like bone density loss, muscle atrophy, or immune dysregulation by name",
           "No acknowledgment of the extremely small sample sizes (N=4 crew, N=1 twin) and their statistical implications",
           "Does not discuss how recovery patterns would be more complex and variable after 340 days vs 3 days",
-          "Missing discussion of plateau effects — acute markers may normalize during long missions"
+          "Missing discussion of plateau effects \u2014 acute markers may normalize during long missions"
         ],
         "missed_points": [
           "Acute vs chronic response distinction (fluid shift vs bone loss/immune suppression)",
@@ -321,7 +322,7 @@
           "Recovery complexity after long-duration flight (months vs days)",
           "Small sample size limitations (N=4 I4, N=1 Twins) severely limit generalizability of any comparison",
           "Plateau/normalization of acute markers during long missions making in-flight phase harder to distinguish",
-          "The A1/A2 tasks don't include in-flight phase — only pre/post/recovery — which is relevant to how duration affects classification"
+          "The A1/A2 tasks don't include in-flight phase \u2014 only pre/post/recovery \u2014 which is relevant to how duration affects classification"
         ],
         "flags": {
           "hallucination": false,
@@ -370,7 +371,7 @@
           "Well-structured response covering multiple statistical concerns including statistical power and overfitting"
         ],
         "weaknesses": [
-          "Does not specifically discuss how macro F1 with 3 classes and ~5 test samples can swing dramatically — missing the class-level granularity of the problem",
+          "Does not specifically discuss how macro F1 with 3 classes and ~5 test samples can swing dramatically \u2014 missing the class-level granularity of the problem",
           "Fails to mention that individual biological variation dominates when N=1 per fold test set (each fold tests one crew member's biology)",
           "No mention of how performance depends on how similar each crew member is to others (inter-individual variation as a confound)",
           "Lacks connection to space physiology context or cross-mission comparisons",
@@ -380,7 +381,7 @@
           "Individual biological variation dominates with N=1 crew member per fold test set",
           "Macro F1 with 3 classes and only ~5 test samples can swing dramatically between folds",
           "Performance heavily depends on how similar each crew member is to the others",
-          "Results should be interpreted as approximate rather than precise estimates — not stated explicitly enough",
+          "Results should be interpreted as approximate rather than precise estimates \u2014 not stated explicitly enough",
           "No mention of the specific N=28 total sample count or 3-class problem framing from the benchmark"
         ],
         "flags": {
@@ -424,17 +425,17 @@
         "domain_integration": 3,
         "weighted_score": 3.25,
         "strengths": [
-          "Correctly identifies the 6 crew × 5 timepoints = 30 samples calculation and notes the improvement over the original 28 samples",
+          "Correctly identifies the 6 crew \u00d7 5 timepoints = 30 samples calculation and notes the improvement over the original 28 samples",
           "Mentions LOCO evaluation and its role in testing generalization across crew members",
           "Addresses multiple relevant dimensions including feature engineering, model selection, and multi-omics integration"
         ],
         "weaknesses": [
-          "Does not explicitly discuss temporal features (rate of change, trajectory slopes) as a key improvement over snapshot values — a critical expected reasoning point",
+          "Does not explicitly discuss temporal features (rate of change, trajectory slopes) as a key improvement over snapshot values \u2014 a critical expected reasoning point",
           "Fails to discuss how LOCO with 6 folds would specifically improve training set diversity (~5 test samples per fold with more diverse training)",
           "Does not address finer phase definition enabled by longer mission (adaptation plateau, recovery sub-phases)",
           "The sample size increase from 28 to 30 is modest and the response somewhat overstates the statistical power gain without acknowledging this",
           "Does not discuss nested cross-validation or stratified LOCO approaches as alternatives",
-          "Uncertainty calibration is superficial — acknowledges small sample sizes only briefly at the end without quantifying the statistical power constraints"
+          "Uncertainty calibration is superficial \u2014 acknowledges small sample sizes only briefly at the end without quantifying the statistical power constraints"
         ],
         "missed_points": [
           "Temporal feature engineering (rate of change, trajectory modeling) as a key improvement",
@@ -450,7 +451,7 @@
           "exceeds_data_scope": false,
           "novel_insight": false
         },
-        "justification": "The response correctly identifies the basic sample size calculation and LOCO framework but misses the most critical expected reasoning points: temporal feature engineering, finer phase definitions enabled by longer missions, and specific LOCO fold structure improvements. The uncertainty calibration is weak — while small sample sizes are mentioned, there is no substantive discussion of statistical power constraints or why 30 samples still represents a severely underpowered study. The multi-omics integration point is generic and not well-grounded in the specific A1/A2 task context.",
+        "justification": "The response correctly identifies the basic sample size calculation and LOCO framework but misses the most critical expected reasoning points: temporal feature engineering, finer phase definitions enabled by longer missions, and specific LOCO fold structure improvements. The uncertainty calibration is weak \u2014 while small sample sizes are mentioned, there is no substantive discussion of statistical power constraints or why 30 samples still represents a severely underpowered study. The multi-omics integration point is generic and not well-grounded in the specific A1/A2 task context.",
         "success": true,
         "judge_tokens": {
           "input": 3480,
@@ -542,7 +543,7 @@
         "weaknesses": [
           "Does not acknowledge the small sample size limitations (N=4 crew) that are critical to this benchmark",
           "No cross-mission or cross-omics integration discussed",
-          "The specific enumeration of 29 features is somewhat speculative/extrapolated beyond what the ground truth confirms — the response adds detail (e.g., 'normalized, raw, transformed' group means) that may not be grounded in the source data",
+          "The specific enumeration of 29 features is somewhat speculative/extrapolated beyond what the ground truth confirms \u2014 the response adds detail (e.g., 'normalized, raw, transformed' group means) that may not be grounded in the source data",
           "Does not connect B1 task to broader space biology context (e.g., DRR gene identification relevance)"
         ],
         "missed_points": [
@@ -570,7 +571,7 @@
       "modality": "transcriptomics",
       "difficulty": "medium",
       "category": "interpretation",
-      "question": "In the B1 feature ablation study, removing effect-size features barely affects RF performance (0.884 → 0.863) while dramatically hurting LogReg (0.533 → 0.248). What does this tell us about how each model uses the features?",
+      "question": "In the B1 feature ablation study, removing effect-size features barely affects RF performance (0.884 \u2192 0.863) while dramatically hurting LogReg (0.533 \u2192 0.248). What does this tell us about how each model uses the features?",
       "data_context_files": [
         "transcriptomics.md",
         "ground_truth.md"
@@ -591,14 +592,14 @@
         "weighted_score": 2.7,
         "strengths": [
           "Correctly identifies the core finding that RF is robust to effect-size feature removal while LogReg is not",
-          "Accurately cites the key numerical values (RF: 0.884→0.863, LogReg: 0.533→0.248)",
+          "Accurately cites the key numerical values (RF: 0.884\u21920.863, LogReg: 0.533\u21920.248)",
           "Provides a reasonable high-level explanation of why linear vs. nonlinear models differ in feature dependence"
         ],
         "weaknesses": [
           "Does not explain the key mechanistic insight: distribution features (means, IQR) contain implicit effect-size information that RF's tree-based splits can extract nonlinearly but LogReg cannot",
           "Fails to discuss the 'effect-only' ablation direction (B1 Effect-only scores), which would complete the picture",
           "No acknowledgment of small sample size limitations (N=4 crew) or statistical power constraints",
-          "Domain integration is superficial — no connection to what distribution features biologically represent in the context of DRR gene identification or spaceflight physiology",
+          "Domain integration is superficial \u2014 no connection to what distribution features biologically represent in the context of DRR gene identification or spaceflight physiology",
           "The description of features in the 'no-effect' condition is slightly confused, mixing in fold-change as a distribution feature"
         ],
         "missed_points": [
@@ -666,7 +667,7 @@
           "B2 uses correlation-based features (466-dimensional vectors) which may not capture coregulation well",
           "B2 is a subset of B1 (only DRR genes), making it a harder sub-problem",
           "The N=4 crew limitation means coregulation patterns are derived from very few biological replicates",
-          "LightGBM/XGBoost collapse on LOCO tasks — though B2 uses feature split, the small N still matters"
+          "LightGBM/XGBoost collapse on LOCO tasks \u2014 though B2 uses feature split, the small N still matters"
         ],
         "flags": {
           "hallucination": false,
@@ -712,7 +713,7 @@
           "Mentions small sample size limitation (N=4) at the end"
         ],
         "weaknesses": [
-          "Does not explain the mechanistic reason for the crossover — leaf-wise (LightGBM) vs level-wise (XGBoost) splitting strategies are never mentioned",
+          "Does not explain the mechanistic reason for the crossover \u2014 leaf-wise (LightGBM) vs level-wise (XGBoost) splitting strategies are never mentioned",
           "Fails to discuss overfitting/noise mechanisms that would explain why LightGBM benefits more from combined features",
           "The uncertainty acknowledgment is brief and tacked on at the end rather than integrated into the analysis; does not discuss statistical power constraints adequately",
           "Does not discuss redundancy between effect-size and distribution features or how this redundancy differentially affects the two models",
@@ -723,7 +724,7 @@
           "LightGBM's cross-feature interaction exploitation as reason for larger boost from effect-size features",
           "XGBoost's robustness to noisy/redundant features as explanation for smaller performance drop",
           "Discussion of whether the 0.026 difference is statistically meaningful given the dataset size",
-          "Feature selection should be model-aware — practical implication not fully developed",
+          "Feature selection should be model-aware \u2014 practical implication not fully developed",
           "No mention of effect-only variant scores (LightGBM=0.801, XGBoost=0.780) which would strengthen the analysis"
         ],
         "flags": {
@@ -733,7 +734,7 @@
           "exceeds_data_scope": false,
           "novel_insight": false
         },
-        "justification": "The response correctly identifies the crossover pattern and cites accurate numerical values, earning reasonable factual accuracy. However, it lacks the mechanistic depth expected — particularly the leaf-wise vs level-wise splitting explanation and the noise/redundancy discussion — resulting in moderate reasoning quality. The uncertainty acknowledgment is present but superficial, and domain integration is weak with no cross-mission or cross-omics connections made.",
+        "justification": "The response correctly identifies the crossover pattern and cites accurate numerical values, earning reasonable factual accuracy. However, it lacks the mechanistic depth expected \u2014 particularly the leaf-wise vs level-wise splitting explanation and the noise/redundancy discussion \u2014 resulting in moderate reasoning quality. The uncertainty acknowledgment is present but superficial, and domain integration is weak with no cross-mission or cross-omics connections made.",
         "success": true,
         "judge_tokens": {
           "input": 3545,
@@ -773,15 +774,15 @@
           "Acknowledges multiple challenge categories: sample size, mission duration, technical variability, biological variability"
         ],
         "weaknesses": [
-          "Does not discuss the key conceptual issue: what 'conservation' means across 3-day vs 120-day missions — duration-specific vs core stress-response genes",
+          "Does not discuss the key conceptual issue: what 'conservation' means across 3-day vs 120-day missions \u2014 duration-specific vs core stress-response genes",
           "Fails to discuss the cfRNA epigenome aspect of JAXA CFE and how it captures different molecular layers than standard transcriptomics",
           "Small sample size discussion focuses on JAXA's N=6 but does not adequately address I4's N=4 crew limitation and its impact on the original B1 model",
-          "Does not discuss expected partial replication — which genes (core stress-response) are likely conserved vs which are duration-specific",
+          "Does not discuss expected partial replication \u2014 which genes (core stress-response) are likely conserved vs which are duration-specific",
           "The validation strategy is somewhat generic ML pipeline description rather than space biology-specific reasoning"
         ],
         "missed_points": [
           "Discussion of what biological conservation means across 3-day vs 120-day missions (acute vs chronic adaptation)",
-          "JAXA CFE captures cfRNA epigenome — a different molecular layer that may not directly map to DRR gene expression patterns",
+          "JAXA CFE captures cfRNA epigenome \u2014 a different molecular layer that may not directly map to DRR gene expression patterns",
           "Expected partial replication: core stress-response genes conserved, duration-specific genes divergent",
           "Platform differences as confounders beyond just technical variability",
           "The extreme small N of I4 (N=4) as a fundamental limitation of the source model being validated"
@@ -832,7 +833,7 @@
           "Acknowledges small sample size limitation (N=4)"
         ],
         "weaknesses": [
-          "Does not explicitly connect distribution feature superiority to transcriptional noise theory — a key biological implication",
+          "Does not explicitly connect distribution feature superiority to transcriptional noise theory \u2014 a key biological implication",
           "Missing specific higher-order distribution features like kurtosis, skewness, and coefficient of variation that are directly motivated by the hypothesis",
           "Does not mention that the finding is confirmed across RF and MLP but not LogReg, which is an important nuance",
           "The biological interpretation is somewhat generic and does not deeply engage with what distinct distributional signatures (beyond mean shifts) imply about DRR gene regulation",
@@ -840,7 +841,7 @@
         ],
         "missed_points": [
           "Transcriptional noise hypothesis: spaceflight may increase stochastic gene expression variability in responsive genes",
-          "DRR genes have distinct distributional signatures beyond mean shifts — not just different averages",
+          "DRR genes have distinct distributional signatures beyond mean shifts \u2014 not just different averages",
           "Specific recommendation for higher-order moments: kurtosis, skewness as features",
           "Temporal trajectory features (slope, curvature across timepoints) as a design recommendation",
           "Gene-gene correlation features for pathway-level context",
@@ -853,7 +854,7 @@
           "exceeds_data_scope": false,
           "novel_insight": false
         },
-        "justification": "The response correctly identifies the core finding and proposes reasonable feature engineering directions, but lacks depth in biological interpretation — particularly the transcriptional noise hypothesis and the implication that DRR genes have distinct distributional signatures beyond mean shifts. The feature design proposals are somewhat generic (median, mode, MAD) rather than specifically motivated by the distributional hypothesis (kurtosis, skewness, CV, temporal trajectories). The uncertainty acknowledgment is present but superficial, not engaging with statistical power constraints or the model-specific pattern of the finding.",
+        "justification": "The response correctly identifies the core finding and proposes reasonable feature engineering directions, but lacks depth in biological interpretation \u2014 particularly the transcriptional noise hypothesis and the implication that DRR genes have distinct distributional signatures beyond mean shifts. The feature design proposals are somewhat generic (median, mode, MAD) rather than specifically motivated by the distributional hypothesis (kurtosis, skewness, CV, temporal trajectories). The uncertainty acknowledgment is present but superficial, not engaging with statistical power constraints or the model-specific pattern of the finding.",
         "success": true,
         "judge_tokens": {
           "input": 3371,
@@ -892,7 +893,7 @@
           "Clear and concise explanation of overfitting risk"
         ],
         "weaknesses": [
-          "Does not mention the N=21 sample size explicitly as 4 crew × ~5 timepoints",
+          "Does not mention the N=21 sample size explicitly as 4 crew \u00d7 ~5 timepoints",
           "Does not mention G1 uses 8 PCA components per modality (vs 10 for C1)",
           "No acknowledgment of small sample size limitations or statistical power constraints",
           "No connection to broader space biology context or cross-mission implications"
@@ -900,7 +901,7 @@
         "missed_points": [
           "G1 multi-modal task uses 8 PCA components per modality (not 10)",
           "PCA is applied per-fold to prevent data leakage",
-          "N=21 comes from 4 crew × ~5 timepoints (plasma-matched samples only)",
+          "N=21 comes from 4 crew \u00d7 ~5 timepoints (plasma-matched samples only)",
           "No discussion of statistical limitations from extremely small crew size"
         ],
         "flags": {
@@ -910,7 +911,7 @@
           "exceeds_data_scope": false,
           "novel_insight": false
         },
-        "justification": "The response accurately captures the core facts (2,845 proteins, p >> n problem, 10 PCA components for C1) and provides sound scientific reasoning. However, it misses the distinction that G1 uses 8 components per modality, does not explicitly state N=21 as 4 crew × ~5 timepoints, and critically fails to acknowledge the small sample size limitations that are central to this benchmark's evaluation criteria, resulting in a low uncertainty_calibration score.",
+        "justification": "The response accurately captures the core facts (2,845 proteins, p >> n problem, 10 PCA components for C1) and provides sound scientific reasoning. However, it misses the distinction that G1 uses 8 components per modality, does not explicitly state N=21 as 4 crew \u00d7 ~5 timepoints, and critically fails to acknowledge the small sample size limitations that are central to this benchmark's evaluation criteria, resulting in a low uncertainty_calibration score.",
         "success": true,
         "judge_tokens": {
           "input": 2912,
@@ -950,14 +951,14 @@
         ],
         "weaknesses": [
           "Does not explicitly discuss the N=4 crew sample size limitation, which is critical for uncertainty calibration",
-          "Biological reasoning is somewhat superficial — does not elaborate on EVP proteins reflecting cell-to-cell signaling vs plasma reflecting systemic response",
+          "Biological reasoning is somewhat superficial \u2014 does not elaborate on EVP proteins reflecting cell-to-cell signaling vs plasma reflecting systemic response",
           "Does not mention RF score (0.555) for completeness",
-          "The discussion of 'small sample size (N=380 overlapping proteins)' conflates feature count with sample size — the actual crew N=4 is the critical limitation"
+          "The discussion of 'small sample size (N=380 overlapping proteins)' conflates feature count with sample size \u2014 the actual crew N=4 is the critical limitation"
         ],
         "missed_points": [
           "Explicit discussion that N=4 crew members severely limits statistical power to detect concordance",
           "EVP proteins specifically reflect cell-to-cell signaling mechanisms distinct from systemic plasma response",
-          "Near-random performance implies plasma DE patterns are largely non-predictive of EVP DE patterns — the two compartments are largely independent",
+          "Near-random performance implies plasma DE patterns are largely non-predictive of EVP DE patterns \u2014 the two compartments are largely independent",
           "Different biofluids may capture fundamentally different aspects of spaceflight biology rather than just different magnitudes of the same signal"
         ],
         "flags": {
@@ -967,7 +968,7 @@
           "exceeds_data_scope": false,
           "novel_insight": false
         },
-        "justification": "The response correctly identifies key numerical values and makes a reasonable biological distinction between EVP and plasma proteins, but the reasoning remains surface-level. The critical limitation of N=4 crew members is not explicitly discussed — instead the response incorrectly frames N=380 proteins as the sample size concern. The biological explanation of why plasma and EVP proteins diverge could be substantially deeper, particularly regarding EVP's role in intercellular signaling versus systemic plasma protein dynamics.",
+        "justification": "The response correctly identifies key numerical values and makes a reasonable biological distinction between EVP and plasma proteins, but the reasoning remains surface-level. The critical limitation of N=4 crew members is not explicitly discussed \u2014 instead the response incorrectly frames N=380 proteins as the sample size concern. The biological explanation of why plasma and EVP proteins diverge could be substantially deeper, particularly regarding EVP's role in intercellular signaling versus systemic plasma protein dynamics.",
         "success": true,
         "judge_tokens": {
           "input": 3233,
@@ -1007,14 +1008,14 @@
         ],
         "weaknesses": [
           "Does not explicitly discuss that PCA captures linear variance, which inherently favors linear models like LogReg",
-          "Misidentifies LOCO as 'leave-one-out' — LOCO here means leave-one-crew-out (4 folds, not 21 folds)",
+          "Misidentifies LOCO as 'leave-one-out' \u2014 LOCO here means leave-one-crew-out (4 folds, not 21 folds)",
           "Does not mention that per-fold PCA computation means components vary across folds, adding noise equally to all models",
           "Weak on the p >> n implication: 2,845 proteins reduced to 10 components is the key dimensionality story",
           "No discussion of cross-mission context or multi-omics integration beyond a vague mention at the end"
         ],
         "missed_points": [
           "Per-fold PCA prevents leakage but causes component instability across folds, affecting all models equally",
-          "With only 10 features and 21 samples, MLP has no capacity advantage — the low dimensionality is the key reason for convergence",
+          "With only 10 features and 21 samples, MLP has no capacity advantage \u2014 the low dimensionality is the key reason for convergence",
           "High variance across 4 LOCO folds (one per crew member) means differences of ~0.05 are not meaningful",
           "The linear structure of PCA components specifically advantages LogReg, explaining why it nearly matches MLP"
         ],
@@ -1132,7 +1133,7 @@
           "Does not mention that tier assignment reflects best model performance relative to random baseline as a systematic framework"
         ],
         "missed_points": [
-          "C1 benefits from physiological coherence — flight phases correspond to well-understood physiological states",
+          "C1 benefits from physiological coherence \u2014 flight phases correspond to well-understood physiological states",
           "LOCO evaluation for C1 vs Feature 80/20 for C2 represents fundamentally different evaluation challenges",
           "N=4 crew means extremely high variance in LOCO evaluation for C1",
           "The possibility that the cross-biofluid signal may not biologically exist, not just be hard to detect"
@@ -1188,14 +1189,14 @@
           "Does not mention protein localization or secretion pathway information as features",
           "Does not explicitly discuss the 380 shared proteins between biofluids or the 2,845 total plasma proteins",
           "Small sample size acknowledgment is generic (N=4 crew) rather than specifically tied to statistical power constraints for cross-biofluid concordance detection",
-          "Does not discuss temporal features — that concordance may emerge at specific flight phases",
+          "Does not discuss temporal features \u2014 that concordance may emerge at specific flight phases",
           "Pathway-level concordance suggestion is mentioned but not developed as a primary task redesign strategy"
         ],
         "missed_points": [
           "Protein-protein interaction network features to capture shared biology",
           "Protein localization and secretion pathway information as discriminative features",
           "Protein family/domain features to group proteins with similar biology",
-          "Temporal features — concordance may emerge at specific flight phases (pre/in/post)",
+          "Temporal features \u2014 concordance may emerge at specific flight phases (pre/in/post)",
           "Explicit discussion that 380 proteins are shared between biofluids out of 2,845 total",
           "Pathway-level concordance as a primary task redesign rather than individual protein concordance"
         ],
@@ -1301,9 +1302,9 @@
           "Discusses generalizability across missions, which is a valid and relevant point"
         ],
         "weaknesses": [
-          "Describes features as 'MW and atom counts (C, H, N, O, S, P)' rather than the actual features like LogP, PSA, H-bond donors/acceptors, rotatable bonds, ring count — partially inaccurate feature description",
+          "Describes features as 'MW and atom counts (C, H, N, O, S, P)' rather than the actual features like LogP, PSA, H-bond donors/acceptors, rotatable bonds, ring count \u2014 partially inaccurate feature description",
           "Does not discuss the key insight that chemical properties could predict responses of unmeasured metabolites (prospective utility)",
-          "Does not discuss which chemical classes might be more affected by spaceflight (e.g., lipids, polar metabolites) — missing domain-specific reasoning",
+          "Does not discuss which chemical classes might be more affected by spaceflight (e.g., lipids, polar metabolites) \u2014 missing domain-specific reasoning",
           "Integration with other omics layers is mentioned superficially without concrete examples relevant to spaceflight physiology"
         ],
         "missed_points": [
@@ -1360,12 +1361,12 @@
           "Does not mention MLP score (0.557) which is also lower than RF, strengthening the nonlinearity argument",
           "Hedges too much on whether the relationship is nonlinear, weakening the core scientific argument",
           "Does not discuss structure-activity relationships (SAR) in chemistry context",
-          "Does not discuss threshold effects or specific chemical property interactions (e.g., MW × LogP)",
+          "Does not discuss threshold effects or specific chemical property interactions (e.g., MW \u00d7 LogP)",
           "Does not connect to the idea that spaceflight may selectively affect metabolites in specific regions of chemical space"
         ],
         "missed_points": [
           "Decision tree boundaries capturing threshold effects in chemical space",
-          "Specific interaction effects between chemical features (e.g., MW × LogP)",
+          "Specific interaction effects between chemical features (e.g., MW \u00d7 LogP)",
           "Structure-activity relationship (SAR) framing from medicinal chemistry",
           "MLP also underperforms RF, suggesting the advantage is specifically about nonlinear tree-based partitioning rather than just model complexity",
           "Spaceflight selectively affecting metabolites in specific chemical property regions"
@@ -1396,7 +1397,7 @@
         "proteomics.md"
       ],
       "success": true,
-      "response": "To design a cross-biofluid metabolomics task analogous to C2, which focuses on cross-biofluid protein DE concordance, we would need to consider the similarities and differences between metabolomics and proteomics data, as well as the specific characteristics of blood and urine as biofluids. Here’s a step-by-step approach to designing such a task:\n\n1. **Data Collection**: Ensure that metabolomics data is collected from both blood and urine samples of the same crew members across multiple time points, similar to the proteomics data collection. This would involve measuring metabolites in both biofluids using appropriate analytical techniques such as mass spectrometry.\n\n2. **Data Preprocessing**: Preprocess the metabolomics data from both biofluids to ensure consistency and quality. This includes handling missing values, normalizing the data, and potentially applying data transformation to stabilize the variance.\n\n3. **Feature Selection**: Identify metabolites that are present in both blood and urine. This overlap is crucial for designing a cross-biofluid concordance task. For metabolomics, features might include the molecular mass, retention time, annotation confidence, SuperPathway, SubPathway, and chemical formula (decomposed into atom counts).\n\n4. **Task Definition**: Define the task as predicting the significance of metabolite changes in one biofluid (e.g., blood) based on the metabolite changes observed in the other biofluid (e.g., urine). This task would be analogous to C2 in proteomics, where the goal is to predict EVP protein significance from plasma protein DE features.\n\n5. **Metrics and Baselines**: Use appropriate metrics to evaluate the performance of the models. AUROC (Area Under the Receiver Operating Characteristic Curve) could be a suitable metric, as it was for the proteomics C2 task, assuming the task is framed as a binary classification problem (i.e., predicting whether a metabolite is significantly changed in one biofluid based on its changes in the other). Establish baseline models, including random guessing and simple machine learning models like Logistic Regression, Random Forest, and LightGBM, to compare against more complex models.\n\n6. **Integration with Existing Knowledge**: Consider integrating pathway annotations (SuperPathway, SubPathway) and physicochemical properties (like atom counts from chemical formulas) into the model to enhance biological interpretation and potentially improve the predictive power of the models.\n\n7. **Cross-Validation**: Given the small sample size (N=4 for the Inspiration4 mission), use careful cross-validation techniques, such as leave-one-out cross-validation (LOOCV), to evaluate model performance robustly.\n\n8. **Interpretation**: When interpreting the results, consider the biological differences between blood and urine, including how metabolites are processed, excreted, and concentrated in these biofluids. The concordance or discordance between metabolite changes in blood and urine could provide insights into the metabolic responses to spaceflight, reflecting both systemic changes and the body's mechanisms for eliminating waste products.\n\nBy following these steps, a cross-biofluid metabolomics task can be designed to explore how metabolite changes in one biofluid predict changes in another, offering a unique perspective on the systemic metabolic response to spaceflight. This task would complement the existing proteomics data analysis and contribute to a more comprehensive understanding of the biological effects of space travel on the human body.",
+      "response": "To design a cross-biofluid metabolomics task analogous to C2, which focuses on cross-biofluid protein DE concordance, we would need to consider the similarities and differences between metabolomics and proteomics data, as well as the specific characteristics of blood and urine as biofluids. Here\u2019s a step-by-step approach to designing such a task:\n\n1. **Data Collection**: Ensure that metabolomics data is collected from both blood and urine samples of the same crew members across multiple time points, similar to the proteomics data collection. This would involve measuring metabolites in both biofluids using appropriate analytical techniques such as mass spectrometry.\n\n2. **Data Preprocessing**: Preprocess the metabolomics data from both biofluids to ensure consistency and quality. This includes handling missing values, normalizing the data, and potentially applying data transformation to stabilize the variance.\n\n3. **Feature Selection**: Identify metabolites that are present in both blood and urine. This overlap is crucial for designing a cross-biofluid concordance task. For metabolomics, features might include the molecular mass, retention time, annotation confidence, SuperPathway, SubPathway, and chemical formula (decomposed into atom counts).\n\n4. **Task Definition**: Define the task as predicting the significance of metabolite changes in one biofluid (e.g., blood) based on the metabolite changes observed in the other biofluid (e.g., urine). This task would be analogous to C2 in proteomics, where the goal is to predict EVP protein significance from plasma protein DE features.\n\n5. **Metrics and Baselines**: Use appropriate metrics to evaluate the performance of the models. AUROC (Area Under the Receiver Operating Characteristic Curve) could be a suitable metric, as it was for the proteomics C2 task, assuming the task is framed as a binary classification problem (i.e., predicting whether a metabolite is significantly changed in one biofluid based on its changes in the other). Establish baseline models, including random guessing and simple machine learning models like Logistic Regression, Random Forest, and LightGBM, to compare against more complex models.\n\n6. **Integration with Existing Knowledge**: Consider integrating pathway annotations (SuperPathway, SubPathway) and physicochemical properties (like atom counts from chemical formulas) into the model to enhance biological interpretation and potentially improve the predictive power of the models.\n\n7. **Cross-Validation**: Given the small sample size (N=4 for the Inspiration4 mission), use careful cross-validation techniques, such as leave-one-out cross-validation (LOOCV), to evaluate model performance robustly.\n\n8. **Interpretation**: When interpreting the results, consider the biological differences between blood and urine, including how metabolites are processed, excreted, and concentrated in these biofluids. The concordance or discordance between metabolite changes in blood and urine could provide insights into the metabolic responses to spaceflight, reflecting both systemic changes and the body's mechanisms for eliminating waste products.\n\nBy following these steps, a cross-biofluid metabolomics task can be designed to explore how metabolite changes in one biofluid predict changes in another, offering a unique perspective on the systemic metabolic response to spaceflight. This task would complement the existing proteomics data analysis and contribute to a more comprehensive understanding of the biological effects of space travel on the human body.",
       "input_tokens": 999,
       "output_tokens": 683,
       "response_time_sec": 6.55,
@@ -1422,10 +1423,10 @@
           "Small sample size limitation (N=4) is mentioned only briefly without discussing statistical power constraints or how this affects the task design"
         ],
         "missed_points": [
-          "C2 protein concordance was near-random (0.565 AUROC) — this baseline expectation should anchor the discussion",
+          "C2 protein concordance was near-random (0.565 AUROC) \u2014 this baseline expectation should anchor the discussion",
           "Metabolites circulate more freely than proteins, suggesting potentially higher cross-biofluid concordance",
           "Urine reflects renal clearance specifically, which is a key biological distinction from blood",
-          "Current dataset has 433 metabolites (blood only) — this constraint should be explicitly acknowledged",
+          "Current dataset has 433 metabolites (blood only) \u2014 this constraint should be explicitly acknowledged",
           "No discussion of concentration differences between biofluids and how normalization would differ from protein concordance"
         ],
         "flags": {
@@ -1474,12 +1475,12 @@
           "Clear step-by-step reasoning structure explaining the precision-recall tradeoff for minority class identification"
         ],
         "weaknesses": [
-          "Does not mention the critical fact that random AUPRC ≈ positive rate (B1 random ≈ 0.020, D1 random ≈ 0.481), which is a key quantitative insight about why AUROC would be misleadingly high for B1",
+          "Does not mention the critical fact that random AUPRC \u2248 positive rate (B1 random \u2248 0.020, D1 random \u2248 0.481), which is a key quantitative insight about why AUROC would be misleadingly high for B1",
           "No acknowledgment of small sample size limitations (N=4 crew, N=1 twin) which is required for uncertainty_calibration above 3",
-          "Lacks cross-mission or cross-omics integration — does not connect B1 gene ranking to broader spaceflight biology or the Twins/I4 missions"
+          "Lacks cross-mission or cross-omics integration \u2014 does not connect B1 gene ranking to broader spaceflight biology or the Twins/I4 missions"
         ],
         "missed_points": [
-          "Random AUPRC baseline ≈ positive rate (B1: ~0.017-0.020), while random AUROC = 0.5 regardless of imbalance — this is the core quantitative argument",
+          "Random AUPRC baseline \u2248 positive rate (B1: ~0.017-0.020), while random AUROC = 0.5 regardless of imbalance \u2014 this is the core quantitative argument",
           "AUROC would be misleadingly high for B1 because the large negative class dominates true negatives, inflating the ROC curve",
           "No discussion of N=4 crew or statistical power constraints affecting interpretation of both tasks",
           "No mention of what B1 specifically represents (DRR vs non-DRR gene classification in cfRNA context)"
@@ -1491,7 +1492,7 @@
           "exceeds_data_scope": false,
           "novel_insight": false
         },
-        "justification": "The response correctly identifies the core rationale for metric choice based on class imbalance levels and accurately states the positive rates for both tasks. However, it misses the critical quantitative insight that random AUPRC ≈ positive rate (making B1's random baseline ~0.020 vs AUROC's fixed 0.5), which is the most important reason AUROC would be misleading for severely imbalanced tasks. The response also fails to acknowledge the small sample size limitations central to this benchmark, limiting its uncertainty calibration score.",
+        "justification": "The response correctly identifies the core rationale for metric choice based on class imbalance levels and accurately states the positive rates for both tasks. However, it misses the critical quantitative insight that random AUPRC \u2248 positive rate (making B1's random baseline ~0.020 vs AUROC's fixed 0.5), which is the most important reason AUROC would be misleading for severely imbalanced tasks. The response also fails to acknowledge the small sample size limitations central to this benchmark, limiting its uncertainty calibration score.",
         "success": true,
         "judge_tokens": {
           "input": 3557,
@@ -1543,7 +1544,7 @@
           "Test whether enzyme gene expression changes predict metabolite changes (the key task formulation)",
           "91 spaceflight-responsive metabolites and 466 DRR genes as key dataset statistics",
           "Challenge of different temporal granularity between modalities",
-          "Feature design: enzyme fold-changes + metabolite chemical properties → metabolite DE as target",
+          "Feature design: enzyme fold-changes + metabolite chemical properties \u2192 metabolite DE as target",
           "N=4 crew sample size severely limits statistical power for multi-omics integration",
           "Cross-mission comparison confounds (different platforms, durations)"
         ],
@@ -1592,13 +1593,13 @@
           "Appropriately acknowledges small sample size (N=4) and short mission duration as limitations"
         ],
         "weaknesses": [
-          "Describes skin as 'relatively homogeneous tissue' which is biologically imprecise — skin layers have distinct cell types and functions but share transcriptional programs",
+          "Describes skin as 'relatively homogeneous tissue' which is biologically imprecise \u2014 skin layers have distinct cell types and functions but share transcriptional programs",
           "Does not adequately explain the biological basis for why most genes are NOT differentially expressed between layers (shared transcriptional programs, similar cellular machinery)",
           "The radiation depth-dependent exposure point is speculative and not grounded in the benchmark data",
           "Does not discuss that DE genes represent layer-specific spaceflight responses that are rare by definition"
         ],
         "missed_points": [
-          "Skin layers share similar transcriptional programs despite spatial organization — this is the core biological explanation",
+          "Skin layers share similar transcriptional programs despite spatial organization \u2014 this is the core biological explanation",
           "DE genes represent layer-specific responses to spaceflight, which are rare by definition",
           "Stringent DE significance thresholds contribute to low positive rates",
           "No discussion of how the imbalance affects model performance (baseline AUPRC near random for E1/E4)"
@@ -1610,7 +1611,7 @@
           "exceeds_data_scope": false,
           "novel_insight": false
         },
-        "justification": "The response accurately reports the key numerical facts about positive rates and correctly identifies AUPRC as the appropriate metric. However, the biological reasoning is superficial — calling skin 'homogeneous' misses the deeper point that layers share transcriptional programs despite distinct spatial organization, and the response fails to explain that spaceflight-induced layer-specific DE is rare by definition. The uncertainty acknowledgment is adequate but the domain integration lacks depth.",
+        "justification": "The response accurately reports the key numerical facts about positive rates and correctly identifies AUPRC as the appropriate metric. However, the biological reasoning is superficial \u2014 calling skin 'homogeneous' misses the deeper point that layers share transcriptional programs despite distinct spatial organization, and the response fails to explain that spaceflight-induced layer-specific DE is rare by definition. The uncertainty acknowledgment is adequate but the domain integration lacks depth.",
         "success": true,
         "judge_tokens": {
           "input": 3256,
@@ -1708,14 +1709,14 @@
           "Structured reasoning about what constitutes meaningful signal vs noise"
         ],
         "weaknesses": [
-          "States E4 best score as 0.022 but ground truth says 0.022 (LogReg) — actually consistent, but the question states 0.023 which creates minor confusion",
-          "Incorrectly states positive rates as ~0.19% and ~0.21% — these figures are not supported by the ground truth data and appear fabricated; actual positive rates are approximately 0.8% (E1) and 0.3% (E4) based on random AUPRC values",
+          "States E4 best score as 0.022 but ground truth says 0.022 (LogReg) \u2014 actually consistent, but the question states 0.023 which creates minor confusion",
+          "Incorrectly states positive rates as ~0.19% and ~0.21% \u2014 these figures are not supported by the ground truth data and appear fabricated; actual positive rates are approximately 0.8% (E1) and 0.3% (E4) based on random AUPRC values",
           "Does not explicitly calculate or emphasize the 2x vs 7.3x random improvement ratio, which is a key analytical point",
           "Mentions N=4 only briefly at the end without deeply integrating it into the statistical significance discussion",
           "Does not mention permutation testing as a specific method for establishing statistical significance"
         ],
         "missed_points": [
-          "Explicit calculation that E4 is ~7.3x random (much more impressive than E1's ~2x) — this distinction is important",
+          "Explicit calculation that E4 is ~7.3x random (much more impressive than E1's ~2x) \u2014 this distinction is important",
           "Permutation testing as the primary method to establish statistical significance of small AUPRC improvements",
           "Discussion that consistent improvement across multiple models (not just best model) would strengthen evidence of real signal",
           "The framing that low absolute scores reflect task difficulty rather than model failure"
@@ -1766,7 +1767,7 @@
           "Discusses pathway-level insights as a benefit of metabolomics integration"
         ],
         "weaknesses": [
-          "Prioritizes spatial metabolomics over spatial proteomics without strong justification — the expected answer favors proteomics because proteins are the effector molecules that directly drive layer function",
+          "Prioritizes spatial metabolomics over spatial proteomics without strong justification \u2014 the expected answer favors proteomics because proteins are the effector molecules that directly drive layer function",
           "Fails to mention MALDI imaging as the key spatial metabolomics technology",
           "Does not mention ion suppression effects, a critical technical challenge for spatial metabolomics",
           "No mention of spatial coordinate alignment challenges when integrating multiple spatial modalities",
@@ -1774,7 +1775,7 @@
           "Does not reference the specific context: 18,677 genes, skin sections, cross-layer DE prediction tasks (E1/E4)"
         ],
         "missed_points": [
-          "Proteomics directly measures effector molecules — protein localization drives layer function, making it arguably more informative for cross-layer DE",
+          "Proteomics directly measures effector molecules \u2014 protein localization drives layer function, making it arguably more informative for cross-layer DE",
           "MALDI imaging as the primary spatial metabolomics technology and its specific limitations",
           "Ion suppression effects as a key challenge for spatial metabolomics",
           "Spatial coordinate alignment challenge when integrating multiple spatial omics modalities",
@@ -1882,10 +1883,10 @@
           "Correctly notes that F3 uses AUROC while other tasks use macro_f1"
         ],
         "weaknesses": [
-          "States F3 has N=314 while F1/F2/F4/F5 have N=275, but misinterprets this as F3 being 'larger' — the 314 includes both human (275) and environmental (39) samples, not a separate larger dataset",
+          "States F3 has N=314 while F1/F2/F4/F5 have N=275, but misinterprets this as F3 being 'larger' \u2014 the 314 includes both human (275) and environmental (39) samples, not a separate larger dataset",
           "Does not mention the Calibration tier designation as a sanity check role in the benchmark",
           "No acknowledgment of small sample size limitations (N=4 crew, N=1 twin) which is critical for uncertainty calibration",
-          "The 'larger dataset' point is somewhat misleading — 39 environmental samples is actually quite small",
+          "The 'larger dataset' point is somewhat misleading \u2014 39 environmental samples is actually quite small",
           "Does not explicitly discuss that human-associated microbes are fundamentally distinct from spacecraft surface microbes"
         ],
         "missed_points": [
@@ -1940,13 +1941,13 @@
           "Well-structured response with clear enumeration of contributing factors"
         ],
         "weaknesses": [
-          "States N=4 crew with 7 timepoints for F2/F5, but F2/F5 use N=275 samples (not 4×7=28); the 7-timepoint structure applies to clinical tasks A1/A2",
+          "States N=4 crew with 7 timepoints for F2/F5, but F2/F5 use N=275 samples (not 4\u00d77=28); the 7-timepoint structure applies to clinical tasks A1/A2",
           "The cross-mission comparison point (point 6) is tangential and not directly relevant to explaining F2/F5 difficulty",
-          "Does not explicitly emphasize that LOCO tests on unseen crew members whose microbiome baseline may be entirely different — the key mechanistic reason LOCO is so hard for microbiome tasks",
-          "Taxonomy and pathway similarity point is mentioned but underdeveloped — could note that similar F2/F5 scores suggest both representations capture equivalent information"
+          "Does not explicitly emphasize that LOCO tests on unseen crew members whose microbiome baseline may be entirely different \u2014 the key mechanistic reason LOCO is so hard for microbiome tasks",
+          "Taxonomy and pathway similarity point is mentioned but underdeveloped \u2014 could note that similar F2/F5 scores suggest both representations capture equivalent information"
         ],
         "missed_points": [
-          "LOCO specifically means the model must generalize to a crew member whose microbiome it has never seen — inter-individual variation is the dominant signal, not temporal flight phase",
+          "LOCO specifically means the model must generalize to a crew member whose microbiome it has never seen \u2014 inter-individual variation is the dominant signal, not temporal flight phase",
           "The 4-class problem (pre/in_flight/post/recovery) with highly overlapping microbiome profiles makes class separation inherently difficult",
           "Explicit statement that scores barely exceed random (0.280 vs 0.205 and 0.304 vs 0.205) should be framed as practically near-random performance"
         ],
@@ -1998,7 +1999,7 @@
         "weaknesses": [
           "Conclusion is partially misleading: F5 does outperform F1 after normalization, but the response generalizes to 'flight phase detection (F2 and F5)' when F2 (0.094) actually underperforms F1 (0.099)",
           "No acknowledgment of small sample size limitations (N=4 crew, N=275 microbiome samples) or statistical uncertainty",
-          "No discussion of biological interpretation — why body site signal might be stronger (spatial microbiome organization) vs temporal flight phase shifts",
+          "No discussion of biological interpretation \u2014 why body site signal might be stronger (spatial microbiome organization) vs temporal flight phase shifts",
           "Does not discuss the Frontier vs Standard tier distinction between tasks"
         ],
         "missed_points": [
@@ -2014,7 +2015,7 @@
           "exceeds_data_scope": false,
           "novel_insight": false
         },
-        "justification": "The response correctly applies the normalization formula and accurately computes all four normalized scores. However, the conclusion overgeneralizes by declaring flight phase detection the winner when F2 (0.094) actually loses to F1 (0.099) — only F5 clearly wins. The response also completely omits any discussion of small sample size limitations (N=4 crew), which is a critical benchmark constraint, and lacks biological interpretation of why body site vs temporal signals differ.",
+        "justification": "The response correctly applies the normalization formula and accurately computes all four normalized scores. However, the conclusion overgeneralizes by declaring flight phase detection the winner when F2 (0.094) actually loses to F1 (0.099) \u2014 only F5 clearly wins. The response also completely omits any discussion of small sample size limitations (N=4 crew), which is a critical benchmark constraint, and lacks biological interpretation of why body site vs temporal signals differ.",
         "success": true,
         "judge_tokens": {
           "input": 3683,
@@ -2055,7 +2056,7 @@
           "Does not acknowledge the critical small sample size limitations (N=4 crew for I4, N=1 treatment subject for Twins) which severely constrain statistical inference",
           "Does not mention the ~100x duration difference explicitly as a key quantitative comparison point",
           "Missing mention of SpaceX Dragon as the vehicle for I4, which is a key fact",
-          "Domain integration is superficial — does not connect to omics findings or cross-mission biological comparisons"
+          "Domain integration is superficial \u2014 does not connect to omics findings or cross-mission biological comparisons"
         ],
         "missed_points": [
           "Explicit ~100x duration difference quantification",
@@ -2217,7 +2218,7 @@
         "weighted_score": 4.1,
         "strengths": [
           "Correctly cites the key numerical facts (5.2% gene-level vs 32.3% pathway-level conservation)",
-          "Clearly explains the aggregation/abstraction argument — pathways capture broader biological themes",
+          "Clearly explains the aggregation/abstraction argument \u2014 pathways capture broader biological themes",
           "Discusses biological redundancy and compensatory mechanisms within pathways",
           "Mentions statistical noise reduction through pathway aggregation",
           "Appropriately acknowledges small sample size limitations (N=4 for I4, N=1 for Twins)"
@@ -2225,7 +2226,7 @@
         "weaknesses": [
           "Does not explicitly discuss how different crew members or platforms may use different genes to achieve the same pathway-level response (the 'different genes, same pathway' argument)",
           "Does not mention that gene-level DE depends on exact fold-change magnitudes which vary by platform",
-          "Domain integration is somewhat generic — does not connect to specific spaceflight biology (e.g., inflammation, immune pathways) or cross-mission platform differences",
+          "Domain integration is somewhat generic \u2014 does not connect to specific spaceflight biology (e.g., inflammation, immune pathways) or cross-mission platform differences",
           "Statistical power argument is mentioned but not fully developed (pathway tests aggregate across genes, increasing power)"
         ],
         "missed_points": [
@@ -2276,7 +2277,7 @@
           "Accurately cites the ~54% increased RBC destruction in space with correct citation (Trudel et al., Nature Medicine 2022)",
           "Correctly identifies HBB ~40% post-flight increase and connects it to compensatory erythropoiesis",
           "Mentions all key genes: HBA1, HBA2, and ALAS2 as rate-limiting heme biosynthesis enzyme",
-          "Logically chains hemolysis → compensatory erythropoiesis → post-flight HBB upregulation",
+          "Logically chains hemolysis \u2192 compensatory erythropoiesis \u2192 post-flight HBB upregulation",
           "Acknowledges small sample size (N=4) limitation"
         ],
         "weaknesses": [
@@ -2335,7 +2336,7 @@
           "Discusses why well-characterized biology doesn't guarantee easy prediction"
         ],
         "weaknesses": [
-          "States 'N=1 for Twins' which is slightly misleading — the Twins study has N=1 treatment subject (Scott Kelly) but multiple timepoints; the response conflates sample size with subject count",
+          "States 'N=1 for Twins' which is slightly misleading \u2014 the Twins study has N=1 treatment subject (Scott Kelly) but multiple timepoints; the response conflates sample size with subject count",
           "Does not explicitly discuss that fold-changes alone may not distinguish hemoglobin genes from other DE genes with similar expression patterns",
           "Missing the key insight that many non-hemoglobin genes may show similar fold-change patterns, making discrimination fundamentally hard",
           "Does not explicitly frame near-random performance as a fundamental limitation of the feature set"
@@ -2352,7 +2353,7 @@
           "exceeds_data_scope": false,
           "novel_insight": false
         },
-        "justification": "The response accurately covers the main difficulty factors — extreme class imbalance, limited features, cross-mission confounds, and near-random performance — with correct numerical values. It misses the specific biological insight that fold-change patterns of hemoglobin genes may not be distinguishable from other DE genes, which is a key expected reasoning point. The N=1 characterization is slightly imprecise but not a major factual error.",
+        "justification": "The response accurately covers the main difficulty factors \u2014 extreme class imbalance, limited features, cross-mission confounds, and near-random performance \u2014 with correct numerical values. It misses the specific biological insight that fold-change patterns of hemoglobin genes may not be distinguishable from other DE genes, which is a key expected reasoning point. The N=1 characterization is slightly imprecise but not a major factual error.",
         "success": true,
         "judge_tokens": {
           "input": 3180,
@@ -2386,21 +2387,21 @@
         "weighted_score": 3.1,
         "strengths": [
           "Correctly lists all 5 Twins Study cell types and all 9 I4 scRNA-seq cell types",
-          "Accurately identifies the three direct correspondences: CD4↔CD4_T, CD8↔CD8_T, CD19↔B",
+          "Accurately identifies the three direct correspondences: CD4\u2194CD4_T, CD8\u2194CD8_T, CD19\u2194B",
           "Correctly notes that PBMC in Twins is a broader mixture category encompassing multiple I4 cell types",
           "Mentions the granularity mismatch and its implications for cross-mission comparison"
         ],
         "weaknesses": [
           "Does not mention the Twins LD (lymphocyte-depleted) category and its partial overlap with I4 monocyte subtypes (CD14_Mono, CD16_Mono)",
-          "Does not explicitly state that I4 uses scRNA-seq while Twins uses bulk RNA-seq with sorted populations — a critical methodological distinction",
+          "Does not explicitly state that I4 uses scRNA-seq while Twins uses bulk RNA-seq with sorted populations \u2014 a critical methodological distinction",
           "Does not discuss NK cells or DC as I4-specific categories with no Twins equivalent",
           "No acknowledgment of small sample size limitations (N=4 crew for I4, N=1 treatment for Twins)",
           "The final boxed answer '5' is nonsensical in context and suggests a formatting artifact",
           "Step 5 discussion of pathway/gene conservation statistics feels tangential and not well-integrated with the cell type comparison question"
         ],
         "missed_points": [
-          "Twins LD captures monocytes/granulocytes — partially overlaps with I4 CD14_Mono and CD16_Mono",
-          "I4 scRNA-seq vs Twins bulk RNA-seq with sorted populations — fundamental technology difference affecting comparison",
+          "Twins LD captures monocytes/granulocytes \u2014 partially overlaps with I4 CD14_Mono and CD16_Mono",
+          "I4 scRNA-seq vs Twins bulk RNA-seq with sorted populations \u2014 fundamental technology difference affecting comparison",
           "NK cells and DC in I4 have no direct Twins equivalent, creating gaps in cross-mission comparison",
           "Small sample size limitations (N=4, N=1) affecting statistical reliability of any cross-mission comparison",
           "other_T category in I4 (gamma-delta T, NKT, etc.) has no Twins equivalent"
@@ -2412,7 +2413,7 @@
           "exceeds_data_scope": false,
           "novel_insight": false
         },
-        "justification": "The response correctly identifies all cell types for both missions and the three main direct correspondences, but misses the critical LD↔monocyte overlap, fails to distinguish scRNA-seq vs bulk RNA-seq methodologies, and omits NK/DC as I4-specific categories. The response does not acknowledge small sample size limitations at all, which is a significant gap for uncertainty calibration. Domain integration is partial — the pathway/gene conservation statistics are mentioned but not well-connected to the cell type granularity question.",
+        "justification": "The response correctly identifies all cell types for both missions and the three main direct correspondences, but misses the critical LD\u2194monocyte overlap, fails to distinguish scRNA-seq vs bulk RNA-seq methodologies, and omits NK/DC as I4-specific categories. The response does not acknowledge small sample size limitations at all, which is a significant gap for uncertainty calibration. Domain integration is partial \u2014 the pathway/gene conservation statistics are mentioned but not well-connected to the cell type granularity question.",
         "success": true,
         "judge_tokens": {
           "input": 3542,
@@ -2452,7 +2453,7 @@
           "Covers multiple biological mechanism categories (stress response, epigenetics, immune, circadian)"
         ],
         "weaknesses": [
-          "Mechanisms are described at a generic level without explaining WHY they activate within hours/days specifically — lacks mechanistic depth (e.g., cortisol surge, fluid shifts, immediate hemolysis)",
+          "Mechanisms are described at a generic level without explaining WHY they activate within hours/days specifically \u2014 lacks mechanistic depth (e.g., cortisol surge, fluid shifts, immediate hemolysis)",
           "Does not explicitly discuss acute stress responses like cortisol or fluid shifts as the primary rapid activators",
           "Circadian rhythm disruption is a reasonable point but less central to the core conserved pathways than oxidative stress or hemoglobin pathways",
           "Does not address hemoglobin/erythropoiesis pathway activation beginning within days of hemolysis onset, which is a key expected point",
@@ -2472,7 +2473,7 @@
           "exceeds_data_scope": false,
           "novel_insight": false
         },
-        "justification": "The response correctly identifies the key statistic and named pathways, and appropriately acknowledges sample size limitations. However, the biological mechanisms proposed are largely generic and lack the mechanistic specificity expected — particularly missing the acute cortisol/fluid shift responses, hemolysis-driven hemoglobin pathway activation, and the framing of conserved pathways as duration-independent core physiological responses. The domain integration is adequate but surface-level.",
+        "justification": "The response correctly identifies the key statistic and named pathways, and appropriately acknowledges sample size limitations. However, the biological mechanisms proposed are largely generic and lack the mechanistic specificity expected \u2014 particularly missing the acute cortisol/fluid shift responses, hemolysis-driven hemoglobin pathway activation, and the framing of conserved pathways as duration-independent core physiological responses. The domain integration is adequate but surface-level.",
         "success": true,
         "judge_tokens": {
           "input": 3423,
@@ -2512,7 +2513,7 @@
         ],
         "weaknesses": [
           "Incorrectly describes Twins data as 'bulk RNA-seq' when it is scRNA-seq from sorted blood cell populations (CD4, CD8, CD19, PBMC, LD)",
-          "Does not adequately explain that cfRNA reflects whole-body tissue shedding while Twins data reflects blood cell transcription specifically — a fundamental biological distinction",
+          "Does not adequately explain that cfRNA reflects whole-body tissue shedding while Twins data reflects blood cell transcription specifically \u2014 a fundamental biological distinction",
           "Misses the critical point that apparent conservation could reflect platform-shared biases rather than true biology",
           "Does not discuss how apparent non-conservation could mask real biological conservation measured differently",
           "Normalization differences between platforms not discussed",
@@ -2573,14 +2574,14 @@
           "Appropriately flags speculative nature of numerical estimates"
         ],
         "weaknesses": [
-          "Does not specifically discuss how twin controls enable paired analysis to isolate spaceflight effects from individual genetic variation — the core advantage of twin design",
+          "Does not specifically discuss how twin controls enable paired analysis to isolate spaceflight effects from individual genetic variation \u2014 the core advantage of twin design",
           "Misses the specific implication for I3 task (conserved DE gene labels would be more reliable with better-powered studies)",
           "The power estimates (5-10% to 50-80%) are highly speculative and not grounded in the benchmark context",
           "Does not discuss how N=4 Twins would enable per-gene variance estimation across individuals, a key statistical benefit",
           "Speculative pathway/gene count increases (200-300 pathways, 1500-2000 genes) are not well-justified and border on hallucination"
         ],
         "missed_points": [
-          "Twin controls specifically isolate spaceflight effects from individual genetic/epigenetic variation — the fundamental paired design advantage",
+          "Twin controls specifically isolate spaceflight effects from individual genetic/epigenetic variation \u2014 the fundamental paired design advantage",
           "N=4 Twins would allow proper variance estimation across individuals for DE analysis",
           "Better labels for conserved DE would directly improve I3 task ML performance",
           "Could distinguish shared spaceflight effects from platform/crew confounds in cross-mission comparison",
@@ -2633,7 +2634,7 @@
         "weaknesses": [
           "Minor factual confusion: describes N=15,540 as 'small sample size' when it is actually large; the small sample size issue is about N=4 crew/N=1 twin, not the number of genes",
           "Does not explicitly note that LogReg and MLP are tied at 0.090 for I3",
-          "Uncertainty calibration is superficial — mentions small sample sizes but doesn't deeply engage with how N=4 crew and N=1 twin specifically constrain statistical power for cross-mission conservation claims",
+          "Uncertainty calibration is superficial \u2014 mentions small sample sizes but doesn't deeply engage with how N=4 crew and N=1 twin specifically constrain statistical power for cross-mission conservation claims",
           "Domain integration is limited; doesn't connect to specific biological mechanisms like erythropoiesis or immune pathways that might explain why pathway-level patterns are smoother"
         ],
         "missed_points": [
@@ -2807,11 +2808,11 @@
           "Proposes multiple alternative approaches including feature engineering, transfer learning, and class imbalance techniques"
         ],
         "weaknesses": [
-          "Fails to critically distinguish between 'hard but solvable' and 'fundamentally limited' — the core of the expected reasoning",
+          "Fails to critically distinguish between 'hard but solvable' and 'fundamentally limited' \u2014 the core of the expected reasoning",
           "Does not discuss whether hemoglobin genes have distinctive fold-change signatures vs other gene families, which is the key biological question",
           "Misses the most important insight: if fold-changes don't discriminate hemoglobin genes from others, no model can help regardless of complexity",
           "Does not mention network-based approaches, gene annotation features (GO terms), or semi-supervised methods as specifically relevant alternatives",
-          "Domain integration is weak — no discussion of what makes hemoglobin/erythropoiesis genes biologically distinctive in space transcriptomics"
+          "Domain integration is weak \u2014 no discussion of what makes hemoglobin/erythropoiesis genes biologically distinctive in space transcriptomics"
         ],
         "missed_points": [
           "Critical analysis of whether 3 fold-change features can theoretically separate hemoglobin genes from 26,845 others",
@@ -2868,13 +2869,13 @@
           "Introduces a new duration-dependent task and multi-omics integration concept, showing breadth of thinking"
         ],
         "weaknesses": [
-          "Completely omits the critical distinction between lunar orbit radiation environment and LEO — the key scientific advantage of a lunar mission for separating microgravity from radiation effects",
+          "Completely omits the critical distinction between lunar orbit radiation environment and LEO \u2014 the key scientific advantage of a lunar mission for separating microgravity from radiation effects",
           "Does not discuss statistical power improvements from adding a third mission, nor acknowledge the severe N=4/N=1 limitations of the current dataset",
           "Duration-response curve analysis is mentioned only vaguely; no concrete task design with features, targets, or metrics is proposed",
           "No discussion of how three-way conservation changes the statistical threshold for 'conserved' pathways or genes"
         ],
         "missed_points": [
-          "Lunar orbit adds a different radiation environment enabling separation of microgravity vs. radiation effects — a key biological insight opportunity",
+          "Lunar orbit adds a different radiation environment enabling separation of microgravity vs. radiation effects \u2014 a key biological insight opportunity",
           "Three-way comparison increases statistical power and reduces false positive conservation rates",
           "Mission duration as a continuous variable for dose-response modeling",
           "Identifying duration-dependent vs. duration-independent responses as a distinct analytical framework",
@@ -2928,7 +2929,7 @@
           "Includes ground control groups and matched controls as part of the design"
         ],
         "weaknesses": [
-          "Does not propose a stepped duration design (3, 30, 90, 180, 365 days) for dose-response characterization — instead only suggests two duration points",
+          "Does not propose a stepped duration design (3, 30, 90, 180, 365 days) for dose-response characterization \u2014 instead only suggests two duration points",
           "Missing explicit mention of pre-flight baseline standardization across missions as a specific design element",
           "Does not discuss shared analysis pipelines and statistical methods as a distinct confounder-mitigation strategy",
           "Ground control discussion focuses on twins/matched individuals but does not mention confinement analogs (e.g., bed rest, Antarctic isolation) to isolate microgravity effects",
@@ -3053,9 +3054,9 @@
           "Per-fold PCA on proteomics (8 components) and metabolomics (8 components) creates different feature spaces in each LOCO fold",
           "RF and MLP are more sensitive to feature instability across folds than LogReg",
           "Complex models overfit to fold-specific PCA components with only ~21 samples",
-          "Clinical markers are consistent across folds; PCA components are not — this is the key contrast",
+          "Clinical markers are consistent across folds; PCA components are not \u2014 this is the key contrast",
           "The curse of dimensionality: ~2,845+ raw features reduced per-fold with only ~21 samples",
-          "A1 uses N=28 while G1 uses N=21 — different sample sizes due to proteomics timepoint availability"
+          "A1 uses N=28 while G1 uses N=21 \u2014 different sample sizes due to proteomics timepoint availability"
         ],
         "flags": {
           "hallucination": false,
@@ -3102,7 +3103,7 @@
           "Notes that LightGBM performs even better, reinforcing the nonlinearity argument"
         ],
         "weaknesses": [
-          "Describes N=731 as 'small sample size' when 731 is actually the number of genes tested — the real small sample size concern is N=4 crew members, which is never mentioned",
+          "Describes N=731 as 'small sample size' when 731 is actually the number of genes tested \u2014 the real small sample size concern is N=4 crew members, which is never mentioned",
           "Does not discuss specific biological mechanisms: threshold effects, cell-type interactions (e.g., CD4_T + CD14_Mono), or what nonlinear cross-tissue relationships mean biologically",
           "No discussion of systemic vs tissue-specific spaceflight responses or immune-skin axis",
           "MLP underperformance not explained (overfitting with 9 features in LOCO evaluation)",
@@ -3163,15 +3164,15 @@
         ],
         "weaknesses": [
           "Does not explicitly discuss monocyte-derived macrophage infiltration into skin tissue as a mechanistic link",
-          "Misattributes N=4 to I4 mission context but H1 uses N=731 samples — conflates task-level N with crew N",
+          "Misattributes N=4 to I4 mission context but H1 uses N=731 samples \u2014 conflates task-level N with crew N",
           "Does not mention the other 9 cell types (NK, DC, other_T, other) and their potential roles",
           "Lacks explicit discussion of why innate immunity might drive cross-tissue (PBMC-to-skin) DE concordance specifically"
         ],
         "missed_points": [
-          "Monocyte-derived macrophages specifically infiltrate skin during stress/inflammation — key mechanistic link",
+          "Monocyte-derived macrophages specifically infiltrate skin during stress/inflammation \u2014 key mechanistic link",
           "Skin DE might correlate more with innate immune activation than adaptive immunity as a general principle",
           "The pattern suggests systemic inflammatory response affecting skin via innate immune pathways",
-          "Should note that H1 N=731 genes, not N=4 — the small sample issue is at crew level not gene level"
+          "Should note that H1 N=731 genes, not N=4 \u2014 the small sample issue is at crew level not gene level"
         ],
         "flags": {
           "hallucination": false,
@@ -3221,8 +3222,8 @@
         ],
         "weaknesses": [
           "Does not explicitly mention the 26,845 gene count for cfRNA or the specific PCA reduction to 8-10 components as used in G1",
-          "Misses the specific point about temporal resolution mismatch — cfRNA timepoints may not align exactly with other modalities",
-          "Does not explicitly discuss signal orthogonality — whether cfRNA captures truly independent information vs redundant signals already captured by proteomics/metabolomics",
+          "Misses the specific point about temporal resolution mismatch \u2014 cfRNA timepoints may not align exactly with other modalities",
+          "Does not explicitly discuss signal orthogonality \u2014 whether cfRNA captures truly independent information vs redundant signals already captured by proteomics/metabolomics",
           "The conclusion is somewhat generic and does not strongly commit to the 'net effect uncertain' framing that the benchmark expects"
         ],
         "missed_points": [
@@ -3281,7 +3282,7 @@
           "No mention of biological priors or pathway/GO-based feature grouping, which is a key expected reasoning point",
           "No mention of transfer learning from larger non-spaceflight datasets",
           "No mention of feature stability selection via bootstrap sampling",
-          "t-SNE is primarily a visualization tool and not suitable for downstream ML integration — recommending it without this caveat is misleading",
+          "t-SNE is primarily a visualization tool and not suitable for downstream ML integration \u2014 recommending it without this caveat is misleading",
           "Domain integration is weak: no connection to space physiology, specific omics layers, or cross-mission findings",
           "Uncertainty calibration mentions small N but does not explicitly discuss statistical power constraints or the N=4 crew limitation"
         ],
@@ -3352,7 +3353,7 @@
           "Bayesian approaches for uncertainty quantification with small N",
           "Nested cross-validation for model selection to avoid overfitting",
           "Specific discussion of biological relationships between clinical, proteomics, and metabolomics modalities",
-          "No mention that LightGBM/XGBoost collapse on LOCO tasks with N≤28",
+          "No mention that LightGBM/XGBoost collapse on LOCO tasks with N\u226428",
           "No discussion of per-fold feature selection to prevent data leakage in LOCO evaluation"
         ],
         "flags": {
@@ -3402,14 +3403,14 @@
           "Recommends multi-omics integration as a solution, which is scientifically appropriate"
         ],
         "weaknesses": [
-          "Does not mention the N=731 genes tested in both PBMC and skin — a key fact for the task",
+          "Does not mention the N=731 genes tested in both PBMC and skin \u2014 a key fact for the task",
           "Fails to acknowledge the extremely small sample size (N=4 crew for I4, N=1 twin) and its implications for statistical power and generalizability",
           "Does not discuss specific mechanisms like circulating cytokines or hormones mediating systemic responses",
           "Does not mention radiation or mechanical stress as tissue-specific drivers in a differentiated way",
           "No mention of the cross-mission context or how findings relate to other tasks in the benchmark"
         ],
         "missed_points": [
-          "731 genes tested in both PBMC and skin — specific dataset size not mentioned",
+          "731 genes tested in both PBMC and skin \u2014 specific dataset size not mentioned",
           "Small sample size limitation (N=4 crew) not acknowledged at all",
           "Circulating factors (cytokines, hormones) as mediators of systemic responses not explicitly discussed",
           "Local microenvironment effects (radiation exposure to skin, mechanical stress) not differentiated from systemic effects",
@@ -3462,7 +3463,7 @@
           "Accurately lists which tasks use LOCO vs LOTO evaluation"
         ],
         "weaknesses": [
-          "Does not explicitly explain the intra-crew data leakage problem — why standard k-fold is specifically problematic (correlated timepoints from same individual would appear in both train and test)",
+          "Does not explicitly explain the intra-crew data leakage problem \u2014 why standard k-fold is specifically problematic (correlated timepoints from same individual would appear in both train and test)",
           "Mentions LOTO as 'Leave-One-Timepoint-Out' but the ground truth indicates it stands for Leave-One-Type-Out or similar; this may be a minor inaccuracy",
           "Does not explicitly contrast how k-fold could mix timepoints from the same crew member across train/test splits",
           "Limited discussion of how LOCO connects to realistic deployment scenarios for future astronauts"
@@ -3479,7 +3480,7 @@
           "exceeds_data_scope": false,
           "novel_insight": false
         },
-        "justification": "The response correctly defines LOCO and identifies the core motivation of individual-level generalization, but misses the critical explanation of intra-crew data leakage — specifically that multiple correlated timepoints per crew member would contaminate standard k-fold splits. The response is accurate on task assignments and acknowledges variance limitations, but lacks depth on why k-fold is specifically inappropriate for this data structure.",
+        "justification": "The response correctly defines LOCO and identifies the core motivation of individual-level generalization, but misses the critical explanation of intra-crew data leakage \u2014 specifically that multiple correlated timepoints per crew member would contaminate standard k-fold splits. The response is accurate on task assignments and acknowledges variance limitations, but lacks depth on why k-fold is specifically inappropriate for this data structure.",
         "success": true,
         "judge_tokens": {
           "input": 3152,
@@ -3636,8 +3637,8 @@
           "Uncertainty calibration only briefly mentions small sample size without explicitly discussing the N=4 crew constraint and its implications for statistical power"
         ],
         "missed_points": [
-          "Majority-class baseline macro_f1 is approximately 0.200 (predicting only 1 of 3 classes correctly) — this specific value was not mentioned",
-          "Accuracy of a majority-class classifier would be ~86% (24/28), making it appear deceptively strong — this contrast was not quantified",
+          "Majority-class baseline macro_f1 is approximately 0.200 (predicting only 1 of 3 classes correctly) \u2014 this specific value was not mentioned",
+          "Accuracy of a majority-class classifier would be ~86% (24/28), making it appear deceptively strong \u2014 this contrast was not quantified",
           "The biological rationale that post-flight (R+1) captures the highest acute physiological signal despite fewest samples was not discussed"
         ],
         "flags": {
@@ -3667,7 +3668,7 @@
         "overview.md"
       ],
       "success": true,
-      "response": "If the Inspiration4 mission had included 10 crew members instead of 4, I would expect the clinical classification results (A1, A2) to change in several ways.\n\n1. **Increased statistical power**: With a larger sample size (N=10 crew × 7 timepoints = 70 samples), the statistical power of the study would increase. This means that the models would be able to detect smaller effects and differences between the flight phases, leading to potentially better performance and more reliable results.\n\n2. **Improved LOCO evaluation**: The LOCO (Leave-One-Crew-Out) evaluation framework would also benefit from a larger sample size. Currently, with N=4 crew, each fold of the LOCO evaluation tests on an entirely unseen crew member, but the training set is relatively small (~21 samples per fold). With N=10 crew, each fold would test on an unseen crew member, but the training set would be larger (~49 samples per fold), potentially leading to more robust and generalizable models.\n\n3. **Reduced variance**: The increased sample size would also reduce the variance of the results, making them more reliable and less susceptible to outliers or noise in the data. This could lead to a more stable ranking of the models and a better understanding of their performance.\n\n4. **Potential for better handling of class imbalance**: The post-flight class has only 4 samples (one per crew at R+1), which creates a severe class imbalance. With a larger sample size, this imbalance would be less pronounced, and the models might be better able to handle it.\n\nHowever, it's essential to note that:\n\n* **Model complexity**: With a larger sample size, more complex models might be warranted, which could lead to overfitting if not regularized properly.\n* **Cross-mission comparisons**: The increased sample size would only affect the Inspiration4 mission and not the cross-mission comparisons with the NASA Twins Study, which would still be limited by the small sample size (N=1 treatment).\n\nIn terms of expected performance, it's difficult to predict exactly how much the results would improve, as it depends on various factors, such as the specific models used, the quality of the data, and the underlying biological mechanisms. However, in general, I would expect the performance of the models to increase, potentially leading to better macro_f1 scores for both A1 and A2 tasks.\n\nFor example, the best baseline model for A1, LogReg, achieved a macro_f1 score of 0.546 with N=4 crew. With a larger sample size (N=10 crew), it's possible that the macro_f1 score could increase to 0.6 or higher, depending on the model's ability to leverage the additional data. Similarly, for A2, the best baseline model, LogReg, achieved a macro_f1 score of 0.493, which could potentially increase to 0.55 or higher with a larger sample size.",
+      "response": "If the Inspiration4 mission had included 10 crew members instead of 4, I would expect the clinical classification results (A1, A2) to change in several ways.\n\n1. **Increased statistical power**: With a larger sample size (N=10 crew \u00d7 7 timepoints = 70 samples), the statistical power of the study would increase. This means that the models would be able to detect smaller effects and differences between the flight phases, leading to potentially better performance and more reliable results.\n\n2. **Improved LOCO evaluation**: The LOCO (Leave-One-Crew-Out) evaluation framework would also benefit from a larger sample size. Currently, with N=4 crew, each fold of the LOCO evaluation tests on an entirely unseen crew member, but the training set is relatively small (~21 samples per fold). With N=10 crew, each fold would test on an unseen crew member, but the training set would be larger (~49 samples per fold), potentially leading to more robust and generalizable models.\n\n3. **Reduced variance**: The increased sample size would also reduce the variance of the results, making them more reliable and less susceptible to outliers or noise in the data. This could lead to a more stable ranking of the models and a better understanding of their performance.\n\n4. **Potential for better handling of class imbalance**: The post-flight class has only 4 samples (one per crew at R+1), which creates a severe class imbalance. With a larger sample size, this imbalance would be less pronounced, and the models might be better able to handle it.\n\nHowever, it's essential to note that:\n\n* **Model complexity**: With a larger sample size, more complex models might be warranted, which could lead to overfitting if not regularized properly.\n* **Cross-mission comparisons**: The increased sample size would only affect the Inspiration4 mission and not the cross-mission comparisons with the NASA Twins Study, which would still be limited by the small sample size (N=1 treatment).\n\nIn terms of expected performance, it's difficult to predict exactly how much the results would improve, as it depends on various factors, such as the specific models used, the quality of the data, and the underlying biological mechanisms. However, in general, I would expect the performance of the models to increase, potentially leading to better macro_f1 scores for both A1 and A2 tasks.\n\nFor example, the best baseline model for A1, LogReg, achieved a macro_f1 score of 0.546 with N=4 crew. With a larger sample size (N=10 crew), it's possible that the macro_f1 score could increase to 0.6 or higher, depending on the model's ability to leverage the additional data. Similarly, for A2, the best baseline model, LogReg, achieved a macro_f1 score of 0.493, which could potentially increase to 0.55 or higher with a larger sample size.",
       "input_tokens": 3261,
       "output_tokens": 601,
       "response_time_sec": 5.56,
@@ -3688,7 +3689,7 @@
         ],
         "weaknesses": [
           "Training set size calculation is incorrect: with N=10 crew x 7 timepoints = 70 samples, each LOCO fold would have ~63 training samples (not ~49 as stated)",
-          "Does not discuss the differential benefit for complex models (RF, MLP) vs. simpler models (LogReg) — a key expected reasoning point",
+          "Does not discuss the differential benefit for complex models (RF, MLP) vs. simpler models (LogReg) \u2014 a key expected reasoning point",
           "Does not address the p>>N problem for A2 cytokines (71 features vs ~21 training samples currently), which is a critical distinction between A1 and A2",
           "The cross-mission comparison note about NASA Twins is tangential and not well-integrated into the analysis"
         ],
@@ -3744,10 +3745,10 @@
         ],
         "weaknesses": [
           "Does not cite specific ablation numbers (e.g., RF: 0.884 all features, 0.863 no-effect-size, 0.813 effect-size-only)",
-          "Incorrectly states XGBoost was 'comparable to or even better' with distribution only — XGBoost drops from 0.911 to 0.899, which is a meaningful decrease",
-          "Misattributes the 7 timepoints to B1 task — B1 uses N=26,845 genes with 29 features per gene, not 7 timepoints per crew member in the same way as clinical tasks",
+          "Incorrectly states XGBoost was 'comparable to or even better' with distribution only \u2014 XGBoost drops from 0.911 to 0.899, which is a meaningful decrease",
+          "Misattributes the 7 timepoints to B1 task \u2014 B1 uses N=26,845 genes with 29 features per gene, not 7 timepoints per crew member in the same way as clinical tasks",
           "Fails to mention the critical finding that LogReg drops dramatically from 0.533 to 0.248 with effect-size-only, showing linear models depend more on effect-size features",
-          "Does not discuss variance/consistency arguments — that DRR genes may show altered variance patterns, not just mean shifts",
+          "Does not discuss variance/consistency arguments \u2014 that DRR genes may show altered variance patterns, not just mean shifts",
           "Missing the key biological insight that fold-changes between only 3 conditions provide limited discriminative information"
         ],
         "missed_points": [
@@ -3812,7 +3813,7 @@
           "Uncertainty section acknowledges small N but does not deeply engage with the statistical power constraints of N=4 vs N=6"
         ],
         "missed_points": [
-          "Need to define what constitutes the positive class (DRR genes) in JAXA data — without JAXA-specific DRR labels, AUPRC cannot be computed directly",
+          "Need to define what constitutes the positive class (DRR genes) in JAXA data \u2014 without JAXA-specific DRR labels, AUPRC cannot be computed directly",
           "Acute vs. chronic adaptation means I4-trained models may systematically fail on JAXA data due to fundamentally different biological signals",
           "Batch effect correction strategies (e.g., ComBat, limma removeBatchEffect) should be explicitly mentioned for cross-study harmonization",
           "The 466 DRR genes from I4 could be tested for differential expression in JAXA as an orthogonal validation approach rather than direct model transfer",
@@ -3863,14 +3864,14 @@
           "Mentions that the benchmark is designed to test biological signal rather than statistical artifacts"
         ],
         "weaknesses": [
-          "Fails to identify the most critical leakage mechanism: DRR labels were DEFINED using significance criteria, making p-values nearly equivalent to the label itself — this circular definition is the core issue",
+          "Fails to identify the most critical leakage mechanism: DRR labels were DEFINED using significance criteria, making p-values nearly equivalent to the label itself \u2014 this circular definition is the core issue",
           "Does not mention the current best performance (LightGBM=0.922 AUPRC) or how including p-values would inflate this",
           "The 'distribution-based features' comment at the end appears to be a hallucination or unsupported claim not grounded in the provided context",
           "No acknowledgment of small sample size limitations (N=4 crew, N=26845 genes) or statistical power constraints",
           "Does not make the analogy to including the label itself as a feature, which is the most precise characterization of this leakage type"
         ],
         "missed_points": [
-          "DRR genes were specifically defined by differential expression criteria involving significance testing — p-values directly encode label membership",
+          "DRR genes were specifically defined by differential expression criteria involving significance testing \u2014 p-values directly encode label membership",
           "This is analogous to including the label itself as a feature (trivial threshold learning)",
           "Current best performance is LightGBM=0.922 AUPRC without p-values; including p-values would artificially inflate this",
           "Even adjusted p-values from the same dataset would leak label information",
@@ -3981,12 +3982,12 @@
         ],
         "weaknesses": [
           "Does not mention the specific dimensionality reduction (2,845 proteins to 10 PCA components), missing a key factual detail",
-          "Fails to mention that PCA leakage was actually identified and fixed in a prior benchmark version, with C1 LogReg dropping from 0.597 to 0.512 — a critical concrete example of the artifact's impact",
+          "Fails to mention that PCA leakage was actually identified and fixed in a prior benchmark version, with C1 LogReg dropping from 0.597 to 0.512 \u2014 a critical concrete example of the artifact's impact",
           "Does not cite the best model result (MLP=0.517 macro_f1) or any specific performance figures",
           "No discussion of the N=4 crew constraint or the broader space physiology context; domain integration is minimal"
         ],
         "missed_points": [
-          "Specific dimensionality: 2,845 proteins → 10 PCA components",
+          "Specific dimensionality: 2,845 proteins \u2192 10 PCA components",
           "The leakage fix history: scores changed notably (LogReg dropped from ~0.597 to ~0.512)",
           "Best baseline result: MLP=0.517 macro_f1",
           "The transformation learned on training data must be applied unchanged (not refit) to test data"
@@ -3998,7 +3999,7 @@
           "exceeds_data_scope": false,
           "novel_insight": false
         },
-        "justification": "The response correctly explains the leakage mechanism and mentions the small sample size (N=21), but omits key benchmark-specific facts such as the 2,845→10 PCA reduction, the historical leakage fix with quantified score changes, and the best model performance. Domain integration is weak with no connection to space physiology or cross-mission context, and uncertainty calibration only superficially addresses the small-N issue without discussing the N=4 crew constraint.",
+        "justification": "The response correctly explains the leakage mechanism and mentions the small sample size (N=21), but omits key benchmark-specific facts such as the 2,845\u219210 PCA reduction, the historical leakage fix with quantified score changes, and the best model performance. Domain integration is weak with no connection to space physiology or cross-mission context, and uncertainty calibration only superficially addresses the small-N issue without discussing the N=4 crew constraint.",
         "success": true,
         "judge_tokens": {
           "input": 3257,
@@ -4162,7 +4163,7 @@
         ],
         "missed_points": [
           "SuperPathway and SubPathway are one-hot encoded (not just categorical labels)",
-          "91/433 metabolites (21%) are spaceflight-responsive — class imbalance context",
+          "91/433 metabolites (21%) are spaceflight-responsive \u2014 class imbalance context",
           "No acknowledgment of small sample size limitations affecting model reliability",
           "No connection to broader cross-mission findings or other omics layers"
         ],
@@ -4208,12 +4209,12 @@
         "strengths": [
           "Correctly identifies the core confounding concern: pathway features may encode label-proximate information",
           "Accurately cites D1 key facts: 433 metabolites, 21% positive rate (91 responsive), RF AUROC=0.676",
-          "Acknowledges the dual perspective — pathway features as potential confound vs. valid biological signal",
+          "Acknowledges the dual perspective \u2014 pathway features as potential confound vs. valid biological signal",
           "Mentions the need for further analysis (feature importance, partial dependence plots) to disentangle contributions"
         ],
         "weaknesses": [
           "Does not explicitly recommend a feature ablation study (pathway features vs. chemistry-only features), which is the most direct way to test the confound hypothesis",
-          "Conflates 'differential expression' terminology with metabolomics — metabolites show differential abundance, not DE in the transcriptomic sense",
+          "Conflates 'differential expression' terminology with metabolomics \u2014 metabolites show differential abundance, not DE in the transcriptomic sense",
           "Does not discuss the overfitting risk of SubPathway one-hot encoding with many categories and only 433 samples",
           "The discussion of cross-mission comparisons and N=4 crew is somewhat tangential and not deeply integrated into the confound analysis",
           "Does not strongly articulate that pathway membership being close to the label could constitute near-data-leakage if entire pathways are coordinately disrupted"
@@ -4221,7 +4222,7 @@
         "missed_points": [
           "Explicit feature ablation study recommendation as the key methodological solution",
           "SubPathway overfitting risk: many one-hot categories with only 433 samples creates spurious associations",
-          "The point that pathway coordination IS biologically valid — metabolic pathways DO coordinate responses, so this may not be a pure confound",
+          "The point that pathway coordination IS biologically valid \u2014 metabolic pathways DO coordinate responses, so this may not be a pure confound",
           "Atom count / chemical property features provide pathway-independent information that could serve as a control condition"
         ],
         "flags": {
@@ -4273,7 +4274,7 @@
           "Fails to connect atom count features to specific spaceflight biology (lipid metabolism changes, oxidative stress via glutathione/cysteine)",
           "Does not mention the 21% spaceflight-responsive rate or any specific benchmark statistics",
           "No acknowledgment of small sample size limitations (N=4 crew, N=433 metabolites) or statistical power constraints",
-          "The discussion of lipid character (high C:H ratio with low O) is absent — a key insight about what formula features can capture",
+          "The discussion of lipid character (high C:H ratio with low O) is absent \u2014 a key insight about what formula features can capture",
           "Isotopologue discussion is tangential and not relevant to the core question about formula features"
         ],
         "missed_points": [
@@ -4330,19 +4331,19 @@
           "Mentions pathway enrichment scores and ratio features, showing some systems-level thinking"
         ],
         "weaknesses": [
-          "Critically fails to address the N=4 crew limitation and how it severely constrains temporal modeling feasibility — this is the most important constraint for this task",
+          "Critically fails to address the N=4 crew limitation and how it severely constrains temporal modeling feasibility \u2014 this is the most important constraint for this task",
           "Does not propose more nuanced target labels (e.g., acute vs delayed vs non-responders) as expected",
           "No mention of pharmacokinetic modeling concepts (half-life, time-to-peak, clearance dynamics) which are central to metabolite temporal analysis",
           "Does not reference functional data analysis or curve-fitting approaches for parametric feature extraction",
           "The 433 metabolites and 21% positive rate are not explicitly cited, reducing factual grounding"
         ],
         "missed_points": [
-          "N=4 crew × 7 timepoints = only 28 observations total, making most temporal ML approaches severely underpowered",
+          "N=4 crew \u00d7 7 timepoints = only 28 observations total, making most temporal ML approaches severely underpowered",
           "Pharmacokinetic modeling concepts for metabolite clearance dynamics",
           "Functional data analysis or curve-fitting to extract parametric features (half-life, time-to-peak, recovery rate)",
           "Nuanced multi-class target labels: acute responders vs delayed responders vs non-responders",
           "Recovery kinetics as a specific temporal feature category",
-          "The current D1 uses only static chemical/pathway features — the response doesn't explicitly contrast this with proposed temporal features"
+          "The current D1 uses only static chemical/pathway features \u2014 the response doesn't explicitly contrast this with proposed temporal features"
         ],
         "flags": {
           "hallucination": false,
@@ -4557,13 +4558,13 @@
         ],
         "weaknesses": [
           "Does not cite specific numerical values: E1 positive rate (0.19%), random AUPRC baseline (0.008), or best score (LogReg=0.017)",
-          "Fails to explicitly state that AUROC random baseline is always ~0.5 regardless of class imbalance — this is the key mechanistic insight",
+          "Fails to explicitly state that AUROC random baseline is always ~0.5 regardless of class imbalance \u2014 this is the key mechanistic insight",
           "Does not explain that AUPRC random baseline approximates positive class prevalence, which is a critical distinguishing property",
-          "No acknowledgment of small sample size limitations (N=4 crew, N=1 twin) — required for uncertainty_calibration score above 3",
+          "No acknowledgment of small sample size limitations (N=4 crew, N=1 twin) \u2014 required for uncertainty_calibration score above 3",
           "No cross-mission or cross-omics integration; treats the question in isolation"
         ],
         "missed_points": [
-          "AUROC random baseline is always ~0.5 regardless of class balance — a model ranking all negatives above positives still gets ~0.5 AUROC",
+          "AUROC random baseline is always ~0.5 regardless of class balance \u2014 a model ranking all negatives above positives still gets ~0.5 AUROC",
           "AUPRC random baseline approximates positive prevalence (~0.002-0.008), providing honest task difficulty assessment",
           "A model achieving 0.95+ AUROC could still identify very few actual positives with 0.2% prevalence",
           "Specific numbers: E1 positive rate 0.19%, random AUPRC=0.008, best AUPRC=0.017",
@@ -4650,7 +4651,7 @@
       "modality": "spatial",
       "difficulty": "expert",
       "category": "reasoning",
-      "question": "Skin is the outermost organ and receives different radiation doses at different depths. How might the gradient of cosmic radiation exposure explain the pattern of DE genes across skin layers (outer_epidermis > epidermis > inner_epidermis ≈ outer_dermis)?",
+      "question": "Skin is the outermost organ and receives different radiation doses at different depths. How might the gradient of cosmic radiation exposure explain the pattern of DE genes across skin layers (outer_epidermis > epidermis > inner_epidermis \u2248 outer_dermis)?",
       "data_context_files": [
         "spatial.md",
         "hemoglobin.md",
@@ -4690,7 +4691,7 @@
           "Specific mention of DNA damage repair pathways (e.g., p53, ATM) being more activated in superficial layers",
           "Higher basal cell turnover in outer epidermis amplifying transcriptional responses to any perturbation",
           "3-day mission duration specifically limiting observation of chronic radiation damage effects",
-          "UV and particle radiation attenuation through epidermal layers shielding deeper dermis — more mechanistic detail needed"
+          "UV and particle radiation attenuation through epidermal layers shielding deeper dermis \u2014 more mechanistic detail needed"
         ],
         "flags": {
           "hallucination": false,
@@ -4734,7 +4735,7 @@
         "strengths": [
           "Correctly identifies all 10 body sites with their abbreviations and full names",
           "Accurately states 275 human samples, 39 environmental samples, and 8 gut samples",
-          "Correctly contextualizes the 4 crew × 7 timepoints structure",
+          "Correctly contextualizes the 4 crew \u00d7 7 timepoints structure",
           "Appropriately connects the sample counts to the F1-F5 tasks"
         ],
         "weaknesses": [
@@ -4798,7 +4799,7 @@
           "No mention of the 10-class classification difficulty context"
         ],
         "missed_points": [
-          "Both scores are low (0.199 and 0.163 vs random 0.112) — the difference is modest and both tasks are inherently difficult with 10 classes",
+          "Both scores are low (0.199 and 0.163 vs random 0.112) \u2014 the difference is modest and both tasks are inherently difficult with 10 classes",
           "Specific mention that N=4 crew members is the fundamental sample size constraint",
           "Taxonomy features may provide higher dimensionality with more discriminative power per site",
           "The best models differ (RF for F1, LogReg for F4) which itself is informative about feature structure"
@@ -4849,14 +4850,14 @@
           "Provides reasonable comparison to other harder microbiome tasks (F1, F2, F4, F5)"
         ],
         "weaknesses": [
-          "States N=4 for crew in the limitations section, but F3 has N=314 samples (275 human + 39 environmental) — this is a factual error mixing up crew count with sample count",
-          "Claims XGBoost and LightGBM achieve AUROC of 0.838 without clear sourcing — this specific value is not in the ground truth",
+          "States N=4 for crew in the limitations section, but F3 has N=314 samples (275 human + 39 environmental) \u2014 this is a factual error mixing up crew count with sample count",
+          "Claims XGBoost and LightGBM achieve AUROC of 0.838 without clear sourcing \u2014 this specific value is not in the ground truth",
           "Does not explicitly discuss the fundamental ecological principle that human vs. environmental is essentially two different ecosystems, which is the core explanation",
-          "Misses the data quality validation angle — that F3 serves as a sanity check for the benchmark pipeline",
+          "Misses the data quality validation angle \u2014 that F3 serves as a sanity check for the benchmark pipeline",
           "The explanation of host immunity, temperature, and nutrient gradients shaping human microbiomes is absent"
         ],
         "missed_points": [
-          "Human microbiomes shaped by host immunity, body temperature, and nutrient availability — fundamental host-microbe co-evolution",
+          "Human microbiomes shaped by host immunity, body temperature, and nutrient availability \u2014 fundamental host-microbe co-evolution",
           "ISS environmental microbiomes reflect surface materials, cleaning protocols, and air filtration systems",
           "F3 validates data quality and feature construction pipeline as a calibration task",
           "The taxonomy profiles represent essentially different ecosystems, not just different communities",
@@ -4909,19 +4910,19 @@
           "Acknowledges small sample size (N=4) as a statistical power limitation"
         ],
         "weaknesses": [
-          "States F1 best score as 0.199 (RF) but ground truth shows F1 LightGBM=0.200 — minor but the best model is LightGBM not RF for F1",
+          "States F1 best score as 0.199 (RF) but ground truth shows F1 LightGBM=0.200 \u2014 minor but the best model is LightGBM not RF for F1",
           "Does not cite specific numerical values for F2 (0.280), F5 (0.304), or random baseline (0.205) to ground the analysis",
-          "Mentions '7 timepoints' for I4 but this conflates clinical timepoints with microbiome sampling — imprecise",
+          "Mentions '7 timepoints' for I4 but this conflates clinical timepoints with microbiome sampling \u2014 imprecise",
           "Does not discuss the key insight that pathways (F5=0.304) outperform taxonomy (F2=0.280), suggesting functional changes precede community restructuring",
           "Cross-mission comparison point is tangential and not directly relevant to the question asked",
           "LOCO evaluation methodology and its specific challenges for temporal tasks not discussed"
         ],
         "missed_points": [
-          "Pathways slightly outperform taxonomy for phase detection (0.304 > 0.280) — functional changes may precede community restructuring",
+          "Pathways slightly outperform taxonomy for phase detection (0.304 > 0.280) \u2014 functional changes may precede community restructuring",
           "4 phases with ~69 samples each creates severe class imbalance challenges under LOCO",
           "Interpersonal differences may overwhelm temporal effects in LOCO evaluation",
           "LOCO evaluation is particularly stringent for temporal tasks because held-out individual may have different microbiome baseline",
-          "Body site differences are stable ecological niches that don't change over time — fundamental contrast not fully articulated"
+          "Body site differences are stable ecological niches that don't change over time \u2014 fundamental contrast not fully articulated"
         ],
         "flags": {
           "hallucination": false,
@@ -5033,7 +5034,7 @@
           "Mentions statistical power constraints and overfitting risks"
         ],
         "weaknesses": [
-          "Fails to mention the critical issue of compositional nature of microbiome data and the need for CLR (centered log-ratio) transformation — a key technical challenge",
+          "Fails to mention the critical issue of compositional nature of microbiome data and the need for CLR (centered log-ratio) transformation \u2014 a key technical challenge",
           "Does not address the timepoint matching problem: gut samples may not align with clinical/proteomics/metabolomics sampling schedules",
           "Does not explicitly note that G1 currently uses N=21 matched samples across 3 modalities, and adding 8 gut samples would reduce this further",
           "Does not mention the gut-immune axis or how gut dysbiosis could mechanistically affect blood biomarkers measured in G1",
@@ -5044,7 +5045,7 @@
           "Timepoint alignment challenge: gut samples collected on different schedule than clinical samples",
           "Adding another small-sample modality to already-small G1 (N=21) may reduce effective N further",
           "Gut-immune axis as biological rationale for integration",
-          "Specific mention that only 8 gut samples exist vs 21 in G1 — incompatible without interpolation or subsetting"
+          "Specific mention that only 8 gut samples exist vs 21 in G1 \u2014 incompatible without interpolation or subsetting"
         ],
         "flags": {
           "hallucination": false,
@@ -5100,7 +5101,7 @@
           "Hyperparameter tuning point is speculative and not grounded in the benchmark methodology"
         ],
         "missed_points": [
-          "Specific feature names not mentioned — the 8 engineered features are central to the explanation",
+          "Specific feature names not mentioned \u2014 the 8 engineered features are central to the explanation",
           "LightGBM leaf-wise vs level-wise tree growth distinction not discussed",
           "RF's random feature subsampling disadvantage at moderate N not addressed",
           "32.3% positive rate context missing",
@@ -5151,12 +5152,12 @@
         "strengths": [
           "Correctly cites 32.3% pathway conservation and 5.2% gene-level conservation figures",
           "Appropriately mentions oxidative phosphorylation and MYC targets as specific conserved pathways",
-          "Argues both sides — conservation supports core acute stress hypothesis while non-conserved portion allows for duration-dependent effects"
+          "Argues both sides \u2014 conservation supports core acute stress hypothesis while non-conserved portion allows for duration-dependent effects"
         ],
         "weaknesses": [
           "Fails to acknowledge critical confounders: different crews, different analysis platforms, different orbital altitudes (585 km vs 408 km ISS)",
           "Does not discuss the possibility that 32.3% overlap could partially reflect statistical chance given hundreds of pathways tested",
-          "No mention of N=4 crew (I4) and N=1 treatment (Twins) as fundamental statistical limitations — this is a critical omission per rubric",
+          "No mention of N=4 crew (I4) and N=1 treatment (Twins) as fundamental statistical limitations \u2014 this is a critical omission per rubric",
           "Does not explicitly discuss the non-conserved 67.7% as potentially representing chronic duration-dependent adaptations (immune remodeling, cardiovascular changes)"
         ],
         "missed_points": [
@@ -5215,11 +5216,11 @@
           "Acknowledges small sample size as a fundamental limitation"
         ],
         "weaknesses": [
-          "Does not explicitly mention the curse of dimensionality — that adding ~16 PCA features to 40 clinical features in a 21-sample dataset increases the feature-to-sample ratio problematically",
+          "Does not explicitly mention the curse of dimensionality \u2014 that adding ~16 PCA features to 40 clinical features in a 21-sample dataset increases the feature-to-sample ratio problematically",
           "Does not mention that PCA is applied per-fold, which is a methodological detail that affects how well the components capture discriminative variance",
           "Misses the specific point that PCA components may not align with flight-phase discriminative dimensions",
           "Does not explicitly note that G1 uses ~56 features total (~40 clinical + 8 prot PCA + 8 met PCA)",
-          "Domain integration is somewhat generic — doesn't connect to space physiology or cross-mission findings"
+          "Domain integration is somewhat generic \u2014 doesn't connect to space physiology or cross-mission findings"
         ],
         "missed_points": [
           "PCA applied per-fold (methodological detail)",
@@ -5273,14 +5274,14 @@
           "Mentions LOCO evaluation and its stringency"
         ],
         "weaknesses": [
-          "Does not mention that LOCO with 4 folds means only ~5 test samples per fold — a critical insight",
+          "Does not mention that LOCO with 4 folds means only ~5 test samples per fold \u2014 a critical insight",
           "Fails to mention LightGBM=0.228 collapsing to majority baseline, which is a key supporting fact",
           "The PCA data leakage point is speculative and not well-grounded in the actual explanation",
           "Does not explicitly connect to the fundamental ML principle that simpler models dominate in very low-N regimes",
-          "Macro_f1 favoring logistic regression due to 'class imbalance handling' is not well-reasoned — the real issue is overfitting"
+          "Macro_f1 favoring logistic regression due to 'class imbalance handling' is not well-reasoned \u2014 the real issue is overfitting"
         ],
         "missed_points": [
-          "LightGBM=0.228 equals majority baseline — showing extreme sensitivity to small N",
+          "LightGBM=0.228 equals majority baseline \u2014 showing extreme sensitivity to small N",
           "LOCO 4-fold means ~5 test samples per fold, making decision boundaries unreliable",
           "Decision tree ensembles create discrete boundaries that are particularly unreliable with 5 test samples",
           "Even with regularization, 100 trees is too complex for N=21",
@@ -5334,9 +5335,9 @@
           "Mentions dimensionality issues and overfitting risks with small sample sizes"
         ],
         "weaknesses": [
-          "Concludes with 'Yes' (performance would improve) without adequately weighing the evidence against improvement — the expected conclusion should be that more samples are needed before adding modalities",
+          "Concludes with 'Yes' (performance would improve) without adequately weighing the evidence against improvement \u2014 the expected conclusion should be that more samples are needed before adding modalities",
           "Does not mention the critical fact that current multi-modal fusion (G1=0.517) already fails to improve over clinical alone (A1=0.546), which is a key argument against adding more modalities",
-          "Does not address the specific timepoint matching challenge — spatial data may not be collected at all 7 I4 timepoints",
+          "Does not address the specific timepoint matching challenge \u2014 spatial data may not be collected at all 7 I4 timepoints",
           "Does not note that microbiome has 275 samples from different body sites, creating alignment challenges with G1's N=21",
           "Fails to explicitly recommend improving sample size before adding modalities",
           "The 'final answer is Yes' framing is overconfident given the evidence"
@@ -5390,21 +5391,21 @@
         "domain_integration": 3,
         "weighted_score": 3.35,
         "strengths": [
-          "Correctly identifies H1 as predicting cross-tissue DE conservation (PBMC→skin), not temporal classification",
+          "Correctly identifies H1 as predicting cross-tissue DE conservation (PBMC\u2192skin), not temporal classification",
           "Correctly distinguishes between leakage and non-leakage scenarios based on how predictions are generated",
           "Accurately describes G1 as 3-class phase classification with ~56 fused features",
           "Correctly identifies that out-of-fold prediction generation avoids direct leakage"
         ],
         "weaknesses": [
-          "Does not mention nested cross-validation as the specific required methodology — only vaguely references 'respecting train-test split'",
+          "Does not mention nested cross-validation as the specific required methodology \u2014 only vaguely references 'respecting train-test split'",
           "Fails to discuss the LOCO evaluation structure and how it complicates the integration (same crew left out in both tasks)",
           "Does not acknowledge the N=4 crew / extremely small sample size limitation and its impact on variance and reliability",
-          "Does not discuss the biological perspective — that the systemic response score is conceptually meaningful even if statistically challenging",
+          "Does not discuss the biological perspective \u2014 that the systemic response score is conceptually meaningful even if statistically challenging",
           "H1 AUPRC values cited are slightly off (states RF=0.266 but ground truth shows RF best is not listed separately; LightGBM=0.284 is correct)"
         ],
         "missed_points": [
           "Nested cross-validation requirement where both H1 and G1 are evaluated out-of-fold on the same held-out crew",
-          "LOCO evaluation structure means the same crew member is left out — this creates a specific structural leakage risk",
+          "LOCO evaluation structure means the same crew member is left out \u2014 this creates a specific structural leakage risk",
           "N=4 crew means any cross-validation scheme has extremely high variance",
           "Biological validity of systemic response score as a meaningful feature despite statistical challenges",
           "The per-gene aggregation nature of H1 predictions and how that maps to a sample-level feature for G1"
@@ -5459,7 +5460,7 @@
           "Does not mention that LOCO uses 4 folds (one per crew member) or that LOTO uses 7 folds (one per timepoint)",
           "Does not mention that Feature 80/20 is repeated 5 times",
           "No acknowledgment of small sample size limitations (N=4 crew, N=1 twin) which is critical for uncertainty calibration",
-          "The explanation of Feature 80/20 as 'splitting based on features rather than samples' is slightly misleading — it's a stratified random split of instances (genes/proteins/etc.) not a feature selection split"
+          "The explanation of Feature 80/20 as 'splitting based on features rather than samples' is slightly misleading \u2014 it's a stratified random split of instances (genes/proteins/etc.) not a feature selection split"
         ],
         "missed_points": [
           "LOCO = 4-fold cross-validation (one fold per crew member)",
@@ -5614,7 +5615,7 @@
         "methods.md"
       ],
       "success": true,
-      "response": "The discrepancy between LightGBM's task-level performance and its composite score, compared to RF, arises from how the normalized composite scoring system handles tasks where models perform similarly to the random or majority baseline. Specifically, LightGBM collapses to majority-baseline performance on LOCO tasks with very small sample sizes (N≤28), such as tasks A1, A2, C1, and G1. This collapse results in a normalized score of 0 for these tasks because the formula `normalized = max(0, (score - random_baseline) / (1 - random_baseline))` floors at 0 when the model's score equals the random baseline, effectively penalizing models that do not significantly outperform the random baseline on these tasks.\n\nIn contrast, RF maintains above-random performance across all categories, albeit sometimes marginally. This consistency across tasks, even if not always the best, contributes to a higher overall composite score. RF's approach seems more robust to the small sample sizes and the stringent LOCO evaluation, avoiding the collapse seen with LightGBM.\n\nThis reveals several aspects of the normalized composite scoring system:\n\n1. **Penalization for Not Beating the Baseline:** The system penalizes models harshly for not outperforming the random baseline, especially in tasks with very small sample sizes. This can lead to a model like LightGBM, which excels in many tasks but fails to beat the baseline in a few critical ones, having a lower composite score than a model like RF that consistently beats the baseline, even if only marginally.\n\n2. **Importance of Consistency:** The scoring system emphasizes consistency across tasks. A model that performs well across the board, even if not the absolute best in any one task, can achieve a higher composite score than a model that excels in some tasks but fails in others.\n\n3. **Sensitivity to Evaluation Strategy:** The choice of evaluation strategy (LOCO, LOTO, Feature 80/20 split) significantly impacts the results. LOCO's stringent nature, combined with the small sample sizes, poses a particular challenge for models like LightGBM, which are prone to overfitting and thus may not generalize as well to unseen crews.\n\nIn summary, the normalized composite scoring system rewards models for consistent performance across tasks and penalizes those that fail to outperform the baseline, even if they excel in other areas. This approach highlights the importance of robustness and generalizability in machine learning models, especially in challenging datasets like those found in spaceflight biomedical research.",
+      "response": "The discrepancy between LightGBM's task-level performance and its composite score, compared to RF, arises from how the normalized composite scoring system handles tasks where models perform similarly to the random or majority baseline. Specifically, LightGBM collapses to majority-baseline performance on LOCO tasks with very small sample sizes (N\u226428), such as tasks A1, A2, C1, and G1. This collapse results in a normalized score of 0 for these tasks because the formula `normalized = max(0, (score - random_baseline) / (1 - random_baseline))` floors at 0 when the model's score equals the random baseline, effectively penalizing models that do not significantly outperform the random baseline on these tasks.\n\nIn contrast, RF maintains above-random performance across all categories, albeit sometimes marginally. This consistency across tasks, even if not always the best, contributes to a higher overall composite score. RF's approach seems more robust to the small sample sizes and the stringent LOCO evaluation, avoiding the collapse seen with LightGBM.\n\nThis reveals several aspects of the normalized composite scoring system:\n\n1. **Penalization for Not Beating the Baseline:** The system penalizes models harshly for not outperforming the random baseline, especially in tasks with very small sample sizes. This can lead to a model like LightGBM, which excels in many tasks but fails to beat the baseline in a few critical ones, having a lower composite score than a model like RF that consistently beats the baseline, even if only marginally.\n\n2. **Importance of Consistency:** The scoring system emphasizes consistency across tasks. A model that performs well across the board, even if not the absolute best in any one task, can achieve a higher composite score than a model that excels in some tasks but fails in others.\n\n3. **Sensitivity to Evaluation Strategy:** The choice of evaluation strategy (LOCO, LOTO, Feature 80/20 split) significantly impacts the results. LOCO's stringent nature, combined with the small sample sizes, poses a particular challenge for models like LightGBM, which are prone to overfitting and thus may not generalize as well to unseen crews.\n\nIn summary, the normalized composite scoring system rewards models for consistent performance across tasks and penalizes those that fail to outperform the baseline, even if they excel in other areas. This approach highlights the importance of robustness and generalizability in machine learning models, especially in challenging datasets like those found in spaceflight biomedical research.",
       "input_tokens": 5394,
       "output_tokens": 512,
       "response_time_sec": 6.52,
@@ -5634,16 +5635,16 @@
           "Well-structured explanation of the scoring system's emphasis on consistency over peak performance"
         ],
         "weaknesses": [
-          "Does not explicitly state the 11-category equal weighting mechanism — this is the core structural reason for the discrepancy",
+          "Does not explicitly state the 11-category equal weighting mechanism \u2014 this is the core structural reason for the discrepancy",
           "Does not mention that LightGBM's collapses result in entire categories scoring 0 (A_clinical=0.000, G_multimodal=0.000)",
           "Does not cite specific composite scores (LightGBM=0.238, RF=0.258) or specific task scores to ground the explanation",
           "Lacks explicit discussion of N=4 crew and N=1 twin as fundamental statistical limitations",
           "Does not mention that RF only wins best on 2 tasks vs LightGBM's 8, making the contrast more striking"
         ],
         "missed_points": [
-          "11 categories are equally weighted — two zero categories (A_clinical, G_multimodal) severely penalize LightGBM's composite",
+          "11 categories are equally weighted \u2014 two zero categories (A_clinical, G_multimodal) severely penalize LightGBM's composite",
           "Specific LightGBM scores on collapsed tasks (A1=0.200, A2=0.200 equal to majority baseline)",
-          "RF best on only 2 tasks but achieves higher composite — this paradox should be explicitly stated with numbers",
+          "RF best on only 2 tasks but achieves higher composite \u2014 this paradox should be explicitly stated with numbers",
           "Category-level averaging means catastrophic failure in one category cannot be compensated by excellence elsewhere"
         ],
         "flags": {
@@ -5666,7 +5667,7 @@
       "modality": "methods",
       "difficulty": "hard",
       "category": "reasoning",
-      "question": "XGBoost and LightGBM both collapse to majority-baseline performance on LOCO tasks with N<=28 (A1, A2, C1, G1) — LightGBM worse than XGBoost. Why are gradient boosting methods particularly vulnerable to very small sample sizes compared to LogReg?",
+      "question": "XGBoost and LightGBM both collapse to majority-baseline performance on LOCO tasks with N<=28 (A1, A2, C1, G1) \u2014 LightGBM worse than XGBoost. Why are gradient boosting methods particularly vulnerable to very small sample sizes compared to LogReg?",
       "data_context_files": [
         "ground_truth.md",
         "clinical.md",
@@ -5695,7 +5696,7 @@
         "weaknesses": [
           "Does not cite specific numerical scores (LightGBM A1=0.200, A2=0.200 collapsing to majority baseline; XGBoost A1=0.332, A2=0.353 above majority)",
           "Does not quantify the training set sizes (~16-21 samples per LOCO fold) which is critical to the argument",
-          "Does not explain the degrees-of-freedom mismatch: 100 trees × splits >> N, which is the core theoretical issue",
+          "Does not explain the degrees-of-freedom mismatch: 100 trees \u00d7 splits >> N, which is the core theoretical issue",
           "Does not discuss LogReg's specific inductive bias (single weight per feature, L2 regularization, linear decision boundary) as a strength",
           "Fails to acknowledge the N=4 crew / N=1 twin statistical power limitations explicitly",
           "No mention of regularization parameters (max_depth=6, num_leaves=31) being tuned for moderate-N tasks"
@@ -5811,7 +5812,7 @@
         ],
         "weaknesses": [
           "Does not identify the correct frontier tasks by name or score (C2=0.565, F2=0.280, F5=0.304, I1=0.006)",
-          "Completely omits the critical oracle upper bound test — the key diagnostic for data-limited vs method-limited",
+          "Completely omits the critical oracle upper bound test \u2014 the key diagnostic for data-limited vs method-limited",
           "No mention of the N=4 crew or N=1 twin sample size constraints, which is the most critical limitation",
           "No power analysis or discussion of theoretical sample sizes needed",
           "Generic ML advice not tailored to space omics context (e.g., no mention of LOCO evaluation, cross-mission confounders)",
@@ -5858,7 +5859,7 @@
         "methods.md"
       ],
       "success": true,
-      "response": "The pattern observed in the composite scores and individual task performance across different models (RF, LightGBM, LogReg) reveals several key insights into optimal model selection for multi-task biomedical benchmarks:\n\n1. **Consistency vs. Peak Performance**: RF's higher composite score, despite not being the best on the most individual tasks, suggests that consistency across tasks is valued over peak performance on a few tasks. This indicates that for multi-task benchmarks, models that can perform well across a wide range of tasks are preferable to those that excel in only a few areas.\n\n2. **Avoidance of Collapse to Baseline**: LightGBM's collapse to majority-baseline performance on LOCO tasks with small sample sizes (N≤28) significantly impacts its composite score. This highlights the importance of model robustness, especially in scenarios with limited data. Models that can maintain above-random performance even in challenging, data-scarce conditions are more desirable for real-world applications where data may be limited.\n\n3. **Task Diversity and Model Generalizability**: The fact that LogReg, a simpler model, wins on several tasks but has a lower composite score than RF, suggests that while simplicity can be beneficial for certain tasks, a model's ability to generalize well across diverse tasks is crucial for achieving a high composite score. RF's performance indicates that it can handle a variety of task types effectively, making it a more versatile choice for multi-task benchmarks.\n\n4. **Evaluation Metrics and Composite Scoring**: The use of a composite score that averages performance across multiple tasks and categories helps to mitigate the effects of overfitting to specific tasks or datasets. This approach encourages the development of models that are broadly competent rather than specialized to a narrow set of tasks. The choice of evaluation metrics (e.g., macro_f1, AUPRC, AUROC) also plays a critical role in assessing model performance, as different metrics can emphasize different aspects of model behavior.\n\n5. **Importance of Model Selection Criteria**: The observed pattern underscores the need for careful consideration of model selection criteria in multi-task benchmarks. While winning the most tasks might seem like an obvious metric for model superiority, the composite score reveals a more nuanced picture. Models should be selected based on their overall performance across the benchmark, taking into account consistency, robustness, and generalizability.\n\nIn conclusion, optimal model selection for multi-task biomedical benchmarks like SpaceOmicsBench should prioritize models that demonstrate consistency, robustness, and generalizability across a diverse set of tasks, rather than solely focusing on models that achieve peak performance on a subset of tasks. RF's performance as the top model in terms of composite score, despite not leading in the number of tasks won, exemplifies these desirable traits.",
+      "response": "The pattern observed in the composite scores and individual task performance across different models (RF, LightGBM, LogReg) reveals several key insights into optimal model selection for multi-task biomedical benchmarks:\n\n1. **Consistency vs. Peak Performance**: RF's higher composite score, despite not being the best on the most individual tasks, suggests that consistency across tasks is valued over peak performance on a few tasks. This indicates that for multi-task benchmarks, models that can perform well across a wide range of tasks are preferable to those that excel in only a few areas.\n\n2. **Avoidance of Collapse to Baseline**: LightGBM's collapse to majority-baseline performance on LOCO tasks with small sample sizes (N\u226428) significantly impacts its composite score. This highlights the importance of model robustness, especially in scenarios with limited data. Models that can maintain above-random performance even in challenging, data-scarce conditions are more desirable for real-world applications where data may be limited.\n\n3. **Task Diversity and Model Generalizability**: The fact that LogReg, a simpler model, wins on several tasks but has a lower composite score than RF, suggests that while simplicity can be beneficial for certain tasks, a model's ability to generalize well across diverse tasks is crucial for achieving a high composite score. RF's performance indicates that it can handle a variety of task types effectively, making it a more versatile choice for multi-task benchmarks.\n\n4. **Evaluation Metrics and Composite Scoring**: The use of a composite score that averages performance across multiple tasks and categories helps to mitigate the effects of overfitting to specific tasks or datasets. This approach encourages the development of models that are broadly competent rather than specialized to a narrow set of tasks. The choice of evaluation metrics (e.g., macro_f1, AUPRC, AUROC) also plays a critical role in assessing model performance, as different metrics can emphasize different aspects of model behavior.\n\n5. **Importance of Model Selection Criteria**: The observed pattern underscores the need for careful consideration of model selection criteria in multi-task benchmarks. While winning the most tasks might seem like an obvious metric for model superiority, the composite score reveals a more nuanced picture. Models should be selected based on their overall performance across the benchmark, taking into account consistency, robustness, and generalizability.\n\nIn conclusion, optimal model selection for multi-task biomedical benchmarks like SpaceOmicsBench should prioritize models that demonstrate consistency, robustness, and generalizability across a diverse set of tasks, rather than solely focusing on models that achieve peak performance on a subset of tasks. RF's performance as the top model in terms of composite score, despite not leading in the number of tasks won, exemplifies these desirable traits.",
       "input_tokens": 5424,
       "output_tokens": 549,
       "response_time_sec": 9.11,
@@ -5886,8 +5887,8 @@
         ],
         "missed_points": [
           "Specific identification of LGBM zero-score categories (A_clinical, G_multimodal)",
-          "Task-size-dependent model selection strategy (LogReg for N≤28, LightGBM for N>400)",
-          "Portfolio strategy framing — perform reasonably everywhere rather than excel somewhere and fail elsewhere",
+          "Task-size-dependent model selection strategy (LogReg for N\u226428, LightGBM for N>400)",
+          "Portfolio strategy framing \u2014 perform reasonably everywhere rather than excel somewhere and fail elsewhere",
           "Connection to real biomedical deployment where data characteristics vary widely",
           "Statistical power constraints from N=4 crew making LOCO evaluation high-variance",
           "Exact task win counts (LightGBM=8, LogReg=7, RF=2, MLP=2)"
