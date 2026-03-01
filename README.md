@@ -554,5 +554,8 @@ Task JSON files are expected to follow the schema in `docs/task_schema.json`. Th
 
 ## License
 
-- **Benchmark code**: MIT License
-- **Data**: Subject to original source licenses and terms (OSDR terms/Science Information Policy; publisher supplementary licenses). The open track includes only publicly accessible processed/summary tables; controlled-access data is excluded unless explicitly obtained via approved DAR.
+- **Benchmark code** (scripts, evaluation framework, baselines): [MIT License](LICENSE) — free for any use including commercial.
+- **Benchmark data** (processed tables, task definitions, question bank, scored results): [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) — free for academic and research use; **commercial use requires a separate license**.
+- **Data sources**: Benchmark tables are derived from NASA OSDR public releases and published supplementary materials, which retain their respective terms (see [docs/PROVENANCE.md](docs/PROVENANCE.md)).
+
+Copyright (c) 2025 JangKeun Kim. For commercial licensing inquiries: silveray1563@gmail.com
