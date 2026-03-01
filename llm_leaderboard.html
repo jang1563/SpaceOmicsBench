@@ -221,8 +221,8 @@ footer a:hover{color:var(--cyan)}
       </div>
       <div class="insight-card">
         <div class="ico">⚠️</div>
-        <h4>Gemini collapses at Expert level</h4>
-        <p>Easy/Medium scores (3.72–3.98) look competitive, but Expert score drops to 2.74 — lowest in the benchmark. †Responses truncated; re-eval pending.</p>
+        <h4>Gemini: thinking mode matters</h4>
+        <p>With max_tokens=8192, Gemini 2.5 Flash scores 4.00 — uniform across difficulties (Easy 3.52 → Expert 4.04). Previous 2.74 Expert score was a truncation artifact.</p>
       </div>
       <div class="insight-card">
         <div class="ico">≈</div>
@@ -283,7 +283,7 @@ footer a:hover{color:var(--cyan)}
 <div class="section" id="table">
   <div class="wrap">
     <div class="section-title"><span class="icon">📋</span> Full Data Table</div>
-    <div class="section-desc">Click column headers to sort. All scores on 1–5 scale, judged by Claude Sonnet 4.6. v2.1: Q27/Q28/Q64 ground truth corrected. †Gemini responses truncated (max_tokens=2000); re-eval pending.</div>
+    <div class="section-desc">Click column headers to sort. All scores on 1–5 scale, judged by Claude Sonnet 4.6. v2.1: Q27/Q28/Q64 ground truth corrected; Gemini re-evaluated with max_tokens=8192 (thinking mode).</div>
     <div class="card card-sm" style="overflow-x:auto">
       <table class="data-table" id="fullTable">
         <thead>
@@ -357,13 +357,13 @@ const MODELS = [
     halluc:12, novel:45, n:100,
   },
   {
-    name:"Gemini 2.5 Flash†", short:"Gemini 2.5F", family:"google", access:"prop",
+    name:"Gemini 2.5 Flash", short:"Gemini 2.5F", family:"google", access:"prop",
     color:"#f59e0b",
-    score:3.462, easy:3.721, medium:3.977, hard:3.258, expert:2.735,
-    factual:4.20, reasoning:3.76, completeness:3.25, uncertainty:2.63, domain:2.85,
-    clinical:3.74, transcriptomics:3.15, proteomics:3.495, metabolomics:3.35,
-    spatial:3.255, microbiome:3.425, multi_omics:3.0, cross_mission:3.822, methods:3.725,
-    halluc:4, novel:5, n:100,
+    score:3.995, easy:3.524, medium:4.114, hard:4.105, expert:4.035,
+    factual:4.45, reasoning:4.36, completeness:3.96, uncertainty:3.22, domain:3.45,
+    clinical:4.275, transcriptomics:3.815, proteomics:3.850, metabolomics:4.080,
+    spatial:3.880, microbiome:3.905, multi_omics:3.738, cross_mission:4.250, methods:4.010,
+    halluc:3, novel:26, n:100,
   },
   {
     name:"GPT-4o Mini", short:"GPT-4o Mini", family:"openai", access:"prop",
