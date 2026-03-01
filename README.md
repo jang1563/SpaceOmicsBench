@@ -397,35 +397,37 @@ A summary of the scored outputs used to generate the table is in `docs/samples/l
 
 > 📊 **[Interactive Leaderboard →](https://jang1563.github.io/SpaceOmicsBench/llm_leaderboard.html)** — bar charts, difficulty profiles, radar, modality heatmap, sortable table
 
-**9-Model Ranking** (Judge: Claude Sonnet 4.6, 100 questions, 1–5 scale):
+**9-Model Ranking** (Judge: Claude Sonnet 4.6, 100 questions, 1–5 scale, v2.1):
 
-🔒 = proprietary API &nbsp; 🔓 = open-weights
+🔒 = proprietary API &nbsp; 🔓 = open-weights &nbsp; † = responses truncated (re-eval pending)
 
 | Rank | Model | Score | Easy | Med | Hard | Expert | Factual | Reasoning | Complete | Uncert | Domain |
 |------|-------|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| 1 | 🔒 **Claude Sonnet 4.6** | **4.60** | 4.58 | 4.49 | 4.66 | 4.68 | 4.59 | 4.96 | 4.73 | 4.09 | 4.33 |
-| 2 | 🔒 **Claude Haiku 4.5** | **4.39** | 4.35 | 4.45 | 4.38 | 4.37 | 4.35 | 4.84 | 4.53 | 3.82 | 4.12 |
-| 3 | 🔓 **DeepSeek-V3** | **4.31** | 4.11 | 4.22 | 4.42 | 4.46 | 4.34 | 4.72 | 4.37 | 3.72 | 4.09 |
-| 4 | 🔒 **Claude Sonnet 4** | **4.03** | 4.05 | 4.05 | 4.00 | 4.01 | 4.26 | 4.47 | 4.07 | 3.14 | 3.74 |
-| 5 | 🔒 **Gemini 2.5 Flash** | **3.43** | 3.68 | 3.91 | 3.25 | 2.75 | 4.13 | 3.75 | 3.22 | 2.62 | 2.83 |
-| 6 | 🔓 **Llama-3.3-70B** (Together) | **3.30** | 3.57 | 3.33 | 3.29 | 3.06 | 3.98 | 3.49 | 3.22 | 2.65 | 2.63 |
-| 7 | 🔒 **GPT-4o** | **3.30** | 3.24 | 3.40 | 3.28 | 3.22 | 3.98 | 3.60 | 3.13 | 2.57 | 2.63 |
-| 8 | 🔒 **GPT-4o Mini** | **3.30** | 3.37 | 3.40 | 3.29 | 3.10 | 3.91 | 3.51 | 3.19 | 2.75 | 2.63 |
-| 9 | 🔓 **Llama-3.3-70B** (Groq) | **3.29** | 3.48 | 3.35 | 3.27 | 3.06 | 4.02 | 3.50 | 3.18 | 2.58 | 2.58 |
+| 1 | 🔒 **Claude Sonnet 4.6** | **4.62** | 4.57 | 4.55 | 4.68 | 4.70 | 4.65 | 4.97 | 4.77 | 4.09 | 4.33 |
+| 2 | 🔒 **Claude Haiku 4.5** | **4.41** | 4.34 | 4.48 | 4.41 | 4.36 | 4.39 | 4.84 | 4.54 | 3.83 | 4.12 |
+| 3 | 🔓 **DeepSeek-V3** | **4.34** | 4.12 | 4.29 | 4.43 | 4.46 | 4.40 | 4.75 | 4.39 | 3.71 | 4.11 |
+| 4 | 🔒 **Claude Sonnet 4** | **4.03** | 4.02 | 4.09 | 4.01 | 3.99 | 4.28 | 4.47 | 4.07 | 3.14 | 3.74 |
+| 5 | 🔒 **Gemini 2.5 Flash**† | **3.46** | 3.72 | 3.98 | 3.26 | 2.74 | 4.20 | 3.76 | 3.25 | 2.63 | 2.85 |
+| 6 | 🔒 **GPT-4o Mini** | **3.32** | 3.36 | 3.45 | 3.30 | 3.13 | 3.93 | 3.54 | 3.21 | 2.78 | 2.64 |
+| 7 | 🔓 **Llama-3.3-70B** (Groq) | **3.31** | 3.48 | 3.38 | 3.30 | 3.06 | 4.03 | 3.52 | 3.21 | 2.61 | 2.57 |
+| 8 | 🔓 **Llama-3.3-70B** (Together) | **3.31** | 3.58 | 3.35 | 3.28 | 3.04 | 4.00 | 3.50 | 3.20 | 2.65 | 2.62 |
+| 9 | 🔒 **GPT-4o** | **3.30** | 3.27 | 3.39 | 3.27 | 3.25 | 3.98 | 3.61 | 3.13 | 2.57 | 2.62 |
+
+> v2.1 corrections: Q27/Q28/Q64 `ground_truth_key_facts` fixed (exact spatial DE counts); judge `max_tokens` increased 1000→2048 (fixes Haiku Q10 truncation). † Gemini re-eval with `max_tokens=8192` pending.
 
 Key findings:
-- **Claude models dominate the top tier**; Haiku 4.5 notably outperforms Sonnet 4 (+0.36) despite being a smaller model
-- **DeepSeek-V3 (#3, 4.31)** is the strongest open-weights model, surpassing Claude Sonnet 4 and all GPT/Gemini variants — particularly strong on Hard and Expert questions
-- **Gemini 2.5 Flash** excels on Easy/Medium (+3.68–3.91) but collapses on Expert questions (2.75), suggesting surface-level competence without deep spaceflight domain knowledge
-- **GPT-4o ≈ GPT-4o Mini ≈ Llama-3.3-70B** (all ~3.30) — no meaningful scaling advantage in this tier for this specialized domain
+- **Claude models dominate the top tier**; Haiku 4.5 notably outperforms Sonnet 4 (+0.38) despite being a smaller model
+- **DeepSeek-V3 (#3, 4.34)** is the strongest open-weights model, surpassing Claude Sonnet 4 and all GPT/Gemini variants — particularly strong on Hard and Expert questions
+- **Gemini 2.5 Flash** excels on Easy/Medium (3.72–3.98) but collapses on Expert questions (2.74), suggesting surface-level competence without deep spaceflight domain knowledge
+- **GPT-4o Mini slightly edges out GPT-4o** (3.32 vs 3.30) in this specialized domain; all bottom-tier models cluster at ~3.30
 - **Uncertainty Calibration** is the weakest dimension across all models; small-N spaceflight data requires careful hedging that all models underperform on
-- **Novel insight flags**: DeepSeek-V3 (62 flagged) and Claude models (44–92 flagged) generate novel cross-modal reasoning; GPT/Llama variants generate none
+- **Novel insight flags**: DeepSeek-V3 (64 flagged) and Claude models (45–93 flagged) generate novel cross-modal reasoning; GPT/Llama variants generate none
 
 **Cross-Judge Verification** — Sonnet 4, Sonnet 4.6, and GPT-4o were additionally scored by Sonnet 4 and GPT-4o judges for bias analysis:
 
 | Respondent | Sonnet 4 Judge | Sonnet 4.6 Judge | GPT-4o Judge |
 |-----------|:-:|:-:|:-:|
-| **Claude Sonnet 4.6** | 4.73 | **4.60** | — |
+| **Claude Sonnet 4.6** | 4.73 | **4.62** | — |
 | **Claude Sonnet 4** | 4.55 | 4.03 | 4.76 |
 | **GPT-4o** | 3.64 | 3.30 | 4.36 |
 

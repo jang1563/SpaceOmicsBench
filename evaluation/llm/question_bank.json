@@ -760,9 +760,10 @@
         "Low positive rates also reflect stringent DE significance thresholds"
       ],
       "ground_truth_key_facts": [
-        "E1: 18,677 genes, <1% DE between layers",
-        "E4: even lower positive rate",
-        "AUPRC appropriate for extreme imbalance"
+        "E1 (outer_epidermis): 18,677 genes, 35 positives, positive rate 0.19%",
+        "E4 (epidermis): ~40 positives, positive rate 0.21% — HIGHER than E1, not lower",
+        "E2 (inner_epidermis): ~11 positives (0.06%); E3 (outer_dermis): ~18 positives (0.10%)",
+        "AUPRC is primary metric due to extreme class imbalance"
       ],
       "rubric": {
         "reasoning_quality": "Must explain biological basis for low DE rates between skin layers",
@@ -790,7 +791,7 @@
         "E2 (inner_epidermis) and E3 (outer_dermis) are supplementary",
         "E1 (outer_epidermis) and E4 (epidermis) are main tasks",
         "19 main + 2 supplementary = 21 total tasks (with I-series)",
-        "Positive counts: outer_epidermis ~35, epidermis ~40, inner_epidermis ~15, outer_dermis ~18",
+        "Positive counts: outer_epidermis ~35, epidermis ~40, inner_epidermis ~11, outer_dermis ~18",
         "E2 best: RF=0.050, E3 best: RF=0.223"
       ],
       "rubric": {
@@ -1816,7 +1817,10 @@
         "The ablation study confirms this: removing effect-size features barely affects RF (0.884 to 0.863), while using only effect-size features drops to 0.813"
       ],
       "ground_truth_key_facts": [
-        "B1 ablation results: All features RF=0.884, No-effect-size RF=0.863, Effect-size-only RF=0.813",
+        "B1 ablation (all 5 models in data_context): All features RF=0.884, XGBoost=0.911, LightGBM=0.922, MLP=0.854, LogReg=0.533",
+        "No-effect-size (distribution only): RF=0.863, XGBoost=0.899, LightGBM=0.884, MLP=0.847, LogReg=0.527",
+        "Effect-size-only: RF=0.813, XGBoost=0.780, LightGBM=0.801, MLP=0.741, LogReg=0.248",
+        "Key finding: distribution features carry most predictive signal; effect-size features critical for linear models (LogReg drops from 0.533→0.248), less so for tree models",
         "29 features per gene are used in B1",
         "DRR = differentially-regulated response genes identified through multi-criteria analysis"
       ],

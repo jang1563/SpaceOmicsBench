@@ -211,23 +211,23 @@ footer a:hover{color:var(--cyan)}
     <div class="insights">
       <div class="insight-card">
         <div class="ico">🌟</div>
-        <h4>Claude Sonnet 4.6 leads at 4.60</h4>
-        <p>Top across all difficulty tiers with exceptional Reasoning (4.96) and Completeness (4.73). 92 novel insights flagged.</p>
+        <h4>Claude Sonnet 4.6 leads at 4.62</h4>
+        <p>Top across all difficulty tiers with exceptional Reasoning (4.97) and Completeness (4.77). 93 novel insights flagged.</p>
       </div>
       <div class="insight-card">
         <div class="ico">🔓</div>
         <h4>DeepSeek-V3: best open-weights</h4>
-        <p>4.31/5.00 — surpasses Claude Sonnet 4, GPT-4o, and Gemini 2.5 Flash. Especially strong on Hard &amp; Expert questions.</p>
+        <p>4.34/5.00 — surpasses Claude Sonnet 4, GPT-4o, and Gemini 2.5 Flash. Especially strong on Hard &amp; Expert questions.</p>
       </div>
       <div class="insight-card">
         <div class="ico">⚠️</div>
         <h4>Gemini collapses at Expert level</h4>
-        <p>Easy/Medium scores (3.7–3.9) look competitive, but Expert score drops to 2.75 — lowest in the benchmark.</p>
+        <p>Easy/Medium scores (3.72–3.98) look competitive, but Expert score drops to 2.74 — lowest in the benchmark. †Responses truncated; re-eval pending.</p>
       </div>
       <div class="insight-card">
         <div class="ico">≈</div>
-        <h4>GPT-4o ≈ GPT-4o Mini ≈ Llama-70B</h4>
-        <p>All cluster at ~3.30. Scale and cost provide negligible benefit for this specialized spaceflight domain.</p>
+        <h4>Bottom tier clusters at ~3.30</h4>
+        <p>GPT-4o Mini (3.32) edges ahead; GPT-4o, Llama-70B all ~3.30. Scale provides negligible benefit for this specialized domain.</p>
       </div>
     </div>
   </div>
@@ -283,7 +283,7 @@ footer a:hover{color:var(--cyan)}
 <div class="section" id="table">
   <div class="wrap">
     <div class="section-title"><span class="icon">📋</span> Full Data Table</div>
-    <div class="section-desc">Click column headers to sort. All scores on 1–5 scale, judged by Claude Sonnet 4.6.</div>
+    <div class="section-desc">Click column headers to sort. All scores on 1–5 scale, judged by Claude Sonnet 4.6. v2.1: Q27/Q28/Q64 ground truth corrected. †Gemini responses truncated (max_tokens=2000); re-eval pending.</div>
     <div class="card card-sm" style="overflow-x:auto">
       <table class="data-table" id="fullTable">
         <thead>
@@ -312,7 +312,7 @@ footer a:hover{color:var(--cyan)}
 
 <footer>
   <div class="wrap">
-    <p>SpaceOmicsBench · Data from NASA OSDR · Judge: <strong>Claude Sonnet 4.6</strong> · Eval date: 2026-02-28</p>
+    <p>SpaceOmicsBench · Data from NASA OSDR · Judge: <strong>Claude Sonnet 4.6</strong> · v2.1 scores (Q27/Q28/Q64 corrected) · Eval date: 2026-02-28</p>
     <p style="margin-top:8px"><a href="https://github.com/jang1563/SpaceOmicsBench">GitHub</a> · <a href="demo.html">ML Task Results</a> · <a href="README.md">Documentation</a></p>
   </div>
 </footer>
@@ -323,83 +323,83 @@ const MODELS = [
   {
     name:"Claude Sonnet 4.6", short:"Sonnet 4.6", family:"claude", access:"prop",
     color:"#06b6d4",
-    score:4.596, easy:4.582, medium:4.486, hard:4.661, expert:4.685,
-    factual:4.59, reasoning:4.96, completeness:4.73, uncertainty:4.09, domain:4.33,
-    clinical:4.76, transcriptomics:4.325, proteomics:4.465, metabolomics:4.645,
-    spatial:4.34, microbiome:4.655, multi_omics:4.588, cross_mission:4.869, methods:4.505,
-    halluc:11, novel:92, n:100,
+    score:4.622, easy:4.565, medium:4.547, hard:4.679, expert:4.702,
+    factual:4.65, reasoning:4.97, completeness:4.77, uncertainty:4.09, domain:4.33,
+    clinical:4.745, transcriptomics:4.42, proteomics:4.49, metabolomics:4.665,
+    spatial:4.44, microbiome:4.655, multi_omics:4.633, cross_mission:4.856, methods:4.505,
+    halluc:8, novel:93, n:100,
   },
   {
     name:"Claude Haiku 4.5", short:"Haiku 4.5", family:"claude", access:"prop",
     color:"#a78bfa",
-    score:4.394, easy:4.347, medium:4.448, hard:4.381, expert:4.37,
-    factual:4.354, reasoning:4.838, completeness:4.525, uncertainty:3.818, domain:4.121,
-    clinical:4.495, transcriptomics:4.061, proteomics:4.29, metabolomics:4.68,
-    spatial:3.94, microbiome:4.415, multi_omics:4.483, cross_mission:4.558, methods:4.44,
-    halluc:15, novel:79, n:99,
+    score:4.408, easy:4.338, medium:4.477, hard:4.408, expert:4.357,
+    factual:4.39, reasoning:4.84, completeness:4.54, uncertainty:3.83, domain:4.12,
+    clinical:4.495, transcriptomics:4.20, proteomics:4.29, metabolomics:4.665,
+    spatial:3.965, microbiome:4.415, multi_omics:4.483, cross_mission:4.581, methods:4.425,
+    halluc:15, novel:79, n:100,
   },
   {
     name:"DeepSeek-V3", short:"DeepSeek-V3", family:"deepseek", access:"open",
     color:"#10b981",
-    score:4.311, easy:4.106, medium:4.219, hard:4.419, expert:4.462,
-    factual:4.34, reasoning:4.72, completeness:4.37, uncertainty:3.72, domain:4.09,
-    clinical:4.505, transcriptomics:4.13, proteomics:4.3, metabolomics:4.355,
-    spatial:3.885, microbiome:4.33, multi_omics:4.112, cross_mission:4.561, methods:4.455,
-    halluc:11, novel:62, n:100,
+    score:4.338, easy:4.121, medium:4.291, hard:4.427, expert:4.462,
+    factual:4.40, reasoning:4.75, completeness:4.39, uncertainty:3.71, domain:4.11,
+    clinical:4.505, transcriptomics:4.18, proteomics:4.30, metabolomics:4.38,
+    spatial:4.08, microbiome:4.355, multi_omics:4.112, cross_mission:4.561, methods:4.44,
+    halluc:10, novel:64, n:100,
   },
   {
     name:"Claude Sonnet 4", short:"Sonnet 4", family:"claude", access:"prop",
     color:"#38bdf8",
-    score:4.028, easy:4.053, medium:4.055, hard:4.002, expert:4.008,
-    factual:4.26, reasoning:4.47, completeness:4.07, uncertainty:3.14, domain:3.74,
-    clinical:4.275, transcriptomics:3.67, proteomics:3.905, metabolomics:4.04,
-    spatial:3.52, microbiome:4.025, multi_omics:3.942, cross_mission:4.317, methods:4.35,
-    halluc:10, novel:44, n:100,
+    score:4.033, easy:4.024, medium:4.091, hard:4.006, expert:3.993,
+    factual:4.28, reasoning:4.47, completeness:4.07, uncertainty:3.14, domain:3.74,
+    clinical:4.30, transcriptomics:3.755, proteomics:3.885, metabolomics:4.025,
+    spatial:3.565, microbiome:4.02, multi_omics:3.942, cross_mission:4.292, methods:4.33,
+    halluc:12, novel:45, n:100,
   },
   {
-    name:"Gemini 2.5 Flash", short:"Gemini 2.5F", family:"google", access:"prop",
+    name:"Gemini 2.5 Flash†", short:"Gemini 2.5F", family:"google", access:"prop",
     color:"#f59e0b",
-    score:3.432, easy:3.679, medium:3.906, hard:3.245, expert:2.75,
-    factual:4.13, reasoning:3.75, completeness:3.22, uncertainty:2.62, domain:2.83,
-    clinical:3.74, transcriptomics:3.035, proteomics:3.46, metabolomics:3.405,
-    spatial:3.01, microbiome:3.415, multi_omics:3.021, cross_mission:3.833, methods:3.725,
-    halluc:9, novel:5, n:100,
-  },
-  {
-    name:"Llama-3.3-70B (Together)", short:"Llama Together", family:"meta", access:"open",
-    color:"#f43f5e",
-    score:3.304, easy:3.574, medium:3.327, hard:3.289, expert:3.06,
-    factual:3.98, reasoning:3.49, completeness:3.22, uncertainty:2.65, domain:2.63,
-    clinical:3.5, transcriptomics:3.04, proteomics:3.28, metabolomics:3.295,
-    spatial:3.055, microbiome:3.41, multi_omics:3.308, cross_mission:3.544, methods:3.105,
-    halluc:5, novel:0, n:100,
-  },
-  {
-    name:"GPT-4o", short:"GPT-4o", family:"openai", access:"prop",
-    color:"#84cc16",
-    score:3.301, easy:3.244, medium:3.402, hard:3.279, expert:3.223,
-    factual:3.98, reasoning:3.6, completeness:3.13, uncertainty:2.57, domain:2.63,
-    clinical:3.38, transcriptomics:3.02, proteomics:3.435, metabolomics:3.255,
-    spatial:2.905, microbiome:3.38, multi_omics:3.325, cross_mission:3.531, methods:3.29,
-    halluc:3, novel:0, n:100,
+    score:3.462, easy:3.721, medium:3.977, hard:3.258, expert:2.735,
+    factual:4.20, reasoning:3.76, completeness:3.25, uncertainty:2.63, domain:2.85,
+    clinical:3.74, transcriptomics:3.15, proteomics:3.495, metabolomics:3.35,
+    spatial:3.255, microbiome:3.425, multi_omics:3.0, cross_mission:3.822, methods:3.725,
+    halluc:4, novel:5, n:100,
   },
   {
     name:"GPT-4o Mini", short:"GPT-4o Mini", family:"openai", access:"prop",
     color:"#bef264",
-    score:3.3, easy:3.374, medium:3.398, hard:3.289, expert:3.098,
-    factual:3.91, reasoning:3.51, completeness:3.19, uncertainty:2.75, domain:2.63,
-    clinical:3.595, transcriptomics:3.06, proteomics:3.13, metabolomics:3.235,
-    spatial:2.995, microbiome:3.14, multi_omics:3.342, cross_mission:3.583, methods:3.385,
-    halluc:9, novel:0, n:100,
+    score:3.322, easy:3.359, medium:3.445, hard:3.298, expert:3.132,
+    factual:3.93, reasoning:3.54, completeness:3.21, uncertainty:2.78, domain:2.64,
+    clinical:3.595, transcriptomics:3.11, proteomics:3.145, metabolomics:3.235,
+    spatial:3.115, microbiome:3.175, multi_omics:3.308, cross_mission:3.622, methods:3.36,
+    halluc:5, novel:0, n:100,
   },
   {
     name:"Llama-3.3-70B (Groq)", short:"Llama Groq", family:"meta", access:"open",
     color:"#f97316",
-    score:3.29, easy:3.482, medium:3.348, hard:3.271, expert:3.063,
-    factual:4.02, reasoning:3.5, completeness:3.18, uncertainty:2.58, domain:2.58,
-    clinical:3.57, transcriptomics:2.93, proteomics:3.39, metabolomics:3.315,
-    spatial:2.965, microbiome:3.425, multi_omics:3.158, cross_mission:3.564, methods:3.1,
+    score:3.307, easy:3.476, medium:3.375, hard:3.300, expert:3.063,
+    factual:4.03, reasoning:3.52, completeness:3.21, uncertainty:2.61, domain:2.57,
+    clinical:3.57, transcriptomics:3.015, proteomics:3.375, metabolomics:3.335,
+    spatial:2.95, microbiome:3.475, multi_omics:3.171, cross_mission:3.578, methods:3.1,
     halluc:5, novel:0, n:100,
+  },
+  {
+    name:"Llama-3.3-70B (Together)", short:"Llama Together", family:"meta", access:"open",
+    color:"#f43f5e",
+    score:3.306, easy:3.579, medium:3.347, hard:3.284, expert:3.040,
+    factual:4.00, reasoning:3.50, completeness:3.20, uncertainty:2.65, domain:2.62,
+    clinical:3.485, transcriptomics:3.065, proteomics:3.29, metabolomics:3.31,
+    spatial:3.09, microbiome:3.41, multi_omics:3.304, cross_mission:3.533, methods:3.08,
+    halluc:2, novel:0, n:100,
+  },
+  {
+    name:"GPT-4o", short:"GPT-4o", family:"openai", access:"prop",
+    color:"#84cc16",
+    score:3.302, easy:3.271, medium:3.391, hard:3.265, expert:3.245,
+    factual:3.98, reasoning:3.61, completeness:3.13, uncertainty:2.57, domain:2.62,
+    clinical:3.425, transcriptomics:3.07, proteomics:3.435, metabolomics:3.255,
+    spatial:2.905, microbiome:3.425, multi_omics:3.229, cross_mission:3.522, methods:3.29,
+    halluc:2, novel:0, n:100,
   },
 ];
 
