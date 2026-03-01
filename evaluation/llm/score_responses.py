@@ -365,11 +365,11 @@ def parse_judge_response(text: str) -> Dict[str, Any]:
     return json.loads(text.strip())
 
 
-def _call_anthropic(client, prompt: str, judge_model: str) -> tuple:
+def _call_anthropic(client, prompt: str, judge_model: str, max_tokens: int = 2048) -> tuple:
     """Call Anthropic API and return (raw_text, input_tokens, output_tokens)."""
     resp = client.messages.create(
         model=judge_model,
-        max_tokens=1000,
+        max_tokens=max_tokens,
         temperature=0,
         system="You are an expert scientific benchmark evaluator. Score the response accurately and return only valid JSON.",
         messages=[{"role": "user", "content": prompt}],
@@ -380,13 +380,13 @@ def _call_anthropic(client, prompt: str, judge_model: str) -> tuple:
 
 
 def _call_openai(client, prompt: str, judge_model: str,
-                 max_retries: int = 5) -> tuple:
+                 max_retries: int = 5, max_tokens: int = 2048) -> tuple:
     """Call OpenAI (or OpenAI-compatible) API with retry. Returns (raw_text, in_tokens, out_tokens)."""
     for attempt in range(max_retries):
         try:
             resp = client.chat.completions.create(
                 model=judge_model,
-                max_tokens=1000,
+                max_tokens=max_tokens,
                 temperature=0,
                 messages=[
                     {"role": "system", "content": "You are an expert scientific benchmark evaluator. Score the response accurately and return only valid JSON."},
@@ -409,16 +409,17 @@ def _call_openai(client, prompt: str, judge_model: str,
 
 def score_single(client, question_data: Dict, qb_entry: Dict,
                  ground_truth: str, judge_model: str,
-                 judge_backend: str = "anthropic") -> Dict[str, Any]:
+                 judge_backend: str = "anthropic",
+                 judge_max_tokens: int = 2048) -> Dict[str, Any]:
     """Score a single response using an LLM judge."""
     prompt = build_scoring_prompt(question_data, qb_entry, ground_truth)
     raw = ""
 
     try:
         if judge_backend in ("openai", "compatible"):
-            raw, tok_in, tok_out = _call_openai(client, prompt, judge_model)
+            raw, tok_in, tok_out = _call_openai(client, prompt, judge_model, max_tokens=judge_max_tokens)
         else:
-            raw, tok_in, tok_out = _call_anthropic(client, prompt, judge_model)
+            raw, tok_in, tok_out = _call_anthropic(client, prompt, judge_model, max_tokens=judge_max_tokens)
 
         scores = parse_judge_response(raw)
 
@@ -451,7 +452,8 @@ def score_all(input_file: str, output_file: Optional[str] = None,
               per_dimension: bool = False,
               sample_n: Optional[int] = None,
               judge_base_url: Optional[str] = None,
-              judge_api_key_env: Optional[str] = None):
+              judge_api_key_env: Optional[str] = None,
+              judge_max_tokens: int = 2048):
     """Score all responses in an evaluation results file."""
     if judge_backend in ("openai", "compatible"):
         try:
@@ -521,7 +523,8 @@ def score_all(input_file: str, output_file: Optional[str] = None,
         if per_dimension:
             scores = score_single_perdim(client, r, qb_entry, gt, judge_model, judge_backend)
         else:
-            scores = score_single(client, r, qb_entry, gt, judge_model, judge_backend)
+            scores = score_single(client, r, qb_entry, gt, judge_model, judge_backend,
+                                  judge_max_tokens=judge_max_tokens)
 
         if scores.get("success"):
             ws = scores.get("weighted_score", "?")
@@ -641,6 +644,9 @@ def main():
                         help="Score each dimension independently (5 API calls per question)")
     parser.add_argument("--sample", type=int, default=None,
                         help="Score only N randomly sampled questions")
+    parser.add_argument("--judge-max-tokens", type=int, default=2048,
+                        help="Max tokens for judge model output (default: 2048). "
+                             "Increase if judge responses are truncated.")
 
     args = parser.parse_args()
 
@@ -649,7 +655,8 @@ def main():
         score_all(fpath, out, args.judge_model, args.judge_backend,
                   args.per_dimension, args.sample,
                   judge_base_url=args.judge_base_url,
-                  judge_api_key_env=args.judge_api_key_env)
+                  judge_api_key_env=args.judge_api_key_env,
+                  judge_max_tokens=args.judge_max_tokens)
         if len(args.input_files) > 1:
             print("\n")
 

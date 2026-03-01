@@ -471,6 +471,7 @@ def run_evaluation(
     trust_remote_code: bool = False,
     base_url: Optional[str] = None,
     api_key_env: Optional[str] = None,
+    max_tokens: int = 2000,
 ):
     """Run LLM evaluation on the SpaceOmicsBench question bank."""
 
@@ -484,7 +485,8 @@ def run_evaluation(
         print(f"Adapter: {adapter_path}")
     if base_url:
         print(f"Endpoint: {base_url}")
-    backend = get_backend(model_name, adapter_path, use_4bit=use_4bit,
+    backend = get_backend(model_name, adapter_path, max_tokens=max_tokens,
+                          use_4bit=use_4bit,
                           backend_override=backend_override,
                           trust_remote_code=trust_remote_code,
                           base_url=base_url, api_key_env=api_key_env)
@@ -619,6 +621,9 @@ def main():
                         help="Save full prompts to output_dir/prompt_logs/")
     parser.add_argument("--trust-remote-code", action="store_true",
                         help="Allow remote code execution for HuggingFace models")
+    parser.add_argument("--max-tokens", type=int, default=2000,
+                        help="Maximum tokens for model response (default: 2000). "
+                             "Increase for models with thinking/reasoning (e.g. 8192 for Gemini 2.5).")
 
     args = parser.parse_args()
 
@@ -637,6 +642,7 @@ def main():
         trust_remote_code=args.trust_remote_code,
         base_url=args.base_url,
         api_key_env=args.api_key_env,
+        max_tokens=args.max_tokens,
     )
 
 
