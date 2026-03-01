@@ -138,7 +138,7 @@ class SpaceOmicsBenchEvaluator:
         return labels, meta
 
     def _load_b1_labels(self, meta):
-        de = pd.read_csv(self.data_dir / "cfrna_3group_de.csv")
+        de = pd.read_csv(self.data_dir / "cfrna_3group_de_noleak.csv")
         drr = pd.read_csv(self.data_dir / "cfrna_466drr.csv")
         drr_genes = set(drr.iloc[:, 0].values)
         labels = np.array([1 if g in drr_genes else 0 for g in de.iloc[:, 0]], dtype=int)
