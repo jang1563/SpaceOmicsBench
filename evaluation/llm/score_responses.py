@@ -7,7 +7,7 @@ Scores LLM responses using Claude as an expert judge with per-question rubrics
 and ground truth context.
 
 Usage:
-    python score_responses.py results/eval_claude-sonnet-4-20250514_20250225_120000.json
+    python score_responses.py results/eval_claude-sonnet-4-6_20260227_013541.json
     python score_responses.py results/eval_gpt-4o_20250225_130000.json --output scored_gpt4o.json
     python score_responses.py results/eval_*.json  # score multiple files
 """
@@ -447,7 +447,7 @@ def score_single(client, question_data: Dict, qb_entry: Dict,
 
 
 def score_all(input_file: str, output_file: Optional[str] = None,
-              judge_model: str = "claude-sonnet-4-20250514",
+              judge_model: str = "claude-sonnet-4-6",
               judge_backend: str = "anthropic",
               per_dimension: bool = False,
               sample_n: Optional[int] = None,
@@ -629,8 +629,8 @@ def main():
     parser = argparse.ArgumentParser(description="Score SpaceOmicsBench LLM responses")
     parser.add_argument("input_files", nargs="+", help="Evaluation result JSON file(s)")
     parser.add_argument("--output", default=None, help="Output file (single input only)")
-    parser.add_argument("--judge-model", default="claude-sonnet-4-20250514",
-                        help="Judge model (default: claude-sonnet-4-20250514)")
+    parser.add_argument("--judge-model", default="claude-sonnet-4-6",
+                        help="Judge model (default: claude-sonnet-4-6)")
     parser.add_argument("--judge-backend", default="anthropic",
                         choices=["anthropic", "openai", "compatible"],
                         help="Judge API backend. Use 'compatible' for Groq/Together/DeepSeek/Ollama "

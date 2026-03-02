@@ -586,7 +586,7 @@ def run_evaluation(
 
 def main():
     parser = argparse.ArgumentParser(description="SpaceOmicsBench v2 LLM Evaluation")
-    parser.add_argument("--model", default="claude-sonnet-4-20250514",
+    parser.add_argument("--model", default="claude-sonnet-4-6",
                         help="Model name (claude-*, gpt-*, or HuggingFace path)")
     parser.add_argument("--adapter-path", default=None,
                         help="Path to LoRA adapters (HuggingFace fine-tuned models)")

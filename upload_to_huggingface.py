@@ -107,7 +107,7 @@ Judge: Claude Sonnet 4.6. See full breakdown at the [interactive leaderboard](ht
 - **Code** (scripts, evaluation framework, baselines): [MIT License](https://github.com/jang1563/SpaceOmicsBench/blob/main/LICENSE)
 - **Benchmark data** (processed tables, task definitions, question bank, scored results): [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) — free for academic/research use; commercial use requires a separate license.
 
-Copyright (c) 2025 JangKeun Kim. For commercial licensing inquiries: silveray1563@gmail.com
+Copyright (c) 2026 JangKeun Kim. For commercial licensing inquiries: silveray1563@gmail.com
 """
 
 

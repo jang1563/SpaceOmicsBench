@@ -8,7 +8,7 @@ Supports single-model reports and multi-model comparison tables.
 
 Usage:
     # Single model report
-    python generate_report.py results/scored_eval_claude-sonnet-4-20250514_*.json
+    python generate_report.py results/scored_eval_claude-sonnet-4-6_*.json
 
     # Multi-model comparison
     python generate_report.py results/scored_eval_*.json --compare
