@@ -552,6 +552,28 @@ one specific mission cohort. See `docs/extension_plan.md` for the multi-mission 
 
 Task JSON files are expected to follow the schema in `docs/task_schema.json`. This can be used for local validation or CI checks if you extend the benchmark.
 
+## SpaceOmicsBench v3 (In Development)
+
+v3 expands the benchmark with new missions, questions, and biomedical-specialized model evaluation:
+
+| | v2 (Current) | v3 (In Development) |
+|---|---|---|
+| **ML Tasks** | 21 | 23 (+J1/J2 AX-2 Epigenetic) |
+| **LLM Questions** | 100 | 270 (12 categories) |
+| **Missions** | I4, JAXA, Twins | + Axiom-2 Epigenetic |
+| **Models Evaluated** | 9 (general-purpose) | 9 + 5 bio-specialized |
+| **Eval Repeats** | 1× | 3× (bootstrap CI) |
+| **Foundation Models** | — | Track C prototype (ESM2, GeneFormer) |
+
+### New in v3
+
+- **Track A**: 2 new ML tasks from Axiom-2 epigenetic clock data (n=20, in-flight measurements)
+- **Track B**: 270 LLM questions across 12 categories — 3 new categories (Space Biology Basics, AX-2 Epigenetic, Clinical Applications), 4× Expert-level expansion addressing v2 ceiling effect
+- **Track C** (planned): Foundation model evaluation using gene embeddings
+- **Bio-specialized LLM evaluation**: OpenBioLLM-70B/8B, Galactica-30B/6.7B, BioMedLM — comparing domain fine-tuning vs. general capability
+
+v3 is developed in a separate repository. All v2 tasks and questions are preserved in v3.
+
 ## License
 
 - **Benchmark code** (scripts, evaluation framework, baselines): [MIT License](LICENSE) — free for any use including commercial.

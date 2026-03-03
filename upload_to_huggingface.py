@@ -37,6 +37,9 @@ tags:
   - multi-omics
   - astronaut
   - biomedical
+  - NASA
+  - space-medicine
+  - epigenetics
 pretty_name: SpaceOmicsBench
 size_categories:
   - 1K<n<10K
@@ -56,11 +59,11 @@ Data sources: SpaceX Inspiration4 (I4) civilian astronaut mission, NASA Twins St
 | | |
 |---|---|
 | **ML Tasks** | 21 tasks (19 main + 2 supplementary) |
-| **LLM Evaluation** | 100 questions, 5-dimension Claude-as-judge scoring, 9 models |
+| **LLM Evaluation** | 100 questions, 5-dimension Claude-as-judge scoring, 9 models evaluated |
 | **Modalities** | Clinical, cfRNA, Proteomics, Metabolomics, Spatial Transcriptomics, Microbiome, Multi-modal, Cross-tissue, Cross-mission |
 | **Difficulty Tiers** | Calibration / Standard / Advanced / Frontier |
-| **Missions** | Inspiration4, NASA Twins, JAXA CFE |
-| **Evaluation Schemes** | LOCO, LOTO, 80/20 feature splits (5 reps) |
+| **Missions** | Inspiration4 (4 crew, 3 days LEO), NASA Twins (340 days ISS), JAXA CFE (6 astronauts, ISS) |
+| **Evaluation Schemes** | Leave-One-Crew-Out, Leave-One-Timepoint-Out, 80/20 feature splits (5 reps) |
 | **ML Baselines** | Random, Majority, LogReg, RF, MLP, XGBoost, LightGBM |
 
 ## Repository Structure
@@ -68,36 +71,45 @@ Data sources: SpaceX Inspiration4 (I4) civilian astronaut mission, NASA Twins St
 ```
 SpaceOmicsBench/
 ├── data/processed/        # Benchmark CSV tables (65+ files)
-├── tasks/                 # ML task definitions (JSON)
-├── splits/                # Train/test splits (JSON)
+├── tasks/                 # ML task definitions (JSON, 21 tasks)
+├── splits/                # Train/test splits (JSON, 19 files)
 ├── evaluation/llm/        # LLM question bank (100 questions)
-├── results/v2.1/          # Scored LLM results (9 models, v2.1)
-└── baselines/             # Baseline results (JSON)
+│   ├── question_bank.json # Questions with ground truth
+│   ├── annotation_schema.json  # 5-dimension scoring schema
+│   └── data_context/      # Domain knowledge for evaluation
+├── results/v2.1/          # Scored LLM results (9 models)
+└── baselines/             # ML baseline results (7 models × 21 tasks)
 ```
 
 ## LLM Leaderboard (v2.1)
 
-| Model | Overall (1-5) |
-|-------|:---:|
-| Claude Sonnet 4.6 | 4.62 |
-| Claude Haiku 4.5 | 4.41 |
-| DeepSeek-V3 | 4.34 |
-| Claude Sonnet 4 | 4.03 |
-| Gemini 2.5 Flash | 4.00 |
-| GPT-4o Mini | 3.32 |
-| Llama-3.3-70B (Groq) | 3.31 |
-| Llama-3.3-70B (Together) | 3.31 |
-| GPT-4o | 3.30 |
+9 models evaluated with Claude Sonnet 4.6 as judge, 5-dimension scoring:
 
-Judge: Claude Sonnet 4.6. See full breakdown at the [interactive leaderboard](https://jang1563.github.io/SpaceOmicsBench/llm_leaderboard.html).
+| Rank | Model | Score (1-5) | Factual | Reasoning | Completeness | Uncertainty | Domain |
+|:---:|-------|:---:|:---:|:---:|:---:|:---:|:---:|
+| 1 | Claude Sonnet 4.6 | **4.62** | 4.65 | 4.97 | 4.77 | 4.09 | 4.33 |
+| 2 | Claude Haiku 4.5 | **4.41** | 4.39 | 4.84 | 4.54 | 3.83 | 4.12 |
+| 3 | DeepSeek-V3 | **4.34** | 4.40 | 4.75 | 4.39 | 3.71 | 4.11 |
+| 4 | Claude Sonnet 4 | **4.03** | 4.28 | 4.47 | 4.07 | 3.14 | 3.74 |
+| 5 | Gemini 2.5 Flash | **4.00** | 4.45 | 4.36 | 3.96 | 3.22 | 3.45 |
+| 6 | GPT-4o Mini | **3.32** | 3.93 | 3.54 | 3.21 | 2.78 | 2.64 |
+| 7 | Llama-3.3-70B (Groq) | **3.31** | 4.03 | 3.52 | 3.21 | 2.61 | 2.57 |
+| 8 | Llama-3.3-70B (Together) | **3.31** | 4.00 | 3.50 | 3.20 | 2.65 | 2.62 |
+| 9 | GPT-4o | **3.30** | 3.98 | 3.61 | 3.13 | 2.57 | 2.62 |
+
+See full breakdown at the [interactive leaderboard](https://jang1563.github.io/SpaceOmicsBench/llm_leaderboard.html).
+
+## v3 In Development
+
+SpaceOmicsBench v3 expands the benchmark to **270 LLM questions** across **12 categories**, adds **Axiom-2 epigenetic** mission data (2 new ML tasks), and evaluates **5 bio-specialized models** (OpenBioLLM, Galactica, BioMedLM) alongside general-purpose LLMs. See the [GitHub repository](https://github.com/jang1563/SpaceOmicsBench) for details.
 
 ## Citation
 
 ```bibtex
-@misc{kim2025spaceomicsbench,
+@misc{kim2026spaceomicsbench,
   title={SpaceOmicsBench: A Multi-Omics AI Benchmark for Spaceflight Biomedical Data},
   author={Kim, JangKeun},
-  year={2025},
+  year={2026},
   url={https://github.com/jang1563/SpaceOmicsBench}
 }
 ```
