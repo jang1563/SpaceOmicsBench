@@ -1,6 +1,6 @@
 MIT License (Code)
 
-Copyright (c) 2025 JangKeun Kim
+Copyright (c) 2026 JangKeun Kim
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -24,7 +24,7 @@ SOFTWARE.
 
 CC BY-NC 4.0 License (Benchmark Data)
 
-Copyright (c) 2025 JangKeun Kim
+Copyright (c) 2026 JangKeun Kim
 
 The benchmark data files (data/processed/, tasks/, splits/, evaluation/llm/question_bank.json,
 results/v2.1/, baselines/baseline_results.json) are licensed under the Creative Commons
