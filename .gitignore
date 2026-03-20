@@ -22,6 +22,10 @@ data/**/*.csv
 # Keep README files in data directories
 !data/**/README.md
 
+# Development artifacts (canonical results in results/v2.1/)
+evaluation/llm/results/
+evaluation/llm/fix_question_bank.py
+
 # Python
 __pycache__/
 *.pyc
