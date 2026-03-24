@@ -5,7 +5,7 @@ type: software
 authors:
   - family-names: Kim
     given-names: JangKeun
-    email: silveray1563@gmail.com
+    orcid: "https://orcid.org/0000-0002-4653-2616"
 license: MIT
 license-url: https://github.com/jang1563/SpaceOmicsBench/blob/main/LICENSE
 repository-code: https://github.com/jang1563/SpaceOmicsBench
