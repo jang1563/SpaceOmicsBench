@@ -148,7 +148,7 @@ def generate_single_report(data: Dict, agg: Dict) -> str:
         lines.append(f"| {dim.replace('_', ' ').title()} | {w:.2f} | {score_str}/5 |")
 
     ws = agg.get("overall_weighted")
-    lines.append(f"| **Weighted Total** | **1.00** | **{ws:.2f}/5** |" if ws else "")
+    lines.append(f"| **Weighted Total** | **1.00** | **{ws:.2f}/5** |" if ws is not None else "")
     lines.append("")
 
     # By difficulty
@@ -247,13 +247,13 @@ def generate_comparison_report(models: List[Dict]) -> str:
         row = f"| {dim.replace('_', ' ').title()} |"
         for agg in model_aggs:
             v = agg.get(f"overall_{dim}")
-            row += f" {v:.2f} |" if v else " N/A |"
+            row += f" {v:.2f} |" if v is not None else " N/A |"
         lines.append(row)
 
     row = "| **Weighted** |"
     for agg in model_aggs:
         v = agg.get("overall_weighted")
-        row += f" **{v:.2f}** |" if v else " N/A |"
+        row += f" **{v:.2f}** |" if v is not None else " N/A |"
     lines.append(row)
     lines.append("")
 

@@ -552,27 +552,28 @@ one specific mission cohort. See `docs/extension_plan.md` for the multi-mission 
 
 Task JSON files are expected to follow the schema in `docs/task_schema.json`. This can be used for local validation or CI checks if you extend the benchmark.
 
-## SpaceOmicsBench v3 (In Development)
+## SpaceOmicsBench v3
 
-v3 expands the benchmark with new missions, questions, and biomedical-specialized model evaluation:
+v3 expands the benchmark with new missions, advanced ML methods, and biomedical-specialized model evaluation. Paper draft complete; targeting NeurIPS 2026 D&B submission (May 7).
 
-| | v2 (Current) | v3 (In Development) |
+| | v2 | v3 |
 |---|---|---|
-| **ML Tasks** | 21 | 23 (+J1/J2 AX-2 Epigenetic) |
-| **LLM Questions** | 100 | 270 (12 categories) |
-| **Missions** | I4, JAXA, Twins | + Axiom-2 Epigenetic |
-| **Models Evaluated** | 9 (general-purpose) | 9 + 5 bio-specialized |
-| **Eval Repeats** | 1× | 3× (bootstrap CI) |
-| **Foundation Models** | — | Track C prototype (ESM2, GeneFormer) |
+| **ML Tasks** | 21 (7 baselines) | **26 tasks** (25 leaderboard, 16 methods) |
+| **LLM Questions** | 100 (9 modalities) | **270** (12 categories) |
+| **LLM Models** | 9 (general-purpose) | **9** (4 general + 5 bio-specialized) |
+| **Missions** | I4, JAXA, Twins | + **Axiom-2** Epigenetic |
+| **Key ML Results** | LightGBM AUPRC=0.922 (B1) | **TabPFN AUPRC=0.957** (SOTA) |
+| **Foundation Models** | — | ESM2, GNN (negative results) |
 
-### New in v3
+### Key Findings in v3
 
-- **Track A**: 2 new ML tasks from Axiom-2 epigenetic clock data (n=20, in-flight measurements)
-- **Track B**: 270 LLM questions across 12 categories — 3 new categories (Space Biology Basics, AX-2 Epigenetic, Clinical Applications), 4× Expert-level expansion addressing v2 ceiling effect
-- **Track C** (planned): Foundation model evaluation using gene embeddings
-- **Bio-specialized LLM evaluation**: OpenBioLLM-70B/8B, Galactica-30B/6.7B, BioMedLM — comparing domain fine-tuning vs. general capability
+- **Bio fine-tuning hurts**: OpenBioLLM-70B (2.50) scored −0.53 vs base Llama-3.3-70B (3.03) across all categories
+- **Signal hierarchy**: effect-size >> tabular prior (TabPFN) >> protein sequence (ESM2) >> PPI topology (GNN)
+- **4-tier LLM structure**: Claude/DeepSeek (4.3+) > GPT-4o Mini/Llama (3.0) > OpenBioLLM (2.0-2.5) > Galactica/BioMedLM (1.0-1.2)
+- **Track A**: 26 ML tasks including AX-2 epigenetic clocks, multi-omics fusion, TabPFN, ESM2, GNN
+- **Track B**: 270 LLM questions across 12 categories — 3 new categories (Space Biology Basics, AX-2 Epigenetic, Clinical Applications)
 
-v3 is developed in a separate repository. All v2 tasks and questions are preserved in v3.
+v3 is developed in a separate repository: [SpaceOmicsBench-v3](https://github.com/jang1563/SpaceOmicsBench-v3). All v2 tasks and questions are preserved in v3.
 
 ## License
 

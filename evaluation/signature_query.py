@@ -296,6 +296,7 @@ def compare_query_to_signature(
     query_fc: dict[str, float],
     sig_df: pd.DataFrame,
     universe_size: int,
+    measured_genes: Optional[set[str]] = None,
 ) -> dict:
     """
     Compute overlap statistics between user DE genes and one reference signature.
@@ -305,7 +306,8 @@ def compare_query_to_signature(
     query_genes : set of user DE gene symbols
     query_fc    : {gene: log2fc} for user DE genes
     sig_df      : DataFrame with columns [gene, ref_log2fc]
-    universe_size : total genes in user's input (background for hypergeom)
+    universe_size : total genes in user's input (background size for hypergeom)
+    measured_genes: explicit measured-gene background (preferred for hypergeom K)
 
     Returns
     -------
@@ -317,16 +319,22 @@ def compare_query_to_signature(
     sig_fc = dict(zip(sig_df["gene"], sig_df["ref_log2fc"]))
 
     N = universe_size
-    K = len(sig_genes & set(query_fc.keys() | query_genes))
-    # K = signature genes that were actually measured in user's background
-    # If universe_size == len(query_genes), assume all sig genes in background
-    # (conservative assumption when only DE genes are submitted)
-    if N == len(query_genes):
-        K = len(sig_genes)  # can't restrict; use full signature size
+    if measured_genes is not None:
+        K = len(sig_genes & measured_genes)
+    else:
+        # Fallback when only background size (N) is available.
+        # If input appears to contain only DE genes, use full signature size.
+        if N == len(query_genes):
+            K = len(sig_genes)
+        else:
+            K = min(len(sig_genes), N)
 
     n = len(query_genes)
     overlap = query_genes & sig_genes
     k = len(overlap)
+
+    if K < k:
+        K = k
 
     # Overlap metrics
     min_size = min(n, len(sig_genes))
@@ -597,6 +605,8 @@ def main():
         print(f"ERROR loading input: {e}", file=sys.stderr)
         sys.exit(1)
 
+    measured_genes = set(df_all["gene"].dropna())
+
     print(f"  Total genes (background): {universe_size}")
     print(f"  DE genes (padj<{args.padj_threshold}"
           + (f", |FC|>={args.fc_threshold}" if args.fc_threshold else "")
@@ -630,6 +640,7 @@ def main():
             query_fc=query_fc,
             sig_df=sig_df,
             universe_size=universe_size,
+            measured_genes=measured_genes,
         )
         result.update({
             "id": sig_def["id"],

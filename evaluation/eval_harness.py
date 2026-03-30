@@ -89,6 +89,61 @@ class SpaceOmicsBenchEvaluator:
             self.splits[split_name] = json.load(f)
         return self.splits[split_name]
 
+    def _align_predictions(self, splits, predictions):
+        """Align predictions to splits using split_idx/rep metadata when available.
+
+        Priority:
+          1) split_idx-based mapping
+          2) rep-based mapping (if splits contain rep)
+          3) positional fallback
+        """
+        aligned = [None] * len(splits)
+        if not predictions:
+            return aligned
+
+        has_split_idx = any("split_idx" in p for p in predictions)
+        has_rep = any("rep" in p for p in predictions)
+
+        if has_split_idx:
+            if not all("split_idx" in p for p in predictions):
+                raise ValueError("Mixed prediction format: if one entry has split_idx, all must have split_idx.")
+            for pred in predictions:
+                idx = int(pred["split_idx"])
+                if idx < 0 or idx >= len(splits):
+                    raise ValueError(f"split_idx out of range: {idx} (n_splits={len(splits)})")
+                if aligned[idx] is not None:
+                    raise ValueError(f"Duplicate split_idx in predictions: {idx}")
+                aligned[idx] = pred
+            return aligned
+
+        if has_rep:
+            if not all("rep" in p for p in predictions):
+                raise ValueError("Mixed prediction format: if one entry has rep, all must have rep.")
+            if not all("rep" in s for s in splits):
+                raise ValueError("Predictions include rep, but split file has no rep field. Use split_idx instead.")
+
+            split_index_by_rep = {}
+            for i, split in enumerate(splits):
+                rep = split["rep"]
+                if rep in split_index_by_rep:
+                    raise ValueError(f"Duplicate rep value in split file: {rep}")
+                split_index_by_rep[rep] = i
+
+            for pred in predictions:
+                rep = pred["rep"]
+                if rep not in split_index_by_rep:
+                    raise ValueError(f"Prediction rep not found in splits: {rep}")
+                split_idx = split_index_by_rep[rep]
+                if aligned[split_idx] is not None:
+                    raise ValueError(f"Duplicate prediction for rep={rep}")
+                aligned[split_idx] = pred
+            return aligned
+
+        # Positional fallback
+        for i, pred in enumerate(predictions[:len(splits)]):
+            aligned[i] = pred
+        return aligned
+
     def load_ground_truth(self, task_id):
         """Load ground truth labels for a task.
 
@@ -288,9 +343,11 @@ class SpaceOmicsBenchEvaluator:
             "per_split": [],
         }
 
+        aligned_predictions = self._align_predictions(splits, predictions)
+
         for i, split in enumerate(splits):
             test_idx = split["test_indices"]
-            pred = predictions[i] if i < len(predictions) else None
+            pred = aligned_predictions[i]
             if pred is None:
                 continue
 
@@ -470,10 +527,15 @@ class SpaceOmicsBenchEvaluator:
                 print(f"  Skip {tid}: no predictions file")
                 continue
 
-            with open(pred_path) as f:
-                predictions = json.load(f)["predictions"]
-
             try:
+                with open(pred_path) as f:
+                    payload = json.load(f)
+                if "predictions" not in payload:
+                    raise KeyError("predictions")
+                predictions = payload["predictions"]
+                if not isinstance(predictions, list):
+                    raise TypeError("predictions must be a list")
+
                 result = self.evaluate(tid, predictions)
                 all_results["results"][tid] = result
                 primary = result.get("aggregate", {}).get("primary", {})

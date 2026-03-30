@@ -33,7 +33,7 @@ Usage:
 
     # Ollama (fully local, no auth)
     python run_llm_evaluation.py --model llama3.3:70b \
-        --base-url http://localhost:11434/v1 --api-key-env OLLAMA_API_KEY
+        --base-url http://localhost:11434/v1
 
     # HuggingFace local (Apple Silicon MPS supported)
     python run_llm_evaluation.py --model meta-llama/Llama-3.3-70B-Instruct --sample 5
@@ -67,6 +67,14 @@ def retry_api_call(func, max_retries=3, base_delay=2):
             delay = base_delay * (2 ** attempt)
             print(f"  Retry {attempt+1}/{max_retries} after {delay}s: {e}")
             time_module.sleep(delay)
+
+
+def _is_local_base_url(base_url: Optional[str]) -> bool:
+    """Return True for localhost-style OpenAI-compatible endpoints."""
+    if not base_url:
+        return False
+    lower = base_url.lower()
+    return lower.startswith(("http://localhost", "http://127.0.0.1", "http://0.0.0.0", "http://[::1]"))
 
 
 SCRIPT_DIR = Path(__file__).resolve().parent
@@ -214,7 +222,7 @@ class OpenAICompatibleBackend(BaseModelBackend):
         # Ollama and some local servers accept any non-empty key
         env_var = api_key_env or "OPENAI_API_KEY"
         api_key = os.environ.get(env_var, "ollama")
-        if api_key_env and not os.environ.get(api_key_env):
+        if api_key_env and not os.environ.get(api_key_env) and not _is_local_base_url(base_url):
             raise ValueError(f"API key not found. Set the {api_key_env} environment variable.")
         client_kwargs: Dict[str, Any] = {"api_key": api_key}
         if base_url:
@@ -446,10 +454,13 @@ def load_question_bank(
     if difficulty:
         questions = [q for q in questions if q["difficulty"] == difficulty]
 
-    if sample_size and sample_size < len(questions):
-        import random
-        random.seed(42)
-        questions = random.sample(questions, sample_size)
+    if sample_size is not None:
+        if sample_size < 0:
+            raise ValueError(f"sample_size must be >= 0, got {sample_size}")
+        if sample_size < len(questions):
+            import random
+            random.seed(42)
+            questions = random.sample(questions, sample_size)
 
     return questions
 

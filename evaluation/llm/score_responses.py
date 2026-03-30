@@ -462,6 +462,8 @@ def score_all(input_file: str, output_file: Optional[str] = None,
             print("Error: pip install openai")
             return None
         if judge_backend == "compatible":
+            if not judge_base_url:
+                raise ValueError("--judge-base-url is required when --judge-backend=compatible.")
             env_var = judge_api_key_env or "OPENAI_API_KEY"
             api_key = os.environ.get(env_var, "ollama")
             client_kwargs: dict = {"api_key": api_key}
@@ -494,10 +496,13 @@ def score_all(input_file: str, output_file: Optional[str] = None,
     gt = load_ground_truth()
 
     # Sample if requested
-    if sample_n and sample_n < len(results):
-        import random
-        random.seed(42)
-        results = random.sample(results, sample_n)
+    if sample_n is not None:
+        if sample_n < 0:
+            raise ValueError(f"--sample must be >= 0, got {sample_n}")
+        if sample_n < len(results):
+            import random
+            random.seed(42)
+            results = random.sample(results, sample_n)
 
     scoring_mode = "per_dimension" if per_dimension else "combined"
     print(f"\nInput:       {input_file}")
