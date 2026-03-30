@@ -66,8 +66,13 @@
 **IMPORTANT**: Our datasets use custom pipelines, NOT GeneLab's standard bulk RNA-seq pipeline.
 File names use GLDS IDs (not OSD IDs) and are mostly `.xlsx` format.
 
+> **Note:** This section documents the original filenames on OSDR/NASA servers (the source files
+> downloaded to build the benchmark). The benchmark itself uses the renamed and processed CSV files
+> in `data/processed/` — for example, `LSDS-7_Complete_Blood_Count_CBC_TRANSFORMED.csv` from OSDR
+> becomes `data/processed/clinical_cbc.csv` in the benchmark.
+
 **OSD-569 (I4 Whole Blood)** -- GLDS-561 / LSDS-7:
-- `LSDS-7_Complete_Blood_Count_CBC_TRANSFORMED.csv` -- Standardized CBC data
+- `LSDS-7_Complete_Blood_Count_CBC_TRANSFORMED.csv` (OSDR source) → `data/processed/clinical_cbc.csv` in benchmark
 - `GLDS-561_long-readRNAseq_Direct_RNA_seq_Gene_Expression_Processed.xlsx` -- ONT RNA-seq DE
 - `GLDS-561_directm6Aseq_Direct_RNA_seq_m6A_Processed_Data.xlsx` -- m6A methylation
 

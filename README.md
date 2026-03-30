@@ -200,6 +200,8 @@ To refresh them after re-running baselines:
 | D1 | Advanced | AUROC | 0.481 | 0.500 | 0.561 | **0.676** | 0.557 | 0.617 | 0.638 |
 | E1 | Advanced | AUPRC | 0.008 | 0.002 | **0.017** | 0.015 | 0.003 | 0.010 | 0.005 |
 | E4 | Advanced | AUPRC | 0.003 | 0.002 | **0.023** | 0.002 | 0.003 | 0.006 | 0.009 |
+| E2\* | Frontier | AUPRC | 0.001 | 0.001 | 0.031 | **0.050** | 0.011 | 0.020 | 0.005 |
+| E3\* | Frontier | AUPRC | 0.002 | 0.001 | 0.172 | **0.223** | 0.168 | 0.160 | 0.088 |
 | F1 | Standard | macro_f1 | 0.112 | 0.018 | 0.147 | 0.199 | 0.108 | 0.193 | **0.200** |
 | F2 | Frontier | macro_f1 | 0.205 | 0.111 | 0.236 | 0.238 | 0.204 | 0.263 | **0.280** |
 | F3 | Calibration | AUROC | 0.402 | 0.500 | 0.574 | **0.841** | 0.320 | 0.838 | 0.838 |
@@ -213,7 +215,7 @@ To refresh them after re-running baselines:
 
 <!-- END BASELINE_TABLE -->
 
-**Bold** = best performing baseline per task. — = not applicable (multilabel task).
+**Bold** = best performing baseline per task. — = not applicable (multilabel task). \* = supplementary task (extreme class imbalance; excluded from composite score).
 
 ### Normalized Composite Scores
 

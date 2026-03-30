@@ -6,6 +6,8 @@ authors:
   - family-names: Kim
     given-names: JangKeun
     orcid: "https://orcid.org/0000-0002-4653-2616"
+version: "2.1"
+date-released: "2026-03-30"
 license: MIT
 license-url: https://github.com/jang1563/SpaceOmicsBench/blob/main/LICENSE
 repository-code: https://github.com/jang1563/SpaceOmicsBench
@@ -17,3 +19,14 @@ keywords:
   - bioinformatics
   - astronaut
   - omics
+preferred-citation:
+  type: software
+  title: "SpaceOmicsBench: A Multi-Omics AI Benchmark for Spaceflight Biomedical Data"
+  authors:
+    - family-names: Kim
+      given-names: JangKeun
+      orcid: "https://orcid.org/0000-0002-4653-2616"
+  year: 2026
+  version: "2.1"
+  url: "https://github.com/jang1563/SpaceOmicsBench"
+  repository-code: "https://github.com/jang1563/SpaceOmicsBench"
