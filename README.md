@@ -19,8 +19,8 @@ All benchmark tables are derived from OSDR public releases and/or published supp
 | **Difficulty Tiers** | Calibration (1) / Standard (5) / Advanced (9) / Frontier (6) |
 | **Missions** | Inspiration4 (4 crew, 3 days LEO), NASA Twins (340 days ISS), JAXA CFE (6 astronauts, >120 days ISS) |
 | **Evaluation** | Leave-One-Crew-Out, Leave-One-Timepoint-Out, 80/20 feature splits (5 reps) |
-| **ML Baselines** | Random, Majority, LogReg, RF, MLP, XGBoost, LightGBM |
-| **LLM Evaluated** | Claude Sonnet 4.6, Haiku 4.5, Sonnet 4, GPT-4o, GPT-4o Mini, DeepSeek-V3, Gemini 2.5 Flash, Llama-3.3-70B |
+| **ML Baselines** | Random, Majority, LogReg (scikit-learn), RF (scikit-learn), MLP (scikit-learn), XGBoost, LightGBM |
+| **LLM Evaluated** | Claude Sonnet 4.6, Haiku 4.5, Sonnet 4, GPT-4o, GPT-4o Mini, DeepSeek-V3, Gemini 2.5 Flash, Llama-3.3-70B (×2 backends) |
 
 ## Quick Start
 
@@ -482,7 +482,12 @@ SpaceOmicsBench/
 All data originates from:
 
 1. **NASA Open Science Data Repository (OSDR)** — GeneLab-processed omics files from OSD-569 to OSD-687 (Inspiration4) and OSD-530 (JAXA CFE)
-2. **Published supplementary data** — Processed results from peer-reviewed publications on the Inspiration4 and JAXA missions
+2. **Published supplementary data** — Processed results from peer-reviewed publications on the Inspiration4 and JAXA missions, including:
+   - SOMA Multi-Omics Atlas (doi:[10.1038/s41586-024-07639-y](https://doi.org/10.1038/s41586-024-07639-y))
+   - Secretome Proteomics & Metabolomics (doi:[10.1038/s41467-024-48841-w](https://doi.org/10.1038/s41467-024-48841-w))
+   - Spatial Skin Transcriptomics (doi:[10.1038/s41467-024-48625-2](https://doi.org/10.1038/s41467-024-48625-2))
+   - JAXA CFE cfRNA (doi:[10.1038/s41467-023-41995-z](https://doi.org/10.1038/s41467-023-41995-z))
+   - Cross-mission Hemoglobin (doi:[10.1038/s41467-024-49289-8](https://doi.org/10.1038/s41467-024-49289-8))
 
 See `docs/CITATIONS.bib` for the complete list of source publications.
 
