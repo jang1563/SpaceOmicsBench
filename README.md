@@ -54,7 +54,7 @@ This runs all 7 baseline models on all 21 tasks and outputs:
 ### 3. Evaluate Your Model
 
 ```bash
-# Dry run — verify all tasks and splits load correctly
+# Dry run: verify all tasks and splits load correctly
 python evaluation/eval_harness.py --dry-run
 
 # Evaluate predictions
@@ -194,7 +194,7 @@ To refresh them after re-running baselines:
 | A1 | Standard | macro_f1 | 0.214 | 0.200 | **0.546** | 0.294 | 0.310 | 0.332 | 0.200 |
 | A2 | Standard | macro_f1 | 0.214 | 0.200 | **0.493** | 0.374 | 0.331 | 0.353 | 0.200 |
 | B1 | Advanced | AUPRC | 0.020 | 0.017 | 0.533 | 0.885 | 0.854 | 0.912 | **0.922** |
-| B2 | Advanced | micro_f1 | 0.083 | 0.000 | **0.154** | 0.131 | 0.000 | — | — |
+| B2 | Advanced | micro_f1 | 0.083 | 0.000 | **0.154** | 0.131 | 0.000 | – | – |
 | C1 | Standard | macro_f1 | 0.170 | 0.228 | 0.512 | 0.464 | **0.517** | 0.355 | 0.228 |
 | C2 | Frontier | AUROC | 0.529 | 0.500 | 0.500 | 0.555 | 0.524 | 0.533 | **0.565** |
 | D1 | Advanced | AUROC | 0.481 | 0.500 | 0.561 | **0.676** | 0.557 | 0.617 | 0.638 |
@@ -215,7 +215,7 @@ To refresh them after re-running baselines:
 
 <!-- END BASELINE_TABLE -->
 
-**Bold** = best performing baseline per task. — = not applicable (multilabel task). \* = supplementary task (extreme class imbalance; excluded from composite score).
+**Bold** = best performing baseline per task. – = not applicable (multilabel task). \* = supplementary task (extreme class imbalance; excluded from composite score).
 
 ### Normalized Composite Scores
 
@@ -289,12 +289,12 @@ export OPENAI_API_KEY="your-key"
 python evaluation/llm/run_llm_evaluation.py --model gpt-4o --full
 
 # ── Open-source via API (OpenAI-compatible) ───────────────────────────────
-# Groq (Llama 3.3 70B — free tier, fast)
+# Groq (Llama 3.3 70B: free tier, fast)
 export GROQ_API_KEY="your-key"
 python evaluation/llm/run_llm_evaluation.py --model llama-3.3-70b-versatile \
     --base-url https://api.groq.com/openai/v1 --api-key-env GROQ_API_KEY --full
 
-# Together.ai (Llama 3.3 70B — serverless, no dedicated endpoint needed)
+# Together.ai (Llama 3.3 70B: serverless, no dedicated endpoint needed)
 export TOGETHER_API_KEY="your-key"
 python evaluation/llm/run_llm_evaluation.py \
     --model meta-llama/Llama-3.3-70B-Instruct-Turbo \
@@ -343,7 +343,7 @@ python evaluation/llm/generate_report.py results/scored_*.json --compare
 - No fixed random seed is set by default; expect small variability across runs
 - For model comparisons, report the exact model name, temperature, and max_tokens
 
-**Reproducing the results table** — commands used to generate the numbers in the Results section below:
+**Reproducing the results table**: commands used to generate the numbers in the Results section below:
 
 ```bash
 # Step 1: Run full evaluation (100 questions)
@@ -387,7 +387,7 @@ A summary of the scored outputs used to generate the table is in `docs/samples/l
 | `anthropic` (default) | Claude models | `ANTHROPIC_API_KEY` |
 | `openai` | GPT-4o, o1/o3 | `OPENAI_API_KEY` |
 | `compatible` + `--base-url` | Groq, Together, DeepSeek, Mistral, OpenRouter, Ollama | via `--api-key-env` |
-| `huggingface` | Local models (CUDA / Apple MPS / CPU) | — |
+| `huggingface` | Local models (CUDA / Apple MPS / CPU) | – |
 
 **For publication-quality benchmarking**, aim to evaluate at minimum:
 - 2 proprietary frontier models (Claude + GPT-4o)
@@ -397,7 +397,7 @@ A summary of the scored outputs used to generate the table is in `docs/samples/l
 
 ### LLM Evaluation Results
 
-> 📊 **[Interactive Leaderboard →](https://jang1563.github.io/SpaceOmicsBench/llm_leaderboard.html)** — bar charts, difficulty profiles, radar, modality heatmap, sortable table
+> 📊 **[Interactive Leaderboard →](https://jang1563.github.io/SpaceOmicsBench/llm_leaderboard.html)**: bar charts, difficulty profiles, radar, modality heatmap, sortable table
 
 **9-Model Ranking** (Judge: Claude Sonnet 4.6, 100 questions, 1–5 scale, v2.1):
 
@@ -419,17 +419,17 @@ A summary of the scored outputs used to generate the table is in `docs/samples/l
 
 Key findings:
 - **Claude models dominate the top tier**; Haiku 4.5 notably outperforms Sonnet 4 (+0.38) despite being a smaller model
-- **DeepSeek-V3 (#3, 4.34)** is the strongest open-weights model, surpassing Claude Sonnet 4 and all GPT/Gemini variants — particularly strong on Hard and Expert questions
+- **DeepSeek-V3 (#3, 4.34)** is the strongest open-weights model, surpassing Claude Sonnet 4 and all GPT/Gemini variants: particularly strong on Hard and Expert questions
 - **Gemini 2.5 Flash (#5, 4.00)** with thinking mode enabled performs uniformly across all difficulty tiers (Easy 3.52 → Expert 4.04); previous apparent Easy/Expert gap was truncation artifact (`max_tokens=2000` consumed by thinking tokens)
 - **GPT-4o Mini slightly edges out GPT-4o** (3.32 vs 3.30) in this specialized domain; all bottom-tier models cluster at ~3.30
 - **Uncertainty Calibration** is the weakest dimension across all models; small-N spaceflight data requires careful hedging that all models underperform on
 - **Novel insight flags**: DeepSeek-V3 (64), Claude models (45–93), and Gemini (26) generate novel cross-modal reasoning; GPT/Llama variants generate none
 
-**Cross-Judge Verification** — Sonnet 4, Sonnet 4.6, and GPT-4o were additionally scored by Sonnet 4 and GPT-4o judges for bias analysis:
+**Cross-Judge Verification**: Sonnet 4, Sonnet 4.6, and GPT-4o were additionally scored by Sonnet 4 and GPT-4o judges for bias analysis:
 
 | Respondent | Sonnet 4 Judge | Sonnet 4.6 Judge | GPT-4o Judge |
 |-----------|:-:|:-:|:-:|
-| **Claude Sonnet 4.6** | 4.73 | **4.62** | — |
+| **Claude Sonnet 4.6** | 4.73 | **4.62** | – |
 | **Claude Sonnet 4** | 4.55 | 4.03 | 4.76 |
 | **GPT-4o** | 3.64 | 3.30 | 4.36 |
 
@@ -481,8 +481,8 @@ SpaceOmicsBench/
 
 All data originates from:
 
-1. **NASA Open Science Data Repository (OSDR)** — GeneLab-processed omics files from OSD-569 to OSD-687 (Inspiration4) and OSD-530 (JAXA CFE)
-2. **Published supplementary data** — Processed results from peer-reviewed publications on the Inspiration4 and JAXA missions, including:
+1. **NASA Open Science Data Repository (OSDR)**: GeneLab-processed omics files from OSD-569 to OSD-687 (Inspiration4) and OSD-530 (JAXA CFE)
+2. **Published supplementary data**: Processed results from peer-reviewed publications on the Inspiration4 and JAXA missions, including:
    - SOMA Multi-Omics Atlas (doi:[10.1038/s41586-024-07639-y](https://doi.org/10.1038/s41586-024-07639-y))
    - Secretome Proteomics & Metabolomics (doi:[10.1038/s41467-024-48841-w](https://doi.org/10.1038/s41467-024-48841-w))
    - Spatial Skin Transcriptomics (doi:[10.1038/s41467-024-48625-2](https://doi.org/10.1038/s41467-024-48625-2))
@@ -570,7 +570,7 @@ v3 expands the benchmark with new missions, advanced ML methods, and biomedical-
 | **LLM Models** | 9 (general-purpose) | **9** (4 general + 5 bio-specialized) |
 | **Missions** | I4, JAXA, Twins | + **Axiom-2** Epigenetic |
 | **Key ML Results** | LightGBM AUPRC=0.922 (B1) | **TabPFN AUPRC=0.957** (SOTA) |
-| **Foundation Models** | — | ESM2, GNN (negative results) |
+| **Foundation Models** | – | ESM2, GNN (negative results) |
 
 ### Key Findings in v3
 
@@ -578,14 +578,14 @@ v3 expands the benchmark with new missions, advanced ML methods, and biomedical-
 - **Signal hierarchy**: effect-size >> tabular prior (TabPFN) >> protein sequence (ESM2) >> PPI topology (GNN)
 - **4-tier LLM structure**: Claude/DeepSeek (4.3+) > GPT-4o Mini/Llama (3.0) > OpenBioLLM (2.0-2.5) > Galactica/BioMedLM (1.0-1.2)
 - **Track A**: 26 ML tasks including AX-2 epigenetic clocks, multi-omics fusion, TabPFN, ESM2, GNN
-- **Track B**: 270 LLM questions across 12 categories — 3 new categories (Space Biology Basics, AX-2 Epigenetic, Clinical Applications)
+- **Track B**: 270 LLM questions across 12 categories: 3 new categories (Space Biology Basics, AX-2 Epigenetic, Clinical Applications)
 
 v3 is developed in a separate repository: [SpaceOmicsBench-v3](https://github.com/jang1563/SpaceOmicsBench-v3). All v2 tasks and questions are preserved in v3.
 
 ## License
 
-- **Benchmark code** (scripts, evaluation framework, baselines): [MIT License](LICENSE) — free for any use including commercial.
-- **Benchmark data** (processed tables, task definitions, question bank, scored results): [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) — free for academic and research use; **commercial use requires a separate license**.
+- **Benchmark code** (scripts, evaluation framework, baselines): [MIT License](LICENSE): free for any use including commercial.
+- **Benchmark data** (processed tables, task definitions, question bank, scored results): [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/): free for academic and research use; **commercial use requires a separate license**.
 - **Data sources**: Benchmark tables are derived from NASA OSDR public releases and published supplementary materials, which retain their respective terms (see [docs/PROVENANCE.md](docs/PROVENANCE.md)).
 
 Copyright (c) 2026 JangKeun Kim. For commercial licensing inquiries: silveray1563@gmail.com
