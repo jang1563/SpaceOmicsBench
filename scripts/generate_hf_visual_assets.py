@@ -227,29 +227,31 @@ def main() -> None:
         [COLORS["navy"], COLORS["blue"], COLORS["teal"], COLORS["violet"], COLORS["amber"]],
     )
 
-    footer = (56, 732, 1544, 876)
+    footer = (56, 720, 1544, 884)
     card(draw, footer, radius=28)
-    draw.text((96, 770), "Open-track package boundary", font=font(28, True), fill=COLORS["ink"])
-    multiline(
-        draw,
-        (96, 815),
-        f"{processed} processed CSV tables | task JSON | split JSON | LLM question bank | scored v2.1 results | canonical baselines",
-        font(19),
-        COLORS["muted"],
-        850,
-        5,
+    draw.rounded_rectangle((96, 760, 160, 770), radius=5, fill=COLORS["teal"])
+    draw.text((96, 786), "Public processed artifacts", font=font(29, True), fill=COLORS["ink"])
+    draw.text(
+        (96, 827),
+        f"{processed} CSV tables + task specs + splits + baseline/LLM results",
+        font=font(22),
+        fill=COLORS["muted"],
     )
-    multiline(
-        draw,
-        (940, 770),
-        "Sequence-level or restricted human files are excluded. Controlled-access analyses should go back to OSDR/DAR or the original source.",
-        font(19),
-        COLORS["muted"],
-        520,
-        5,
+
+    draw.rounded_rectangle((860, 760, 924, 770), radius=5, fill=COLORS["violet"])
+    draw.text((860, 786), "Restricted data excluded", font=font(29, True), fill=COLORS["ink"])
+    draw.text(
+        (860, 827),
+        "No raw sequence-level human files redistributed",
+        font=font(22),
+        fill=COLORS["muted"],
     )
-    draw.rounded_rectangle((940, 836, 1468, 864), radius=14, fill="#eef2ff")
-    draw.text((962, 841), "HF viewer disabled for mixed CSV/JSON artifacts.", font=font(16, True), fill=COLORS["violet"])
+    draw.text(
+        (860, 855),
+        "Controlled access: use OSDR/DAR or original sources",
+        font=font(17, True),
+        fill=COLORS["violet"],
+    )
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
     image.save(OUT, optimize=True)
