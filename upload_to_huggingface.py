@@ -1,144 +1,35 @@
 #!/usr/bin/env python3
 """
-Upload SpaceOmicsBench v2.1 to HuggingFace Hub as a Dataset.
+Upload SpaceOmicsBench v2.1 to Hugging Face Hub as a dataset.
 
 Usage:
     python upload_to_huggingface.py --token hf_xxxxx
-    python upload_to_huggingface.py  # uses HF_TOKEN env var or cached login
+    python upload_to_huggingface.py --card-only
+    python upload_to_huggingface.py --dry-run
+
+By default, this uses HF_TOKEN from the environment or a cached Hugging Face
+login. Use --card-only when only README/assets need to be refreshed.
 """
 
 import argparse
-import json
 import os
 import sys
 from pathlib import Path
 
+
 PROJECT_ROOT = Path(__file__).parent
 REPO_ID = "jang1563/SpaceOmicsBench"
+CARD_PATH = PROJECT_ROOT / "docs" / "hf_dataset_card.md"
+CARD_ASSETS = [
+    (PROJECT_ROOT / "docs" / "assets" / "spaceomicsbench_summary.png", "assets/spaceomicsbench_summary.png"),
+]
 
 
-DATASET_CARD = """\
----
-license: cc-by-nc-4.0
-task_categories:
-  - tabular-classification
-  - tabular-regression
-  - question-answering
-language:
-  - en
-tags:
-  - biology
-  - genomics
-  - proteomics
-  - metabolomics
-  - metagenomics
-  - spaceflight
-  - benchmarking
-  - multi-omics
-  - astronaut
-  - biomedical
-  - NASA
-  - space-medicine
-  - epigenetics
-pretty_name: SpaceOmicsBench
-size_categories:
-  - 1K<n<10K
----
-
-# SpaceOmicsBench
-
-A multi-omics AI benchmark for spaceflight biomedical data, featuring **21 ML tasks** across **9 modalities** and a **100-question LLM evaluation** framework.
-
-Data sources: SpaceX Inspiration4 (I4) civilian astronaut mission, NASA Twins Study, and JAXA Cell-Free Epigenome (CFE) study. All benchmark tables are derived from OSDR public releases and/or published supplementary tables.
-
-[![GitHub](https://img.shields.io/badge/GitHub-SpaceOmicsBench-181717?logo=github)](https://github.com/jang1563/SpaceOmicsBench)
-[![LLM Leaderboard](https://img.shields.io/badge/LLM_Leaderboard-Interactive_Viz-a78bfa)](https://jang1563.github.io/SpaceOmicsBench/llm_leaderboard.html)
-
-## Dataset Summary
-
-| | |
-|---|---|
-| **ML Tasks** | 21 tasks (19 main + 2 supplementary) |
-| **LLM Evaluation** | 100 questions, 5-dimension Claude-as-judge scoring, 9 models evaluated |
-| **Modalities** | Clinical, cfRNA, Proteomics, Metabolomics, Spatial Transcriptomics, Microbiome, Multi-modal, Cross-tissue, Cross-mission |
-| **Difficulty Tiers** | Calibration / Standard / Advanced / Frontier |
-| **Missions** | Inspiration4 (4 crew, 3 days LEO), NASA Twins (340 days ISS), JAXA CFE (6 astronauts, ISS) |
-| **Evaluation Schemes** | Leave-One-Crew-Out, Leave-One-Timepoint-Out, 80/20 feature splits (5 reps) |
-| **ML Baselines** | Random, Majority, LogReg, RF, MLP, XGBoost, LightGBM |
-
-## Repository Structure
-
-```
-SpaceOmicsBench/
-├── data/processed/        # Benchmark CSV tables (65+ files)
-├── tasks/                 # ML task definitions (JSON, 21 tasks)
-├── splits/                # Train/test splits (JSON, 19 files)
-├── evaluation/llm/        # LLM question bank (100 questions)
-│   ├── question_bank.json # Questions with ground truth
-│   ├── annotation_schema.json  # 5-dimension scoring schema
-│   └── data_context/      # Domain knowledge for evaluation
-├── results/v2.1/          # Scored LLM results (9 models)
-└── baselines/             # ML baseline results (7 models × 21 tasks)
-```
-
-## LLM Leaderboard (v2.1)
-
-9 models evaluated with Claude Sonnet 4.6 as judge, 5-dimension scoring:
-
-| Rank | Model | Score (1-5) | Factual | Reasoning | Completeness | Uncertainty | Domain |
-|:---:|-------|:---:|:---:|:---:|:---:|:---:|:---:|
-| 1 | Claude Sonnet 4.6 | **4.62** | 4.65 | 4.97 | 4.77 | 4.09 | 4.33 |
-| 2 | Claude Haiku 4.5 | **4.41** | 4.39 | 4.84 | 4.54 | 3.83 | 4.12 |
-| 3 | DeepSeek-V3 | **4.34** | 4.40 | 4.75 | 4.39 | 3.71 | 4.11 |
-| 4 | Claude Sonnet 4 | **4.03** | 4.28 | 4.47 | 4.07 | 3.14 | 3.74 |
-| 5 | Gemini 2.5 Flash | **4.00** | 4.45 | 4.36 | 3.96 | 3.22 | 3.45 |
-| 6 | GPT-4o Mini | **3.32** | 3.93 | 3.54 | 3.21 | 2.78 | 2.64 |
-| 7 | Llama-3.3-70B (Groq) | **3.31** | 4.03 | 3.52 | 3.21 | 2.61 | 2.57 |
-| 8 | Llama-3.3-70B (Together) | **3.31** | 4.00 | 3.50 | 3.20 | 2.65 | 2.62 |
-| 9 | GPT-4o | **3.30** | 3.98 | 3.61 | 3.13 | 2.57 | 2.62 |
-
-See full breakdown at the [interactive leaderboard](https://jang1563.github.io/SpaceOmicsBench/llm_leaderboard.html).
-
-## SpaceOmicsBench v3
-
-v3 expands the benchmark with new missions, advanced ML methods, and biomedical-specialized model evaluation. Paper draft complete; targeting NeurIPS 2026 D&B submission (May 7).
-
-| | v2 | v3 |
-|---|---|---|
-| **ML Tasks** | 21 (7 baselines) | **26 tasks** (25 leaderboard, 16 methods) |
-| **LLM Questions** | 100 (9 modalities) | **270** (12 categories) |
-| **LLM Models** | 9 (general-purpose) | **9** (4 general + 5 bio-specialized) |
-| **Missions** | I4, JAXA, Twins | + **Axiom-2** Epigenetic |
-| **Key ML Results** | LightGBM AUPRC=0.922 (B1) | **TabPFN AUPRC=0.957** (SOTA) |
-| **Foundation Models** | — | ESM2, GNN (negative results) |
-
-**Key Findings in v3:**
-- **Bio fine-tuning hurts**: OpenBioLLM-70B (2.50) scored −0.53 vs base Llama-3.3-70B (3.03) across all categories
-- **Signal hierarchy**: effect-size >> tabular prior (TabPFN) >> protein sequence (ESM2) >> PPI topology (GNN)
-- **4-tier LLM structure**: Claude/DeepSeek (4.3+) > GPT-4o Mini/Llama (3.0) > OpenBioLLM (2.0-2.5) > Galactica/BioMedLM (1.0-1.2)
-- **Track A**: 26 ML tasks including AX-2 epigenetic clocks, multi-omics fusion, TabPFN, ESM2, GNN
-- **Track B**: 270 LLM questions across 12 categories — 3 new categories (Space Biology Basics, AX-2 Epigenetic, Clinical Applications)
-
-v3 is developed in a separate repository: [SpaceOmicsBench-v3](https://github.com/jang1563/SpaceOmicsBench-v3). All v2 tasks and questions are preserved in v3.
-
-## Citation
-
-```bibtex
-@misc{kim2026spaceomicsbench,
-  title={SpaceOmicsBench: A Multi-Omics AI Benchmark for Spaceflight Biomedical Data},
-  author={Kim, JangKeun},
-  year={2026},
-  url={https://github.com/jang1563/SpaceOmicsBench}
-}
-```
-
-## License
-
-- **Code** (scripts, evaluation framework, baselines): [MIT License](https://github.com/jang1563/SpaceOmicsBench/blob/main/LICENSE)
-- **Benchmark data** (processed tables, task definitions, question bank, scored results): [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) — free for academic/research use; commercial use requires a separate license.
-
-Copyright (c) 2026 JangKeun Kim. For commercial licensing inquiries: silveray1563@gmail.com
-"""
+def get_card_files():
+    """Return list of (local_path, repo_path) tuples for the HF card surface."""
+    files = [(CARD_PATH, "README.md")]
+    files.extend(CARD_ASSETS)
+    return files
 
 
 def get_upload_files():
@@ -178,15 +69,68 @@ def get_upload_files():
     return files
 
 
+def validate_files(files):
+    missing = [str(local_path) for local_path, _ in files if not local_path.exists()]
+    if missing:
+        print("ERROR: missing files:")
+        for path in missing:
+            print(f"  {path}")
+        sys.exit(1)
+
+
+def print_file_list(label, files):
+    size_mb = sum(local_path.stat().st_size for local_path, _ in files) / 1024 / 1024
+    print(f"{label}: {len(files)} files, {size_mb:.1f} MB")
+    for local_path, repo_path in files:
+        size_kb = local_path.stat().st_size / 1024
+        print(f"  {repo_path:64s} {size_kb:8.1f} KB")
+
+
+def upload_commit(api, repo_id, files, commit_message):
+    from huggingface_hub import CommitOperationAdd
+
+    validate_files(files)
+    operations = [
+        CommitOperationAdd(path_in_repo=repo_path, path_or_fileobj=str(local_path))
+        for local_path, repo_path in files
+    ]
+    api.create_commit(
+        repo_id=repo_id,
+        repo_type="dataset",
+        operations=operations,
+        commit_message=commit_message,
+    )
+
+
 def main():
-    parser = argparse.ArgumentParser(description="Upload SpaceOmicsBench to HuggingFace Hub")
-    parser.add_argument("--token", type=str, default=None, help="HuggingFace API token (or set HF_TOKEN env var)")
+    parser = argparse.ArgumentParser(description="Upload SpaceOmicsBench to Hugging Face Hub")
+    parser.add_argument("--token", type=str, default=None, help="Hugging Face API token (or set HF_TOKEN env var)")
     parser.add_argument("--repo-id", type=str, default=REPO_ID, help=f"HF repo ID (default: {REPO_ID})")
     parser.add_argument("--private", action="store_true", help="Make repository private")
     parser.add_argument("--dry-run", action="store_true", help="List files without uploading")
+    parser.add_argument("--card-only", action="store_true", help="Upload only README.md and card assets")
+    parser.add_argument("--skip-card", action="store_true", help="Upload dataset files without refreshing README/assets")
     args = parser.parse_args()
 
-    # Resolve token
+    if args.card_only and args.skip_card:
+        parser.error("--card-only cannot be combined with --skip-card")
+
+    card_files = [] if args.skip_card else get_card_files()
+    data_files = [] if args.card_only else get_upload_files()
+    all_files = card_files + data_files
+    validate_files(all_files)
+
+    print(f"SpaceOmicsBench -> {args.repo_id}")
+    if card_files:
+        print_file_list("Card surface", card_files)
+    if data_files:
+        print_file_list("Dataset payload", data_files)
+    print()
+
+    if args.dry_run:
+        print("DRY RUN: no files uploaded.")
+        return
+
     token = args.token or os.environ.get("HF_TOKEN")
 
     try:
@@ -195,22 +139,6 @@ def main():
         print("ERROR: huggingface_hub not installed. Run: pip install huggingface_hub")
         sys.exit(1)
 
-    # Collect files
-    files = get_upload_files()
-    total_size = sum(p.stat().st_size for p, _ in files)
-
-    print(f"SpaceOmicsBench → {args.repo_id}")
-    print(f"Files: {len(files)}, Total size: {total_size / 1024 / 1024:.1f} MB")
-    print()
-
-    if args.dry_run:
-        print("DRY RUN — files that would be uploaded:")
-        for local_path, repo_path in files:
-            size_kb = local_path.stat().st_size / 1024
-            print(f"  {repo_path:60s}  {size_kb:7.1f} KB")
-        return
-
-    # Login
     if token:
         login(token=token)
     else:
@@ -218,16 +146,14 @@ def main():
 
     api = HfApi()
 
-    # Verify auth
     try:
         user = api.whoami()
         print(f"Logged in as: {user['name']}")
-    except Exception as e:
-        print(f"ERROR: Not authenticated. Run with --token hf_xxx or set HF_TOKEN env var.")
-        print(f"       Get token at: https://huggingface.co/settings/tokens")
+    except Exception:
+        print("ERROR: Not authenticated. Run with --token hf_xxx or set HF_TOKEN env var.")
+        print("       Get token at: https://huggingface.co/settings/tokens")
         sys.exit(1)
 
-    # Create repo if needed
     try:
         api.create_repo(
             repo_id=args.repo_id,
@@ -236,44 +162,39 @@ def main():
             exist_ok=True,
         )
         print(f"Repository ready: https://huggingface.co/datasets/{args.repo_id}")
-    except Exception as e:
-        print(f"ERROR creating repo: {e}")
+    except Exception as exc:
+        print(f"ERROR creating repo: {exc}")
         sys.exit(1)
 
-    # Upload dataset card
-    print("\nUploading dataset card...")
-    api.upload_file(
-        path_or_fileobj=DATASET_CARD.encode(),
-        path_in_repo="README.md",
-        repo_id=args.repo_id,
-        repo_type="dataset",
-        commit_message="Add dataset card",
-    )
-
-    # Upload files in batches
-    print(f"\nUploading {len(files)} files...")
-    BATCH_SIZE = 20
-    for i in range(0, len(files), BATCH_SIZE):
-        batch = files[i : i + BATCH_SIZE]
-        batch_num = i // BATCH_SIZE + 1
-        total_batches = (len(files) + BATCH_SIZE - 1) // BATCH_SIZE
-        print(f"  Batch {batch_num}/{total_batches}: {batch[0][1]} ... {batch[-1][1]}")
-
-        from huggingface_hub import CommitOperationAdd
-
-        operations = [
-            CommitOperationAdd(path_in_repo=repo_path, path_or_fileobj=str(local_path))
-            for local_path, repo_path in batch
-        ]
-
-        api.create_commit(
-            repo_id=args.repo_id,
-            repo_type="dataset",
-            operations=operations,
-            commit_message=f"Upload SpaceOmicsBench v2.1 files (batch {batch_num}/{total_batches})",
+    if card_files:
+        print("\nUploading dataset card and assets...")
+        upload_commit(
+            api,
+            args.repo_id,
+            card_files,
+            "Polish SpaceOmicsBench dataset card",
         )
 
-    print(f"\nDone! Dataset uploaded to:")
+    if not data_files:
+        print("\nDone. Card surface uploaded to:")
+        print(f"  https://huggingface.co/datasets/{args.repo_id}")
+        return
+
+    print(f"\nUploading {len(data_files)} dataset files...")
+    batch_size = 20
+    total_batches = (len(data_files) + batch_size - 1) // batch_size
+    for i in range(0, len(data_files), batch_size):
+        batch = data_files[i : i + batch_size]
+        batch_num = i // batch_size + 1
+        print(f"  Batch {batch_num}/{total_batches}: {batch[0][1]} ... {batch[-1][1]}")
+        upload_commit(
+            api,
+            args.repo_id,
+            batch,
+            f"Upload SpaceOmicsBench v2.1 files (batch {batch_num}/{total_batches})",
+        )
+
+    print("\nDone. Dataset uploaded to:")
     print(f"  https://huggingface.co/datasets/{args.repo_id}")
 
 

@@ -4,10 +4,13 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![ML Tasks](https://img.shields.io/badge/ML_Tasks-Interactive_Demo-06b6d4)](https://jang1563.github.io/SpaceOmicsBench/demo.html)
 [![LLM Leaderboard](https://img.shields.io/badge/LLM_Leaderboard-Interactive_Viz-a78bfa)](https://jang1563.github.io/SpaceOmicsBench/llm_leaderboard.html)
+[![Hugging Face Dataset](https://img.shields.io/badge/HuggingFace-Dataset-ffcc4d)](https://huggingface.co/datasets/jang1563/SpaceOmicsBench)
 
 A multi-omics AI benchmark for spaceflight biomedical data, featuring **21 ML tasks** across **9 modalities** and a **100-question LLM evaluation** framework. Data from the SpaceX Inspiration4 (I4) civilian astronaut mission, NASA Twins Study, and JAXA Cell-Free Epigenome (CFE) study.
 
 All benchmark tables are derived from OSDR public releases and/or published supplementary tables. Any human sequence-level or restricted files are excluded from the open track; a controlled-access track may require an approved OSDR Data Access Request (DAR).
+
+![SpaceOmicsBench at a glance](docs/assets/spaceomicsbench_summary.png)
 
 ## Overview
 
@@ -588,4 +591,4 @@ v3 is developed in a separate repository: [SpaceOmicsBench-v3](https://github.co
 - **Benchmark data** (processed tables, task definitions, question bank, scored results): [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/): free for academic and research use; **commercial use requires a separate license**.
 - **Data sources**: Benchmark tables are derived from NASA OSDR public releases and published supplementary materials, which retain their respective terms (see [docs/PROVENANCE.md](docs/PROVENANCE.md)).
 
-Copyright (c) 2026 JangKeun Kim. For commercial licensing inquiries: silveray1563@gmail.com
+Copyright (c) 2026 JangKeun Kim. For commercial licensing inquiries: jak4013@med.cornell.edu
