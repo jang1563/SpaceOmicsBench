@@ -561,7 +561,7 @@ Task JSON files are expected to follow the schema in `docs/task_schema.json`. Th
 
 ## SpaceOmicsBench v3
 
-v3 expands the benchmark with new missions, advanced ML methods, and biomedical-specialized model evaluation. Paper draft complete; targeting NeurIPS 2026 D&B submission (May 7).
+v3 expands the benchmark with new missions, advanced ML methods, and biomedical-specialized model evaluation. The accompanying manuscript is under review at the NeurIPS 2026 Evaluations & Datasets (E&D) Track; this status does not imply acceptance or publication.
 
 | | v2 | v3 |
 |---|---|---|
@@ -580,7 +580,7 @@ v3 expands the benchmark with new missions, advanced ML methods, and biomedical-
 - **Track A**: 26 ML tasks including AX-2 epigenetic clocks, multi-omics fusion, TabPFN, ESM2, GNN
 - **Track B**: 270 LLM questions across 12 categories: 3 new categories (Space Biology Basics, AX-2 Epigenetic, Clinical Applications)
 
-v3 is developed in a separate repository: [SpaceOmicsBench-v3](https://github.com/jang1563/SpaceOmicsBench-v3). All v2 tasks and questions are preserved in v3.
+The public v3 dataset and card are available on [Hugging Face](https://huggingface.co/datasets/jang1563/SpaceOmicsBench-v3). All v2 tasks and questions are preserved in v3.
 
 ## License
 
