@@ -1,7 +1,8 @@
 # SpaceOmicsBench
 
 [![CI](https://github.com/jang1563/SpaceOmicsBench/actions/workflows/ci.yml/badge.svg)](https://github.com/jang1563/SpaceOmicsBench/actions/workflows/ci.yml)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Code: MIT](https://img.shields.io/badge/Code-MIT-yellow.svg)](LICENSE)
+[![Data: CC BY-NC 4.0](https://img.shields.io/badge/Data-CC_BY--NC_4.0-lightgrey.svg)](LICENSE)
 [![ML Tasks](https://img.shields.io/badge/ML_Tasks-Interactive_Demo-06b6d4)](https://jang1563.github.io/SpaceOmicsBench/demo.html)
 [![LLM Leaderboard](https://img.shields.io/badge/LLM_Leaderboard-Interactive_Viz-a78bfa)](https://jang1563.github.io/SpaceOmicsBench/llm_leaderboard.html)
 
