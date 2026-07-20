@@ -6,22 +6,29 @@
 [![ML Tasks](https://img.shields.io/badge/ML_Tasks-Interactive_Demo-06b6d4)](https://jang1563.github.io/SpaceOmicsBench/demo.html)
 [![LLM Leaderboard](https://img.shields.io/badge/LLM_Leaderboard-Interactive_Viz-a78bfa)](https://jang1563.github.io/SpaceOmicsBench/llm_leaderboard.html)
 
-A multi-omics AI benchmark for spaceflight biomedical data, featuring **21 ML tasks** across **9 modalities** and a **100-question LLM evaluation** framework. Data from the SpaceX Inspiration4 (I4) civilian astronaut mission, NASA Twins Study, and JAXA Cell-Free Epigenome (CFE) study.
+SpaceOmicsBench v2.1 is a multi-omics AI benchmark for spaceflight biomedical
+data, with **21 ML tasks** across **9 modalities** and a **100-question LLM
+evaluation** framework. It draws on data from the SpaceX Inspiration4 (I4)
+civilian astronaut mission, the NASA Twins Study, and the JAXA Cell-Free
+Epigenome (CFE) study.
 
-All benchmark tables are derived from OSDR public releases and/or published supplementary tables. Any human sequence-level or restricted files are excluded from the open track; a controlled-access track may require an approved OSDR Data Access Request (DAR).
+All benchmark tables derive from OSDR public releases or published
+supplementary tables. Human sequence-level and other restricted files are
+excluded from the open track; a controlled-access track may require an approved
+OSDR Data Access Request (DAR).
 
 ## Overview
 
 | | |
 |---|---|
 | **ML Tasks** | 21 tasks (19 main + 2 supplementary) |
-| **LLM Evaluation** | 100 questions, 5-dimension Claude-as-judge scoring, 9 models evaluated |
+| **LLM Evaluation** | 100 questions, five-dimensional Claude-as-judge scoring, 9 models evaluated |
 | **Modalities** | Clinical, cfRNA, Proteomics, Metabolomics, Spatial Transcriptomics, Microbiome, Multi-modal, Cross-tissue, Cross-mission |
 | **Difficulty Tiers** | Calibration (1) / Standard (5) / Advanced (9) / Frontier (6) |
-| **Missions** | Inspiration4 (4 crew, 3 days LEO), NASA Twins (340 days ISS), JAXA CFE (6 astronauts, >120 days ISS) |
+| **Missions** | Inspiration4 (4 crew, 3 days in LEO), NASA Twins (340 days aboard the ISS), JAXA CFE (6 astronauts, >120 days aboard the ISS) |
 | **Evaluation** | Leave-One-Crew-Out, Leave-One-Timepoint-Out, 80/20 feature splits (5 reps) |
 | **ML Baselines** | Random, Majority, LogReg (scikit-learn), RF (scikit-learn), MLP (scikit-learn), XGBoost, LightGBM |
-| **LLM Evaluated** | Claude Sonnet 4.6, Haiku 4.5, Sonnet 4, GPT-4o, GPT-4o Mini, DeepSeek-V3, Gemini 2.5 Flash, Llama-3.3-70B (×2 backends) |
+| **LLMs Evaluated** | Claude Sonnet 4.6, Haiku 4.5, Sonnet 4, GPT-4o, GPT-4o Mini, DeepSeek-V3, Gemini 2.5 Flash, Llama-3.3-70B (×2 backends) |
 
 ## Quick Start
 
@@ -106,7 +113,7 @@ Open `demo.html` in a browser for an interactive visualization of benchmark resu
 | E2* | Cross-Layer DE (inner_epidermis) | Binary | Frontier | 18,677 | AUPRC | Feature 80/20 (5-rep) |
 | E3* | Cross-Layer DE (outer_dermis) | Binary | Frontier | 18,677 | AUPRC | Feature 80/20 (5-rep) |
 
-*\* Supplementary: extreme class imbalance (11-18 positives out of 18,677), metric instability expected.*
+*\* Supplementary: extreme class imbalance (11–18 positives out of 18,677), metric instability expected.*
 
 ### Category F: Microbiome
 
@@ -124,7 +131,8 @@ Open `demo.html` in a browser for an interactive visualization of benchmark resu
 |----|------|------|------|---|--------|-------|
 | G1 | Multi-Modal Phase Classification | 3-class | Advanced | 21 | macro_f1 | LOCO (4-fold) |
 
-*Fuses clinical biomarkers + PCA(proteomics) + PCA(metabolomics).*
+*Combines clinical biomarkers with PCA features from proteomics and
+metabolomics.*
 
 ### Category H: Cross-Tissue
 
@@ -140,7 +148,10 @@ Open `demo.html` in a browser for an interactive visualization of benchmark resu
 | I2 | Cross-Mission Pathway Conservation | Binary | Advanced | 452 | AUROC | Feature 80/20 (5-rep) |
 | I3 | Cross-Mission Gene DE Conservation | Binary | Advanced | 15,540 | AUPRC | Feature 80/20 (5-rep) |
 
-*Uses NASA Twins Study (340-day ISS, N=1 astronaut with twin control) to predict Inspiration4 patterns. I1 tests whether Twins fold-changes identify hemoglobin pathway genes. I2/I3 test cross-mission conservation at pathway and gene levels.*
+*Uses the NASA Twins Study (340 days aboard the ISS; n = 1 astronaut with a
+twin control) to predict Inspiration4 patterns. I1 tests whether fold changes
+from the Twins Study identify hemoglobin-pathway genes; I2 and I3 test
+cross-mission conservation at the pathway and gene levels.*
 
 ## Difficulty Tiers
 
@@ -216,7 +227,7 @@ To refresh them after re-running baselines:
 
 <!-- END BASELINE_TABLE -->
 
-**Bold** = best performing baseline per task. – = not applicable (multilabel task). \* = supplementary task (extreme class imbalance; excluded from composite score).
+**Bold** = best-performing baseline per task. – = not applicable (multilabel task). \* = supplementary task (extreme class imbalance; excluded from composite score).
 
 ### Normalized Composite Scores
 
@@ -242,11 +253,15 @@ The B1 task includes effect-size features (fold-changes, differences) alongside 
 | B1 (effect-only) | Only fold-change/diff | 0.248 | 0.813 | 0.741 | 0.780 | 0.801 |
 | B1 (no-effect) | Exclude fold-change/diff | 0.527 | 0.863 | 0.847 | **0.899** | 0.884 |
 
-Distribution-based features (means, ranges, IQRs) carry most of the predictive signal, confirming the task tests genuine biological pattern recognition rather than simple effect-size thresholding. Gradient boosting methods (XGBoost, LightGBM) achieve the highest B1 scores, with LightGBM reaching AUPRC=0.922.
+Distribution-based features (means, ranges, and IQRs) carry most of the
+predictive signal, suggesting that B1 captures patterns beyond simple
+effect-size thresholding. Gradient-boosting methods (XGBoost and LightGBM)
+achieve the highest B1 scores, with LightGBM reaching AUPRC = 0.922.
 
 ## LLM Evaluation
 
-SpaceOmicsBench includes a question-based evaluation framework for assessing LLM understanding of spaceflight multi-omics data.
+SpaceOmicsBench includes a question-based framework for evaluating LLM
+performance on spaceflight multi-omics data.
 
 ### Question Bank
 
@@ -267,7 +282,7 @@ SpaceOmicsBench includes a question-based evaluation framework for assessing LLM
 
 Question types: factual, interpretation, reasoning, counterfactual, experimental design, cross-mission comparison.
 
-### 5-Dimension Scoring (Claude-as-Judge)
+### Five-Dimensional Scoring (Claude as Judge)
 
 | Dimension | Weight | Description |
 |-----------|--------|-------------|
@@ -344,7 +359,8 @@ python evaluation/llm/generate_report.py results/scored_*.json --compare
 - No fixed random seed is set by default; expect small variability across runs
 - For model comparisons, report the exact model name, temperature, and max_tokens
 
-**Reproducing the results table**: commands used to generate the numbers in the Results section below:
+**Reproducing the results table:** The following commands generated the values
+reported below.
 
 ```bash
 # Step 1: Run full evaluation (100 questions)
@@ -391,18 +407,20 @@ A summary of the scored outputs used to generate the table is in `docs/samples/l
 | `huggingface` | Local models (CUDA / Apple MPS / CPU) | – |
 
 **For publication-quality benchmarking**, aim to evaluate at minimum:
-- 2 proprietary frontier models (Claude + GPT-4o)
-- 2–3 open-source flagship models (Llama 3.3 70B + DeepSeek R1 + Qwen 2.5 72B)
-- 1 biomedical-specialized model (BioMistral, Meditron, etc.)
-- Cross-judge verification with ≥ 2 judges (inter-rater reliability)
+- two proprietary frontier models (Claude and GPT-4o);
+- two or three flagship open-weight models (Llama 3.3 70B, DeepSeek R1, and
+  Qwen 2.5 72B);
+- one biomedically specialized model (for example, BioMistral or Meditron); and
+- at least two judges, with an interrater-agreement statistic reported.
 
 ### LLM Evaluation Results
 
 > 📊 **[Interactive Leaderboard →](https://jang1563.github.io/SpaceOmicsBench/llm_leaderboard.html)**: bar charts, difficulty profiles, radar, modality heatmap, sortable table
 
-**9-Model Ranking** (Judge: Claude Sonnet 4.6, 100 questions, 1–5 scale, v2.1):
+**Nine-Model Ranking** (Judge: Claude Sonnet 4.6, 100 questions, 1–5 scale,
+v2.1):
 
-🔒 = proprietary API &nbsp; 🔓 = open-weights
+🔒 = proprietary API &nbsp; 🔓 = open-weight
 
 | Rank | Model | Score | Easy | Med | Hard | Expert | Factual | Reasoning | Complete | Uncert | Domain |
 |------|-------|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
@@ -416,17 +434,32 @@ A summary of the scored outputs used to generate the table is in `docs/samples/l
 | 8 | 🔓 **Llama-3.3-70B** (Together) | **3.31** | 3.58 | 3.35 | 3.28 | 3.04 | 4.00 | 3.50 | 3.20 | 2.65 | 2.62 |
 | 9 | 🔒 **GPT-4o** | **3.30** | 3.27 | 3.39 | 3.27 | 3.25 | 3.98 | 3.61 | 3.13 | 2.57 | 2.62 |
 
-> v2.1 corrections: Q27/Q28/Q64 `ground_truth_key_facts` fixed; judge `max_tokens` 1000→2048 (fixes Haiku Q10); Gemini re-evaluated with `max_tokens=8192` (thinking mode, no truncation).
+> v2.1 corrections: `ground_truth_key_facts` entries were corrected for Q27,
+> Q28, and Q64; judge `max_tokens` was increased from 1,000 to 2,048, resolving Haiku Q10;
+> and Gemini was re-evaluated with `max_tokens=8192` (thinking mode, without
+> truncation).
 
 Key findings:
-- **Claude models dominate the top tier**; Haiku 4.5 notably outperforms Sonnet 4 (+0.38) despite being a smaller model
-- **DeepSeek-V3 (#3, 4.34)** is the strongest open-weights model, surpassing Claude Sonnet 4 and all GPT/Gemini variants: particularly strong on Hard and Expert questions
-- **Gemini 2.5 Flash (#5, 4.00)** with thinking mode enabled performs uniformly across all difficulty tiers (Easy 3.52 → Expert 4.04); previous apparent Easy/Expert gap was truncation artifact (`max_tokens=2000` consumed by thinking tokens)
-- **GPT-4o Mini slightly edges out GPT-4o** (3.32 vs 3.30) in this specialized domain; all bottom-tier models cluster at ~3.30
-- **Uncertainty Calibration** is the weakest dimension across all models; small-N spaceflight data requires careful hedging that all models underperform on
-- **Novel insight flags**: DeepSeek-V3 (64), Claude models (45–93), and Gemini (26) generate novel cross-modal reasoning; GPT/Llama variants generate none
+- **Claude models occupy three of the top four positions in this evaluation;**
+  Haiku 4.5 scores 0.38 points above Sonnet 4.
+- **DeepSeek-V3 (#3, 4.34)** is the highest-scoring open-weight model in this
+  evaluation and performs particularly well on Hard and Expert questions.
+- **Gemini 2.5 Flash (#5, 4.00)** performs consistently across difficulty tiers
+  with thinking mode enabled (Easy 3.52; Expert 4.04); the previous gap was a
+  truncation artifact caused by thinking tokens consuming the 2,000-token
+  budget.
+- **GPT-4o Mini and GPT-4o are nearly tied** (3.32 vs. 3.30) in this evaluation;
+  the bottom-tier models cluster near 3.30.
+- **Uncertainty Calibration** has the lowest mean score across the nine
+  evaluated models, highlighting the difficulty of appropriate uncertainty
+  communication for small-N spaceflight data.
+- **Novel-insight flags:** the judge assigned 64 flags to DeepSeek-V3, 45–93 to
+  Claude models, and 26 to Gemini; it assigned none to the GPT or Llama
+  variants. These flags are judge outputs, not independently verified novelty.
 
-**Cross-Judge Verification**: Sonnet 4, Sonnet 4.6, and GPT-4o were additionally scored by Sonnet 4 and GPT-4o judges for bias analysis:
+**Cross-Judge Comparison:** A subset of Sonnet 4, Sonnet 4.6, and GPT-4o
+responses was rescored by Sonnet 4 and/or GPT-4o judges for a judge-sensitivity
+analysis:
 
 | Respondent | Sonnet 4 Judge | Sonnet 4.6 Judge | GPT-4o Judge |
 |-----------|:-:|:-:|:-:|
@@ -434,7 +467,10 @@ Key findings:
 | **Claude Sonnet 4** | 4.55 | 4.03 | 4.76 |
 | **GPT-4o** | 3.64 | 3.30 | 4.36 |
 
-Sonnet 4.6 is the strictest judge (scores 0.3–0.5 lower); GPT-4o as judge inflates scores by ~0.2–0.7 but does not change ranking order.
+For the overlapping comparisons shown, the Sonnet 4.6 judge scores responses
+0.11–0.52 points lower than the Sonnet 4 judge, while the GPT-4o judge scores
+them 0.73–1.06 points higher than the Sonnet 4.6 judge. Respondent ordering
+remains unchanged within each comparable subset.
 
 ## Directory Structure
 
@@ -449,7 +485,7 @@ SpaceOmicsBench/
 │       ├── cross_mission_*.csv      # I-series cross-mission data
 │       └── ...
 ├── tasks/                           # Task definitions (JSON)
-│   ├── A1.json ... H1.json         # 19 main + 2 supplementary
+│   ├── A1.json ... H1.json         # 16 main + 2 supplementary
 │   └── I1.json, I2.json, I3.json   # Cross-mission tasks
 ├── splits/                          # Train/test split indices (JSON)
 │   ├── loco_clinical.json
@@ -462,7 +498,7 @@ SpaceOmicsBench/
 │   ├── signature_query.py           # Compare new DE data vs. benchmark signatures
 │   └── llm/                         # LLM evaluation framework
 │       ├── question_bank.json       # 100 questions
-│       ├── annotation_schema.json   # 5-dimension scoring schema
+│       ├── annotation_schema.json   # five-dimensional scoring schema
 │       ├── data_context/            # 12 markdown context files
 │       ├── run_llm_evaluation.py    # Run LLM on questions
 │       ├── score_responses.py       # Claude-as-judge scoring
@@ -480,7 +516,7 @@ SpaceOmicsBench/
 
 ## Data Provenance
 
-All data originates from:
+The benchmark data originate from:
 
 1. **NASA Open Science Data Repository (OSDR)**: GeneLab-processed omics files from OSD-569 to OSD-687 (Inspiration4) and OSD-530 (JAXA CFE)
 2. **Published supplementary data**: Processed results from peer-reviewed publications on the Inspiration4 and JAXA missions, including:
@@ -494,11 +530,18 @@ See `docs/CITATIONS.bib` for the complete list of source publications.
 
 ## Data Redistribution & Access
 
-This repository includes only **publicly shareable processed/summary tables**. Raw sequencing data and controlled-access human data are **not redistributed**. For any controlled-access material (e.g., human sequence-level data), users must obtain access directly via the original source (e.g., OSDR DAR, dbGaP/LSDA).
+This repository includes only **publicly shareable processed or summary
+tables**. Raw sequencing data and controlled-access human data are **not
+redistributed**. For any controlled-access material (for example, human
+sequence-level data), users must obtain access directly from the original
+sources (for example, through an OSDR DAR or dbGaP/LSDA).
 
 ## Results Policy
 
-The `results/` directory is intended for example outputs and local experiments. If you publish benchmark results, treat `baselines/baseline_results.json` as the canonical baseline reference and provide your own model results separately.
+The `results/v2.1/` directory contains the canonical scored outputs behind the
+LLM leaderboard. Store new model outputs separately and report the exact
+evaluation and judge settings when publishing results. Treat
+`baselines/baseline_results.json` as the canonical ML baseline reference.
 
 ## Provenance Table
 
@@ -562,7 +605,10 @@ Task JSON files are expected to follow the schema in `docs/task_schema.json`. Th
 
 ## SpaceOmicsBench v3
 
-v3 expands the benchmark with new missions, advanced ML methods, and biomedical-specialized model evaluation. The accompanying manuscript is under review at the NeurIPS 2026 Evaluations & Datasets (E&D) Track; this status does not imply acceptance or publication.
+v3 expands the benchmark with new missions, advanced ML methods, and evaluation
+of biomedically specialized models. The accompanying manuscript is under review
+at the NeurIPS 2026 Evaluations & Datasets (E&D) Track; this status does not
+imply acceptance or publication.
 
 | | v2 | v3 |
 |---|---|---|
@@ -570,14 +616,17 @@ v3 expands the benchmark with new missions, advanced ML methods, and biomedical-
 | **LLM Questions** | 100 (9 modalities) | **270** (12 categories) |
 | **LLM Models** | 9 (general-purpose) | **9** (4 general + 5 bio-specialized) |
 | **Missions** | I4, JAXA, Twins | + **Axiom-2** Epigenetic |
-| **Key ML Results** | LightGBM AUPRC=0.922 (B1) | **TabPFN AUPRC=0.957** (SOTA) |
+| **Key ML Results** | LightGBM AUPRC = 0.922 (B1) | **TabPFN AUPRC = 0.957** (best observed v3 result) |
 | **Foundation Models** | – | ESM2, GNN (negative results) |
 
 ### Key Findings in v3
 
-- **Bio fine-tuning hurts**: OpenBioLLM-70B (2.50) scored −0.53 vs base Llama-3.3-70B (3.03) across all categories
-- **Signal hierarchy**: effect-size >> tabular prior (TabPFN) >> protein sequence (ESM2) >> PPI topology (GNN)
-- **4-tier LLM structure**: Claude/DeepSeek (4.3+) > GPT-4o Mini/Llama (3.0) > OpenBioLLM (2.0-2.5) > Galactica/BioMedLM (1.0-1.2)
+- **Domain-tuned model underperformance in this evaluation:** OpenBioLLM-70B
+  (2.50) scored 0.53 points below Llama-3.3-70B (3.03).
+- **Signal hierarchy in the evaluated v3 tasks:** effect size > tabular prior
+  (TabPFN) > protein sequence (ESM2) > PPI topology (GNN).
+- **Observed four-tier LLM structure:** Claude/DeepSeek (4.3+) > GPT-4o
+  Mini/Llama (3.0) > OpenBioLLM (2.0–2.5) > Galactica/BioMedLM (1.0–1.2).
 - **Track A**: 26 ML tasks including AX-2 epigenetic clocks, multi-omics fusion, TabPFN, ESM2, GNN
 - **Track B**: 270 LLM questions across 12 categories: 3 new categories (Space Biology Basics, AX-2 Epigenetic, Clinical Applications)
 

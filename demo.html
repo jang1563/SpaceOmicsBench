@@ -187,20 +187,20 @@ footer a:hover{text-decoration:underline}
 <!-- ═══════ HERO ═══════ -->
 <section class="hero fade-in">
   <h1>SpaceOmicsBench</h1>
-  <p class="tagline">A multi-omics AI benchmark for spaceflight biomedical data — 21 ML tasks across 9 modalities + 100-question LLM evaluation from the Inspiration4, NASA Twins, and JAXA CFE missions.</p>
+  <p class="tagline">A multi-omics AI benchmark for spaceflight biomedical data — 21 ML tasks across 9 modalities plus a 100-question LLM evaluation, using data from Inspiration4, the NASA Twins Study, and the JAXA CFE study.</p>
   <div class="stats-row">
     <div class="stat-card d1 fade-in"><div class="stat-val">21</div><div class="stat-label">ML Tasks</div></div>
     <div class="stat-card d2 fade-in"><div class="stat-val">9</div><div class="stat-label">Modalities</div></div>
     <div class="stat-card d3 fade-in"><div class="stat-val">100</div><div class="stat-label">LLM Questions</div></div>
     <div class="stat-card d4 fade-in"><div class="stat-val">7</div><div class="stat-label">Baselines</div></div>
-    <div class="stat-card d5 fade-in"><div class="stat-val">152K+</div><div class="stat-label">Total Samples</div></div>
+    <div class="stat-card d5 fade-in"><div class="stat-val">9</div><div class="stat-label">LLM Models</div></div>
   </div>
 </section>
 
 <!-- ═══════ BASELINE RESULTS ═══════ -->
 <section id="results" class="fade-in">
   <div class="section-head">Baseline Results</div>
-  <div class="section-sub">Performance across all tasks. Best score per row highlighted. E2/E3 are supplementary (extreme imbalance).</div>
+  <div class="section-sub">Performance across all tasks. The best score in each row is highlighted. E2 and E3 are supplementary tasks with extreme class imbalance.</div>
 
   <div class="filters" id="catFilters">
     <button class="pill active" data-cat="All">All</button>
@@ -251,8 +251,8 @@ footer a:hover{text-decoration:underline}
       <div class="chart-title">B1 Feature Ablation <small>— AUPRC by feature set</small></div>
       <canvas id="ablationChart"></canvas>
       <div class="ablation-insight">
-        <strong>Insight:</strong> Removing effect-size features (fold-changes) preserves RF/MLP performance (0.86 AUPRC),
-        confirming the task tests genuine distributional signal rather than simple effect-size thresholding.
+        <strong>Insight:</strong> Without effect-size features (fold changes), RF and MLP reach AUPRC values of 0.863 and 0.847, respectively,
+        suggesting that performance is not driven solely by effect-size thresholding.
       </div>
     </div>
   </div>
@@ -261,20 +261,14 @@ footer a:hover{text-decoration:underline}
 <!-- ═══════ LLM EVALUATION ═══════ -->
 <section id="llm-eval" class="fade-in">
   <div class="section-head">LLM Evaluation</div>
-  <div class="section-sub">100-question benchmark with 5-dimension scoring. 5 models evaluated (Claude Sonnet 4.6, Haiku 4.5, Sonnet 4, GPT-4o, GPT-4o Mini).</div>
+  <div class="section-sub">A 100-question benchmark with five-dimensional scoring across nine models.</div>
 
-  <div class="charts-grid">
-    <div class="chart-card">
-      <div class="chart-title">5-Model Ranking <small>— Sonnet 4.6 Judge, weighted score (1-5)</small></div>
-      <canvas id="crossJudgeChart"></canvas>
-      <div class="ablation-insight" style="margin-top:16px">
-        <strong>Finding:</strong> Claude models rank 1–3. Haiku 4.5 notably outperforms Sonnet 4 (+0.36).
-        GPT-4o ≈ GPT-4o Mini (3.30 each) — scale provides negligible benefit here.
-      </div>
-    </div>
-    <div class="chart-card">
-      <div class="chart-title">Dimension Breakdown <small>— Sonnet 4.6 Judge</small></div>
-      <canvas id="dimensionChart"></canvas>
+  <div class="chart-card">
+    <div class="chart-title">Canonical v2.1 Results</div>
+    <div class="ablation-insight" style="margin-top:16px">
+      The dedicated <a href="llm_leaderboard.html">interactive LLM leaderboard</a>
+      contains the current nine-model ranking, dimension breakdown, modality
+      heatmap, and full scored table.
     </div>
   </div>
 </section>
@@ -282,7 +276,7 @@ footer a:hover{text-decoration:underline}
 <!-- ═══════ FOOTER ═══════ -->
 <footer>
   <p>SpaceOmicsBench — <a href="https://github.com/jang1563/SpaceOmicsBench" target="_blank">GitHub Repository</a> · <a href="llm_leaderboard.html">LLM Leaderboard</a></p>
-  <p style="margin-top:8px">Data from NASA OSDR (public domain) and published supplementary materials (CC-BY 4.0).</p>
+  <p style="margin-top:8px">Processed benchmark artifacts derive from NASA OSDR releases and published supplementary materials; see the repository’s provenance and licensing documentation.</p>
 </footer>
 
 </div>
@@ -494,84 +488,6 @@ new Chart(document.getElementById('ablationChart'),{
   }
 });
 
-// ── 5-MODEL RANKING BAR CHART (Sonnet 4.6 Judge) ──
-new Chart(document.getElementById('crossJudgeChart'),{
-  type:'bar',
-  data:{
-    labels:['Sonnet 4.6','Haiku 4.5','Sonnet 4','GPT-4o','GPT-4o Mini'],
-    datasets:[
-      {
-        label:'Weighted Score (Sonnet 4.6 Judge)',
-        data:[4.60,4.39,4.03,3.30,3.30],
-        backgroundColor:[
-          'rgba(236,72,153,.75)',
-          'rgba(167,139,250,.75)',
-          'rgba(6,182,212,.75)',
-          'rgba(245,158,11,.75)',
-          'rgba(251,191,36,.75)',
-        ],
-        borderColor:['#ec4899','#a78bfa','#06b6d4','#f59e0b','#fbbf24'],
-        borderWidth:1,borderRadius:4
-      }
-    ]
-  },
-  options:{
-    responsive:true,
-    plugins:{legend:{display:false}},
-    scales:{
-      y:{min:2.5,max:5,grid:{color:'rgba(30,38,80,.5)'},ticks:{callback:v=>v.toFixed(1)}},
-      x:{grid:{display:false}}
-    }
-  }
-});
-
-// ── DIMENSION BREAKDOWN RADAR (Sonnet 4.6 Judge) ──
-new Chart(document.getElementById('dimensionChart'),{
-  type:'radar',
-  data:{
-    labels:['Factual\nAccuracy','Reasoning\nQuality','Completeness','Uncertainty\nCalibration','Domain\nIntegration'],
-    datasets:[
-      {
-        label:'Sonnet 4.6',data:[4.59,4.96,4.73,4.09,4.33],
-        backgroundColor:'rgba(236,72,153,.12)',borderColor:'#ec4899',borderWidth:2,pointRadius:4,
-        pointBackgroundColor:'#ec4899',
-      },
-      {
-        label:'Haiku 4.5',data:[4.35,4.84,4.53,3.82,4.12],
-        backgroundColor:'rgba(167,139,250,.10)',borderColor:'#a78bfa',borderWidth:2,pointRadius:4,
-        pointBackgroundColor:'#a78bfa',
-      },
-      {
-        label:'Sonnet 4',data:[4.26,4.47,4.07,3.14,3.74],
-        backgroundColor:'rgba(6,182,212,.10)',borderColor:'#06b6d4',borderWidth:2,pointRadius:4,
-        pointBackgroundColor:'#06b6d4',
-      },
-      {
-        label:'GPT-4o',data:[3.98,3.60,3.13,2.57,2.63],
-        backgroundColor:'rgba(245,158,11,.06)',borderColor:'#f59e0b',borderWidth:2,pointRadius:4,
-        pointBackgroundColor:'#f59e0b',
-      },
-      {
-        label:'GPT-4o Mini',data:[3.91,3.51,3.19,2.75,2.63],
-        backgroundColor:'rgba(251,191,36,.06)',borderColor:'#fbbf24',borderWidth:1.5,pointRadius:3,
-        pointBackgroundColor:'#fbbf24',borderDash:[4,3],
-      }
-    ]
-  },
-  options:{
-    responsive:true,
-    scales:{
-      r:{
-        min:1,max:5,
-        angleLines:{color:'rgba(30,38,80,.6)'},
-        grid:{color:'rgba(30,38,80,.5)'},
-        pointLabels:{font:{size:10}},
-        ticks:{stepSize:1,backdropColor:'transparent',font:{size:9}}
-      }
-    },
-    plugins:{legend:{position:'bottom',labels:{boxWidth:12,padding:12}}}
-  }
-});
 </script>
 </body>
 </html>
