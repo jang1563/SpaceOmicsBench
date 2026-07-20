@@ -201,7 +201,7 @@ footer a:hover{color:var(--cyan)}
 <div class="section" id="leaderboard">
   <div class="wrap">
     <div class="section-title"><span class="icon">🏆</span> Overall Leaderboard</div>
-    <div class="section-desc">Weighted score across 5 dimensions (Factual 25%, Reasoning 25%, Completeness 20%, Uncertainty 15%, Domain 15%). 🔒 proprietary API · 🔓 open-weights</div>
+    <div class="section-desc">Weighted score across five dimensions (Factual 25%, Reasoning 25%, Completeness 20%, Uncertainty 15%, Domain 15%). 🔒 proprietary API · 🔓 open-weight</div>
     <div class="card">
       <div class="chart-wrap tall">
         <canvas id="leaderboardChart"></canvas>
@@ -212,11 +212,11 @@ footer a:hover{color:var(--cyan)}
       <div class="insight-card">
         <div class="ico">🌟</div>
         <h4>Claude Sonnet 4.6 leads at 4.62</h4>
-        <p>Top across all difficulty tiers with exceptional Reasoning (4.97) and Completeness (4.77). 93 novel insights flagged.</p>
+        <p>Top across all difficulty tiers, with Reasoning at 4.97 and Completeness at 4.77. The judge assigned 93 novel-insight flags.</p>
       </div>
       <div class="insight-card">
         <div class="ico">🔓</div>
-        <h4>DeepSeek-V3: best open-weights</h4>
+        <h4>DeepSeek-V3: strongest open-weight model in this evaluation</h4>
         <p>4.34/5.00 — surpasses Claude Sonnet 4, GPT-4o, and Gemini 2.5 Flash. Especially strong on Hard &amp; Expert questions.</p>
       </div>
       <div class="insight-card">
@@ -227,7 +227,7 @@ footer a:hover{color:var(--cyan)}
       <div class="insight-card">
         <div class="ico">≈</div>
         <h4>Bottom tier clusters at ~3.30</h4>
-        <p>GPT-4o Mini (3.32) edges ahead; GPT-4o, Llama-70B all ~3.30. Scale provides negligible benefit for this specialized domain.</p>
+        <p>GPT-4o Mini (3.32) and GPT-4o (3.30) are nearly tied in this evaluation; the two Llama-70B backends score 3.31.</p>
       </div>
     </div>
   </div>
@@ -237,7 +237,7 @@ footer a:hover{color:var(--cyan)}
 <div class="section" id="difficulty">
   <div class="wrap">
     <div class="section-title"><span class="icon">📈</span> Difficulty Profile</div>
-    <div class="section-desc">Score trajectory from Easy → Expert questions. Reveals which models degrade gracefully vs. collapse under complexity.</div>
+    <div class="section-desc">Compares how model scores change from Easy to Expert questions.</div>
     <div class="card">
       <div class="legend" id="diffLegend"></div>
       <div class="chart-wrap tall">
@@ -250,8 +250,8 @@ footer a:hover{color:var(--cyan)}
 <!-- RADAR -->
 <div class="section" id="radar">
   <div class="wrap">
-    <div class="section-title"><span class="icon">🕸️</span> 5-Dimension Breakdown</div>
-    <div class="section-desc">Select up to 3 models to compare across the 5 scoring dimensions. Uncertainty Calibration is the universal weak spot.</div>
+    <div class="section-title"><span class="icon">🕸️</span> Five-Dimensional Breakdown</div>
+    <div class="section-desc">Select up to three models to compare across the five scoring dimensions. Uncertainty Calibration has the lowest mean score across the nine evaluated models.</div>
     <div class="card">
       <div class="radar-controls" id="radarControls"></div>
       <div class="grid-2">
@@ -283,7 +283,7 @@ footer a:hover{color:var(--cyan)}
 <div class="section" id="table">
   <div class="wrap">
     <div class="section-title"><span class="icon">📋</span> Full Data Table</div>
-    <div class="section-desc">Click column headers to sort. All scores on 1–5 scale, judged by Claude Sonnet 4.6. v2.1: Q27/Q28/Q64 ground truth corrected; Gemini re-evaluated with max_tokens=8192 (thinking mode).</div>
+    <div class="section-desc">Click column headers to sort. All scores are on a 1–5 scale and were assigned by Claude Sonnet 4.6. v2.1: Q27/Q28/Q64 ground truth corrected; Gemini re-evaluated with max_tokens=8192 (thinking mode).</div>
     <div class="card card-sm" style="overflow-x:auto">
       <table class="data-table" id="fullTable">
         <thead>
@@ -313,7 +313,7 @@ footer a:hover{color:var(--cyan)}
 <footer>
   <div class="wrap">
     <p>SpaceOmicsBench · Data from NASA OSDR · Judge: <strong>Claude Sonnet 4.6</strong> · v2.1 scores (Q27/Q28/Q64 corrected) · Eval date: 2026-02-28</p>
-    <p style="margin-top:8px"><a href="https://github.com/jang1563/SpaceOmicsBench">GitHub</a> · <a href="demo.html">ML Task Results</a> · <a href="README.md">Documentation</a></p>
+    <p style="margin-top:8px"><a href="https://github.com/jang1563/SpaceOmicsBench">GitHub</a> · <a href="demo.html">ML Task Results</a> · <a href="https://github.com/jang1563/SpaceOmicsBench#readme">Documentation</a></p>
   </div>
 </footer>
 
@@ -653,7 +653,7 @@ function fmt(v){ return (typeof v==='number') ? v.toFixed(2) : v; }
       return `<tr>
         <td class="rank num">${rk}</td>
         <td class="model-cell"><span style="color:${m.color}">●</span> ${m.name}
-          <span class="access-tag ${m.access==='prop'?'prop':'open'}">${m.access==='prop'?'proprietary':'open-weights'}</span>
+          <span class="access-tag ${m.access==='prop'?'prop':'open'}">${m.access==='prop'?'proprietary':'open-weight'}</span>
         </td>
         <td class="score-cell" style="color:${m.color}">${m.score.toFixed(3)}</td>
         <td class="num">${m.easy.toFixed(2)}</td>
